@@ -27,7 +27,7 @@ class admin_feed_list_lid extends admin_feed_list
 //---------------------------------------------------------
 function admin_feed_list_lid()
 {
-	$this->admin_feed_list();
+	admin_feed_list::__construct();
 	$this->set_max_sortid(4);
 
 	$this->_link_handler =& rssc_get_handler('link', RSSC_DIRNAME);

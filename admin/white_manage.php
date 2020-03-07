@@ -37,7 +37,7 @@ class admin_manage_white extends admin_manage_base
 //---------------------------------------------------------
 function admin_manage_white()
 {
-	$this->admin_manage_base();
+	admin_manage_base::__construct();
 
 	$this->set_handler( 'white', RSSC_DIRNAME, 'rssc' );
 	$this->set_id_name( 'wid' );
@@ -134,7 +134,7 @@ class admin_form_white extends admin_form_black_white
 //---------------------------------------------------------
 function admin_form_white()
 {
-	$this->admin_form_black_white();
+	admin_form_black_white::__construct();
 }
 
 public static function &getInstance()

@@ -28,7 +28,7 @@ class admin_feed_list_bid extends admin_feed_list
 //---------------------------------------------------------
 function admin_feed_list_bid()
 {
-	$this->admin_feed_list();
+	admin_feed_list::__construct();
 	$this->set_max_sortid(4);
 
 	$this->_black_handler =& rssc_get_handler('black', RSSC_DIRNAME);

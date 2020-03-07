@@ -21,7 +21,7 @@ class rssc_plugin_list
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_plugin_list( $dirname )
+function __construct( $dirname )
 {
 	$this->_DIRNAME = $dirname;
 

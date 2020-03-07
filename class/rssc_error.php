@@ -22,7 +22,7 @@ class rssc_error extends happy_linux_error
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_error()
+function __construct()
 {
 	$this->happy_linux_error();
 }

@@ -20,9 +20,9 @@ class rssc_link_xml_handler extends rssc_link_handler
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_link_xml_handler( $dirname )
+function __construct( $dirname )
 {
-	$this->rssc_link_handler( $dirname );
+	rssc_link_handler::__construct($dirname );
 
 	$this->_xml_handler  =& rssc_get_handler('xml',  $dirname);
 }

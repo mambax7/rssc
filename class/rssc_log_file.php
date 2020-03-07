@@ -24,7 +24,7 @@ class rssc_log_file extends happy_linux_file
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_log_file( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_file();
 	$this->_init( $dirname );

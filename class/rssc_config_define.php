@@ -62,7 +62,7 @@ class rssc_config_define extends happy_linux_config_define_base
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_config_define()
+function __construct()
 {
 	$this->happy_linux_config_define_base();
 }

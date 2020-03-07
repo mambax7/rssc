@@ -58,7 +58,7 @@ class rssc_import_handler extends happy_linux_error
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_import_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_error();
 

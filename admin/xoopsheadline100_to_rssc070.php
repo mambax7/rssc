@@ -40,7 +40,7 @@ class admin_import_xoopsheadline extends rssc_import_handler
 //---------------------------------------------------------
 function admin_import_xoopsheadline()
 {
-	$this->rssc_import_handler( RSSC_DIRNAME );
+	rssc_import_handler::__construct(RSSC_DIRNAME );
 	$this->set_mid_orig_by_dirname( $this->_DIRNAME_XOOPSHEADLINE );
 
 	$this->_xoopsheadline_handler =& rssc_xoopsheadline_handler::getInstance( $this->_DIRNAME_XOOPSHEADLINE );

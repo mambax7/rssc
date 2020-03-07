@@ -38,7 +38,7 @@ class admin_form_black_white extends happy_linux_form
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_form_black_white()
+function __construct()
 {
 	$this->happy_linux_form();
 

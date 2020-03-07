@@ -62,7 +62,7 @@ class admin_config_form extends happy_linux_config_form
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_config_form()
+function __construct()
 {
 	$this->happy_linux_config_form();
 
@@ -230,7 +230,7 @@ class admin_config_store extends happy_linux_error
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_config_store()
+function __construct()
 {
 	$this->happy_linux_error();
 

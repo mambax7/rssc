@@ -22,9 +22,9 @@ class rssc_plugin_hamakei extends rssc_plugin_base
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_plugin_hamakei()
+function __construct()
 {
-	$this->rssc_plugin_base();
+	rssc_plugin_base::__construct();
 }
 
 //---------------------------------------------------------

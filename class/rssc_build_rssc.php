@@ -47,7 +47,7 @@ class rssc_build_rssc extends happy_linux_build_rss
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_build_rssc( $dirname )
+function __construct( $dirname )
 {
 	$this->_DIRNAME = $dirname ;
 

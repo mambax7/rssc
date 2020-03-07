@@ -22,7 +22,7 @@ class rssc_xoopsheadline_handler extends happy_linux_basic_handler
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_xoopsheadline_handler()
+function __construct()
 {
 	$this->happy_linux_basic_handler( $this->_DIRNAME_XOOPSHEADLINE );
 	$this->set_table_full( $this->db_prefix('xoopsheadline') );

@@ -33,9 +33,9 @@ class rssc_plugin_yahoo extends rssc_plugin_base
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_plugin_yahoo()
+function __construct()
 {
-	$this->rssc_plugin_base();
+	rssc_plugin_base::__construct();
 }
 
 //---------------------------------------------------------

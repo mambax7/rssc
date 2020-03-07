@@ -35,7 +35,7 @@ class admin_link_list extends happy_linux_page_frame
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_link_list()
+function __construct()
 {
 	$this->happy_linux_page_frame();
 	$this->set_handler('link', RSSC_DIRNAME);

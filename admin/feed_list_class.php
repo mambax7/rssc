@@ -33,7 +33,7 @@ class admin_feed_list extends happy_linux_page_frame
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_feed_list()
+function __construct()
 {
 	$this->happy_linux_page_frame();
 

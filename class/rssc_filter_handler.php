@@ -46,7 +46,7 @@ class rssc_filter_handler
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_filter_handler($dirname)
+function __construct($dirname)
 {
 	$this->_config_handler =& rssc_get_handler('config_basic', $dirname);
 	$this->_black_handler  =& rssc_get_handler('black_basic',  $dirname);

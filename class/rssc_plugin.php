@@ -42,7 +42,7 @@ class rssc_plugin
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_plugin( $dirname )
+function __construct( $dirname )
 {
 	$this->_DIRNAME = $dirname;
 

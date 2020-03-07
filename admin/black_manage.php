@@ -45,7 +45,7 @@ class admin_manage_black extends admin_manage_base
 //---------------------------------------------------------
 function admin_manage_black()
 {
-	$this->admin_manage_base();
+	admin_manage_base::__construct();
 
 	$this->set_handler( 'black', RSSC_DIRNAME, 'rssc' );
 	$this->set_id_name( 'bid' );
@@ -238,7 +238,7 @@ class admin_form_black extends admin_form_black_white
 //---------------------------------------------------------
 function admin_form_black()
 {
-	$this->admin_form_black_white();
+	admin_form_black_white::__construct();
 }
 
 public static function &getInstance()

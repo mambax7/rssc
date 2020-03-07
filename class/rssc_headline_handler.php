@@ -35,7 +35,7 @@ class rssc_headline_handler extends happy_linux_error
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_headline_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_error();
 

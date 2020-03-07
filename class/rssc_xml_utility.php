@@ -49,7 +49,7 @@ class rssc_xml_utility extends happy_linux_rss_utility
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_xml_utility()
+function __construct()
 {
 	$this->happy_linux_rss_utility();
 }

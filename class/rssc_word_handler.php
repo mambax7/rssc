@@ -25,7 +25,7 @@ class rssc_word extends happy_linux_object
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_word()
+function __construct()
 {
 	$this->happy_linux_object();
 
@@ -52,7 +52,7 @@ class rssc_word_handler extends happy_linux_object_handler
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_word_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_object_handler($dirname, 'word', 'sid', 'rssc_word');
 

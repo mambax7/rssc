@@ -23,9 +23,9 @@ class rssc_plugin_implode extends rssc_plugin_base
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_plugin_implode()
+function __construct()
 {
-	$this->rssc_plugin_base();
+	rssc_plugin_base::__construct();
 }
 
 //---------------------------------------------------------

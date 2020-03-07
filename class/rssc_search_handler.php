@@ -50,9 +50,9 @@ class rssc_search_handler extends rssc_view_param
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_search_handler( $dirname )
+function __construct( $dirname )
 {
-	$this->rssc_view_param( $dirname );
+	rssc_view_param::__construct($dirname );
 	$this->_init_view_param();
 
 	$this->_search  =& happy_linux_search::getInstance();

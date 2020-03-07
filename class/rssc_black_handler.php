@@ -40,7 +40,7 @@ class rssc_black extends happy_linux_object
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_black()
+function __construct()
 {
 	$this->happy_linux_object();
 
@@ -78,7 +78,7 @@ class rssc_black_handler extends happy_linux_object_handler
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_black_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_object_handler($dirname, 'black', 'bid', 'rssc_black');
 

@@ -25,7 +25,7 @@ class rssc_site_list
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_site_list()
+function __construct()
 {
 	// dummy
 }

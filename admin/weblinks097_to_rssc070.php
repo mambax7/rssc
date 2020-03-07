@@ -39,7 +39,7 @@ class admin_import_weblinks extends rssc_import_handler
 //---------------------------------------------------------
 function admin_import_weblinks()
 {
-	$this->rssc_import_handler( RSSC_DIRNAME );
+	rssc_import_handler::__construct(RSSC_DIRNAME );
 	$this->set_mid_orig_by_dirname( $this->_DIRNAME_WEBLINKS );
 
 	$this->_rss_parser =& happy_linux_rss_parser::getInstance();

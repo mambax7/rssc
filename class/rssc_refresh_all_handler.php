@@ -79,7 +79,7 @@ class rssc_refresh_all_handler extends happy_linux_error
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_refresh_all_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->_DIRNAME = $dirname;
 

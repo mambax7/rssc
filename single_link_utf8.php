@@ -141,7 +141,7 @@ class rssc_single_link_utf8
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_single_link_utf8()
+function __construct()
 {
 	$this->_conf_handler  =& rssc_get_handler('config_basic', RSSC_DIRNAME);
 	$this->_link_handler  =& rssc_get_handler('link_basic',   RSSC_DIRNAME);

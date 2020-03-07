@@ -54,7 +54,7 @@ class admin_manage_archive extends happy_linux_manage
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_manage_archive()
+function __construct()
 {
 	$this->happy_linux_manage( RSSC_DIRNAME );
 
@@ -310,7 +310,7 @@ class admin_form_archive extends happy_linux_form_lib
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_form_archive()
+function __construct()
 {
 	$this->happy_linux_form_lib();
 }

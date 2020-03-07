@@ -24,9 +24,9 @@ class rssc_plugin_mail extends rssc_plugin_base
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_plugin_mail()
+function __construct()
 {
-	$this->rssc_plugin_base();
+	rssc_plugin_base::__construct();
 }
 
 //---------------------------------------------------------

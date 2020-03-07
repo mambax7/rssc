@@ -93,7 +93,7 @@ class admin_manage_link extends admin_manage_base
 //---------------------------------------------------------
 function admin_manage_link()
 {
-	$this->admin_manage_base();
+	admin_manage_base::__construct();
 
 	$this->set_handler( 'link_xml', RSSC_DIRNAME, 'rssc' );
 	$this->set_id_name( 'lid' );

@@ -65,7 +65,7 @@ class admin_parse_rss extends happy_linux_error
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_parse_rss()
+function __construct()
 {
 	$this->happy_linux_error();
 
@@ -437,7 +437,7 @@ class admin_form_rss extends happy_linux_form
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_form_rss()
+function __construct()
 {
 	$this->happy_linux_form();
 

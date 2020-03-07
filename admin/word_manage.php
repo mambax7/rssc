@@ -23,9 +23,9 @@ class admin_manage_word extends admin_manage_base
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_manage_word()
+function __construct()
 {
-	$this->admin_manage_base();
+	admin_manage_base::__construct();
 
 	$this->set_handler( 'word', RSSC_DIRNAME, 'rssc' );
 	$this->set_id_name( 'sid' );
@@ -198,7 +198,7 @@ class admin_form_word extends happy_linux_form
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_form_word()
+function __construct()
 {
 	$this->happy_linux_form();
 }

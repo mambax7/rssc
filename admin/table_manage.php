@@ -34,7 +34,7 @@ class admin_table_manage extends happy_linux_table_manage
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_table_manage()
+function __construct()
 {
 	$this->happy_linux_table_manage( RSSC_DIRNAME );
 

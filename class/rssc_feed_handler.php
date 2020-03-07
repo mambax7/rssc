@@ -64,7 +64,7 @@ class rssc_feed extends happy_linux_object
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_feed()
+function __construct()
 {
 	$this->happy_linux_object();
 
@@ -161,7 +161,7 @@ class rssc_feed_handler extends happy_linux_object_handler
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_feed_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_object_handler($dirname, 'feed', 'fid', 'rssc_feed');
 

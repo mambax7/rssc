@@ -65,7 +65,7 @@ class rssc_link extends happy_linux_object
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_link()
+function __construct()
 {
 	$this->happy_linux_object();
 
@@ -248,7 +248,7 @@ class rssc_link_handler extends happy_linux_object_handler
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_link_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_object_handler($dirname, 'link', 'lid', 'rssc_link');
 

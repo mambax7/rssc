@@ -37,7 +37,7 @@ class rssc_link_exist_handler extends happy_linux_error
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_link_exist_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_error();
 

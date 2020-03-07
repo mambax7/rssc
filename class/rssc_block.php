@@ -38,7 +38,7 @@ class rssc_block
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_block()
+function __construct()
 {
 	$this->_db =& Database::getInstance();
 	$this->_is_japanese = happy_linux_is_japanese() ;

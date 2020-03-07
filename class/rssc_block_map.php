@@ -20,7 +20,7 @@ class rssc_block_map
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_block_map( $dirname )
+function __construct( $dirname )
 {
 	// dummy
 }

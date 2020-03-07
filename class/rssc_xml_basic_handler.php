@@ -27,7 +27,7 @@ class rssc_xml_basic extends happy_linux_basic
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_xml_basic()
+function __construct()
 {
 	$this->happy_linux_basic();
 
@@ -67,7 +67,7 @@ class rssc_xml_basic_handler extends happy_linux_basic_handler
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_xml_basic_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_basic_handler( $dirname );
 

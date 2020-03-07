@@ -23,7 +23,7 @@ class rssc_weblinks_handler extends happy_linux_basic_handler
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_weblinks_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_basic_handler( $dirname );
 	$this->set_table_name( 'link' );

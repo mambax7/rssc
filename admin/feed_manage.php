@@ -47,9 +47,9 @@ class admin_manage_feed extends admin_manage_base
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_manage_feed()
+function __construct()
 {
-	$this->admin_manage_base();
+	admin_manage_base::__construct();
 
 	$this->set_handler( 'feed', RSSC_DIRNAME, 'rssc' );
 	$this->set_id_name( 'fid' );
@@ -202,7 +202,7 @@ class admin_form_feed extends happy_linux_form
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_form_feed()
+function __construct()
 {
 	$this->happy_linux_form();
 }

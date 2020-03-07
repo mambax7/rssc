@@ -38,7 +38,7 @@ class admin_list_word extends happy_linux_page_frame
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_list_word()
+function __construct()
 {
 	$this->happy_linux_page_frame();
 
@@ -284,7 +284,7 @@ class admin_word_search_form extends happy_linux_form
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_word_search_form()
+function __construct()
 {
 	$this->happy_linux_form();
 

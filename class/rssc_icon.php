@@ -26,7 +26,7 @@ class rssc_icon
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_icon()
+function __construct()
 {
 	$this->_db =& Database::getInstance();
 }

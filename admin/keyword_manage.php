@@ -46,9 +46,9 @@ class admin_manage_keyword extends admin_manage_base
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_manage_keyword()
+function __construct()
 {
-	$this->admin_manage_base();
+	admin_manage_base::__construct();
 
 	$this->set_handler( 'link_xml', RSSC_DIRNAME, 'rssc' );
 	$this->set_id_name( 'lid' );
@@ -196,7 +196,7 @@ class admin_form_keyword extends happy_linux_form
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_form_keyword()
+function __construct()
 {
 	$this->happy_linux_form();
 }

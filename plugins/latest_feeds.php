@@ -27,9 +27,9 @@ class rssc_plugin_latest_feeds extends rssc_plugin_base
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_plugin_latest_feeds()
+function __construct()
 {
-	$this->rssc_plugin_base();
+	rssc_plugin_base::__construct();
 }
 
 //---------------------------------------------------------

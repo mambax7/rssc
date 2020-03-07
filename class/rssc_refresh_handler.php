@@ -138,7 +138,7 @@ class rssc_refresh_handler extends happy_linux_error
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_refresh_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_error();
 

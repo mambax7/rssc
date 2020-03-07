@@ -50,7 +50,7 @@ class rssc_install extends happy_linux_module_install
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_install( $dirname )
+function __construct( $dirname )
 {
 	$this->_DIRNAME = $dirname;
 

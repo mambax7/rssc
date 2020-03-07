@@ -31,7 +31,7 @@ class rssc_xml extends happy_linux_object
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_xml()
+function __construct()
 {
 	$this->happy_linux_object();
 
@@ -75,7 +75,7 @@ class rssc_xml_handler extends happy_linux_object_handler
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_xml_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_object_handler($dirname, 'xml', 'lid', 'rssc_xml');
 

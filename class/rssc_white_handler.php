@@ -37,7 +37,7 @@ class rssc_white extends happy_linux_object
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_white()
+function __construct()
 {
 	$this->happy_linux_object();
 
@@ -75,7 +75,7 @@ class rssc_white_handler extends happy_linux_object_handler
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_white_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_object_handler($dirname, 'white', 'wid', 'rssc_white');
 

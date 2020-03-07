@@ -31,7 +31,7 @@ class rssc_config extends happy_linux_config_base
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_config()
+function __construct()
 {
 	$this->happy_linux_config_base();
 }
@@ -48,7 +48,7 @@ class rssc_config_handler extends happy_linux_config_base_handler
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_config_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_config_base_handler( $dirname, 'config', 'conf_id', 'rssc_config' );
 

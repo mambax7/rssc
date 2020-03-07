@@ -82,7 +82,7 @@ class rssc_view_param extends happy_linux_rss_viewer
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_view_param( $dirname )
+function __construct( $dirname )
 {
 	$this->_DIRNAME    = $dirname;
 	$this->_MODULE_URL = XOOPS_URL       .'/modules/'. $dirname ;

@@ -22,7 +22,7 @@ class rssc_word_basic_handler extends happy_linux_basic_handler
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_word_basic_handler( $dirname )
+function __construct( $dirname )
 {
 	$this->happy_linux_basic_handler( $dirname );
 

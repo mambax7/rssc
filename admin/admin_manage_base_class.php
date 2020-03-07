@@ -36,7 +36,7 @@ class admin_manage_base extends happy_linux_manage
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_manage_base()
+function __construct()
 {
 	$this->happy_linux_manage( RSSC_DIRNAME );
 

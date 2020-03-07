@@ -47,7 +47,7 @@ class admin_feed_column_manage extends happy_linux_error
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_feed_column_manage()
+function __construct()
 {
 	$this->happy_linux_error();
 
@@ -172,7 +172,7 @@ class admin_form_feed_column extends happy_linux_form
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_form_feed_column()
+function __construct()
 {
 	$this->happy_linux_form();
 }

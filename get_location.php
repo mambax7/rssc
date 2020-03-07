@@ -49,7 +49,7 @@ class rssc_get_location
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_get_location( $dirname )
+function __construct( $dirname )
 {
 	$this->_conf_handler =& rssc_get_handler( 'config_basic', $dirname );
 	$this->_conf = $this->_conf_handler->get_conf();

@@ -38,7 +38,7 @@ class admin_list_white extends admin_list_black_white
 //---------------------------------------------------------
 function admin_list_white()
 {
-	$this->admin_list_black_white();
+	admin_list_black_white::__construct();
 	$this->set_handler('white', RSSC_DIRNAME);
 	$this->set_id_name('wid');
 	$this->set_flag_execute_time( true );

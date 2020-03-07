@@ -36,9 +36,9 @@ class rssc_map extends rssc_block_map
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_map( $dirname )
+function __construct( $dirname )
 {
-	$this->rssc_block_map( $dirname );
+	rssc_block_map::__construct($dirname );
 
 	$this->_conf = $this->get_conf( $dirname );
 

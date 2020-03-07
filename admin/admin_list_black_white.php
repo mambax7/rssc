@@ -22,7 +22,7 @@ class admin_list_black_white extends happy_linux_page_frame
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function admin_list_black_white()
+function __construct()
 {
 	$this->happy_linux_page_frame();
 	$this->set_max_sortid(4);

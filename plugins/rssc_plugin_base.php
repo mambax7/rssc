@@ -25,7 +25,7 @@ class rssc_plugin_base
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function rssc_plugin_base()
+function __construct()
 {
 	// dummy
 }
