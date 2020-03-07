@@ -19,7 +19,7 @@
 //---------------------------------------------------------
 
 // environment
-$RSSC_PATH       = dirname( dirname( __FILE__ ) );
+$RSSC_PATH       = dirname(__DIR__);
 $RSSC_DIRNAME    = basename( $RSSC_PATH );
 $XOOPS_ROOT_PATH = dirname( dirname( $RSSC_PATH ) );
 

@@ -13,7 +13,7 @@
 
 include_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/search.php';
 
-$rssc_dirname = basename( dirname( dirname( __FILE__ ) ) );
+$rssc_dirname = basename( dirname(__DIR__) );
 
 // --- eval begin ---
 eval( '

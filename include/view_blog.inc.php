@@ -19,7 +19,7 @@
 // echo rssc_view_blog( link_id [ , options ] );
 //---------------------------------------------------------
 
-$RSSC_DIRNAME = basename( dirname( dirname( __FILE__ ) ) );
+$RSSC_DIRNAME = basename( dirname(__DIR__) );
 
 // --- eval begin ---
 eval( '
