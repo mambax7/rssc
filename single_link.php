@@ -76,8 +76,8 @@ $view_handler->set_keyword_array( $keyword_array );
 $pagenavi->setPerpage($limit);
 $pagenavi->getGetPage();
 
-$feed  = array();
-$link  = array();
+$feed  = [];
+$link  = [];
 $error = '';
 $navi  = '';
 $total = 0;

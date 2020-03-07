@@ -39,7 +39,7 @@ function rssc_search_base($dirname, $queryarray, $andor, $limit, $offset, $uid)
 	$table_feed   = $xoopsDB->prefix( $dirname.'_feed' );
 
 // config data
-	$conf_data = array();
+	$conf_data = [];
 
 	$sql1 = 'SELECT * FROM '.$table_config.' ORDER BY conf_id ASC';
 
@@ -89,7 +89,7 @@ function rssc_search_base($dirname, $queryarray, $andor, $limit, $offset, $uid)
 
 	$res2 = $xoopsDB->query($sql2, $limit, $offset);
 
-	$ret = array();
+	$ret = [];
 	$i = 0;
 
 	while( $row2 = $xoopsDB->fetchArray($res2) )

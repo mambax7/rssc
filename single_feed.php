@@ -66,8 +66,8 @@ $view_handler->set_max_summary(  $conf['main_single_max_summary'] );
 $view_handler->set_highlight(    $conf['basic_highlight'] );
 $view_handler->set_keyword_array( $keyword_array );
 
-$feed  = array();
-$link  = array();
+$feed  = [];
+$link  = [];
 $error = '';
 $show  = 0;
 
