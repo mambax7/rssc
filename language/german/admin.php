@@ -91,7 +91,7 @@ define('_AM_RSSC_DEL_WHITE', 'Löschen Whitelist');
 define('_AM_RSSC_ADD_FEED', 'Hinzufügen Feed');
 define('_AM_RSSC_MOD_FEED', 'Ändern Feed');
 define('_AM_RSSC_DEL_FEED', 'Löschen Feed');
-define('_AM_RSSC_THERE_ARE_MATCH', 'Es gibt <b>% s </ b>, Daten mit Bedingungen');
+define('_AM_RSSC_THERE_ARE_MATCH', 'Es gibt <b>% s </b>, Daten mit Bedingungen');
 define('_AM_RSSC_CONDITION', 'Bedingungen');
 // === archive manage ===
 define('_AM_RSSC_REFRESH', 'Auffrischen Archive');
@@ -306,9 +306,9 @@ define('_AM_RSSC_CONF_BLACK_COUNT_DESC', 'Berechne die mit passender Datensatz a
 define('_AM_RSSC_CONF_WORD_COUNT', 'Berechne Liste abgelehnte Worte');
 define('_AM_RSSC_CONF_WORD_COUNT_DESC', 'Zählen Sie die passenden Einträge mit ablehnen, wenn in der Wort-Liste');
 define('_AM_RSSC_CONF_BLACK_AUTO', 'In die Black Liste einfügen');
-define('_AM_RSSC_CONF_BLACK_AUTO_DESC', 'URL hinzufügen in schwarzen Liste automatisch<b> <br /> </ b> "Status" ist als "ungültig" <br /> Bitte ändern Sie in "gültig", wenn Sie');
+define('_AM_RSSC_CONF_BLACK_AUTO_DESC', 'URL hinzufügen in schwarzen Liste automatisch<b> <br /> </b> "Status" ist als "ungültig" <br /> Bitte ändern Sie in "gültig", wenn Sie');
 define('_AM_RSSC_CONF_WORD_AUTO', 'In die Bad Word Liste einfügen');
-define('_AM_RSSC_CONF_WORD_AUTO_DESC', 'Auswahl Wörter in der Content automatisch, und fügen Sie Wörter in Wort ablehnen Liste automatisch<b> <br /> </ b> "point" ist als Null <br /> Bitte ändern "point", wenn Sie');
+define('_AM_RSSC_CONF_WORD_AUTO_DESC', 'Auswahl Wörter in der Content automatisch, und fügen Sie Wörter in Wort ablehnen Liste automatisch<b> <br /> </b> "point" ist als Null <br /> Bitte ändern "point", wenn Sie');
 define('_AM_RSSC_CONF_WORD_AUTO_NON', 'Nicht eingefügt');
 define('_AM_RSSC_CONF_WORD_AUTO_SYMBOL', 'Auswahl durch das Symbol Pause');
 define('_AM_RSSC_CONF_WORD_AUTO_KAKASI', 'Auswahl by KAKASI: nur Japanisch');
@@ -325,7 +325,7 @@ define('_AM_RSSC_CONF_KAKASI_MODE_PIPE', 'Benutze UNIX Pipe');
 define('_AM_RSSC_CONF_CHAR_LENGTH', 'Die minimale Anzahl der Zeichen');
 define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'Die minimale Anzahl der Zeichen der exakten  Worte');
 define('_AM_RSSC_CONF_WORD_LIMIT', 'Maximale Anzahl der verbotenen Worte');
-define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Geben Sie die maximale Anzahl der gespeicherten Wort in Wort Tisch <br /> Löscht den älteren Aufzeichnungen, sobald sie mehr als dieser Wert <b> 0 <br /> </ b> ist umlimited');
+define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Geben Sie die maximale Anzahl der gespeicherten Wort in Wort Tisch <br /> Löscht den älteren Aufzeichnungen, sobald sie mehr als dieser Wert <b> 0 <br /> </b> ist umlimited');
 define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi ist ausführbar');
 define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi ist nicht ausführbar');
 define('_AM_RSSC_CONF_HTML_GET', 'HTML');
@@ -341,7 +341,7 @@ define('_AM_RSSC_LEAN_BLACK_DESC', 'Patrol in die schwarze Liste, für die Zweck
 define('_AM_RSSC_NUM_FEED_ALL', 'Die Zahl der RSS-Feeds');
 define('_AM_RSSC_NUM_FEED_SKIP', 'Die Zahl der bereits gespeicherten Feeds');
 define('_AM_RSSC_NUM_FEED_REJECT', 'Die Zahl der bewerteten schwarz-Feeds');
-define('_AM_RSSC_THEREARE_TITLE', 'In verwandten <b>% s </ b> gibt es <b>% s </ b>');
+define('_AM_RSSC_THEREARE_TITLE', 'In verwandten <b>% s </b> gibt es <b>% s </b>');
 // === 2007-10-10 ===
 // config
 define('_AM_RSSC_CONF_SHOW_MODE_DATE', 'Zeit Modus');
@@ -352,7 +352,7 @@ define('_AM_RSSC_CONF_SHOW_MODE_DATE_LONG', 'Lang');
 define('_AM_RSSC_CONF_SHOW_SITE', 'Seiten Information');
 define('_AM_RSSC_CONF_SHOW_SITE_DSC', 'Wenn Ja,zeige Seiten Titel und url');
 // link table
-define('_AM_RSSC_LINK_CENSOR_DESC', 'Trennen Sie die einzelnen mit einem <b> | </ b> <br /> Groß-und Kleinschreibung');
+define('_AM_RSSC_LINK_CENSOR_DESC', 'Trennen Sie die einzelnen mit einem <b> | </b> <br /> Groß-und Kleinschreibung');
 }
 // --- define language begin ---
 

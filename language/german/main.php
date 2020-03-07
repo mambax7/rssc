@@ -272,7 +272,7 @@ define('_RSSC_LINK_EXIST_MORE', 'Es gibt zwei oder mehrere gleiche Links "RDF / 
 define('_RSSC_LINK_ALREADY', 'Dieser Link existiert bereits"RDF / RSS / ATOM-URL"');
 // refresh link
 define('_RSSC_REFRESH_LINK', 'Erneuern RDF/RSS/ATOM feeds');
-define('_RSSC_REFRESH_LINK_DSC', 'RSS-Feeds aktualisieren <br /> Finden <b> RDF / RSS / ATOM-URL </ b> automatisch erkennen und <b> Encoden </ b>automatically, <br />if they are not set up.');
+define('_RSSC_REFRESH_LINK_DSC', 'RSS-Feeds aktualisieren <br /> Finden <b> RDF / RSS / ATOM-URL </b> automatisch erkennen und <b> Encoden </b>automatically, <br />if they are not set up.');
 define('_RSSC_REFRESH_LINK_FINISHED', 'Aktualisierung Eingabe beendet');
 // for other module
 define('_RSSC_RSSC_LID', 'Link ID vom RSSC module');
