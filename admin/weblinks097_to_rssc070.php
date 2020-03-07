@@ -89,7 +89,7 @@ class admin_import_weblinks extends rssc_import_handler
         $site_list = $this->_weblinks_handler->get_config_list_by_name('rss_site');
         $total     = count($site_list);
 
-        echo "There are <b>" . $total . "</b> rss site in weblinks<br /><br />\n";
+        echo 'There are <b>' . $total . "</b> rss site in weblinks<br /><br />\n";
 
         $this->clear_num();
 
@@ -110,7 +110,7 @@ class admin_import_weblinks extends rssc_import_handler
         $site_list = $this->_weblinks_handler->get_config_list_by_name('rss_black');
         $total     = count($site_list);
 
-        echo "There are <b>" . $total . "</b> black list in weblinks<br /><br />\n";
+        echo 'There are <b>' . $total . "</b> black list in weblinks<br /><br />\n";
 
         $this->clear_num();
 
@@ -131,7 +131,7 @@ class admin_import_weblinks extends rssc_import_handler
         $site_list = $this->_weblinks_handler->get_config_list_by_name('rss_white');
         $total     = count($site_list);
 
-        echo "There are <b>" . $total . "</b> white list in weblinks<br /><br />\n";
+        echo 'There are <b>' . $total . "</b> white list in weblinks<br /><br />\n";
 
         $this->clear_num();
 
@@ -150,8 +150,8 @@ class admin_import_weblinks extends rssc_import_handler
         $offset = $this->get_post_offset();
         $next   = $this->calc_next($total);
 
-        echo "There are <b>" . $total . "</b> rss links in weblinks<br />\n";
-        echo "Transfer " . $offset . " - " . $next . " record <br /><br />\n";
+        echo 'There are <b>' . $total . "</b> rss links in weblinks<br />\n";
+        echo 'Transfer ' . $offset . ' - ' . $next . " record <br /><br />\n";
 
         $objs =& $this->_weblinks_handler->get_link_objects_rss_flag_prev_ver($this->_LIMIT, $offset);
 
@@ -174,8 +174,8 @@ class admin_import_weblinks extends rssc_import_handler
         $offset = $this->get_post_offset();
         $next   = $this->calc_next($total);
 
-        echo "There are <b>" . $total . "</b> feeds in weblinks<br />\n";
-        echo "Transfer " . $offset . " - " . $next . " record <br /><br />\n";
+        echo 'There are <b>' . $total . "</b> feeds in weblinks<br />\n";
+        echo 'Transfer ' . $offset . ' - ' . $next . " record <br /><br />\n";
 
         $objs =& $this->_weblinks_handler->get_atomfeed_objects($this->_LIMIT, $offset);
 
@@ -238,7 +238,7 @@ class admin_import_weblinks extends rssc_import_handler
 
     public function _form_feed($offset = 0)
     {
-        $title = "STEP 5 : import feed table";
+        $title = 'STEP 5 : import feed table';
         $op    = 'import_feed';
 
         if ($offset) {
@@ -264,7 +264,7 @@ $op = 'main';
 if ( isset($_POST['op']) )  $op = $_POST['op'];
 
 rssc_admin_print_bread( _AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'weblinks' );
-echo "<h3>"._AM_RSSC_IMPORT_WEBLINKS."</h3>\n";
+echo '<h3>' . _AM_RSSC_IMPORT_WEBLINKS . "</h3>\n";
 echo "Import DB weblinks 0.97 to rssc 0.70 <br /><br />\n";
 
 if( !$import->exist_module() ) 
@@ -276,10 +276,10 @@ if( !$import->exist_module() )
 
 switch ($op) 
 {
-case "import_site":
+case 'import_site':
 	if( !$import->check_token() ) 
 	{
-		xoops_error("Token Error");
+		xoops_error('Token Error');
 	}
 	else
 	{
@@ -287,10 +287,10 @@ case "import_site":
 	}
 	break;
 
-case "import_black":
+case 'import_black':
 	if( !$import->check_token() ) 
 	{
-		xoops_error("Token Error");
+		xoops_error('Token Error');
 	}
 	else
 	{
@@ -298,10 +298,10 @@ case "import_black":
 	}
 	break;
 
-case "import_white":
+case 'import_white':
 	if( !$import->check_token() ) 
 	{
-		xoops_error("Token Error");
+		xoops_error('Token Error');
 	}
 	else
 	{
@@ -309,10 +309,10 @@ case "import_white":
 	}
 	break;
 
-case "import_link":
+case 'import_link':
 	if( !$import->check_token() ) 
 	{
-		xoops_error("Token Error");
+		xoops_error('Token Error');
 	}
 	else
 	{
@@ -320,10 +320,10 @@ case "import_link":
 	}
 	break;
 
-case "import_feed":
+case 'import_feed':
 	if( !$import->check_token() ) 
 	{
-		xoops_error("Token Error");
+		xoops_error('Token Error');
 	}
 	else
 	{

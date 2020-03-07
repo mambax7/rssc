@@ -197,16 +197,16 @@ function rssc_view_blog_base($DIRNAME, $lid=0, $options=null)
 
 		if ( isset($feed['link']) && isset($feed['title']) && $feed['link'] && $feed['title'] )
 		{
-			$text .= '<a href="'.$feed['link'].'" target="_blank">'.$feed['title']."</a> ";
+			$text .= '<a href="'.$feed['link'].'" target="_blank">'.$feed['title'] . '</a> ';
 		}
 		elseif ( isset($feed['title']) && $feed['title'] )
 		{
-			$text .= $feed['title']." ";
+			$text .= $feed['title'] . ' ';
 		}
 
 		if ( isset($feed['updated_short']) && $feed['updated_short'] )
 		{
-			$text .= $feed['updated_short']." ";
+			$text .= $feed['updated_short'] . ' ';
 		}
 
 		if ( isset($feed['enclosure_url']) && $feed['enclosure_url'] )
@@ -223,7 +223,7 @@ function rssc_view_blog_base($DIRNAME, $lid=0, $options=null)
 			}
 			if ( isset($feed['enclosure_length_kb']) && $feed['enclosure_length_kb'] )
 			{
-      			$text .= $feed['enclosure_length_kb']." ";
+      			$text .= $feed['enclosure_length_kb'] . ' ';
       			$text .= BL_RSSC_UNIT_KB;
 			}
 		}

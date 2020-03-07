@@ -29,7 +29,7 @@ $FILE_CONFIG = $DIR_CONFIG.'/config.php';
 
 xoops_cp_header();
 rssc_admin_print_bread( _HAPPY_LINUX_CONF_COMMAND_MANAGE, 'command_manage.php', _HAPPY_LINUX_CONF_CREATE_CONFIG );
-echo "<h3>"._HAPPY_LINUX_CONF_CREATE_CONFIG."</h3>\n";
+echo '<h3>' . _HAPPY_LINUX_CONF_CREATE_CONFIG . "</h3>\n";
 echo "Create config file for bin/refresh.php <br /><br />\n";
 
 $conf =& $conf_handler->get_conf();
@@ -41,7 +41,7 @@ if ( is_writable( $DIR_CONFIG ) )
 	$config_file->_save_config( $FILE_CONFIG );
 
 	echo "<hr />\n";
-	echo "<h4>"._HAPPY_LINUX_CREATED."</h4>\n";
+	echo '<h4>' . _HAPPY_LINUX_CREATED . "</h4>\n";
 	echo '<a href="'.$url.'">'._HAPPY_LINUX_CONF_TEST_BIN.": bin/refresh.php</a><br /><br/>\n";
 }
 else

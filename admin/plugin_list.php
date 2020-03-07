@@ -73,7 +73,7 @@ class admin_plugin_list
     public function execute()
     {
         rssc_admin_print_bread(_RSSC_PLUGIN_LIST, 'plugin_list.php', _AM_RSSC_PLUGIN_TEST);
-        echo "<h4>" . _AM_RSSC_PLUGIN_TEST . "</h4>\n";
+        echo '<h4>' . _AM_RSSC_PLUGIN_TEST . "</h4>\n";
 
         $this->_form->show();
         echo "<br /><hr />\n";

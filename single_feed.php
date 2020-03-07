@@ -38,7 +38,7 @@
 //================================================================
 
 include 'header.php';
-include_once RSSC_ROOT_PATH."/class/rssc_view_handler.php";
+include_once RSSC_ROOT_PATH . '/class/rssc_view_handler.php';
 
 $view_handler =& rssc_get_handler( 'view',         RSSC_DIRNAME );
 $conf_handler =& rssc_get_handler( 'config_basic', RSSC_DIRNAME );

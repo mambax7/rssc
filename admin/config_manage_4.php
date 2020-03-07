@@ -35,10 +35,10 @@ else
 rssc_admin_print_header();
 rssc_admin_print_menu();
 
-echo "<h4>"._MI_RSSC_ADMENU_CONFIG."</h4>\n";
+echo '<h4>' . _MI_RSSC_ADMENU_CONFIG . "</h4>\n";
 $config_form->init_form();
 
-echo "<h4>"._AM_RSSC_FORM_CUSTOM_PLUGIN."</h4>\n";
+echo '<h4>' . _AM_RSSC_FORM_CUSTOM_PLUGIN . "</h4>\n";
 
 echo '<a href="'. RSSC_URL .'/plugin_popup.php" target="_blank">';
 echo ' - '._RSSC_PLUGIN_LIST;

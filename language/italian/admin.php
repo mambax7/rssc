@@ -140,7 +140,7 @@ define('_AM_RSSC_CONF_RSS_MODE', 'Valore iniziale dell\'RSS mode');
 define('_AM_RSSC_CONF_XML_SAVE', 'Salva XML');
 define('_AM_RSSC_CONF_XML_SAVE_DESC', 'salva XML ottenuto in tabella link');
 define('_AM_RSSC_CONF_FUTURE_DAYS', 'Giorni futuri');
-define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', "Misurato in giorni<br />Non mostrare feed, se la data del feed è in avanti più di questo valore");
+define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', 'Misurato in giorni<br />Non mostrare feed, se la data del feed è in avanti più di questo valore');
 
 // show configuration
 define('_AM_RSSC_CONF_SHOW_ORDER','Ordine Visual.');

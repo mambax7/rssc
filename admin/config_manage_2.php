@@ -42,15 +42,15 @@ else
 rssc_admin_print_header();
 rssc_admin_print_menu();
 
-echo "<h4>"._MI_RSSC_ADMENU_CONFIG."</h4>\n";
+echo '<h4>' . _MI_RSSC_ADMENU_CONFIG . "</h4>\n";
 $config_form->init_form();
 
-echo "<h4>"._AM_RSSC_FORM_FILTER."</h4>\n";
+echo '<h4>' . _AM_RSSC_FORM_FILTER . "</h4>\n";
 echo _AM_RSSC_FORM_FILTER_DESC."<br /><br />\n";
 $config_form->set_form_title( _AM_RSSC_FORM_FILTER );
 $config_form->show_by_catid( 11 );
 
-echo "<h4>"._AM_RSSC_FORM_WORD."</h4>\n";
+echo '<h4>' . _AM_RSSC_FORM_WORD . "</h4>\n";
 $config_form->print_executable_kakasi();
 $config_form->set_form_title( _AM_RSSC_FORM_WORD );
 $config_form->show_by_catid( 13 );

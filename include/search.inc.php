@@ -70,7 +70,7 @@ function rssc_search_base($dirname, $queryarray, $andor, $limit, $offset, $uid)
 		$keywords = implode('+', $queryarray);
 		$hightlight_key = '&amp;keywords='.urlencode($keywords);
 
-		if ($where)  $where .= "AND ";
+		if ($where)  $where .= 'AND ';
 		$where .= "( search LIKE '%$queryarray[0]%' ";
 
 		for ($i=1; $i<$count; $i++)
@@ -78,7 +78,7 @@ function rssc_search_base($dirname, $queryarray, $andor, $limit, $offset, $uid)
 			$where .= "$andor ";
 			$where  .= "search LIKE '%$queryarray[$i]%' ";
 		}
-		$where .= ") ";
+		$where .= ') ';
 	}
 
 	$sql2  = 'SELECT * FROM '.$table_feed;
@@ -99,20 +99,20 @@ function rssc_search_base($dirname, $queryarray, $andor, $limit, $offset, $uid)
 
 		$ret[$i]['time']  = $row2['updated_unix'];
 		$ret[$i]['uid']   = 0;
-		$ret[$i]['image'] = "images/home.gif";
+		$ret[$i]['image'] = 'images/home.gif';
 
 	// fully uri
 		$ret[$i]['full_link'] = $row2['link'];
 
 	// title
 		$title = $row2['title'];
-		$title = preg_replace("/>/", '> ', $title);
+		$title = preg_replace('/>/', '> ', $title);
 		$title = strip_tags( $title );
 		$ret[$i]['title'] = $title;
 
 	// show context
 		$context = $row2['content'];
-		$context = preg_replace("/>/", '> ', $context);
+		$context = preg_replace('/>/', '> ', $context);
 		$context = strip_tags( $context );
 		$ret[$i]['context'] = happy_linux_build_search_context($context, $queryarray);
 

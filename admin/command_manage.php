@@ -45,13 +45,13 @@ $url  = RSSC_URL.'/bin/refresh.php?pass='.$pass.'&amp;limit=10';
 rssc_admin_print_header();
 rssc_admin_print_menu();
 
-echo "<h4>"._HAPPY_LINUX_CONF_COMMAND_MANAGE."</h4>\n";
+echo '<h4>' . _HAPPY_LINUX_CONF_COMMAND_MANAGE . "</h4>\n";
 
 $text  = '<a href="create_config.php">'._HAPPY_LINUX_CONF_CREATE_CONFIG."</a><br /><br />\n";
 $text .= '<a href="'.$url.'">'._HAPPY_LINUX_CONF_TEST_BIN.": bin/refresh.php</a><br /><br/>\n";
 echo $config_form->build_lib_box_style( _HAPPY_LINUX_CONF_COMMAND_MANAGE, '', $text );
 
-echo "<h4>"._HAPPY_LINUX_CONF_BIN."</h4>\n";
+echo '<h4>' . _HAPPY_LINUX_CONF_BIN . "</h4>\n";
 echo _HAPPY_LINUX_CONF_BIN_DESC."<br /><br />\n";
 $config_form->set_form_title( _HAPPY_LINUX_CONF_BIN );
 $config_form->show_by_catid( 2 );

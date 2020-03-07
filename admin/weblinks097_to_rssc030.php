@@ -106,12 +106,12 @@ class admin_import_weblinks extends admin_import_base
         $site_list = $this->_get_weblinks_list('rss_site');
         $total     = count($site_list);
 
-        echo "There are <b>" . $total . "</b> rss site in weblinks<br /><br />\n";
+        echo 'There are <b>' . $total . "</b> rss site in weblinks<br /><br />\n";
 
         $i = 0;
 
         foreach ($site_list as $site_url) {
-            echo $i . ": " . htmlspecialchars($site_url);
+            echo $i . ': ' . htmlspecialchars($site_url);
             $i++;
 
             if ($this->_exist_url($site_url)) {
@@ -187,7 +187,7 @@ class admin_import_weblinks extends admin_import_base
         $site_list = $this->_get_weblinks_list('rss_black');
         $total     = count($site_list);
 
-        echo "There are <b>" . $total . "</b> black list in weblinks<br /><br />\n";
+        echo 'There are <b>' . $total . "</b> black list in weblinks<br /><br />\n";
 
         $i = 0;
 
@@ -205,7 +205,7 @@ class admin_import_weblinks extends admin_import_base
 
             $url = $site_url;
 
-            echo $i . ": " . htmlspecialchars($url) . " <br />\n";
+            echo $i . ': ' . htmlspecialchars($url) . " <br />\n";
 
             $black_obj =& $this->_black_handler->create();
 
@@ -255,7 +255,7 @@ class admin_import_weblinks extends admin_import_base
         $site_list = $this->_get_weblinks_list('rss_white');
         $total     = count($site_list);
 
-        echo "There are <b>" . $total . "</b> white list in weblinks<br /><br />\n";
+        echo 'There are <b>' . $total . "</b> white list in weblinks<br /><br />\n";
 
         $i = 0;
 
@@ -273,7 +273,7 @@ class admin_import_weblinks extends admin_import_base
 
             $url = $site_url;
 
-            echo $i . ": " . htmlspecialchars($url) . " <br />\n";
+            echo $i . ': ' . htmlspecialchars($url) . " <br />\n";
 
             $white_obj =& $this->_white_handler->create();
 
@@ -368,18 +368,18 @@ class admin_import_weblinks extends admin_import_base
 
         $next = $offset + $this->_LIMIT;
 
-        $sql1 = "SELECT count(*) FROM " . $this->_table_weblinks_link;
-        $sql1 .= " WHERE ( rss_flag=1 OR rss_flag=2 )";
+        $sql1 = 'SELECT count(*) FROM ' . $this->_table_weblinks_link;
+        $sql1 .= ' WHERE ( rss_flag=1 OR rss_flag=2 )';
 
         $res1  =& $this->query($sql1);
         $row1  =& $this->_db->fetchRow($res1);
         $total = $row1[0];
 
-        echo "There are <b>" . $total . "</b> rss links in weblinks<br />\n";
-        echo "Transfer " . $offset . " - " . $next . " record <br /><br />\n";
+        echo 'There are <b>' . $total . "</b> rss links in weblinks<br />\n";
+        echo 'Transfer ' . $offset . ' - ' . $next . " record <br /><br />\n";
 
-        $sql2 = "SELECT * FROM " . $this->_table_weblinks_link;
-        $sql2 .= " WHERE ( rss_flag=1 OR rss_flag=2 ) ORDER BY lid";
+        $sql2 = 'SELECT * FROM ' . $this->_table_weblinks_link;
+        $sql2 .= ' WHERE ( rss_flag=1 OR rss_flag=2 ) ORDER BY lid';
 
         $res2 =& $this->query($sql2, $this->_LIMIT, $offset);
 
@@ -390,7 +390,7 @@ class admin_import_weblinks extends admin_import_base
             $title = $row2['title'];
             $uid   = $row2['uid'];
 
-            echo $lid . ": " . htmlspecialchars($title);
+            echo $lid . ': ' . htmlspecialchars($title);
 
             if ($this->_exist_url($url) || $this->_exist_url($url2)) {
                 echo " <b>skip</b> <br />\n";
@@ -502,16 +502,16 @@ class admin_import_weblinks extends admin_import_base
         $next = $offset + $this->_LIMIT;
         $this->_set_lid_list();
 
-        $sql1  = "SELECT count(*) FROM " . $this->_table_weblinks_feed;
+        $sql1  = 'SELECT count(*) FROM ' . $this->_table_weblinks_feed;
         $res1  =& $this->query($sql1);
         $row1  =& $this->_db->fetchRow($res1);
         $total = $row1[0];
 
-        echo "There are <b>" . $total . "</b> feeds in weblinks<br />\n";
-        echo "Transfer " . $offset . " - " . $next . " record <br /><br />\n";
+        echo 'There are <b>' . $total . "</b> feeds in weblinks<br />\n";
+        echo 'Transfer ' . $offset . ' - ' . $next . " record <br /><br />\n";
 
-        $sql2 = "SELECT * FROM " . $this->_table_weblinks_feed;
-        $sql2 .= " ORDER BY aid";
+        $sql2 = 'SELECT * FROM ' . $this->_table_weblinks_feed;
+        $sql2 .= ' ORDER BY aid';
         $res2 =& $this->query($sql2, $this->_LIMIT, $offset);
 
         while ($row2 = $this->_db->fetchArray($res2)) {
@@ -519,7 +519,7 @@ class admin_import_weblinks extends admin_import_base
             $title = $row2['title'];
             $link  = $row2['url'];
 
-            echo $aid . ": " . htmlspecialchars($title);
+            echo $aid . ': ' . htmlspecialchars($title);
 
             if ($this->_exist_feed($link)) {
                 echo " <b>skip</b> <br />\n";
@@ -578,7 +578,7 @@ class admin_import_weblinks extends admin_import_base
     //=========================================================
     public function _get_weblinks_list($key)
     {
-        $sql  = "SELECT * FROM " . $this->_table_weblinks_config;
+        $sql  = 'SELECT * FROM ' . $this->_table_weblinks_config;
         $res  =& $this->query($sql);
         $row  =& $this->_db->fetchArray($res);
         $list = $this->_strings->convert_string_to_array($row[$key], "\n");
@@ -635,7 +635,7 @@ class admin_import_weblinks extends admin_import_base
 
     public function _form_feed($offset = 0)
     {
-        $title = "STEP 5 : import feed table";
+        $title = 'STEP 5 : import feed table';
         $op    = 'import_feed';
 
         if ($offset) {
@@ -661,7 +661,7 @@ $op = 'main';
 if ( isset($_POST['op']) )  $op = $_POST['op'];
 
 rssc_admin_print_bread( _AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'weblinks' );
-echo "<h3>"._AM_RSSC_IMPORT_WEBLINKS."</h3>\n";
+echo '<h3>' . _AM_RSSC_IMPORT_WEBLINKS . "</h3>\n";
 echo "Import DB weblinks 0.96 to rssc 0.30 <br /><br />\n";
 
 if( !$import->exist_module() ) 
@@ -673,10 +673,10 @@ if( !$import->exist_module() )
 
 switch ($op) 
 {
-case "import_site":
+case 'import_site':
 	if( !$import->check_token() ) 
 	{
-		xoops_error("Token Error");
+		xoops_error('Token Error');
 	}
 	else
 	{
@@ -684,10 +684,10 @@ case "import_site":
 	}
 	break;
 
-case "import_black":
+case 'import_black':
 	if( !$import->check_token() ) 
 	{
-		xoops_error("Token Error");
+		xoops_error('Token Error');
 	}
 	else
 	{
@@ -695,10 +695,10 @@ case "import_black":
 	}
 	break;
 
-case "import_white":
+case 'import_white':
 	if( !$import->check_token() ) 
 	{
-		xoops_error("Token Error");
+		xoops_error('Token Error');
 	}
 	else
 	{
@@ -706,10 +706,10 @@ case "import_white":
 	}
 	break;
 
-case "import_link":
+case 'import_link':
 	if( !$import->check_token() ) 
 	{
-		xoops_error("Token Error");
+		xoops_error('Token Error');
 	}
 	else
 	{
@@ -717,10 +717,10 @@ case "import_link":
 	}
 	break;
 
-case "import_feed":
+case 'import_feed':
 	if( !$import->check_token() ) 
 	{
-		xoops_error("Token Error");
+		xoops_error('Token Error');
 	}
 	else
 	{
