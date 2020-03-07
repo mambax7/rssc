@@ -16,46 +16,44 @@
 // === class begin ===
 if( !class_exists('rssc_plugin_summary') ) 
 {
+    class rssc_plugin_summary extends rssc_plugin_base
+    {
+        var $_MAX_DEFAULT = 100;
 
-class rssc_plugin_summary extends rssc_plugin_base
-{
-	var $_MAX_DEFAULT = 100;
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct()
+        {
+            rssc_plugin_base::__construct();
+        }
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct()
-{
-	rssc_plugin_base::__construct();
-}
+        //---------------------------------------------------------
+        // function
+        //---------------------------------------------------------
+        public function description()
+        {
+            return 'make summary from content';
+        }
 
-//---------------------------------------------------------
-// function
-//---------------------------------------------------------
-function description()
-{
-	return 'make summary from content';
-}
+        public function usage()
+        {
+            return 'summary ( [max_length] )';
+        }
 
-function usage()
-{
-	return 'summary ( [max_length] )';
-}
+        public function convert()
+        {
+            $max     = intval($this->get_param_by_num(0, $this->_MAX_DEFAULT));
+            $content = $this->get_item_by_key('content');
+            if ($content) {
+                $this->set_item_by_key('content', happy_linux_mb_build_summary($content, $max));
+                return true;
+            }
+            return false;
+        }
 
-function convert()
-{
-	$max =  intval( $this->get_param_by_num( 0, $this->_MAX_DEFAULT ) );
-	$content = $this->get_item_by_key( 'content' );
-	if ( $content )
-	{
-		$this->set_item_by_key( 'content', happy_linux_mb_build_summary( $content, $max ) );
-		return true;
-	}
-	return false;
-}
-
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

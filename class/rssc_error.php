@@ -16,30 +16,29 @@ if( !class_exists('rssc_error') )
 //=========================================================
 // class rssc_error
 //=========================================================
-class rssc_error extends happy_linux_error
-{
+    class rssc_error extends happy_linux_error
+    {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct()
-{
-	$this->happy_linux_error();
-}
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct()
+        {
+            $this->happy_linux_error();
+        }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new rssc_error();
-	}
+        public static function &getInstance()
+        {
+            static $instance;
+            if (!isset($instance)) {
+                $instance = new rssc_error();
+            }
 
-	return $instance;
-}
+            return $instance;
+        }
 
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

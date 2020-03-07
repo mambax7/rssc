@@ -39,7 +39,7 @@ class rssc_link_basic extends happy_linux_basic
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function __construct()
+public function __construct()
 {
 	$this->happy_linux_basic();
 }
@@ -57,7 +57,7 @@ public static function &getInstance()
 //---------------------------------------------------------
 // show
 //---------------------------------------------------------
-function &get_show()
+public function &get_show()
 {
 	$time      = intval( $this->get('updated_unix') );
 	$title     = $this->get('title');
@@ -110,7 +110,7 @@ function &get_show()
 // element
 //---------------------------------------------------------
 // refresh_handler
-function get_rssurl_by_mode()
+public function get_rssurl_by_mode()
 {
 	$mode     = $this->get('mode');
 	$rdf_url  = $this->get('rdf_url');
@@ -121,7 +121,7 @@ function get_rssurl_by_mode()
 }
 
 // admin/parse_rss.php
-function get_rssurl_select_by_mode( $mode )
+public function get_rssurl_select_by_mode( $mode )
 {
 	$rdf_url  = $this->get('rdf_url');
 	$rss_url  = $this->get('rss_url');
@@ -130,7 +130,7 @@ function get_rssurl_select_by_mode( $mode )
 	return $ret;
 }
 
-function _get_rssurl_by_mode_url( $mode, $rdf_url, $rss_url, $atom_url )
+public function _get_rssurl_by_mode_url( $mode, $rdf_url, $rss_url, $atom_url )
 {
 	$val = false;
 	switch ($mode)
@@ -150,7 +150,7 @@ function _get_rssurl_by_mode_url( $mode, $rdf_url, $rss_url, $atom_url )
 	return $val;
 }
 
-function _get_rss_icon_by_mode( $mode )
+public function _get_rss_icon_by_mode( $mode )
 {
 	switch ( $mode )
 	{
@@ -169,7 +169,7 @@ function _get_rss_icon_by_mode( $mode )
 	return false;
 }
 
-function refresh_expired()
+public function refresh_expired()
 {
 	if ( time() > ( $this->get('refresh') + $this->get('updated_unix') ) )
 	{
@@ -179,7 +179,7 @@ function refresh_expired()
 	return false;
 }
 
-function &get_channel()
+public function &get_channel()
 {
 	$ret =& $this->getVarArray('channel');
 	return $ret;
@@ -194,199 +194,182 @@ function &get_channel()
 // this class handle MySQL table directly
 // this class does not use another class
 //=========================================================
-class rssc_link_basic_handler extends happy_linux_basic_handler
-{
+    class rssc_link_basic_handler extends happy_linux_basic_handler
+    {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct( $dirname )
-{
-	$this->happy_linux_basic_handler( $dirname );
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+    public function __construct($dirname)
+        {
+            $this->happy_linux_basic_handler($dirname);
 
-	$this->set_table_name('link');
-	$this->set_id_name('lid');
-	$this->set_class_name('rssc_link_basic');
+            $this->set_table_name('link');
+            $this->set_id_name('lid');
+            $this->set_class_name('rssc_link_basic');
 
-	$this->set_debug_db_sql(   RSSC_DEBUG_LINK_BASIC_SQL );
-	$this->set_debug_db_error( RSSC_DEBUG_ERROR );
+            $this->set_debug_db_sql(RSSC_DEBUG_LINK_BASIC_SQL);
+            $this->set_debug_db_error(RSSC_DEBUG_ERROR);
+        }
 
-}
+        //---------------------------------------------------------
+        // update
+        //---------------------------------------------------------
+    public function update_xml_url($lid, $mode, $rdf_url, $rss_url, $atom_url)
+        {
+            $sql = 'UPDATE ' . $this->_table . ' SET ';
+            $sql .= 'mode=' . intval($mode) . ', ';
+            $sql .= 'rdf_url=' . $this->quote($rdf_url) . ', ';
+            $sql .= 'rss_url=' . $this->quote($rss_url) . ', ';
+            $sql .= 'atom_url=' . $this->quote($atom_url) . ' ';
+            $sql .= 'WHERE lid=' . intval($lid);
 
-//---------------------------------------------------------
-// update
-//---------------------------------------------------------
-function update_xml_url($lid, $mode, $rdf_url, $rss_url, $atom_url)
-{
-	$sql  = 'UPDATE '.$this->_table.' SET ';
-	$sql .= 'mode='. intval($mode).', ';
-	$sql .= 'rdf_url='.  $this->quote($rdf_url).', ';
-	$sql .= 'rss_url='.  $this->quote($rss_url).', ';
-	$sql .= 'atom_url='. $this->quote($atom_url).' ';
-	$sql .= 'WHERE lid='.intval($lid);
+            $ret = $this->query($sql);
+            return $ret;
+        }
 
-	$ret = $this->query($sql);
-	return $ret;
-}
+    public function update_encoding($lid, $encoding)
+        {
+            $sql = 'UPDATE ' . $this->_table . ' SET ';
+            $sql .= 'encoding=' . $this->quote($encoding) . ' ';
+            $sql .= 'WHERE lid=' . intval($lid);
 
-function update_encoding($lid, $encoding)
-{
-	$sql  = 'UPDATE '.$this->_table.' SET ';
-	$sql .= 'encoding='. $this->quote($encoding).' ';
-	$sql .= 'WHERE lid='.intval($lid);
+            $ret = $this->query($sql);
+            return $ret;
+        }
 
-	$ret = $this->query($sql);
-	return $ret;
-}
+    public function update_channel($lid, $channel, $updated_unix = '', $flag_channel = true)
+        {
+            if ($flag_channel) {
+                $channel = serialize($channel);
+            }
+            if (empty($updated_unix)) {
+                $updated_unix = $time();
+            }
 
-function update_channel($lid, $channel, $updated_unix='', $flag_channel=true )
-{
-	if ( $flag_channel )
-	{
-		$channel = serialize($channel);
-	}
-	if ( empty($updated_unix) )
-	{
-		$updated_unix = $time();
-	}
+            $sql = 'UPDATE ' . $this->_table . ' SET ';
+            $sql .= 'channel=' . $this->quote($channel) . ', ';
+            $sql .= 'updated_unix=' . intval($updated_unix) . ' ';;
+            $sql .= 'WHERE lid=' . intval($lid);
 
-	$sql  = 'UPDATE '.$this->_table.' SET ';
-	$sql .= 'channel='. $this->quote($channel).', ';
-	$sql .= 'updated_unix='. intval($updated_unix).' ';;
-	$sql .= 'WHERE lid='.intval($lid);
+            $ret = $this->query($sql);
+            return $ret;
+        }
 
-	$ret = $this->query($sql);
-	return $ret;
-}
+        //---------------------------------------------------------
+        // get
+        //---------------------------------------------------------
+    public function exists_by_lid($lid)
+        {
+            $row =& $this->get_cache_row($lid);
+            if (is_array($row)) {
+                return true;
+            }
+            return false;
+        }
 
-//---------------------------------------------------------
-// get
-//---------------------------------------------------------
-function exists_by_lid($lid)
-{
-	$row =& $this->get_cache_row($lid);
-	if ( is_array($row) )
-	{
-		return true;
-	}
-	return false;
-}
+    public function &get_link_by_lid($lid)
+        {
+            $arr      = false;
+            $link_obj =& $this->get_cache_object_by_id($lid);
+            if (is_object($link_obj)) {
+                $arr =& $link_obj->get_show();
+            }
+            return $arr;
+        }
 
-function &get_link_by_lid($lid)
-{
-	$arr = false;
-	$link_obj =& $this->get_cache_object_by_id($lid);
-	if ( is_object($link_obj) )
-	{
-		$arr =& $link_obj->get_show();
-	}
-	return $arr;
-}
+    public function &get_headline_lids($limit = 0, $start = 0)
+        {
+            $sql = 'SELECT lid FROM ' . $this->_table . ' WHERE ';
+            $sql .= ' headline>0';
+            $sql .= ' ORDER BY headline ASC';
+            $arr =& $this->get_first_row_by_sql($sql, $limit, $start);
+            return $arr;
+        }
 
-function &get_headline_lids($limit=0, $start=0)
-{
-	$sql  = 'SELECT lid FROM '.$this->_table.' WHERE ';
-	$sql .= ' headline>0';
-	$sql .= ' ORDER BY headline ASC';
-	$arr  =& $this->get_first_row_by_sql($sql, $limit, $start);
-	return $arr;
-}
+    public function &get_headline_rows($limit = 0, $start = 0)
+        {
+            $sql  = 'SELECT * FROM ' . $this->_table . ' WHERE ';
+            $sql  .= ' headline>0';
+            $sql  .= ' ORDER BY headline ASC';
+            $rows =& $this->get_rows_by_sql($sql, $limit, $start);
+            return $rows;
+        }
 
-function &get_headline_rows($limit=0, $start=0)
-{
-	$sql  = 'SELECT * FROM '.$this->_table.' WHERE ';
-	$sql .= ' headline>0';
-	$sql .= ' ORDER BY headline ASC';
-	$rows =& $this->get_rows_by_sql($sql, $limit, $start);
-	return $rows;
-}
+    public function &get_headlines($limit = 0, $start = 0)
+        {
+            $links = false;
+            $rows  =& $this->get_headline_rows($limit, $start);
+            if (is_array($rows) && count($rows)) {
+                $objs =& $this->get_objects_from_rows($rows);
+                foreach ($objs as $obj) {
+                    $links[] =& $obj->get_show();
+                }
+            }
+            return $links;
+        }
 
-function &get_headlines($limit=0, $start=0)
-{
-	$links = false;
-	$rows =& $this->get_headline_rows($limit, $start);
-	if ( is_array($rows) && count($rows) )
-	{
-		$objs =& $this->get_objects_from_rows( $rows );
-		foreach ($objs as $obj)
-		{
-			$links[] =& $obj->get_show();
-		}
-	}
-	return $links;
-}
+        // refresh all
+    public function &get_active_id_array($limit = 0, $offset = 0)
+        {
+            // normal or search site
+            $sql = 'SELECT lid FROM ' . $this->_table;
+            $sql .= ' WHERE ltype<>0';
+            $sql .= ' ORDER BY lid ASC';
+            $arr =& $this->get_first_row_by_sql($sql, $limit, $offset);
+            return $arr;
+        }
 
-// refresh all
-function &get_active_id_array($limit=0, $offset=0)
-{
-// normal or search site
-	$sql =  'SELECT lid FROM '.$this->_table;
-	$sql .= ' WHERE ltype<>0';
-	$sql .= ' ORDER BY lid ASC';
-	$arr =& $this->get_first_row_by_sql($sql, $limit, $offset);
-	return $arr;
-}
+    public function get_cache_post_plugin_by_lid($lid)
+        {
+            $row =& $this->get_cache_row($lid);
+            if (!is_array($row)) {
+                $this->_set_errors("rssc_link_handler: no link record: lid = " . $lid);
+                return false;
+            } else {
+                return $row['post_plugin'];
+            }
+            return false;
+        }
 
-function get_cache_post_plugin_by_lid($lid)
-{
-	$row =& $this->get_cache_row( $lid );
-	if ( !is_array($row) )
-	{
-		$this->_set_errors( "rssc_link_handler: no link record: lid = ".$lid );
-		return false;
-	}
-	else
-	{
-		return $row['post_plugin'];
-	}
-	return false;
-}
+    public function get_cache_ltype_by_lid($lid)
+        {
+            $row =& $this->get_cache_row($lid);
+            if (!is_array($row)) {
+                $this->_set_errors("rssc_link_handler: no link record: lid = " . $lid);
+                return false;
+            } else {
+                return $row['ltype'];
+            }
+            return false;
+        }
 
-function get_cache_ltype_by_lid($lid)
-{
-	$row =& $this->get_cache_row( $lid );
-	if ( !is_array($row) )
-	{
-		$this->_set_errors( "rssc_link_handler: no link record: lid = ".$lid );
-		return false;
-	}
-	else
-	{
-		return $row['ltype'];
-	}
-	return false;
-}
+    public function get_cache_enclosure_by_lid($lid)
+        {
+            $row =& $this->get_cache_row($lid);
+            if (!is_array($row)) {
+                $this->_set_errors("rssc_link_handler: no link record: lid = " . $lid);
+                return false;
+            } else {
+                return $row['enclosure'];
+            }
+            return false;
+        }
 
-function get_cache_enclosure_by_lid($lid)
-{
-	$row =& $this->get_cache_row( $lid );
-	if ( !is_array($row) )
-	{
-		$this->_set_errors( "rssc_link_handler: no link record: lid = ".$lid );
-		return false;
-	}
-	else
-	{
-		return $row['enclosure'];
-	}
-	return false;
-}
+        public function &get_channel_by_lid($lid)
+        {
+            $ret = false;
+            $obj =& $this->get_cache_object_by_id($lid);
+            if (!is_object($obj)) {
+                $this->_set_errors("rssc_xml_handler: no xml record: lid = $lid");
+                return $ret;
+            }
+            $ret =& $obj->get_channel();
+            return $ret;
+        }
 
-function &get_channel_by_lid($lid)
-{
-	$ret = false;
-	$obj =& $this->get_cache_object_by_id($lid);
-	if ( !is_object($obj) )
-	{
-		$this->_set_errors( "rssc_xml_handler: no xml record: lid = $lid" );
-		return $ret;
-	}
-	$ret =& $obj->get_channel();
-	return $ret;
-}
-
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

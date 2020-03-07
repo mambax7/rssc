@@ -64,7 +64,7 @@ class rssc_feed extends happy_linux_object
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function __construct()
+public function __construct()
 {
 	$this->happy_linux_object();
 
@@ -123,13 +123,13 @@ function __construct()
 //---------------------------------------------------------
 // function
 //---------------------------------------------------------
-function &get_raws()
+public function &get_raws()
 {
 	$ret =& $this->getVarArray('raws');
 	return $ret;
 }
 
-function &get_export_raws()
+public function &get_export_raws()
 {
 	$raws =& $this->get_raws();
 	$text = var_export($raws, TRUE);
@@ -137,7 +137,7 @@ function &get_export_raws()
 	return $ret;
 }
 
-function get_act_option()
+public function get_act_option()
 {
 	$opt = [
 		_RSSC_FEED_ACT_NON  => 0,
@@ -152,430 +152,424 @@ function get_act_option()
 //=========================================================
 // class feed handler
 //=========================================================
-class rssc_feed_handler extends happy_linux_object_handler
-{
+    class rssc_feed_handler extends happy_linux_object_handler
+    {
 
-// class
-	var $_strings;
+        // class
+        var $_strings;
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct( $dirname )
-{
-	$this->happy_linux_object_handler($dirname, 'feed', 'fid', 'rssc_feed');
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+    public function __construct($dirname)
+        {
+            $this->happy_linux_object_handler($dirname, 'feed', 'fid', 'rssc_feed');
 
-	$this->set_debug_db_sql(   RSSC_DEBUG_FEED_SQL );
-	$this->set_debug_db_error( RSSC_DEBUG_ERROR );
+            $this->set_debug_db_sql(RSSC_DEBUG_FEED_SQL);
+            $this->set_debug_db_error(RSSC_DEBUG_ERROR);
 
-// class
-	$this->_strings =& happy_linux_strings::getInstance();
-}
+            // class
+            $this->_strings =& happy_linux_strings::getInstance();
+        }
 
-//=========================================================
-// Public
-//=========================================================
-//---------------------------------------------------------
-// basic function
-//---------------------------------------------------------
+        //=========================================================
+        // Public
+        //=========================================================
+        //---------------------------------------------------------
+        // basic function
+        //---------------------------------------------------------
 
-// for future
-// now, admin cannot add feed record
-function _build_insert_sql(&$obj)
-{
-	foreach ($obj->gets() as $k => $v) 
-	{	${$k} = $v;	}
+        // for future
+        // now, admin cannot add feed record
+    public function _build_insert_sql(&$obj)
+        {
+            foreach ($obj->gets() as $k => $v) {
+                ${$k} = $v;
+            }
 
-	$sql  = 'INSERT INTO '.$this->_table.' (';
-	$sql .= 'lid, ';
-	$sql .= 'uid, ';
-	$sql .= 'mid, ';
-	$sql .= 'p1, ';
-	$sql .= 'p2, ';
-	$sql .= 'p3, ';
-	$sql .= 'site_title, ';
-	$sql .= 'site_link, ';
-	$sql .= 'title, ';
-	$sql .= 'link, ';
-	$sql .= 'entry_id, ';
-	$sql .= 'guid, ';
-	$sql .= 'updated_unix, ';
-	$sql .= 'published_unix, ';
-	$sql .= 'category, ';
-	$sql .= 'author_name, ';
-	$sql .= 'author_uri, ';
-	$sql .= 'author_email, ';
-	$sql .= 'type_cont, ';
-	$sql .= 'raws, ';
-	$sql .= 'content, ';
-	$sql .= 'search, ';
-	$sql .= 'aux_int_1, ';
-	$sql .= 'aux_int_2, ';
-	$sql .= 'aux_text_1, ';
-	$sql .= 'aux_text_2, ';
+            $sql = 'INSERT INTO ' . $this->_table . ' (';
+            $sql .= 'lid, ';
+            $sql .= 'uid, ';
+            $sql .= 'mid, ';
+            $sql .= 'p1, ';
+            $sql .= 'p2, ';
+            $sql .= 'p3, ';
+            $sql .= 'site_title, ';
+            $sql .= 'site_link, ';
+            $sql .= 'title, ';
+            $sql .= 'link, ';
+            $sql .= 'entry_id, ';
+            $sql .= 'guid, ';
+            $sql .= 'updated_unix, ';
+            $sql .= 'published_unix, ';
+            $sql .= 'category, ';
+            $sql .= 'author_name, ';
+            $sql .= 'author_uri, ';
+            $sql .= 'author_email, ';
+            $sql .= 'type_cont, ';
+            $sql .= 'raws, ';
+            $sql .= 'content, ';
+            $sql .= 'search, ';
+            $sql .= 'aux_int_1, ';
+            $sql .= 'aux_int_2, ';
+            $sql .= 'aux_text_1, ';
+            $sql .= 'aux_text_2, ';
 
-// enclosure
-	$sql .= 'enclosure_url, ';
-	$sql .= 'enclosure_type, ';
-	$sql .= 'enclosure_length, ';
-	$sql .= 'act, ';
+            // enclosure
+            $sql .= 'enclosure_url, ';
+            $sql .= 'enclosure_type, ';
+            $sql .= 'enclosure_length, ';
+            $sql .= 'act, ';
 
-// geo
-	$sql .= 'geo_lat, ';
-	$sql .= 'geo_long, ';
+            // geo
+            $sql .= 'geo_lat, ';
+            $sql .= 'geo_long, ';
 
-// media
-	$sql .= 'media_content_url, ';
-	$sql .= 'media_content_type, ';
-	$sql .= 'media_content_medium, ';
-	$sql .= 'media_content_filesize, ';
-	$sql .= 'media_content_width, ';
-	$sql .= 'media_content_height, ';
-	$sql .= 'media_thumbnail_url, ';
-	$sql .= 'media_thumbnail_width, ';
-	$sql .= 'media_thumbnail_height ';
+            // media
+            $sql .= 'media_content_url, ';
+            $sql .= 'media_content_type, ';
+            $sql .= 'media_content_medium, ';
+            $sql .= 'media_content_filesize, ';
+            $sql .= 'media_content_width, ';
+            $sql .= 'media_content_height, ';
+            $sql .= 'media_thumbnail_url, ';
+            $sql .= 'media_thumbnail_width, ';
+            $sql .= 'media_thumbnail_height ';
 
-	$sql .= ') VALUES (';
-	$sql .= intval($lid).', ';
-	$sql .= intval($uid).', ';
-	$sql .= intval($mid).', ';
-	$sql .= intval($p1).', ';
-	$sql .= intval($p2).', ';
-	$sql .= intval($p3).', ';
-	$sql .= $this->quote($site_title).', ';
-	$sql .= $this->quote($site_link).', ';
-	$sql .= $this->quote($title).', ';
-	$sql .= $this->quote($link).', ';
-	$sql .= $this->quote($entry_id).', ';
-	$sql .= $this->quote($guid).', ';
-	$sql .= intval($updated_unix).', ';
-	$sql .= intval($published_unix).', ';
-	$sql .= $this->quote($category).', ';
-	$sql .= $this->quote($author_name).', ';
-	$sql .= $this->quote($author_uri).', ';
-	$sql .= $this->quote($author_email).', ';
-	$sql .= $this->quote($type_cont).', ';
-	$sql .= $this->quote($raws).', ';
-	$sql .= $this->quote($content).', ';
-	$sql .= $this->quote($search).', ';
-	$sql .= intval($aux_int_1).', ';
-	$sql .= intval($aux_int_2).', ';
-	$sql .= $this->quote($aux_text_1).', ';
-	$sql .= $this->quote($aux_text_2).', ';
+            $sql .= ') VALUES (';
+            $sql .= intval($lid) . ', ';
+            $sql .= intval($uid) . ', ';
+            $sql .= intval($mid) . ', ';
+            $sql .= intval($p1) . ', ';
+            $sql .= intval($p2) . ', ';
+            $sql .= intval($p3) . ', ';
+            $sql .= $this->quote($site_title) . ', ';
+            $sql .= $this->quote($site_link) . ', ';
+            $sql .= $this->quote($title) . ', ';
+            $sql .= $this->quote($link) . ', ';
+            $sql .= $this->quote($entry_id) . ', ';
+            $sql .= $this->quote($guid) . ', ';
+            $sql .= intval($updated_unix) . ', ';
+            $sql .= intval($published_unix) . ', ';
+            $sql .= $this->quote($category) . ', ';
+            $sql .= $this->quote($author_name) . ', ';
+            $sql .= $this->quote($author_uri) . ', ';
+            $sql .= $this->quote($author_email) . ', ';
+            $sql .= $this->quote($type_cont) . ', ';
+            $sql .= $this->quote($raws) . ', ';
+            $sql .= $this->quote($content) . ', ';
+            $sql .= $this->quote($search) . ', ';
+            $sql .= intval($aux_int_1) . ', ';
+            $sql .= intval($aux_int_2) . ', ';
+            $sql .= $this->quote($aux_text_1) . ', ';
+            $sql .= $this->quote($aux_text_2) . ', ';
 
-// enclosure
-	$sql .= $this->quote($enclosure_url).', ';
-	$sql .= $this->quote($enclosure_type).', ';
-	$sql .= intval($enclosure_length).', ';
-	$sql .= intval($act).', ';
+            // enclosure
+            $sql .= $this->quote($enclosure_url) . ', ';
+            $sql .= $this->quote($enclosure_type) . ', ';
+            $sql .= intval($enclosure_length) . ', ';
+            $sql .= intval($act) . ', ';
 
-// geo
-	$sql .= floatval($geo_lat).', ';
-	$sql .= floatval($geo_long).', ';
+            // geo
+            $sql .= floatval($geo_lat) . ', ';
+            $sql .= floatval($geo_long) . ', ';
 
-// media	
-	$sql .= $this->quote($media_content_url).', ';
-	$sql .= $this->quote($media_content_type).', ';
-	$sql .= $this->quote($media_content_medium).', ';
-	$sql .= intval($media_content_filesize).', ';
-	$sql .= intval($media_content_width).', ';
-	$sql .= intval($media_content_height).', ';
-	$sql .= $this->quote($media_thumbnail_url).', ';
-	$sql .= intval($media_thumbnail_width).', ';
-	$sql .= intval($media_thumbnail_height).' ';
+            // media
+            $sql .= $this->quote($media_content_url) . ', ';
+            $sql .= $this->quote($media_content_type) . ', ';
+            $sql .= $this->quote($media_content_medium) . ', ';
+            $sql .= intval($media_content_filesize) . ', ';
+            $sql .= intval($media_content_width) . ', ';
+            $sql .= intval($media_content_height) . ', ';
+            $sql .= $this->quote($media_thumbnail_url) . ', ';
+            $sql .= intval($media_thumbnail_width) . ', ';
+            $sql .= intval($media_thumbnail_height) . ' ';
 
-	$sql .= ')';
+            $sql .= ')';
 
-	return $sql;
-}
+            return $sql;
+        }
 
-function _build_update_sql(&$obj)
-{
-	foreach ($obj->gets() as $k => $v) 
-	{	${$k} = $v;	}
+    public function _build_update_sql(&$obj)
+        {
+            foreach ($obj->gets() as $k => $v) {
+                ${$k} = $v;
+            }
 
-	$sql = 'UPDATE '.$this->_table.' SET ';
-	$sql .= 'lid='.intval($lid).', ';
-	$sql .= 'uid='.intval($uid).', ';
-	$sql .= 'mid='.intval($mid).', ';
-	$sql .= 'p1='.intval($p1).', ';
-	$sql .= 'p2='.intval($p2).', ';
-	$sql .= 'p3='.intval($p3).', ';
-	$sql .= 'site_title='.$this->quote($site_title).', ';
-	$sql .= 'site_link='.$this->quote($site_link).', ';
-	$sql .= 'title='.$this->quote($title).', ';
-	$sql .= 'link='.$this->quote($link).', ';
-	$sql .= 'entry_id='.$this->quote($entry_id).', ';
-	$sql .= 'guid='.$this->quote($guid).', ';
-	$sql .= 'updated_unix='.intval($updated_unix).', ';
-	$sql .= 'published_unix='.intval($published_unix).', ';
-	$sql .= 'category='.$this->quote($category).', ';
-	$sql .= 'author_name='.$this->quote($author_name).', ';
-	$sql .= 'author_uri='.$this->quote($author_uri).', ';
-	$sql .= 'author_email='.$this->quote($author_email).', ';
-	$sql .= 'type_cont='.$this->quote($type_cont).', ';
-	$sql .= 'raws='.$this->quote($raws).', ';
-	$sql .= 'content='.$this->quote($content).', ';
-	$sql .= 'search='.$this->quote($search).', ';
-	$sql .= 'aux_int_1='.intval($aux_int_1).', ';
-	$sql .= 'aux_int_2='.intval($aux_int_2).', ';
-	$sql .= 'aux_text_1='.$this->quote($aux_text_1).', ';
-	$sql .= 'aux_text_2='.$this->quote($aux_text_2).', ';
+            $sql = 'UPDATE ' . $this->_table . ' SET ';
+            $sql .= 'lid=' . intval($lid) . ', ';
+            $sql .= 'uid=' . intval($uid) . ', ';
+            $sql .= 'mid=' . intval($mid) . ', ';
+            $sql .= 'p1=' . intval($p1) . ', ';
+            $sql .= 'p2=' . intval($p2) . ', ';
+            $sql .= 'p3=' . intval($p3) . ', ';
+            $sql .= 'site_title=' . $this->quote($site_title) . ', ';
+            $sql .= 'site_link=' . $this->quote($site_link) . ', ';
+            $sql .= 'title=' . $this->quote($title) . ', ';
+            $sql .= 'link=' . $this->quote($link) . ', ';
+            $sql .= 'entry_id=' . $this->quote($entry_id) . ', ';
+            $sql .= 'guid=' . $this->quote($guid) . ', ';
+            $sql .= 'updated_unix=' . intval($updated_unix) . ', ';
+            $sql .= 'published_unix=' . intval($published_unix) . ', ';
+            $sql .= 'category=' . $this->quote($category) . ', ';
+            $sql .= 'author_name=' . $this->quote($author_name) . ', ';
+            $sql .= 'author_uri=' . $this->quote($author_uri) . ', ';
+            $sql .= 'author_email=' . $this->quote($author_email) . ', ';
+            $sql .= 'type_cont=' . $this->quote($type_cont) . ', ';
+            $sql .= 'raws=' . $this->quote($raws) . ', ';
+            $sql .= 'content=' . $this->quote($content) . ', ';
+            $sql .= 'search=' . $this->quote($search) . ', ';
+            $sql .= 'aux_int_1=' . intval($aux_int_1) . ', ';
+            $sql .= 'aux_int_2=' . intval($aux_int_2) . ', ';
+            $sql .= 'aux_text_1=' . $this->quote($aux_text_1) . ', ';
+            $sql .= 'aux_text_2=' . $this->quote($aux_text_2) . ', ';
 
-// enclosure
-	$sql .= 'enclosure_url='.$this->quote($enclosure_url).', ';
-	$sql .= 'enclosure_type='.$this->quote($enclosure_type).', ';
-	$sql .= 'enclosure_length='.intval($enclosure_length).', ';
-	$sql .= 'act='.intval($act).', ';
+            // enclosure
+            $sql .= 'enclosure_url=' . $this->quote($enclosure_url) . ', ';
+            $sql .= 'enclosure_type=' . $this->quote($enclosure_type) . ', ';
+            $sql .= 'enclosure_length=' . intval($enclosure_length) . ', ';
+            $sql .= 'act=' . intval($act) . ', ';
 
-// geo
-	$sql .= 'geo_lat='.floatval($geo_lat).', ';
-	$sql .= 'geo_long='.floatval($geo_long).', ';
+            // geo
+            $sql .= 'geo_lat=' . floatval($geo_lat) . ', ';
+            $sql .= 'geo_long=' . floatval($geo_long) . ', ';
 
-// media
-	$sql .= 'media_content_url='.$this->quote($media_content_url).', ';
-	$sql .= 'media_content_type='.$this->quote($media_content_type).', ';
-	$sql .= 'media_content_medium='.$this->quote($media_content_medium).', ';
-	$sql .= 'media_content_filesize='.intval($media_content_filesize).', ';
-	$sql .= 'media_content_width='.intval($media_content_width).', ';
-	$sql .= 'media_content_height='.intval($media_content_height).', ';
-	$sql .= 'media_thumbnail_url='.$this->quote($media_thumbnail_url).', ';
-	$sql .= 'media_thumbnail_width='.intval($media_thumbnail_width).', ';
-	$sql .= 'media_thumbnail_height='.intval($media_thumbnail_height).' ';
+            // media
+            $sql .= 'media_content_url=' . $this->quote($media_content_url) . ', ';
+            $sql .= 'media_content_type=' . $this->quote($media_content_type) . ', ';
+            $sql .= 'media_content_medium=' . $this->quote($media_content_medium) . ', ';
+            $sql .= 'media_content_filesize=' . intval($media_content_filesize) . ', ';
+            $sql .= 'media_content_width=' . intval($media_content_width) . ', ';
+            $sql .= 'media_content_height=' . intval($media_content_height) . ', ';
+            $sql .= 'media_thumbnail_url=' . $this->quote($media_thumbnail_url) . ', ';
+            $sql .= 'media_thumbnail_width=' . intval($media_thumbnail_width) . ', ';
+            $sql .= 'media_thumbnail_height=' . intval($media_thumbnail_height) . ' ';
 
-	$sql .= 'WHERE fid='.intval($fid);
+            $sql .= 'WHERE fid=' . intval($fid);
 
-	return $sql;
-}
+            return $sql;
+        }
 
-//---------------------------------------------------------
-// get count
-//---------------------------------------------------------
-function get_total()
-{
-	$ret = $this->getCount();
-	return $ret;
-}
+        //---------------------------------------------------------
+        // get count
+        //---------------------------------------------------------
+    public function get_total()
+        {
+            $ret = $this->getCount();
+            return $ret;
+        }
 
-function get_count_by_lid($lid)
-{
-	$ret = 0;
-	if ($lid)
-	{
-		$criteria = new CriteriaCompo();
-		$criteria->add( $this->get_addtion_by_lid($lid) );
-		$ret = $this->getCount($criteria);
-	}
-	return $ret;
-}
+    public function get_count_by_lid($lid)
+        {
+            $ret = 0;
+            if ($lid) {
+                $criteria = new CriteriaCompo();
+                $criteria->add($this->get_addtion_by_lid($lid));
+                $ret = $this->getCount($criteria);
+            }
+            return $ret;
+        }
 
-function get_count_by_lid_non_act($lid)
-{
-	$ret = 0;
-	if ($lid)
-	{
-		$criteria = new CriteriaCompo();
-		$criteria->add( new criteria('act', 0, '=') );
-		$criteria->add( $this->get_addtion_by_lid($lid) );
-		$ret = $this->getCount($criteria);
-	}
-	return $ret;
-}
+    public function get_count_by_lid_non_act($lid)
+        {
+            $ret = 0;
+            if ($lid) {
+                $criteria = new CriteriaCompo();
+                $criteria->add(new criteria('act', 0, '='));
+                $criteria->add($this->get_addtion_by_lid($lid));
+                $ret = $this->getCount($criteria);
+            }
+            return $ret;
+        }
 
-function get_count_by_link($link)
-{
-	$ret = 0;
-	if ($link)
-	{
-		$criteria = new CriteriaCompo();
-		$criteria->add( $this->get_addtion_by_link($link) );
-		$ret = $this->getCount($criteria);
-	}
-	return $ret;
-}
+    public function get_count_by_link($link)
+        {
+            $ret = 0;
+            if ($link) {
+                $criteria = new CriteriaCompo();
+                $criteria->add($this->get_addtion_by_link($link));
+                $ret = $this->getCount($criteria);
+            }
+            return $ret;
+        }
 
-function get_count_by_link_non_act($link)
-{
-	$ret = 0;
-	if ($link)
-	{
-		$criteria = new CriteriaCompo();
-		$criteria->add( new criteria('act', 0, '=') );
-		$criteria->add( $this->get_addtion_by_link($link) );
-		$ret = $this->getCount($criteria);
-	}
-	return $ret;
-}
+    public function get_count_by_link_non_act($link)
+        {
+            $ret = 0;
+            if ($link) {
+                $criteria = new CriteriaCompo();
+                $criteria->add(new criteria('act', 0, '='));
+                $criteria->add($this->get_addtion_by_link($link));
+                $ret = $this->getCount($criteria);
+            }
+            return $ret;
+        }
 
-function &get_addtion_by_lid($lid)
-{
-	$addtion = new Criteria('lid', $lid, '=');
-	return $addtion;
-}
+    public function &get_addtion_by_lid($lid)
+        {
+            $addtion = new Criteria('lid', $lid, '=');
+            return $addtion;
+        }
 
-function &get_addtion_by_link($link)
-{
-// match http://xxx/*http://yyy/
-	$link = '%'.$link.'%';
-	$addtion = new Criteria('link', $link, 'LIKE');
-	return $addtion;
-}
+    public function &get_addtion_by_link($link)
+        {
+            // match http://xxx/*http://yyy/
+            $link    = '%' . $link . '%';
+            $addtion = new Criteria('link', $link, 'LIKE');
+            return $addtion;
+        }
 
-function get_count_non_act()
-{
-	$criteria = new CriteriaCompo();
-	$criteria->add( new Criteria('act', 0, '=') );
-	$ret = $this->getCount( $criteria );
-	return $ret;
-}
+    public function get_count_non_act()
+        {
+            $criteria = new CriteriaCompo();
+            $criteria->add(new Criteria('act', 0, '='));
+            $ret = $this->getCount($criteria);
+            return $ret;
+        }
 
-//---------------------------------------------------------
-// get objects
-//---------------------------------------------------------
-function &get_objects($limit=0, $start=0)
-{
-	$criteria = new CriteriaCompo();
-	$criteria->setStart($start);
-	$criteria->setLimit($limit);
-	$objs =& $this->getObjects( $criteria );
-	return $objs;
-}
+        //---------------------------------------------------------
+        // get objects
+        //---------------------------------------------------------
+    public function &get_objects($limit = 0, $start = 0)
+        {
+            $criteria = new CriteriaCompo();
+            $criteria->setStart($start);
+            $criteria->setLimit($limit);
+            $objs =& $this->getObjects($criteria);
+            return $objs;
+        }
 
-function &get_objects_by_lid_asc($lid, $limit=0, $start=0)
-{
-	$objs =& $this->get_objects_by_lid($lid, $limit, $start, 'fid ASC');
-	return $objs;
-}
+    public function &get_objects_by_lid_asc($lid, $limit = 0, $start = 0)
+        {
+            $objs =& $this->get_objects_by_lid($lid, $limit, $start, 'fid ASC');
+            return $objs;
+        }
 
-function &get_objects_by_lid_desc($lid, $limit=0, $start=0)
-{
-	$objs =& $this->get_objects_by_lid($lid, $limit, $start, 'fid DESC');
-	return $objs;
-}
+    public function &get_objects_by_lid_desc($lid, $limit = 0, $start = 0)
+        {
+            $objs =& $this->get_objects_by_lid($lid, $limit, $start, 'fid DESC');
+            return $objs;
+        }
 
-function &get_objects_by_lid($lid, $limit=0, $start=0, $sort='fid ASC')
-{
-	$objs = false;
-	if ($lid)
-	{
-		$criteria = new CriteriaCompo();
-		$criteria->setStart($start);
-		$criteria->setLimit($limit);
-		$criteria->add( $this->get_addtion_by_lid($lid) );
-		$criteria->setSort($sort);
-		$objs =& $this->getObjects( $criteria );
-	}
-	return $objs;
-}
+    public function &get_objects_by_lid($lid, $limit = 0, $start = 0, $sort = 'fid ASC')
+        {
+            $objs = false;
+            if ($lid) {
+                $criteria = new CriteriaCompo();
+                $criteria->setStart($start);
+                $criteria->setLimit($limit);
+                $criteria->add($this->get_addtion_by_lid($lid));
+                $criteria->setSort($sort);
+                $objs =& $this->getObjects($criteria);
+            }
+            return $objs;
+        }
 
-function &get_objects_by_lid_non_act_asc($lid, $limit=0, $start=0)
-{
-	$objs =& $this->get_objects_by_lid_non_act($lid, $limit, $start, 'fid ASC');
-	return $objs;
-}
+    public function &get_objects_by_lid_non_act_asc($lid, $limit = 0, $start = 0)
+        {
+            $objs =& $this->get_objects_by_lid_non_act($lid, $limit, $start, 'fid ASC');
+            return $objs;
+        }
 
-function &get_objects_by_lid_non_act_desc($lid, $limit=0, $start=0)
-{
-	$objs =& $this->get_objects_by_lid_non_act($lid, $limit, $start, 'fid DESC');
-	return $objs;
-}
+    public function &get_objects_by_lid_non_act_desc($lid, $limit = 0, $start = 0)
+        {
+            $objs =& $this->get_objects_by_lid_non_act($lid, $limit, $start, 'fid DESC');
+            return $objs;
+        }
 
-function &get_objects_by_lid_non_act($lid, $limit=0, $start=0, $sort='fid ASC')
-{
-	$objs = false;
-	if ($lid)
-	{
-		$criteria = new CriteriaCompo();
-		$criteria->setStart($start);
-		$criteria->setLimit($limit);
-		$criteria->add( new criteria('act', 0, '=') );
-		$criteria->add( $this->get_addtion_by_lid($lid) );
-		$criteria->setSort($sort);
-		$objs =& $this->getObjects( $criteria );
-	}
-	return $objs;
-}
+    public function &get_objects_by_lid_non_act($lid, $limit = 0, $start = 0, $sort = 'fid ASC')
+        {
+            $objs = false;
+            if ($lid) {
+                $criteria = new CriteriaCompo();
+                $criteria->setStart($start);
+                $criteria->setLimit($limit);
+                $criteria->add(new criteria('act', 0, '='));
+                $criteria->add($this->get_addtion_by_lid($lid));
+                $criteria->setSort($sort);
+                $objs =& $this->getObjects($criteria);
+            }
+            return $objs;
+        }
 
-function &get_objects_by_link_asc($link, $limit=0, $start=0)
-{
-	$objs =& $this->get_objects_by_link($link, $limit, $start, 'fid ASC');
-	return $objs;
-}
+    public function &get_objects_by_link_asc($link, $limit = 0, $start = 0)
+        {
+            $objs =& $this->get_objects_by_link($link, $limit, $start, 'fid ASC');
+            return $objs;
+        }
 
-function &get_objects_by_link_desc($link, $limit=0, $start=0)
-{
-	$objs =& $this->get_objects_by_link($link, $limit, $start, 'fid DESC');
-	return $objs;
-}
+    public function &get_objects_by_link_desc($link, $limit = 0, $start = 0)
+        {
+            $objs =& $this->get_objects_by_link($link, $limit, $start, 'fid DESC');
+            return $objs;
+        }
 
-function &get_objects_by_link($link, $limit=0, $start=0, $sort='fid ASC')
-{
-	$objs = false;
-	if ($link)
-	{
-		$criteria = new CriteriaCompo();
-		$criteria->setStart($start);
-		$criteria->setLimit($limit);
-		$criteria->add( $this->get_addtion_by_link($link) );
-		$criteria->setSort($sort);
-		$objs =& $this->getObjects( $criteria );
-	}
-	return $objs;
-}
+    public function &get_objects_by_link($link, $limit = 0, $start = 0, $sort = 'fid ASC')
+        {
+            $objs = false;
+            if ($link) {
+                $criteria = new CriteriaCompo();
+                $criteria->setStart($start);
+                $criteria->setLimit($limit);
+                $criteria->add($this->get_addtion_by_link($link));
+                $criteria->setSort($sort);
+                $objs =& $this->getObjects($criteria);
+            }
+            return $objs;
+        }
 
-function &get_objects_by_link_non_act_asc($link, $limit=0, $start=0)
-{
-	$objs =& $this->get_objects_by_link_non_act($link, $limit, $start, 'fid ASC');
-	return $objs;
-}
+    public function &get_objects_by_link_non_act_asc($link, $limit = 0, $start = 0)
+        {
+            $objs =& $this->get_objects_by_link_non_act($link, $limit, $start, 'fid ASC');
+            return $objs;
+        }
 
-function &get_objects_by_link_non_act_desc($link, $limit=0, $start=0)
-{
-	$objs =& $this->get_objects_by_link_non_act($link, $limit, $start, 'fid DESC');
-	return $objs;
-}
+    public function &get_objects_by_link_non_act_desc($link, $limit = 0, $start = 0)
+        {
+            $objs =& $this->get_objects_by_link_non_act($link, $limit, $start, 'fid DESC');
+            return $objs;
+        }
 
-function &get_objects_by_link_non_act($link, $limit=0, $start=0, $sort='fid ASC')
-{
-	$objs = false;
-	if ($link)
-	{
-		$criteria = new CriteriaCompo();
-		$criteria->setStart($start);
-		$criteria->setLimit($limit);
-		$criteria->add( new criteria('act', 0, '=') );
-		$criteria->add( $this->get_addtion_by_link($link) );
-		$criteria->setSort($sort);
-		$objs =& $this->getObjects( $criteria );
-	}
-	return $objs;
-}
+    public function &get_objects_by_link_non_act($link, $limit = 0, $start = 0, $sort = 'fid ASC')
+        {
+            $objs = false;
+            if ($link) {
+                $criteria = new CriteriaCompo();
+                $criteria->setStart($start);
+                $criteria->setLimit($limit);
+                $criteria->add(new criteria('act', 0, '='));
+                $criteria->add($this->get_addtion_by_link($link));
+                $criteria->setSort($sort);
+                $objs =& $this->getObjects($criteria);
+            }
+            return $objs;
+        }
 
-function &get_objects_non_act_asc($limit=0, $start=0)
-{
-	$objs =& $this->get_objects_non_act($limit, $start, 'fid ASC');
-	return $objs;
-}
+    public function &get_objects_non_act_asc($limit = 0, $start = 0)
+        {
+            $objs =& $this->get_objects_non_act($limit, $start, 'fid ASC');
+            return $objs;
+        }
 
-function &get_objects_non_act_desc($limit=0, $start=0)
-{
-	$objs =& $this->get_objects_non_act($limit, $start, 'fid DESC');
-	return $objs;
-}
+    public function &get_objects_non_act_desc($limit = 0, $start = 0)
+        {
+            $objs =& $this->get_objects_non_act($limit, $start, 'fid DESC');
+            return $objs;
+        }
 
-function &get_objects_non_act($limit=0, $start=0, $sort='fid ASC')
-{
-	$criteria = new CriteriaCompo();
-	$criteria->setStart($start);
-	$criteria->setLimit($limit);
-	$criteria->add( new criteria('act', 0, '=') );
-	$criteria->setSort($sort);
-	$objs =& $this->getObjects( $criteria );
-	return $objs;
-}
+        public function &get_objects_non_act($limit = 0, $start = 0, $sort = 'fid ASC')
+        {
+            $criteria = new CriteriaCompo();
+            $criteria->setStart($start);
+            $criteria->setLimit($limit);
+            $criteria->add(new criteria('act', 0, '='));
+            $criteria->setSort($sort);
+            $objs =& $this->getObjects($criteria);
+            return $objs;
+        }
 
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

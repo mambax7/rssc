@@ -16,125 +16,123 @@ if( !class_exists('rssc_icon') )
 //=========================================================
 // class rssc_icon
 //=========================================================
-class rssc_icon
-{
-	var $_db ;
+    class rssc_icon
+    {
+        var $_db;
 
-	var $_ICON_COLS    = 5 ;
-	var $_ICON_DEFAULT = 'default.gif' ;
+        var $_ICON_COLS    = 5;
+        var $_ICON_DEFAULT = 'default.gif';
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct()
-{
-	$this->_db =& Database::getInstance();
-}
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+    public function __construct()
+        {
+            $this->_db =& Database::getInstance();
+        }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) {
-		$instance = new rssc_icon();
-	}
-	return $instance;
-}
+        public static function &getInstance()
+        {
+            static $instance;
+            if (!isset($instance)) {
+                $instance = new rssc_icon();
+            }
+            return $instance;
+        }
 
-// --------------------------------------------------------
-// build icon list
-// --------------------------------------------------------
-function build_template_icon_list( $dirname )
-{
-	$MODULE_DIR = XOOPS_ROOT_PATH.'/modules/'.$dirname;
-	$template   = $MODULE_DIR.'/templates/parts/rssc_icon_list.html';
+        // --------------------------------------------------------
+        // build icon list
+        // --------------------------------------------------------
+    public function build_template_icon_list($dirname)
+        {
+            $MODULE_DIR = XOOPS_ROOT_PATH . '/modules/' . $dirname;
+            $template   = $MODULE_DIR . '/templates/parts/rssc_icon_list.html';
 
-// build template
-	$tpl = new XoopsTpl();
-	$tpl->assign( 'xoops_url',  XOOPS_URL );
-	$tpl->assign( 'dirname',    $dirname );
-	$tpl->assign( 'icon_cols',  $this->_ICON_COLS );
-	$tpl->assign( 'icon_list',  $this->build_icon_list( $dirname ) );
-	$ret = $tpl->fetch( $template );
-	return $ret;
-}
+            // build template
+            $tpl = new XoopsTpl();
+            $tpl->assign('xoops_url', XOOPS_URL);
+            $tpl->assign('dirname', $dirname);
+            $tpl->assign('icon_cols', $this->_ICON_COLS);
+            $tpl->assign('icon_list', $this->build_icon_list($dirname));
+            $ret = $tpl->fetch($template);
+            return $ret;
+        }
 
-function build_icon_list( $dirname )
-{
-	$conf = $this->get_config_row( $dirname );
-	if ( !is_array($conf) ) {
-		return false;
-	}
+    public function build_icon_list($dirname)
+        {
+            $conf = $this->get_config_row($dirname);
+            if (!is_array($conf)) {
+                return false;
+            }
 
-	$rows = $this->get_link_rows( $dirname ) ;
-	if ( !is_array($rows) ) {
-		return false;
-	}
+            $rows = $this->get_link_rows($dirname);
+            if (!is_array($rows)) {
+                return false;
+            }
 
-	$arr  = [];
-	foreach ($rows as $row)
-	{
+            $arr = [];
+            foreach ($rows as $row) {
+                // BUG: display accidentally, when NOT set icon
+                if (($row['icon'] == '') || ($row['icon'] == '---')) {
+                    continue;
+                }
 
-// BUG: display accidentally, when NOT set icon
-		if (( $row['icon'] == '' )||( $row['icon'] == '---' )) {
-			continue;
-		}
+                $tmp['title'] = $this->sanitize($row['title']);
+                $tmp['lid']   = $this->sanitize($row['lid']);
+                $tmp['icon']  = $this->sanitize($row['icon']);
+                $arr[]        = $tmp;
+            }
 
-		$tmp['title'] = $this->sanitize( $row['title'] );
-		$tmp['lid']   = $this->sanitize( $row['lid'] );
-		$tmp['icon']  = $this->sanitize( $row['icon'] );
-		$arr[] = $tmp ;
-	}
+            $tmp['title'] = $this->sanitize(_BL_RSSC_LINK_ETC);
+            $tmp['icon']  = $this->sanitize($this->_ICON_DEFAULT);
+            $arr[]        = $tmp;
 
-	$tmp['title'] = $this->sanitize( _BL_RSSC_LINK_ETC );
-	$tmp['icon']  = $this->sanitize( $this->_ICON_DEFAULT );
-	$arr[] = $tmp ;
+            return $arr;
+        }
 
-	return $arr;
-}
+    public function get_config_row($dirname)
+        {
+            $arr = [];
 
-function get_config_row( $dirname )
-{
-	$arr = [];
+            $table_config = $this->_db->prefix($dirname . '_config');
+            $sql          = 'SELECT * FROM ' . $table_config . ' ORDER BY conf_id ASC';
 
-	$table_config = $this->_db->prefix( $dirname.'_config' );
-	$sql = 'SELECT * FROM '.$table_config.' ORDER BY conf_id ASC';
+            $res = $this->_db->query($sql, 0, 0);
+            if (!$res) {
+                return false;
+            }
 
-	$res = $this->_db->query($sql, 0, 0);
-	if ( !$res ) {
-		return false;
-	}
+            while ($row = $this->_db->fetchArray($res)) {
+                $arr[$row['conf_name']] = $row['conf_value'];
+            }
+            return $arr;
+        }
 
-	while ($row = $this->_db->fetchArray($res)) {
-		$arr[ $row['conf_name'] ] = $row['conf_value'];
-	}
-	return $arr;
-}
+    public function get_link_rows($dirname)
+        {
+            $rows = [];
 
-function get_link_rows( $dirname )
-{
-	$rows = [];
+            $table_link = $this->_db->prefix($dirname . '_link');
+            $sql        = 'SELECT * FROM ' . $table_link . ' WHERE ltype<>0 ORDER BY lid ASC';
 
-	$table_link = $this->_db->prefix( $dirname.'_link' );
-	$sql = 'SELECT * FROM '.$table_link.' WHERE ltype<>0 ORDER BY lid ASC';
+            $res = $this->_db->query($sql);
+            if (!$res) {
+                return false;
+            }
 
-	$res = $this->_db->query( $sql );
-	if ( !$res ) {
-		return false;
-	}
+            while ($row = $this->_db->fetchArray($res)) {
+                $rows[] = $row;
+            }
+            return $rows;
+        }
 
-	while ($row = $this->_db->fetchArray($res)) {
-		$rows[] = $row ;
-	}
-	return $rows;
-}
+        public function sanitize($str)
+        {
+            return htmlspecialchars($str, ENT_QUOTES);
+        }
 
-function sanitize($str)
-{
-	return htmlspecialchars($str, ENT_QUOTES);
-}
-
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

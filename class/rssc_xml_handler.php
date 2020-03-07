@@ -31,7 +31,7 @@ class rssc_xml extends happy_linux_object
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function __construct()
+public function __construct()
 {
 	$this->happy_linux_object();
 
@@ -47,12 +47,12 @@ function __construct()
 //---------------------------------------------------------
 // set
 //---------------------------------------------------------
-function set_vars_insert($lid)
+public function set_vars_insert($lid)
 {
 	$this->setVar('lid', $lid);
 }
 
-function get_rawurldecode_xml()
+public function get_rawurldecode_xml()
 {
 	$ret = false;
 	$xml = $this->get('xml');
@@ -69,66 +69,67 @@ function get_rawurldecode_xml()
 //=========================================================
 // class xml handler
 //=========================================================
-class rssc_xml_handler extends happy_linux_object_handler
-{
+    class rssc_xml_handler extends happy_linux_object_handler
+    {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct( $dirname )
-{
-	$this->happy_linux_object_handler($dirname, 'xml', 'lid', 'rssc_xml');
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+    public function __construct($dirname)
+        {
+            $this->happy_linux_object_handler($dirname, 'xml', 'lid', 'rssc_xml');
 
-	$this->set_debug_db_sql(   RSSC_DEBUG_XML_SQL );
-	$this->set_debug_db_error( RSSC_DEBUG_ERROR );
+            $this->set_debug_db_sql(RSSC_DEBUG_XML_SQL);
+            $this->set_debug_db_error(RSSC_DEBUG_ERROR);
+        }
 
-}
+        //---------------------------------------------------------
+        // basic function
+        //---------------------------------------------------------
+    public function _build_insert_sql(&$obj)
+        {
+            foreach ($obj->gets() as $k => $v) {
+                ${$k} = $v;
+            }
 
-//---------------------------------------------------------
-// basic function
-//---------------------------------------------------------
-function _build_insert_sql(&$obj)
-{
-	foreach ($obj->gets() as $k => $v) 
-	{	${$k} = $v;	}
+            $sql = 'INSERT INTO ' . $this->_table . ' (';
+            $sql .= 'lid, ';
+            $sql .= 'xml, ';
+            $sql .= 'aux_int_1, ';
+            $sql .= 'aux_int_2, ';
+            $sql .= 'aux_text_1, ';
+            $sql .= 'aux_text_2 ';
+            $sql .= ') VALUES (';
+            $sql .= intval($lid) . ', ';
+            $sql .= $this->quote($xml) . ', ';
+            $sql .= intval($aux_int_1) . ', ';
+            $sql .= intval($aux_int_2) . ', ';
+            $sql .= $this->quote($aux_text_1) . ', ';
+            $sql .= $this->quote($aux_text_2) . ' ';
+            $sql .= ')';
 
-	$sql  = 'INSERT INTO '.$this->_table.' (';
-	$sql .= 'lid, ';
-	$sql .= 'xml, ';
-	$sql .= 'aux_int_1, ';
-	$sql .= 'aux_int_2, ';
-	$sql .= 'aux_text_1, ';
-	$sql .= 'aux_text_2 ';
-	$sql .= ') VALUES (';
-	$sql .= intval($lid).', ';
-	$sql .= $this->quote($xml).', ';
-	$sql .= intval($aux_int_1).', ';
-	$sql .= intval($aux_int_2).', ';
-	$sql .= $this->quote($aux_text_1).', ';
-	$sql .= $this->quote($aux_text_2).' ';
-	$sql .= ')';
+            return $sql;
+        }
 
-	return $sql;
-}
+        public function _build_update_sql(&$obj)
+        {
+            foreach ($obj->gets() as $k => $v) {
+                ${$k} = $v;
+            }
 
-function _build_update_sql(&$obj)
-{
-	foreach ($obj->gets() as $k => $v) 
-	{	${$k} = $v;	}
+            $sql = 'UPDATE ' . $this->_table . ' SET ';
+            $sql .= 'xml=' . $this->quote($xml) . ', ';
+            $sql .= 'aux_int_1=' . intval($aux_int_1) . ', ';
+            $sql .= 'aux_int_2=' . intval($aux_int_2) . ', ';
+            $sql .= 'aux_text_1=' . $this->quote($aux_text_1) . ', ';
+            $sql .= 'aux_text_2=' . $this->quote($aux_text_2) . ' ';
+            $sql .= ' WHERE lid=' . intval($lid);
 
-	$sql = 'UPDATE '.$this->_table.' SET ';
-	$sql .= 'xml='.$this->quote($xml).', ';
-	$sql .= 'aux_int_1='.intval($aux_int_1).', ';
-	$sql .= 'aux_int_2='.intval($aux_int_2).', ';
-	$sql .= 'aux_text_1='.$this->quote($aux_text_1).', ';
-	$sql .= 'aux_text_2='.$this->quote($aux_text_2).' ';
-	$sql .= ' WHERE lid='.intval($lid);
+            return $sql;
+        }
 
-	return $sql;
-}
-
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

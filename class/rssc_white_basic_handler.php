@@ -28,47 +28,47 @@ if( !class_exists('rssc_white_basic_handler') )
 // this class handle MySQL table directly
 // this class does not use another class
 //=========================================================
-class rssc_white_basic_handler extends happy_linux_basic_handler
-{
+    class rssc_white_basic_handler extends happy_linux_basic_handler
+    {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct( $dirname )
-{
-	$this->happy_linux_basic_handler( $dirname );
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+    public function __construct($dirname)
+        {
+            $this->happy_linux_basic_handler($dirname);
 
-	$this->set_table_name('white');
-	$this->set_id_name('wid');
+            $this->set_table_name('white');
+            $this->set_id_name('wid');
 
-	$this->set_debug_db_sql(   RSSC_DEBUG_WHITE_BASIC_SQL );
-	$this->set_debug_db_error( RSSC_DEBUG_ERROR );
-}
+            $this->set_debug_db_sql(RSSC_DEBUG_WHITE_BASIC_SQL);
+            $this->set_debug_db_error(RSSC_DEBUG_ERROR);
+        }
 
-//---------------------------------------------------------
-// update
-//---------------------------------------------------------
-function countup($wid)
-{
-	$sql = 'UPDATE '.$this->_table.' SET count = count+1 WHERE wid='.intval($wid);
-	$ret = $this->query($sql);
-	return $ret;
-}
+        //---------------------------------------------------------
+        // update
+        //---------------------------------------------------------
+    public function countup($wid)
+        {
+            $sql = 'UPDATE ' . $this->_table . ' SET count = count+1 WHERE wid=' . intval($wid);
+            $ret = $this->query($sql);
+            return $ret;
+        }
 
-//---------------------------------------------------------
-// select
-//---------------------------------------------------------
-function &get_rows_act($limit=0, $offset=0)
-{
-	$sql  = "SELECT * FROM ".$this->_table;
-	$sql .= " WHERE act=1 AND url<>'' ";
-	$sql .= " ORDER BY wid ASC";
-	$rows =& $this->get_rows_by_sql($sql, $limit, $offset);
-	return $rows;
-}
+        //---------------------------------------------------------
+        // select
+        //---------------------------------------------------------
+        public function &get_rows_act($limit = 0, $offset = 0)
+        {
+            $sql  = "SELECT * FROM " . $this->_table;
+            $sql  .= " WHERE act=1 AND url<>'' ";
+            $sql  .= " ORDER BY wid ASC";
+            $rows =& $this->get_rows_by_sql($sql, $limit, $offset);
+            return $rows;
+        }
 
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

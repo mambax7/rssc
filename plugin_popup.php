@@ -13,69 +13,68 @@ include "header.php";
 //=========================================================
 class rssc_plugin_list
 {
-	var $_DIRNAME;
+    var $_DIRNAME;
 
-	var $_system;
-	var $_plugin;
+    var $_system;
+    var $_plugin;
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct( $dirname )
-{
-	$this->_DIRNAME = $dirname;
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function __construct($dirname)
+    {
+        $this->_DIRNAME = $dirname;
 
-	$this->_system =& happy_linux_system::getInstance();
-	$this->_plugin =& rssc_plugin::getInstance( $dirname );
-}
+        $this->_system =& happy_linux_system::getInstance();
+        $this->_plugin =& rssc_plugin::getInstance($dirname);
+    }
 
-public static function &getInstance( $dirname )
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new rssc_plugin_list( $dirname );
-	}
-	return $instance;
-}
+    public static function &getInstance($dirname)
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new rssc_plugin_list($dirname);
+        }
+        return $instance;
+    }
 
-//---------------------------------------------------------
-// public
-//---------------------------------------------------------
-function build_list()
-{
-	$this->_plugin->init_once();
+    //---------------------------------------------------------
+    // public
+    //---------------------------------------------------------
+    public function build_list()
+    {
+        $this->_plugin->init_once();
 
-	$text  = $this->_build_title();
-	$text .= $this->_plugin->build_table();
-	$text .= $this->_build_close();
+        $text = $this->_build_title();
+        $text .= $this->_plugin->build_table();
+        $text .= $this->_build_close();
 
-	return $text;
-}
+        return $text;
+    }
 
-function is_module_admin()
-{
-	return $this->_system->is_module_admin();
-}
+    public function is_module_admin()
+    {
+        return $this->_system->is_module_admin();
+    }
 
-//---------------------------------------------------------
-// private
-//---------------------------------------------------------
-function _build_title()
-{
-	$text = '<h3 align="center">'. _RSSC_PLUGIN_LIST ."</h3>";
-	return $text;
-}
+    //---------------------------------------------------------
+    // private
+    //---------------------------------------------------------
+    public function _build_title()
+    {
+        $text = '<h3 align="center">' . _RSSC_PLUGIN_LIST . "</h3>";
+        return $text;
+    }
 
-function _build_close()
-{
-	$text  = '<div style="text-align:center;">';
-	$text .= '<input value="'. _CLOSE .'" type="button" onclick="javascript:window.close();" />';
-	$text .= '</div>'."\n";
-	return $text;
-}
+    public function _build_close()
+    {
+        $text = '<div style="text-align:center;">';
+        $text .= '<input value="' . _CLOSE . '" type="button" onclick="javascript:window.close();" />';
+        $text .= '</div>' . "\n";
+        return $text;
+    }
 
-// --- class end ---
+    // --- class end ---
 }
 
 //=========================================================

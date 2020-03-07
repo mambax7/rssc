@@ -118,201 +118,197 @@ exit();
 //=========================================================
 class rssc_single_link_utf8
 {
-	var $_link_handler;
-	var $_xml_handler;
-	var $_conf_handler;
-	var $_parser;
-	var $_viewer;
-	var $_system;
-	var $_convert;
-	var $_post;
-	var $_strings;
+    var $_link_handler;
+    var $_xml_handler;
+    var $_conf_handler;
+    var $_parser;
+    var $_viewer;
+    var $_system;
+    var $_convert;
+    var $_post;
+    var $_strings;
 
-	var $ENCODING_LOCAL = _CHARSET;
-	var $ENCODING_UTF8  = 'UTF-8';
+    var $ENCODING_LOCAL = _CHARSET;
+    var $ENCODING_UTF8  = 'UTF-8';
 
-	var $_lid;
-	var $_mode;
-	var $_link_obj;
+    var $_lid;
+    var $_mode;
+    var $_link_obj;
 
-	var $_flag_highlight = false;
-	var $_keyword_array  = null;
+    var $_flag_highlight = false;
+    var $_keyword_array  = null;
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct()
-{
-	$this->_conf_handler  =& rssc_get_handler('config_basic', RSSC_DIRNAME);
-	$this->_link_handler  =& rssc_get_handler('link_basic',   RSSC_DIRNAME);
-	$this->_xml_handler   =& rssc_get_handler('xml_basic',    RSSC_DIRNAME);
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function __construct()
+    {
+        $this->_conf_handler =& rssc_get_handler('config_basic', RSSC_DIRNAME);
+        $this->_link_handler =& rssc_get_handler('link_basic', RSSC_DIRNAME);
+        $this->_xml_handler  =& rssc_get_handler('xml_basic', RSSC_DIRNAME);
 
-	$this->_parser  =& happy_linux_rss_parser::getInstance();
-	$this->_viewer  =& happy_linux_rss_viewer::getInstance();
-	$this->_post    =& happy_linux_post::getInstance();
-	$this->_system  =& happy_linux_system::getInstance();
-	$this->_convert =& happy_linux_convert_encoding::getInstance();
-	$this->_strings =& happy_linux_strings::getInstance();
-}
+        $this->_parser  =& happy_linux_rss_parser::getInstance();
+        $this->_viewer  =& happy_linux_rss_viewer::getInstance();
+        $this->_post    =& happy_linux_post::getInstance();
+        $this->_system  =& happy_linux_system::getInstance();
+        $this->_convert =& happy_linux_convert_encoding::getInstance();
+        $this->_strings =& happy_linux_strings::getInstance();
+    }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new rssc_single_link_utf8();
-	}
-	return $instance;
-}
+    public static function &getInstance()
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new rssc_single_link_utf8();
+        }
+        return $instance;
+    }
 
-//---------------------------------------------------------
-// function
-//---------------------------------------------------------
-function exists_link($lid)
-{
-	$ret = $this->_link_handler->exists_by_lid($lid);
-	return $ret;
-}
+    //---------------------------------------------------------
+    // function
+    //---------------------------------------------------------
+    public function exists_link($lid)
+    {
+        $ret = $this->_link_handler->exists_by_lid($lid);
+        return $ret;
+    }
 
-function &get_sanitized_parse_by_lid($lid, $mode)
-{
-	$false = false;
+    public function &get_sanitized_parse_by_lid($lid, $mode)
+    {
+        $false = false;
 
-// BUG: Call to undefined method happy_linux_convert_encoding::set_internal_encoding() 
-	happy_linux_internal_encoding( $this->ENCODING_UTF8 );
+        // BUG: Call to undefined method happy_linux_convert_encoding::set_internal_encoding()
+        happy_linux_internal_encoding($this->ENCODING_UTF8);
 
-	$conf =& $this->_conf_handler->get_conf();
-	$limit = $conf['main_link_feeds_perlink'];
+        $conf  =& $this->_conf_handler->get_conf();
+        $limit = $conf['main_link_feeds_perlink'];
 
-	$link =& $this->_link_handler->get_link_by_lid($lid);
-	if ( !is_array( $link ) )
-	{	return $false;	}
+        $link =& $this->_link_handler->get_link_by_lid($lid);
+        if (!is_array($link)) {
+            return $false;
+        }
 
-	$xml =& $this->_xml_handler->get_xml_by_lid($lid);
-	if ( empty($xml) )
-	{	return $false;	}
+        $xml =& $this->_xml_handler->get_xml_by_lid($lid);
+        if (empty($xml)) {
+            return $false;
+        }
 
-	$encoding =  $link['encoding'];
-	$title_s  =  $link['title_s'];
+        $encoding = $link['encoding'];
+        $title_s  = $link['title_s'];
 
-	$link['title_u'] = $this->convert($title_s);
+        $link['title_u'] = $this->convert($title_s);
 
-	$this->_parser->set_local_encoding( $this->ENCODING_UTF8 );
+        $this->_parser->set_local_encoding($this->ENCODING_UTF8);
 
-	$parse_obj =& $this->_parser->parse_by_xml($xml, $encoding);
-	if ( !is_object($parse_obj) )
-	{
-		return $false;
-	}
+        $parse_obj =& $this->_parser->parse_by_xml($xml, $encoding);
+        if (!is_object($parse_obj)) {
+            return $false;
+        }
 
-// PHP 5.2: Assigning the return value of new by reference
-	$view_obj =& $this->_viewer->create();
-	$view_obj->set_vars( $parse_obj->get_vars() );
-	$view_obj->view_format();
-	$view_obj->set_is_japanese( $this->_system->is_japanese() );
-	$view_obj->set_title_html(     $conf['main_link_title_html'] );
-	$view_obj->set_max_title(      $conf['main_link_max_title'] );
-	$view_obj->set_content_html(   $conf['main_link_content_html'] );
-	$view_obj->set_max_content(    $conf['main_link_max_content'] );
-	$view_obj->set_max_summary(    $conf['main_link_max_summary'] );
-	$view_obj->set_flag_highlight( $conf['basic_highlight'] );
-	$view_obj->set_keyword_array(  $this->_keyword_array );
-	$view_obj->view_sanitize();
+        // PHP 5.2: Assigning the return value of new by reference
+        $view_obj =& $this->_viewer->create();
+        $view_obj->set_vars($parse_obj->get_vars());
+        $view_obj->view_format();
+        $view_obj->set_is_japanese($this->_system->is_japanese());
+        $view_obj->set_title_html($conf['main_link_title_html']);
+        $view_obj->set_max_title($conf['main_link_max_title']);
+        $view_obj->set_content_html($conf['main_link_content_html']);
+        $view_obj->set_max_content($conf['main_link_max_content']);
+        $view_obj->set_max_summary($conf['main_link_max_summary']);
+        $view_obj->set_flag_highlight($conf['basic_highlight']);
+        $view_obj->set_keyword_array($this->_keyword_array);
+        $view_obj->view_sanitize();
 
-	$parse_data =& $view_obj->get_vars();
-	$items = $parse_data['items'];
-	$arr   = [];
+        $parse_data =& $view_obj->get_vars();
+        $items      = $parse_data['items'];
+        $arr        = [];
 
-	if ( is_array($items) && count($items) )
-	{
-		$max = count($items);
-		if ($max > $limit)
-		{
-			$max = $limit;
-		}
+        if (is_array($items) && count($items)) {
+            $max = count($items);
+            if ($max > $limit) {
+                $max = $limit;
+            }
 
-		for ($i=0; $i<$max; $i++)
-		{
-			$arr[$i] = $items[$i];
-		}
-	}
+            for ($i = 0; $i < $max; $i++) {
+                $arr[$i] = $items[$i];
+            }
+        }
 
-	$ret = [];
-	$ret['link']  = $link;
-	$ret['items'] = $arr;
+        $ret          = [];
+        $ret['link']  = $link;
+        $ret['items'] = $arr;
 
-	return $ret;
-}
+        return $ret;
+    }
 
-function get_encoding()
-{
-	return $this->ENCODING_UTF8;
-}
+    public function get_encoding()
+    {
+        return $this->ENCODING_UTF8;
+    }
 
-function &convert($text)
-{
-	$ret = $this->_convert->convert($text, $this->ENCODING_UTF8, $this->ENCODING_LOCAL);
-	return $ret;
-}
+    public function &convert($text)
+    {
+        $ret = $this->_convert->convert($text, $this->ENCODING_UTF8, $this->ENCODING_LOCAL);
+        return $ret;
+    }
 
-//---------------------------------------------------------
-// parameter
-//---------------------------------------------------------
-function set_highlight($value)
-{
-	$this->_flag_highlight = (bool)$value;
-}
+    //---------------------------------------------------------
+    // parameter
+    //---------------------------------------------------------
+    public function set_highlight($value)
+    {
+        $this->_flag_highlight = (bool)$value;
+    }
 
-function set_keyword_array($arr)
-{
-	if ( is_array($arr) && count($arr) )
-	{
-		$this->_keyword_array = $arr;
-	}
-}
+    public function set_keyword_array($arr)
+    {
+        if (is_array($arr) && count($arr)) {
+            $this->_keyword_array = $arr;
+        }
+    }
 
-function set_keyword_by_request()
-{
-	$this->set_keyword_array( $this->_post->get_get_keyword_array() );
-}
+    public function set_keyword_by_request()
+    {
+        $this->set_keyword_array($this->_post->get_get_keyword_array());
+    }
 
-function get_keywords_urlencode()
-{
-	return $this->_strings->urlencode_from_array( $this->_keyword_array );
-}
+    public function get_keywords_urlencode()
+    {
+        return $this->_strings->urlencode_from_array($this->_keyword_array);
+    }
 
-//---------------------------------------------------------
-// class system
-//---------------------------------------------------------
-function is_module_admin()
-{
-	return $this->_system->is_module_admin();
-}
+    //---------------------------------------------------------
+    // class system
+    //---------------------------------------------------------
+    public function is_module_admin()
+    {
+        return $this->_system->is_module_admin();
+    }
 
-function get_module_name()
-{
-	return $this->convert( $this->_system->get_module_name('s') );
-}
+    public function get_module_name()
+    {
+        return $this->convert($this->_system->get_module_name('s'));
+    }
 
-function get_sitename()
-{
-	return $this->convert( $this->_system->get_sitename() );
-}
+    public function get_sitename()
+    {
+        return $this->convert($this->_system->get_sitename());
+    }
 
-//---------------------------------------------------------
-// class post
-//---------------------------------------------------------
-function get_get_lid()
-{
-	return $this->_post->get_get_int('lid');
-}
+    //---------------------------------------------------------
+    // class post
+    //---------------------------------------------------------
+    public function get_get_lid()
+    {
+        return $this->_post->get_get_int('lid');
+    }
 
-function get_get_mode()
-{
-	return $this->_post->get_get_int('mode');
-}
+    public function get_get_mode()
+    {
+        return $this->_post->get_get_int('mode');
+    }
 
-// --- class end ---
+    // --- class end ---
 }
 
 ?>

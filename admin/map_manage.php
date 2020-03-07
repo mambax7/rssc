@@ -16,80 +16,80 @@ include_once RSSC_ROOT_PATH.'/class/rssc_map.php';
 //=========================================================
 // class map manage
 //=========================================================
-class admin_map_manage 
+class admin_map_manage
 {
-	var $_conf_handler;
-	var $_config_form;
-	var $_config_store;
- 	var $_map_class;
- 
-	var $_conf;
+    var $_conf_handler;
+    var $_config_form;
+    var $_config_store;
+    var $_map_class;
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct( $dirname )
-{
-	$this->_conf_handler =& rssc_get_handler( 'config_basic', $dirname );
-	$this->_config_form  =& admin_config_form::getInstance();
-	$this->_config_store =& admin_config_store::getInstance();
-	$this->_map_class    =& rssc_map::getInstance( $dirname );
+    var $_conf;
 
-	$this->_conf =& $this->_conf_handler->get_conf();
-}
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function __construct($dirname)
+    {
+        $this->_conf_handler =& rssc_get_handler('config_basic', $dirname);
+        $this->_config_form  =& admin_config_form::getInstance();
+        $this->_config_store =& admin_config_store::getInstance();
+        $this->_map_class    =& rssc_map::getInstance($dirname);
 
-public static function &getInstance( $dirname )
-{
-	static $instance;
-	if (!isset($instance)) {
-		$instance = new admin_map_manage( $dirname );
-	}
-	return $instance;
-}
+        $this->_conf =& $this->_conf_handler->get_conf();
+    }
 
-function get_post_get_op()
-{
-	return $this->_config_form->get_post_get_op();
-}
+    public static function &getInstance($dirname)
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new admin_map_manage($dirname);
+        }
+        return $instance;
+    }
 
-function check_token()
-{
-	return $this->_config_form->check_token();
-}
+    public function get_post_get_op()
+    {
+        return $this->_config_form->get_post_get_op();
+    }
 
-function print_xoops_token_error()
-{
-	$this->_config_form->print_xoops_token_error();
-}
+    public function check_token()
+    {
+        return $this->_config_form->check_token();
+    }
 
-function save()
-{
-	$this->_config_store->save();
-}
+    public function print_xoops_token_error()
+    {
+        $this->_config_form->print_xoops_token_error();
+    }
 
-function main()
-{
-	rssc_admin_print_header();
-	rssc_admin_print_menu();
+    public function save()
+    {
+        $this->_config_store->save();
+    }
 
-	echo "<h4>"._AM_RSSC_MAP_MANAGE."</h4>\n";
-	$this->_config_form->init_form();
+    public function main()
+    {
+        rssc_admin_print_header();
+        rssc_admin_print_menu();
 
-	$this->_map_class->print_check_version();
-	$ret = $this->_map_class->init_html();
-	if ( $ret ) {
-		echo $this->_map_class->build_iframe();
-	}
+        echo "<h4>" . _AM_RSSC_MAP_MANAGE . "</h4>\n";
+        $this->_config_form->init_form();
 
-	echo "<h4>"._AM_RSSC_FORM_MAP."</h4>\n";
-	$this->_config_form->set_form_title( _AM_RSSC_FORM_MAP );
-	$this->_config_form->show_by_catid( 18 );
+        $this->_map_class->print_check_version();
+        $ret = $this->_map_class->init_html();
+        if ($ret) {
+            echo $this->_map_class->build_iframe();
+        }
 
-	rssc_admin_print_footer();
-	return true;
-}
+        echo "<h4>" . _AM_RSSC_FORM_MAP . "</h4>\n";
+        $this->_config_form->set_form_title(_AM_RSSC_FORM_MAP);
+        $this->_config_form->show_by_catid(18);
 
-// --- class end ---
+        rssc_admin_print_footer();
+        return true;
+    }
+
+    // --- class end ---
 }
 
 //=========================================================

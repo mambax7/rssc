@@ -16,46 +16,45 @@
 // === class begin ===
 if( !class_exists('rssc_plugin_latest_feeds') ) 
 {
+    class rssc_plugin_latest_feeds extends rssc_plugin_base
+    {
+        var $_feed_handler;
 
-class rssc_plugin_latest_feeds extends rssc_plugin_base
-{
-	var $_feed_handler;
+        var $_FEED_ORDER  = RSSC_C_ORDER_TEXT_UPDATED;
+        var $_DEFAULT_NUM = 10;
 
-	var $_FEED_ORDER  = RSSC_C_ORDER_TEXT_UPDATED;
-	var $_DEFAULT_NUM = 10;
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct()
+        {
+            rssc_plugin_base::__construct();
+        }
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct()
-{
-	rssc_plugin_base::__construct();
-}
+        //---------------------------------------------------------
+        // function
+        //---------------------------------------------------------
+        public function description()
+        {
+            return 'get leatest feeds';
+        }
 
-//---------------------------------------------------------
-// function
-//---------------------------------------------------------
-function description()
-{
-	return 'get leatest feeds';
-}
+        public function usage()
+        {
+            return 'latest_feeds ( [number_of_feeds] )';
+        }
 
-function usage()
-{
-	return 'latest_feeds ( [number_of_feeds] )';
-}
+        public function execute(&$items)
+        {
+            $feed_handler =& $this->get_handler('feed_basic');
 
-function execute( &$items )
-{
-	$feed_handler =& $this->get_handler( 'feed_basic' );
+            $limit = intval($this->get_param_by_num(0, $this->_DEFAULT_NUM));
+            $rows  =& $feed_handler->get_rows_public_by_order($this->_FEED_ORDER, $limit);
+            return $rows;
+        }
 
-	$limit =  intval( $this->get_param_by_num( 0, $this->_DEFAULT_NUM ) );
-	$rows  =& $feed_handler->get_rows_public_by_order( $this->_FEED_ORDER, $limit );
-	return $rows;
-}
-
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

@@ -35,71 +35,70 @@ include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_get_handle
 //=========================================================
 class rssc_get_location
 {
-	var $_conf_handler;
-	var $_api_class;
+    var $_conf_handler;
+    var $_api_class;
 
-	var $_conf;
+    var $_conf;
 
-// rssc config
-	var $_ELE_ID_PARENT_LATITUDE  = "webmap_latitude";
-	var $_ELE_ID_PARENT_LONGITUDE = "webmap_longitude";
-	var $_ELE_ID_PARENT_ZOOM      = "webmap_zoom";
-	var $_ELE_ID_PARENT_ADDRESS   = "webmap_address";
+    // rssc config
+    var $_ELE_ID_PARENT_LATITUDE  = "webmap_latitude";
+    var $_ELE_ID_PARENT_LONGITUDE = "webmap_longitude";
+    var $_ELE_ID_PARENT_ZOOM      = "webmap_zoom";
+    var $_ELE_ID_PARENT_ADDRESS   = "webmap_address";
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct( $dirname )
-{
-	$this->_conf_handler =& rssc_get_handler( 'config_basic', $dirname );
-	$this->_conf = $this->_conf_handler->get_conf();
-}
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function __construct($dirname)
+    {
+        $this->_conf_handler =& rssc_get_handler('config_basic', $dirname);
+        $this->_conf         = $this->_conf_handler->get_conf();
+    }
 
-public static function &getInstance( $dirname )
-{
-	static $instance;
-	if (!isset($instance)) {
-		$instance = new rssc_get_location( $dirname );
-	}
-	return $instance;
-}
+    public static function &getInstance($dirname)
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new rssc_get_location($dirname);
+        }
+        return $instance;
+    }
 
-//---------------------------------------------------------
-// main
-//---------------------------------------------------------
-function main()
-{
-	$webmap3_dirname = $this->_conf['webmap_dirname'];
-	$latitude  = $this->_conf['webmap_latitude'];
-	$longitude = $this->_conf['webmap_longitude'];
-	$zoom      = $this->_conf['webmap_zoom'];
-	$address   = $this->_conf['webmap_address'];
+    //---------------------------------------------------------
+    // main
+    //---------------------------------------------------------
+    public function main()
+    {
+        $webmap3_dirname = $this->_conf['webmap_dirname'];
+        $latitude        = $this->_conf['webmap_latitude'];
+        $longitude       = $this->_conf['webmap_longitude'];
+        $zoom            = $this->_conf['webmap_zoom'];
+        $address         = $this->_conf['webmap_address'];
 
-	require XOOPS_ROOT_PATH . '/modules/'.$webmap3_dirname.'/include/api.php';
-	if ( ! class_exists('webmap3_api_get_location') ) {
-		echo $this->error();
-		return false;
-	}
+        require XOOPS_ROOT_PATH . '/modules/' . $webmap3_dirname . '/include/api.php';
+        if (!class_exists('webmap3_api_get_location')) {
+            echo $this->error();
+            return false;
+        }
 
-	$api_class =& webmap3_api_get_location::getSingleton( $webmap3_dirname );
+        $api_class =& webmap3_api_get_location::getSingleton($webmap3_dirname);
 
-	$api_class->set_latitude(  $latitude );
-	$api_class->set_longitude( $longitude );
-	$api_class->set_zoom(      $zoom );
-	$api_class->set_address(   $address );
-	$api_class->set_ele_id_parent_latitude(  $this->_ELE_ID_PARENT_LATITUDE );
-	$api_class->set_ele_id_parent_longitude( $this->_ELE_ID_PARENT_LONGITUDE );
-	$api_class->set_ele_id_parent_zoom(      $this->_ELE_ID_PARENT_ZOOM );
-	$api_class->set_ele_id_parent_address(   $this->_ELE_ID_PARENT_ADDRESS );
-	$api_class->display_get_location();
+        $api_class->set_latitude($latitude);
+        $api_class->set_longitude($longitude);
+        $api_class->set_zoom($zoom);
+        $api_class->set_address($address);
+        $api_class->set_ele_id_parent_latitude($this->_ELE_ID_PARENT_LATITUDE);
+        $api_class->set_ele_id_parent_longitude($this->_ELE_ID_PARENT_LONGITUDE);
+        $api_class->set_ele_id_parent_zoom($this->_ELE_ID_PARENT_ZOOM);
+        $api_class->set_ele_id_parent_address($this->_ELE_ID_PARENT_ADDRESS);
+        $api_class->display_get_location();
 
-	return true;
-}
+        return true;
+    }
 
-function error()
-{
-
-$text = <<<EOF
+    public function error()
+    {
+        $text = <<<EOF
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
@@ -113,10 +112,10 @@ $text = <<<EOF
 </html>
 EOF;
 
-	return $text;
-}
+        return $text;
+    }
 
-// --- class end ---
+    // --- class end ---
 }
 
 //=========================================================

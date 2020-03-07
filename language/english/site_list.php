@@ -37,46 +37,45 @@ if( !class_exists('rssc_site_list') )
 //=========================================================
 // class rssc_site_list
 //=========================================================
-class rssc_site_list
-{
+    class rssc_site_list
+    {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct()
-{
-	// dummy
-}
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct()
+        {
+            // dummy
+        }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new rssc_site_list();
-	}
-	return $instance;
-}
+        public static function &getInstance()
+        {
+            static $instance;
+            if (!isset($instance)) {
+                $instance = new rssc_site_list();
+            }
+            return $instance;
+        }
 
-//---------------------------------------------------------
-// public
-//---------------------------------------------------------
-function get_site_list()
-{
-	$site = [];
+        //---------------------------------------------------------
+        // public
+        //---------------------------------------------------------
+        public function get_site_list()
+        {
+            $site = [];
 
-	$site[1]['title']    = 'google';
-	$site[1]['url']      = 'http://blogsearch.google.com/blogsearch?hl=en&lr=lang_en&ie=utf-8&num=10&output=atom&q=';
-	$site[1]['rss']      = 'http://blogsearch.google.com/blogsearch_feeds?hl=en&lr=lang_en&ie=utf-8&num=10&output=atom&q=';
-	$site[1]['mode']     =  RSSC_C_MODE_ATOM;
-	$site[1]['code']     = 'UTF-8';
-	$site[1]['encoding'] = 'UTF-8';
+            $site[1]['title']    = 'google';
+            $site[1]['url']      = 'http://blogsearch.google.com/blogsearch?hl=en&lr=lang_en&ie=utf-8&num=10&output=atom&q=';
+            $site[1]['rss']      = 'http://blogsearch.google.com/blogsearch_feeds?hl=en&lr=lang_en&ie=utf-8&num=10&output=atom&q=';
+            $site[1]['mode']     = RSSC_C_MODE_ATOM;
+            $site[1]['code']     = 'UTF-8';
+            $site[1]['encoding'] = 'UTF-8';
 
-	return $site;
-}
+            return $site;
+        }
 
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

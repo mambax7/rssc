@@ -17,82 +17,78 @@
 // === class begin ===
 if( !class_exists('rssc_plugin_mail') ) 
 {
+    class rssc_plugin_mail extends rssc_plugin_base
+    {
 
-class rssc_plugin_mail extends rssc_plugin_base
-{
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+    public function __construct()
+        {
+            rssc_plugin_base::__construct();
+        }
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct()
-{
-	rssc_plugin_base::__construct();
-}
+        //---------------------------------------------------------
+        // function
+        //---------------------------------------------------------
+    public function description()
+        {
+            return 'send content to address by mail';
+        }
 
-//---------------------------------------------------------
-// function
-//---------------------------------------------------------
-function description()
-{
-	return 'send content to address by mail';
-}
+    public function usage()
+        {
+            return 'mail ( address, [subject] )';
+        }
 
-function usage()
-{
-	return 'mail ( address, [subject] )';
-}
+        public function execute(&$items)
+        {
+            $happy_linux_system =& happy_linux_system::getInstance();
 
-function execute( &$items )
-{
-	$happy_linux_system =& happy_linux_system::getInstance();
+            // assume to implode one item
+            $this->set_plural_item_array($items);
+            $this->set_item_array($this->get_plural_item_by_num(0));
 
-// assume to implode one item
-	$this->set_plural_item_array( $items );
-	$this->set_item_array( $this->get_plural_item_by_num(0) );
+            $address = $this->get_param_by_num(0);
+            $subject = $this->get_param_by_num(1);
 
-	$address = $this->get_param_by_num(0);
-	$subject = $this->get_param_by_num(1);
+            $sitename  = $happy_linux_system->get_sitename();
+            $adminmail = $happy_linux_system->get_adminmail();
 
-	$sitename  = $happy_linux_system->get_sitename();
-	$adminmail = $happy_linux_system->get_adminmail();
+            if (empty($address)) {
+                $this->set_logs('mail: no address');
+                return false;
+            }
 
-	if ( empty($address) )
-	{
-		$this->set_logs( 'mail: no address' );
-		return false;
-	}
+            if (empty($subject)) {
+                $subject = $sitename;
+            }
 
-	if ( empty($subject) )
-	{
-		$subject = $sitename;
-	}
+            $body = $subject . "\n\n";
+            $body .= $this->get_item_by_key('content');
+            $body .= "\n\n";
+            $body .= "----- \n";
+            $body .= $sitename . "\n";
+            $body .= $adminmail . "\n";
 
-	$body  = $subject."\n\n";
-	$body .= $this->get_item_by_key('content');
-	$body .= "\n\n";
-	$body .= "----- \n";
-	$body .= $sitename."\n";
-	$body .= $adminmail."\n";
+            $mailer =& getMailer();
 
-	$mailer =& getMailer();
+            $mailer->setToEmails($address);
+            $mailer->setSubject($subject);
+            $mailer->setBody($body);
+            $mailer->setFromEmail($adminmail);
+            $mailer->useMail();
 
-	$mailer->setToEmails(  $address );
-	$mailer->setSubject(   $subject );
-	$mailer->setBody(      $body );
-	$mailer->setFromEmail( $adminmail );
-	$mailer->useMail();	
+            $ret = $mailer->send();
+            if (!$ret) {
+                $this->set_logs($mailer->getErrors(0));
+            }
 
-	$ret = $mailer->send();
-	if ( !$ret )
-	{
-		$this->set_logs( $mailer->getErrors(0) );
-	}
+            return $items;
+        }
 
-	return $items;
-}
-
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

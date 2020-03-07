@@ -25,59 +25,59 @@ if( !class_exists('rssc_config_handler') )
 //================================================================
 // class rssc_config
 //================================================================
-class rssc_config extends happy_linux_config_base
-{
+    class rssc_config extends happy_linux_config_base
+    {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct()
-{
-	$this->happy_linux_config_base();
-}
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct()
+        {
+            $this->happy_linux_config_base();
+        }
 
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 //=========================================================
 // class config handler
 //=========================================================
-class rssc_config_handler extends happy_linux_config_base_handler
-{
+    class rssc_config_handler extends happy_linux_config_base_handler
+    {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct( $dirname )
-{
-	$this->happy_linux_config_base_handler( $dirname, 'config', 'conf_id', 'rssc_config' );
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct($dirname)
+        {
+            $this->happy_linux_config_base_handler($dirname, 'config', 'conf_id', 'rssc_config');
 
-	$this->set_debug_db_sql(   RSSC_DEBUG_CONFIG_SQL );
-	$this->set_debug_db_error( RSSC_DEBUG_ERROR );
-}
+            $this->set_debug_db_sql(RSSC_DEBUG_CONFIG_SQL);
+            $this->set_debug_db_error(RSSC_DEBUG_ERROR);
+        }
 
-//=========================================================
-// add_column_table
-//=========================================================
-function check_version_040()
-{
-	$ret = $this->existsFieldName( 'conf_valuetype' );
-	return $ret;
-}
+        //=========================================================
+        // add_column_table
+        //=========================================================
+        public function check_version_040()
+        {
+            $ret = $this->existsFieldName('conf_valuetype');
+            return $ret;
+        }
 
-function add_column_table_040()
-{
-$sql = "
-  ALTER TABLE ".$this->_table." ADD COLUMN (
+        public function add_column_table_040()
+        {
+            $sql = "
+  ALTER TABLE " . $this->_table . " ADD COLUMN (
   conf_valuetype varchar(255) NOT NULL default ''
 )";
 
-	$ret = $this->query($sql);
-	return $ret;
-}
+            $ret = $this->query($sql);
+            return $ret;
+        }
 
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

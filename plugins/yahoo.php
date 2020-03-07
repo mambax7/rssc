@@ -26,56 +26,51 @@
 // === class begin ===
 if( !class_exists('rssc_plugin_yahoo') ) 
 {
+    class rssc_plugin_yahoo extends rssc_plugin_base
+    {
 
-class rssc_plugin_yahoo extends rssc_plugin_base
-{
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+    public function __construct()
+        {
+            rssc_plugin_base::__construct();
+        }
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct()
-{
-	rssc_plugin_base::__construct();
-}
+        //---------------------------------------------------------
+        // function
+        //---------------------------------------------------------
+    public function description()
+        {
+            return 'convert the link to ordinary style from yahoo style';
+        }
 
-//---------------------------------------------------------
-// function
-//---------------------------------------------------------
-function description()
-{
-	return 'convert the link to ordinary style from yahoo style';
-}
+    public function convert()
+        {
+            $link = $this->get_item_by_key('link');
+            if ($link) {
+                $this->set_item_by_key('link', $this->_convert_link($link));
+                return true;
+            }
+            return false;
+        }
 
-function convert()
-{
-	$link = $this->get_item_by_key( 'link' );
-	if ( $link )
-	{
-		$this->set_item_by_key( 'link', $this->_convert_link( $link ));
-		return true;
-	}
-	return false;
-}
+        public function _convert_link($link)
+        {
+            $pattern1 = '|http://.*\*\-?(http\%3A//.*)|i';
+            $pattern2 = '|http://.*\*\-?(http://.*)|i';
 
-function _convert_link( $link )
-{
-	$pattern1 = '|http://.*\*\-?(http\%3A//.*)|i';
-	$pattern2 = '|http://.*\*\-?(http://.*)|i';
+            if (preg_match($pattern1, $link, $matches1)) {
+                return str_replace('http%3A//', 'http://', $matches1[1]);
+            } elseif (preg_match($pattern2, $link, $matches2)) {
+                return $matches2[1];
+            }
 
-	if ( preg_match( $pattern1, $link, $matches1 ) )
-	{
-		return str_replace( 'http%3A//', 'http://', $matches1[1] );
-	}
-	elseif ( preg_match( $pattern2, $link, $matches2 ) )
-	{
-		return $matches2[1];
-	}
+            return $link;
+        }
 
-	return $link;
-}
-
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

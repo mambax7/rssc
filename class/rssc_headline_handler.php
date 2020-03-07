@@ -26,57 +26,55 @@ if( !class_exists('rssc_headline_handler') )
 //=========================================================
 // class rssc_headline_handler
 //=========================================================
-class rssc_headline_handler extends happy_linux_error
-{
-// handler
-	var $_link_handler;
-	var $_refresh_handler;
+    class rssc_headline_handler extends happy_linux_error
+    {
+        // handler
+        var $_link_handler;
+        var $_refresh_handler;
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct( $dirname )
-{
-	$this->happy_linux_error();
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+    public function __construct($dirname)
+        {
+            $this->happy_linux_error();
 
-// handler
-	$this->_link_handler    =& rssc_get_handler('link_basic', $dirname);
-	$this->_refresh_handler =& rssc_get_handler('refresh',    $dirname);
-}
+            // handler
+            $this->_link_handler    =& rssc_get_handler('link_basic', $dirname);
+            $this->_refresh_handler =& rssc_get_handler('refresh', $dirname);
+        }
 
-//---------------------------------------------------------
-// refresh headline links
-//---------------------------------------------------------
-function refresh_headline($limit=0, $start=0)
-{
-	$this->_clear_errors();
+        //---------------------------------------------------------
+        // refresh headline links
+        //---------------------------------------------------------
+    public function refresh_headline($limit = 0, $start = 0)
+        {
+            $this->_clear_errors();
 
-	$lid_arr = $this->_link_handler->get_headline_lids($limit, $start);
+            $lid_arr = $this->_link_handler->get_headline_lids($limit, $start);
 
-// refresh
-	foreach ($lid_arr as $lid) 
-	{
-		if ( !$this->_refresh_handler->refresh($lid) )
-		{
-// Fatal error: Call to a member function on a non-object
-			$this->_set_errors( $this->_refresh_handler->getErrors() );
-		}
-	}
+            // refresh
+            foreach ($lid_arr as $lid) {
+                if (!$this->_refresh_handler->refresh($lid)) {
+                    // Fatal error: Call to a member function on a non-object
+                    $this->_set_errors($this->_refresh_handler->getErrors());
+                }
+            }
 
-	return $this->returnExistError();
-}
+            return $this->returnExistError();
+        }
 
-//---------------------------------------------------------
-// get headline links
-//---------------------------------------------------------
-function &get_headline_links($limit=0, $start=0)
-{
-	$links =& $this->_link_handler->get_headlines($limit, $start);
-	return $links;
-}
+        //---------------------------------------------------------
+        // get headline links
+        //---------------------------------------------------------
+        public function &get_headline_links($limit = 0, $start = 0)
+        {
+            $links =& $this->_link_handler->get_headlines($limit, $start);
+            return $links;
+        }
 
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

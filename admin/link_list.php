@@ -29,113 +29,109 @@ include 'admin_header.php';
 class admin_link_list extends happy_linux_page_frame
 {
 
-// handler
-	var $_feed_handler;
+    // handler
+    var $_feed_handler;
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct()
-{
-	$this->happy_linux_page_frame();
-	$this->set_handler('link', RSSC_DIRNAME);
-	$this->set_id_name('lid');
-	$this->set_lang_title( _AM_RSSC_LIST_LINK );
-	$this->set_flag_execute_time( true );
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function __construct()
+    {
+        $this->happy_linux_page_frame();
+        $this->set_handler('link', RSSC_DIRNAME);
+        $this->set_id_name('lid');
+        $this->set_lang_title(_AM_RSSC_LIST_LINK);
+        $this->set_flag_execute_time(true);
 
-// handler
-	$this->_feed_handler =& rssc_get_handler('feed', RSSC_DIRNAME);
-}
+        // handler
+        $this->_feed_handler =& rssc_get_handler('feed', RSSC_DIRNAME);
+    }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_link_list();
-	}
-	return $instance;
-}
+    public static function &getInstance()
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new admin_link_list();
+        }
+        return $instance;
+    }
 
-//---------------------------------------------------------
-// handler
-//---------------------------------------------------------
-// Notice: Only variables should be assigned by reference
-function &_get_table_header()
-{
-	$edit = _RSSC_LINK_ID.'<br />('._EDIT.')';
+    //---------------------------------------------------------
+    // handler
+    //---------------------------------------------------------
+    // Notice: Only variables should be assigned by reference
+    public function &_get_table_header()
+    {
+        $edit = _RSSC_LINK_ID . '<br />(' . _EDIT . ')';
 
-	$arr = [
-		$edit,
-		_AM_RSSC_SHOW_RSS,
-		_AM_RSSC_SHOW_FEED,
-		_RSSC_SITE_TITLE,
-		_RSSC_RSS_MODE,
-		_RSSC_XML_URL,
-    ];
+        $arr = [
+            $edit,
+            _AM_RSSC_SHOW_RSS,
+            _AM_RSSC_SHOW_FEED,
+            _RSSC_SITE_TITLE,
+            _RSSC_RSS_MODE,
+            _RSSC_XML_URL,
+        ];
 
-	return $arr;
-}
+        return $arr;
+    }
 
-function &_get_cols( &$obj )
-{
-	$lid = $obj->getVar('lid');
+    public function &_get_cols(&$obj)
+    {
+        $lid = $obj->getVar('lid');
 
-	$edit_jump = 'link_manage.php?op=mod_form&amp;lid=';
-	$link_link = $this->_build_page_id_link_by_obj( $obj, 'lid', $edit_jump);
+        $edit_jump = 'link_manage.php?op=mod_form&amp;lid=';
+        $link_link = $this->_build_page_id_link_by_obj($obj, 'lid', $edit_jump);
 
-	list($href1, $href2) = $this->_get_linkfeed($obj);
+        list($href1, $href2) = $this->_get_linkfeed($obj);
 
-	$view_image    = RSSC_URL."/images/text.gif";
-	$edit_image    = RSSC_URL."/images/edit.gif";
-	$view_img_link = $this->build_html_img_tag($view_image, 0, 0, 0, 'link');
-	$edit_img_link = $this->build_html_img_tag($edit_image, 0, 0, 0, 'edit');
-	$view_url_lid  = RSSC_URL .'/single_link.php?lid='. $lid;
-	$edit_url_lid  = RSSC_URL .'/admin/'. $edit_jump . $lid;
-	$view_link     = $this->build_html_a_href_name($view_url_lid, $view_img_link, '', false);
-	$edit_link     = $this->build_html_a_href_name($edit_url_lid, $edit_img_link, '', false);
+        $view_image    = RSSC_URL . "/images/text.gif";
+        $edit_image    = RSSC_URL . "/images/edit.gif";
+        $view_img_link = $this->build_html_img_tag($view_image, 0, 0, 0, 'link');
+        $edit_img_link = $this->build_html_img_tag($edit_image, 0, 0, 0, 'edit');
+        $view_url_lid  = RSSC_URL . '/single_link.php?lid=' . $lid;
+        $edit_url_lid  = RSSC_URL . '/admin/' . $edit_jump . $lid;
+        $view_link     = $this->build_html_a_href_name($view_url_lid, $view_img_link, '', false);
+        $edit_link     = $this->build_html_a_href_name($edit_url_lid, $edit_img_link, '', false);
 
-	$edit = $edit_link.'&nbsp;'.$view_link.'&nbsp;'.$link_link;
+        $edit = $edit_link . '&nbsp;' . $view_link . '&nbsp;' . $link_link;
 
-	$mode_name = $obj->get_mode_name();
-	$xml_url_s = $obj->get_rssurl_by_mode('s');
+        $mode_name = $obj->get_mode_name();
+        $xml_url_s = $obj->get_rssurl_by_mode('s');
 
-	$arr = [
-		$edit,
-		$href1,
-		$href2,
-		$this->_build_page_name_link_by_obj($obj, 'url',      'title', '_blank'),
-		$mode_name,
-		$this->build_html_a_href_name($xml_url_s, '', '_blank'),
-    ];
+        $arr = [
+            $edit,
+            $href1,
+            $href2,
+            $this->_build_page_name_link_by_obj($obj, 'url', 'title', '_blank'),
+            $mode_name,
+            $this->build_html_a_href_name($xml_url_s, '', '_blank'),
+        ];
 
-	return $arr;
-}
+        return $arr;
+    }
 
-function _get_linkfeed(&$obj)
-{
-	$lid   = $obj->getVar('lid');
-	$lid_p = sprintf("%03d",$lid);
-	$count = $this->_feed_handler->get_count_by_lid( $lid );
+    public function _get_linkfeed(&$obj)
+    {
+        $lid   = $obj->getVar('lid');
+        $lid_p = sprintf("%03d", $lid);
+        $count = $this->_feed_handler->get_count_by_lid($lid);
 
-	if ($count)
-	{
-		$name_feed = "FEED ($count)";
-	}
-	else
-	{
-		$name_feed = "FEED";
-	}
+        if ($count) {
+            $name_feed = "FEED ($count)";
+        } else {
+            $name_feed = "FEED";
+        }
 
-	$jump_rss  = "parse_rss.php?lid=".$lid;
-	$jump_feed = "feed_list_lid.php?lid=".$lid;
-	$href1 = $this->build_html_a_href_name($jump_rss, 'RSS');
-	$href2 = $this->build_html_a_href_name($jump_feed, $name_feed);
+        $jump_rss  = "parse_rss.php?lid=" . $lid;
+        $jump_feed = "feed_list_lid.php?lid=" . $lid;
+        $href1     = $this->build_html_a_href_name($jump_rss, 'RSS');
+        $href2     = $this->build_html_a_href_name($jump_feed, $name_feed);
 
-	return [$href1, $href2];
-}
+        return [$href1, $href2];
+    }
 
-// --- class end ---
+    // --- class end ---
 }
 
 

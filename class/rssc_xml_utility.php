@@ -43,29 +43,28 @@ define('RSSC_CODE_DISCOVER_FAILED',        HAPPY_LINUX_RSS_CODE_DISCOVER_FAILED)
 //=========================================================
 // class rssc_xml_utility
 //=========================================================
-class rssc_xml_utility extends happy_linux_rss_utility
-{
+    class rssc_xml_utility extends happy_linux_rss_utility
+    {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct()
-{
-	$this->happy_linux_rss_utility();
-}
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct()
+        {
+            $this->happy_linux_rss_utility();
+        }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new rssc_xml_utility();
-	}
-	return $instance;
-}
+        public static function &getInstance()
+        {
+            static $instance;
+            if (!isset($instance)) {
+                $instance = new rssc_xml_utility();
+            }
+            return $instance;
+        }
 
-//----- class end -----
-}
+        //----- class end -----
+    }
 
 // === class end ===
 }

@@ -27,7 +27,7 @@ class rssc_xml_basic extends happy_linux_basic
 //---------------------------------------------------------
 // constructor
 //---------------------------------------------------------
-function __construct()
+public function __construct()
 {
 	$this->happy_linux_basic();
 
@@ -37,7 +37,7 @@ function __construct()
 //---------------------------------------------------------
 // init
 //---------------------------------------------------------
-function init()
+public function init()
 {
 	$this->_vars = [
 		'xid' => 0,
@@ -61,116 +61,115 @@ function init()
 // this class handle MySQL table directly
 // this class does not use another class
 //=========================================================
-class rssc_xml_basic_handler extends happy_linux_basic_handler
-{
+    class rssc_xml_basic_handler extends happy_linux_basic_handler
+    {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct( $dirname )
-{
-	$this->happy_linux_basic_handler( $dirname );
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+    public function __construct($dirname)
+        {
+            $this->happy_linux_basic_handler($dirname);
 
-	$this->set_table_name('xml');
-	$this->set_id_name('lid');
-	$this->set_class_name('rssc_xml_basic');
+            $this->set_table_name('xml');
+            $this->set_id_name('lid');
+            $this->set_class_name('rssc_xml_basic');
 
-	$this->set_debug_db_sql(   RSSC_DEBUG_XML_BASIC_SQL );
-	$this->set_debug_db_error( RSSC_DEBUG_ERROR );
-}
+            $this->set_debug_db_sql(RSSC_DEBUG_XML_BASIC_SQL);
+            $this->set_debug_db_error(RSSC_DEBUG_ERROR);
+        }
 
-//---------------------------------------------------------
-// insert
-//---------------------------------------------------------
-function insert( &$obj )
-{
-	foreach ($obj->get_vars() as $k => $v) 
-	{	${$k} = $v;	}
+        //---------------------------------------------------------
+        // insert
+        //---------------------------------------------------------
+    public function insert(&$obj)
+        {
+            foreach ($obj->get_vars() as $k => $v) {
+                ${$k} = $v;
+            }
 
-	$sql  = 'INSERT INTO '.$this->_table.' (';
-	$sql .= 'lid, ';
-	$sql .= 'xml, ';
-	$sql .= 'aux_int_1, ';
-	$sql .= 'aux_int_2, ';
-	$sql .= 'aux_text_1, ';
-	$sql .= 'aux_text_2 ';
-	$sql .= ') VALUES (';
-	$sql .= intval($lid).', ';
-	$sql .= $this->quote($xml).', ';
-	$sql .= intval($aux_int_1).', ';
-	$sql .= intval($aux_int_2).', ';
-	$sql .= $this->quote($aux_text_1).', ';
-	$sql .= $this->quote($aux_text_2).' ';
-	$sql .= ')';
+            $sql = 'INSERT INTO ' . $this->_table . ' (';
+            $sql .= 'lid, ';
+            $sql .= 'xml, ';
+            $sql .= 'aux_int_1, ';
+            $sql .= 'aux_int_2, ';
+            $sql .= 'aux_text_1, ';
+            $sql .= 'aux_text_2 ';
+            $sql .= ') VALUES (';
+            $sql .= intval($lid) . ', ';
+            $sql .= $this->quote($xml) . ', ';
+            $sql .= intval($aux_int_1) . ', ';
+            $sql .= intval($aux_int_2) . ', ';
+            $sql .= $this->quote($aux_text_1) . ', ';
+            $sql .= $this->quote($aux_text_2) . ' ';
+            $sql .= ')';
 
-	if ( !$this->query($sql) ) 
-	{	return false;	}
+            if (!$this->query($sql)) {
+                return false;
+            }
 
-	$newid = $this->_db->getInsertId();
-	return $newid;
-}
+            $newid = $this->_db->getInsertId();
+            return $newid;
+        }
 
-//---------------------------------------------------------
-// update
-//---------------------------------------------------------
-function update( &$obj )
-{
-	foreach ($obj->get_vars() as $k => $v) 
-	{	${$k} = $v;	}
+        //---------------------------------------------------------
+        // update
+        //---------------------------------------------------------
+    public function update(&$obj)
+        {
+            foreach ($obj->get_vars() as $k => $v) {
+                ${$k} = $v;
+            }
 
-	$sql = 'UPDATE '.$this->_table.' SET ';
-	$sql .= 'xml='.$this->quote($xml).', ';
-	$sql .= 'aux_int_1='.intval($aux_int_1).', ';
-	$sql .= 'aux_int_2='.intval($aux_int_2).', ';
-	$sql .= 'aux_text_1='.$this->quote($aux_text_1).', ';
-	$sql .= 'aux_text_2='.$this->quote($aux_text_2).' ';
-	$sql .= ' WHERE lid='.intval($lid);
+            $sql = 'UPDATE ' . $this->_table . ' SET ';
+            $sql .= 'xml=' . $this->quote($xml) . ', ';
+            $sql .= 'aux_int_1=' . intval($aux_int_1) . ', ';
+            $sql .= 'aux_int_2=' . intval($aux_int_2) . ', ';
+            $sql .= 'aux_text_1=' . $this->quote($aux_text_1) . ', ';
+            $sql .= 'aux_text_2=' . $this->quote($aux_text_2) . ' ';
+            $sql .= ' WHERE lid=' . intval($lid);
 
-	return $this->query($sql);
-}
+            return $this->query($sql);
+        }
 
-//---------------------------------------------------------
-// add & modify
-//---------------------------------------------------------
-function add_update_xml($lid, $xml, $flag_xml=true )
-{
-	if ( $flag_xml )
-	{
-		$xml = rawurlencode($xml);
-	}
+        //---------------------------------------------------------
+        // add & modify
+        //---------------------------------------------------------
+    public function add_update_xml($lid, $xml, $flag_xml = true)
+        {
+            if ($flag_xml) {
+                $xml = rawurlencode($xml);
+            }
 
-	$obj =& $this->get_object_by_id($lid);
-	if ( is_object($obj) )
-	{
-// update
-		$obj->set('xml', $xml);
-		return $this->update( $obj );
-	}
+            $obj =& $this->get_object_by_id($lid);
+            if (is_object($obj)) {
+                // update
+                $obj->set('xml', $xml);
+                return $this->update($obj);
+            }
 
-// insert
-	$obj = $this->create();
-	$obj->set('lid', $lid);
-	$obj->set('xml', $xml);
-	return $this->insert( $obj );
+            // insert
+            $obj = $this->create();
+            $obj->set('lid', $lid);
+            $obj->set('xml', $xml);
+            return $this->insert($obj);
+        }
 
-}
+        //---------------------------------------------------------
+        // get
+        //---------------------------------------------------------
+        public function get_xml_by_lid($lid)
+        {
+            $ret = false;
+            $row =& $this->get_row_by_id($lid);
+            if (is_array($row) && $row['xml']) {
+                $ret = rawurldecode($row['xml']);
+            }
+            return $ret;
+        }
 
-//---------------------------------------------------------
-// get
-//---------------------------------------------------------
-function get_xml_by_lid($lid)
-{
-	$ret = false;
-	$row =& $this->get_row_by_id($lid);
-	if ( is_array($row) && $row['xml'] )
-	{
-		$ret = rawurldecode( $row['xml'] );
-	}
-	return $ret;
-}
-
-// --- class end ---
-}
+        // --- class end ---
+    }
 
 // === class end ===
 }

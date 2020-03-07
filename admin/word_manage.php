@@ -20,173 +20,165 @@ include_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
 class admin_manage_word extends admin_manage_base
 {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct()
-{
-	admin_manage_base::__construct();
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function __construct()
+    {
+        admin_manage_base::__construct();
 
-	$this->set_handler( 'word', RSSC_DIRNAME, 'rssc' );
-	$this->set_id_name( 'sid' );
-	$this->set_form_class( 'admin_form_word' );
-	$this->set_script(   'word_manage.php' );
-	$this->set_redirect( 'word_list.php', 'word_list.php?sortid=1' );
-	$this->set_title( _AM_RSSC_ADD_WORD, _AM_RSSC_MOD_WORD, _AM_RSSC_DEL_WORD );
-	$this->set_list_id_name( 'word_search_id' );
-	$this->set_flag_execute_time( true );
+        $this->set_handler('word', RSSC_DIRNAME, 'rssc');
+        $this->set_id_name('sid');
+        $this->set_form_class('admin_form_word');
+        $this->set_script('word_manage.php');
+        $this->set_redirect('word_list.php', 'word_list.php?sortid=1');
+        $this->set_title(_AM_RSSC_ADD_WORD, _AM_RSSC_MOD_WORD, _AM_RSSC_DEL_WORD);
+        $this->set_list_id_name('word_search_id');
+        $this->set_flag_execute_time(true);
+    }
 
-}
+    public static function &getInstance()
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new admin_manage_word();
+        }
+        return $instance;
+    }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_manage_word();
-	}
-	return $instance;
-}
+    //---------------------------------------------------------
+    // main_add_form()
+    //---------------------------------------------------------
+    public function main_add_form()
+    {
+        $this->_main_add_form();
+    }
 
-//---------------------------------------------------------
-// main_add_form()
-//---------------------------------------------------------
-function main_add_form()
-{
-	$this->_main_add_form();
-}
+    //---------------------------------------------------------
+    // main_add_table()
+    //---------------------------------------------------------
+    public function main_add_table()
+    {
+        $this->_main_add_table(true);
+    }
 
-//---------------------------------------------------------
-// main_add_table()
-//---------------------------------------------------------
-function main_add_table()
-{
-	$this->_main_add_table( true );
-}
+    public function _check_add_table()
+    {
+        $ret = $this->_check_mod_table();
+        if (!$ret) {
+            return false;
+        }
 
-function _check_add_table()
-{
-	$ret = $this->_check_mod_table();
-	if ( !$ret )
-	{	return false;	}
+        $word = $this->_post->get_post_text('word');
+        $objs =& $this->_handler->get_objects_by_word($word);
+        if (is_array($objs) && count($objs)) {
+            $script = 'word_manage.php?op=mod_form&amp;sid=';
+            $msg    = $this->_handler->build_error_list($objs, $script);
+            $err    = "<h4>" . _AM_RSSC_WORD_ALREADY . "</h4>\n" . $msg;
+            $this->_set_error_extra($err);
+            return false;
+        }
 
-	$word =  $this->_post->get_post_text('word');
-	$objs =& $this->_handler->get_objects_by_word($word);
-	if ( is_array($objs) && count($objs) )
-	{
-		$script = 'word_manage.php?op=mod_form&amp;sid=';
-		$msg    = $this->_handler->build_error_list($objs, $script);
-		$err    = "<h4>"._AM_RSSC_WORD_ALREADY ."</h4>\n". $msg;
-		$this->_set_error_extra( $err );
-		return false;
-	}
+        return true;
+    }
 
-	return true;
-}
+    //---------------------------------------------------------
+    // main_mod_form()
+    //---------------------------------------------------------
+    public function main_mod_form()
+    {
+        $this->_main_mod_form();
+    }
 
-//---------------------------------------------------------
-// main_mod_form()
-//---------------------------------------------------------
-function main_mod_form()
-{
-	$this->_main_mod_form();
-}
+    //---------------------------------------------------------
+    // main_mod_table()
+    //---------------------------------------------------------
+    public function main_mod_table()
+    {
+        $this->_main_mod_table(true);
+    }
 
-//---------------------------------------------------------
-// main_mod_table()
-//---------------------------------------------------------
-function main_mod_table()
-{
-	$this->_main_mod_table( true );
-}
+    public function _check_mod_table()
+    {
+        $this->_clear_errors();
+        $this->_check_fill_by_post('word', _RSSC_WORD_WORD);
+        return $this->returnExistError();
+    }
 
-function _check_mod_table()
-{
-	$this->_clear_errors();
-	$this->_check_fill_by_post( 'word', _RSSC_WORD_WORD );
-	return $this->returnExistError();
-}
+    //---------------------------------------------------------
+    // main_del_table()
+    //---------------------------------------------------------
+    public function main_del_table()
+    {
+        $this->_main_del_table(true);
+    }
 
-//---------------------------------------------------------
-// main_del_table()
-//---------------------------------------------------------
-function main_del_table()
-{
-	$this->_main_del_table( true );
-}
+    //---------------------------------------------------------
+    // modify point
+    //---------------------------------------------------------
+    public function main_mod_all()
+    {
+        $del     = $this->_post->get_post('del_all');
+        $mod     = $this->_post->get_post('mod_all');
+        $request = $this->_post->get_post('request_uri');
+        $url     = 'word_list.php';
 
-//---------------------------------------------------------
-// modify point
-//---------------------------------------------------------
-function main_mod_all()
-{
-	$del     = $this->_post->get_post('del_all');
-	$mod     = $this->_post->get_post('mod_all');
-	$request = $this->_post->get_post('request_uri');
-	$url     = 'word_list.php';
+        if ($request) {
+            $this->set_redirect_mod_all($request);
+            $this->set_redirect_del_all($request);
+        }
 
-	if ( $request )
-	{
-		$this->set_redirect_mod_all( $request );
-		$this->set_redirect_del_all( $request );
-	}
+        if ($mod) {
+            $this->_main_mod_all(true);
+        } elseif ($del) {
+            $this->_main_del_all(true);
+        } else {
+            redirect_header($url, 3, 'invalid submit name');
+        }
+    }
 
-	if ( $mod )
-	{
-		$this->_main_mod_all( true );
-	}
-	elseif ( $del )
-	{
-		$this->_main_del_all( true );
-	}
-	else
-	{
-		redirect_header( $url, 3, 'invalid submit name' );
-	}
-}
+    public function _exec_mod_all()
+    {
+        $word_arr  = $this->_post->get_post('word');
+        $point_arr = $this->_post->get_post('point');
 
-function _exec_mod_all()
-{
-	$word_arr  = $this->_post->get_post('word');
-	$point_arr = $this->_post->get_post('point');
+        foreach ($point_arr as $k => $v) {
+            $sid   = intval($k);
+            $point = intval($v);
+            $word  = $word_arr[$sid];
 
-	foreach ($point_arr as $k => $v)
-	{
-		$sid   = intval($k);
-		$point = intval($v);
-		$word  = $word_arr[$sid];
+            $obj =& $this->_handler->get($sid);
+            if (!is_object($obj)) {
+                continue;
+            }
 
-		$obj =& $this->_handler->get($sid);
-		if ( !is_object($obj) )
-		{	continue;	}
+            // skip if same value
+            if (($point == $obj->get('point'))
+                && ($word == $obj->get('word'))) {
+                continue;
+            }
 
-// skip if same value
-		if (( $point == $obj->get('point') )&&
-			( $word  == $obj->get('word') ))
-		{	continue;	}
+            $obj->setVar('point', $point);
+            $obj->setVar('word', $word);
 
-		$obj->setVar('point', $point);
-		$obj->setVar('word',  $word);
+            $ret = $this->_handler->update($obj);
+            if (!$ret) {
+                $this->_set_error($this->_handler->getErrors());
+            }
+        }
 
-		$ret = $this->_handler->update($obj);
-		if (!$ret)
-		{
-			$this->_set_error( $this->_handler->getErrors() );
-		}
-	}
+        return $this->returnExistError();
+    }
 
-	return $this->returnExistError();
-}
+    //---------------------------------------------------------
+    // delete all
+    //---------------------------------------------------------
+    public function main_del_all()
+    {
+        $this->_main_del_all(true);
+    }
 
-//---------------------------------------------------------
-// delete all
-//---------------------------------------------------------
-function main_del_all()
-{
-	$this->_main_del_all( true );
-}
-
-// --- class end ---
+    // --- class end ---
 }
 
 //=========================================================
@@ -195,92 +187,87 @@ function main_del_all()
 class admin_form_word extends happy_linux_form
 {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function __construct()
-{
-	$this->happy_linux_form();
-}
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function __construct()
+    {
+        $this->happy_linux_form();
+    }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_form_word();
-	}
-	return $instance;
-}
+    public static function &getInstance()
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new admin_form_word();
+        }
+        return $instance;
+    }
 
-//---------------------------------------------------------
-// show word
-//---------------------------------------------------------
-function _show(&$obj, $extra=null, $mode=0)
-{
-	switch ($mode) 
-	{
-		case HAPPY_LINUX_MODE_MOD:
-		case HAPPY_LINUX_MODE_MOD_PREVIEW:
-			$mode       = HAPPY_LINUX_MODE_MOD;
-			$form_title = _AM_RSSC_MOD_WORD;
-			$op         = 'mod_table';
-			$button_val = _HAPPY_LINUX_MODIFY;
-			break;
+    //---------------------------------------------------------
+    // show word
+    //---------------------------------------------------------
+    public function _show(&$obj, $extra = null, $mode = 0)
+    {
+        switch ($mode) {
+            case HAPPY_LINUX_MODE_MOD:
+            case HAPPY_LINUX_MODE_MOD_PREVIEW:
+                $mode       = HAPPY_LINUX_MODE_MOD;
+                $form_title = _AM_RSSC_MOD_WORD;
+                $op         = 'mod_table';
+                $button_val = _HAPPY_LINUX_MODIFY;
+                break;
 
-		case HAPPY_LINUX_MODE_ADD:
-		case HAPPY_LINUX_MODE_ADD_PREVIEW:
-		default:
-			$form_title = _AM_RSSC_ADD_WORD;
-			$op         = 'add_table';
-			$button_val = _ADD;
-			break;
-	}
+            case HAPPY_LINUX_MODE_ADD:
+            case HAPPY_LINUX_MODE_ADD_PREVIEW:
+            default:
+                $form_title = _AM_RSSC_ADD_WORD;
+                $op         = 'add_table';
+                $button_val = _ADD;
+                break;
+        }
 
-	$this->set_obj($obj);
+        $this->set_obj($obj);
 
-// form start
-	echo $this->build_form_begin();
-	echo $this->build_token();
-	echo $this->build_html_input_hidden('op', $op);
+        // form start
+        echo $this->build_form_begin();
+        echo $this->build_token();
+        echo $this->build_html_input_hidden('op', $op);
 
-	if ( $mode == HAPPY_LINUX_MODE_MOD )
-	{
-		echo $this->build_html_input_hidden('sid', $obj->get('sid') );
-	}
+        if ($mode == HAPPY_LINUX_MODE_MOD) {
+            echo $this->build_html_input_hidden('sid', $obj->get('sid'));
+        }
 
-	echo $this->build_form_table_begin();
-	echo $this->build_form_table_title($form_title);
+        echo $this->build_form_table_begin();
+        echo $this->build_form_table_title($form_title);
 
-	if ( $mode == HAPPY_LINUX_MODE_MOD )
-	{
-		echo $this->build_form_table_line(_RSSC_WORD_ID, $obj->get('sid') );
-	}
+        if ($mode == HAPPY_LINUX_MODE_MOD) {
+            echo $this->build_form_table_line(_RSSC_WORD_ID, $obj->get('sid'));
+        }
 
-	echo $this->build_obj_table_radio_yesno(_RSSC_REG_EXP, 'reg');
-	echo $this->build_obj_table_text(_RSSC_WORD_WORD, 'word');
-	echo $this->build_obj_table_text(_RSSC_WORD_POINT, 'point');
-	echo $this->build_obj_table_text(_RSSC_FREQ_COUNT, 'count');
+        echo $this->build_obj_table_radio_yesno(_RSSC_REG_EXP, 'reg');
+        echo $this->build_obj_table_text(_RSSC_WORD_WORD, 'word');
+        echo $this->build_obj_table_text(_RSSC_WORD_POINT, 'point');
+        echo $this->build_obj_table_text(_RSSC_FREQ_COUNT, 'count');
 
-	echo $this->build_obj_table_textarea(_AM_RSSC_BLACK_MEMO, 'memo');
+        echo $this->build_obj_table_textarea(_AM_RSSC_BLACK_MEMO, 'memo');
 
-	$ele_submit = $this->build_html_input_submit('submit', $button_val);
-	echo $this->build_form_table_line('', $ele_submit, 'foot', 'foot');
+        $ele_submit = $this->build_html_input_submit('submit', $button_val);
+        echo $this->build_form_table_line('', $ele_submit, 'foot', 'foot');
 
-	if ( $mode == HAPPY_LINUX_MODE_MOD )
-	{
-		$ele_del    = $this->build_html_input_submit('del_table', _DELETE);
-		$ele_cancel = $this->build_html_input_button_cancel('cancel', _CANCEL);
-		echo $this->build_form_table_line('', $ele_del.'  '.$ele_cancel, 'foot', 'foot');
-	}
+        if ($mode == HAPPY_LINUX_MODE_MOD) {
+            $ele_del    = $this->build_html_input_submit('del_table', _DELETE);
+            $ele_cancel = $this->build_html_input_button_cancel('cancel', _CANCEL);
+            echo $this->build_form_table_line('', $ele_del . '  ' . $ele_cancel, 'foot', 'foot');
+        }
 
-	echo $this->build_form_table_end();
-	echo $this->build_form_end();
-// --- form end ---
+        echo $this->build_form_table_end();
+        echo $this->build_form_end();
+        // --- form end ---
 
-}
+    }
 
-// --- class end ---
+    // --- class end ---
 }
 
 //=========================================================
