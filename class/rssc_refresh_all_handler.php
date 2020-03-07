@@ -65,7 +65,7 @@ class rssc_refresh_all_handler extends happy_linux_error
 	var $_count_update = 0;
 
 // local
-	var $_broken_arr   = array();
+	var $_broken_arr   = [];
 	var $_count_link   = 0;
 
 	var $_time_start;
@@ -188,7 +188,7 @@ function _refresh_clear()
 {
 	$this->_clear_errors();
 	$this->_time_start   = time();
-	$this->_broken_arr   = array();
+	$this->_broken_arr   = [];
 	$this->_count_link   = 0;
 	$this->_count_broken = 0;
 }
@@ -223,7 +223,7 @@ function _refresh_loop( &$link_obj )
 		if ($code == RSSC_CODE_PARSE_FAILED)
 		{
 			$this->_count_broken ++;
-			$this->_broken_arr[] = array($lid, $title, $rss_url);
+			$this->_broken_arr[] = [$lid, $title, $rss_url];
 		}
 		else
 		{

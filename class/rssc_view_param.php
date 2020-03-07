@@ -135,7 +135,7 @@ function _init_view_param()
 //---------------------------------------------------------
 function &view_format_sanitize_feed_objs( &$feed_objs, $flag_sanitize=true )
 {
-	$feeds = array();
+	$feeds = [];
 	if ( is_array($feed_objs) && ( count($feed_objs) > 0 ) )
 	{
 		foreach ($feed_objs as $obj)
@@ -148,7 +148,7 @@ function &view_format_sanitize_feed_objs( &$feed_objs, $flag_sanitize=true )
 
 function &view_format_sanitize_single_feed_obj( &$feed_obj, $flag_sanitize=true )
 {
-	$feed = array();
+	$feed = [];
 	if ( is_object($feed_obj) )
 	{
 		$feed =& $this->view_format_sanitize_single_feed( $feed_obj->getVarAll(), $flag_sanitize );
@@ -158,7 +158,7 @@ function &view_format_sanitize_single_feed_obj( &$feed_obj, $flag_sanitize=true 
 
 function &view_format_sanitize_feed_rows( &$feed_rows, $flag_sanitize=true )
 {
-	$feeds = array();
+	$feeds = [];
 	if ( is_array($feed_rows) && ( count($feed_rows) > 0 ) )
 	{
 		foreach ($feed_rows as $row)
@@ -171,7 +171,7 @@ function &view_format_sanitize_feed_rows( &$feed_rows, $flag_sanitize=true )
 
 function &view_format_sanitize_single_feed_row( &$feed_row, $flag_sanitize=true )
 {
-	$feed = array();
+	$feed = [];
 	if ( is_array($feed_row) )
 	{
 		$feed = $this->view_format_sanitize_single_feed( $feed_row, $flag_sanitize );
@@ -231,7 +231,7 @@ function view_format_thumb( $item )
 				$item['media_content_width'], $item['media_content_height'] ); 
 	}
 
-	return array( $thumb_url, $thumb_width, $thumb_height ) ;
+	return [$thumb_url, $thumb_width, $thumb_height];
 }
 
 function adjust_size( $width, $height )
@@ -332,7 +332,7 @@ function setFutureDays($value)
 //---------------------------------------------------------
 function &get_tpl_common_param()
 {
-	$arr = array(
+	$arr = [
 		'lang_edit'             => _EDIT,
 		'lang_home'             => _HAPPY_LINUX_HOME,
 		'lang_main'             => _HAPPY_LINUX_MAIN,
@@ -352,7 +352,7 @@ function &get_tpl_common_param()
 		'is_module_admin'       => $this->_system->is_module_admin(),
 		'xoops_module_header'   => $this->_get_module_header(),
 		'conf_url'              => $this->_conf['basic_url'] ,
-	);
+    ];
 	return $arr;
 }
 

@@ -173,19 +173,19 @@ function _show_black_white(&$obj, $extra=null, $mode=0)
 
 function get_act_option()
 {
-	$opt = array(
+	$opt = [
 		_RSSC_ACT_NON => 0,
 		_RSSC_ACT_ACT => 1,
-	);
+    ];
 	return $opt;
 }
 
 function get_reg_option()
 {
-	$opt = array(
+	$opt = [
 		_RSSC_REG_NORMAL => 0,
 		_RSSC_REG_EXP    => 1,
-	);
+    ];
 	return $opt;
 }
 

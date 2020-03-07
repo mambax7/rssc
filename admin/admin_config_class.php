@@ -202,12 +202,12 @@ function build_conf_extra_webmpa3_dirname_list( $config )
 	$name  =  $config['name'];
 	$value =  $config['value'];
 
-	$param = array(
+	$param = [
 		'dirname_except'  => $this->_DIRNAME,
 		'file'            => 'include/webmap3_version.php',
 		'none_flag'       => true,
 		'dirname_default' => $value,
-	);
+    ];
 
 	$modules = $this->_system->get_module_list( $param );
 	$options = $this->_system->get_dirname_list( $modules, $param );

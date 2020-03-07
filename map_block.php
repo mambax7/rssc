@@ -28,7 +28,7 @@ if ( file_exists( $file_lang ) ) {
 //---------------------------------------------------------
 // main
 //---------------------------------------------------------
-$options = array( $DIRNAME );
+$options = [$DIRNAME];
 $block = b_rssc_show_gmap( $options );
 
 echo "<html><head>\n";

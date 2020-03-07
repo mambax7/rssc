@@ -93,7 +93,7 @@ $andor    = $search_handler->get_post_get_andor();
 $query    = $search_handler->get_post_get_query();
 $total    = $search_handler->getTotal();
 
-$feeds     = array();
+$feeds     = [];
 $count     = 0;
 $flag_show = 0;
 $start     = 0;
@@ -203,13 +203,13 @@ if ( (($flag_show == 1)||($flag_show == 2)) && $show_icon ) {
 }
 
 if ( is_array($feeds) && count($feeds) ) {
-	$param = array(
+	$param = [
 		'feeds'      => $feeds ,
 		'show_thumb' => $show_thumb ,
 		'show_icon'  => $show_icon ,
 		'show_site'  => $show_site ,
 		'keywords'   => $keywords ,
-	);
+    ];
 	$feed_list = $search_handler->fetch_tpl_feed_list( $param );
 }
 

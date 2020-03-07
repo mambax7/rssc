@@ -139,10 +139,10 @@ function &get_export_raws()
 
 function get_act_option()
 {
-	$opt = array(
+	$opt = [
 		_RSSC_FEED_ACT_NON  => 0,
 		_RSSC_FEED_ACT_VIEW => 1,
-	);
+    ];
 	return $opt;
 }
 

@@ -30,12 +30,12 @@ class rssc_plugin
 	var $_flag_init  = false;
 	var $_items  = null;
 	var $_line_count = 0;
-	var $_logs       = array();
+	var $_logs       = [];
 
-	var $_class_name_array  = array();
-	var $_class_obj_array   = array();
-	var $_description_array = array();
-	var $_usage_array       = array();
+	var $_class_name_array  = [];
+	var $_class_obj_array   = [];
+	var $_description_array = [];
+	var $_usage_array       = [];
 
 	var $_FLAG_PRINT = false;
 
@@ -169,7 +169,7 @@ function get_exsample_data( $name='default' )
 //---------------------------------------------------------
 function execute_single( $item, $plugin_line )
 {
-	$items = array( $item );
+	$items = [$item];
 	return $this->execute( $items, $plugin_line );
 }
 
@@ -247,7 +247,7 @@ function get_item_by_num( $num, $default=false )
 //---------------------------------------------------------
 function clear_logs()
 {
-	$this->_logs = array();
+	$this->_logs = [];
 }
 
 function set_logs( $arr )
@@ -275,8 +275,8 @@ function &get_logs()
 //---------------------------------------------------------
 function _init()
 {
-	$this->_class_name_array = array();
-	$this->_class_obj_array  = array();
+	$this->_class_name_array = [];
+	$this->_class_obj_array  = [];
 
 	$files =& $this->_class_dir->get_files_in_dir( $this->_DIR_PLUGINS, 'php' );
 
@@ -401,7 +401,7 @@ function _print_msg( $msg )
 //---------------------------------------------------------
 function &_parse_plugin_line( $plugin_line )
 {
-	$ret_arr = array();
+	$ret_arr = [];
 
 // foo | bar (a, b) ==> array( 'foo', 'bar (a, b)' )
 	$plugin_arr =& $this->_strings->convert_string_to_array( $plugin_line, '|' );
@@ -420,7 +420,7 @@ function &_parse_plugin_line( $plugin_line )
 function &_parse_plugin_line_plugin( $plugin )
 {
 	$name   = $plugin;
-	$params = array();
+	$params = [];
 
 // bar (a, b) ==> array( 'bar ', 'a, b' )
 	if ( preg_match( '/(.*)\((.*)\)/', $plugin, $matches ) )
@@ -438,17 +438,17 @@ function &_parse_plugin_line_plugin( $plugin )
 		}
 	}
 
-	$ret = array(
+	$ret = [
 		'name'   => $name,
 		'params' => $params,
-	);
+    ];
 
 	return $ret;
 }
 
 function &_parse_plugin_line_param( $param_list )
 {
-	$arr = array();
+	$arr = [];
 
 // 'a, b' ==> array( 'a', "b" )
 	$param_arr =& $this->_strings->convert_string_to_array( $param_list, ',' );

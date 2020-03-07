@@ -88,8 +88,8 @@ $pagenavi->getGetPage();
 $link_show = 0;
 $feed_show = 0;
 $lid       = 0;
-$channel   = array();
-$feeds      = array();
+$channel   = [];
+$feeds      = [];
 $error      = '';
 $navi       = '';
 $feed_total = 0;
@@ -147,13 +147,13 @@ if ( $view_handler->exists_link($lid) )
 	if ( is_array($feeds) && count($feeds) ) {
 		$feed_show = 1;
 
-		$param = array(
+		$param = [
 			'feeds'      => $feeds ,
 			'show_thumb' => $show_thumb ,
 			'show_icon'  => false ,
 			'show_site'  => false ,
 			'keywords'   => null ,
-		);
+        ];
 		$feed_list = $view_handler->fetch_tpl_feed_list( $param );
 	}
 

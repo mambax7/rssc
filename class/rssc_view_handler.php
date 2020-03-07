@@ -129,7 +129,7 @@ function get_feed_count_by_mid($mid)
 
 function &get_feed_list_by_mid($mid)
 {
-	$feeds = array();
+	$feeds = [];
 	$feed_rows =& $this->_feed_handler->get_rows_public_by_mid_order($mid, $this->_feed_order, $this->_feed_limit, $this->_feed_start);
 	$feeds =& $this->view_format_sanitize_feed_rows( $feed_rows );
 	return $feeds;
@@ -160,7 +160,7 @@ function &get_sanitized_store_by_lid($lid)
 	$feed_rows =& $this->_feed_handler->get_rows_public_by_lid_order($lid, $this->_feed_order, $this->_feed_limit, $this->_feed_start );
 	$feeds =& $this->view_format_sanitize_feed_rows( $feed_rows );
 
-	$arr = array();
+	$arr = [];
 
 // load channel image textinput from channel field
 	if ( isset($channel['channel']) )
@@ -189,7 +189,7 @@ function &get_sanitized_store_by_lid($lid)
 function &get_headline_links_feeds($link_limit=0, $link_start=0)
 {
 	$lids  =& $this->_link_handler->get_headline_lids($link_limit, $link_start);
-	$links = array();
+	$links = [];
 
 	foreach ($lids as $lid)
 	{

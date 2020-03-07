@@ -105,10 +105,10 @@ function &get_define()
 	$config[2]['formtype']  = 'radio_select';
 	$config[2]['valuetype'] = 'text';
 	$config[2]['default']   = RSSC_C_SEL_ATOM;
-	$config[2]['options']   = array(
+	$config[2]['options']   = [
 		_AM_RSSC_CONF_RSS_ATOM_SEL_RSS  => RSSC_C_SEL_RSS,
 		_AM_RSSC_CONF_RSS_ATOM_SEL_ATOM => RSSC_C_SEL_ATOM,
-		);
+    ];
 
 // 2006-06-04
 //	$config[3]['name']      = 'basic_parser_rss';
@@ -165,10 +165,10 @@ function &get_define()
 	$config[8]['formtype']  = 'radio_select';
 	$config[8]['valuetype'] = 'int';
 	$config[8]['default']   = 0;
-	$config[8]['options']   = array(
+	$config[8]['options']   = [
 		_AM_RSSC_CONF_URL_0 => 0,
 		_AM_RSSC_CONF_URL_1 => 1,
-		);
+    ];
 
 //---------------------------------------------------------
 // main search
@@ -188,10 +188,10 @@ function &get_define()
 	$config[11]['formtype']  = 'radio_select';
 	$config[11]['valuetype'] = 'text';
 	$config[11]['default']   = RSSC_C_ORDER_INT_UPDATED;
-	$config[11]['options']   = array(
+	$config[11]['options']   = [
 		_AM_RSSC_CONF_SHOW_ORDER_UPDATED   => RSSC_C_ORDER_INT_UPDATED,
 		_AM_RSSC_CONF_SHOW_ORDER_PUBLISHED => RSSC_C_ORDER_INT_PUBLISHED
-		);
+    ];
 
 	$config[12]['name']      = 'main_search_perpage';
 	$config[12]['catid']     = 0;
@@ -307,10 +307,10 @@ function &get_define()
 	$config[20]['formtype']  = 'radio_select';
 	$config[20]['valuetype'] = 'text';
 	$config[20]['default']   = RSSC_C_ORDER_INT_PUBLISHED;
-	$config[20]['options']   = array(
+	$config[20]['options']   = [
 		_AM_RSSC_CONF_SHOW_ORDER_UPDATED   => RSSC_C_ORDER_INT_UPDATED,
 		_AM_RSSC_CONF_SHOW_ORDER_PUBLISHED => RSSC_C_ORDER_INT_PUBLISHED
-		);
+    ];
 
 	$config[74]['name']        = 'main_headline_title_html';
 	$config[74]['catid']       = 0;
@@ -445,10 +445,10 @@ function &get_define()
 	$config[97]['formtype']    = 'radio_select';
 	$config[97]['valuetype']   = 'text';
 	$config[97]['default']     = RSSC_C_ORDER_INT_PUBLISHED;
-	$config[97]['options']     = array(
+	$config[97]['options']     = [
 		_AM_RSSC_CONF_SHOW_ORDER_UPDATED   => RSSC_C_ORDER_INT_UPDATED,
 		_AM_RSSC_CONF_SHOW_ORDER_PUBLISHED => RSSC_C_ORDER_INT_PUBLISHED
-		);
+    ];
 
 //---------------------------------------------------------
 // block latest config
@@ -484,10 +484,10 @@ function &get_define()
 	$config[33]['formtype']  = 'radio_select';
 	$config[33]['valuetype'] = 'text';
 	$config[33]['default']   = RSSC_C_ORDER_INT_UPDATED;
-	$config[33]['options']   = array(
+	$config[33]['options']   = [
 		_AM_RSSC_CONF_SHOW_ORDER_UPDATED   => RSSC_C_ORDER_INT_UPDATED,
 		_AM_RSSC_CONF_SHOW_ORDER_PUBLISHED => RSSC_C_ORDER_INT_PUBLISHED
-		);
+    ];
 
 	$config[81]['name']        = 'block_latest_max_content';
 	$config[81]['catid']       = 0;
@@ -512,12 +512,12 @@ function &get_define()
 	$config[141]['formtype']  = 'radio_select';
 	$config[141]['valuetype'] = 'int';
 	$config[141]['default']   = 1;
-	$config[141]['options']   = array(
+	$config[141]['options']   = [
 		_AM_RSSC_CONF_SHOW_MODE_DATE_NON    => RSSC_C_DATE_INT_NON,
 		_AM_RSSC_CONF_SHOW_MODE_DATE_SHORT  => RSSC_C_DATE_INT_SHORT,
 		_AM_RSSC_CONF_SHOW_MODE_DATE_MIDDLE => RSSC_C_DATE_INT_MIDDLE,
 		_AM_RSSC_CONF_SHOW_MODE_DATE_LONG   => RSSC_C_DATE_INT_LONG,
-		);
+    ];
 
 	$config[144]['name']      = 'block_latest_show_site';
 	$config[144]['catid']     = 0;
@@ -585,10 +585,10 @@ function &get_define()
 	$config[39]['formtype']  = 'radio_select';
 	$config[39]['valuetype'] = 'text';
 	$config[39]['default']   = RSSC_C_ORDER_INT_PUBLISHED;
-	$config[39]['options']   = array(
+	$config[39]['options']   = [
 		_AM_RSSC_CONF_SHOW_ORDER_UPDATED   => RSSC_C_ORDER_INT_UPDATED,
 		_AM_RSSC_CONF_SHOW_ORDER_PUBLISHED => RSSC_C_ORDER_INT_PUBLISHED
-		);
+    ];
 
 	$config[82]['name']        = 'block_headline_max_content';
 	$config[82]['catid']       = 0;
@@ -616,12 +616,12 @@ function &get_define()
 	$config[142]['formtype']  = 'radio_select';
 	$config[142]['valuetype'] = 'int';
 	$config[142]['default']   = 1;
-	$config[142]['options']   = array(
+	$config[142]['options']   = [
 		_AM_RSSC_CONF_SHOW_MODE_DATE_NON    => RSSC_C_DATE_INT_NON,
 		_AM_RSSC_CONF_SHOW_MODE_DATE_SHORT  => RSSC_C_DATE_INT_SHORT,
 		_AM_RSSC_CONF_SHOW_MODE_DATE_MIDDLE => RSSC_C_DATE_INT_MIDDLE,
 		_AM_RSSC_CONF_SHOW_MODE_DATE_LONG   => RSSC_C_DATE_INT_LONG,
-		);
+    ];
 
 	$config[147]['name']        = 'block_headline_show_thumb';
 	$config[147]['catid']       = 0;
@@ -673,10 +673,10 @@ function &get_define()
 	$config[45]['formtype']  = 'radio_select';
 	$config[45]['valuetype'] = 'text';
 	$config[45]['default']   = RSSC_C_ORDER_INT_PUBLISHED;
-	$config[45]['options']   = array(
+	$config[45]['options']   = [
 		_AM_RSSC_CONF_SHOW_ORDER_UPDATED   => RSSC_C_ORDER_INT_UPDATED,
 		_AM_RSSC_CONF_SHOW_ORDER_PUBLISHED => RSSC_C_ORDER_INT_PUBLISHED
-		);
+    ];
 
 	$config[83]['name']        = 'block_blog_max_content';
 	$config[83]['catid']       = 0;
@@ -701,12 +701,12 @@ function &get_define()
 	$config[143]['formtype']  = 'radio_select';
 	$config[143]['valuetype'] = 'int';
 	$config[143]['default']   = 1;
-	$config[143]['options']   = array(
+	$config[143]['options']   = [
 		_AM_RSSC_CONF_SHOW_MODE_DATE_NON    => RSSC_C_DATE_INT_NON,
 		_AM_RSSC_CONF_SHOW_MODE_DATE_SHORT  => RSSC_C_DATE_INT_SHORT,
 		_AM_RSSC_CONF_SHOW_MODE_DATE_MIDDLE => RSSC_C_DATE_INT_MIDDLE,
 		_AM_RSSC_CONF_SHOW_MODE_DATE_LONG   => RSSC_C_DATE_INT_LONG,
-		);
+    ];
 
 	$config[148]['name']        = 'block_blog_show_thumb';
 	$config[148]['catid']       = 0;
@@ -825,11 +825,11 @@ function &get_define()
 	$config[113]['formtype']    = 'radio_select';
 	$config[113]['valuetype']   = 'int';
 	$config[113]['default']     = 0;
-	$config[113]['options']   = array(
+	$config[113]['options']   = [
 		_AM_RSSC_CONF_BLACK_USE_NO    => 0,
 		_AM_RSSC_CONF_BLACK_USE_YES   => 1,
 		_AM_RSSC_CONF_BLACK_USE_LEARN => 2,
-	);
+    ];
 
 	$config[114]['name']        = 'word_use';
 	$config[114]['catid']       = 11;
@@ -854,10 +854,10 @@ function &get_define()
 	$config[116]['formtype']    = 'radio_select';
 	$config[116]['valuetype']   = 'int';
 	$config[116]['default']     = 0;
-	$config[116]['options']   = array(
+	$config[116]['options']   = [
 		_AM_RSSC_CONF_FEED_SAVE_NO   => 0,
 		_AM_RSSC_CONF_FEED_SAVE_YES  => 1,
-	);
+    ];
 
 	$config[117]['name']        = 'log_use';
 	$config[117]['catid']       = 11;
@@ -906,11 +906,11 @@ function &get_define()
 	$config[125]['formtype']    = 'radio_select';
 	$config[125]['valuetype']   = 'int';
 	$config[125]['default']     = 0;
-	$config[125]['options']   = array(
+	$config[125]['options']   = [
 		_AM_RSSC_CONF_WORD_AUTO_NON    => 0,
 		_AM_RSSC_CONF_WORD_AUTO_SYMBOL => 1,
 		_AM_RSSC_CONF_WORD_AUTO_KAKASI => 2,
-	);
+    ];
 
 	$config[131]['name']        = 'html_get';
 	$config[131]['catid']       = 13;
@@ -919,11 +919,11 @@ function &get_define()
 	$config[131]['formtype']    = 'radio_select';
 	$config[131]['valuetype']   = 'int';
 	$config[131]['default']     = 0;
-	$config[131]['options']   = array(
+	$config[131]['options']   = [
 		_AM_RSSC_CONF_HTML_GET_NO     => 0,
 		_AM_RSSC_CONF_HTML_GET_YES    => 1,
 		_AM_RSSC_CONF_HTML_GET_BLACK  => 2,
-	);
+    ];
 
 	$config[132]['name']        = 'html_lenghth';
 	$config[132]['catid']       = 13;
@@ -972,10 +972,10 @@ function &get_define()
 	$config[137]['formtype']    = 'radio_select';
 	$config[137]['valuetype']   = 'int';
 	$config[137]['default']     = '0';
-	$config[137]['options']   = array(
+	$config[137]['options']   = [
 		_AM_RSSC_CONF_KAKASI_MODE_FILE => 0,
 		_AM_RSSC_CONF_KAKASI_MODE_PIPE => 1,
-	);
+    ];
 
 	$config[138]['name']        = 'word_limit';
 	$config[138]['catid']       = 13;
@@ -995,11 +995,11 @@ function &get_define()
 	$config[151]['formtype']    = 'radio_select';
 	$config[151]['valuetype']   = 'int';
 	$config[151]['default']     = 2;
-	$config[151]['options']    = array(
+	$config[151]['options']    = [
 		_AM_RSSC_CONF_HTML_NON    => 0,
 		_AM_RSSC_CONF_HTML_SHOW   => 1,
 		_AM_RSSC_CONF_HTML_REMOVE => 2,
-	);
+    ];
 
 	$config[152]['name']        = 'html_style';
 	$config[152]['catid']       = 15;
@@ -1008,11 +1008,11 @@ function &get_define()
 	$config[152]['formtype']    = 'radio_select';
 	$config[152]['valuetype']   = 'int';
 	$config[152]['default']     = 2;
-	$config[152]['options']    = array(
+	$config[152]['options']    = [
 		_AM_RSSC_CONF_HTML_NON    => 0,
 		_AM_RSSC_CONF_HTML_SHOW   => 1,
 		_AM_RSSC_CONF_HTML_REMOVE => 2,
-	);
+    ];
 
 	$config[153]['name']        = 'html_link';
 	$config[153]['catid']       = 15;
@@ -1021,11 +1021,11 @@ function &get_define()
 	$config[153]['formtype']    = 'radio_select';
 	$config[153]['valuetype']   = 'int';
 	$config[153]['default']     = 2;
-	$config[153]['options']    = array(
+	$config[153]['options']    = [
 		_AM_RSSC_CONF_HTML_NON    => 0,
 		_AM_RSSC_CONF_HTML_SHOW   => 1,
 		_AM_RSSC_CONF_HTML_REMOVE => 2,
-	);
+    ];
 
 	$config[154]['name']        = 'html_comment';
 	$config[154]['catid']       = 15;
@@ -1034,11 +1034,11 @@ function &get_define()
 	$config[154]['formtype']    = 'radio_select';
 	$config[154]['valuetype']   = 'int';
 	$config[154]['default']     = 2;
-	$config[154]['options']    = array(
+	$config[154]['options']    = [
 		_AM_RSSC_CONF_HTML_NON    => 0,
 		_AM_RSSC_CONF_HTML_SHOW   => 1,
 		_AM_RSSC_CONF_HTML_REMOVE => 2,
-	);
+    ];
 
 	$config[155]['name']        = 'html_cdata';
 	$config[155]['catid']       = 15;
@@ -1047,11 +1047,11 @@ function &get_define()
 	$config[155]['formtype']    = 'radio_select';
 	$config[155]['valuetype']   = 'int';
 	$config[155]['default']     = 2;
-	$config[155]['options']    = array(
+	$config[155]['options']    = [
 		_AM_RSSC_CONF_HTML_NON    => 0,
 		_AM_RSSC_CONF_HTML_SHOW   => 1,
 		_AM_RSSC_CONF_HTML_REMOVE => 2,
-	);
+    ];
 
 	$config[156]['name']        = 'html_flag_other_tags';
 	$config[156]['catid']       = 15;
@@ -1076,11 +1076,11 @@ function &get_define()
 	$config[158]['formtype']    = 'radio_select';
 	$config[158]['valuetype']   = 'int';
 	$config[158]['default']     = 1;
-	$config[158]['options']    = array(
+	$config[158]['options']    = [
 		_AM_RSSC_CONF_HTML_NON     => 0,
 		_AM_RSSC_CONF_HTML_REPLACE => 1,
 		_AM_RSSC_CONF_HTML_REMOVE  => 2,
-	);
+    ];
 
 	$config[159]['name']        = 'html_attr_style';
 	$config[159]['catid']       = 15;
@@ -1089,11 +1089,11 @@ function &get_define()
 	$config[159]['formtype']    = 'radio_select';
 	$config[159]['valuetype']   = 'int';
 	$config[159]['default']     = 1;
-	$config[159]['options']    = array(
+	$config[159]['options']    = [
 		_AM_RSSC_CONF_HTML_NON     => 0,
 		_AM_RSSC_CONF_HTML_REPLACE => 1,
 		_AM_RSSC_CONF_HTML_REMOVE  => 2,
-	);
+    ];
 
 	$config[161]['name']        = 'html_javascript';
 	$config[161]['catid']       = 15;
@@ -1102,11 +1102,11 @@ function &get_define()
 	$config[161]['formtype']    = 'radio_select';
 	$config[161]['valuetype']   = 'int';
 	$config[161]['default']     = 1;
-	$config[161]['options']     = array(
+	$config[161]['options']     = [
 		_AM_RSSC_CONF_HTML_NON     => 0,
 		_AM_RSSC_CONF_HTML_REPLACE => 1,
 		_AM_RSSC_CONF_HTML_REMOVE  => 2,
-	);
+    ];
 
 //---------------------------------------------------------
 // custom plugin
@@ -1180,10 +1180,10 @@ function &get_define()
 	$config[191]['formtype']  = 'radio_select';
 	$config[191]['valuetype'] = 'text';
 	$config[191]['default']   = RSSC_C_ORDER_INT_UPDATED;
-	$config[191]['options']   = array(
+	$config[191]['options']   = [
 		_AM_RSSC_CONF_SHOW_ORDER_UPDATED   => RSSC_C_ORDER_INT_UPDATED,
 		_AM_RSSC_CONF_SHOW_ORDER_PUBLISHED => RSSC_C_ORDER_INT_PUBLISHED
-		);
+    ];
 
 	$config[192]['name']      = 'main_map_perpage';
 	$config[192]['catid']     = 0;
@@ -1299,10 +1299,10 @@ function &get_define()
 	$config[203]['formtype']  = 'radio_select';
 	$config[203]['valuetype'] = 'text';
 	$config[203]['default']   = RSSC_C_ORDER_INT_UPDATED;
-	$config[203]['options']   = array(
+	$config[203]['options']   = [
 		_AM_RSSC_CONF_SHOW_ORDER_UPDATED   => RSSC_C_ORDER_INT_UPDATED,
 		_AM_RSSC_CONF_SHOW_ORDER_PUBLISHED => RSSC_C_ORDER_INT_PUBLISHED
-		);
+    ];
 
 	$config[204]['name']        = 'block_map_info_max';
 	$config[204]['catid']       = 0;

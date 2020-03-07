@@ -91,12 +91,12 @@ class rssc_refresh_handler extends happy_linux_error
 // black & white table
 	var $_black_list_flag = false;
 	var $_white_list_flag = false;
-	var $_black_list = array();
-	var $_white_list = array();
+	var $_black_list = [];
+	var $_white_list = [];
 
 // result
-	var $_parsed_data = array();
-	var $_items_for_store = array();
+	var $_parsed_data = [];
+	var $_items_for_store = [];
 	var $_rdf_url;
 	var $_rss_url;
 	var $_atom_url;
@@ -667,7 +667,7 @@ function _update_link_encoding($lid, $encoding)
 //---------------------------------------------------------
 function _update_link($lid, $parsed_data, $xml_data, $updated='' )
 {
-	$channel = array();
+	$channel = [];
 
 // store channel image textinput to channel field
 	if ( isset($parsed_data['channel']) && is_array($parsed_data['channel']) && ( count($parsed_data['channel']) > 0 ) )
@@ -708,7 +708,7 @@ function _update_link($lid, $parsed_data, $xml_data, $updated='' )
 
 function _update_feeds($lid, $items_for_store, $xml_data, $xml_encoding, $updated='' )
 {
-	$this->_logs = array();
+	$this->_logs = [];
 
 // get new object
 	$link_obj =& $this->get_link($lid);
@@ -723,14 +723,14 @@ function _update_feeds($lid, $items_for_store, $xml_data, $xml_encoding, $update
 		return true;
 	}
 
-	$param = array(
+	$param = [
 		'lid' => $lid,
 		'uid' => $link_obj->get('uid'),
 		'mid' => $link_obj->get('mid'),
 		'p1'  => $link_obj->get('p1'),
 		'p2'  => $link_obj->get('p2'),
 		'p3'  => $link_obj->get('p3'),
-	);
+    ];
 
 	$flag_err = false;
 
@@ -976,11 +976,11 @@ function _execute_filter( &$item )
 
 function &_get_site_info_by_url( $url )
 {
-	$arr = array(
+	$arr = [
 		'title' => null,
 		'link'  => null,
 		'html'  => null,
-	);
+    ];
 
 	$parse_obj =& $this->_rss_parser->discover_and_parse_by_html_url( $url );
 	if ($parse_obj)

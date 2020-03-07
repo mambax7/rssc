@@ -198,13 +198,13 @@ function get_mode_name()
 
 function &get_mode_array()
 {
-	$arr = array(
+	$arr = [
 		RSSC_C_MODE_NON  => _RSSC_RSS_MODE_NON,
 		RSSC_C_MODE_AUTO => _RSSC_RSS_MODE_AUTO,
 		RSSC_C_MODE_RDF  => _RSSC_RSS_MODE_RDF,
 		RSSC_C_MODE_RSS  => _RSSC_RSS_MODE_RSS,
 		RSSC_C_MODE_ATOM => _RSSC_RSS_MODE_ATOM,
-	);
+    ];
 	return $arr;
 }
 
@@ -216,20 +216,20 @@ function &get_mode_option()
 
 function &get_ltype_option()
 {
-	$arr = array(
+	$arr = [
 		_RSSC_LTYPE_NON    => RSSC_C_LINK_LTYPE_NON,
 		_RSSC_LTYPE_SEARCH => RSSC_C_LINK_LTYPE_SEARCH,
 		_RSSC_LTYPE_NORMAL => RSSC_C_LINK_LTYPE_NORMAL,
-	);
+    ];
 	return $arr;
 }
 
 function &get_enclosure_option()
 {
-	$arr = array(
+	$arr = [
 		_RSSC_LINK_ENCLOSURE_NON => RSSC_C_LINK_ENCLOSURE_NON,
 		_RSSC_LINK_ENCLOSURE_POD => RSSC_C_LINK_ENCLOSURE_POD,
-	);
+    ];
 	return $arr;
 }
 

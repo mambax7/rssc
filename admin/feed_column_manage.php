@@ -36,13 +36,13 @@ class admin_feed_column_manage extends happy_linux_error
 
 	var $_THIS_URL ;
 
-	var $_COLUMN_ARRAY = array(
+	var $_COLUMN_ARRAY = [
 		'entry_id' => 'varchar', 
 		'guid'     => 'varchar', 
 		'media_content_url'   => 'varchar', 
 		'media_thumbnail_url' => 'varchar', 
 		'content' => 'text',
-	);
+    ];
 
 //---------------------------------------------------------
 // constructor
@@ -97,7 +97,7 @@ function update()
 		exit();
 	}
 
-	$arr = array();
+	$arr = [];
 
 	foreach ( $feed_column_ids as $id ) {
 		$id = intval($id);
@@ -108,10 +108,10 @@ function update()
 			continue;
 		}
 
-		$arr[] = array(
+		$arr[] = [
 			'field' => $fields[  $id ] ,
 			'type'  => $updates[ $id ] ,
-		);
+        ];
 	}
 
 	$ret = $this->_feed_basic_handler->update_column_type( $arr );
@@ -132,7 +132,7 @@ function form()
 	$rows = $this->_feed_basic_handler->get_columns();
 	$keys = array_keys( $this->_COLUMN_ARRAY );
 
-	$arr = array();
+	$arr = [];
 	foreach ( $rows as $row ) {
 		$field = $row['Field'];
 		$type  = $row['Type'];
@@ -150,11 +150,11 @@ function form()
 			$update = 'mediumtext';
 		}
 
-		$arr[] = array(
+		$arr[] = [
 			'field'  => $field,
 			'type'   => $type,
 			'update' => $update,
-		);
+        ];
 	}
 
 	$this->_form_class->print_form( $arr );

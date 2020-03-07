@@ -102,13 +102,13 @@ function _get_total()
 //---------------------------------------------------------
 function &_get_table_header()
 {
-	$arr = array(
+	$arr = [
 		$checkbox = $this->build_form_js_checkall(),
 		_RSSC_WORD_ID,
 		_RSSC_WORD_WORD,
 		_RSSC_WORD_POINT,
 		_RSSC_FREQ_COUNT,
-	);
+    ];
 
 	return $arr;
 }
@@ -121,13 +121,13 @@ function &_get_cols(&$obj)
 
 	$jump = 'word_manage.php?op=mod_form&amp;sid=';
 
-	$arr = array(
+	$arr = [
 		$this->build_form_js_checkbox($sid),
 		$this->_build_page_id_link_by_obj(  $obj, 'sid', $jump),
 		$this->build_html_input_text("word[$sid]",  $word,  30),
 		$this->build_html_input_text("point[$sid]", $point, 5),
 		$this->_build_page_label_by_obj(    $obj, 'count'),
-	);
+    ];
 
 	return $arr;
 }

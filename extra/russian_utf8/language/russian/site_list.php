@@ -66,7 +66,7 @@ public static function &getInstance()
 //---------------------------------------------------------
 function get_site_list()
 {
-	$site = array();
+	$site = [];
 
 	$site[1]['title']    = 'google';
 	$site[1]['url']      = 'http://blogsearch.google.com/blogsearch?hl=en&lr=lang_en&ie=utf-8&num=10&output=atom&q=';

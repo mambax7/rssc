@@ -65,14 +65,14 @@ function &_get_table_header()
 {
 	$edit = _RSSC_LINK_ID.'<br />('._EDIT.')';
 
-	$arr = array(
+	$arr = [
 		$edit,
 		_AM_RSSC_SHOW_RSS,
 		_AM_RSSC_SHOW_FEED,
 		_RSSC_SITE_TITLE,
 		_RSSC_RSS_MODE,
 		_RSSC_XML_URL,
-	);
+    ];
 
 	return $arr;
 }
@@ -100,14 +100,14 @@ function &_get_cols( &$obj )
 	$mode_name = $obj->get_mode_name();
 	$xml_url_s = $obj->get_rssurl_by_mode('s');
 
-	$arr = array(
+	$arr = [
 		$edit,
 		$href1,
 		$href2,
 		$this->_build_page_name_link_by_obj($obj, 'url',      'title', '_blank'),
 		$mode_name,
 		$this->build_html_a_href_name($xml_url_s, '', '_blank'),
-	);
+    ];
 
 	return $arr;
 }
@@ -132,7 +132,7 @@ function _get_linkfeed(&$obj)
 	$href1 = $this->build_html_a_href_name($jump_rss, 'RSS');
 	$href2 = $this->build_html_a_href_name($jump_feed, $name_feed);
 
-	return array($href1, $href2);
+	return [$href1, $href2];
 }
 
 // --- class end ---

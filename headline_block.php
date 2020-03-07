@@ -32,7 +32,7 @@ if ( file_exists( $file_lang ) ) {
 //---------------------------------------------------------
 // main
 //---------------------------------------------------------
-$options = array( $DIRNAME );
+$options = [$DIRNAME];
 $block = b_rssc_show_headline( $options );
 
 $tmplate = 'db:'. $DIRNAME .'_block_headline.html' ;

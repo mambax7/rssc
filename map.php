@@ -44,8 +44,8 @@ $webmap_dirname = $conf['webmap_dirname'] ;
 $link_show   = 0;
 $feed_show   = 0;
 $lid         = 0;
-$channel     = array();
-$feeds       = array();
+$channel     = [];
+$feeds       = [];
 $error       = '';
 $reason      = '';
 $navi        = '';
@@ -90,13 +90,13 @@ if ( $ret ) {
 
 		$show_map = $map_class->fetch_map( $feeds );
 
-		$param = array(
+		$param = [
 			'feeds'      => $feeds ,
 			'show_thumb' => $show_thumb ,
 			'show_icon'  => $show_icon ,
 			'show_site'  => $show_site ,
 			'keywords'   => null ,
-		);
+        ];
 		$feed_list = $view_handler->fetch_tpl_feed_list( $param );
 	}
 

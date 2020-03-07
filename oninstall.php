@@ -72,11 +72,11 @@ function rssc_install_base( $DIRNAME, $module )
 	{
 		$root =& XCube_Root::getSingleton();
 		$root->mDelegateManager->add( 'Legacy.Admin.Event.ModuleInstall.' . ucfirst($DIRNAME) . '.Success' , 'rssc_message_append_oninstall' ) ;
-		$ret = array() ;
+		$ret = [];
 	}
 	else 
 	{
-		if( ! is_array( $ret ) ) $ret = array() ;
+		if( ! is_array( $ret ) ) $ret = [];
 	}
 
 // main
@@ -97,11 +97,11 @@ function rssc_update_base( $DIRNAME, $module, $prev_version )
 	{
 		$root =& XCube_Root::getSingleton();
 		$root->mDelegateManager->add( 'Legacy.Admin.Event.ModuleUpdate.' . ucfirst($DIRNAME) . '.Success', 'rssc_message_append_onupdate' ) ;
-		$msgs = array() ;
+		$msgs = [];
 	}
 	else 
 	{
-		if( ! is_array( $msgs ) ) $msgs = array() ;
+		if( ! is_array( $msgs ) ) $msgs = [];
 	}
 
 // main

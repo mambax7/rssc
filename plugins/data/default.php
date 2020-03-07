@@ -25,7 +25,7 @@ link to image
 <h4>img tag</h4>
 ';
 
-	$arr = array(
+	$arr = [
 		'fid' => 234,
 		'lid' => 345,
 		'uid' => 1,
@@ -57,9 +57,9 @@ link to image
 		'aux_text_1' => 'aux text 1',
 		'aux_text_2' => 'aux text 2',
 		'content'    => $content,
-	);
+    ];
 
-	return array( $arr );
+	return [$arr];
 }
 
 // --- rssc_plugin_data_default end ---

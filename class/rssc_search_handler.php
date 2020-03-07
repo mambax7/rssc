@@ -40,7 +40,7 @@ class rssc_search_handler extends rssc_view_param
 	var $_post;
 
 // result
-	var $_feeds = array();
+	var $_feeds = [];
 	var $_flag_parse_query = false;
 	var $_where;
 	var $_sql_query_array;
@@ -68,7 +68,7 @@ function __construct( $dirname )
 //--------------------------------------------------------
 function &get_feeds_for_rss($limit=0, $start=0)
 {
-	$feeds = array();
+	$feeds = [];
 	if ( $this->_query )
 	{
 		if ( $this->parseQuery() )
@@ -91,7 +91,7 @@ function &get_feeds_for_rss($limit=0, $start=0)
 //--------------------------------------------------------
 function search()
 {
-	$feeds = array();
+	$feeds = [];
 
 	if ( !$this->parseQuery() )
 	{
@@ -331,7 +331,7 @@ function get_get_rss_mode()
 //--------------------------------------------------------
 function &_get_search_feeds($limit=0, $start=0)
 {
-	$feeds = array();
+	$feeds = [];
 	if ( $this->_where )
 	{
 		$rows =& $this->_feed_handler->get_rows_public_by_where( $this->_where, $this->_feed_order, $limit, $start );

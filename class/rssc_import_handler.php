@@ -38,9 +38,9 @@ class rssc_import_handler extends happy_linux_error
 
 // local
 	var $_exist_lid = 0;
-	var $_lid_list_by_p1   = array();
-	var $_lid_list_by_url  = array();
-	var $_link_objs_by_lid = array();
+	var $_lid_list_by_p1   = [];
+	var $_lid_list_by_url  = [];
+	var $_link_objs_by_lid = [];
 	var $_table_rssc_link;
 	var $_table_rssc_feed;
 	var $_table_rssc_black;
@@ -473,9 +473,9 @@ function _set_lid_list()
 {
 	$link_objs =& $this->_link_handler->getObjects();
 
-	$arr1 = array();
-	$arr2 = array();
-	$arr3 = array();
+	$arr1 = [];
+	$arr2 = [];
+	$arr3 = [];
 
 	foreach ( $link_objs as $obj )
 	{

@@ -34,9 +34,9 @@ class rssc_filter_handler
 	var $_word_handler;
 
 	var $_conf       = null;
-	var $_black_list = array();
-	var $_white_list = array();
-	var $_word_list  = array();
+	var $_black_list = [];
+	var $_white_list = [];
+	var $_word_list  = [];
 
 	var $_flag_init   = false;
 	var $_match_count = 0;
@@ -88,7 +88,7 @@ function _init()
 
 function &_init_list($list, $id_name, $target_name)
 {
-	$arr = array();
+	$arr = [];
 	foreach ($list as $row)
 	{
 		if ( $row['reg'] )
@@ -138,7 +138,7 @@ function judge_cont( $url, $content )
 {
 	$this->_match_words = '';
 	$this->_log = '';
-	$this->_word_match = array();
+	$this->_word_match = [];
 
 	if ( $this->_conf['white_use'] )
 	{

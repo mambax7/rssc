@@ -47,7 +47,7 @@ public static function &getInstance()
 //---------------------------------------------------------
 function get_site_list()
 {
-	$site = array();
+	$site = [];
 
 	$site[1]['title']    = 'google';
 	$site[1]['url']      = 'http://blogsearch.google.co.jp/blogsearch?hl=ja&lr=lang_ja&ie=utf-8&num=10&output=atom&q=';
@@ -76,28 +76,28 @@ function get_site_list()
 // this site dont work
 function get_site_bulkfeeds()
 {
-	$arr = array(
+	$arr = [
 		'title'    => 'bulkfeeds',
 		'url'      => 'http://bulkfeeds.net/app/search2?q=',
 		'rss'      => 'http://bulkfeeds.net/app/search2.rdf?q=',
 		'mode'     =>  RSSC_C_MODE_RDF,
 		'code'     => 'UTF-8',
 		'encoding' => 'UTF-8',
-	);
+    ];
 	return $arr;
 }
 
 // this site dont work
 function get_site_feedback()
 {
-	$arr = array(
+	$arr = [
 		'title'    => 'FeedBack',
 		'url'      => 'http://naoya.dyndns.org/feedback/app/rss?keyword=',
 		'rss'      => 'http://naoya.dyndns.org/feedback/app/rss?keyword=',
 		'mode'     =>  RSSC_C_MODE_RDF,
 		'code'     => 'EUC-JP',
 		'encoding' => 'UTF-8',
-	);
+    ];
 
 	return $arr;
 }

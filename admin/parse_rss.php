@@ -187,7 +187,7 @@ function &get_param($lid='')
 		$rss_mode = $link['mode'];
 	}
 
-	$data = array(
+	$data = [
 		'lid'      => $lid,
 		'title'    => $title,
 		'rdf_url'  => $rdf_url,
@@ -212,7 +212,7 @@ function &get_param($lid='')
 		'force_overwrite' => 0,
 		'print_log'   => 0,
 		'print_error' => 1,
-	);
+    ];
 
 	return $data;
 }
@@ -528,11 +528,11 @@ function _print_yesno($name)
 
 function _print_sel_mode()
 {
-	$options = array(
+	$options = [
 		_AM_RSSC_VIEW_MODE_CURRENT => RSSC_C_VIEW_CURRENT,
 		_AM_RSSC_VIEW_MODE_LINK    => RSSC_C_VIEW_LINK,
 		_AM_RSSC_VIEW_MODE_FEED    => RSSC_C_VIEW_FEED,
-		);
+    ];
 
 	$cap = $this->build_form_caption(_AM_RSSC_VIEW_MODE, _AM_RSSC_VIEW_MODE_DESC);
 	$ele = $this->build_html_input_radio_select('mode_view', $this->_datas['mode_view'], $options, '<br />');
@@ -541,10 +541,10 @@ function _print_sel_mode()
 
 function _print_sel_rss_atom()
 {
-	$options = array(
+	$options = [
 		_AM_RSSC_CONF_RSS_ATOM_SEL_RSS  => RSSC_C_SEL_RSS,
 		_AM_RSSC_CONF_RSS_ATOM_SEL_ATOM => RSSC_C_SEL_ATOM,
-		);
+    ];
 
 	$cap = $this->build_form_caption(_AM_RSSC_CONF_RSS_ATOM, _AM_RSSC_CONF_RSS_ATOM_DESC);
 	$ele = $this->build_html_input_radio_select('rss_atom', $this->_datas['rss_atom'], $options, '<br />');

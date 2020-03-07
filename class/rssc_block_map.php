@@ -79,7 +79,7 @@ function build_map_block( $param )
 	$this->_map_class->assign_map_js_to_head();
 	$this->_map_class->assign_gicon_array_to_head();
 
-	$markers = array();
+	$markers = [];
 	if ( is_array($feeds) && count($feeds) ){
 		foreach ($feeds as $feed) {
 			if ( $this->check_latlng_by_feed( $feed ) ) {

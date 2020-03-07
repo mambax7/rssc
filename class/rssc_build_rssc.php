@@ -285,7 +285,7 @@ function _build_common_item( $item )
 		$link = $item['link'];
 	}
 
-	$ret = array(
+	$ret = [
 		'link'         => $this->_xml_url( $link ),
 		'guid'         => $this->_xml_url( $item['guid'] ),
 		'entry_id'     => $this->_xml_url( $item['entry_id'] ),
@@ -327,8 +327,8 @@ function _build_common_item( $item )
 		'media_thumbnail_url'    => $this->_xml_url( $item['media_thumbnail_url'] ) ,
 		'media_thumbnail_width'  => $item['media_thumbnail_width'] ,
 		'media_thumbnail_height' => $item['media_thumbnail_height'] ,
-	
-	);
+
+    ];
 
 	return $ret;
 }

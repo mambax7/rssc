@@ -51,7 +51,7 @@ function &get_objects_for_import( $limit=0, $offset=0 )
 {
 	$rows = $this->get_rows($limit, $offset);
 
-	$objs = array();
+	$objs = [];
 	foreach ($rows as $row)
 	{
 

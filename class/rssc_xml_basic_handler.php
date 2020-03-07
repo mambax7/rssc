@@ -39,7 +39,7 @@ function __construct()
 //---------------------------------------------------------
 function init()
 {
-	$this->_vars = array(
+	$this->_vars = [
 		'xid' => 0,
 		'lid' => 0,
 		'xml' => '',
@@ -47,7 +47,7 @@ function init()
 		'aux_int_2'  => 0,
 		'aux_text_1' => '',
 		'aux_text_2' => '',
-	);
+    ];
 
 }
 

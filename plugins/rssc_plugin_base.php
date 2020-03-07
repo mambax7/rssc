@@ -15,10 +15,10 @@ if( !class_exists('rssc_plugin_base') )
 
 class rssc_plugin_base
 {
-	var $_plural_vars = array();
-	var $_single_vars = array();
-	var $_param_vars  = array();
-	var $_logs        = array();
+	var $_plural_vars = [];
+	var $_single_vars = [];
+	var $_param_vars  = [];
+	var $_logs        = [];
 
 	var $_DIRNAME;
 
@@ -115,7 +115,7 @@ function reject()
 //---------------------------------------------------------
 function execute( &$items )
 {
-	$arr = array();
+	$arr = [];
 	$this->init();
 
 	foreach ( $items as $input )
@@ -156,7 +156,7 @@ function execute_single()
 	{
 		$this->set_logs( 'reject by plugin: '. $this->name() );
 	}
-	return array($ret1, $ret2);
+	return [$ret1, $ret2];
 }
 
 //---------------------------------------------------------
@@ -204,7 +204,7 @@ function get_param_by_num( $num, $default=false )
 //---------------------------------------------------------
 function clear_plural_item_array()
 {
-	$this->_plural_vars = array();
+	$this->_plural_vars = [];
 }
 
 function set_plural_item_array( $arr )
@@ -244,7 +244,7 @@ function &get_plural_item_by_num( $num, $default=false )
 //---------------------------------------------------------
 function clear_item_array()
 {
-	$this->_single_vars = array();
+	$this->_single_vars = [];
 }
 
 function set_item_array( $arr )
@@ -279,7 +279,7 @@ function &get_item_by_key( $key, $default=false )
 //---------------------------------------------------------
 function clear_logs()
 {
-	$this->_logs = array();
+	$this->_logs = [];
 }
 
 function set_logs( $arr )

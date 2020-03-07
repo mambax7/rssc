@@ -63,7 +63,7 @@ function __construct()
 //---------------------------------------------------------
 function init()
 {
-	$this->_vars = array(
+	$this->_vars = [
 		'lid' => 0,
 		'uid' => 0,
 		'mid' => 0,
@@ -113,7 +113,7 @@ function init()
 		'media_thumbnail_width'  => 0,
 		'media_thumbnail_height' => 0,
 
-	);
+    ];
 
 }
 

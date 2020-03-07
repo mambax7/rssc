@@ -58,7 +58,7 @@ public static function &getInstance()
 //---------------------------------------------------------
 function show_latest( $DIRNAME )
 {
-	$block = array();
+	$block = [];
 	$block['dirname']      = $DIRNAME;
 	$block['lang_more']    = _BL_RSSC_MORE;
 	$block['lang_podcast'] = _BL_RSSC_PODCAST;
@@ -73,19 +73,19 @@ function show_latest( $DIRNAME )
 	$show_icon = $conf_data['block_latest_show_icon'] ;
 	$icon_list = null ;
 
-	$feed_param = array(
+	$feed_param = [
 		'dirname'  => $DIRNAME ,
 		'order'    => $conf_data['block_latest_order'] ,
 		'limit'    => $conf_data['block_latest_perpage'] ,
 		'future'   => $conf_data['basic_future_days'] ,
 		'flag_map' => false ,
-	);
+    ];
 
-	$build_param = array(
+	$build_param = [
 		'max_title'   => $conf_data['block_latest_max_title'] ,
 		'max_summary' => $conf_data['block_latest_max_summary'] ,
 		'max_content' => $conf_data['block_latest_max_content'] ,
-	);
+    ];
 
 	$rows = $this->get_feed_latest( $feed_param );
 	if ( !is_array($rows) ) {
@@ -94,7 +94,7 @@ function show_latest( $DIRNAME )
 
 	$feeds = $this->build_feeds( $rows, $build_param );
 
-	$tpl_param = array(
+	$tpl_param = [
 		'dirname'     => $DIRNAME ,
 		'feeds'       => $feeds ,
 		'show_icon'   => $show_icon ,
@@ -103,7 +103,7 @@ function show_latest( $DIRNAME )
 		'mode_date'   => $conf_data['block_latest_mode_date'] ,
 		'num_content' => $conf_data['block_latest_num_content'] ,
 		'conf_url'    => $conf_data['basic_url'] ,
-	);
+    ];
 
 	$feed_list = $this->fetch_tpl_feed_list( $tpl_param );
 
@@ -124,7 +124,7 @@ function show_map( $DIRNAME )
 {
 	$map_timeout = 1000;
 
-	$block = array();
+	$block = [];
 	$block['dirname']      = $DIRNAME;
 	$block['lang_more']    = _BL_RSSC_MORE;
 	$block['lang_podcast'] = _BL_RSSC_PODCAST;
@@ -136,19 +136,19 @@ function show_map( $DIRNAME )
 		return $block;
 	}
 
-	$feed_param = array(
+	$feed_param = [
 		'dirname'  => $DIRNAME ,
 		'order'    => $conf_data['block_map_order'] ,
 		'limit'    => $conf_data['block_map_perpage'] ,
 		'future'   => $conf_data['basic_future_days'] ,
 		'flag_map' => true ,
-	);
+    ];
 
-	$build_param = array(
+	$build_param = [
 		'max_title'   => $conf_data['block_map_max_title'] ,
 		'max_summary' => 0 ,
 		'max_content' => 0 ,
-	);
+    ];
 
 	$rows = $this->get_feed_latest( $feed_param );
 	if ( !is_array($rows) ) {
@@ -160,13 +160,13 @@ function show_map( $DIRNAME )
 	$map_div_id = $DIRNAME.'_map_block' ;
 	$map_func   = $DIRNAME.'_map_block_load';
 
-	$webmap_param = array(
+	$webmap_param = [
 		'dirname'    => $DIRNAME ,
 		'map_div_id' => $map_div_id ,
 		'map_func'   => $map_func ,
 		'feeds'      => $feeds ,
 		'conf'       => $conf_data ,
-	);
+    ];
 
 	$ret = $this->get_map( $webmap_param );
 	if ( !$ret ) {
@@ -188,7 +188,7 @@ function show_map( $DIRNAME )
 //---------------------------------------------------------
 function show_headline( $DIRNAME )
 {
-	$block = array();
+	$block = [];
 	$block['dirname']      = $DIRNAME;
 	$block['lang_more']    = _BL_RSSC_MORE;
 	$block['lang_podcast'] = _BL_RSSC_PODCAST;
@@ -200,19 +200,19 @@ function show_headline( $DIRNAME )
 		return $block;
 	}
 
-	$build_param = array(
+	$build_param = [
 		'max_title'   => $conf_data['block_headline_max_title'],
 		'max_summary' => $conf_data['block_headline_max_summary'],
 		'max_content' => $conf_data['block_headline_max_content'],
-	);
+    ];
 
-	$link_param = array(
+	$link_param = [
 		'dirname' => $DIRNAME ,
 		'limit'   =>  $conf_data['block_headline_links_perpage'] ,
-	);
+    ];
 
 // BUG: not valid headline params
-	$tpl_param = array(
+	$tpl_param = [
 		'dirname'     => $DIRNAME ,
 		'show_thumb'  => $conf_data['block_headline_show_thumb'] ,
 		'show_icon'   => false ,
@@ -220,14 +220,14 @@ function show_headline( $DIRNAME )
 		'mode_date'   => $conf_data['block_headline_mode_date'] ,
 		'num_content' => $conf_data['block_headline_num_content'] ,
 		'conf_url'    => $conf_data['basic_url'] ,
-	);
+    ];
 
 	$link_rows = $this->get_link_headline( $link_param );
 	if ( !is_array($link_rows) ) {
 		return  $block;
 	}
 
-	$links = array();
+	$links = [];
 
 	foreach ( $link_rows as $link_row ) 
 	{
@@ -235,13 +235,13 @@ function show_headline( $DIRNAME )
 
 		$feed_list = null;
 
-		$feed_param = array(
+		$feed_param = [
 			'dirname'  => $DIRNAME ,
 			'lid'      => $lid ,
 			'order'    => $conf_data['block_headline_order'] ,
 			'limit'    => $conf_data['block_headline_feeds_perlink'] ,
 			'future'   => $conf_data['basic_future_days'] ,
-		);
+        ];
 
 		$feed_rows = $this->get_feed_lid( $feed_param );
 		if ( is_array($feed_rows) ) {
@@ -249,7 +249,7 @@ function show_headline( $DIRNAME )
 			$feed_list = $this->fetch_tpl_feed_list( $tpl_param );
 		}
 
-		$link = array();
+		$link = [];
 		$link['lid']       = $lid;
 		$link['enclosure'] = intval( $link_row['enclosure'] );
 		$link['url_s']     = $this->sanitize_url(  $link_row['url'] );
@@ -272,7 +272,7 @@ function show_headline( $DIRNAME )
 //---------------------------------------------------------
 function show_blog( $DIRNAME )
 {
-	$block = array();
+	$block = [];
 	$block['dirname']      = $DIRNAME;
 	$block['lang_more']    = _BL_RSSC_MORE;
 	$block['lang_podcast'] = _BL_RSSC_PODCAST;
@@ -294,24 +294,24 @@ function show_blog( $DIRNAME )
 		return $block;
 	}
 
-	$link_param = array(
+	$link_param = [
 		'dirname' => $DIRNAME ,
 		'lid'     => $lid ,
-	);
+    ];
 
-	$feed_param = array(
+	$feed_param = [
 		'dirname'  => $DIRNAME ,
 		'lid'      => $lid ,
 		'order'    => $conf_data['block_blog_order'] ,
 		'limit'    => $conf_data['block_blog_perpage'] ,
 		'future'   => $conf_data['basic_future_days'] ,
-	);
+    ];
 
-	$build_param = array(
+	$build_param = [
 		'max_title'   => $conf_data['block_blog_max_title'],
 		'max_summary' => $conf_data['block_blog_max_summary'],
 		'max_content' => $conf_data['block_blog_max_content'],
-	);
+    ];
 
 	$link_row = $this->get_link_row( $link_param );
 
@@ -325,7 +325,7 @@ function show_blog( $DIRNAME )
 	$site_title = $link_row['title'] ;
 	$site_link  = $link_row['url'] ;
 
-	$link = array();
+	$link = [];
 	$link['enclosure'] = intval( $link_row['enclosure'] );
 
 	$feed_rows = $this->get_feed_lid( $feed_param );
@@ -345,7 +345,7 @@ function show_blog( $DIRNAME )
 		$site_link = $feeds[0]['site_link'];
 	}
 
-	$tpl_param = array(
+	$tpl_param = [
 		'dirname'     => $DIRNAME ,
 		'feeds'       => $feeds ,
 		'show_thumb'  => $conf_data['block_blog_show_thumb'] ,
@@ -353,7 +353,7 @@ function show_blog( $DIRNAME )
 		'show_site'   => false ,
 		'mode_date'   => $conf_data['block_blog_mode_date'] ,
 		'num_content' => $conf_data['block_blog_num_content'] ,
-	);
+    ];
 
 	$feed_list = $this->fetch_tpl_feed_list( $tpl_param );
 
@@ -380,7 +380,7 @@ function get_conf( $DIRNAME )
 		return false;
 	}
 
-	$conf = array();
+	$conf = [];
 	while ( $row = $this->_db->fetchArray($res) ) {
 		$conf[ $row['conf_name'] ] = $row['conf_value'];
 	}
@@ -419,7 +419,7 @@ function get_feed_latest( $param )
 		return false;
 	}
 
-	$rows = array();
+	$rows = [];
 	while ($row = $this->_db->fetchArray($res)) {
 		$rows[] = $row;
 	}
@@ -447,7 +447,7 @@ function get_feed_lid( $param )
 
 	$res = $this->_db->query($sql, $limit, 0);
 
-	$rows = array();
+	$rows = [];
 	while ($row = $this->_db->fetchArray($res)) {
 		$rows[] = $row;
 	}
@@ -484,7 +484,7 @@ function get_link_headline( $param )
 		return false;
 	}
 
-	$rows = array();
+	$rows = [];
 	while ($row = $this->_db->fetchArray($res)) {
 		$rows[] = $row;
 	}
@@ -558,7 +558,7 @@ function fetch_tpl_feed_list( $param )
 //---------------------------------------------------------
 function build_feeds( $rows, $param )
 {
-	$feeds = array();
+	$feeds = [];
 	foreach ( $rows as $row ) {
 		$feeds[] = $this->build_single_feed( $row, $param );
 	}
@@ -616,7 +616,7 @@ function build_single_feed( $row, $param )
 				$row['media_content_width'], $row['media_content_height'] ); 
 	}
 
-	$feed = array(
+	$feed = [
 		'fid'  => intval( $row['fid'] ),
 		'lid'  => intval( $row['lid'] ),
 		'uid'  => intval( $row['uid'] ),
@@ -679,7 +679,7 @@ function build_single_feed( $row, $param )
 		'thumb_url_s'            => $this->sanitize_url( $thumb_url ) ,
 		'thumb_width'            => $thumb_width ,
 		'thumb_height'           => $thumb_height ,
-	);
+    ];
 
 	return $feed;
 }
@@ -745,7 +745,7 @@ function build_date( $mode )
 			break;
 	}
 
-	return array( $show_short, $show_middle, $show_long );
+	return [$show_short, $show_middle, $show_long];
 }
 
 function adjust_size( $width, $height )
@@ -755,7 +755,7 @@ function adjust_size( $width, $height )
 	$flag_zero  = $this->_FLAG_ZERO ;
 
 	if ( $flag_zero && (( $width == 0 )||( $height == 0 )) ) {
-		return array( $max_width, 0 );
+		return [$max_width, 0];
 	}
 
 	if ($width > $max_width)
@@ -775,7 +775,7 @@ function adjust_size( $width, $height )
     $width  = intval($width);
     $height = intval($height);
 
-	return array($width, $height);
+	return [$width, $height];
 }
 
 function sanitize( $str)
@@ -792,7 +792,7 @@ function sanitize_url( $str )
 
 function undo_htmlspecialchars( $str )
 {
-	$arr = array(
+	$arr = [
 		'&amp;'  =>  '&',
 		'&lt;'   =>  '<',
 		'&gt;'   =>  '>',
@@ -800,7 +800,7 @@ function undo_htmlspecialchars( $str )
 		'&#39;'  =>  "'",
 		'&#039;' =>  "'",
 		'&apos;' =>  "'",
-	);
+    ];
 	$str = strtr( $str, $arr );
 	return $str;
 }

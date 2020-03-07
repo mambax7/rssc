@@ -52,8 +52,8 @@ $mode  = $single->get_get_mode();
 $single->set_keyword_by_request();
 $urlencode = $single->get_keywords_urlencode();
 
-$feed  = array();
-$link  = array();
+$feed  = [];
+$link  = [];
 $error = '';
 $link_show = 0;
 $feed_show = 0;
@@ -221,7 +221,7 @@ function &get_sanitized_parse_by_lid($lid, $mode)
 
 	$parse_data =& $view_obj->get_vars();
 	$items = $parse_data['items'];
-	$arr   = array();
+	$arr   = [];
 
 	if ( is_array($items) && count($items) )
 	{
@@ -237,7 +237,7 @@ function &get_sanitized_parse_by_lid($lid, $mode)
 		}
 	}
 
-	$ret = array();
+	$ret = [];
 	$ret['link']  = $link;
 	$ret['items'] = $arr;
 

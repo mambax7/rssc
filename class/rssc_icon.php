@@ -70,7 +70,7 @@ function build_icon_list( $dirname )
 		return false;
 	}
 
-	$arr  = array();
+	$arr  = [];
 	foreach ($rows as $row)
 	{
 
@@ -94,7 +94,7 @@ function build_icon_list( $dirname )
 
 function get_config_row( $dirname )
 {
-	$arr = array();
+	$arr = [];
 
 	$table_config = $this->_db->prefix( $dirname.'_config' );
 	$sql = 'SELECT * FROM '.$table_config.' ORDER BY conf_id ASC';
@@ -112,7 +112,7 @@ function get_config_row( $dirname )
 
 function get_link_rows( $dirname )
 {
-	$rows = array();
+	$rows = [];
 
 	$table_link = $this->_db->prefix( $dirname.'_link' );
 	$sql = 'SELECT * FROM '.$table_link.' WHERE ltype<>0 ORDER BY lid ASC';

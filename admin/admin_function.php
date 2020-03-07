@@ -56,26 +56,26 @@ function rssc_admin_print_bread( $name1, $url1='', $name2='' )
 	$system =& happy_linux_system::getInstance();
 	$form   =& happy_linux_form::getInstance();
 
-	$arr = array(
-		array(
+	$arr = [
+        [
 			'name' => $system->get_module_name(),
 			'url'  => 'index.php',
-		),
-	);
+        ],
+    ];
 
 	if ( $name1 )
 	{
-		$arr[] = array(
+		$arr[] = [
 			'name' => $name1,
 			'url'  => $url1,
-		);
+        ];
 	}
 
 	if ( $name2 )
 	{
-		$arr[] = array(
+		$arr[] = [
 			'name' => $name2,
-		);
+        ];
 	}
 
 	echo $form->build_html_bread_crumb( $arr );
@@ -103,7 +103,7 @@ function rssc_admin_print_menu()
 	$feed_list  = _AM_RSSC_LIST_FEED. " ($total_feed)";
 	$word_list  = _AM_RSSC_LIST_WORD. " ($total_word)";
 
-	$menu_arr = array(
+	$menu_arr = [
 		_MI_RSSC_ADMENU_CONFIG       => 'index.php',
 		_AM_RSSC_FORM_FILTER         => 'config_manage_2.php',
 		_AM_RSSC_FORM_HTMLOUT        => 'config_manage_3.php',
@@ -134,7 +134,7 @@ function rssc_admin_print_menu()
 		_AM_RSSC_MAP_MANAGE            => 'map_manage.php',
 		_HAPPY_LINUX_GOTO_MODULE => '../index.php',
 
-	);
+    ];
 
 	$menu =& happy_linux_admin_menu::getInstance();
 	echo $menu->build_menu_table($menu_arr, $MAX_COL);

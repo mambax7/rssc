@@ -395,8 +395,9 @@ CREATE TABLE ".$this->_word_table." (
 //---------------------------------------------------------
 function _check_link_130()
 {
-	return $this->preg_match_column_type_array( 
-		$this->_link_table, 'url', array('text','blob') );
+	return $this->preg_match_column_type_array(
+        $this->_link_table, 'url', ['text', 'blob']
+    );
 }
 
 function _check_link_100()
@@ -406,14 +407,16 @@ function _check_link_100()
 
 function _check_link_080_1()
 {
-	return $this->preg_match_column_type_array( 
-		$this->_link_table, 'censor', array('text','blob') );
+	return $this->preg_match_column_type_array(
+        $this->_link_table, 'censor', ['text', 'blob']
+    );
 }
 
 function _check_link_080_2()
 {
-	return $this->preg_match_column_type_array( 
-		$this->_link_table, 'plugin', array('text','blob') );
+	return $this->preg_match_column_type_array(
+        $this->_link_table, 'plugin', ['text', 'blob']
+    );
 }
 
 function _check_link_080_3()
@@ -513,8 +516,9 @@ function &_get_link_rows()
 //---------------------------------------------------------
 function _check_feed_130()
 {
-	return $this->preg_match_column_type_array( 
-		$this->_feed_table, 'site_link', array('text','blob') );
+	return $this->preg_match_column_type_array(
+        $this->_feed_table, 'site_link', ['text', 'blob']
+    );
 }
 
 function _check_feed_100()
@@ -524,8 +528,9 @@ function _check_feed_100()
 
 function _check_feed_090()
 {
-	return $this->preg_match_column_type_array( 
-		$this->_feed_table, 'link', array('text','blob') );
+	return $this->preg_match_column_type_array(
+        $this->_feed_table, 'link', ['text', 'blob']
+    );
 }
 
 function _check_feed_060()

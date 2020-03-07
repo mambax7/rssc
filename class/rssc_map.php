@@ -238,7 +238,7 @@ function get_conf( $dirname )
 		return false;
 	}
 
-	$conf = array();
+	$conf = [];
 	while ( $row = $db->fetchArray($res) ) {
 		$conf[ $row['conf_name'] ] = $row['conf_value'];
 	}

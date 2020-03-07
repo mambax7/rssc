@@ -69,7 +69,7 @@ function &get_show()
 	$url_xml   = $this->get_rssurl_by_mode();
 	$icon      = $this->_get_rss_icon_by_mode( $this->get('mode') );
 
-	$arr = array(
+	$arr = [
 		'lid'            => intval( $this->get('lid') ),
 		'uid'            => intval( $this->get('uid') ),
 		'mid'            => intval( $this->get('mid') ),
@@ -101,7 +101,7 @@ function &get_show()
 		'updated_middle' => formatTimestamp( $time, 'm' ),
 		'updated_short'  => formatTimestamp( $time, 's' ),
 		'updated_mysql'  => formatTimestamp( $time, 'mysql' ),
-	);
+    ];
 
 	return $arr;
 }

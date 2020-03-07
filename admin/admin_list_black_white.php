@@ -46,13 +46,13 @@ public static function &getInstance()
 //---------------------------------------------------------
 function &_get_table_header()
 {
-	$arr = array(
+	$arr = [
 		$this->_TILTE_ID_BW,
 		_AM_RSSC_SHOW_FEED,
 		_RSSC_SITE_LINK,
 		_RSSC_SITE_TITLE,
 		_RSSC_FREQ_COUNT,
-	);
+    ];
 
 	return $arr;
 }

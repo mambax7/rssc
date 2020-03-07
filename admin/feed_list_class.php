@@ -96,14 +96,14 @@ function _get_total()
 // Notice: Only variables should be assigned by reference
 function _get_table_header()
 {
-	$arr = array(
+	$arr = [
 		$this->build_form_js_checkall(),
 		_RSSC_FEED_ID,
 		_HAPPY_LINUX_VIEW_TITLE,
 		_HAPPY_LINUX_VIEW_SITE_TITLE,
 		_HAPPY_LINUX_VIEW_UPDATED,
 		_HAPPY_LINUX_VIEW_CONTENT,
-	);
+    ];
 
 	return $arr;
 }
@@ -155,14 +155,14 @@ function &_get_cols(&$obj)
 	$view_feed = $this->build_html_a_href_name($url_view_fid, $img_link, '', false);
 	$link_feed = $this->_build_page_id_link_by_obj( $obj, 'fid', $jump);
 
-	$arr = array(
+	$arr = [
 		$this->build_form_js_checkbox($fid),
 		$view_feed.'&nbsp;&nbsp;'.$link_feed,
 		$this->_build_page_name_link_by_obj($obj, 'link',      'title',      '_blank'),
 		$this->_build_page_name_link_by_obj($obj, 'site_link', 'site_title', '_blank'),
 		formatTimestamp($updated_unix, 'mysql'),
 		$content_html,
-	);
+    ];
 
 	return $arr;
 }
