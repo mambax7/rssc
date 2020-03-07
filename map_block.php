@@ -11,7 +11,7 @@ include '../../mainfile.php';
 //---------------------------------------------------------
 // rssc
 //---------------------------------------------------------
-$DIRNAME = basename( dirname( __FILE__ ) ) ;
+$DIRNAME = basename(__DIR__) ;
 $MODULE_DIR = XOOPS_ROOT_PATH.'/modules/'.$DIRNAME ;
 include_once $MODULE_DIR.'/blocks/block_latest.php';
 

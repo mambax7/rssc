@@ -50,7 +50,7 @@ if( !function_exists( 'b_rssc_show_latest' ) )
 //---------------------------------------------------------
 function b_rssc_show_latest( $options )
 {
-	$DIRNAME  = empty( $options[0] ) ? basename( dirname( dirname( __FILE__ ) ) ) : $options[0] ;
+	$DIRNAME  = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
 	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
 	$block_class =& rssc_block::getInstance();
@@ -64,7 +64,7 @@ function b_rssc_show_latest( $options )
 //---------------------------------------------------------
 function b_rssc_show_map( $options )
 {
-	$DIRNAME  = empty( $options[0] ) ? basename( dirname( dirname( __FILE__ ) ) ) : $options[0] ;
+	$DIRNAME  = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
 	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
 	$block_class =& rssc_block::getInstance();
@@ -78,7 +78,7 @@ function b_rssc_show_map( $options )
 //---------------------------------------------------------
 function b_rssc_show_headline( $options )
 {
-	$DIRNAME = empty( $options[0] ) ? basename( dirname( dirname( __FILE__ ) ) ) : $options[0] ;
+	$DIRNAME = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
 	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
 	$block_class =& rssc_block::getInstance();
@@ -92,7 +92,7 @@ function b_rssc_show_headline( $options )
 //---------------------------------------------------------
 function b_rssc_show_blog( $options )
 {
-	$DIRNAME = empty( $options[0] ) ? basename( dirname( dirname( __FILE__ ) ) ) : $options[0] ;
+	$DIRNAME = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
 	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
 	$block_class =& rssc_block::getInstance();

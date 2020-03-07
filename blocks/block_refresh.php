@@ -32,7 +32,7 @@
 if( !function_exists( 'b_rssc_show_refresh' ) ) 
 {
 
-$RSSC_DIRNAME = basename( dirname( dirname( __FILE__ ) ) );
+$RSSC_DIRNAME = basename( dirname(__DIR__) );
 
 //---------------------------------------------------------
 // rssc
@@ -48,7 +48,7 @@ include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/refresh.php';
 //---------------------------------------------------------
 function b_rssc_show_refresh( $options )
 {
-	$DIRNAME = empty( $options[0] ) ? basename( dirname( dirname( __FILE__ ) ) ) : $options[0] ;
+	$DIRNAME = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
 //	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME .'/api/view.php';
 	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME .'/api/refresh.php';

@@ -9,7 +9,7 @@
 // 2007-11-11 K.OHWADA
 //=========================================================
 
-$RSSC_DIRNAME = basename( dirname( __FILE__ ) );
+$RSSC_DIRNAME = basename(__DIR__);
 
 global $xoopsConfig;
 $XOOPS_LANGUAGE = $xoopsConfig['language'];
@@ -47,13 +47,12 @@ function xoops_module_install_'. $RSSC_DIRNAME .'( $module )
 	return rssc_install_base( "'. $RSSC_DIRNAME .'" ,  $module );
 }
 
-function xoops_module_update_'. $RSSC_DIRNAME . '( $module, $prev_version )
+function xoops_module_update_'. $RSSC_DIRNAME .'( $module, $prev_version )
 {
-	return rssc_update_base( \'' . $RSSC_DIRNAME . '\' ,  $module, $prev_version );
+	return rssc_update_base( "'. $RSSC_DIRNAME .'" ,  $module, $prev_version );
 }
 
-'
-);
+' );
 // --- eval end ---
 
 }
@@ -140,4 +139,4 @@ function rssc_message_append_onupdate( &$module_obj , $log )
 // === rssc_oninstall_base end ===
 }
 
-
+?>

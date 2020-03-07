@@ -24,7 +24,7 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-$RSSC_DIRNAME = basename( dirname( __FILE__ ) );
+$RSSC_DIRNAME = basename(__DIR__);
 $RSSC_MODULE_ROOT = XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME;
 $RSSC_MODULE_URL  = XOOPS_URL.'/modules/'.$RSSC_DIRNAME;
 

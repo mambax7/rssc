@@ -14,7 +14,7 @@
 //================================================================
 
 // dir name
-$RSSC_DIRNAME = basename( dirname( dirname( __FILE__ ) ) );
+$RSSC_DIRNAME = basename( dirname(__DIR__) );
 
 //---------------------------------------------------------
 // happy_linux
