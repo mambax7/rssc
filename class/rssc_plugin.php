@@ -307,7 +307,7 @@ function &_get_class_obj_by_name( $name )
 
 	if ( class_exists($class) )
 	{
-		$obj = new $class;
+		$obj = new $class();
 		return $obj;
 	}
 
