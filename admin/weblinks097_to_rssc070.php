@@ -30,24 +30,24 @@ include_once RSSC_ROOT_PATH.'/class/rssc_weblinks_handler.php';
 //=========================================================
 class admin_import_weblinks extends rssc_import_handler
 {
-	var $_DIRNAME_WEBLINKS = 'weblinks';
+    var $_DIRNAME_WEBLINKS = 'weblinks';
 
-	var $_weblinks_handler;
+    var $_weblinks_handler;
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function admin_import_weblinks()
-{
-	rssc_import_handler::__construct(RSSC_DIRNAME );
-	$this->set_mid_orig_by_dirname( $this->_DIRNAME_WEBLINKS );
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function admin_import_weblinks()
+    {
+        rssc_import_handler::__construct(RSSC_DIRNAME);
+        $this->set_mid_orig_by_dirname($this->_DIRNAME_WEBLINKS);
 
-	$this->_rss_parser = happy_linux_rss_parser::getInstance();
+        $this->_rss_parser = happy_linux_rss_parser::getInstance();
 
-	$this->_weblinks_handler =& rssc_weblinks_handler::getInstance( $this->_DIRNAME_WEBLINKS );
-	$this->_weblinks_handler->set_debug_db_error( true );
-	$this->_weblinks_handler->load_config();
-}
+        $this->_weblinks_handler =& rssc_weblinks_handler::getInstance($this->_DIRNAME_WEBLINKS);
+        $this->_weblinks_handler->set_debug_db_error(true);
+        $this->_weblinks_handler->load_config();
+    }
 
     public static function getInstance()
     {
@@ -59,222 +59,198 @@ function admin_import_weblinks()
         return $instance;
     }
 
-//=========================================================
-// import from weblinks
-//=========================================================
-function first_step()
-{
+    //=========================================================
+    // import from weblinks
+    //=========================================================
+    public function first_step()
+    {
+        ?>
+        <br/>
+        There are 5 steps. <br/>
+        1. import rss site <br/>
+        2. import black list <br/>
+        3. import white list <br/>
+        4. import link table <br/>
+        5. import feed table <br/>
+        excute each <?php echo $this->_LIMIT; ?> records at a time <br/>
+        <br/>
+        <?php
 
-?>
-<br />
-There are 5 steps. <br />
-1. import rss site <br />
-2. import black list <br />
-3. import white list <br />
-4. import link table <br />
-5. import feed table <br />
-excute each <?php echo $this->_LIMIT; ?> records at a time <br />
-<br />
-<?php
+        $this->_form_site();
+    }
 
-	$this->_form_site();
+    public function main_import_site()
+    {
+        echo "<h4>STEP 1: import rss site</h4>\n";
 
-}
+        $offset = $this->get_post_offset();
+        $next   = $this->calc_next();
 
-function main_import_site()
-{
-	echo "<h4>STEP 1: import rss site</h4>\n";
+        $site_list = $this->_weblinks_handler->get_config_list_by_name('rss_site');
+        $total     = count($site_list);
 
-	$offset = $this->get_post_offset();
-	$next   = $this->calc_next();
+        echo "There are <b>" . $total . "</b> rss site in weblinks<br /><br />\n";
 
-	$site_list = $this->_weblinks_handler->get_config_list_by_name( 'rss_site' );
-	$total = count($site_list);
+        $this->clear_num();
 
-	echo "There are <b>".$total."</b> rss site in weblinks<br /><br />\n";
+        foreach ($site_list as $site_url) {
+            $this->import_site_weblinks($site_url);
+        }
 
-	$this->clear_num();
+        $this->_form_black();
+    }
 
-	foreach ($site_list as $site_url)
-	{
-		$this->import_site_weblinks( $site_url );
-	}
+    public function main_import_black()
+    {
+        echo "<h4>STEP 2: import block list</h4>\n";
 
-	$this->_form_black();
+        $offset = $this->get_post_offset();
+        $next   = $this->calc_next();
 
-}
+        $site_list = $this->_weblinks_handler->get_config_list_by_name('rss_black');
+        $total     = count($site_list);
 
-function main_import_black()
-{
-	echo "<h4>STEP 2: import block list</h4>\n";
+        echo "There are <b>" . $total . "</b> black list in weblinks<br /><br />\n";
 
-	$offset = $this->get_post_offset();
-	$next   = $this->calc_next();
+        $this->clear_num();
 
-	$site_list = $this->_weblinks_handler->get_config_list_by_name( 'rss_black' );
-	$total = count($site_list);
+        foreach ($site_list as $site_url) {
+            $this->import_black_weblinks($site_url);
+        }
 
-	echo "There are <b>".$total."</b> black list in weblinks<br /><br />\n";
+        $this->_form_white();
+    }
 
-	$this->clear_num();
+    public function main_import_white()
+    {
+        echo "<h4>STEP 3: import white list</h4>\n";
 
-	foreach ($site_list as $site_url)
-	{
-		$this->import_black_weblinks( $site_url );
-	}
+        $offset = $this->get_post_offset();
+        $next   = $this->calc_next();
 
-	$this->_form_white();
+        $site_list = $this->_weblinks_handler->get_config_list_by_name('rss_white');
+        $total     = count($site_list);
 
-}
+        echo "There are <b>" . $total . "</b> white list in weblinks<br /><br />\n";
 
-function main_import_white()
-{
-	echo "<h4>STEP 3: import white list</h4>\n";
+        $this->clear_num();
 
-	$offset = $this->get_post_offset();
-	$next   = $this->calc_next();
+        foreach ($site_list as $site_url) {
+            $this->import_white_weblinks($site_url);
+        }
 
-	$site_list = $this->_weblinks_handler->get_config_list_by_name( 'rss_white' );
-	$total = count($site_list);
+        $this->_form_link();
+    }
 
-	echo "There are <b>".$total."</b> white list in weblinks<br /><br />\n";
+    public function main_import_link()
+    {
+        echo "<h4>STEP 4: import link table</h4>\n";
 
-	$this->clear_num();
+        $total  = $this->_weblinks_handler->get_link_count_rss_flag_prev_ver();
+        $offset = $this->get_post_offset();
+        $next   = $this->calc_next($total);
 
-	foreach ($site_list as $site_url)
-	{
-		$this->import_white_weblinks( $site_url );
-	}
+        echo "There are <b>" . $total . "</b> rss links in weblinks<br />\n";
+        echo "Transfer " . $offset . " - " . $next . " record <br /><br />\n";
 
-	$this->_form_link();
+        $objs =& $this->_weblinks_handler->get_link_objects_rss_flag_prev_ver($this->_LIMIT, $offset);
 
-}
+        foreach ($objs as $obj) {
+            $rssc_lid = $this->import_link_weblinks($obj);
+        }
 
-function main_import_link()
-{
-	echo "<h4>STEP 4: import link table</h4>\n";
+        if ($total > $next) {
+            $this->_form_link($next);
+        } else {
+            $this->_form_feed();
+        }
+    }
 
-	$total  = $this->_weblinks_handler->get_link_count_rss_flag_prev_ver();
-	$offset = $this->get_post_offset();
-	$next   = $this->calc_next( $total );
+    public function main_import_feed()
+    {
+        echo "<h4>STEP 5: import feed table</h4>\n";
 
-	echo "There are <b>".$total."</b> rss links in weblinks<br />\n";
-	echo "Transfer ".$offset." - ".$next." record <br /><br />\n";
+        $total  = $this->_weblinks_handler->get_atomfeed_count();
+        $offset = $this->get_post_offset();
+        $next   = $this->calc_next($total);
 
-	$objs =& $this->_weblinks_handler->get_link_objects_rss_flag_prev_ver($this->_LIMIT, $offset);
+        echo "There are <b>" . $total . "</b> feeds in weblinks<br />\n";
+        echo "Transfer " . $offset . " - " . $next . " record <br /><br />\n";
 
-	foreach ($objs as $obj)
-	{
-		$rssc_lid = $this->import_link_weblinks( $obj );
-	}
+        $objs =& $this->_weblinks_handler->get_atomfeed_objects($this->_LIMIT, $offset);
 
-	if ( $total > $next ) {
-		$this->_form_link($next);
-	} else {
-		$this->_form_feed();
-	}
+        $this->_set_lid_list();
 
-}
+        foreach ($objs as $obj) {
+            $rssc_lid = $this->import_feed_weblinks($obj);
+        }
 
+        if ($total > $next) {
+            $this->_form_feed($next);
+        } else {
+            $this->_print_finish();
+        }
+    }
 
-function main_import_feed()
-{
-	echo "<h4>STEP 5: import feed table</h4>\n";
+    //=========================================================
+    // private
+    //=========================================================
+    public function _form_site()
+    {
+        $title  = 'STEP 1 : import rss site';
+        $op     = 'import_site';
+        $submit = 'GO STEP 1';
 
-	$total  = $this->_weblinks_handler->get_atomfeed_count();
-	$offset = $this->get_post_offset();
-	$next   = $this->calc_next( $total );
+        $this->_print_form_next($title, $op, $submit);
+    }
 
-	echo "There are <b>".$total."</b> feeds in weblinks<br />\n";
-	echo "Transfer ".$offset." - ".$next." record <br /><br />\n";
+    public function _form_black()
+    {
+        $title  = 'STEP 2 : import black list';
+        $op     = 'import_black';
+        $submit = 'GO STEP 2';
 
-	$objs =& $this->_weblinks_handler->get_atomfeed_objects($this->_LIMIT, $offset);
+        $this->_print_form_next($title, $op, $submit);
+    }
 
-	$this->_set_lid_list();
+    public function _form_white()
+    {
+        $title  = 'STEP 3 : import white list';
+        $op     = 'import_white';
+        $submit = 'GO STEP 3';
 
-	foreach ($objs as $obj)
-	{
-		$rssc_lid = $this->import_feed_weblinks( $obj );
-	}
+        $this->_print_form_next($title, $op, $submit);
+    }
 
-	if ( $total > $next ){
-		$this->_form_feed($next);
-	} else {
-		$this->_print_finish();
-	}
+    public function _form_link($offset = 0)
+    {
+        $title = 'STEP 4 : import link table';
+        $op    = 'import_link';
 
-}
+        if ($offset) {
+            $submit = "GO next $this->_LIMIT links";
+        } else {
+            $submit = 'GO STEP 4';
+        }
 
-//=========================================================
-// private
-//=========================================================
-function _form_site()
-{
-	$title  = 'STEP 1 : import rss site';
-	$op     = 'import_site';
-	$submit = 'GO STEP 1';
+        $this->_print_form_next($title, $op, $submit, $offset);
+    }
 
-	$this->_print_form_next($title, $op, $submit);
+    public function _form_feed($offset = 0)
+    {
+        $title = "STEP 5 : import feed table";
+        $op    = 'import_feed';
 
-}
+        if ($offset) {
+            $submit = "GO next $this->_LIMIT feeds";
+        } else {
+            $submit = 'GO STEP 5';
+        }
 
-function _form_black()
-{
-	$title  = 'STEP 2 : import black list';
-	$op     = 'import_black';
-	$submit = 'GO STEP 2';
+        $this->_print_form_next($title, $op, $submit, $offset);
+    }
 
-	$this->_print_form_next($title, $op, $submit);
-
-}
-
-function _form_white()
-{
-	$title  = 'STEP 3 : import white list';
-	$op     = 'import_white';
-	$submit = 'GO STEP 3';
-
-	$this->_print_form_next($title, $op, $submit);
-
-}
-
-function _form_link($offset=0)
-{
-	$title  = 'STEP 4 : import link table';
-	$op     = 'import_link';
-
-	if ($offset)
-	{
-		$submit = "GO next $this->_LIMIT links";
-	}
-	else
-	{
-		$submit = 'GO STEP 4';
-	}
-
-	$this->_print_form_next($title, $op, $submit, $offset);
-
-}
-
-function _form_feed($offset=0)
-{
-	$title  = "STEP 5 : import feed table";
-	$op     = 'import_feed';
-
-	if ($offset)
-	{
-		$submit = "GO next $this->_LIMIT feeds";
-	}
-	else
-	{
-		$submit = 'GO STEP 5';
-	}
-
-	$this->_print_form_next($title, $op, $submit, $offset);
-
-}
-
-// --- class end ---
+    // --- class end ---
 }
 
 //=========================================================
