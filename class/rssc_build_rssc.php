@@ -68,12 +68,13 @@ if( !class_exists('rssc_build_rssc') )
             $this->_URL_SINGLE_FEED = XOOPS_URL . '/modules/' . $dirname . '/single_feed.php?fid=';
         }
 
-        public static function &getInstance($dirname)
+        public static function getInstance($dirname)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new rssc_build_rssc($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 

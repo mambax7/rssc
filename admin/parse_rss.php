@@ -412,7 +412,7 @@ class admin_form_rss extends happy_linux_form
     {
         parent::__construct();
 
-        $this->_link_handler =& rssc_get_handler('link', RSSC_DIRNAME);
+        $this->_link_handler = rssc_get_handler('link', RSSC_DIRNAME);
     }
 
     public static function getInstance()

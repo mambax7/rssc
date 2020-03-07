@@ -31,7 +31,7 @@ class admin_feed_list_wid extends admin_feed_list
         admin_feed_list::__construct();
         $this->set_max_sortid(4);
 
-        $this->_white_handler =& rssc_get_handler('white', RSSC_DIRNAME);
+        $this->_white_handler = rssc_get_handler('white', RSSC_DIRNAME);
     }
 
     public static function getInstance()

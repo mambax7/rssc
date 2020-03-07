@@ -74,12 +74,13 @@ class rssc_import_handler extends happy_linux_error
         $this->_feed_basic_handler =& rssc_get_handler('feed_basic', $dirname);
     }
 
-    public static function &getInstance($dirname)
+    public static function getInstance($dirname)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new rssc_import_handler($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 

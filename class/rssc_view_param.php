@@ -99,12 +99,13 @@ if( !class_exists('rssc_view_param') )
             $this->_image_class    = happy_linux_image_size::getInstance();
         }
 
-        public static function &getInstance($dirname)
+        public static function getInstance($dirname)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new rssc_view_param($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 

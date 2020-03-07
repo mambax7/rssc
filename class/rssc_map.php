@@ -45,12 +45,13 @@ if( !class_exists('rssc_map') )
             $this->_URL_IFRAME = XOOPS_URL . '/modules/' . $dirname . '/get_location.php';
         }
 
-        public static function &getInstance($dirname)
+        public static function getInstance($dirname)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new rssc_map($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 

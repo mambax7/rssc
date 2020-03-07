@@ -26,15 +26,16 @@ class rssc_plugin_list
         $this->_DIRNAME = $dirname;
 
         $this->_system = happy_linux_system::getInstance();
-        $this->_plugin =& rssc_plugin::getInstance($dirname);
+        $this->_plugin = rssc_plugin::getInstance($dirname);
     }
 
-    public static function &getInstance($dirname)
+    public static function getInstance($dirname)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new rssc_plugin_list($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 

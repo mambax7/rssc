@@ -43,7 +43,7 @@ class admin_form_black_white extends happy_linux_form
         parent::__construct();
 
         // class instance
-        $this->_feed_handler =& rssc_get_handler('feed', RSSC_DIRNAME);
+        $this->_feed_handler = rssc_get_handler('feed', RSSC_DIRNAME);
     }
 
     public static function getInstance()

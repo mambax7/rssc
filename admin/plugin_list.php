@@ -102,7 +102,7 @@ class admin_plugin_test
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_plugin =& rssc_plugin::getInstance(RSSC_DIRNAME);
+        $this->_plugin = rssc_plugin::getInstance(RSSC_DIRNAME);
         $this->_post   = happy_linux_post::getInstance();
         $this->_form = admin_form_plugin_test::getInstance();
     }

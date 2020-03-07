@@ -36,12 +36,13 @@ class rssc_weblinks_handler extends happy_linux_basic_handler
         $this->_strings = happy_linux_strings::getInstance();
     }
 
-    public static function &getInstance($dirname)
+    public static function getInstance($dirname)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new rssc_weblinks_handler($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 

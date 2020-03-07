@@ -66,12 +66,13 @@ if( ! class_exists('rssc_install') )
             $this->_feed_table  = $this->prefix($dirname . '_feed');
         }
 
-        public static function &getInstance($dirname)
+        public static function getInstance($dirname)
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new rssc_install($dirname);
+            if (null === $instance) {
+                $instance = new static($dirname);
             }
+
             return $instance;
         }
 

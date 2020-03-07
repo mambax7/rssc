@@ -44,7 +44,7 @@ class admin_link_list extends happy_linux_page_frame
         $this->set_flag_execute_time(true);
 
         // handler
-        $this->_feed_handler =& rssc_get_handler('feed', RSSC_DIRNAME);
+        $this->_feed_handler = rssc_get_handler('feed', RSSC_DIRNAME);
     }
 
     public static function getInstance()

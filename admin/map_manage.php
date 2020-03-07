@@ -38,12 +38,13 @@ class admin_map_manage
         $this->_conf =& $this->_conf_handler->get_conf();
     }
 
-    public static function &getInstance($dirname)
+    public static function getInstance($dirname)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_map_manage($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 

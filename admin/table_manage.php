@@ -43,7 +43,7 @@ class admin_table_manage extends happy_linux_table_manage
         $this->set_install_class(rssc_install::getInstance(RSSC_DIRNAME));
         $this->set_xoops_block_checker();
 
-        $this->_link_handler =& rssc_get_handler('link', RSSC_DIRNAME);
+        $this->_link_handler = rssc_get_handler('link', RSSC_DIRNAME);
     }
 
     public static function getInstance()

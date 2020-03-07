@@ -44,7 +44,7 @@ class admin_import_weblinks extends rssc_import_handler
 
         $this->_rss_parser = happy_linux_rss_parser::getInstance();
 
-        $this->_weblinks_handler =& rssc_weblinks_handler::getInstance($this->_DIRNAME_WEBLINKS);
+        $this->_weblinks_handler = rssc_weblinks_handler::getInstance($this->_DIRNAME_WEBLINKS);
         $this->_weblinks_handler->set_debug_db_error(true);
         $this->_weblinks_handler->load_config();
     }

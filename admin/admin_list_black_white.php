@@ -28,7 +28,7 @@ class admin_list_black_white extends happy_linux_page_frame
         $this->set_max_sortid(4);
 
         // class instance
-        $this->_feed_handler =& rssc_get_handler('feed', RSSC_DIRNAME);
+        $this->_feed_handler = rssc_get_handler('feed', RSSC_DIRNAME);
     }
 
     public static function getInstance()

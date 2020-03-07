@@ -235,7 +235,7 @@ class admin_config_store extends happy_linux_error
         $this->_store_handler->set_handler('config', RSSC_DIRNAME, 'rssc');
         $this->_store_handler->set_define($define);
 
-        $this->_install =& rssc_install::getInstance(RSSC_DIRNAME);
+        $this->_install = rssc_install::getInstance(RSSC_DIRNAME);
     }
 
     public static function getInstance()

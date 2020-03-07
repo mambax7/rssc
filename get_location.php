@@ -55,12 +55,13 @@ class rssc_get_location
         $this->_conf         = $this->_conf_handler->get_conf();
     }
 
-    public static function &getInstance($dirname)
+    public static function getInstance($dirname)
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new rssc_get_location($dirname);
+        if (null === $instance) {
+            $instance = new static($dirname);
         }
+
         return $instance;
     }
 
