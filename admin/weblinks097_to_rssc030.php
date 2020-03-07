@@ -33,13 +33,13 @@ include_once RSSC_ROOT_PATH.'/class/rssc_parse_handler.php';
 //=========================================================
 class admin_import_weblinks extends admin_import_base
 {
-    var $_DIRNAME_WEBLINKS = 'weblinks';
+    public $_DIRNAME_WEBLINKS = 'weblinks';
 
-    var $_parse_handler;
+    public $_parse_handler;
 
-    var $_table_weblinks_link;
-    var $_table_weblinks_feed;
-    var $_table_weblinks_config;
+    public $_table_weblinks_link;
+    public $_table_weblinks_feed;
+    public $_table_weblinks_config;
 
     //---------------------------------------------------------
     // constructor

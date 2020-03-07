@@ -13,10 +13,10 @@ include 'admin_header.php';
 //=========================================================
 class admin_plugin_list
 {
-    var $_plugin;
-    var $_post;
-    var $_test;
-    var $_form;
+    public $_plugin;
+    public $_post;
+    public $_test;
+    public $_form;
 
     //---------------------------------------------------------
     // constructor
@@ -93,9 +93,9 @@ class admin_plugin_list
 //=========================================================
 class admin_plugin_test
 {
-    var $_plugin;
-    var $_post;
-    var $_form;
+    public $_plugin;
+    public $_post;
+    public $_form;
 
     //---------------------------------------------------------
     // constructor
@@ -198,10 +198,10 @@ class admin_plugin_test
 //=========================================================
 class admin_form_plugin_test extends happy_linux_form_lib
 {
-    var $_post;
+    public $_post;
 
-    var $_DATA_ROWS = 10;
-    var $_DATA_COLS = 50;
+    public $_DATA_ROWS = 10;
+    public $_DATA_COLS = 50;
 
     //---------------------------------------------------------
     // constructor

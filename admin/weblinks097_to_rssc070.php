@@ -30,9 +30,9 @@ include_once RSSC_ROOT_PATH.'/class/rssc_weblinks_handler.php';
 //=========================================================
 class admin_import_weblinks extends rssc_import_handler
 {
-    var $_DIRNAME_WEBLINKS = 'weblinks';
+    public $_DIRNAME_WEBLINKS = 'weblinks';
 
-    var $_weblinks_handler;
+    public $_weblinks_handler;
 
     //---------------------------------------------------------
     // constructor
