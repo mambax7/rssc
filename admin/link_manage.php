@@ -937,7 +937,7 @@ EOF;
             return $false;
         }
 
-        $module =& $this->_system->get_module_by_mid($mid);
+        $module = $this->_system->get_module_by_mid($mid);
         if (!is_object($module)) {
             return $false;
         }
@@ -1006,7 +1006,7 @@ EOF;
 //=========================================================
 // main
 //=========================================================
-$manage =& admin_manage_link::getInstance();
+$manage = admin_manage_link::getInstance();
 
 $op = $manage->get_op();
 

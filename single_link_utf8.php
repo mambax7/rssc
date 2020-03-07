@@ -36,7 +36,7 @@ include_once XOOPS_ROOT_PATH.'/modules/happy_linux/api/rss_parser.php';
 include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/object.php';
 include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/object_handler.php';
 
-$single =& rssc_single_link_utf8::getInstance();
+$single = rssc_single_link_utf8::getInstance();
 
 // http start
 happy_linux_http_output('pass');

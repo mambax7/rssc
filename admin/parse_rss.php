@@ -77,7 +77,7 @@ class admin_parse_rss extends happy_linux_error
         $this->_parser             = happy_linux_rss_parser::getInstance();
         $this->_utility            = happy_linux_rss_utility::getInstance();
         $this->_post               = happy_linux_post::getInstance();
-        $this->_form               =& admin_form_rss::getInstance();
+        $this->_form = admin_form_rss::getInstance();
 
         $this->TEMPLATE_RDF  = RSSC_ROOT_PATH . '/templates/xml/rssc_view_rdf.html';
         $this->TEMPLATE_RSS  = RSSC_ROOT_PATH . '/templates/xml/rssc_view_rss.html';
@@ -567,7 +567,7 @@ class admin_form_rss extends happy_linux_form
 //=========================================================
 // main
 //=========================================================
-$parse =& admin_parse_rss::getInstance();
+$parse = admin_parse_rss::getInstance();
 
 xoops_cp_header();
 

@@ -655,7 +655,7 @@ class admin_import_weblinks extends admin_import_base
 //=========================================================
 xoops_cp_header();
 
-$import =& admin_import_weblinks::getInstance();
+$import = admin_import_weblinks::getInstance();
 
 $op = 'main';
 if ( isset($_POST['op']) )  $op = $_POST['op'];

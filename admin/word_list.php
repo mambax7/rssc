@@ -264,7 +264,7 @@ class admin_list_word extends happy_linux_page_frame
     public function _print_search_form()
     {
         // BUG : dont work xoopsCheckAll
-        $form =& admin_word_search_form::getInstance();
+        $form = admin_word_search_form::getInstance();
         $form->print_search_form();
     }
 
@@ -323,7 +323,7 @@ xoops_cp_header();
 rssc_admin_print_header();
 rssc_admin_print_menu();
 
-$list =& admin_list_word::getInstance();
+$list = admin_list_word::getInstance();
 $list->_show();
 
 xoops_cp_footer();

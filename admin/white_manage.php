@@ -165,7 +165,7 @@ class admin_form_white extends admin_form_black_white
 //=========================================================
 // main
 //=========================================================
-$manage =& admin_manage_white::getInstance();
+$manage = admin_manage_white::getInstance();
 
 $op = $manage->get_op();
 

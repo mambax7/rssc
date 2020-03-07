@@ -157,7 +157,7 @@ xoops_cp_header();
 rssc_admin_print_header();
 rssc_admin_print_menu();
 
-$list =& admin_feed_list_bid::getInstance();
+$list = admin_feed_list_bid::getInstance();
 $list->_show();
 
 xoops_cp_footer();

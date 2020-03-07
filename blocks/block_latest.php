@@ -53,7 +53,7 @@ function b_rssc_show_latest( $options )
 	$DIRNAME  = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
 	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
-	$block_class =& rssc_block::getInstance();
+	$block_class = rssc_block::getInstance();
 	return $block_class->show_latest( $DIRNAME );
 }
 
@@ -67,7 +67,7 @@ function b_rssc_show_map( $options )
 	$DIRNAME  = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
 	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
-	$block_class =& rssc_block::getInstance();
+	$block_class = rssc_block::getInstance();
 	return $block_class->show_map( $DIRNAME );
 }
 
@@ -81,7 +81,7 @@ function b_rssc_show_headline( $options )
 	$DIRNAME = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
 	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
-	$block_class =& rssc_block::getInstance();
+	$block_class = rssc_block::getInstance();
 	return $block_class->show_headline( $DIRNAME );
 }
 
@@ -95,7 +95,7 @@ function b_rssc_show_blog( $options )
 	$DIRNAME = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
 	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
-	$block_class =& rssc_block::getInstance();
+	$block_class = rssc_block::getInstance();
 	return $block_class->show_blog( $DIRNAME );
 }
 

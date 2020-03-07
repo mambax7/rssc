@@ -28,7 +28,7 @@ if( !class_exists('rssc_icon') )
         //---------------------------------------------------------
     public function __construct()
         {
-            $this->_db =& Database::getInstance();
+            $this->_db = Database::getInstance();
         }
 
         public static function getInstance()

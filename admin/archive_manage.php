@@ -398,7 +398,7 @@ class admin_form_archive extends happy_linux_form_lib
 //=========================================================
 // main
 //=========================================================
-$manage =& admin_manage_archive::getInstance();
+$manage = admin_manage_archive::getInstance();
 $op     = $manage->get_post_op();
 
 switch($op)

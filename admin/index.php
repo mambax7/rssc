@@ -48,8 +48,8 @@ include_once RSSC_ROOT_PATH.'/class/rssc_map.php';
 $DIR_CONFIG = RSSC_ROOT_PATH.'/cache';
 
 // class
-$config_form  =& admin_config_form::getInstance();
-$config_store =& admin_config_store::getInstance();
+$config_form  = admin_config_form::getInstance();
+$config_store = admin_config_store::getInstance();
 $map_class    =& rssc_map::getInstance( RSSC_DIRNAME );
 
 $op = $config_form->get_post_get_op();

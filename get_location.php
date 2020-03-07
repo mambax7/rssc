@@ -81,7 +81,7 @@ class rssc_get_location
             return false;
         }
 
-        $api_class =& webmap3_api_get_location::getSingleton($webmap3_dirname);
+        $api_class = webmap3_api_get_location::getSingleton($webmap3_dirname);
 
         $api_class->set_latitude($latitude);
         $api_class->set_longitude($longitude);

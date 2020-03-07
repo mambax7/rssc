@@ -360,7 +360,7 @@ class admin_form_feed extends happy_linux_form
 //=========================================================
 // main
 //=========================================================
-$manage =& admin_manage_feed::getInstance();
+$manage = admin_manage_feed::getInstance();
 
 $op = $manage->get_op();
 switch ($op)

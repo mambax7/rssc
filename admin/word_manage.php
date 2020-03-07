@@ -275,7 +275,7 @@ class admin_form_word extends happy_linux_form
 //=========================================================
 // main
 //=========================================================
-$manage =& admin_manage_word::getInstance();
+$manage = admin_manage_word::getInstance();
 
 $op = $manage->get_op();
 

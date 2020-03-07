@@ -66,7 +66,7 @@ class admin_config_form extends happy_linux_config_form
     {
         parent::__construct();
 
-        $define =& rssc_config_define::getInstance();
+        $define = rssc_config_define::getInstance();
         $this->set_config_handler('config', RSSC_DIRNAME, 'rssc');
         $this->set_config_define($define);
 

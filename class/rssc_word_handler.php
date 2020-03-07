@@ -118,7 +118,7 @@ public function __construct()
         {
             $criteria = new CriteriaCompo();
             $criteria->add(new Criteria('word', '%' . $word . '%', 'LIKE'));
-            $count =& $this->getCount($criteria);
+            $count = $this->getCount($criteria);
             return $count;
         }
 

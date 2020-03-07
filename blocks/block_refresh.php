@@ -63,7 +63,7 @@ function b_rssc_show_refresh( $options )
 
 	$headline_handler->refresh_headline($link_limit, $link_start);
 
-	$block_class =& rssc_block::getInstance();
+	$block_class = rssc_block::getInstance();
 	return $block_class->show_headline( $DIRNAME );
 }
 

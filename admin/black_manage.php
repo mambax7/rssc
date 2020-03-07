@@ -265,7 +265,7 @@ class admin_form_black extends admin_form_black_white
 //=========================================================
 // main
 //=========================================================
-$manage =& admin_manage_black::getInstance();
+$manage = admin_manage_black::getInstance();
 
 $op = $manage->get_op();
 

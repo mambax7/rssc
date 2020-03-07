@@ -40,7 +40,7 @@ if( !class_exists('rssc_block') )
         //---------------------------------------------------------
     public function __construct()
         {
-            $this->_db          =& Database::getInstance();
+            $this->_db          = Database::getInstance();
             $this->_is_japanese = happy_linux_is_japanese();
         }
 
@@ -497,7 +497,7 @@ if( !class_exists('rssc_block') )
     public function get_icon_list($DIRNAME)
         {
             include_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/rssc_icon.php';
-            $icon_class =& rssc_icon::getInstance();
+            $icon_class = rssc_icon::getInstance();
             return $icon_class->build_template_icon_list($DIRNAME);
         }
 

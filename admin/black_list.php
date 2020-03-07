@@ -89,7 +89,7 @@ xoops_cp_header();
 rssc_admin_print_header();
 rssc_admin_print_menu();
 
-$list =& admin_list_black::getInstance();
+$list = admin_list_black::getInstance();
 $list->_show();
 
 xoops_cp_footer();

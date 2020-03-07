@@ -43,7 +43,7 @@ if( !class_exists('rssc_link_exist_handler') )
 
             // class instance
             $this->_link_handler =& rssc_get_handler('link', $dirname);
-            $this->_xml_utility  =& rssc_xml_utility::getInstance();
+            $this->_xml_utility  = rssc_xml_utility::getInstance();
         }
 
         //---------------------------------------------------------

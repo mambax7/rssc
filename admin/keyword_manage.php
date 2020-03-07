@@ -84,7 +84,7 @@ class admin_manage_keyword extends admin_manage_base
 
         if (file_exists(RSSC_ROOT_PATH . '/language/' . $language . '/site_list.php')) {
             include_once RSSC_ROOT_PATH . '/language/' . $language . '/site_list.php';
-            $this->_list =& rssc_site_list::getInstance();
+            $this->_list = rssc_site_list::getInstance();
             return true;
         }
         return false;
@@ -246,7 +246,7 @@ class admin_form_keyword extends happy_linux_form
 //=========================================================
 // main
 //=========================================================
-$manage =& admin_manage_keyword::getInstance();
+$manage = admin_manage_keyword::getInstance();
 
 if ( !$manage->file_exists() )
 {

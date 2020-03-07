@@ -43,7 +43,7 @@ class admin_import_xoopsheadline extends rssc_import_handler
         rssc_import_handler::__construct(RSSC_DIRNAME);
         $this->set_mid_orig_by_dirname($this->_DIRNAME_XOOPSHEADLINE);
 
-        $this->_xoopsheadline_handler =& rssc_xoopsheadline_handler::getInstance($this->_DIRNAME_XOOPSHEADLINE);
+        $this->_xoopsheadline_handler = rssc_xoopsheadline_handler::getInstance($this->_DIRNAME_XOOPSHEADLINE);
     }
 
     public static function getInstance()
@@ -106,7 +106,7 @@ class admin_import_xoopsheadline extends rssc_import_handler
 
 xoops_cp_header();
 
-$import =& admin_import_xoopsheadline::getInstance();
+$import = admin_import_xoopsheadline::getInstance();
 
 $op = 'main';
 if ( isset($_POST['op']) )  $op = $_POST['op'];

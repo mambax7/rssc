@@ -71,7 +71,7 @@ if( !class_exists('rssc_plugin_mail') )
             $body .= $sitename . "\n";
             $body .= $adminmail . "\n";
 
-            $mailer =& getMailer();
+            $mailer = getMailer();
 
             $mailer->setToEmails($address);
             $mailer->setSubject($subject);

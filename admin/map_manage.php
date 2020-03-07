@@ -31,8 +31,8 @@ class admin_map_manage
     public function __construct($dirname)
     {
         $this->_conf_handler =& rssc_get_handler('config_basic', $dirname);
-        $this->_config_form  =& admin_config_form::getInstance();
-        $this->_config_store =& admin_config_store::getInstance();
+        $this->_config_form  = admin_config_form::getInstance();
+        $this->_config_store = admin_config_store::getInstance();
         $this->_map_class    =& rssc_map::getInstance($dirname);
 
         $this->_conf =& $this->_conf_handler->get_conf();

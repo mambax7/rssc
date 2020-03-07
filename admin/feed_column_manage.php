@@ -53,7 +53,7 @@ class admin_feed_column_manage extends happy_linux_error
 
         $this->_feed_basic_handler = rssc_get_handler('feed_basic', RSSC_DIRNAME);
         $this->_post_class         = happy_linux_post::getInstance();
-        $this->_form_class         =& admin_form_feed_column::getInstance();
+        $this->_form_class = admin_form_feed_column::getInstance();
 
         $this->_THIS_URL = RSSC_URL . '/admin/feed_column_manage.php';
     }
@@ -253,7 +253,7 @@ class admin_form_feed_column extends happy_linux_form
 //=========================================================
 // main
 //=========================================================
-$manage =& admin_feed_column_manage::getInstance();
+$manage = admin_feed_column_manage::getInstance();
 
 $op = $manage->get_op();
 switch ($op)

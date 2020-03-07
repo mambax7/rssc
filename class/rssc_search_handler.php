@@ -209,13 +209,13 @@ if( !class_exists('rssc_search_handler') )
 
     public function &getQueryUrlencode()
         {
-            $ret =& $this->_search->get_query_urlencode();
+            $ret = $this->_search->get_query_urlencode();
             return $ret;
         }
 
     public function &getMergedUrlencode()
         {
-            $ret =& $this->_search->get_merged_urlencode();
+            $ret = $this->_search->get_merged_urlencode();
             return $ret;
         }
 

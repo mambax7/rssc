@@ -128,7 +128,7 @@ if( !class_exists('rssc_block_map') )
                 return $false;
             }
 
-            $map_class =& webmap3_api_map::getSingleton($webmap_dirname);
+            $map_class = webmap3_api_map::getSingleton($webmap_dirname);
             return $map_class;
         }
 

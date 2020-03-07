@@ -26,8 +26,8 @@ class admin_plugin_list
         $this->_plugin =& rssc_plugin::getInstance(RSSC_DIRNAME);
 
         $this->_post = happy_linux_post::getInstance();
-        $this->_test =& admin_plugin_test::getInstance();
-        $this->_form =& admin_form_plugin_test::getInstance();
+        $this->_test = admin_plugin_test::getInstance();
+        $this->_form = admin_form_plugin_test::getInstance();
     }
 
     public static function getInstance()
@@ -104,7 +104,7 @@ class admin_plugin_test
     {
         $this->_plugin =& rssc_plugin::getInstance(RSSC_DIRNAME);
         $this->_post   = happy_linux_post::getInstance();
-        $this->_form   =& admin_form_plugin_test::getInstance();
+        $this->_form = admin_form_plugin_test::getInstance();
     }
 
     public static function getInstance()
@@ -267,7 +267,7 @@ class admin_form_plugin_test extends happy_linux_form_lib
 //=========================================================
 xoops_cp_header();
 
-$list =& admin_plugin_list::getInstance();
+$list = admin_plugin_list::getInstance();
 
 $op = $list->get_op();
 

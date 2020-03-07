@@ -110,7 +110,7 @@ if( !class_exists('rssc_map') )
             }
 
             $this->_flag_webmap = true;
-            $this->_html_class  =& webmap3_api_html::getSingleton($webmap3_dirname);
+            $this->_html_class  = webmap3_api_html::getSingleton($webmap3_dirname);
             return true;
         }
 
@@ -141,7 +141,7 @@ if( !class_exists('rssc_map') )
                 return false;
             }
 
-            $this->_form_class =& webmap3_api_form::getSingleton($webmap_dirname);
+            $this->_form_class = webmap3_api_form::getSingleton($webmap_dirname);
             return true;
         }
 
@@ -176,7 +176,7 @@ if( !class_exists('rssc_map') )
             }
 
             $this->_flag_webmap = true;
-            $this->_map_class   =& webmap3_api_map::getSingleton($webmap_dirname);
+            $this->_map_class   = webmap3_api_map::getSingleton($webmap_dirname);
 
             $this->_map_class->init();
             $this->_map_class->set_latitude($this->_conf['webmap_latitude']);
@@ -228,7 +228,7 @@ if( !class_exists('rssc_map') )
         //---------------------------------------------------------
     public function get_conf($dirname)
         {
-            $db           =& Database::getInstance();
+            $db           = Database::getInstance();
             $table_config = $db->prefix($dirname . '_config');
 
             $sql = 'SELECT * FROM ' . $table_config . ' ORDER BY conf_id ASC';

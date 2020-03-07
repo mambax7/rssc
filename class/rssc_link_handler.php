@@ -99,7 +99,7 @@ public function __construct()
 	$this->initVar('aux_text_1',  XOBJ_DTYPE_TXTBOX, null, false, 255);
 	$this->initVar('aux_text_2',  XOBJ_DTYPE_TXTBOX, null, false, 255);
 
-	$this->_link_basic =& rssc_link_basic::getInstance();
+	$this->_link_basic = rssc_link_basic::getInstance();
 }
 
 //---------------------------------------------------------

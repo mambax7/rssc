@@ -144,7 +144,7 @@ xoops_cp_header();
 rssc_admin_print_header();
 rssc_admin_print_menu();
 
-$list =& admin_link_list::getInstance();
+$list = admin_link_list::getInstance();
 $list->_show();
 
 xoops_cp_footer();
