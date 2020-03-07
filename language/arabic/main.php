@@ -68,20 +68,20 @@ define('RSSC_LANG_MB_LOADED', 1);
 // index & search
 //define('_RSSC_MAIN','Main');
 
-define('_RSSC_SEARCH','»ÕÀ');
-define('_RSSC_LATEST_FEEDS','¬Œ— RDF/RSS/ATOM Feeds');
-define('_RSSC_THEREARE','ÌÊÃœ <b>%s</b> ⁄‰Ê«‰');
+define('_RSSC_SEARCH','√à√ç√ã');
+define('_RSSC_LATEST_FEEDS','√Ç√é√ë RDF/RSS/ATOM Feeds');
+define('_RSSC_THEREARE','√≠√¶√å√è <b>%s</b> √ö√§√¶√á√§');
 
 // headline
-define('_RSSC_HEADLINE','«·⁄‰«ÊÌ‰ «·„Œ ’—…');
-define('_RSSC_LASTUPDATE','¬Œ—  ÕœÌÀ');
+define('_RSSC_HEADLINE','√á√°√ö√§√á√¶√≠√§ √á√°√£√é√ä√ï√ë√â');
+define('_RSSC_LASTUPDATE','√Ç√é√ë √ä√ç√è√≠√ã');
 
 // single
-define('_RSSC_SINGLE','„·› Feed Ê«Õœ');
+define('_RSSC_SINGLE','√£√°√ù Feed √¶√á√ç√è');
 
 // common
-define('_RSSC_SITE_TITLE','⁄‰Ê«‰ «·„Êﬁ⁄');
-define('_RSSC_SITE_LINK', '—«»ÿ «·„Êﬁ⁄');
+define('_RSSC_SITE_TITLE','√ö√§√¶√á√§ √á√°√£√¶√û√ö');
+define('_RSSC_SITE_LINK', '√ë√á√à√ò √á√°√£√¶√û√ö');
 
 //define('_RSSC_SITE_DESCRIPTION', 'Site Description');
 //define('_RSSC_SITE_PUBLISHED', 'Site Published');
@@ -99,7 +99,7 @@ define('_RSSC_SITE_LINK', '—«»ÿ «·„Êﬁ⁄');
 //define('_RSSC_CONTENT', 'Content');
 //define('_RSSC_PUBLISHED', 'Published');
 
-define('_RSSC_UPDATED',   '„ÕœÀ');
+define('_RSSC_UPDATED',   '√£√ç√è√ã');
 
 //define('_RSSC_CATEGORY',  'Category');
 //define('_RSSC_RIGHTS', 'Rights');
@@ -212,41 +212,41 @@ define('_RSSC_UPDATED',   '„ÕœÀ');
 //define('_RSSC_CONTENT_ENCODED', _RSSC_CONTENT);
 
 // link table item
-define('_RSSC_LINK_ID','—ﬁ„ «·—«»ÿ');
-define('_RSSC_USER_ID','—ﬁ„ «·⁄÷Ê');
-define('_RSSC_MOD_ID','—ﬁ„ «·„ÊœÌ·');
-define('_RSSC_LTYPE','‰Ê⁄');
-define('_RSSC_REFRESH_INTERVAL','› —… «· ÕœÌÀ');
-define('_RSSC_HEADLINE_ORDER',' — Ì»… ›Ì «·⁄‰«ÊÌ‰ «·„Œ ’—… ≈–« ﬂ«‰(0) ÌŸÂ— ›ﬁÿ ›Ì «·—∆Ì”Ì…');
-define('_RSSC_ENCODING','«· —„Ì“');
-define('_RSSC_RDF_URL', '—«»ÿ RDF');
-define('_RSSC_RSS_URL', '—«»ÿ URL');
-define('_RSSC_ATOM_URL','—«»ÿ ATOM');
-define('_RSSC_RSS_MODE','‰„ÿ RSS');
-define('_RSSC_RSS_MODE_NON',  '»œÊ‰');
-define('_RSSC_RSS_MODE_RDF',  '’Ì€… RDF');
-define('_RSSC_RSS_MODE_RSS',  '’Ì€… RSS');
-define('_RSSC_RSS_MODE_ATOM', '’Ì€… ATOM');
-define('_RSSC_RSS_MODE_AUTO', ' ·ﬁ«∆Ì');
+define('_RSSC_LINK_ID','√ë√û√£ √á√°√ë√á√à√ò');
+define('_RSSC_USER_ID','√ë√û√£ √á√°√ö√ñ√¶');
+define('_RSSC_MOD_ID','√ë√û√£ √á√°√£√¶√è√≠√°');
+define('_RSSC_LTYPE','√§√¶√ö');
+define('_RSSC_REFRESH_INTERVAL','√ù√ä√ë√â √á√°√ä√ç√è√≠√ã');
+define('_RSSC_HEADLINE_ORDER','√ä√ë√ä√≠√à√â √ù√≠ √á√°√ö√§√á√¶√≠√§ √á√°√£√é√ä√ï√ë√â √Ö√ê√á √ü√á√§(0) √≠√ô√•√ë √ù√û√ò √ù√≠ √á√°√ë√Ü√≠√ì√≠√â');
+define('_RSSC_ENCODING','√á√°√ä√ë√£√≠√í');
+define('_RSSC_RDF_URL', '√ë√á√à√ò RDF');
+define('_RSSC_RSS_URL', '√ë√á√à√ò URL');
+define('_RSSC_ATOM_URL','√ë√á√à√ò ATOM');
+define('_RSSC_RSS_MODE','√§√£√ò RSS');
+define('_RSSC_RSS_MODE_NON',  '√à√è√¶√§');
+define('_RSSC_RSS_MODE_RDF',  '√ï√≠√õ√â RDF');
+define('_RSSC_RSS_MODE_RSS',  '√ï√≠√õ√â RSS');
+define('_RSSC_RSS_MODE_ATOM', '√ï√≠√õ√â ATOM');
+define('_RSSC_RSS_MODE_AUTO', '√ä√°√û√á√Ü√≠');
 
 // feed table item
-define('_RSSC_FEED_ID','—ﬁ„ Feed');
-define('_RSSC_MODE_CONT','‰„ÿ «·„Õ ÊÏ');
+define('_RSSC_FEED_ID','√ë√û√£ Feed');
+define('_RSSC_MODE_CONT','√§√£√ò √á√°√£√ç√ä√¶√¨');
 define('_RSSC_RAWS','Raw Data');
-define('_RSSC_SEARCH_FIELD','Õﬁ· «·»ÕÀ');
+define('_RSSC_SEARCH_FIELD','√ç√û√° √á√°√à√ç√ã');
 
 // black table item
 define('_RSSC_BLACK_ID','Black ID');
 define('_RSSC_WHITE_ID','White ID');
 
 // 2006-04-16 K.OHWADA
-define('_RSSC_NO_HEADLINK','·Ì” Â‰«ﬂ Ê’·… ⁄‰Ê«‰ »«—“ „Õœœ');
-define('_RSSC_NO_FEED','·«  ÊÃœ »Ì«‰«  feed');
+define('_RSSC_NO_HEADLINK','√°√≠√ì √•√§√á√ü √¶√ï√°√â √ö√§√¶√á√§ √à√á√ë√í √£√ç√è√è');
+define('_RSSC_NO_FEED','√°√á √ä√¶√å√è √à√≠√á√§√á√ä feed');
 
 // === 2006-06-04 ===
 // single link
-define('_RSSC_SINGLE_LINK',  '„Êﬁ⁄ Ê«Õœ');
-define('_RSSC_SINGLE_LINK_UTF8', '„Êﬁ⁄ Ê«Õœ »‹ UTF-8');
+define('_RSSC_SINGLE_LINK',  '√£√¶√û√ö √¶√á√ç√è');
+define('_RSSC_SINGLE_LINK_UTF8', '√£√¶√û√ö √¶√á√ç√è √à√ú UTF-8');
 //define('_RSSC_SINGLE_SUMMARY', 'Summary');
 //define('_RSSC_SINGLE_CONTENT', 'Content allowed HTML tags');
 //define('_RSSC_UTF8_SUMMARY', 'Summary with UTF-8');
@@ -285,15 +285,15 @@ define('_RSSC_PODCAST', 'Podcast');
 //}
 
 // error message
-define('_RSSC_DB_ERROR',           'Œÿ√ ›Ì ﬁ«⁄œ… »Ì«‰«  «·»—‰«„Ã');
-define('_RSSC_DISCOVER_SUCCEEDED', '‰ÃÕ ›Ì «·«ﬂ ‘«› «· ·ﬁ«∆Ì ·‹ RSS');
-define('_RSSC_DISCOVER_FAILED',    '‰ÃÕ ›Ì «·«ﬂ ‘«› «· ·ﬁ«∆Ì ·‹ RSS');
+define('_RSSC_DB_ERROR',           '√é√ò√É √ù√≠ √û√á√ö√è√â √à√≠√á√§√á√ä √á√°√à√ë√§√á√£√å');
+define('_RSSC_DISCOVER_SUCCEEDED', '√§√å√ç √ù√≠ √á√°√á√ü√ä√î√á√ù √á√°√ä√°√û√á√Ü√≠ √°√ú RSS');
+define('_RSSC_DISCOVER_FAILED',    '√§√å√ç √ù√≠ √á√°√á√ü√ä√î√á√ù √á√°√ä√°√û√á√Ü√≠ √°√ú RSS');
 define('_RSSC_PARSE_MSG',          'RSS Parse Message');
 define('_RSSC_PARSE_FAILED',            'RSS Parse Failed');
 define('_RSSC_PARSE_NOT_READ_XML_URL',  'RSS Parse Failed: not read RSS url');
 define('_RSSC_PARSE_NOT_FIND_ENCODING', 'RSS Parse Failed: not find encoding');
 
-define('_RSSC_REFRESH_ERROR', '›‘· ›Ì  ÕœÌÀ RSS');
+define('_RSSC_REFRESH_ERROR', '√ù√î√° √ù√≠ √ä√ç√è√≠√ã RSS');
 define('_RSSC_LINK_NOT_EXIST',  'There are no corresponding link in RSSC moudle');
 define('_RSSC_LINK_EXIST_MORE', 'There are twe or more links which have same "RDF/RSS/ATOM URL"');
 define('_RSSC_LINK_ALREADY',    'This link exists already which have same "RDF/RSS/ATOM URL"');
@@ -304,34 +304,34 @@ define('_RSSC_REFRESH_LINK_DSC', 'Then, refresh RSS feeds <br />Discover <b>RDF/
 define('_RSSC_REFRESH_LINK_FINISHED', 'Refresh feeds finished');
 
 // for other module
-define('_RSSC_RSSC_LID', '—ﬁ„ «·—«»ÿ ·»—‰«„Ã RSSC');
-define('_RSSC_RSSC_LID_UPDATE', ' ÕœÌÀ —›„ «·—«»ÿ ·»—‰«„Ã RSSC');
-define('_RSSC_GOTO_RSSC_ADMIN_LINK', '«·–Â«» «·Ì ’›Õ… «·«œ„‰ ··»—‰«„Ã');
+define('_RSSC_RSSC_LID', '√ë√û√£ √á√°√ë√á√à√ò √°√à√ë√§√á√£√å RSSC');
+define('_RSSC_RSSC_LID_UPDATE', '√ä√ç√è√≠√ã √ë√ù√£ √á√°√ë√á√à√ò √°√à√ë√§√á√£√å RSSC');
+define('_RSSC_GOTO_RSSC_ADMIN_LINK', '√á√°√ê√•√á√à √á√°√≠ √ï√ù√ç√â √á√°√á√è√£√§ √°√°√à√ë√§√á√£√å');
 
 // === 2007-06-01 ===
 // word table
-define('_RSSC_WORD_ID','—ﬁ„ «·ﬂ·„…');
-define('_RSSC_WORD_WORD','—›÷ «·ﬂ·„…');
+define('_RSSC_WORD_ID','√ë√û√£ √á√°√ü√°√£√â');
+define('_RSSC_WORD_WORD','√ë√ù√ñ √á√°√ü√°√£√â');
 define('_RSSC_WORD_POINT','Point');
-define('_RSSC_ACT','«·Õ«·…');
+define('_RSSC_ACT','√á√°√ç√á√°√â');
 define('_RSSC_ACT_NON','Invalid');
 define('_RSSC_ACT_ACT','Valid');
 define('_RSSC_REG','Expression of URL');
-define('_RSSC_REG_NORMAL','⁄«œÌ');
+define('_RSSC_REG_NORMAL','√ö√á√è√≠');
 define('_RSSC_REG_EXP','Regular Expression');
 define('_RSSC_FREQ_COUNT','Frequency Count');
 
 // feed table
-define('_RSSC_FEED_ACT',     '«·Õ«·…');
-define('_RSSC_FEED_ACT_NON', '·«  ⁄—÷');
-define('_RSSC_FEED_ACT_VIEW','⁄—÷');
+define('_RSSC_FEED_ACT',     '√á√°√ç√á√°√â');
+define('_RSSC_FEED_ACT_NON', '√°√á √ä√ö√ë√ñ');
+define('_RSSC_FEED_ACT_VIEW','√ö√ë√ñ');
 
 // link table
-define('_RSSC_LTYPE_NON','»œÊ‰  ÕœÌÀ');
-define('_RSSC_LTYPE_SEARCH','»ÕÀ „Êﬁ⁄');
-define('_RSSC_LTYPE_NORMAL','⁄«œÌ');
+define('_RSSC_LTYPE_NON','√à√è√¶√§ √ä√ç√è√≠√ã');
+define('_RSSC_LTYPE_SEARCH','√à√ç√ã √£√¶√û√ö');
+define('_RSSC_LTYPE_NORMAL','√ö√á√è√≠');
 
-define('_RSSC_XML_URL','⁄‰Ê«‰ RDF/RSS/ATOM');
+define('_RSSC_XML_URL','√ö√§√¶√á√§ RDF/RSS/ATOM');
 
 // === 2007-10-10 ===
 // link table

@@ -220,7 +220,7 @@ define('_RSSC_SEARCH_FIELD', 'Suchfeld');
 define('_RSSC_BLACK_ID', 'Black ID');
 define('_RSSC_WHITE_ID', 'White ID');
 // 2006-04-16 K.OHWADA
-define('_RSSC_NO_HEADLINK', 'Es gibt keinen ausgewählten Schlagzeilen Link');
+define('_RSSC_NO_HEADLINK', 'Es gibt keinen ausgewÃ¤hlten Schlagzeilen Link');
 define('_RSSC_NO_FEED', 'Keine Eingabe Daten');
 // === 2006-06-04 ===
 // single link
@@ -244,7 +244,7 @@ define('_RSSC_ATOM_CONTRIBUTOR_EMAIL', 'Mitarbeiter E-Mail');
 define('_RSSC_PODCAST', 'Podcast');
 define('_RSSC_ENCLOSURE_URL', 'Anlage Url');
 define('_RSSC_ENCLOSURE_TYPE', 'Anlage Typ');
-define('_RSSC_ENCLOSURE_LENGTH', 'Anlage Größe');
+define('_RSSC_ENCLOSURE_LENGTH', 'Anlage GrÃ¶ÃŸe');
 // === 2006-09-01 ===
 // conflict with weblinks
 //if( !defined('_SAVE') ) 
@@ -264,7 +264,7 @@ define('_RSSC_DISCOVER_SUCCEEDED', 'RSS Automatisch Finden abgeschlossen');
 define('_RSSC_DISCOVER_FAILED', 'RSS Automatisch Finden Fehler');
 define('_RSSC_PARSE_MSG', 'RSS Parse Message');
 define('_RSSC_PARSE_FAILED', 'RSS Parse Failed');
-define('_RSSC_PARSE_NOT_READ_XML_URL', 'RSS Parse nicht möglich: kann RSS url nicht lesen');
+define('_RSSC_PARSE_NOT_READ_XML_URL', 'RSS Parse nicht mÃ¶glich: kann RSS url nicht lesen');
 define('_RSSC_PARSE_NOT_FIND_ENCODING', 'RSS Parse Fehler: Encodierung nicht gefunden');
 define('_RSSC_REFRESH_ERROR', 'RSS Aktualiserung Fehler');
 define('_RSSC_LINK_NOT_EXIST', 'Es gibt keine entsprechenden Link in RSSC Modul');
@@ -284,8 +284,8 @@ define('_RSSC_WORD_ID', 'Wort ID');
 define('_RSSC_WORD_WORD', 'Wort  ablehnen');
 define('_RSSC_WORD_POINT', 'Punkt');
 define('_RSSC_ACT', 'Status');
-define('_RSSC_ACT_NON', 'Ungültig');
-define('_RSSC_ACT_ACT', 'Gültig');
+define('_RSSC_ACT_NON', 'UngÃ¼ltig');
+define('_RSSC_ACT_ACT', 'GÃ¼ltig');
 define('_RSSC_REG', 'Ausdruck Url');
 define('_RSSC_REG_NORMAL', 'Normal');
 define('_RSSC_REG_EXP', 'Korrekter Ausdruck');
@@ -304,7 +304,7 @@ define('_RSSC_XML_URL', 'RDF/RSS/ATOM URL');
 define('_RSSC_LINK_ENCLOSURE', 'Operation of enclusure tag');
 define('_RSSC_LINK_ENCLOSURE_NON', 'Nicht benutzt');
 define('_RSSC_LINK_ENCLOSURE_POD', 'PodCast angenommen');
-define('_RSSC_LINK_CENSOR', 'Wörter im Titel zu zensieren');
+define('_RSSC_LINK_CENSOR', 'WÃ¶rter im Titel zu zensieren');
 define('_RSSC_LINK_PLUGIN', 'Plugin');
 // black & white table
 define('_RSSC_BW_CACHE', 'Cache Eingabe berechnen');

@@ -56,9 +56,9 @@ define('_AM_RSSC_FORM_BLOCK', 'Config Vista Blocco');
 define('_AM_RSSC_FORM_BLOCK_DESC', 'E\' usato sul blocco di questo modulo');
 define('_AM_RSSC_FORM_BIN', 'Config Comandi');
 define('_AM_RSSC_FORM_BIN_DESC', 'E\' usato sui comandi bin');
-define('_AM_RSSC_INIT_NOT','La tabella config non è inizializzata');
+define('_AM_RSSC_INIT_NOT','La tabella config non Ã¨ inizializzata');
 define('_AM_RSSC_INIT_EXEC','Tabella config inizializzata');
-define('_AM_RSSC_VERSION_NOT','Non è la versione  %s');
+define('_AM_RSSC_VERSION_NOT','Non Ã¨ la versione  %s');
 define('_AM_RSSC_UPGRADE_EXEC','Aggiorna la tabella config');
 define('_AM_RSSC_WARNING_NOT_WRITABLE','Directory non scrivibile');
 //define('_AM_RSSC_CONF_NAME','Item');
@@ -102,8 +102,8 @@ define('_AM_RSSC_REFRESH_NEXT','Controlla Prox %s');
 define('_AM_RSSC_LINK_LIMIT', 'Limite Link');
 define('_AM_RSSC_LINK_OFFSET','LInk Offset');
 define('_AM_RSSC_FEED_CLEAR','Azzera Archivio');
-define('_AM_RSSC_FEED_CLEAR_OLD','Azzera record più vecchi');
-define('_AM_RSSC_FEED_CLEAR_NUM','Azzera record più vecchi, se eccedono il numero specificato');
+define('_AM_RSSC_FEED_CLEAR_OLD','Azzera record piÃ¹ vecchi');
+define('_AM_RSSC_FEED_CLEAR_NUM','Azzera record piÃ¹ vecchi, se eccedono il numero specificato');
 
 // refresh result
 define('_AM_RSSC_NO_REFRESH','Nessun link da aggiornare');
@@ -125,7 +125,7 @@ define('_AM_RSSC_GOTOTOP', 'Vai all\'inizio');
 // === configuration ===
 // basic configuration
 define('_AM_RSSC_CONF_FEED_LIMIT', 'Il numero max di feed');
-define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'Inserire il num. max di feed salvati in tabella feed<br />Azzera record più vecchi, quando sono più di questo valore<br /><b>0</b> è illimitato');
+define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'Inserire il num. max di feed salvati in tabella feed<br />Azzera record piÃ¹ vecchi, quando sono piÃ¹ di questo valore<br /><b>0</b> Ã¨ illimitato');
 define('_AM_RSSC_CONF_RSS_ATOM', 'Scegli RSS o ATOM');
 define('_AM_RSSC_CONF_RSS_ATOM_DESC', 'Scegli RSS o ATOM, se entrambi presenti nell\'URL indicato');
 define('_AM_RSSC_CONF_RSS_ATOM_SEL_ATOM', 'ATOM');
@@ -140,7 +140,7 @@ define('_AM_RSSC_CONF_RSS_MODE', 'Valore iniziale dell\'RSS mode');
 define('_AM_RSSC_CONF_XML_SAVE', 'Salva XML');
 define('_AM_RSSC_CONF_XML_SAVE_DESC', 'salva XML ottenuto in tabella link');
 define('_AM_RSSC_CONF_FUTURE_DAYS', 'Giorni futuri');
-define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', "Misurato in giorni<br />Non mostrare feed, se la data del feed è in avanti più di questo valore");
+define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', "Misurato in giorni<br />Non mostrare feed, se la data del feed Ã¨ in avanti piÃ¹ di questo valore");
 
 // show configuration
 define('_AM_RSSC_CONF_SHOW_ORDER','Ordine Visual.');
@@ -154,9 +154,9 @@ define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE','Feeds per pag.');
 define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK','Feeds per link');
 //define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK_DESC','');
 define('_AM_RSSC_CONF_SHOW_MAX_TITLE','Il num. max di caratteri del Titolo');
-define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','I tag HTML vengono tolti se si eccede questo numero<br /><b>-1</b> è illimitato');
+define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','I tag HTML vengono tolti se si eccede questo numero<br /><b>-1</b> Ã¨ illimitato');
 define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY','Il num max di caratteri del Sommario');
-define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC','<b>-1</b> è illimitato');
+define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC','<b>-1</b> Ã¨ illimitato');
 
 // main configuration
 define('_AM_RSSC_CONF_MAIN_SEARCH_MIN','Il num. minimo caratteri della keyword di ricerca');
@@ -172,22 +172,22 @@ define('_AM_RSSC_CONF_BIN_MAILTO','Email da inviare');
 
 // === view rss ===
 define('_AM_RSSC_VIEW_RSS_OPTION', 'Impostazione Opzioni');
-define('_AM_RSSC_NOT_SELECT_LINK','Il link non è selezionato');
+define('_AM_RSSC_NOT_SELECT_LINK','Il link non Ã¨ selezionato');
 define('_AM_RSSC_PLEASE_SELECT_LINK','Scegli da lista link, o inserisci LINK ID');
 define('_AM_RSSC_VIEW_PARSER', 'Impostazioni Parser');
 define('_AM_RSSC_VIEW_SAVE_ETC', 'Salva in tabella, etc');
 define('_AM_RSSC_VIEW_MODE', 'Modo Visual.');
-define('_AM_RSSC_VIEW_MODE_DESC', 'Non salvare in tabella, quando modo è 0');
+define('_AM_RSSC_VIEW_MODE_DESC', 'Non salvare in tabella, quando modo Ã¨ 0');
 define('_AM_RSSC_VIEW_MODE_CURRENT', 'modo 0: ricava dati XML');
 define('_AM_RSSC_VIEW_MODE_LINK', 'mode 1: dati XML salvati in tabella link');
 define('_AM_RSSC_VIEW_MODE_FEED', 'mode 2: dati salvati in tabella feed');
 define('_AM_RSSC_VIEW_SANITIZE', 'HTML Sanitize');
 define('_AM_RSSC_VIEW_TITLE_HTML','Mostra tag HTML del titolo');
-define('_AM_RSSC_VIEW_TITLE_HTML_DESC', 'Se si sceglie SI, mostra com\'è inclusi i tag HTML. <br />Se si sceglie NO, mostra privo di tag HTML. ');
+define('_AM_RSSC_VIEW_TITLE_HTML_DESC', 'Se si sceglie SI, mostra com\'Ã¨ inclusi i tag HTML. <br />Se si sceglie NO, mostra privo di tag HTML. ');
 define('_AM_RSSC_VIEW_CONTENT_HTML','Mostra tag HTML del contenuto');
-define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', 'Se si sceglie SI, mostra com\'è inclusi i tag HTML. <br />Se si sceglie NO, mostra privo di tag HTML. ');
+define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', 'Se si sceglie SI, mostra com\'Ã¨ inclusi i tag HTML. <br />Se si sceglie NO, mostra privo di tag HTML. ');
 define('_AM_RSSC_VIEW_MAX_CONTENT','Il num. max di caratteri del contenuto');
-define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','I tag HTML vengono tolti, se si eccede questo numero<br /><b>-1</b> è illimitato');
+define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','I tag HTML vengono tolti, se si eccede questo numero<br /><b>-1</b> Ã¨ illimitato');
 define('_AM_RSSC_VIEW_LINK_UPDATE', 'Aggiorna tabella Link');
 define('_AM_RSSC_VIEW_FEED_UPDATE', 'Aggiorna tabella Feed');
 define('_AM_RSSC_VIEW_FORCE_DISCOVER', 'Forza discover URL RSS');
@@ -242,7 +242,7 @@ define('_AM_RSSC_PARSE_RSS', 'Parse RDF/RSS/ATOM');
 // description at main
 define('_AM_RSSC_CONF_INDEX_DESC','Descrizione su Pagina Principale');
 define('_AM_RSSC_CONF_INDEX_DESC_DSC', 'Inserire nota descrittiva da visualizzare in pagina principale.');
-define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Questa è una nota descrittiva.<br />Puoi editare questa nota in "Configurazione Modulo".<br /></div><br />');
+define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Questa Ã¨ una nota descrittiva.<br />Puoi editare questa nota in "Configurazione Modulo".<br /></div><br />');
 
 // link table
 define('_AM_RSSC_LINK_DESC','Trova <b>RDF/RSS/ATOM URL</b> automaticamente e individua <b>Encoding</b> automaticamente, <br />quando non indicato, <br />se il sito web supporta "RSS Auto Discovery"');
@@ -261,7 +261,7 @@ define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', 'Se "SI", mostra titolo con tag HTML
 define('_AM_RSSC_CONF_SHOW_CONTENT_HTML','Usa tag HTML del contenuto');
 define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', 'Se "SI", mostra contenuto con tag HTML, se presenti. <br />Se "NO", mostra contenuto privo di tag HTML. ');
 define('_AM_RSSC_CONF_SHOW_MAX_CONTENT','Il num. max caratteri del contenuto');
-define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'I tag HTML vengono tolti, se si eccede questo numero<br /><b>-1</b> è illimitato');
+define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'I tag HTML vengono tolti, se si eccede questo numero<br /><b>-1</b> Ã¨ illimitato');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT','Num. max di contenuto feed RSS/ATOM visualizzato');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT_DSC', 'Inserire il num. max di feed RSS/ATOM di cui viene visual. il contenuto.');
 define('_AM_RSSC_CONF_SHOW_BLOG_LID','Link ID to show blog');
@@ -299,14 +299,14 @@ define('_AM_RSSC_WORD_DESC','Ordine Z-A');
 define('_AM_RSSC_NON_ACT','Non mostrare lista');
 define('_AM_RSSC_NON_ACT_ASC', 'Non mostrare ID Ascend.');
 define('_AM_RSSC_NON_ACT_DESC','Non mostrare ID Discend.');
-define('_AM_RSSC_WORD_ALREADY','Questa parola è già registrata');
+define('_AM_RSSC_WORD_ALREADY','Questa parola Ã¨ giÃ  registrata');
 define('_AM_RSSC_WORD_SEARCH','Ricerca sinonimo');
 
 // content filter
 define('_AM_RSSC_FORM_FILTER','Impostazioni Filtro');
 define('_AM_RSSC_FORM_FILTER_DESC','Questo filtro decide se salvare o meno nel database durante raccolta automatica dei feed');
 define('_AM_RSSC_CONF_LINK_USE','Usa Tabella Link');
-define('_AM_RSSC_CONF_LINK_USE_DESC','Salva se "Tipo" di tabella link è "Normale"');
+define('_AM_RSSC_CONF_LINK_USE_DESC','Salva se "Tipo" di tabella link Ã¨ "Normale"');
 define('_AM_RSSC_CONF_WHITE_USE','Usa White List');
 define('_AM_RSSC_CONF_WHITE_USE_DESC','Salva se in white list');
 define('_AM_RSSC_CONF_BLACK_USE','Usa Black List');
@@ -351,7 +351,7 @@ define('_AM_RSSC_CONF_KAKASI_MODE_PIPE','Usa UNIX pipe');
 define('_AM_RSSC_CONF_CHAR_LENGTH', 'Il num. minimo caratteri');
 define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'Il num. minimo caratteri parole da estrarre');
 define('_AM_RSSC_CONF_WORD_LIMIT', 'Il num. max di parole rifiutate');
-define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Inserire num. max parole salvate in tabella parole<br />Azzera record più vecchi, se si supera questo valore<br /><b>0</b> è illimitato');
+define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Inserire num. max parole salvate in tabella parole<br />Azzera record piÃ¹ vecchi, se si supera questo valore<br /><b>0</b> Ã¨ illimitato');
 define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi is executable');
 define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi is not executable');
 define('_AM_RSSC_CONF_HTML_GET','Ricava HTML');
@@ -360,13 +360,13 @@ define('_AM_RSSC_CONF_HTML_GET_NO','Non Usare');
 define('_AM_RSSC_CONF_HTML_GET_YES','Usa');
 define('_AM_RSSC_CONF_HTML_GET_BLACK','Usa se corr. blacklist');
 define('_AM_RSSC_CONF_HTML_LIMIT', 'Il num. max caratteri HTML');
-define('_AM_RSSC_CONF_HTML_LIMIT_DESC', 'Il num. max caratteri HTML ricavati automaticamente<br />In alcuni siti i dati HTML possono essere molti, e l\'esecuzione può rallentarsi');
+define('_AM_RSSC_CONF_HTML_LIMIT_DESC', 'Il num. max caratteri HTML ricavati automaticamente<br />In alcuni siti i dati HTML possono essere molti, e l\'esecuzione puÃ² rallentarsi');
 
 // archive manage
 define('_AM_RSSC_LEAN_BLACK', 'Impara in Black List');
 define('_AM_RSSC_LEAN_BLACK_DESC','Esamina blacklist, allo scopo di estrarre automaticamente parole nel contenuto, e aggiungerle alla lista parole rifiutate');
 define('_AM_RSSC_NUM_FEED_ALL','Il numero di tutti i feed');
-define('_AM_RSSC_NUM_FEED_SKIP','Il numero di feed già salvati');
+define('_AM_RSSC_NUM_FEED_SKIP','Il numero di feed giÃ  salvati');
 define('_AM_RSSC_NUM_FEED_REJECT','Il numero di feed valutati blacklist');
 
 define('_AM_RSSC_THEREARE_TITLE','in related <b>%s</b> ci sono <b>%s</b>');

@@ -244,7 +244,7 @@ define('_RSSC_SINGLE_LINK_UTF8', 'Link Singolo con UTF-8');
 //define('_RSSC_UTF8_CONTENT', 'Content allowed HTML tags with UTF-8');
 
 // detect encoding
-define('_RSSC_ASSUME_ENCODING', 'presumi xml encoding %s ,<br />perchè impossibile determinare automaticamente');
+define('_RSSC_ASSUME_ENCODING', 'presumi xml encoding %s ,<br />perchÃ¨ impossibile determinare automaticamente');
 
 // rss item
 define('_RSSC_CREATED', 'Creato');
@@ -285,9 +285,9 @@ define('_RSSC_PARSE_NOT_READ_XML_URL',  'RSS Parse Fallito: url RSS non letto');
 define('_RSSC_PARSE_NOT_FIND_ENCODING', 'RSS Parse Fallito: non trovo codifica');
 
 define('_RSSC_REFRESH_ERROR', 'Errore RSS Refresh');
-define('_RSSC_LINK_NOT_EXIST',  'Non c\'è link corrispondente in modulo RSSC');
-define('_RSSC_LINK_EXIST_MORE', 'Ci sono due o più link che hanno stesso "RDF/RSS/ATOM URL"');
-define('_RSSC_LINK_ALREADY',    'Esiste già un link con questo "RDF/RSS/ATOM URL"');
+define('_RSSC_LINK_NOT_EXIST',  'Non c\'Ã¨ link corrispondente in modulo RSSC');
+define('_RSSC_LINK_EXIST_MORE', 'Ci sono due o piÃ¹ link che hanno stesso "RDF/RSS/ATOM URL"');
+define('_RSSC_LINK_ALREADY',    'Esiste giÃ  un link con questo "RDF/RSS/ATOM URL"');
 
 // refresh link
 define('_RSSC_REFRESH_LINK', 'Refresh RDF/RSS/ATOM feeds');

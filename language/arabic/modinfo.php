@@ -16,23 +16,23 @@ if( !defined('RSSC_LANG_MI_LOADED') )
 define('RSSC_LANG_MI_LOADED', 1);
 
 // The name of this module
-define('_MI_RSSC_NAME','„—ﬂ“ «·⁄‰«ÊÌ‰');
-define('_MI_RSSC_DESC','ÌﬁÊ„ Â–« «·»—‰«„Ã »Ã·» RDF/RSS/ATOM feeds „‰ «·„Ê«ﬁ⁄ ÊÕ›ŸÂ« ›Ì ﬁ«⁄œ… «·»Ì«‰« , À„ »⁄œ –·ﬂ Ì⁄—÷Â« .');
+define('_MI_RSSC_NAME','√£√ë√ü√í √á√°√ö√§√á√¶√≠√§');
+define('_MI_RSSC_DESC','√≠√û√¶√£ √•√ê√á √á√°√à√ë√§√á√£√å √à√å√°√à RDF/RSS/ATOM feeds √£√§ √á√°√£√¶√á√û√ö √¶√ç√ù√ô√•√á √ù√≠ √û√á√ö√è√â √á√°√à√≠√á√§√á√ä, √ã√£ √à√ö√è √ê√°√ü √≠√ö√ë√ñ√•√á .');
 
 // Names of sub menu
-define('_MI_RSSC_SMNAME_HEADLINE','«·⁄‰«ÊÌ‰ «·„Œ ’—…');
+define('_MI_RSSC_SMNAME_HEADLINE','√á√°√ö√§√á√¶√≠√§ √á√°√£√é√ä√ï√ë√â');
 
 // Names of blocks
-define('_MI_RSSC_BNAME_LATEST','ÃœÌœ RDF/RSS/ATOM feeds');
-define('_MI_RSSC_BNAME_HEADLINE','«·⁄‰«ÊÌ‰ «·„Œ ’—…');
-define('_MI_RSSC_BNAME_REFRESH','«·⁄‰«ÊÌ‰ «·„Œ ’—… ( ÕœÌÀ)');
+define('_MI_RSSC_BNAME_LATEST','√å√è√≠√è RDF/RSS/ATOM feeds');
+define('_MI_RSSC_BNAME_HEADLINE','√á√°√ö√§√á√¶√≠√§ √á√°√£√é√ä√ï√ë√â');
+define('_MI_RSSC_BNAME_REFRESH','√á√°√ö√§√á√¶√≠√§ √á√°√£√é√ä√ï√ë√â (√ä√ç√è√≠√ã)');
 
 // 2006-09-20
-define('_MI_RSSC_BNAME_BLOG','»·Êﬂ „—ﬂ“ «·⁄‰«ÊÌ‰');
+define('_MI_RSSC_BNAME_BLOG','√à√°√¶√ü √£√ë√ü√í √á√°√ö√§√á√¶√≠√§');
 
 // Names of admin menu
-define('_MI_RSSC_ADMENU_CONFIG','ŒÌ«—«  «·»—‰«„Ã');
-define('_MI_RSSC_ADMENU_LINKLIST','ﬁ«∆„… «·—Ê«»ÿ');
+define('_MI_RSSC_ADMENU_CONFIG','√é√≠√á√ë√á√ä √á√°√à√ë√§√á√£√å');
+define('_MI_RSSC_ADMENU_LINKLIST','√û√á√Ü√£√â √á√°√ë√¶√á√à√ò');
 
 }
 // --- define language end ---

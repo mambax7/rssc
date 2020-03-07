@@ -125,7 +125,7 @@ define("_RSSC_XML_URL", "URL RDF/RSS/ATOM");
 define("_RSSC_LINK_ENCLOSURE", "Operation of enclusure tag");
 define("_RSSC_LINK_ENCLOSURE_NON", "Ne pas utiliser");
 define("_RSSC_LINK_ENCLOSURE_POD", "Assume PodCast");
-define("_RSSC_LINK_CENSOR", "Mots &grave; déeacute;tecter dans le titre");
+define("_RSSC_LINK_CENSOR", "Mots &grave; dÃ©eacute;tecter dans le titre");
 define("_RSSC_LINK_PLUGIN", "Plugin");
 define("_RSSC_BW_CACHE", "Cache of feed count");
 define("_RSSC_BW_CTIME", "Cache Time of feed count");

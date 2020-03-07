@@ -25,12 +25,12 @@ Files in language directory and extra directory.
 Special thanks, Anthony xoops-org.ru .
 
 
-œ DB table structure
+ÂÅ“ DB table structure
 (1) link table
 Changed following fields, from varchar to text.
 url, rdf_url, rss_url, atom_url
 
-(2) feed ƒe[ƒuƒ‹
+(2) feed Æ’eÂ[Æ’uÆ’â€¹
 Changed following fields, from varchar to text.
 site_link, entry_id, guid, author_uri, enclosure_url, 
 media_content_url, media_thumbnail_url
@@ -116,7 +116,7 @@ show in main and block
 
 4. Set the icon each link
 
-œ DB table structure
+ÂÅ“ DB table structure
 (1) link table
 add following fields
 icon, gicon_id

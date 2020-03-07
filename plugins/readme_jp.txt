@@ -1,12 +1,12 @@
 $Id: readme_jp.txt,v 1.1 2011/12/29 14:37:12 ohwada Exp $
 
 =================================================
-ƒvƒ‰ƒOƒCƒ“‚Ìì‚è•û
+ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®ä½œã‚Šæ–¹
 =================================================
 
-ƒvƒ‰ƒOƒCƒ“–¼‚ğ "foobar" ‚Æ‚µ‚Ü‚·
+ãƒ—ãƒ©ã‚°ã‚¤ãƒ³åã‚’ "foobar" ã¨ã—ã¾ã™
 
-1. ƒvƒ‰ƒOƒCƒ“‚Ì‹Lq—á
+1. ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ã®è¨˜è¿°ä¾‹
 
 plugins/foobar.php
 ------
@@ -23,25 +23,25 @@ function rssc_plugin_foobar()
 
 function description()
 {
-	// ‚±‚±‚Í‰pŒê‚Ìà–¾•¶
+	// ã“ã“ã¯è‹±èªã®èª¬æ˜æ–‡
 	return "this is foobar description";
 }
 
 function convert()
 {
 	$content = $this->get_value_by_key( 'content' );
-	$converted = xxx;	// ‚±‚±‚É•ÏŠ·ˆ—‚ğ‘‚­
+	$converted = xxx;	// ã“ã“ã«å¤‰æ›å‡¦ç†ã‚’æ›¸ã
 	$this->set_value_by_key( 'content', $converted );
 	return true;
 }
 
-} // class ‚ÌI‚í‚è
-} // class_exists ‚ÌI‚í‚è
+} // class ã®çµ‚ã‚ã‚Š
+} // class_exists ã®çµ‚ã‚ã‚Š
 -----
 
-2. “ú–{Œê‚Ìà–¾•¶‚Ì‹Lq—á
+2. æ—¥æœ¬èªã®èª¬æ˜æ–‡ã®è¨˜è¿°ä¾‹
 
 plugins/language/japanese/foobar.php
 -----
-$rssc_plugin_description = "‚±‚ê‚Í foobar ‚Ìà–¾•¶‚Å‚·";
+$rssc_plugin_description = "ã“ã‚Œã¯ foobar ã®èª¬æ˜æ–‡ã§ã™";
 -----
