@@ -86,7 +86,7 @@ public function get_rawurldecode_xml()
         //---------------------------------------------------------
         // basic function
         //---------------------------------------------------------
-    public function _build_insert_sql(&$obj)
+    public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -111,7 +111,7 @@ public function get_rawurldecode_xml()
             return $sql;
         }
 
-        public function _build_update_sql(&$obj)
+        public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;

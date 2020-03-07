@@ -332,7 +332,7 @@ CREATE TABLE ' . $this->_xml_table . " (
             return $this->query($sql);
         }
 
-    public function _insert_xml(&$row)
+    public function _insert_xml($row)
         {
             return $this->query($this->_build_insert_xml_sql($row));
         }

@@ -112,7 +112,7 @@ if( !class_exists('rssc_plugin_base') )
         // return value:
         //    array items
         //---------------------------------------------------------
-    public function execute(&$items)
+    public function execute($items)
         {
             $arr = [];
             $this->init();

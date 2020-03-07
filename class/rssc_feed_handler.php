@@ -181,7 +181,7 @@ public function get_act_option()
 
         // for future
         // now, admin cannot add feed record
-    public function _build_insert_sql(&$obj)
+    public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -290,7 +290,7 @@ public function get_act_option()
             return $sql;
         }
 
-    public function _build_update_sql(&$obj)
+    public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;

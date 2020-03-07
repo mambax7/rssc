@@ -91,7 +91,7 @@ if( !class_exists('rssc_word_basic_handler') )
         //---------------------------------------------------------
         // add
         //---------------------------------------------------------
-    public function add_word_array(&$arr)
+    public function add_word_array($arr)
         {
             foreach ($arr as $w) {
                 // insert new record, if not exist

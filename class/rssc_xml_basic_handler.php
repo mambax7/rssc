@@ -82,7 +82,7 @@ public function init()
         //---------------------------------------------------------
         // insert
         //---------------------------------------------------------
-    public function insert(&$obj)
+    public function insert($obj)
         {
             foreach ($obj->get_vars() as $k => $v) {
                 ${$k} = $v;
@@ -115,7 +115,7 @@ public function init()
         //---------------------------------------------------------
         // update
         //---------------------------------------------------------
-    public function update(&$obj)
+    public function update($obj)
         {
             foreach ($obj->get_vars() as $k => $v) {
                 ${$k} = $v;

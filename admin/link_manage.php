@@ -926,7 +926,7 @@ EOF;
         echo $text;
     }
 
-    public function &get_register(&$obj)
+    public function &get_register($obj)
     {
         $false = false;
         $mid   = $obj->get('mid');
@@ -977,7 +977,7 @@ EOF;
         return $arr;
     }
 
-    public function show_channel(&$obj)
+    public function show_channel($obj)
     {
         $title_s = $obj->getVar('title', 's');
         $channel = $obj->get_channel();
@@ -988,7 +988,7 @@ EOF;
         echo $this->build_form_button_close_style();
     }
 
-    public function get_xml(&$obj)
+    public function get_xml($obj)
     {
         $lid     = $obj->get('lid');
         $xml     = false;

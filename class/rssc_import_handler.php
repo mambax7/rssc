@@ -279,7 +279,7 @@ class rssc_import_handler extends happy_linux_error
     //---------------------------------------------------------
     // import_link
     //---------------------------------------------------------
-    public function import_link_weblinks(&$weblinks_link_obj)
+    public function import_link_weblinks($weblinks_link_obj)
     {
         $weblinks_lid      = $weblinks_link_obj->get('lid');
         $weblinks_rss_flag = $weblinks_link_obj->get('rss_flag');
@@ -320,7 +320,7 @@ class rssc_import_handler extends happy_linux_error
         return $this->import_link_common($orig_obj);
     }
 
-    public function import_link_common(&$orig_obj)
+    public function import_link_common($orig_obj)
     {
         $id           = $orig_obj->get('id');
         $p1           = $orig_obj->get('p1');
@@ -381,7 +381,7 @@ class rssc_import_handler extends happy_linux_error
     //---------------------------------------------------------
     // import_feed
     //---------------------------------------------------------
-    public function import_feed_weblinks(&$weblinks_atomfeed_obj)
+    public function import_feed_weblinks($weblinks_atomfeed_obj)
     {
         $aid   = $weblinks_atomfeed_obj->get('aid');
         $title = $weblinks_atomfeed_obj->get('title');

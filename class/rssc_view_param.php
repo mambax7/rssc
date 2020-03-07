@@ -130,7 +130,7 @@ if( !class_exists('rssc_view_param') )
         //---------------------------------------------------------
         // view sanitize
         //---------------------------------------------------------
-    public function &view_format_sanitize_feed_objs(&$feed_objs, $flag_sanitize = true)
+    public function &view_format_sanitize_feed_objs($feed_objs, $flag_sanitize = true)
         {
             $feeds = [];
             if (is_array($feed_objs) && (count($feed_objs) > 0)) {
@@ -141,7 +141,7 @@ if( !class_exists('rssc_view_param') )
             return $feeds;
         }
 
-    public function &view_format_sanitize_single_feed_obj(&$feed_obj, $flag_sanitize = true)
+    public function &view_format_sanitize_single_feed_obj($feed_obj, $flag_sanitize = true)
         {
             $feed = [];
             if (is_object($feed_obj)) {
@@ -150,7 +150,7 @@ if( !class_exists('rssc_view_param') )
             return $feed;
         }
 
-    public function &view_format_sanitize_feed_rows(&$feed_rows, $flag_sanitize = true)
+    public function &view_format_sanitize_feed_rows($feed_rows, $flag_sanitize = true)
         {
             $feeds = [];
             if (is_array($feed_rows) && (count($feed_rows) > 0)) {
@@ -170,7 +170,7 @@ if( !class_exists('rssc_view_param') )
             return $feed;
         }
 
-    public function &view_format_sanitize_single_feed(&$orig, $flag_sanitize = true)
+    public function &view_format_sanitize_single_feed($orig, $flag_sanitize = true)
         {
             $item             = $this->_execute_plugin($orig);
             $feed             = $this->view_format_sanitize_single_item($item, $flag_sanitize);

@@ -111,7 +111,7 @@ class admin_link_list extends happy_linux_page_frame
         return $arr;
     }
 
-    public function _get_linkfeed(&$obj)
+    public function _get_linkfeed($obj)
     {
         $lid   = $obj->getVar('lid');
         $lid_p = sprintf('%03d', $lid);

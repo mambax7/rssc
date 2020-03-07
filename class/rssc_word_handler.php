@@ -63,7 +63,7 @@ public function __construct()
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
-    public function _build_insert_sql(&$obj)
+    public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -92,7 +92,7 @@ public function __construct()
             return $sql;
         }
 
-    public function _build_update_sql(&$obj)
+    public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -214,7 +214,7 @@ public function __construct()
         //---------------------------------------------------------
         // for admin/word_manage.php
         //---------------------------------------------------------
-    public function build_error_list(&$objs, $script)
+    public function build_error_list($objs, $script)
         {
             $msg = '<ul>';
             foreach ($objs as $obj) {
@@ -224,7 +224,7 @@ public function __construct()
             return $msg;
         }
 
-        public function _build_error_list_single(&$obj, $script)
+        public function _build_error_list_single($obj, $script)
         {
             $sid   = $obj->get('sid');
             $sid_s = sprintf('%03d', $sid);

@@ -710,7 +710,7 @@ if( !class_exists('rssc_refresh_handler') )
             return true;
         }
 
-    public function _update_single_feed(&$item)
+    public function _update_single_feed($item)
         {
             $this->_count_all++;
 
@@ -762,7 +762,7 @@ if( !class_exists('rssc_refresh_handler') )
             return true;
         }
 
-    public function _check_has_link(&$item)
+    public function _check_has_link($item)
         {
             $lid   = $item['lid'];
             $link  = $item['link'];
@@ -777,7 +777,7 @@ if( !class_exists('rssc_refresh_handler') )
             return true;
         }
 
-    public function _check_feed_exist(&$item)
+    public function _check_feed_exist($item)
         {
             if ($this->_flag_force_overwrite) {
                 return false;
@@ -796,7 +796,7 @@ if( !class_exists('rssc_refresh_handler') )
             return false;
         }
 
-    public function _execute_plugin(&$item)
+    public function _execute_plugin($item)
         {
             $temp = $item;
 
@@ -834,7 +834,7 @@ if( !class_exists('rssc_refresh_handler') )
             return $temp;
         }
 
-    public function _execute_filter(&$item)
+    public function _execute_filter($item)
         {
             $ret = true;    // active
 

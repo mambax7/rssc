@@ -114,7 +114,7 @@ function rssc_update_base( $DIRNAME, $module, $prev_version )
 }
 
 // for Cube 2.1
-function rssc_message_append_oninstall( &$module_obj , &$log )
+function rssc_message_append_oninstall( &$module_obj , $log )
 {
 	if( is_array( @$GLOBALS['ret'] ) ) {
 		foreach( $GLOBALS['ret'] as $message ) {
@@ -126,7 +126,7 @@ function rssc_message_append_oninstall( &$module_obj , &$log )
 }
 
 // for Cube 2.1
-function rssc_message_append_onupdate( &$module_obj , &$log )
+function rssc_message_append_onupdate( &$module_obj , $log )
 {
 	if( is_array( @$GLOBALS['msgs'] ) ) {
 		foreach( $GLOBALS['msgs'] as $message ) {

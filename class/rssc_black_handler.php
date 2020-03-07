@@ -89,7 +89,7 @@ public function __construct()
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
-    public function _build_insert_sql(&$obj)
+    public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -144,7 +144,7 @@ public function __construct()
             return $sql;
         }
 
-    public function _build_update_sql(&$obj)
+    public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
