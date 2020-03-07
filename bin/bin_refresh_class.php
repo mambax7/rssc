@@ -24,13 +24,13 @@
 class bin_refresh extends happy_linux_bin_base
 {
     // class Instant
-    var $_refresh;
-    var $_config;
+    public $_refresh;
+    public $_config;
 
     // constant
-    var $_MAILER          = 'XOOPS rssc';
-    var $_TITLE           = 'refresh archive';
-    var $_FILENAME_RESULT = 'cache/refresh_link.html';
+    public $_MAILER          = 'XOOPS rssc';
+    public $_TITLE           = 'refresh archive';
+    public $_FILENAME_RESULT = 'cache/refresh_link.html';
 
     //---------------------------------------------------------
     // constructor

@@ -21,17 +21,17 @@ if( !class_exists('rssc_map') )
 //=========================================================
     class rssc_map extends rssc_block_map
     {
-        var $_form_class;
+        public $_form_class;
 
-        var $_conf;
+        public $_conf;
 
         // setter
-        var $_map_div_id = '';
-        var $_map_func   = '';
+        public $_map_div_id = '';
+        public $_map_func   = '';
 
-        var $_flag_webmap = false;
+        public $_flag_webmap = false;
 
-        var $_URL_IFRAME = '';
+        public $_URL_IFRAME = '';
 
         //---------------------------------------------------------
         // constructor

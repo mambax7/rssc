@@ -46,7 +46,7 @@ if( !class_exists('rssc_feed_basic_handler') )
 class rssc_feed_basic extends happy_linux_basic
 {
 // constant
-	var $_FLAG_SUBSUTUTE_DATE = true;
+	public $_FLAG_SUBSUTUTE_DATE = true;
 
 //---------------------------------------------------------
 // constructor
@@ -193,10 +193,10 @@ public function subsutute_date()
     class rssc_feed_basic_handler extends happy_linux_basic_handler
     {
         // set false, if not insert
-        var $_DEBUG_INSERT_EXEC = true;
+        public $_DEBUG_INSERT_EXEC = true;
 
         // input parameter
-        var $_future_days = 3;    // 3 days
+        public $_future_days = 3;    // 3 days
 
         //---------------------------------------------------------
         // constructor

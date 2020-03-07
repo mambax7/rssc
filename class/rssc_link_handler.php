@@ -55,8 +55,8 @@ if( !class_exists('rssc_link_handler') )
 //=========================================================
 class rssc_link extends happy_linux_object
 {
-	var $_charset = _CHARSET;
-	var $_link_basic;
+	public $_charset = _CHARSET;
+	public $_link_basic;
 
 //---------------------------------------------------------
 // ltype : 1 = rss search site
@@ -242,8 +242,8 @@ public function &get_enclosure_option()
     class rssc_link_handler extends happy_linux_object_handler
     {
         // link table
-        var $_link_lid;
-        var $_link_obj;
+        public $_link_lid;
+        public $_link_obj;
 
         //---------------------------------------------------------
         // constructor

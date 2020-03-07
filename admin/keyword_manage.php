@@ -36,12 +36,12 @@ include_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
 class admin_manage_keyword extends admin_manage_base
 {
     // handler, class
-    var $_list;
-    var $_convert;
-    var $_system;
+    public $_list;
+    public $_convert;
+    public $_system;
 
-    var $_MODE             = RSSC_C_MODE_RSS;    // rss
-    var $_REFRESH_INTERVAL = 3600;    // 1 hours
+    public $_MODE             = RSSC_C_MODE_RSS;    // rss
+    public $_REFRESH_INTERVAL = 3600;    // 1 hours
 
     //---------------------------------------------------------
     // constructor

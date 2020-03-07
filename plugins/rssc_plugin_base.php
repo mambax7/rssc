@@ -14,12 +14,12 @@ if( !class_exists('rssc_plugin_base') )
 {
     class rssc_plugin_base
     {
-        var $_plural_vars = [];
-        var $_single_vars = [];
-        var $_param_vars  = [];
-        var $_logs        = [];
+        public $_plural_vars = [];
+        public $_single_vars = [];
+        public $_param_vars  = [];
+        public $_logs        = [];
 
-        var $_DIRNAME;
+        public $_DIRNAME;
 
         //---------------------------------------------------------
         // constructor

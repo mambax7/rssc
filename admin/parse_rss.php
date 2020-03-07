@@ -46,21 +46,21 @@ include_once RSSC_ROOT_PATH.'/api/refresh.php';
 class admin_parse_rss extends happy_linux_error
 {
     // handler
-    var $_config_handler;
-    var $_refresh_handler;
-    var $_view_handler;
-    var $_link_basic_handler;
-    var $_xml_basic_handler;
-    var $_parser;
-    var $_post;
-    var $_form;
+    public $_config_handler;
+    public $_refresh_handler;
+    public $_view_handler;
+    public $_link_basic_handler;
+    public $_xml_basic_handler;
+    public $_parser;
+    public $_post;
+    public $_form;
 
-    var $TEMPLATE_RDF;
-    var $TEMPLATE_RSS;
-    var $TEMPLATE_ATOM;
+    public $TEMPLATE_RDF;
+    public $TEMPLATE_RSS;
+    public $TEMPLATE_ATOM;
 
-    var $_template;
-    var $_result;
+    public $_template;
+    public $_result;
 
     //---------------------------------------------------------
     // constructor
@@ -403,7 +403,7 @@ class admin_parse_rss extends happy_linux_error
 //=========================================================
 class admin_form_rss extends happy_linux_form
 {
-    var $_link_handler;
+    public $_link_handler;
 
     //---------------------------------------------------------
     // constructor

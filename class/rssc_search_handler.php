@@ -36,16 +36,16 @@ if( !class_exists('rssc_search_handler') )
     class rssc_search_handler extends rssc_view_param
     {
         // class instance
-        var $_search;
-        var $_post;
+        public $_search;
+        public $_post;
 
         // result
-        var $_feeds            = [];
-        var $_flag_parse_query = false;
-        var $_where;
-        var $_sql_query_array;
+        public $_feeds            = [];
+        public $_flag_parse_query = false;
+        public $_where;
+        public $_sql_query_array;
 
-        var $_query = null;
+        public $_query = null;
 
         //---------------------------------------------------------
         // constructor

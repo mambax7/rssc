@@ -118,25 +118,25 @@ exit();
 //=========================================================
 class rssc_single_link_utf8
 {
-    var $_link_handler;
-    var $_xml_handler;
-    var $_conf_handler;
-    var $_parser;
-    var $_viewer;
-    var $_system;
-    var $_convert;
-    var $_post;
-    var $_strings;
+    public $_link_handler;
+    public $_xml_handler;
+    public $_conf_handler;
+    public $_parser;
+    public $_viewer;
+    public $_system;
+    public $_convert;
+    public $_post;
+    public $_strings;
 
-    var $ENCODING_LOCAL = _CHARSET;
-    var $ENCODING_UTF8  = 'UTF-8';
+    public $ENCODING_LOCAL = _CHARSET;
+    public $ENCODING_UTF8  = 'UTF-8';
 
-    var $_lid;
-    var $_mode;
-    var $_link_obj;
+    public $_lid;
+    public $_mode;
+    public $_link_obj;
 
-    var $_flag_highlight = false;
-    var $_keyword_array  = null;
+    public $_flag_highlight = false;
+    public $_keyword_array  = null;
 
     //---------------------------------------------------------
     // constructor

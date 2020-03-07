@@ -38,18 +38,18 @@ include_once RSSC_ROOT_PATH.'/class/rssc_refresh_all_handler.php';
 //=========================================================
 class admin_manage_archive extends happy_linux_manage
 {
-    var $_feed_handler;
-    var $_black_handler;
-    var $_refresh_handler;
+    public $_feed_handler;
+    public $_black_handler;
+    public $_refresh_handler;
 
-    var $_post;
+    public $_post;
 
-    var $_conf_feed_limit = 1000;
-    var $_conf_word_limit = 1000;
+    public $_conf_feed_limit = 1000;
+    public $_conf_word_limit = 1000;
 
-    var $_limit;
-    var $_offset;
-    var $_num;
+    public $_limit;
+    public $_offset;
+    public $_num;
 
     //---------------------------------------------------------
     // constructor

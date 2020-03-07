@@ -22,38 +22,38 @@
 //=========================================================
 class rssc_import_handler extends happy_linux_error
 {
-    var $_LIMIT            = 100;
-    var $_FLAG_UPDATE_LINK = true;
+    public $_LIMIT            = 100;
+    public $_FLAG_UPDATE_LINK = true;
 
-    var $_link_handler;
-    var $_black_handler;
-    var $_white_handler;
-    var $_feed_basic_handler;
+    public $_link_handler;
+    public $_black_handler;
+    public $_white_handler;
+    public $_feed_basic_handler;
 
-    var $_form;
-    var $_post;
-    var $_system;
-    var $_strings;
-    var $_rss_parser;
+    public $_form;
+    public $_post;
+    public $_system;
+    public $_strings;
+    public $_rss_parser;
 
     // local
-    var $_exist_lid        = 0;
-    var $_lid_list_by_p1   = [];
-    var $_lid_list_by_url  = [];
-    var $_link_objs_by_lid = [];
-    var $_table_rssc_link;
-    var $_table_rssc_feed;
-    var $_table_rssc_black;
-    var $_table_rssc_white;
+    public $_exist_lid        = 0;
+    public $_lid_list_by_p1   = [];
+    public $_lid_list_by_url  = [];
+    public $_link_objs_by_lid = [];
+    public $_table_rssc_link;
+    public $_table_rssc_feed;
+    public $_table_rssc_black;
+    public $_table_rssc_white;
 
-    var $_dirname_orig;
-    var $_mid_orig = 0;
+    public $_dirname_orig;
+    public $_mid_orig = 0;
 
     // post
-    var $_op;
-    var $_limit;
-    var $_offset;
-    var $_next;
+    public $_op;
+    public $_limit;
+    public $_offset;
+    public $_next;
 
     //---------------------------------------------------------
     // constructor

@@ -29,8 +29,8 @@ if( !class_exists('rssc_headline_handler') )
     class rssc_headline_handler extends happy_linux_error
     {
         // handler
-        var $_link_handler;
-        var $_refresh_handler;
+        public $_link_handler;
+        public $_refresh_handler;
 
         //---------------------------------------------------------
         // constructor

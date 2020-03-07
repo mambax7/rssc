@@ -36,16 +36,16 @@ if( ! class_exists('rssc_install') )
 //=========================================================
     class rssc_install extends happy_linux_module_install
     {
-        var $_DIRNAME;
+        public $_DIRNAME;
 
-        var $_link_table;
-        var $_xml_table;
-        var $_black_table;
-        var $_white_table;
-        var $_word_table;
-        var $_feed_table;
+        public $_link_table;
+        public $_xml_table;
+        public $_black_table;
+        public $_white_table;
+        public $_word_table;
+        public $_feed_table;
 
-        var $_DEBUG_TRACE = true;
+        public $_DEBUG_TRACE = true;
 
         //---------------------------------------------------------
         // constructor

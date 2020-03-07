@@ -18,7 +18,7 @@ if( !class_exists('rssc_plugin_summary') )
 {
     class rssc_plugin_summary extends rssc_plugin_base
     {
-        var $_MAX_DEFAULT = 100;
+        public $_MAX_DEFAULT = 100;
 
         //---------------------------------------------------------
         // constructor

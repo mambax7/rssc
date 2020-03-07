@@ -18,10 +18,10 @@ if( !class_exists('rssc_plugin_latest_feeds') )
 {
     class rssc_plugin_latest_feeds extends rssc_plugin_base
     {
-        var $_feed_handler;
+        public $_feed_handler;
 
-        var $_FEED_ORDER  = RSSC_C_ORDER_TEXT_UPDATED;
-        var $_DEFAULT_NUM = 10;
+        public $_FEED_ORDER  = RSSC_C_ORDER_TEXT_UPDATED;
+        public $_DEFAULT_NUM = 10;
 
         //---------------------------------------------------------
         // constructor

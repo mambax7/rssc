@@ -50,34 +50,34 @@ if( !class_exists('rssc_view_param') )
 //=========================================================
     class rssc_view_param extends happy_linux_rss_viewer
     {
-        var $_DIRNAME;
-        var $_MODULE_URL;
-        var $_MODULE_DIR;
+        public $_DIRNAME;
+        public $_MODULE_URL;
+        public $_MODULE_DIR;
 
         // handler
-        var $_config_handler;
-        var $_link_handler;
-        var $_feed_handler;
-        var $_plugin;
-        var $_system;
-        var $_image_class;
+        public $_config_handler;
+        public $_link_handler;
+        public $_feed_handler;
+        public $_plugin;
+        public $_system;
+        public $_image_class;
 
-        var $_conf;
+        public $_conf;
 
         // input parameter
-        var $_feed_order     = RSSC_C_ORDER_TEXT_UPDATED;
-        var $_feed_start     = 0;
-        var $_feed_limit     = 10;
-        var $_flag_sanitize  = false;
-        var $_flag_ltype     = false;
-        var $_flag_enclosure = false;
+        public $_feed_order     = RSSC_C_ORDER_TEXT_UPDATED;
+        public $_feed_start     = 0;
+        public $_feed_limit     = 10;
+        public $_flag_sanitize  = false;
+        public $_flag_ltype     = false;
+        public $_flag_enclosure = false;
 
-        var $_flag_icon  = true;
-        var $_flag_gicon = true;
+        public $_flag_icon  = true;
+        public $_flag_gicon = true;
 
-        var $_max_width  = 120;
-        var $_max_height = 120;
-        var $_flag_zero  = true;
+        public $_max_width  = 120;
+        public $_max_height = 120;
+        public $_flag_zero  = true;
 
         //---------------------------------------------------------
         // constructor

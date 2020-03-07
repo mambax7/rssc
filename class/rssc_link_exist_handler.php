@@ -24,15 +24,15 @@ if( !class_exists('rssc_link_exist_handler') )
     class rssc_link_exist_handler extends happy_linux_error
     {
         // class instance
-        var $_link_handler;
-        var $_xml_utility;
+        public $_link_handler;
+        public $_xml_utility;
 
         // result
-        var $_xml_mode;
-        var $_rdf_url;
-        var $_rss_url;
-        var $_atom_url;
-        var $_rssurl_list;
+        public $_xml_mode;
+        public $_rdf_url;
+        public $_rss_url;
+        public $_atom_url;
+        public $_rssurl_list;
 
         //---------------------------------------------------------
         // constructor

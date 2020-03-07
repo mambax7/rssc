@@ -18,10 +18,10 @@ if( !class_exists('rssc_icon') )
 //=========================================================
     class rssc_icon
     {
-        var $_db;
+        public $_db;
 
-        var $_ICON_COLS    = 5;
-        var $_ICON_DEFAULT = 'default.gif';
+        public $_ICON_COLS    = 5;
+        public $_ICON_DEFAULT = 'default.gif';
 
         //---------------------------------------------------------
         // constructor

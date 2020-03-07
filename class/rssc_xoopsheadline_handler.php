@@ -14,10 +14,10 @@
 //=========================================================
 class rssc_xoopsheadline_handler extends happy_linux_basic_handler
 {
-    var $_DIRNAME_XOOPSHEADLINE = 'xoopsheadline';
+    public $_DIRNAME_XOOPSHEADLINE = 'xoopsheadline';
 
-    var $_system_uid;
-    var $_mid_orig;
+    public $_system_uid;
+    public $_mid_orig;
 
     //---------------------------------------------------------
     // constructor

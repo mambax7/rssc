@@ -27,13 +27,13 @@
 class admin_form_black_white extends happy_linux_form
 {
     // class instance
-    var $_feed_handler;
+    public $_feed_handler;
 
     // black & white
-    var $_id_name;
-    var $_form_title_add;
-    var $_form_title_mod;
-    var $_jump_feed;
+    public $_id_name;
+    public $_form_title_add;
+    public $_form_title_mod;
+    public $_jump_feed;
 
     //---------------------------------------------------------
     // constructor

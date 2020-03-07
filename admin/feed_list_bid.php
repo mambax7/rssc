@@ -17,11 +17,11 @@ include 'feed_list_class.php';
 //=========================================================
 class admin_feed_list_bid extends admin_feed_list
 {
-    var $_black_handler;
+    public $_black_handler;
 
-    var $_bid        = 0;
-    var $_total_link = 0;
-    var $_link       = '';
+    public $_bid        = 0;
+    public $_total_link = 0;
+    public $_link       = '';
 
     //---------------------------------------------------------
     // constructor

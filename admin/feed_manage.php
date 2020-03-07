@@ -188,8 +188,8 @@ class admin_manage_feed extends admin_manage_base
 //=========================================================
 class admin_form_feed extends happy_linux_form
 {
-    var $_LENGTH_TEXT_SHORT = 500;
-    var $_URL_SIZE          = 70;
+    public $_LENGTH_TEXT_SHORT = 500;
+    public $_URL_SIZE          = 70;
 
     //---------------------------------------------------------
     // constructor

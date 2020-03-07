@@ -24,11 +24,11 @@ include_once RSSC_ROOT_PATH.'/class/rssc_feed_handler.php';
 //=========================================================
 class admin_feed_list extends happy_linux_page_frame
 {
-    var $_post;
-    var $_strings;
+    public $_post;
+    public $_strings;
 
-    var $_total_non_act = 0;
-    var $_url_feed_column_manage;
+    public $_total_non_act = 0;
+    public $_url_feed_column_manage;
 
     //---------------------------------------------------------
     // constructor

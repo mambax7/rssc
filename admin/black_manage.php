@@ -38,7 +38,7 @@ include_once RSSC_ROOT_PATH.'/admin/admin_form_black_white.php';
 class admin_manage_black extends admin_manage_base
 {
     // handler
-    var $_parser;
+    public $_parser;
 
     //---------------------------------------------------------
     // constructor

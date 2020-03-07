@@ -156,7 +156,7 @@ public function get_act_option()
     {
 
         // class
-        var $_strings;
+        public $_strings;
 
         //---------------------------------------------------------
         // constructor

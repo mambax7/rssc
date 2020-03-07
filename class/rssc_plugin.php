@@ -18,26 +18,26 @@ if( !class_exists('rssc_plugin') )
 //=========================================================
     class rssc_plugin
     {
-        var $_DIRNAME;
-        var $_DIR_PLUGINS;
-        var $_DIR_PLUGINS_DATA;
-        var $_DIR_PLUGINS_LANG;
+        public $_DIRNAME;
+        public $_DIR_PLUGINS;
+        public $_DIR_PLUGINS_DATA;
+        public $_DIR_PLUGINS_LANG;
 
-        var $_class_dir;
-        var $_strings;
-        var $_system;
+        public $_class_dir;
+        public $_strings;
+        public $_system;
 
-        var $_flag_init  = false;
-        var $_items      = null;
-        var $_line_count = 0;
-        var $_logs       = [];
+        public $_flag_init  = false;
+        public $_items      = null;
+        public $_line_count = 0;
+        public $_logs       = [];
 
-        var $_class_name_array  = [];
-        var $_class_obj_array   = [];
-        var $_description_array = [];
-        var $_usage_array       = [];
+        public $_class_name_array  = [];
+        public $_class_obj_array   = [];
+        public $_description_array = [];
+        public $_usage_array       = [];
 
-        var $_FLAG_PRINT = false;
+        public $_FLAG_PRINT = false;
 
         //---------------------------------------------------------
         // constructor

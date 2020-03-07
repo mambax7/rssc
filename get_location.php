@@ -35,16 +35,16 @@ include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_get_handle
 //=========================================================
 class rssc_get_location
 {
-    var $_conf_handler;
-    var $_api_class;
+    public $_conf_handler;
+    public $_api_class;
 
-    var $_conf;
+    public $_conf;
 
     // rssc config
-    var $_ELE_ID_PARENT_LATITUDE  = "webmap_latitude";
-    var $_ELE_ID_PARENT_LONGITUDE = "webmap_longitude";
-    var $_ELE_ID_PARENT_ZOOM      = "webmap_zoom";
-    var $_ELE_ID_PARENT_ADDRESS   = "webmap_address";
+    public $_ELE_ID_PARENT_LATITUDE  = "webmap_latitude";
+    public $_ELE_ID_PARENT_LONGITUDE = "webmap_longitude";
+    public $_ELE_ID_PARENT_ZOOM      = "webmap_zoom";
+    public $_ELE_ID_PARENT_ADDRESS   = "webmap_address";
 
     //---------------------------------------------------------
     // constructor

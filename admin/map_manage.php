@@ -18,12 +18,12 @@ include_once RSSC_ROOT_PATH.'/class/rssc_map.php';
 //=========================================================
 class admin_map_manage
 {
-    var $_conf_handler;
-    var $_config_form;
-    var $_config_store;
-    var $_map_class;
+    public $_conf_handler;
+    public $_config_form;
+    public $_config_store;
+    public $_map_class;
 
-    var $_conf;
+    public $_conf;
 
     //---------------------------------------------------------
     // constructor

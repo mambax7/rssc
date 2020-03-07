@@ -25,11 +25,11 @@
 class admin_manage_base extends happy_linux_manage
 {
     // handler
-    var $_feed_handler;
+    public $_feed_handler;
 
     // class
-    var $_strings;
-    var $_system;
+    public $_strings;
+    public $_system;
 
     // local
 

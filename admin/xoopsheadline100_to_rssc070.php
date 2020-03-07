@@ -32,8 +32,8 @@ include_once RSSC_ROOT_PATH.'/class/rssc_xoopsheadline_handler.php';
 //=========================================================
 class admin_import_xoopsheadline extends rssc_import_handler
 {
-    var $_DIRNAME_XOOPSHEADLINE = 'xoopsheadline';
-    var $_xoopsheadline_handler;
+    public $_DIRNAME_XOOPSHEADLINE = 'xoopsheadline';
+    public $_xoopsheadline_handler;
 
     //---------------------------------------------------------
     // constructor

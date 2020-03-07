@@ -29,19 +29,19 @@ if( !class_exists('rssc_filter_handler') )
 //=========================================================
     class rssc_filter_handler
     {
-        var $_black_handler;
-        var $_white_handler;
-        var $_word_handler;
+        public $_black_handler;
+        public $_white_handler;
+        public $_word_handler;
 
-        var $_conf       = null;
-        var $_black_list = [];
-        var $_white_list = [];
-        var $_word_list  = [];
+        public $_conf       = null;
+        public $_black_list = [];
+        public $_white_list = [];
+        public $_word_list  = [];
 
-        var $_flag_init   = false;
-        var $_match_count = 0;
-        var $_match_words = null;
-        var $_log         = null;
+        public $_flag_init   = false;
+        public $_match_count = 0;
+        public $_match_words = null;
+        public $_log         = null;
 
         //---------------------------------------------------------
         // constructor

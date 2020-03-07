@@ -30,7 +30,7 @@ class admin_link_list extends happy_linux_page_frame
 {
 
     // handler
-    var $_feed_handler;
+    public $_feed_handler;
 
     //---------------------------------------------------------
     // constructor

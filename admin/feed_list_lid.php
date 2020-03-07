@@ -17,10 +17,10 @@ include 'feed_list_class.php';
 //=========================================================
 class admin_feed_list_lid extends admin_feed_list
 {
-    var $_link_handler;
+    public $_link_handler;
 
-    var $_lid       = 0;
-    var $_total_lid = 0;
+    public $_lid       = 0;
+    public $_total_lid = 0;
 
     //---------------------------------------------------------
     // constructor

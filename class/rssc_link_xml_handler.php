@@ -15,7 +15,7 @@ if( !class_exists('rssc_link_xml_handler') )
 //=========================================================
     class rssc_link_xml_handler extends rssc_link_handler
     {
-        var $_xml_handler;
+        public $_xml_handler;
 
         //---------------------------------------------------------
         // constructor

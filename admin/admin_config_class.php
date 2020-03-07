@@ -54,10 +54,10 @@
 
 class admin_config_form extends happy_linux_config_form
 {
-    var $_DIRNAME;
+    public $_DIRNAME;
 
     // local
-    var $_line_count = 0;
+    public $_line_count = 0;
 
     //---------------------------------------------------------
     // constructor
@@ -219,7 +219,7 @@ class admin_config_store extends happy_linux_error
 {
 
     // handler
-    var $_install;
+    public $_install;
 
     //---------------------------------------------------------
     // constructor

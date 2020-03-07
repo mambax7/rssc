@@ -19,7 +19,7 @@ if( !class_exists('rssc_log_file') )
 //=========================================================
     class rssc_log_file extends happy_linux_file
     {
-        var $_flag_log_use = false;
+        public $_flag_log_use = false;
 
         //---------------------------------------------------------
         // constructor

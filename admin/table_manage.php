@@ -27,9 +27,9 @@ include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/xoops_block_checker.php
 //================================================================
 class admin_table_manage extends happy_linux_table_manage
 {
-    var $_link_handler;
+    public $_link_handler;
 
-    var $_TITLE_LINK_CHECK = 'check link table';
+    public $_TITLE_LINK_CHECK = 'check link table';
 
     //---------------------------------------------------------
     // constructor

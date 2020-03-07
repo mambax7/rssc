@@ -32,8 +32,8 @@ else
 //=========================================================
 class admin_list_word extends happy_linux_page_frame
 {
-    var $_post;
-    var $_search_word;
+    public $_post;
+    public $_search_word;
 
     //---------------------------------------------------------
     // constructor
@@ -275,7 +275,7 @@ class admin_list_word extends happy_linux_page_frame
 //=========================================================
 class admin_word_search_form extends happy_linux_form
 {
-    var $_post;
+    public $_post;
 
     //---------------------------------------------------------
     // constructor

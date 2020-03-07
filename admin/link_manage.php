@@ -70,23 +70,23 @@ include_once RSSC_ROOT_PATH.'/class/rssc_map.php';
 class admin_manage_link extends admin_manage_base
 {
 
-    var $_MODE             = RSSC_C_MODE_AUTO;    // auto discovery
-    var $_REFRESH_INTERVAL = 86400;    // 24 hours
-    var $_sel_rss_atom     = RSSC_C_SEL_ATOM;
-    var $_HEADER           = 'Content-Type:text/xml; charset=utf-8';
+    public $_MODE             = RSSC_C_MODE_AUTO;    // auto discovery
+    public $_REFRESH_INTERVAL = 86400;    // 24 hours
+    public $_sel_rss_atom     = RSSC_C_SEL_ATOM;
+    public $_HEADER           = 'Content-Type:text/xml; charset=utf-8';
 
     // handler
-    var $_refresh_handler;
-    var $_parser;
-    var $_utility;
+    public $_refresh_handler;
+    public $_parser;
+    public $_utility;
 
     // local
-    var $_parse_result = '';
+    public $_parse_result = '';
 
     // debug
-    var $_FLAG_REFRESH_REDIRECT = true;
-    var $_TIME_SUCCESS          = 1;
-    var $_TIME_FAILED           = 5;
+    public $_FLAG_REFRESH_REDIRECT = true;
+    public $_TIME_SUCCESS          = 1;
+    public $_TIME_FAILED           = 5;
 
     //---------------------------------------------------------
     // constructor
@@ -529,28 +529,28 @@ class admin_manage_link extends admin_manage_base
 //=========================================================
 class admin_form_link extends happy_linux_form_lib
 {
-    var $_link_handler;
-    var $_xml_handler;
-    var $_feed_handler;
-    var $_post;
-    var $_system;
-    var $_html_class;
-    var $_map_class;
+    public $_link_handler;
+    public $_xml_handler;
+    public $_feed_handler;
+    public $_post;
+    public $_system;
+    public $_html_class;
+    public $_map_class;
 
-    var $_conf;
+    public $_conf;
 
-    var $_SIZE_TINY         = 15;
-    var $_LENGTH_TEXT_SHORT = 300;
+    public $_SIZE_TINY         = 15;
+    public $_LENGTH_TEXT_SHORT = 300;
 
-    var $_CENSOR_ROWS = 4;
-    var $_CENSOR_COLS = 50;
+    public $_CENSOR_ROWS = 4;
+    public $_CENSOR_COLS = 50;
 
     // icon
-    var $_DIR_ICON_REL = "images/icons";
-    var $_IMG_ID_ICON  = 'rssc_img_icon';
-    var $_DIR_ICON;
-    var $_URL_ICON;
-    var $_URL_ICON_WHITE_DOT;
+    public $_DIR_ICON_REL = "images/icons";
+    public $_IMG_ID_ICON  = 'rssc_img_icon';
+    public $_DIR_ICON;
+    public $_URL_ICON;
+    public $_URL_ICON_WHITE_DOT;
 
     //---------------------------------------------------------
     // constructor

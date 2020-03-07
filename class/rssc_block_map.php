@@ -15,7 +15,7 @@ if( !class_exists('rssc_block_map') )
 //=========================================================
     class rssc_block_map
     {
-        var $_map_class;
+        public $_map_class;
 
         //---------------------------------------------------------
         // constructor

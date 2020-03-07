@@ -37,43 +37,43 @@ if( !class_exists('rssc_refresh_all_handler') )
 //=========================================================
     class rssc_refresh_all_handler extends happy_linux_error
     {
-        var $_DIRNAME;
+        public $_DIRNAME;
 
         // handler
-        var $_link_handler;
-        var $_feed_handler;
-        var $_black_handler;
-        var $_word_handler;
-        var $_refresh_handler;
-        var $_rss_utility;
-        var $_bin_file;
+        public $_link_handler;
+        public $_feed_handler;
+        public $_black_handler;
+        public $_word_handler;
+        public $_refresh_handler;
+        public $_rss_utility;
+        public $_bin_file;
 
         // input
-        var $_feed_limit = 0;    // unlimit
-        var $_word_limit = 0;    // unlimit
-        var $_flag_print = true;
-        var $_flag_chmod = false;
-        var $_fp_result;
+        public $_feed_limit = 0;    // unlimit
+        public $_word_limit = 0;    // unlimit
+        public $_flag_print = true;
+        public $_flag_chmod = false;
+        public $_fp_result;
 
         // result
-        var $_total_link   = 0;
-        var $_count_broken = 0;
+        public $_total_link   = 0;
+        public $_count_broken = 0;
 
-        var $_count_all    = 0;
-        var $_count_skip   = 0;
-        var $_count_reject = 0;
-        var $_count_update = 0;
+        public $_count_all    = 0;
+        public $_count_skip   = 0;
+        public $_count_reject = 0;
+        public $_count_update = 0;
 
         // local
-        var $_broken_arr = [];
-        var $_count_link = 0;
+        public $_broken_arr = [];
+        public $_count_link = 0;
 
-        var $_time_start;
-        var $_lid_start;
-        var $_lid_end;
-        var $_num_feed_cleared;
-        var $_num_refresh;
-        var $_num_atom_site;
+        public $_time_start;
+        public $_lid_start;
+        public $_lid_end;
+        public $_num_feed_cleared;
+        public $_num_refresh;
+        public $_num_atom_site;
 
         //---------------------------------------------------------
         // constructor

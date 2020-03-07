@@ -13,10 +13,10 @@ include "header.php";
 //=========================================================
 class rssc_plugin_list
 {
-    var $_DIRNAME;
+    public $_DIRNAME;
 
-    var $_system;
-    var $_plugin;
+    public $_system;
+    public $_plugin;
 
     //---------------------------------------------------------
     // constructor

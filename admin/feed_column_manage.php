@@ -30,13 +30,13 @@ include_once RSSC_ROOT_PATH.'/api/refresh.php';
 class admin_feed_column_manage extends happy_linux_error
 {
     // handler
-    var $_feed_basic_handler;
-    var $_post;
-    var $_form;
+    public $_feed_basic_handler;
+    public $_post;
+    public $_form;
 
-    var $_THIS_URL;
+    public $_THIS_URL;
 
-    var $_COLUMN_ARRAY = [
+    public $_COLUMN_ARRAY = [
         'entry_id'            => 'varchar',
         'guid'                => 'varchar',
         'media_content_url'   => 'varchar',

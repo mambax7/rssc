@@ -14,11 +14,11 @@
 //=========================================================
 class rssc_weblinks_handler extends happy_linux_basic_handler
 {
-    var $_table_config;
-    var $_table_link;
-    var $_table_atomfeed;
+    public $_table_config;
+    public $_table_link;
+    public $_table_atomfeed;
 
-    var $_strings;
+    public $_strings;
 
     //---------------------------------------------------------
     // constructor

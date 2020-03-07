@@ -27,13 +27,13 @@ if( !class_exists('rssc_block') )
 //=========================================================
     class rssc_block
     {
-        var $_db;
+        public $_db;
 
-        var $_is_japanese;
+        public $_is_japanese;
 
-        var $_MAX_WIDTH  = 120;
-        var $_MAX_HEIGHT = 120;
-        var $_FLAG_ZERO  = true;
+        public $_MAX_WIDTH  = 120;
+        public $_MAX_HEIGHT = 120;
+        public $_FLAG_ZERO  = true;
 
         //---------------------------------------------------------
         // constructor

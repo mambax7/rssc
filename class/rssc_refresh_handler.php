@@ -65,75 +65,75 @@ if( !class_exists('rssc_refresh_handler') )
     class rssc_refresh_handler extends happy_linux_error
     {
         // handler
-        var $_config_handler;
-        var $_link_handler;
-        var $_xml_handler;
-        var $_feed_handler;
-        var $_black_handler;
-        var $_word_handler;
-        var $_filter_handler;
+        public $_config_handler;
+        public $_link_handler;
+        public $_xml_handler;
+        public $_feed_handler;
+        public $_black_handler;
+        public $_word_handler;
+        public $_filter_handler;
 
         // class instance
-        var $_rss_parser;
-        var $_rss_utility;
-        var $_plugin;
-        var $_extract;
-        var $_strings;
-        var $_log_file;
-        var $_class_dir;
+        public $_rss_parser;
+        public $_rss_utility;
+        public $_plugin;
+        public $_extract;
+        public $_strings;
+        public $_log_file;
+        public $_class_dir;
 
-        var $_conf;
+        public $_conf;
 
         // object
-        var $_link_obj;
-        var $_parse_obj;
+        public $_link_obj;
+        public $_parse_obj;
 
         // black & white table
-        var $_black_list_flag = false;
-        var $_white_list_flag = false;
-        var $_black_list      = [];
-        var $_white_list      = [];
+        public $_black_list_flag = false;
+        public $_white_list_flag = false;
+        public $_black_list      = [];
+        public $_white_list      = [];
 
         // result
-        var $_parsed_data     = [];
-        var $_items_for_store = [];
-        var $_rdf_url;
-        var $_rss_url;
-        var $_atom_url;
-        var $_xml_data;
-        var $_xml_encoding;
-        var $_rssurl_list;
+        public $_parsed_data     = [];
+        public $_items_for_store = [];
+        public $_rdf_url;
+        public $_rss_url;
+        public $_atom_url;
+        public $_xml_data;
+        public $_xml_encoding;
+        public $_rssurl_list;
 
-        var $_parse_error_code = 0;
-        var $_parse_result     = null;
+        public $_parse_error_code = 0;
+        public $_parse_result     = null;
 
         // basic config
         //	var $_sel_rss_atom = RSSC_C_SEL_ATOM;
 
         // set parameter
-        var $_xml_mode = 0;
+        public $_xml_mode = 0;
 
         // temporary
-        var $_plugin_converted = null;
-        var $_logs             = null;
+        public $_plugin_converted = null;
+        public $_logs             = null;
 
         // debug
-        var $_flag_link_update     = true;    // update
-        var $_flag_feed_update     = true;    // update
-        var $_flag_xml_save        = false;
-        var $_flag_force_discover  = false;
-        var $_flag_force_refresh   = false;
-        var $_flag_force_overwrite = false;
+        public $_flag_link_update     = true;    // update
+        public $_flag_feed_update     = true;    // update
+        public $_flag_xml_save        = false;
+        public $_flag_force_discover  = false;
+        public $_flag_force_refresh   = false;
+        public $_flag_force_overwrite = false;
 
-        var $_flag_debug_parse = false;
-        var $_debug_xml_url    = '';
-        var $_debug_encoding   = '';
-        var $_debug_xml_mode   = '';
+        public $_flag_debug_parse = false;
+        public $_debug_xml_url    = '';
+        public $_debug_encoding   = '';
+        public $_debug_xml_mode   = '';
 
-        var $_count_all;
-        var $_count_skip;
-        var $_count_reject;
-        var $_count_update;
+        public $_count_all;
+        public $_count_skip;
+        public $_count_reject;
+        public $_count_update;
 
         //---------------------------------------------------------
         // constructor

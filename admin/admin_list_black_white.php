@@ -11,13 +11,13 @@
 class admin_list_black_white extends happy_linux_page_frame
 {
     // class instance
-    var $_feed_handler;
+    public $_feed_handler;
 
     // black & white
-    var $_TITLE_BW    = null;
-    var $_TILTE_ID_BW = null;
+    public $_TITLE_BW    = null;
+    public $_TILTE_ID_BW = null;
 
-    var $_CACHE_TIME = 3600;    // 1 hour
+    public $_CACHE_TIME = 3600;    // 1 hour
 
     //---------------------------------------------------------
     // constructor

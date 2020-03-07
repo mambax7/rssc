@@ -36,13 +36,13 @@ if( !class_exists('rssc_build_rssc') )
 //=========================================================
     class rssc_build_rssc extends happy_linux_build_rss
     {
-        var $_DIRNAME;
+        public $_DIRNAME;
 
-        var $_config_handler;
-        var $_search_handler;
+        public $_config_handler;
+        public $_search_handler;
 
-        var $_CACHE_ID_QUERY  = 'query';
-        var $_URL_SINGLE_FEED = '';
+        public $_CACHE_ID_QUERY  = 'query';
+        public $_URL_SINGLE_FEED = '';
 
         //---------------------------------------------------------
         // constructor
