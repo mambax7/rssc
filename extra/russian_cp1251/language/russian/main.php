@@ -71,20 +71,20 @@ define('RSSC_LANG_MB_LOADED', 1);
 // index & search
 //define('_RSSC_MAIN','Main');
 
-define('_RSSC_SEARCH','РџРѕРёСЃРє');
-define('_RSSC_LATEST_FEEDS','РџРѕСЃР»РµРґРЅРёРµ RDF/RSS/ATOM РєР°РЅР°Р»С‹');
-define('_RSSC_THEREARE','РџСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ <b>%s</b> РґР°РЅРЅС‹С… РІ Р±Р°Р·Рµ РґР°РЅРЅС‹С…');
+define('_RSSC_SEARCH','Поиск');
+define('_RSSC_LATEST_FEEDS','Последние RDF/RSS/ATOM каналы');
+define('_RSSC_THEREARE','Присутствует <b>%s</b> данных в базе данных');
 
 // headline
-define('_RSSC_HEADLINE','РџСЂРѕСЃС‚РѕР№ Р·Р°РіРѕР»РѕРІРѕРє');
-define('_RSSC_LASTUPDATE','РџРѕСЃР»РµРґРЅРµРµ РѕР±РЅРѕРІР»РµРЅРёРµ');
+define('_RSSC_HEADLINE','Простой заголовок');
+define('_RSSC_LASTUPDATE','Последнее обновление');
 
 // single
-define('_RSSC_SINGLE','РћС‚РґРµР»СЊРЅС‹Р№ РєР°РЅР°Р»');
+define('_RSSC_SINGLE','Отдельный канал');
 
 // common
-define('_RSSC_SITE_TITLE','Р—Р°РіРѕР»РѕРІРѕРє СЃР°Р№С‚Р°');
-define('_RSSC_SITE_LINK', 'РђРґСЂРµСЃ СЃР°Р№С‚Р°');
+define('_RSSC_SITE_TITLE','Заголовок сайта');
+define('_RSSC_SITE_LINK', 'Адрес сайта');
 
 //define('_RSSC_SITE_DESCRIPTION', 'Site Description');
 //define('_RSSC_SITE_PUBLISHED', 'Site Published');
@@ -102,7 +102,7 @@ define('_RSSC_SITE_LINK', 'РђРґСЂРµСЃ СЃР°Р№С‚Р°');
 //define('_RSSC_CONTENT', 'Content');
 //define('_RSSC_PUBLISHED', 'Published');
 
-define('_RSSC_UPDATED',   'РћР±РЅРѕРІР»РµРЅРѕ');
+define('_RSSC_UPDATED',   'Обновлено');
 
 //define('_RSSC_CATEGORY',  'Category');
 //define('_RSSC_RIGHTS', 'Rights');
@@ -215,48 +215,48 @@ define('_RSSC_UPDATED',   'РћР±РЅРѕРІР»РµРЅРѕ');
 //define('_RSSC_CONTENT_ENCODED', _RSSC_CONTENT);
 
 // link table item
-define('_RSSC_LINK_ID','ID СЃСЃС‹Р»РєРё');
-define('_RSSC_USER_ID','ID РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ');
-define('_RSSC_MOD_ID','ID РјРѕРґСѓР»СЏ');
-define('_RSSC_LTYPE','РўРёРї');
-define('_RSSC_REFRESH_INTERVAL','РРЅС‚РµСЂРІР°Р» РѕР±РЅРѕРІР»РµРЅРёСЏ');
-define('_RSSC_HEADLINE_ORDER','РџРѕСЂСЏРґРѕРє Р·Р°РіРѕР»РѕРІРєР°');
-define('_RSSC_ENCODING','РљРѕРґРёСЂРѕРІРєР°');
-define('_RSSC_RDF_URL', 'РђРґСЂРµСЃ RDF');
-define('_RSSC_RSS_URL', 'РђРґСЂРµСЃ RSS');
-define('_RSSC_ATOM_URL','РђРґСЂРµСЃ ATOM');
-define('_RSSC_RSS_MODE','Р РµР¶РёРј RSS');
-define('_RSSC_RSS_MODE_NON',  'РќРѕРјРµСЂ');
-define('_RSSC_RSS_MODE_RDF',  'Р¤РѕСЂРјР°С‚ RDF');
-define('_RSSC_RSS_MODE_RSS',  'Р¤РѕСЂРјР°С‚ RSS');
-define('_RSSC_RSS_MODE_ATOM', 'Р¤РѕСЂРјР°С‚ ATOM');
-define('_RSSC_RSS_MODE_AUTO', 'РђРІС‚РѕРѕР±РЅР°СЂСѓР¶РµРЅРёРµ');
+define('_RSSC_LINK_ID','ID ссылки');
+define('_RSSC_USER_ID','ID пользователя');
+define('_RSSC_MOD_ID','ID модуля');
+define('_RSSC_LTYPE','Тип');
+define('_RSSC_REFRESH_INTERVAL','Интервал обновления');
+define('_RSSC_HEADLINE_ORDER','Порядок заголовка');
+define('_RSSC_ENCODING','Кодировка');
+define('_RSSC_RDF_URL', 'Адрес RDF');
+define('_RSSC_RSS_URL', 'Адрес RSS');
+define('_RSSC_ATOM_URL','Адрес ATOM');
+define('_RSSC_RSS_MODE','Режим RSS');
+define('_RSSC_RSS_MODE_NON',  'Номер');
+define('_RSSC_RSS_MODE_RDF',  'Формат RDF');
+define('_RSSC_RSS_MODE_RSS',  'Формат RSS');
+define('_RSSC_RSS_MODE_ATOM', 'Формат ATOM');
+define('_RSSC_RSS_MODE_AUTO', 'Автообнаружение');
 
 // feed table item
-define('_RSSC_FEED_ID','ID РєР°РЅР°Р»Р°');
-define('_RSSC_MODE_CONT','Р РµР¶РёРј СЃРѕРґРµСЂР¶РёРјРѕРіРѕ');
-define('_RSSC_RAWS','РќРµРѕР±СЂР°Р±РѕС‚Р°РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ');
-define('_RSSC_SEARCH_FIELD','РџРѕР»Рµ РїРѕРёСЃРєР°');
+define('_RSSC_FEED_ID','ID канала');
+define('_RSSC_MODE_CONT','Режим содержимого');
+define('_RSSC_RAWS','Необработанные данные');
+define('_RSSC_SEARCH_FIELD','Поле поиска');
 
 // black table item
-define('_RSSC_BLACK_ID','Р§РµСЂРЅС‹Р№ ID');
-define('_RSSC_WHITE_ID','Р‘РµР»С‹Р№ ID');
+define('_RSSC_BLACK_ID','Черный ID');
+define('_RSSC_WHITE_ID','Белый ID');
 
 // 2006-04-16 K.OHWADA
-define('_RSSC_NO_HEADLINK','РџСЂРёСЃСѓС‚СЃС‚РІСѓСЋС‚ РЅРµ РІС‹Р±СЂР°РЅРЅС‹Рµ Р·Р°РіРѕР»РѕРІРєРё СЃСЃС‹Р»РєРё');
-define('_RSSC_NO_FEED','РћС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ РґР°РЅРЅС‹Рµ РєР°РЅР°Р»Р°');
+define('_RSSC_NO_HEADLINK','Присутствуют не выбранные заголовки ссылки');
+define('_RSSC_NO_FEED','Отсутствуют данные канала');
 
 // === 2006-06-04 ===
 // single link
-define('_RSSC_SINGLE_LINK',  'РћРґРёРЅРѕС‡РЅР°СЏ СЃСЃС‹Р»РєР°');
-define('_RSSC_SINGLE_LINK_UTF8', 'РћРґРёРЅРѕС‡РЅР°СЏ СЃСЃС‹Р»РєР° РІ РєРѕРґРёСЂРѕРІРєРµ UTF-8');
+define('_RSSC_SINGLE_LINK',  'Одиночная ссылка');
+define('_RSSC_SINGLE_LINK_UTF8', 'Одиночная ссылка в кодировке UTF-8');
 //define('_RSSC_SINGLE_SUMMARY', 'Summary');
 //define('_RSSC_SINGLE_CONTENT', 'Content allowed HTML tags');
 //define('_RSSC_UTF8_SUMMARY', 'Summary with UTF-8');
 //define('_RSSC_UTF8_CONTENT', 'Content allowed HTML tags with UTF-8');
 
 // detect encoding
-define('_RSSC_ASSUME_ENCODING', 'РџСЂРµРґР»РѕР¶РµРЅРЅРѕРµ xml РєРѕРґРёСЂРѕРІР°РЅРёРµ %s ,<br />РїРѕС‚РѕРјСѓ С‡С‚Рѕ РЅРµРІРѕР·РјРѕР¶РЅРѕ РѕРїСЂРµРґРµР»РёС‚СЊ РєРѕРґРёСЂРѕРІРєСѓ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё');
+define('_RSSC_ASSUME_ENCODING', 'Предложенное xml кодирование %s ,<br />потому что невозможно определить кодировку автоматически');
 
 // rss item
 //define('_RSSC_CREATED', 'Created');
@@ -269,7 +269,7 @@ define('_RSSC_ASSUME_ENCODING', 'РџСЂРµРґР»РѕР¶РµРЅРЅРѕРµ xml РєРѕРґРёСЂРѕРІР°РЅ
 //define('_HOME', 'HOME');
 
 // podcast
-define('_RSSC_PODCAST', 'РџРѕРґРєР°СЃС‚');
+define('_RSSC_PODCAST', 'Подкаст');
 //define('_RSSC_ENCLOSURE_URL',    'Enclosure Url');
 //define('_RSSC_ENCLOSURE_TYPE',   'Enclosure Type');
 //define('_RSSC_ENCLOSURE_LENGTH', 'Enclosure Length');
@@ -288,107 +288,107 @@ define('_RSSC_PODCAST', 'РџРѕРґРєР°СЃС‚');
 //}
 
 // error message
-define('_RSSC_DB_ERROR',           'РћС€РёР±РєР° Р±Р°Р·С‹ РґР°РЅРЅС‹С… RSSC');
-define('_RSSC_DISCOVER_SUCCEEDED', 'РђРІС‚РѕРѕРїСЂРµРґРµР»РµРЅРёРµ RSS СѓСЃРїРµС€РЅРѕ');
-define('_RSSC_DISCOVER_FAILED',    'РђРІС‚РѕРѕРїСЂРµРґРµР»РµРЅРёРµ RSS РЅРµСѓРґР°С‡РЅРѕ');
-define('_RSSC_PARSE_MSG',          'РЎРѕРѕР±С‰РµРЅРёРµ Р°РЅР°Р»РёР·РёСЂРѕРІР°РЅРёСЏ RSS');
-define('_RSSC_PARSE_FAILED',            'РќРµСѓРґР°С‡РЅРѕРµ Р°РЅР°Р»РёР·РёСЂРѕРІР°РЅРёРµ RSS');
-define('_RSSC_PARSE_NOT_READ_XML_URL',  'РќРµСѓРґР°С‡РЅРѕРµ Р°РЅР°Р»РёР·РёСЂРѕРІР°РЅРёРµ RSS: РЅРµ С‡РёС‚Р°РµС‚СЃСЏ Р°РґСЂРµСЃ RSS');
-define('_RSSC_PARSE_NOT_FIND_ENCODING', 'РќРµСѓРґР°С‡РЅРѕРµ Р°РЅР°Р»РёР·РёСЂРѕРІР°РЅРёРµ RSS: РЅРµ РЅР°Р№РґРµРЅР° РєРѕРґРёСЂРѕРІРєР°');
+define('_RSSC_DB_ERROR',           'Ошибка базы данных RSSC');
+define('_RSSC_DISCOVER_SUCCEEDED', 'Автоопределение RSS успешно');
+define('_RSSC_DISCOVER_FAILED',    'Автоопределение RSS неудачно');
+define('_RSSC_PARSE_MSG',          'Сообщение анализирования RSS');
+define('_RSSC_PARSE_FAILED',            'Неудачное анализирование RSS');
+define('_RSSC_PARSE_NOT_READ_XML_URL',  'Неудачное анализирование RSS: не читается адрес RSS');
+define('_RSSC_PARSE_NOT_FIND_ENCODING', 'Неудачное анализирование RSS: не найдена кодировка');
 
-define('_RSSC_REFRESH_ERROR', 'РћС€РёР±РєР° РѕР±РЅРѕРІР»РµРЅРёСЏ RSS');
-define('_RSSC_LINK_NOT_EXIST',  'РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰Р°СЏ СЃСЃС‹Р»РєР° РІ РјРѕРґСѓР»Рµ RSSC');
-define('_RSSC_LINK_EXIST_MORE', 'РџСЂРёСЃСѓС‚СЃС‚РІСѓСЋС‚ РґРІРµ РёР»Рё Р±РѕР»РµРµ СЃСЃС‹Р»РєРё, РєРѕС‚РѕСЂС‹Рµ РёРјРµСЋС‚ С‚РѕС‚ Р¶Рµ "РђРґСЂРµСЃ RDF/RSS/ATOM"');
-define('_RSSC_LINK_ALREADY',    'РўР°РєР°СЏ СЃСЃС‹Р»РєР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, РєРѕС‚РѕСЂР°СЏ РёРјРµРµС‚ С‚РѕС‚ Р¶Рµ "РђРґСЂРµСЃ RDF/RSS/ATOM"');
+define('_RSSC_REFRESH_ERROR', 'Ошибка обновления RSS');
+define('_RSSC_LINK_NOT_EXIST',  'Отсутствует соответствующая ссылка в модуле RSSC');
+define('_RSSC_LINK_EXIST_MORE', 'Присутствуют две или более ссылки, которые имеют тот же "Адрес RDF/RSS/ATOM"');
+define('_RSSC_LINK_ALREADY',    'Такая ссылка уже существует, которая имеет тот же "Адрес RDF/RSS/ATOM"');
 
 // refresh link
-define('_RSSC_REFRESH_LINK', 'РћР±РЅРѕРІР»РµРЅРёРµ RDF/RSS/ATOM РєР°РЅР°Р»РѕРІ');
-define('_RSSC_REFRESH_LINK_DSC', 'РљРѕРіРґР° РѕР±РЅРѕРІР»СЏСЋС‚СЃСЏ RSS РєР°РЅР°Р»С‹ <br />РћР±РЅР°СЂСѓР¶РёРІР°С‚СЊ Р°РґСЂРµСЃР° <b>RDF/RSS/ATOM</b> Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё Рё РѕРїСЂРµРґРµР»СЏС‚СЊ <b>РљРѕРґРёСЂРѕРІРєСѓ</b> Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё, <br />РµСЃР»Рё РѕРЅРё РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅС‹.');
-define('_RSSC_REFRESH_LINK_FINISHED', 'РћР±РЅРѕРІР»РµРЅРёРµ РєР°РЅР°Р»РѕРІ Р·Р°РєРѕРЅС‡РµРЅРѕ');
+define('_RSSC_REFRESH_LINK', 'Обновление RDF/RSS/ATOM каналов');
+define('_RSSC_REFRESH_LINK_DSC', 'Когда обновляются RSS каналы <br />Обнаруживать адреса <b>RDF/RSS/ATOM</b> автоматически и определять <b>Кодировку</b> автоматически, <br />если они не установлены.');
+define('_RSSC_REFRESH_LINK_FINISHED', 'Обновление каналов закончено');
 
 // for other module
-define('_RSSC_RSSC_LID', 'ID СЃСЃС‹Р»РєРё РјРѕРґСѓР»СЏ RSSC');
-define('_RSSC_RSSC_LID_UPDATE', 'РћР±РЅРѕРІР»РµРЅРёРµ ID СЃСЃС‹Р»РєРё РјРѕРґСѓР»СЏ RSSC');
-define('_RSSC_GOTO_RSSC_ADMIN_LINK', 'РџРµСЂРµР№С‚Рё Рє СЃС‚СЂР°РЅРёС†Рµ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РјРѕРґСѓР»СЏ RSSC');
+define('_RSSC_RSSC_LID', 'ID ссылки модуля RSSC');
+define('_RSSC_RSSC_LID_UPDATE', 'Обновление ID ссылки модуля RSSC');
+define('_RSSC_GOTO_RSSC_ADMIN_LINK', 'Перейти к странице администрирования модуля RSSC');
 
 // === 2007-06-01 ===
 // word table
-define('_RSSC_WORD_ID','ID СЃР»РѕРІР°');
-define('_RSSC_WORD_WORD','РћС‚РєР»РѕРЅРµРЅРЅС‹Рµ СЃР»РѕРІР°');
-define('_RSSC_WORD_POINT','РўРѕС‡РєР°');
-define('_RSSC_ACT','РЎС‚Р°С‚СѓСЃ');
-define('_RSSC_ACT_NON','РќРµРІРµСЂРЅС‹Р№');
-define('_RSSC_ACT_ACT','Р’РµСЂРЅС‹Р№');
-define('_RSSC_REG','Р’С‹СЂР°Р¶РµРЅРёРµ Р°РґСЂРµСЃР°');
-define('_RSSC_REG_NORMAL','РќРѕСЂРјР°Р»СЊРЅС‹Р№');
-define('_RSSC_REG_EXP','Р РµРіСѓР»СЏСЂРЅРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ');
-define('_RSSC_FREQ_COUNT','РЎС‡РµС‚С‡РёРє С‡СѓРІСЃС‚РІРёС‚РµР»СЊРЅРѕСЃС‚Рё');
+define('_RSSC_WORD_ID','ID слова');
+define('_RSSC_WORD_WORD','Отклоненные слова');
+define('_RSSC_WORD_POINT','Точка');
+define('_RSSC_ACT','Статус');
+define('_RSSC_ACT_NON','Неверный');
+define('_RSSC_ACT_ACT','Верный');
+define('_RSSC_REG','Выражение адреса');
+define('_RSSC_REG_NORMAL','Нормальный');
+define('_RSSC_REG_EXP','Регулярное выражение');
+define('_RSSC_FREQ_COUNT','Счетчик чувствительности');
 
 // feed table
-define('_RSSC_FEED_ACT',     'РЎС‚Р°С‚СѓСЃ');
-define('_RSSC_FEED_ACT_NON', 'РќРµ РїРѕРєР°Р·С‹РІР°С‚СЊ');
-define('_RSSC_FEED_ACT_VIEW','РџРѕРєР°Р·С‹РІР°С‚СЊ');
+define('_RSSC_FEED_ACT',     'Статус');
+define('_RSSC_FEED_ACT_NON', 'Не показывать');
+define('_RSSC_FEED_ACT_VIEW','Показывать');
 
 // link table
-define('_RSSC_LTYPE_NON','РќРµС‚ РѕР±РЅРѕРІР»РµРЅРЅС‹С… РєР°РЅР°Р»РѕРІ');
-define('_RSSC_LTYPE_SEARCH','РџРѕРёСЃРє РїРѕ СЃР°Р№С‚Сѓ');
-define('_RSSC_LTYPE_NORMAL','РќРѕСЂРјР°Р»СЊРЅС‹Р№');
+define('_RSSC_LTYPE_NON','Нет обновленных каналов');
+define('_RSSC_LTYPE_SEARCH','Поиск по сайту');
+define('_RSSC_LTYPE_NORMAL','Нормальный');
 
-define('_RSSC_XML_URL','РђРґСЂРµСЃ RDF/RSS/ATOM');
+define('_RSSC_XML_URL','Адрес RDF/RSS/ATOM');
 
 // === 2007-10-10 ===
 // link table
-define('_RSSC_LINK_ENCLOSURE','Р­РєСЃРїР»СѓР°С‚Р°С†РёСЏ РєРѕРЅС‚РµР№РЅРµСЂР° С‚РµРіР°');
-define('_RSSC_LINK_ENCLOSURE_NON','РќРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ');
-define('_RSSC_LINK_ENCLOSURE_POD','Р”РѕРїСѓСЃРєР°С‚СЊ РїРѕРґРєР°СЃС‚');
-define('_RSSC_LINK_CENSOR', 'Р’РІРµСЃС‚Рё С†РµРЅР·СѓСЂСѓ СЃР»РѕРІР° РІ Р·Р°РіРѕР»РѕРІРєРµ');
+define('_RSSC_LINK_ENCLOSURE','Эксплуатация контейнера тега');
+define('_RSSC_LINK_ENCLOSURE_NON','Не использовать');
+define('_RSSC_LINK_ENCLOSURE_POD','Допускать подкаст');
+define('_RSSC_LINK_CENSOR', 'Ввести цензуру слова в заголовке');
 //define('_RSSC_LINK_PLUGIN','Plugin');
 
 // black & white table
-define('_RSSC_BW_CACHE','РљСЌС€ СЃС‡РµС‚С‡РёРєР° РєР°РЅР°Р»Р°');
-define('_RSSC_BW_CTIME','Р’СЂРµРјСЏ РєСЌС€Р° СЃС‡РµС‚С‡РёРєР° РєР°РЅР°Р»Р°');
+define('_RSSC_BW_CACHE','Кэш счетчика канала');
+define('_RSSC_BW_CTIME','Время кэша счетчика канала');
 
 // keyword manage
-define('_RSSC_KEYWORD','РљР»СЋС‡РµРІРѕРµ СЃР»РѕРІРѕ');
+define('_RSSC_KEYWORD','Ключевое слово');
 
 // === 2008-01-20 ===
 // plugin list
-define('_RSSC_PLUGIN_LIST', 'РЎРїРёСЃРѕРє РїР»Р°РіРёРЅРѕРІ');
-define('_RSSC_PLUGIN_NAME', 'РРјСЏ РїР»Р°РіРёРЅР°');
-define('_RSSC_PLUGIN_DESCRIPTION', 'РћРїРёСЃР°РЅРёРµ');
-define('_RSSC_PLUGIN_USAGE', 'РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ');
+define('_RSSC_PLUGIN_LIST', 'Список плагинов');
+define('_RSSC_PLUGIN_NAME', 'Имя плагина');
+define('_RSSC_PLUGIN_DESCRIPTION', 'Описание');
+define('_RSSC_PLUGIN_USAGE', 'Использование');
 
 // link table
-define('_RSSC_PRE_PLUGIN', 'РџР»Р°РіРёРЅ РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕР№ РѕР±СЂР°Р±РѕС‚РєРё');
-define('_RSSC_POST_PLUGIN','РџР»Р°РіРёРЅ РѕРєРѕРЅС‡Р°С‚РµР»СЊРЅРѕР№ РѕР±СЂР°Р±РѕС‚РєРё');
+define('_RSSC_PRE_PLUGIN', 'Плагин предварительной обработки');
+define('_RSSC_POST_PLUGIN','Плагин окончательной обработки');
 
 // === 2009-02-20 ===
 // map
-define('_RSSC_MAP','РљР°СЂС‚С‹ Google');
+define('_RSSC_MAP','Карты Google');
 
 // link table
-define('_RSSC_LINK_ICON',  'РРєРѕРЅРєР°');
-define('_RSSC_LINK_GICON_ID', 'ID РёРєРѕРЅРєРё РєР°СЂС‚ Google ');
+define('_RSSC_LINK_ICON',  'Иконка');
+define('_RSSC_LINK_GICON_ID', 'ID иконки карт Google ');
 
 // feed table
-define('_RSSC_FEED_GEO_LAT',  'РЁРёСЂРѕС‚Р°');
-define('_RSSC_FEED_GEO_LONG', 'Р”РѕР»РіРѕС‚Р°');
-define('_RSSC_FEED_MEDIA_CONTENT_URL',    'РђРґСЂРµСЃ СЃРѕРґРµСЂР¶Р°РЅРёСЏ');
-define('_RSSC_FEED_MEDIA_CONTENT_TYPE',   'РўРёРї СЃРѕРґРµСЂР¶Р°РЅРёСЏ');
-define('_RSSC_FEED_MEDIA_CONTENT_MEDIUM', 'РЎСЂРµРґРЅРµРµ СЃРѕРґРµСЂР¶Р°РЅРёРµ');
-define('_RSSC_FEED_MEDIA_CONTENT_WIDTH',  'РЁРёСЂРёРЅР° СЃРѕРґРµСЂР¶Р°РЅРёСЏ');
-define('_RSSC_FEED_MEDIA_CONTENT_HEIGHT', 'Р’С‹СЃРѕС‚Р° СЃРѕРґРµСЂР¶Р°РЅРёСЏ');
-define('_RSSC_FEED_MEDIA_THUMBNAIL_URL',    'РђРґСЂРµСЃ РјРёРЅРёР°С‚СЋСЂС‹');
-define('_RSSC_FEED_MEDIA_THUMBNAIL_WIDTH',  'РЁРёСЂРёРЅР° РјРёРЅРёР°С‚СЋСЂС‹');
-define('_RSSC_FEED_MEDIA_THUMBNAIL_HEIGHT', 'Р’С‹СЃРѕС‚Р° РјРёРЅРёР°С‚СЋСЂС‹');
+define('_RSSC_FEED_GEO_LAT',  'Широта');
+define('_RSSC_FEED_GEO_LONG', 'Долгота');
+define('_RSSC_FEED_MEDIA_CONTENT_URL',    'Адрес содержания');
+define('_RSSC_FEED_MEDIA_CONTENT_TYPE',   'Тип содержания');
+define('_RSSC_FEED_MEDIA_CONTENT_MEDIUM', 'Среднее содержание');
+define('_RSSC_FEED_MEDIA_CONTENT_WIDTH',  'Ширина содержания');
+define('_RSSC_FEED_MEDIA_CONTENT_HEIGHT', 'Высота содержания');
+define('_RSSC_FEED_MEDIA_THUMBNAIL_URL',    'Адрес миниатюры');
+define('_RSSC_FEED_MEDIA_THUMBNAIL_WIDTH',  'Ширина миниатюры');
+define('_RSSC_FEED_MEDIA_THUMBNAIL_HEIGHT', 'Высота миниатюры');
 
-	define('_RSSC_EXECUTION_TIME', 'Р’СЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ');
-	define('_RSSC_MEMORY_USAGE', 'РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РїР°РјСЏС‚Рё');
-	define('_RSSC_SEC', 'СЃРµРє');
-	define('_RSSC_MB', 'РњР‘');
+	define('_RSSC_EXECUTION_TIME', 'Время выполнения');
+	define('_RSSC_MEMORY_USAGE', 'Использование памяти');
+	define('_RSSC_SEC', 'сек');
+	define('_RSSC_MB', 'МБ');
 
-	define('_RSSC_IN', 'РІ');
-	define('_RSSC_MAP_LOADING', 'Р—Р°РіСЂСѓР·РєР° ...');
+	define('_RSSC_IN', 'в');
+	define('_RSSC_MAP_LOADING', 'Загрузка ...');
 }
 // --- define language end ---
 

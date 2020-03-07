@@ -21,21 +21,21 @@ if( !defined('RSSC_LANG_BL_LOADED') )
 
 define('RSSC_LANG_BL_LOADED', 1);
 
-define('_BL_RSSC_MORE','РџРѕРґСЂРѕР±РЅРµРµ...');
+define('_BL_RSSC_MORE','Подробнее...');
 
 // 2006-07-08
 // podcast
-define('_BL_RSSC_PODCAST','РџРѕРґРєР°СЃС‚');
+define('_BL_RSSC_PODCAST','Подкаст');
 define( 'BL_RSSC_UNIT_KB','KB');
 
 // 2006-09-20
-define('_BL_RSSC_NO_LINK_ID', 'РќРµ РІС‹Р±СЂР°РЅ ID СЃСЃС‹Р»РєРё');
-define('_BL_RSSC_NO_FEED', 'РќРµС‚ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРіРѕ РєР°РЅР°Р»Р°');
+define('_BL_RSSC_NO_LINK_ID', 'Не выбран ID ссылки');
+define('_BL_RSSC_NO_FEED', 'Нет соответствующего канала');
 
 
 // === 2009-02-20 ===
 // icon
-define('_BL_RSSC_LINK_ETC',  'С‚.Рґ.');
+define('_BL_RSSC_LINK_ETC',  'т.д.');
 
 }
 // --- define language end ---

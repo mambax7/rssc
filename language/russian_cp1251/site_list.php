@@ -15,7 +15,7 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 // _LANGCODE: ru
-// _CHARSET : utf-8
+// _CHARSET : cp1251
 // Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
 
 //---------------------------------------------------------

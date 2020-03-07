@@ -10,7 +10,7 @@
 //=========================================================
 // RSS Center Module
 // 2006-01-01 K.OHWADA
-// æœ‰æœ‹è‡ªé æ–¹æ¥
+// Í­Êş¼«±óÊıÍè
 //=========================================================
 
 // --- define language begin ---
@@ -19,20 +19,20 @@ if( !defined('RSSC_LANG_BL_LOADED') )
 
 define('RSSC_LANG_BL_LOADED', 1);
 
-define('_BL_RSSC_MORE','ã‚‚ã£ã¨èª­ã‚€...');
+define('_BL_RSSC_MORE','¤â¤Ã¤ÈÆÉ¤à...');
 
 // 2006-07-08
 // podcast
-define('_BL_RSSC_PODCAST','ãƒãƒƒãƒ‰ã‚­ãƒ£ã‚¹ãƒˆ');
+define('_BL_RSSC_PODCAST','¥İ¥Ã¥É¥­¥ã¥¹¥È');
 define( 'BL_RSSC_UNIT_KB','KB');
 
 // 2006-09-20
-define('_BL_RSSC_NO_LINK_ID', 'ãƒªãƒ³ã‚¯IDãŒé¸æŠã•ã‚Œã¦ã„ãªã„');
-define('_BL_RSSC_NO_FEED', 'è©²å½“ã™ã‚‹è¨˜äº‹ãŒãªã„');
+define('_BL_RSSC_NO_LINK_ID', '¥ê¥ó¥¯ID¤¬ÁªÂò¤µ¤ì¤Æ¤¤¤Ê¤¤');
+define('_BL_RSSC_NO_FEED', '³ºÅö¤¹¤ëµ­»ö¤¬¤Ê¤¤');
 
 // === 2009-02-20 ===
 // icon
-define('_BL_RSSC_LINK_ETC',  'ãã®ä»–');
+define('_BL_RSSC_LINK_ETC',  '¤½¤ÎÂ¾');
 
 }
 
