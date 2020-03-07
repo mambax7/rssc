@@ -163,7 +163,7 @@ class admin_feed_list extends happy_linux_page_frame
 
     public function _get_col_class(&$obj)
     {
-        if ($obj->getVar('act') == 0) {
+        if (0 == $obj->getVar('act')) {
             return 'odd';
         }
         return '';

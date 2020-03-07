@@ -464,7 +464,7 @@ class admin_manage_link extends admin_manage_base
         $atom_url = $this->_post->get_post_url('atom_url');
 
         $ret1 = $this->_utility->discover_for_manage($mode, $url, $rdf_url, $rss_url, $atom_url, $this->_sel_rss_atom);
-        if ($ret1 == RSSC_CODE_DISCOVER_FAILED) {
+        if (RSSC_CODE_DISCOVER_FAILED == $ret1) {
             $this->_set_error_title(_RSSC_DISCOVER_FAILED);
             $this->_set_errors($this->_utility->getErrors());
         }
@@ -625,7 +625,7 @@ class admin_form_link extends happy_linux_form_lib
         $rss_url  = $obj->get('rss_url');
         $atom_url = $obj->get('atom_url');
 
-        if ($show_mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $show_mode) {
             $list =& $this->_link_handler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url, $lid);
             if (is_array($list) && count($list)) {
                 $script = 'link_manage.php?op=mod_form&amp;lid=';
@@ -651,14 +651,14 @@ class admin_form_link extends happy_linux_form_lib
         echo $this->build_token();
         echo $this->build_html_input_hidden('op', $op);
 
-        if ($show_mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $show_mode) {
             echo $this->build_html_input_hidden('lid', $lid);
         }
 
         echo $this->build_form_table_begin();
         echo $this->build_form_table_title($form_title);
 
-        if ($show_mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $show_mode) {
             echo $this->build_form_table_line(_RSSC_LINK_ID, $lid);
         }
 
@@ -744,7 +744,7 @@ class admin_form_link extends happy_linux_form_lib
 
         echo $this->build_obj_table_text(_RSSC_ENCODING, 'encoding');
 
-        if ($show_mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $show_mode) {
             $ele_update = $this->build_obj_text('updated_unix', $this->_SIZE_TINY);
             $ele_update .= ' ';
             $ele_update .= formatTimestamp($obj->get('updated_unix'));
@@ -776,7 +776,7 @@ class admin_form_link extends happy_linux_form_lib
 
         echo $this->build_form_table_line('xml', $ele_xml);
 
-        if ($show_mode == 0) {
+        if (0 == $show_mode) {
             $val_force = $this->_post->get_post_int('force');
             $ele_force = $this->build_form_radio_yesno('force', $val_force);
             echo $this->build_form_table_line(_AM_RSSC_LINK_FORCE, $ele_force);
@@ -785,7 +785,7 @@ class admin_form_link extends happy_linux_form_lib
         $ele_submit = $this->build_html_input_submit('submit', $button_val);
         echo $this->build_form_table_line('', $ele_submit, 'foot', 'foot');
 
-        if ($show_mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $show_mode) {
             $ele_del    = $this->build_html_input_submit('del_table', _DELETE);
             $ele_cancel = $this->build_html_input_button_cancel('cancel', _CANCEL);
             echo $this->build_form_table_line('', $ele_del . '  ' . $ele_cancel, 'foot', 'foot');
@@ -843,7 +843,7 @@ EOF;
         $options = $this->_system->get_img_list_as_array($this->_DIR_ICON);
         $extra   = 'onChange="rssc_icon_onchange(this)"';
 
-        if (($value == '') || ($value == '---')) {
+        if (('' == $value) || ('---' == $value)) {
             $value = 'default.gif';
         }
 

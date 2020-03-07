@@ -214,7 +214,7 @@ if( !class_exists('rssc_refresh_handler') )
 
             $ret = $this->refresh_by_obj($link_obj);
             if (!$ret) {
-                if ($this->getErrorCode() == 0) {
+                if (0 == $this->getErrorCode()) {
                     $this->_set_error_code(RSSC_CODE_REFRESH_ERROR);
                 }
             }
@@ -265,7 +265,7 @@ if( !class_exists('rssc_refresh_handler') )
             $link_url  = $link_obj->get('url');
 
             // RSS auto discovary
-            if ($this->_flag_force_discover || ($link_mode == RSSC_C_MODE_AUTO)) {
+            if ($this->_flag_force_discover || (RSSC_C_MODE_AUTO == $link_mode)) {
                 if (!$this->discoverXmlUrl($link_url)) {
                     return false;
                 }
@@ -302,7 +302,7 @@ if( !class_exists('rssc_refresh_handler') )
             }
 
             // check mode to exist rss url
-            if (($link_mode != RSSC_C_MODE_RDF) && ($link_mode != RSSC_C_MODE_RSS) && ($link_mode != RSSC_C_MODE_ATOM)) {
+            if ((RSSC_C_MODE_RDF != $link_mode) && (RSSC_C_MODE_RSS != $link_mode) && (RSSC_C_MODE_ATOM != $link_mode)) {
                 return true;    // not execute
             }
 
@@ -671,7 +671,7 @@ if( !class_exists('rssc_refresh_handler') )
             }
 
             // some rss has no feed
-            if (!is_array($items_for_store) || (count($items_for_store) == 0)) {
+            if (!is_array($items_for_store) || (0 == count($items_for_store))) {
                 return true;
             }
 
@@ -858,8 +858,8 @@ if( !class_exists('rssc_refresh_handler') )
             }
 
             // filter judge if link is allow
-            if (!$this->_conf['link_use'] || ($link_ltype != RSSC_C_LINK_LTYPE_NORMAL)) {
-                if ($this->_conf['html_get'] == 1) {
+            if (!$this->_conf['link_use'] || (RSSC_C_LINK_LTYPE_NORMAL != $link_ltype)) {
+                if (1 == $this->_conf['html_get']) {
                     $site       =& $this->_get_site_info_by_url($link);
                     $site_title = $site['title'];
                     $site_link  = $site['link'];
@@ -870,7 +870,7 @@ if( !class_exists('rssc_refresh_handler') )
                 $judge = $this->_filter_handler->judge_cont($link, $cont);
 
                 if ($judge < 0) {
-                    if ($this->_conf['html_get'] == 2) {
+                    if (2 == $this->_conf['html_get']) {
                         $site       =& $this->_get_site_info_by_url($link);
                         $site_title = $site['title'];
                         $site_link  = $site['link'];
@@ -878,7 +878,7 @@ if( !class_exists('rssc_refresh_handler') )
                         $cont       .= ' ' . $site_title . ' ' . $site_link . ' ' . $site_html;
                     }
 
-                    if ($this->_conf['black_auto'] && ($judge == RSSC_CODE_FILTER_REJECT_WORD)) {
+                    if ($this->_conf['black_auto'] && (RSSC_CODE_FILTER_REJECT_WORD == $judge)) {
                         if ($site_title && $site_link) {
                             $this->_black_handler->add_link($site_title, $site_link);
                         }
@@ -929,7 +929,7 @@ if( !class_exists('rssc_refresh_handler') )
                 }
                 $html_text = strip_tags($html_text);
                 $html_text = preg_replace("/\s+/", ' ', $html_text);
-                if ($this->_conf['html_lenghth'] == 0) {
+                if (0 == $this->_conf['html_lenghth']) {
                     $html_text = '';
                 } elseif ($this->_conf['html_lenghth'] > 0) {
                     $html_text = happy_linux_strcut($html_text, 0, $this->_conf['html_lenghth']);

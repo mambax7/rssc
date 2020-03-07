@@ -288,7 +288,7 @@ if( !class_exists('rssc_block') )
             $lid   = $conf_data['block_blog_lid'];
 
             // no link id
-            if ($lid == 0) {
+            if (0 == $lid) {
                 $block['feed_show']  = false;
                 $block['lang_error'] = _BL_RSSC_NO_LINK_ID;
                 return $block;
@@ -597,7 +597,7 @@ if( !class_exists('rssc_block') )
             $summary = happy_linux_mb_build_summary($content, $max_summary, '...', $is_japanese);
 
             // unlimit , when $max_content = -1
-            if ($max_content == 0) {
+            if (0 == $max_content) {
                 $content = '';
             } elseif ($max_content > 0) {
                 $content = happy_linux_mb_build_summary($content, $max_content);
@@ -611,7 +611,7 @@ if( !class_exists('rssc_block') )
                     $row['media_thumbnail_width'],
                     $row['media_thumbnail_height']
                 );
-            } elseif ($row['media_content_url'] && ($row['media_content_medium'] == 'image')) {
+            } elseif ($row['media_content_url'] && ('image' == $row['media_content_medium'])) {
                 $thumb_url = $row['media_content_url'];
                 list(
                     $thumb_width, $thumb_height
@@ -757,7 +757,7 @@ if( !class_exists('rssc_block') )
             $max_height = $this->_MAX_HEIGHT;
             $flag_zero  = $this->_FLAG_ZERO;
 
-            if ($flag_zero && (($width == 0) || ($height == 0))) {
+            if ($flag_zero && ((0 == $width) || (0 == $height))) {
                 return [$max_width, 0];
             }
 

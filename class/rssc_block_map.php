@@ -101,13 +101,13 @@ if( !class_exists('rssc_block_map') )
 
     public function check_webmap_dirname($dirname)
         {
-            if ($dirname == '') {
+            if ('' == $dirname) {
                 return false;
             }
-            if ($dirname == '-') {
+            if ('-' == $dirname) {
                 return false;
             }
-            if ($dirname == '---') {
+            if ('---' == $dirname) {
                 return false;
             }
             return true;
@@ -209,7 +209,7 @@ if( !class_exists('rssc_block_map') )
                     $feed['media_thumbnail_height']
                 );
             } elseif ($feed['media_content_url']
-                      && ($feed['media_content_medium'] == 'image')) {
+                      && ('image' == $feed['media_content_medium'])) {
                 $src = $feed['media_content_url'];
                 list(
                     $width, $height
@@ -241,10 +241,10 @@ if( !class_exists('rssc_block_map') )
             $lat = intval($latitude * 1000000);
             $lng = intval($longitude * 1000000);
 
-            if ($lat != 0) {
+            if (0 != $lat) {
                 return true;
             }
-            if ($lng != 0) {
+            if (0 != $lng) {
                 return true;
             }
             return false;

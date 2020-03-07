@@ -218,7 +218,7 @@ if( !class_exists('rssc_view_param') )
                     $item['media_thumbnail_width'],
                     $item['media_thumbnail_height']
                 );
-            } elseif ($item['media_content_url'] && ($item['media_content_medium'] == 'image')) {
+            } elseif ($item['media_content_url'] && ('image' == $item['media_content_medium'])) {
                 $thumb_url = $item['media_content_url'];
                 list(
                     $thumb_width, $thumb_height

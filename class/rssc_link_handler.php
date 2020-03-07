@@ -392,14 +392,14 @@ public function &get_enclosure_option()
             $sql1 = 'SELECT lid FROM ' . $this->_table . ' WHERE ';
             $sql2 = '';
 
-            if ($url1 && ($url1 != 'http://')) {
+            if ($url1 && ('http://' != $url1)) {
                 $q_url1 = $this->quote($url1);
                 $sql2   .= 'rdf_url=' . $q_url1 . ' OR ';
                 $sql2   .= 'rss_url=' . $q_url1 . ' OR ';
                 $sql2   .= 'atom_url=' . $q_url1;
             }
 
-            if ($url2 && ($url2 != 'http://')) {
+            if ($url2 && ('http://' != $url2)) {
                 if ($q_url1) {
                     $sql2 .= ' OR ';
                 }
@@ -410,7 +410,7 @@ public function &get_enclosure_option()
                 $sql2   .= 'atom_url=' . $q_url2;
             }
 
-            if ($url3 && ($url3 != 'http://')) {
+            if ($url3 && ('http://' != $url3)) {
                 if ($q_url1 || $q_url2) {
                     $sql2 .= ' OR ';
                 }

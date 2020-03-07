@@ -282,7 +282,7 @@ if( ! class_exists('rssc_install') )
                     $this->_insert_xml($lid, $xml);
 
                     // ltype 0 -> 2
-                    if ($ltype == 0) {
+                    if (0 == $ltype) {
                         $ltype = 2;
                     }
                     $this->_update_link_for_xml($lid, $ltype);

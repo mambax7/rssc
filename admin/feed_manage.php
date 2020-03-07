@@ -239,14 +239,14 @@ class admin_form_feed extends happy_linux_form
         echo $this->build_token();
         echo $this->build_html_input_hidden('op', $op);
 
-        if ($mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $mode) {
             echo $this->build_html_input_hidden('fid', $obj->get('fid'));
         }
 
         echo $this->build_form_table_begin();
         echo $this->build_form_table_title($form_title);
 
-        if ($mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $mode) {
             echo $this->build_form_table_line('feed id', $obj->get('fid'));
         }
 
@@ -341,7 +341,7 @@ class admin_form_feed extends happy_linux_form
         $ele_submit = $this->build_html_input_submit('submit', $button_val);
         echo $this->build_form_table_line('', $ele_submit, 'foot', 'foot');
 
-        if ($mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $mode) {
             $ele_del    = $this->build_html_input_submit('del_table', _DELETE);
             $ele_cancel = $this->build_html_input_button_cancel('cancel', _CANCEL);
             echo $this->build_form_table_line('', $ele_del . '  ' . $ele_cancel, 'foot', 'foot');

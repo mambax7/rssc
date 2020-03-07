@@ -109,7 +109,7 @@ class admin_parse_rss extends happy_linux_error
 
         if ($lid > 0) {
             if ($this->exists_link($lid)) {
-                if ($op == 'param') {
+                if ('param' == $op) {
                     $param =& $_POST;
                 } else {
                     $param =& $this->get_param($lid);
@@ -247,9 +247,9 @@ class admin_parse_rss extends happy_linux_error
         $this->_view_handler->set_max_content($param['max_content']);
         $this->_view_handler->set_max_summary($param['max_summary']);
 
-        if ($mode == 1) {
+        if (1 == $mode) {
             $result =& $this->get_sanitized_parse_by_lid($lid);
-        } elseif ($mode == 2) {
+        } elseif (2 == $mode) {
             if (!$this->_refresh_handler->refresh($lid)) {
                 $this->_set_errors($this->_refresh_handler->getErrors());
             }

@@ -483,7 +483,7 @@ if( !class_exists('rssc_plugin') )
 
         public function _get_alternate_class()
         {
-            if ($this->_line_count % 2 != 0) {
+            if (0 != $this->_line_count % 2) {
                 $class = 'odd';
             } else {
                 $class = 'even';

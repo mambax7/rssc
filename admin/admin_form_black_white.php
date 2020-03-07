@@ -84,7 +84,7 @@ class admin_form_black_white extends happy_linux_form
         $cache_value = $this->_obj->get('cache');
         $ctime_value = $this->_obj->get('ctime');
 
-        if ($mode == 1) {
+        if (1 == $mode) {
             $url        = $obj->get('url');
             $total_feed = $this->_feed_handler->get_count_by_link($url);
 
@@ -102,14 +102,14 @@ class admin_form_black_white extends happy_linux_form
         echo $this->build_token();
         echo $this->build_html_input_hidden('op', $op);
 
-        if ($mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $mode) {
             echo $this->build_html_input_hidden($this->_id_name, $obj->get($this->_id_name));
         }
 
         echo $this->build_form_table_begin();
         echo $this->build_form_table_title($form_title);
 
-        if ($mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $mode) {
             echo $this->build_form_table_line('id', $obj->get($this->_id_name));
         }
 
@@ -130,7 +130,7 @@ class admin_form_black_white extends happy_linux_form
         $ele_reg = $this->build_html_input_radio_select('reg', $obj->get('reg'), $reg_opt);
         echo $this->build_form_table_line(_RSSC_REG, $ele_reg);
 
-        if ($mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $mode) {
             $ele_url = $this->build_edit_url_with_visit('url', $obj->get('url'));
             echo $this->build_form_table_line(_RSSC_SITE_LINK, $ele_url);
         } else {
@@ -150,7 +150,7 @@ class admin_form_black_white extends happy_linux_form
         $ele_submit = $this->build_html_input_submit('submit', $button_val);
         echo $this->build_form_table_line('', $ele_submit, 'foot', 'foot');
 
-        if ($mode == HAPPY_LINUX_MODE_MOD) {
+        if (HAPPY_LINUX_MODE_MOD == $mode) {
             $ele_del    = $this->build_html_input_submit('del_table', _DELETE);
             $ele_cancel = $this->build_html_input_button_cancel('cancel', _CANCEL);
             echo $this->build_form_table_line('', $ele_del . '  ' . $ele_cancel, 'foot', 'foot');

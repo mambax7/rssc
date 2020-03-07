@@ -120,7 +120,7 @@ if ( $ret ) {
 	$show_title_map = true ;
 }
 
-if ( $action == 'results')
+if ('results' == $action)
 {
 	if ($query)
 	{
@@ -198,7 +198,7 @@ else
 	$found = '';
 }
 
-if ( (($flag_show == 1)||($flag_show == 2)) && $show_icon ) {
+if (((1 == $flag_show) || (2 == $flag_show)) && $show_icon ) {
 	$icon_list = $icon_class->build_template_icon_list( RSSC_DIRNAME );
 }
 

@@ -143,7 +143,7 @@ if( !class_exists('rssc_filter_handler') )
                 $bid = $this->_check_black($url);
                 if ($bid) {
                     // reject if black
-                    if ($this->_conf['black_use'] == 1) {
+                    if (1 == $this->_conf['black_use']) {
                         $this->_log = 'reject black:' . $bid . ' ' . $url;
                         return RSSC_CODE_FILTER_REJECT_BLACK;
                     }
@@ -179,7 +179,7 @@ if( !class_exists('rssc_filter_handler') )
         //---------------------------------------------------------
     public function _check_white($url)
         {
-            if (count($this->_white_list) == 0) {
+            if (0 == count($this->_white_list)) {
                 return false;
             }
 
@@ -196,7 +196,7 @@ if( !class_exists('rssc_filter_handler') )
 
     public function _check_black($url)
         {
-            if (count($this->_black_list) == 0) {
+            if (0 == count($this->_black_list)) {
                 return false;
             }
 

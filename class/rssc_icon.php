@@ -73,7 +73,7 @@ if( !class_exists('rssc_icon') )
             $arr = [];
             foreach ($rows as $row) {
                 // BUG: display accidentally, when NOT set icon
-                if (($row['icon'] == '') || ($row['icon'] == '---')) {
+                if (('' == $row['icon']) || ('---' == $row['icon'])) {
                     continue;
                 }
 

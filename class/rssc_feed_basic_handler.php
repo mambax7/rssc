@@ -169,12 +169,12 @@ public function subsutute_date()
 
 	$time = time();
 
-	if ( $this->get('updated_unix') == 0 )
+	if (0 == $this->get('updated_unix'))
 	{
 		$this->set('updated_unix', $time);
 	}
 
-	if ( $this->get('published_unix') == 0 )
+	if (0 == $this->get('published_unix'))
 	{
 		$this->set('published_unix', $time);
 	}

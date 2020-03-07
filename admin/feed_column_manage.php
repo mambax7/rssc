@@ -144,9 +144,9 @@ class admin_feed_column_manage extends happy_linux_error
             $type_orig = $this->_COLUMN_ARRAY[$field];
 
             $update = '';
-            if (($type_orig == 'varchar') && preg_match('/^varchar/i', $type)) {
+            if (('varchar' == $type_orig) && preg_match('/^varchar/i', $type)) {
                 $update = 'text';
-            } elseif (($type_orig == 'text') && preg_match('/^text/i', $type)) {
+            } elseif (('text' == $type_orig) && preg_match('/^text/i', $type)) {
                 $update = 'mediumtext';
             }
 

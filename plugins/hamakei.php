@@ -42,7 +42,7 @@ if( !class_exists('rssc_plugin_hamakei') )
             $item_orig = $this->get_item_by_key('item_orig');
 
             // mediarss
-            if ($url && ($type == 'image/jpeg')) {
+            if ($url && ('image/jpeg' == $type)) {
                 $this->set_item_by_key('media_content_url', $url);
                 $this->set_item_by_key('media_content_type', $type);
                 $this->set_item_by_key('media_content_filesize', $length);
@@ -55,7 +55,7 @@ if( !class_exists('rssc_plugin_hamakei') )
                 if (isset($arr[0]) && isset($arr[1])) {
                     $long = floatval($arr[0]);
                     $lat  = floatval($arr[1]);
-                    if (($lat != 0) && ($long != 0)) {
+                    if ((0 != $lat) && (0 != $long)) {
                         $this->set_item_by_key('geo_lat', $lat);
                         $this->set_item_by_key('geo_long', $long);
                     }

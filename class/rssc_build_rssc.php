@@ -259,7 +259,7 @@ if( !class_exists('rssc_build_rssc') )
             $geo_long      = '';
             $georss_point  = '';
 
-            if (($item_geo_lat != 0) || ($item_geo_long != 0)) {
+            if ((0 != $item_geo_lat) || (0 != $item_geo_long)) {
                 $geo_lat      = $item_geo_lat;
                 $geo_long     = $item_geo_long;
                 $georss_point = $geo_lat . ' ' . $geo_long;

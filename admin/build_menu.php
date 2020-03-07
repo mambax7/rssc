@@ -22,7 +22,7 @@ $config_store =& admin_config_store::getInstance();
 
 $op = $config_form->get_post_get_op();
 
-if ($op == 'rss_cache_clear')
+if ('rss_cache_clear' == $op)
 {
 	if( !$config_form->check_token() ) 
 	{

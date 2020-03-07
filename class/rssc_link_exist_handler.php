@@ -55,7 +55,7 @@ if( !class_exists('rssc_link_exist_handler') )
             $ret_code = 0;
 
             // RSS auto discovery
-            if ($mode == RSSC_C_MODE_AUTO) {
+            if (RSSC_C_MODE_AUTO == $mode) {
                 $ret = $this->_xml_utility->discover($url, $sel);
                 if ($ret) {
                     $ret_code      = RSSC_CODE_DISCOVER_SUCCEEDED;

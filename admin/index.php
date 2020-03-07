@@ -54,7 +54,7 @@ $map_class    =& rssc_map::getInstance( RSSC_DIRNAME );
 
 $op = $config_form->get_post_get_op();
 
-if ($op == 'save')
+if ('save' == $op)
 {
 	if( !$config_form->check_token() ) 
 	{
@@ -67,7 +67,7 @@ if ($op == 'save')
 		redirect_header('index.php', 1, _HAPPY_LINUX_UPDATED);
 	}
 }
-elseif ($op == 'init')
+elseif ('init' == $op)
 {
 	if( !$config_form->check_token() ) 
 	{
@@ -80,7 +80,7 @@ elseif ($op == 'init')
 		redirect_header('index.php', 1, _HAPPY_LINUX_UPDATED);
 	}
 }
-elseif ($op == 'upgrade')
+elseif ('upgrade' == $op)
 {
 	if( !$config_form->check_token() ) 
 	{
@@ -93,7 +93,7 @@ elseif ($op == 'upgrade')
 		redirect_header('index.php', 1, _HAPPY_LINUX_UPDATED);
 	}
 }
-elseif ($op == 'template_compiled_clear')
+elseif ('template_compiled_clear' == $op)
 {
 	if( !$config_form->check_token() ) 
 	{

@@ -99,7 +99,7 @@ $manage =& admin_map_manage::getInstance( RSSC_DIRNAME );
 
 $op = $manage->get_post_get_op();
 
-if ($op == 'save') {
+if ('save' == $op) {
 	if( ! $manage->check_token() ) {
 		xoops_cp_header();
 		$manage->print_xoops_token_error();

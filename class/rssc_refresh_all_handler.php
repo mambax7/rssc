@@ -109,7 +109,7 @@ if( !class_exists('rssc_refresh_all_handler') )
             $lid_arr           =& $this->_link_handler->get_active_id_array($limit, $start);
 
             $count_lids = count($lid_arr);
-            if ($count_lids == 0) {
+            if (0 == $count_lids) {
                 $this->_print_write_no_refresh();
                 return true;    // no action
             }
@@ -143,7 +143,7 @@ if( !class_exists('rssc_refresh_all_handler') )
             $lid_arr           =& $this->_black_handler->get_active_id_array($limit, $start);
 
             $count_lids = count($lid_arr);
-            if ($count_lids == 0) {
+            if (0 == $count_lids) {
                 $this->_print_write_no_refresh();
                 return true;    // no action
             }
@@ -211,7 +211,7 @@ if( !class_exists('rssc_refresh_all_handler') )
                 $this->_count_link++;
             } else {
                 $code = $this->_refresh_handler->getErrorCode();
-                if ($code == RSSC_CODE_PARSE_FAILED) {
+                if (RSSC_CODE_PARSE_FAILED == $code) {
                     $this->_count_broken++;
                     $this->_broken_arr[] = [$lid, $title, $rss_url];
                 } else {
