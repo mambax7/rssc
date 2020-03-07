@@ -277,20 +277,20 @@ public function subsutute_date()
             $sql .= 'media_thumbnail_height ';
 
             $sql .= ') VALUES (';
-            $sql .= intval($lid) . ', ';
-            $sql .= intval($uid) . ', ';
-            $sql .= intval($mid) . ', ';
-            $sql .= intval($p1) . ', ';
-            $sql .= intval($p2) . ', ';
-            $sql .= intval($p3) . ', ';
+            $sql .= (int)$lid . ', ';
+            $sql .= (int)$uid . ', ';
+            $sql .= (int)$mid . ', ';
+            $sql .= (int)$p1 . ', ';
+            $sql .= (int)$p2 . ', ';
+            $sql .= (int)$p3 . ', ';
             $sql .= $this->quote($site_title) . ', ';
             $sql .= $this->quote($site_link) . ', ';
             $sql .= $this->quote($title) . ', ';
             $sql .= $this->quote($link) . ', ';
             $sql .= $this->quote($entry_id) . ', ';
             $sql .= $this->quote($guid) . ', ';
-            $sql .= intval($updated_unix) . ', ';
-            $sql .= intval($published_unix) . ', ';
+            $sql .= (int)$updated_unix . ', ';
+            $sql .= (int)$published_unix . ', ';
             $sql .= $this->quote($category) . ', ';
             $sql .= $this->quote($author_name) . ', ';
             $sql .= $this->quote($author_uri) . ', ';
@@ -299,31 +299,31 @@ public function subsutute_date()
             $sql .= $this->quote($raws) . ', ';
             $sql .= $this->quote($content) . ', ';
             $sql .= $this->quote($search) . ', ';
-            $sql .= intval($aux_int_1) . ', ';
-            $sql .= intval($aux_int_2) . ', ';
+            $sql .= (int)$aux_int_1 . ', ';
+            $sql .= (int)$aux_int_2 . ', ';
             $sql .= $this->quote($aux_text_1) . ', ';
             $sql .= $this->quote($aux_text_2) . ', ';
 
             // enclosure
             $sql .= $this->quote($enclosure_url) . ', ';
             $sql .= $this->quote($enclosure_type) . ', ';
-            $sql .= intval($enclosure_length) . ', ';
-            $sql .= intval($act) . ', ';
+            $sql .= (int)$enclosure_length . ', ';
+            $sql .= (int)$act . ', ';
 
             // geo
-            $sql .= floatval($geo_lat) . ', ';
-            $sql .= floatval($geo_long) . ', ';
+            $sql .= (float)$geo_lat . ', ';
+            $sql .= (float)$geo_long . ', ';
 
             // media
             $sql .= $this->quote($media_content_url) . ', ';
             $sql .= $this->quote($media_content_type) . ', ';
             $sql .= $this->quote($media_content_medium) . ', ';
-            $sql .= intval($media_content_filesize) . ', ';
-            $sql .= intval($media_content_width) . ', ';
-            $sql .= intval($media_content_height) . ', ';
+            $sql .= (int)$media_content_filesize . ', ';
+            $sql .= (int)$media_content_width . ', ';
+            $sql .= (int)$media_content_height . ', ';
             $sql .= $this->quote($media_thumbnail_url) . ', ';
-            $sql .= intval($media_thumbnail_width) . ', ';
-            $sql .= intval($media_thumbnail_height) . ' ';
+            $sql .= (int)$media_thumbnail_width . ', ';
+            $sql .= (int)$media_thumbnail_height . ' ';
 
             $sql .= ')';
 
@@ -364,7 +364,7 @@ public function subsutute_date()
 
             $sql   = 'SELECT COUNT(*) FROM ' . $this->_table . ' WHERE ';
             $sql   .= $this->_get_where_public();
-            $sql   .= ' AND lid=' . intval($lid);
+            $sql   .= ' AND lid=' . (int)$lid;
             $count = $this->get_count_by_sql($sql);
             return $count;
         }
@@ -375,7 +375,7 @@ public function subsutute_date()
             if ($mid) {
                 $sql = 'SELECT COUNT(*) FROM ' . $this->_table . ' WHERE ';
                 $sql .= $this->_get_where_public();
-                $sql .= ' AND mid=' . intval($mid);
+                $sql .= ' AND mid=' . (int)$mid;
                 $ret = $this->get_count_by_sql($sql);
             }
             return $ret;
@@ -397,7 +397,7 @@ public function subsutute_date()
             $sql   = 'SELECT COUNT(*) FROM ' . $this->_table . ' WHERE ';
             $sql   .= ' link=' . $this->quote($link);
             $sql   .= ' AND ( act=0 OR ';
-            $sql   .= ' updated_unix >= ' . intval($time) . ' )';
+            $sql   .= ' updated_unix >= ' . (int)$time . ' )';
             $count = $this->get_count_by_sql($sql);
             return $count;
         }
@@ -416,8 +416,8 @@ public function subsutute_date()
             $future = $this->_get_future_time();
 
             $where = 'act=1';
-            $where .= ' AND updated_unix<' . intval($future);
-            $where .= ' AND published_unix<' . intval($future);
+            $where .= ' AND updated_unix<' . (int)$future;
+            $where .= ' AND published_unix<' . (int)$future;
             return $where;
         }
 
@@ -443,7 +443,7 @@ public function subsutute_date()
         {
             $sql = 'SELECT * FROM ' . $this->_table . ' WHERE ';
             $sql .= $this->_get_where_public();
-            $sql .= ' AND fid=' . intval($fid);
+            $sql .= ' AND fid=' . (int)$fid;
             $row =& $this->get_row_by_sql($sql);
             return $row;
         }
@@ -468,7 +468,7 @@ public function subsutute_date()
 
             $sql  = 'SELECT * FROM ' . $this->_table . ' WHERE ';
             $sql  .= $this->_get_where_public();
-            $sql  .= ' AND lid=' . intval($lid);
+            $sql  .= ' AND lid=' . (int)$lid;
             $sql  .= ' ORDER BY ' . $order;
             $rows =& $this->get_rows_by_sql($sql, $limit, $start);
 
@@ -481,7 +481,7 @@ public function subsutute_date()
             if ($mid) {
                 $sql  = 'SELECT * FROM ' . $this->_table . ' WHERE ';
                 $sql  .= $this->_get_where_public();
-                $sql  .= ' AND mid=' . intval($mid);
+                $sql  .= ' AND mid=' . (int)$mid;
                 $sql  .= ' ORDER BY ' . $order;
                 $rows =& $this->get_rows_by_sql($sql, $limit, $start);
             }
@@ -596,7 +596,7 @@ public function subsutute_date()
         //---------------------------------------------------------
         public function set_future($value)
         {
-            $this->_future_days = intval($value);
+            $this->_future_days = (int)$value;
         }
 
         // --- class end ---

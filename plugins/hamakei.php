@@ -53,8 +53,8 @@ if( !class_exists('rssc_plugin_hamakei') )
             if (isset($item_orig['dc']['coverage'])) {
                 $arr = explode(',', $item_orig['dc']['coverage']);
                 if (isset($arr[0]) && isset($arr[1])) {
-                    $long = floatval($arr[0]);
-                    $lat  = floatval($arr[1]);
+                    $long = (float)$arr[0];
+                    $lat  = (float)$arr[1];
                     if ((0 != $lat) && (0 != $long)) {
                         $this->set_item_by_key('geo_lat', $lat);
                         $this->set_item_by_key('geo_long', $long);

@@ -274,7 +274,7 @@ if( !class_exists('rssc_view_param') )
         //---------------------------------------------------------
     public function setFeedOrder($value)
         {
-            switch (intval($value)) {
+            switch ((int)$value) {
                 case RSSC_C_ORDER_INT_PUBLISHED:
                     $order = RSSC_C_ORDER_TEXT_PUBLISHED;
                     break;
@@ -290,12 +290,12 @@ if( !class_exists('rssc_view_param') )
 
     public function setFeedStart($value)
         {
-            $this->_feed_start = intval($value);
+            $this->_feed_start = (int)$value;
         }
 
     public function setFeedLimit($value)
         {
-            $this->_feed_limit = intval($value);
+            $this->_feed_limit = (int)$value;
         }
 
     public function setFlagSanitize($value)

@@ -55,7 +55,7 @@ if( !class_exists('rssc_black_basic_handler') )
             $sql .= ' ) VALUES ( ';
             $sql .= $this->quote($title) . ', ';
             $sql .= $this->quote($url) . ', ';
-            $sql .= intval($act) . ' ';
+            $sql .= (int)$act . ' ';
             $sql .= ' )';
 
             $ret = $this->query($sql);
@@ -67,7 +67,7 @@ if( !class_exists('rssc_black_basic_handler') )
         //---------------------------------------------------------
     public function countup($bid)
         {
-            $sql = 'UPDATE ' . $this->_table . ' SET count = count+1 WHERE bid=' . intval($bid);
+            $sql = 'UPDATE ' . $this->_table . ' SET count = count+1 WHERE bid=' . (int)$bid;
             $ret = $this->query($sql);
             return $ret;
         }

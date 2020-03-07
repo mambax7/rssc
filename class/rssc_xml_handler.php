@@ -100,10 +100,10 @@ public function get_rawurldecode_xml()
             $sql .= 'aux_text_1, ';
             $sql .= 'aux_text_2 ';
             $sql .= ') VALUES (';
-            $sql .= intval($lid) . ', ';
+            $sql .= (int)$lid . ', ';
             $sql .= $this->quote($xml) . ', ';
-            $sql .= intval($aux_int_1) . ', ';
-            $sql .= intval($aux_int_2) . ', ';
+            $sql .= (int)$aux_int_1 . ', ';
+            $sql .= (int)$aux_int_2 . ', ';
             $sql .= $this->quote($aux_text_1) . ', ';
             $sql .= $this->quote($aux_text_2) . ' ';
             $sql .= ')';
@@ -119,11 +119,11 @@ public function get_rawurldecode_xml()
 
             $sql = 'UPDATE ' . $this->_table . ' SET ';
             $sql .= 'xml=' . $this->quote($xml) . ', ';
-            $sql .= 'aux_int_1=' . intval($aux_int_1) . ', ';
-            $sql .= 'aux_int_2=' . intval($aux_int_2) . ', ';
+            $sql .= 'aux_int_1=' . (int)$aux_int_1 . ', ';
+            $sql .= 'aux_int_2=' . (int)$aux_int_2 . ', ';
             $sql .= 'aux_text_1=' . $this->quote($aux_text_1) . ', ';
             $sql .= 'aux_text_2=' . $this->quote($aux_text_2) . ' ';
-            $sql .= ' WHERE lid=' . intval($lid);
+            $sql .= ' WHERE lid=' . (int)$lid;
 
             return $sql;
         }

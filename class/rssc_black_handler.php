@@ -119,24 +119,24 @@ public function __construct()
 
             $sql .= ') VALUES (';
 
-            $sql .= intval($lid) . ', ';
-            $sql .= intval($uid) . ', ';
-            $sql .= intval($mid) . ', ';
-            $sql .= intval($p1) . ', ';
-            $sql .= intval($p2) . ', ';
-            $sql .= intval($p3) . ', ';
+            $sql .= (int)$lid . ', ';
+            $sql .= (int)$uid . ', ';
+            $sql .= (int)$mid . ', ';
+            $sql .= (int)$p1 . ', ';
+            $sql .= (int)$p2 . ', ';
+            $sql .= (int)$p3 . ', ';
             $sql .= $this->quote($title) . ', ';
             $sql .= $this->quote($url) . ', ';
             $sql .= $this->quote($memo) . ', ';
-            $sql .= intval($act) . ', ';
-            $sql .= intval($reg) . ', ';
-            $sql .= intval($count) . ', ';
+            $sql .= (int)$act . ', ';
+            $sql .= (int)$reg . ', ';
+            $sql .= (int)$count . ', ';
 
-            $sql .= intval($cache) . ', ';
-            $sql .= intval($ctime) . ', ';
+            $sql .= (int)$cache . ', ';
+            $sql .= (int)$ctime . ', ';
 
-            $sql .= intval($aux_int_1) . ', ';
-            $sql .= intval($aux_int_2) . ', ';
+            $sql .= (int)$aux_int_1 . ', ';
+            $sql .= (int)$aux_int_2 . ', ';
             $sql .= $this->quote($aux_text_1) . ', ';
             $sql .= $this->quote($aux_text_2) . ' ';
             $sql .= ')';
@@ -151,27 +151,27 @@ public function __construct()
             }
 
             $sql = 'UPDATE ' . $this->_table . ' SET ';
-            $sql .= 'lid=' . intval($lid) . ', ';
-            $sql .= 'uid=' . intval($uid) . ', ';
-            $sql .= 'mid=' . intval($mid) . ', ';
-            $sql .= 'p1=' . intval($p1) . ', ';
-            $sql .= 'p2=' . intval($p2) . ', ';
-            $sql .= 'p3=' . intval($p3) . ', ';
+            $sql .= 'lid=' . (int)$lid . ', ';
+            $sql .= 'uid=' . (int)$uid . ', ';
+            $sql .= 'mid=' . (int)$mid . ', ';
+            $sql .= 'p1=' . (int)$p1 . ', ';
+            $sql .= 'p2=' . (int)$p2 . ', ';
+            $sql .= 'p3=' . (int)$p3 . ', ';
             $sql .= 'title=' . $this->quote($title) . ', ';
             $sql .= 'url=' . $this->quote($url) . ', ';
             $sql .= 'memo=' . $this->quote($memo) . ', ';
-            $sql .= 'act=' . intval($act) . ', ';
-            $sql .= 'reg=' . intval($reg) . ', ';
-            $sql .= 'count=' . intval($count) . ', ';
+            $sql .= 'act=' . (int)$act . ', ';
+            $sql .= 'reg=' . (int)$reg . ', ';
+            $sql .= 'count=' . (int)$count . ', ';
 
-            $sql .= 'cache=' . intval($cache) . ', ';
-            $sql .= 'ctime=' . intval($ctime) . ', ';
+            $sql .= 'cache=' . (int)$cache . ', ';
+            $sql .= 'ctime=' . (int)$ctime . ', ';
 
-            $sql .= 'aux_int_1=' . intval($aux_int_1) . ', ';
-            $sql .= 'aux_int_2=' . intval($aux_int_2) . ', ';
+            $sql .= 'aux_int_1=' . (int)$aux_int_1 . ', ';
+            $sql .= 'aux_int_2=' . (int)$aux_int_2 . ', ';
             $sql .= 'aux_text_1=' . $this->quote($aux_text_1) . ', ';
             $sql .= 'aux_text_2=' . $this->quote($aux_text_2) . ' ';
-            $sql .= 'WHERE bid=' . intval($bid);
+            $sql .= 'WHERE bid=' . (int)$bid;
 
             return $sql;
         }

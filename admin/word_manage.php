@@ -143,8 +143,8 @@ class admin_manage_word extends admin_manage_base
         $point_arr = $this->_post->get_post('point');
 
         foreach ($point_arr as $k => $v) {
-            $sid   = intval($k);
-            $point = intval($v);
+            $sid   = (int)$k;
+            $point = (int)$v;
             $word  = $word_arr[$sid];
 
             $obj =& $this->_handler->get($sid);

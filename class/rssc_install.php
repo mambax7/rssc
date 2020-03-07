@@ -343,7 +343,7 @@ CREATE TABLE ' . $this->_xml_table . " (
             $sql .= 'lid, ';
             $sql .= 'xml ';
             $sql .= ') VALUES (';
-            $sql .= intval($lid) . ', ';
+            $sql .= (int)$lid . ', ';
             $sql .= $this->quote($xml) . ' ';
             $sql .= ')';
 
@@ -352,7 +352,7 @@ CREATE TABLE ' . $this->_xml_table . " (
 
     public function _get_xml_count($lid)
         {
-            $sql = 'SELECT count(*) FROM ' . $this->_link_table . ' WHERE lid=' . intval($lid);
+            $sql = 'SELECT count(*) FROM ' . $this->_link_table . ' WHERE lid=' . (int)$lid;
             return $this->get_count_by_sql($sql);
         }
 
@@ -493,9 +493,9 @@ CREATE TABLE ' . $this->_word_table . " (
     public function _update_link_for_xml($lid, $ltype)
         {
             $sql = 'UPDATE ' . $this->_link_table . ' SET ';
-            $sql .= 'ltype=' . intval($ltype);
+            $sql .= 'ltype=' . (int)$ltype;
             $sql .= 'xml=' . $this->quote('');
-            $sql .= ' WHERE lid=' . intval($lid);
+            $sql .= ' WHERE lid=' . (int)$lid;
 
             return $this->query($sql);
         }

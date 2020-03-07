@@ -48,7 +48,7 @@ if( !class_exists('rssc_plugin_latest_feeds') )
         {
             $feed_handler =& $this->get_handler('feed_basic');
 
-            $limit = intval($this->get_param_by_num(0, $this->_DEFAULT_NUM));
+            $limit = (int)$this->get_param_by_num(0, $this->_DEFAULT_NUM);
             $rows  =& $feed_handler->get_rows_public_by_order($this->_FEED_ORDER, $limit);
             return $rows;
         }

@@ -259,12 +259,12 @@ if( !class_exists('rssc_refresh_all_handler') )
         //---------------------------------------------------------
     public function set_feed_limit($value)
         {
-            $this->_feed_limit = intval($value);
+            $this->_feed_limit = (int)$value;
         }
 
     public function set_word_limit($value)
         {
-            $this->_word_limit = intval($value);
+            $this->_word_limit = (int)$value;
         }
 
     public function set_flag_print($value)
@@ -446,7 +446,7 @@ if( !class_exists('rssc_refresh_all_handler') )
     public function _get_time_elapse()
         {
             $time = time() - $this->_time_start;
-            $min  = intval($time / 60);
+            $min  = (int)($time / 60);
             $sec  = $time - 60 * $min;
             $ret  = sprintf(_AM_RSSC_MIN_SEC, $min, $sec);
             return $ret;

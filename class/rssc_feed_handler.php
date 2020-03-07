@@ -237,20 +237,20 @@ public function get_act_option()
             $sql .= 'media_thumbnail_height ';
 
             $sql .= ') VALUES (';
-            $sql .= intval($lid) . ', ';
-            $sql .= intval($uid) . ', ';
-            $sql .= intval($mid) . ', ';
-            $sql .= intval($p1) . ', ';
-            $sql .= intval($p2) . ', ';
-            $sql .= intval($p3) . ', ';
+            $sql .= (int)$lid . ', ';
+            $sql .= (int)$uid . ', ';
+            $sql .= (int)$mid . ', ';
+            $sql .= (int)$p1 . ', ';
+            $sql .= (int)$p2 . ', ';
+            $sql .= (int)$p3 . ', ';
             $sql .= $this->quote($site_title) . ', ';
             $sql .= $this->quote($site_link) . ', ';
             $sql .= $this->quote($title) . ', ';
             $sql .= $this->quote($link) . ', ';
             $sql .= $this->quote($entry_id) . ', ';
             $sql .= $this->quote($guid) . ', ';
-            $sql .= intval($updated_unix) . ', ';
-            $sql .= intval($published_unix) . ', ';
+            $sql .= (int)$updated_unix . ', ';
+            $sql .= (int)$published_unix . ', ';
             $sql .= $this->quote($category) . ', ';
             $sql .= $this->quote($author_name) . ', ';
             $sql .= $this->quote($author_uri) . ', ';
@@ -259,31 +259,31 @@ public function get_act_option()
             $sql .= $this->quote($raws) . ', ';
             $sql .= $this->quote($content) . ', ';
             $sql .= $this->quote($search) . ', ';
-            $sql .= intval($aux_int_1) . ', ';
-            $sql .= intval($aux_int_2) . ', ';
+            $sql .= (int)$aux_int_1 . ', ';
+            $sql .= (int)$aux_int_2 . ', ';
             $sql .= $this->quote($aux_text_1) . ', ';
             $sql .= $this->quote($aux_text_2) . ', ';
 
             // enclosure
             $sql .= $this->quote($enclosure_url) . ', ';
             $sql .= $this->quote($enclosure_type) . ', ';
-            $sql .= intval($enclosure_length) . ', ';
-            $sql .= intval($act) . ', ';
+            $sql .= (int)$enclosure_length . ', ';
+            $sql .= (int)$act . ', ';
 
             // geo
-            $sql .= floatval($geo_lat) . ', ';
-            $sql .= floatval($geo_long) . ', ';
+            $sql .= (float)$geo_lat . ', ';
+            $sql .= (float)$geo_long . ', ';
 
             // media
             $sql .= $this->quote($media_content_url) . ', ';
             $sql .= $this->quote($media_content_type) . ', ';
             $sql .= $this->quote($media_content_medium) . ', ';
-            $sql .= intval($media_content_filesize) . ', ';
-            $sql .= intval($media_content_width) . ', ';
-            $sql .= intval($media_content_height) . ', ';
+            $sql .= (int)$media_content_filesize . ', ';
+            $sql .= (int)$media_content_width . ', ';
+            $sql .= (int)$media_content_height . ', ';
             $sql .= $this->quote($media_thumbnail_url) . ', ';
-            $sql .= intval($media_thumbnail_width) . ', ';
-            $sql .= intval($media_thumbnail_height) . ' ';
+            $sql .= (int)$media_thumbnail_width . ', ';
+            $sql .= (int)$media_thumbnail_height . ' ';
 
             $sql .= ')';
 
@@ -297,20 +297,20 @@ public function get_act_option()
             }
 
             $sql = 'UPDATE ' . $this->_table . ' SET ';
-            $sql .= 'lid=' . intval($lid) . ', ';
-            $sql .= 'uid=' . intval($uid) . ', ';
-            $sql .= 'mid=' . intval($mid) . ', ';
-            $sql .= 'p1=' . intval($p1) . ', ';
-            $sql .= 'p2=' . intval($p2) . ', ';
-            $sql .= 'p3=' . intval($p3) . ', ';
+            $sql .= 'lid=' . (int)$lid . ', ';
+            $sql .= 'uid=' . (int)$uid . ', ';
+            $sql .= 'mid=' . (int)$mid . ', ';
+            $sql .= 'p1=' . (int)$p1 . ', ';
+            $sql .= 'p2=' . (int)$p2 . ', ';
+            $sql .= 'p3=' . (int)$p3 . ', ';
             $sql .= 'site_title=' . $this->quote($site_title) . ', ';
             $sql .= 'site_link=' . $this->quote($site_link) . ', ';
             $sql .= 'title=' . $this->quote($title) . ', ';
             $sql .= 'link=' . $this->quote($link) . ', ';
             $sql .= 'entry_id=' . $this->quote($entry_id) . ', ';
             $sql .= 'guid=' . $this->quote($guid) . ', ';
-            $sql .= 'updated_unix=' . intval($updated_unix) . ', ';
-            $sql .= 'published_unix=' . intval($published_unix) . ', ';
+            $sql .= 'updated_unix=' . (int)$updated_unix . ', ';
+            $sql .= 'published_unix=' . (int)$published_unix . ', ';
             $sql .= 'category=' . $this->quote($category) . ', ';
             $sql .= 'author_name=' . $this->quote($author_name) . ', ';
             $sql .= 'author_uri=' . $this->quote($author_uri) . ', ';
@@ -319,33 +319,33 @@ public function get_act_option()
             $sql .= 'raws=' . $this->quote($raws) . ', ';
             $sql .= 'content=' . $this->quote($content) . ', ';
             $sql .= 'search=' . $this->quote($search) . ', ';
-            $sql .= 'aux_int_1=' . intval($aux_int_1) . ', ';
-            $sql .= 'aux_int_2=' . intval($aux_int_2) . ', ';
+            $sql .= 'aux_int_1=' . (int)$aux_int_1 . ', ';
+            $sql .= 'aux_int_2=' . (int)$aux_int_2 . ', ';
             $sql .= 'aux_text_1=' . $this->quote($aux_text_1) . ', ';
             $sql .= 'aux_text_2=' . $this->quote($aux_text_2) . ', ';
 
             // enclosure
             $sql .= 'enclosure_url=' . $this->quote($enclosure_url) . ', ';
             $sql .= 'enclosure_type=' . $this->quote($enclosure_type) . ', ';
-            $sql .= 'enclosure_length=' . intval($enclosure_length) . ', ';
-            $sql .= 'act=' . intval($act) . ', ';
+            $sql .= 'enclosure_length=' . (int)$enclosure_length . ', ';
+            $sql .= 'act=' . (int)$act . ', ';
 
             // geo
-            $sql .= 'geo_lat=' . floatval($geo_lat) . ', ';
-            $sql .= 'geo_long=' . floatval($geo_long) . ', ';
+            $sql .= 'geo_lat=' . (float)$geo_lat . ', ';
+            $sql .= 'geo_long=' . (float)$geo_long . ', ';
 
             // media
             $sql .= 'media_content_url=' . $this->quote($media_content_url) . ', ';
             $sql .= 'media_content_type=' . $this->quote($media_content_type) . ', ';
             $sql .= 'media_content_medium=' . $this->quote($media_content_medium) . ', ';
-            $sql .= 'media_content_filesize=' . intval($media_content_filesize) . ', ';
-            $sql .= 'media_content_width=' . intval($media_content_width) . ', ';
-            $sql .= 'media_content_height=' . intval($media_content_height) . ', ';
+            $sql .= 'media_content_filesize=' . (int)$media_content_filesize . ', ';
+            $sql .= 'media_content_width=' . (int)$media_content_width . ', ';
+            $sql .= 'media_content_height=' . (int)$media_content_height . ', ';
             $sql .= 'media_thumbnail_url=' . $this->quote($media_thumbnail_url) . ', ';
-            $sql .= 'media_thumbnail_width=' . intval($media_thumbnail_width) . ', ';
-            $sql .= 'media_thumbnail_height=' . intval($media_thumbnail_height) . ' ';
+            $sql .= 'media_thumbnail_width=' . (int)$media_thumbnail_width . ', ';
+            $sql .= 'media_thumbnail_height=' . (int)$media_thumbnail_height . ' ';
 
-            $sql .= 'WHERE fid=' . intval($fid);
+            $sql .= 'WHERE fid=' . (int)$fid;
 
             return $sql;
         }

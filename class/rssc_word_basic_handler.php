@@ -52,7 +52,7 @@ if( !class_exists('rssc_word_basic_handler') )
         //---------------------------------------------------------
     public function countup($sid)
         {
-            $sql = 'UPDATE ' . $this->_table . ' SET count = count+1 WHERE sid=' . intval($sid);
+            $sql = 'UPDATE ' . $this->_table . ' SET count = count+1 WHERE sid=' . (int)$sid;
             $ret = $this->query($sql);
             return $ret;
         }

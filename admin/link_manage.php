@@ -331,7 +331,7 @@ class admin_manage_link extends admin_manage_base
         $obj =& $this->_handler->create();
         $obj->set('uid', $this->_system->get_uid());
         $obj->set('mid', $this->_system->get_mid());
-        $obj->set('mode', intval($xml_mode));
+        $obj->set('mode', (int)$xml_mode);
         $obj->set('refresh', $this->_REFRESH_INTERVAL);
         $obj->setVar('title', $title, true);
         $obj->setVar('url', $url, true);

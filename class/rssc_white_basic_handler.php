@@ -50,7 +50,7 @@ if( !class_exists('rssc_white_basic_handler') )
         //---------------------------------------------------------
     public function countup($wid)
         {
-            $sql = 'UPDATE ' . $this->_table . ' SET count = count+1 WHERE wid=' . intval($wid);
+            $sql = 'UPDATE ' . $this->_table . ' SET count = count+1 WHERE wid=' . (int)$wid;
             $ret = $this->query($sql);
             return $ret;
         }

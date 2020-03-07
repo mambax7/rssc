@@ -43,7 +43,7 @@ if( !class_exists('rssc_plugin_summary') )
 
         public function convert()
         {
-            $max     = intval($this->get_param_by_num(0, $this->_MAX_DEFAULT));
+            $max     = (int)$this->get_param_by_num(0, $this->_MAX_DEFAULT);
             $content = $this->get_item_by_key('content');
             if ($content) {
                 $this->set_item_by_key('content', happy_linux_mb_build_summary($content, $max));

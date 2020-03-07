@@ -366,7 +366,7 @@ class admin_parse_rss extends happy_linux_error
     {
         $lid = 0;
         if (isset($data['lid'])) {
-            $lid = intval($data['lid']);
+            $lid = (int)$data['lid'];
         }
 
         if ($lid) {

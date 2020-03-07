@@ -246,8 +246,8 @@ if( !class_exists('rssc_build_rssc') )
             $category_xml    = $this->_xml($item['category']);
             $author_name_xml = $this->_xml($item['author_name']);
 
-            $published_unix        = intval($item['published_unix']);
-            $updated_unix          = intval($item['updated_unix']);
+            $published_unix        = (int)$item['published_unix'];
+            $updated_unix          = (int)$item['updated_unix'];
             $published_rfc822_xml  = $this->_xml($this->_date_rfc822($published_unix));
             $updated_rfc822_xml    = $this->_xml($this->_date_rfc822($updated_unix));
             $published_iso8601_xml = $this->_xml($this->_date_iso8601($published_unix));

@@ -80,11 +80,11 @@ public function __construct()
             $sql .= 'aux_text_2 ';
             $sql .= ') VALUES ( ';
             $sql .= $this->quote($word) . ', ';
-            $sql .= intval($reg) . ', ';
-            $sql .= intval($point) . ', ';
-            $sql .= intval($count) . ', ';
-            $sql .= intval($aux_int_1) . ', ';
-            $sql .= intval($aux_int_2) . ', ';
+            $sql .= (int)$reg . ', ';
+            $sql .= (int)$point . ', ';
+            $sql .= (int)$count . ', ';
+            $sql .= (int)$aux_int_1 . ', ';
+            $sql .= (int)$aux_int_2 . ', ';
             $sql .= $this->quote($aux_text_1) . ', ';
             $sql .= $this->quote($aux_text_2) . ' ';
             $sql .= ')';
@@ -100,14 +100,14 @@ public function __construct()
 
             $sql = 'UPDATE ' . $this->_table . ' SET ';
             $sql .= 'word=' . $this->quote($word) . ', ';
-            $sql .= 'reg=' . intval($reg) . ', ';
-            $sql .= 'point=' . intval($point) . ', ';
-            $sql .= 'count=' . intval($count) . ', ';
-            $sql .= 'aux_int_1=' . intval($aux_int_1) . ', ';
-            $sql .= 'aux_int_2=' . intval($aux_int_2) . ', ';
+            $sql .= 'reg=' . (int)$reg . ', ';
+            $sql .= 'point=' . (int)$point . ', ';
+            $sql .= 'count=' . (int)$count . ', ';
+            $sql .= 'aux_int_1=' . (int)$aux_int_1 . ', ';
+            $sql .= 'aux_int_2=' . (int)$aux_int_2 . ', ';
             $sql .= 'aux_text_1=' . $this->quote($aux_text_1) . ', ';
             $sql .= 'aux_text_2=' . $this->quote($aux_text_2) . ' ';
-            $sql .= 'WHERE sid=' . intval($sid);
+            $sql .= 'WHERE sid=' . (int)$sid;
             return $sql;
         }
 

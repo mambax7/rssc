@@ -119,7 +119,7 @@ class rssc_import_handler extends happy_linux_error
     //---------------------------------------------------------
     public function set_mid_orig($mid)
     {
-        $this->_mid_orig = intval($mid);
+        $this->_mid_orig = (int)$mid;
     }
 
     public function get_mid_orig()
@@ -159,7 +159,7 @@ class rssc_import_handler extends happy_linux_error
 
     public function set_limit($limit)
     {
-        $this->_LIMIT = intval($limit);
+        $this->_LIMIT = (int)$limit;
     }
 
     //---------------------------------------------------------

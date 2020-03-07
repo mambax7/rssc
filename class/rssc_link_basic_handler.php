@@ -59,7 +59,7 @@ public static function &getInstance()
 //---------------------------------------------------------
 public function &get_show()
 {
-	$time      = intval( $this->get('updated_unix') );
+	$time      = (int)$this->get('updated_unix');
 	$title     = $this->get('title');
 	$url       = $this->get('url');
 	$rdf_url   = $this->get('rdf_url');
@@ -70,37 +70,37 @@ public function &get_show()
 	$icon      = $this->_get_rss_icon_by_mode( $this->get('mode') );
 
 	$arr = [
-		'lid'            => intval( $this->get('lid') ),
-		'uid'            => intval( $this->get('uid') ),
-		'mid'            => intval( $this->get('mid') ),
-		'p1'             => intval( $this->get('p1') ),
-		'p2'             => intval( $this->get('p2') ),
-		'p3'             => intval( $this->get('p3') ),
-		'ltype'          => intval( $this->get('ltype') ),
-		'refresh'        => intval( $this->get('refresh') ),
-		'headline'       => intval( $this->get('headline') ),
-		'mode'           => intval( $this->get('mode') ),
-		'updated_unix'   => $time,
-		'title'          => $title,
-		'url'            => $url,
-		'rdf_url'        => $rdf_url,
-		'rss_url'        => $rss_url,
-		'atom_url'       => $atom_url,
-		'encoding'       => $encoding,
-		'url_xml'        => $url_xml,
-		'icon'           => $icon,
-		'title_s'        => $this->sanitize_text( $title ),
-		'url_s'          => $this->sanitize_url(  $url ),
-		'rdf_url_s'      => $this->sanitize_url(  $rdf_url ),
-		'rss_url_s'      => $this->sanitize_url(  $rss_url ),
-		'atom_url_s'     => $this->sanitize_url(  $atom_url ),
-		'encoding_s'     => $this->sanitize_text( $encoding ),
-		'url_xml_s'      => $this->sanitize_url(  $url_xml ),
-		'icon_s'         => $this->sanitize_text( $icon ),
-		'updated_long'   => formatTimestamp( $time, 'l' ),
-		'updated_middle' => formatTimestamp( $time, 'm' ),
-		'updated_short'  => formatTimestamp( $time, 's' ),
-		'updated_mysql'  => formatTimestamp( $time, 'mysql' ),
+        'lid'            => (int)$this->get('lid'),
+        'uid'            => (int)$this->get('uid'),
+        'mid'            => (int)$this->get('mid'),
+        'p1'             => (int)$this->get('p1'),
+        'p2'             => (int)$this->get('p2'),
+        'p3'             => (int)$this->get('p3'),
+        'ltype'          => (int)$this->get('ltype'),
+        'refresh'        => (int)$this->get('refresh'),
+        'headline'       => (int)$this->get('headline'),
+        'mode'           => (int)$this->get('mode'),
+        'updated_unix'   => $time,
+        'title'          => $title,
+        'url'            => $url,
+        'rdf_url'        => $rdf_url,
+        'rss_url'        => $rss_url,
+        'atom_url'       => $atom_url,
+        'encoding'       => $encoding,
+        'url_xml'        => $url_xml,
+        'icon'           => $icon,
+        'title_s'        => $this->sanitize_text( $title ),
+        'url_s'          => $this->sanitize_url(  $url ),
+        'rdf_url_s'      => $this->sanitize_url(  $rdf_url ),
+        'rss_url_s'      => $this->sanitize_url(  $rss_url ),
+        'atom_url_s'     => $this->sanitize_url(  $atom_url ),
+        'encoding_s'     => $this->sanitize_text( $encoding ),
+        'url_xml_s'      => $this->sanitize_url(  $url_xml ),
+        'icon_s'         => $this->sanitize_text( $icon ),
+        'updated_long'   => formatTimestamp( $time, 'l' ),
+        'updated_middle' => formatTimestamp( $time, 'm' ),
+        'updated_short'  => formatTimestamp( $time, 's' ),
+        'updated_mysql'  => formatTimestamp( $time, 'mysql' ),
     ];
 
 	return $arr;
@@ -218,11 +218,11 @@ public function &get_channel()
     public function update_xml_url($lid, $mode, $rdf_url, $rss_url, $atom_url)
         {
             $sql = 'UPDATE ' . $this->_table . ' SET ';
-            $sql .= 'mode=' . intval($mode) . ', ';
+            $sql .= 'mode=' . (int)$mode . ', ';
             $sql .= 'rdf_url=' . $this->quote($rdf_url) . ', ';
             $sql .= 'rss_url=' . $this->quote($rss_url) . ', ';
             $sql .= 'atom_url=' . $this->quote($atom_url) . ' ';
-            $sql .= 'WHERE lid=' . intval($lid);
+            $sql .= 'WHERE lid=' . (int)$lid;
 
             $ret = $this->query($sql);
             return $ret;
@@ -232,7 +232,7 @@ public function &get_channel()
         {
             $sql = 'UPDATE ' . $this->_table . ' SET ';
             $sql .= 'encoding=' . $this->quote($encoding) . ' ';
-            $sql .= 'WHERE lid=' . intval($lid);
+            $sql .= 'WHERE lid=' . (int)$lid;
 
             $ret = $this->query($sql);
             return $ret;
@@ -249,8 +249,8 @@ public function &get_channel()
 
             $sql = 'UPDATE ' . $this->_table . ' SET ';
             $sql .= 'channel=' . $this->quote($channel) . ', ';
-            $sql .= 'updated_unix=' . intval($updated_unix) . ' ';;
-            $sql .= 'WHERE lid=' . intval($lid);
+            $sql .= 'updated_unix=' . (int)$updated_unix . ' ';;
+            $sql .= 'WHERE lid=' . (int)$lid;
 
             $ret = $this->query($sql);
             return $ret;

@@ -100,7 +100,7 @@ class admin_feed_column_manage extends happy_linux_error
         $arr = [];
 
         foreach ($feed_column_ids as $id) {
-            $id = intval($id);
+            $id = (int)$id;
             if (!isset($fields[$id])) {
                 continue;
             }

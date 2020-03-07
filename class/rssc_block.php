@@ -230,7 +230,7 @@ if( !class_exists('rssc_block') )
             $links = [];
 
             foreach ($link_rows as $link_row) {
-                $lid = intval($link_row['lid']);
+                $lid = (int)$link_row['lid'];
 
                 $feed_list = null;
 
@@ -250,7 +250,7 @@ if( !class_exists('rssc_block') )
 
                 $link              = [];
                 $link['lid']       = $lid;
-                $link['enclosure'] = intval($link_row['enclosure']);
+                $link['enclosure'] = (int)$link_row['enclosure'];
                 $link['url_s']     = $this->sanitize_url($link_row['url']);
                 $link['title_s']   = $this->sanitize($link_row['title']);
                 $link['feed_list'] = $feed_list;
@@ -326,7 +326,7 @@ if( !class_exists('rssc_block') )
             $site_link  = $link_row['url'];
 
             $link              = [];
-            $link['enclosure'] = intval($link_row['enclosure']);
+            $link['enclosure'] = (int)$link_row['enclosure'];
 
             $feed_rows = $this->get_feed_lid($feed_param);
             if (is_array($feed_rows)) {
@@ -438,7 +438,7 @@ if( !class_exists('rssc_block') )
             $future     = $this->build_future($conf_future);
 
             $sql = 'SELECT * FROM ' . $table_feed;
-            $sql .= ' WHERE lid=' . intval($lid);
+            $sql .= ' WHERE lid=' . (int)$lid;
             $sql .= ' AND updated_unix <' . $future;
             $sql .= ' AND published_unix <' . $future;
             $sql .= ' AND act=1';
@@ -521,9 +521,9 @@ if( !class_exists('rssc_block') )
             $show_thumb  = isset($param['show_thumb']) ? (bool)$param['show_thumb'] : false;
             $show_icon   = isset($param['show_icon']) ? (bool)$param['show_icon'] : false;
             $show_site   = isset($param['show_site']) ? (bool)$param['show_site'] : false;
-            $mode_date   = isset($param['mode_date']) ? intval($param['mode_date']) : 0;
-            $num_content = isset($param['num_content']) ? intval($param['num_content']) : 0;
-            $conf_url    = isset($param['conf_url']) ? intval($param['conf_url']) : 0;
+            $mode_date   = isset($param['mode_date']) ? (int)$param['mode_date'] : 0;
+            $num_content = isset($param['num_content']) ? (int)$param['num_content'] : 0;
+            $conf_url    = isset($param['conf_url']) ? (int)$param['conf_url'] : 0;
 
             $show_li  = !$show_icon;
             $template = XOOPS_ROOT_PATH . '/modules/' . $dirname . '/templates/parts/rssc_block_feed_list.html';
@@ -581,12 +581,12 @@ if( !class_exists('rssc_block') )
             $title          = $row['title'];
             $link           = $row['link'];
             $content        = $row['content'];
-            $published_unix = intval($row['published_unix']);
-            $updated_unix   = intval($row['updated_unix']);
+            $published_unix = (int)$row['published_unix'];
+            $updated_unix   = (int)$row['updated_unix'];
 
-            $enclosure_mode = isset($row['enclosure_mode']) ? intval($row['enclosure_mode']) : 0;
+            $enclosure_mode = isset($row['enclosure_mode']) ? (int)$row['enclosure_mode'] : 0;
             $icon           = isset($row['icon']) ? $row['icon'] : null;
-            $gicon_id       = isset($row['gicon_id']) ? intval($row['gicon_id']) : 0;
+            $gicon_id       = isset($row['gicon_id']) ? (int)$row['gicon_id'] : 0;
 
             $site_title = happy_linux_mb_build_summary($site_title, $max_title, '...', $is_japanese);
             $site_title = $this->substitute_title($site_title);
@@ -622,13 +622,13 @@ if( !class_exists('rssc_block') )
             }
 
             $feed = [
-                'fid'          => intval($row['fid']),
-                'lid'          => intval($row['lid']),
-                'uid'          => intval($row['uid']),
-                'mid'          => intval($row['mid']),
-                'p1'           => intval($row['p1']),
-                'p2'           => intval($row['p2']),
-                'p3'           => intval($row['p3']),
+                'fid'          => (int)$row['fid'],
+                'lid'          => (int)$row['lid'],
+                'uid'          => (int)$row['uid'],
+                'mid'          => (int)$row['mid'],
+                'p1'           => (int)$row['p1'],
+                'p2'           => (int)$row['p2'],
+                'p3'           => (int)$row['p3'],
 
                 // not show blog site title
                 'site_title'   => $site_title,
@@ -659,8 +659,8 @@ if( !class_exists('rssc_block') )
 
                 'enclosure_url_s'     => $this->sanitize_url($row['enclosure_url']),
                 'enclosure_type_s'    => $this->sanitize($row['enclosure_type']),
-                'enclosure_length'    => intval($row['enclosure_length']),
-                'enclosure_length_kb' => intval($row['enclosure_length'] / 1024),
+                'enclosure_length'    => (int)$row['enclosure_length'],
+                'enclosure_length_kb' => (int)($row['enclosure_length'] / 1024),
                 'enclosure_mode'      => $enclosure_mode,
 
                 'icon' => $this->sanitize($icon),
@@ -691,7 +691,7 @@ if( !class_exists('rssc_block') )
 
     public function build_future($value)
         {
-            $time = time() + 86400 * intval($value);    // days
+            $time = time() + 86400 * (int)$value;    // days
             return $time;
         }
 
@@ -773,8 +773,8 @@ if( !class_exists('rssc_block') )
                 $width  = $width * $mag;
             }
 
-            $width  = intval($width);
-            $height = intval($height);
+            $width  = (int)$width;
+            $height = (int)$height;
 
             return [$width, $height];
         }

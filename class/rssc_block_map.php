@@ -220,9 +220,9 @@ if( !class_exists('rssc_block_map') )
             }
 
             if ($src && $width && $height) {
-                $img = '<img src="' . $this->sanitize($src) . '" width="' . intval($width) . '" height="' . intval($height) . '" border="0" />';
+                $img = '<img src="' . $this->sanitize($src) . '" width="' . (int)$width . '" height="' . (int)$height . '" border="0" />';
             } elseif ($src && $width) {
-                $img = '<img src="' . $this->sanitize($src) . '" width="' . intval($width) . '" border="0" />';
+                $img = '<img src="' . $this->sanitize($src) . '" width="' . (int)$width . '" border="0" />';
             }
 
             return $img;
@@ -238,8 +238,8 @@ if( !class_exists('rssc_block_map') )
 
     public function check_lat_lng($latitude, $longitude)
         {
-            $lat = intval($latitude * 1000000);
-            $lng = intval($longitude * 1000000);
+            $lat = (int)($latitude * 1000000);
+            $lng = (int)($longitude * 1000000);
 
             if (0 != $lat) {
                 return true;

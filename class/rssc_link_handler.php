@@ -301,34 +301,34 @@ public function &get_enclosure_option()
             $sql .= 'aux_text_2 ';
 
             $sql .= ') VALUES (';
-            $sql .= intval($uid) . ', ';
-            $sql .= intval($mid) . ', ';
-            $sql .= intval($p1) . ', ';
-            $sql .= intval($p2) . ', ';
-            $sql .= intval($p3) . ', ';
+            $sql .= (int)$uid . ', ';
+            $sql .= (int)$mid . ', ';
+            $sql .= (int)$p1 . ', ';
+            $sql .= (int)$p2 . ', ';
+            $sql .= (int)$p3 . ', ';
             $sql .= $this->quote($title) . ', ';
             $sql .= $this->quote($url) . ', ';
-            $sql .= intval($ltype) . ', ';
+            $sql .= (int)$ltype . ', ';
             $sql .= $this->quote($rdf_url) . ', ';
             $sql .= $this->quote($rss_url) . ', ';
             $sql .= $this->quote($atom_url) . ', ';
-            $sql .= intval($mode) . ', ';
+            $sql .= (int)$mode . ', ';
             $sql .= $this->quote($encoding) . ', ';
-            $sql .= intval($refresh) . ', ';
-            $sql .= intval($headline) . ', ';
-            $sql .= intval($updated_unix) . ', ';
+            $sql .= (int)$refresh . ', ';
+            $sql .= (int)$headline . ', ';
+            $sql .= (int)$updated_unix . ', ';
             $sql .= $this->quote($channel) . ', ';
             $sql .= $this->quote($xml) . ', ';
 
-            $sql .= intval($enclosure) . ', ';
+            $sql .= (int)$enclosure . ', ';
             $sql .= $this->quote($censor) . ', ';
             $sql .= $this->quote($plugin) . ', ';
             $sql .= $this->quote($post_plugin) . ', ';
             $sql .= $this->quote($icon) . ', ';
-            $sql .= intval($gicon_id) . ', ';
+            $sql .= (int)$gicon_id . ', ';
 
-            $sql .= intval($aux_int_1) . ', ';
-            $sql .= intval($aux_int_2) . ', ';
+            $sql .= (int)$aux_int_1 . ', ';
+            $sql .= (int)$aux_int_2 . ', ';
             $sql .= $this->quote($aux_text_1) . ', ';
             $sql .= $this->quote($aux_text_2) . ' ';
             $sql .= ')';
@@ -343,37 +343,37 @@ public function &get_enclosure_option()
             }
 
             $sql = 'UPDATE ' . $this->_table . ' SET ';
-            $sql .= 'uid=' . intval($uid) . ', ';
-            $sql .= 'mid=' . intval($mid) . ', ';
-            $sql .= 'p1=' . intval($p1) . ', ';
-            $sql .= 'p2=' . intval($p2) . ', ';
-            $sql .= 'p3=' . intval($p3) . ', ';
+            $sql .= 'uid=' . (int)$uid . ', ';
+            $sql .= 'mid=' . (int)$mid . ', ';
+            $sql .= 'p1=' . (int)$p1 . ', ';
+            $sql .= 'p2=' . (int)$p2 . ', ';
+            $sql .= 'p3=' . (int)$p3 . ', ';
             $sql .= 'title=' . $this->quote($title) . ', ';
             $sql .= 'url=' . $this->quote($url) . ', ';
-            $sql .= 'ltype=' . intval($ltype) . ', ';
+            $sql .= 'ltype=' . (int)$ltype . ', ';
             $sql .= 'rdf_url=' . $this->quote($rdf_url) . ', ';
             $sql .= 'rss_url=' . $this->quote($rss_url) . ', ';
             $sql .= 'atom_url=' . $this->quote($atom_url) . ', ';
-            $sql .= 'mode=' . intval($mode) . ', ';
+            $sql .= 'mode=' . (int)$mode . ', ';
             $sql .= 'encoding=' . $this->quote($encoding) . ', ';
-            $sql .= 'refresh=' . intval($refresh) . ', ';
-            $sql .= 'headline=' . intval($headline) . ', ';
-            $sql .= 'updated_unix=' . intval($updated_unix) . ', ';
+            $sql .= 'refresh=' . (int)$refresh . ', ';
+            $sql .= 'headline=' . (int)$headline . ', ';
+            $sql .= 'updated_unix=' . (int)$updated_unix . ', ';
             $sql .= 'channel=' . $this->quote($channel) . ', ';
             $sql .= 'xml=' . $this->quote($xml) . ', ';
 
-            $sql .= 'enclosure=' . intval($enclosure) . ', ';
+            $sql .= 'enclosure=' . (int)$enclosure . ', ';
             $sql .= 'censor=' . $this->quote($censor) . ', ';
             $sql .= 'plugin=' . $this->quote($plugin) . ', ';
             $sql .= 'post_plugin=' . $this->quote($post_plugin) . ', ';
             $sql .= 'icon=' . $this->quote($icon) . ', ';
-            $sql .= 'gicon_id=' . intval($gicon_id) . ', ';
+            $sql .= 'gicon_id=' . (int)$gicon_id . ', ';
 
-            $sql .= 'aux_int_1=' . intval($aux_int_1) . ', ';
-            $sql .= 'aux_int_2=' . intval($aux_int_2) . ', ';
+            $sql .= 'aux_int_1=' . (int)$aux_int_1 . ', ';
+            $sql .= 'aux_int_2=' . (int)$aux_int_2 . ', ';
             $sql .= 'aux_text_1=' . $this->quote($aux_text_1) . ', ';
             $sql .= 'aux_text_2=' . $this->quote($aux_text_2) . ' ';
-            $sql .= ' WHERE lid=' . intval($lid);
+            $sql .= ' WHERE lid=' . (int)$lid;
 
             return $sql;
         }
@@ -425,7 +425,7 @@ public function &get_enclosure_option()
                 $sql = $sql1 . ' ( ' . $sql2 . ' ) ';
 
                 if ($lid) {
-                    $sql .= 'AND lid != ' . intval($lid);
+                    $sql .= 'AND lid != ' . (int)$lid;
                 }
 
                 $list =& $this->get_first_rows_by_sql($sql);
@@ -488,7 +488,7 @@ public function &get_enclosure_option()
         //---------------------------------------------------------
     public function _set_lid($lid)
         {
-            $lid = intval($lid);
+            $lid = (int)$lid;
             if ($lid < 0) {
                 $this->_set_errors('rssc_link_handler: lid not above zero');
                 return false;
