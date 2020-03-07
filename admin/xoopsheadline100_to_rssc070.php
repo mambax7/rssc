@@ -73,8 +73,8 @@ class admin_import_xoopsheadline extends rssc_import_handler
         $total = $this->_xoopsheadline_handler->get_count_all();
         $objs  =& $this->_xoopsheadline_handler->get_objects_for_import($this->_LIMIT, $offset);
 
-        echo "There are <b>" . $total . "</b> xoopsheadline in XoopsHeadline<br />\n";
-        echo "Transfer " . $offset . " - " . $next . " record <br /><br />\n";
+        echo 'There are <b>' . $total . "</b> xoopsheadline in XoopsHeadline<br />\n";
+        echo 'Transfer ' . $offset . ' - ' . $next . " record <br /><br />\n";
 
         foreach ($objs as $obj) {
             $rssc_lid = $this->import_link_common($obj);
@@ -111,7 +111,7 @@ $op = 'main';
 if ( isset($_POST['op']) )  $op = $_POST['op'];
 
 rssc_admin_print_bread( _AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'xoopshedline' );
-echo "<h3>"._AM_RSSC_IMPORT_XOOPSHEADLINE."</h3>\n";
+echo '<h3>' . _AM_RSSC_IMPORT_XOOPSHEADLINE . "</h3>\n";
 echo "Import DB xoopshedline 1.00 to rssc 0.70 <br /><br />\n";
 
 if( !$import->exist_module() ) 
@@ -123,10 +123,10 @@ if( !$import->exist_module() )
 
 switch ($op) 
 {
-case "import_xoopsheadline":
+case 'import_xoopsheadline':
 	if( !$import->check_token() ) 
 	{
-		xoops_error("Token Error");
+		xoops_error('Token Error');
 	}
 	else
 	{

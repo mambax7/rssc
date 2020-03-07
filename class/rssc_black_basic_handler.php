@@ -85,9 +85,9 @@ if( !class_exists('rssc_black_basic_handler') )
 
     public function &get_rows_act($limit = 0, $offset = 0)
         {
-            $sql  = "SELECT * FROM " . $this->_table;
+            $sql  = 'SELECT * FROM ' . $this->_table;
             $sql  .= " WHERE act=1 AND url<>'' ";
-            $sql  .= " ORDER BY bid ASC";
+            $sql  .= ' ORDER BY bid ASC';
             $rows =& $this->get_rows_by_sql($sql, $limit, $offset);
             return $rows;
         }
@@ -95,9 +95,9 @@ if( !class_exists('rssc_black_basic_handler') )
         // refresh all
     public function &get_active_id_array($limit = 0, $offset = 0)
         {
-            $sql  = "SELECT bid FROM " . $this->_table;
+            $sql  = 'SELECT bid FROM ' . $this->_table;
             $sql  .= " WHERE act=1 AND url<>'' ";
-            $sql  .= " ORDER BY bid ASC";
+            $sql  .= ' ORDER BY bid ASC';
             $rows =& $this->get_first_row_by_sql($sql, $limit, $offset);
             return $rows;
         }

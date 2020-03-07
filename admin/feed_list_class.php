@@ -143,8 +143,8 @@ class admin_feed_list extends happy_linux_page_frame
             $content_html = '&nbsp;';
         }
 
-        $url_view_fid = RSSC_URL . "/single_feed.php?fid=" . $fid;
-        $url_text_gif = RSSC_URL . "/images/text.gif";
+        $url_view_fid = RSSC_URL . '/single_feed.php?fid=' . $fid;
+        $url_text_gif = RSSC_URL . '/images/text.gif';
         $img_link     = $this->build_html_img_tag($url_text_gif, 0, 0, 0, 'link');
         $view_feed    = $this->build_html_a_href_name($url_view_fid, $img_link, '', false);
         $link_feed    = $this->_build_page_id_link_by_obj($obj, 'fid', $jump);
@@ -174,7 +174,7 @@ class admin_feed_list extends happy_linux_page_frame
     //---------------------------------------------------------
     public function _print_top()
     {
-        echo "<h4>" . _AM_RSSC_LIST_FEED . "</h4>\n";
+        echo '<h4>' . _AM_RSSC_LIST_FEED . "</h4>\n";
         printf(_RSSC_THEREARE, $this->_get_total_all());
         echo "<br /><br />\n";
 
@@ -210,9 +210,9 @@ class admin_feed_list extends happy_linux_page_frame
                 break;
         }
 
-        $total_non_act = "(0)";
+        $total_non_act = '(0)';
         if ($this->_total_non_act) {
-            $total_non_act = "(<b>" . $this->_total_non_act . "</b>)";
+            $total_non_act = '(<b>' . $this->_total_non_act . '</b>)';
         }
 
         echo '<table width="80%" border="0" cellspacing="1" class="outer">';
@@ -220,15 +220,15 @@ class admin_feed_list extends happy_linux_page_frame
         echo '<ul>';
         echo '<li><a href="' . $this->_get_script_sortid(0) . '">' . _HAPPY_LINUX_ID_ASC . "</a></li>\n";
         echo '<li><a href="' . $this->_get_script_sortid(1) . '">' . _HAPPY_LINUX_ID_DESC . "</a></li>\n";
-        echo '<li><a href="' . $this->_get_script_sortid(2) . '">' . _AM_RSSC_NON_ACT_ASC . "</a> " . $total_non_act . "</li>\n";
-        echo '<li><a href="' . $this->_get_script_sortid(3) . '">' . _AM_RSSC_NON_ACT_DESC . "</a> " . $total_non_act . "</li>\n";
+        echo '<li><a href="' . $this->_get_script_sortid(2) . '">' . _AM_RSSC_NON_ACT_ASC . '</a> ' . $total_non_act . "</li>\n";
+        echo '<li><a href="' . $this->_get_script_sortid(3) . '">' . _AM_RSSC_NON_ACT_DESC . '</a> ' . $total_non_act . "</li>\n";
         echo '</ul>';
         echo '<ul>';
         echo '<li><a href="' . $this->_url_feed_column_manage . '">' . _AM_RSSC_FEED_COLUMN_MANAGE . "</a></li>\n";
         echo '</ul>';
         echo "</td></tr></table>\n";
 
-        echo "<h4>" . $title . "</h4>\n";
+        echo '<h4>' . $title . "</h4>\n";
     }
 
     public function _print_condition()
@@ -238,7 +238,7 @@ class admin_feed_list extends happy_linux_page_frame
             $total = $this->_get_total();
             printf(_AM_RSSC_THERE_ARE_MATCH, $total);
             echo "<br />\n";
-            echo _AM_RSSC_CONDITION . ": " . $condition . "<br /><br />\n";
+            echo _AM_RSSC_CONDITION . ': ' . $condition . "<br /><br />\n";
         }
     }
 

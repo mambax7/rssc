@@ -72,7 +72,7 @@ class admin_map_manage
         rssc_admin_print_header();
         rssc_admin_print_menu();
 
-        echo "<h4>" . _AM_RSSC_MAP_MANAGE . "</h4>\n";
+        echo '<h4>' . _AM_RSSC_MAP_MANAGE . "</h4>\n";
         $this->_config_form->init_form();
 
         $this->_map_class->print_check_version();
@@ -81,7 +81,7 @@ class admin_map_manage
             echo $this->_map_class->build_iframe();
         }
 
-        echo "<h4>" . _AM_RSSC_FORM_MAP . "</h4>\n";
+        echo '<h4>' . _AM_RSSC_FORM_MAP . "</h4>\n";
         $this->_config_form->set_form_title(_AM_RSSC_FORM_MAP);
         $this->_config_form->show_by_catid(18);
 

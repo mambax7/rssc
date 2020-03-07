@@ -101,7 +101,7 @@ class admin_list_black_white extends happy_linux_page_frame
                 break;
         }
 
-        echo "<h4>" . $this->_TITLE_BW . "</h4>\n";
+        echo '<h4>' . $this->_TITLE_BW . "</h4>\n";
         printf(_RSSC_THEREARE, $this->_get_total_all());
         echo "<br /><br />\n";
 
@@ -113,7 +113,7 @@ class admin_list_black_white extends happy_linux_page_frame
         echo "<li><a href='?sortid=3'>" . _AM_RSSC_COUNT_ASC . "</a></li>\n";
         echo "</td></tr></table>\n";
 
-        echo "<h4>" . $title . "</h4>\n";
+        echo '<h4>' . $title . "</h4>\n";
     }
 
     public function _get_name_feed(&$obj)
@@ -122,7 +122,7 @@ class admin_list_black_white extends happy_linux_page_frame
         if ($count) {
             $name = "FEED ($count)";
         } else {
-            $name = "FEED";
+            $name = 'FEED';
         }
         return $name;
     }

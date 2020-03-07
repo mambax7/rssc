@@ -7,5 +7,5 @@
 // EUC-JP: 有朋自遠方来
 //=========================================================
 
-$rssc_plugin_description = "content から要約を作成する";
+$rssc_plugin_description = 'content から要約を作成する';
 

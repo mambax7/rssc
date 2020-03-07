@@ -160,7 +160,7 @@ define('_AM_RSSC_CONF_RSS_MODE', 'Начальное значение RSS реж
 define('_AM_RSSC_CONF_XML_SAVE', 'Сохранять XML');
 define('_AM_RSSC_CONF_XML_SAVE_DESC', 'Сохранять полученный XML в таблице ссылок');
 define('_AM_RSSC_CONF_FUTURE_DAYS', 'Будущие дни');
-define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', "Количество дней<br />Не показывать канал, если дата каналов больше, чем эти дни");
+define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', 'Количество дней<br />Не показывать канал, если дата каналов больше, чем эти дни');
 
 // show configuration
 define('_AM_RSSC_CONF_SHOW_ORDER','Порядок показа');

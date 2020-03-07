@@ -103,7 +103,7 @@ elseif ($op == 'template_compiled_clear')
 	else
 	{
 		$config_store->template_compiled_clear();
-		redirect_header("index.php", 1, _HAPPY_LINUX_CLEARED );
+		redirect_header('index.php', 1, _HAPPY_LINUX_CLEARED );
 	}
 }
 else
@@ -133,15 +133,15 @@ else
 	rssc_admin_print_menu();
 	$map_class->print_check_version();
 
-	echo "<h4>"._MI_RSSC_ADMENU_CONFIG."</h4>\n";
+	echo '<h4>' . _MI_RSSC_ADMENU_CONFIG . "</h4>\n";
 	$config_form->init_form();
 
-	echo "<h4>"._AM_RSSC_FORM_BASIC."</h4>\n";
+	echo '<h4>' . _AM_RSSC_FORM_BASIC . "</h4>\n";
 	echo _AM_RSSC_FORM_BASIC_DESC."<br />\n";
 	$config_form->set_form_title( _AM_RSSC_FORM_BASIC );
 	$config_form->show_by_catid( 1 );
 
-	echo "<h4>"._AM_RSSC_FORM_MAIN."</h4>\n";
+	echo '<h4>' . _AM_RSSC_FORM_MAIN . "</h4>\n";
 	echo _AM_RSSC_FORM_MAIN_DESC."<br />\n";
 
 // description in main page
@@ -151,15 +151,15 @@ else
 
 	$config_form->show_main();
 
-	echo "<h4>"._AM_RSSC_FORM_BLOCK."</h4>\n";
+	echo '<h4>' . _AM_RSSC_FORM_BLOCK . "</h4>\n";
 	echo _AM_RSSC_FORM_BLOCK_DESC."<br />\n";
 	$config_form->show_block();
 
-	echo "<h4>"._AM_RSSC_FORM_PROXY."</h4>\n";
+	echo '<h4>' . _AM_RSSC_FORM_PROXY . "</h4>\n";
 	$config_form->set_form_title( _AM_RSSC_FORM_PROXY );
 	$config_form->show_by_catid( 10 );
 
-	echo "<h4>"._HAPPY_LINUX_CONF_TPL_COMPILED_CLEAR."</h4>\n";
+	echo '<h4>' . _HAPPY_LINUX_CONF_TPL_COMPILED_CLEAR . "</h4>\n";
 	$config_form->show_form_template_compiled_clear( _HAPPY_LINUX_CONF_TPL_COMPILED_CLEAR );
 }
 

@@ -47,12 +47,13 @@ function xoops_module_install_'. $RSSC_DIRNAME .'( $module )
 	return rssc_install_base( "'. $RSSC_DIRNAME .'" ,  $module );
 }
 
-function xoops_module_update_'. $RSSC_DIRNAME .'( $module, $prev_version )
+function xoops_module_update_'. $RSSC_DIRNAME . '( $module, $prev_version )
 {
-	return rssc_update_base( "'. $RSSC_DIRNAME .'" ,  $module, $prev_version );
+	return rssc_update_base( \'' . $RSSC_DIRNAME . '\' ,  $module, $prev_version );
 }
 
-' );
+'
+);
 // --- eval end ---
 
 }

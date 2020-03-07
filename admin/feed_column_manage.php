@@ -128,7 +128,7 @@ class admin_feed_column_manage extends happy_linux_error
 
     public function form()
     {
-        echo "<h3>" . _AM_RSSC_FEED_COLUMN_MANAGE . "</h3>\n";
+        echo '<h3>' . _AM_RSSC_FEED_COLUMN_MANAGE . "</h3>\n";
         $rows = $this->_feed_basic_handler->get_columns();
         $keys = array_keys($this->_COLUMN_ARRAY);
 

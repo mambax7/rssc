@@ -99,7 +99,7 @@ class admin_parse_rss extends happy_linux_error
     //---------------------------------------------------------
     public function main()
     {
-        echo "<h3>" . _AM_RSSC_PARSE_RSS . "</h3>\n";
+        echo '<h3>' . _AM_RSSC_PARSE_RSS . "</h3>\n";
         echo "<a href='#option'>" . _AM_RSSC_VIEW_RSS_OPTION . "</a><br /><br />\n";
 
         $op  = $this->get_post_op();

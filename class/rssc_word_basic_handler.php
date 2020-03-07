@@ -73,9 +73,9 @@ if( !class_exists('rssc_word_basic_handler') )
     public function &get_rows_act($limit = 0, $offset = 0)
         {
             // word is filled
-            $sql  = "SELECT * FROM " . $this->_table;
+            $sql  = 'SELECT * FROM ' . $this->_table;
             $sql  .= " WHERE word<>'' ";
-            $sql  .= " ORDER BY sid ASC";
+            $sql  .= ' ORDER BY sid ASC';
             $rows =& $this->get_rows_by_sql($sql, $limit, $offset);
             return $rows;
         }

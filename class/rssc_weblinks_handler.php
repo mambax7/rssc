@@ -50,7 +50,7 @@ class rssc_weblinks_handler extends happy_linux_basic_handler
     //---------------------------------------------------------
     public function load_config()
     {
-        $sql                = "SELECT * FROM " . $this->_table_config;
+        $sql                = 'SELECT * FROM ' . $this->_table_config;
         $this->_conf_cached =& $this->get_row_by_sql($sql);
     }
 
@@ -63,16 +63,16 @@ class rssc_weblinks_handler extends happy_linux_basic_handler
 
     public function get_link_count_rss_flag_prev_ver()
     {
-        $sql   = "SELECT count(*) FROM " . $this->_table_link;
-        $sql   .= " WHERE ( rss_flag=1 OR rss_flag=2 )";
+        $sql   = 'SELECT count(*) FROM ' . $this->_table_link;
+        $sql   .= ' WHERE ( rss_flag=1 OR rss_flag=2 )';
         $count = $this->get_count_by_sql($sql);
         return $count;
     }
 
     public function &get_link_objects_rss_flag_prev_ver($limit = 0, $offset = 0)
     {
-        $sql  = "SELECT * FROM " . $this->_table_link;
-        $sql  .= " WHERE ( rss_flag=1 OR rss_flag=2 ) ORDER BY lid";
+        $sql  = 'SELECT * FROM ' . $this->_table_link;
+        $sql  .= ' WHERE ( rss_flag=1 OR rss_flag=2 ) ORDER BY lid';
         $rows =& $this->get_rows_by_sql($sql, $limit, $offset);
         $objs =& $this->get_objects_from_rows($rows);
         return $objs;
@@ -80,15 +80,15 @@ class rssc_weblinks_handler extends happy_linux_basic_handler
 
     public function get_atomfeed_count()
     {
-        $sql   = "SELECT count(*) FROM " . $this->_table_atomfeed;
+        $sql   = 'SELECT count(*) FROM ' . $this->_table_atomfeed;
         $count = $this->get_count_by_sql($sql);
         return $count;
     }
 
     public function &get_atomfeed_objects($limit = 0, $offset = 0)
     {
-        $sql  = "SELECT * FROM " . $this->_table_atomfeed;
-        $sql  .= " ORDER BY lid";
+        $sql  = 'SELECT * FROM ' . $this->_table_atomfeed;
+        $sql  .= ' ORDER BY lid';
         $rows =& $this->get_rows_by_sql($sql, $limit, $offset);
         $objs =& $this->get_objects_from_rows($rows);
         return $objs;

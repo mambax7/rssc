@@ -63,7 +63,7 @@ class admin_list_white extends admin_list_black_white
     {
         $jump = 'white_manage.php?op=mod_form&amp;wid=';
 
-        $jump_feed = "feed_list_wid.php?wid=" . $obj->get('wid');
+        $jump_feed = 'feed_list_wid.php?wid=' . $obj->get('wid');
         $name_feed = $this->_get_name_feed($obj);
 
         $arr = [

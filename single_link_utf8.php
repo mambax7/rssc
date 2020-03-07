@@ -43,7 +43,7 @@ happy_linux_http_output('pass');
 header('Content-Type:text/html; charset=utf-8');
 
 // template
-$RSSC_TEMPLATE_NAME = "db:".RSSC_DIRNAME."_single_link_utf8.html";
+$RSSC_TEMPLATE_NAME = 'db:' . RSSC_DIRNAME . '_single_link_utf8.html';
 $xoopsTpl = new XoopsTpl();
 
 $lid   = $single->get_get_lid();

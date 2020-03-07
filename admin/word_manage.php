@@ -74,7 +74,7 @@ class admin_manage_word extends admin_manage_base
         if (is_array($objs) && count($objs)) {
             $script = 'word_manage.php?op=mod_form&amp;sid=';
             $msg    = $this->_handler->build_error_list($objs, $script);
-            $err    = "<h4>" . _AM_RSSC_WORD_ALREADY . "</h4>\n" . $msg;
+            $err    = '<h4>' . _AM_RSSC_WORD_ALREADY . "</h4>\n" . $msg;
             $this->_set_error_extra($err);
             return false;
         }

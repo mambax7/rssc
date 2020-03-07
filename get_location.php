@@ -41,10 +41,10 @@ class rssc_get_location
     public $_conf;
 
     // rssc config
-    public $_ELE_ID_PARENT_LATITUDE  = "webmap_latitude";
-    public $_ELE_ID_PARENT_LONGITUDE = "webmap_longitude";
-    public $_ELE_ID_PARENT_ZOOM      = "webmap_zoom";
-    public $_ELE_ID_PARENT_ADDRESS   = "webmap_address";
+    public $_ELE_ID_PARENT_LATITUDE  = 'webmap_latitude';
+    public $_ELE_ID_PARENT_LONGITUDE = 'webmap_longitude';
+    public $_ELE_ID_PARENT_ZOOM      = 'webmap_zoom';
+    public $_ELE_ID_PARENT_ADDRESS   = 'webmap_address';
 
     //---------------------------------------------------------
     // constructor

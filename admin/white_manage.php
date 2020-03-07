@@ -23,8 +23,8 @@
 //=========================================================
 
 include 'admin_header.php';
-include_once RSSC_ROOT_PATH."/admin/admin_manage_base_class.php";
-include_once RSSC_ROOT_PATH."/admin/admin_form_black_white.php";
+include_once RSSC_ROOT_PATH . '/admin/admin_manage_base_class.php';
+include_once RSSC_ROOT_PATH . '/admin/admin_form_black_white.php';
 
 //=========================================================
 // class white manage

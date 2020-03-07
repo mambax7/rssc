@@ -6,7 +6,7 @@
 // 2008-01-20 K.OHWADA
 //================================================================
 
-include "header.php";
+include 'header.php';
 
 //=========================================================
 // class rssc_plugin_list
@@ -62,7 +62,7 @@ class rssc_plugin_list
     //---------------------------------------------------------
     public function _build_title()
     {
-        $text = '<h3 align="center">' . _RSSC_PLUGIN_LIST . "</h3>";
+        $text = '<h3 align="center">' . _RSSC_PLUGIN_LIST . '</h3>';
         return $text;
     }
 
@@ -83,11 +83,11 @@ class rssc_plugin_list
 $rssc_plugin_list =& rssc_plugin_list::getInstance( RSSC_DIRNAME );
 
 xoops_header(false);
-echo "</head><body>";
+echo '</head><body>';
 
 if ( !$rssc_plugin_list->is_module_admin() )
 {
-	xoops_error( "you have no permission" );
+	xoops_error('you have no permission');
 	xoops_footer();
 	exit();
 }

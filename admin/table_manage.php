@@ -80,9 +80,9 @@ class admin_table_manage extends happy_linux_table_manage
         $this->print_form_remove_xoops_block_table();
 
         // check link table
-        echo "<h4>" . $this->_TITLE_LINK_CHECK . "</h4>\n";
+        echo '<h4>' . $this->_TITLE_LINK_CHECK . "</h4>\n";
         echo "check to overlap same RDF/RSS/ATOM url<br />\n";
-        echo "There are <b>" . $this->_link_handler->getCount() . "</b> links <br />\n";
+        echo 'There are <b>' . $this->_link_handler->getCount() . "</b> links <br />\n";
 
         $this->_print_form_link_start();
     }
@@ -101,15 +101,15 @@ class admin_table_manage extends happy_linux_table_manage
         $total = $this->_link_handler->getCount();
 
         $this->print_bread($this->_TITLE_LINK_CHECK);
-        echo "<h4>" . $this->_TITLE_LINK_CHECK . "</h4>\n";
-        echo "There are <b>" . $total . "</b> links <br />\n";
+        echo '<h4>' . $this->_TITLE_LINK_CHECK . "</h4>\n";
+        echo 'There are <b>' . $total . "</b> links <br />\n";
 
         $max    = $this->get_max_record();
         $offset = $this->get_post_offset();
         $start  = $offset + 1;
         $end    = $this->calc_end($start, $total);
 
-        echo "check " . $start . " - " . $end . " th record <br /><br />\n";
+        echo 'check ' . $start . ' - ' . $end . " th record <br /><br />\n";
 
         $count_more = 0;
 
@@ -132,7 +132,7 @@ class admin_table_manage extends happy_linux_table_manage
                     $obj_2 =& $this->_link_handler->getCache($lid_2);
                     if (is_object($obj_2)) {
                         $title_2 = $obj_2->get('title');
-                        echo " --- ";
+                        echo ' --- ';
                         echo $this->_build_link_manage($lid_2, $title_2);
                         echo "<br />\n";
                     }
@@ -143,11 +143,11 @@ class admin_table_manage extends happy_linux_table_manage
         echo "<br />\n";
 
         if ($count_more) {
-            echo "There are ";
+            echo 'There are ';
             echo $this->build_span_red_bold($count_more);
             echo " links which have same links <br />\n";
         } else {
-            $this->print_blue("check OK");
+            $this->print_blue('check OK');
         }
 
         if ($total > $end) {
@@ -160,9 +160,9 @@ class admin_table_manage extends happy_linux_table_manage
     public function _build_link_manage($lid, $title)
     {
         $url   = 'link_manage.php?op=mod_form&amp;lid=' . $lid;
-        $lid_s = sprintf("%03d", $lid);
+        $lid_s = sprintf('%03d', $lid);
         $text  = '<a href="' . $url . '" target="_blank">' . $lid_s . '</a>';
-        $text  .= " : " . $this->sanitize_text($title);
+        $text  .= ' : ' . $this->sanitize_text($title);
         return $text;
     }
 
@@ -179,8 +179,8 @@ class admin_table_manage extends happy_linux_table_manage
         $start  = $end_prev + 1;
         $end    = $this->calc_end($start, $total);
         $step   = $end - $start + 1;
-        $submit = "GO next " . $step . " links";
-        $desc   = "check " . $start . " - " . $end . " th record";
+        $submit = 'GO next ' . $step . ' links';
+        $desc   = 'check ' . $start . ' - ' . $end . ' th record';
         $next   = $end - 1;
 
         $this->_print_form_link_common($submit, $desc, $next);

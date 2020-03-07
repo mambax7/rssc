@@ -129,7 +129,7 @@ class admin_manage_archive extends happy_linux_manage
         $this->_print_bread_op(_AM_RSSC_ARCHIVE_MANAGE, 'main_form');
         rssc_admin_print_header();
         rssc_admin_print_menu();
-        echo "<h3>" . _AM_RSSC_ARCHIVE_MANAGE . "</h3>\n";
+        echo '<h3>' . _AM_RSSC_ARCHIVE_MANAGE . "</h3>\n";
         printf(_AM_RSSC_THERE_ARE_LINKS, $total_link);
         echo "<br />\n";
         printf(_AM_RSSC_THERE_ARE_FEEDS, $total_feed);
@@ -146,16 +146,16 @@ class admin_manage_archive extends happy_linux_manage
         $num    = $this->get_post_num();
 
         echo "<a name='refresh'></a>";
-        echo "<h4>" . _AM_RSSC_REFRESH . "</h4>\n";
+        echo '<h4>' . _AM_RSSC_REFRESH . "</h4>\n";
         $this->_form->show_refresh($limit, $offset);
 
         echo "<a name='learn'></a>";
-        echo "<h4>" . _AM_RSSC_LEAN_BLACK . "</h4>\n";
+        echo '<h4>' . _AM_RSSC_LEAN_BLACK . "</h4>\n";
         echo _AM_RSSC_LEAN_BLACK_DESC . "<br /><br />\n";
         $this->_form->show_learn($limit, $offset);
 
         echo "<a name='clear'></a>";
-        echo "<h4>" . _AM_RSSC_FEED_CLEAR . "</h4>\n";
+        echo '<h4>' . _AM_RSSC_FEED_CLEAR . "</h4>\n";
         $this->_form->show_clear_old($num);
     }
 
@@ -185,7 +185,7 @@ class admin_manage_archive extends happy_linux_manage
         if (!$ret) {
             echo $this->_feed_handler->getErrorCode();
 
-            $this->_set_error_title("Refresh Error");
+            $this->_set_error_title('Refresh Error');
             $this->_set_errors($this->_refresh_handler->getErrors());
             $this->_print_error(1);
         }
@@ -195,7 +195,7 @@ class admin_manage_archive extends happy_linux_manage
             echo "<br />\n";
             $this->_form->show_refresh_next($limit, $next);
         } else {
-            echo "<h4>" . _RSSC_REFRESH_LINK_FINISHED . "</h4>\n";
+            echo '<h4>' . _RSSC_REFRESH_LINK_FINISHED . "</h4>\n";
         }
 
         $this->_print_cp_footer();
@@ -234,7 +234,7 @@ class admin_manage_archive extends happy_linux_manage
         if (!$ret) {
             echo $this->_feed_handler->getErrorCode();
 
-            $this->_set_error_title("Learning Error");
+            $this->_set_error_title('Learning Error');
             $this->_set_errors($this->_refresh_handler->getErrors());
             $this->_print_error(1);
         }
@@ -244,7 +244,7 @@ class admin_manage_archive extends happy_linux_manage
             echo "<br />\n";
             $this->_form->show_learn_next($limit, $next);
         } else {
-            echo "<h4>" . _RSSC_REFRESH_LINK_FINISHED . "</h4>\n";
+            echo '<h4>' . _RSSC_REFRESH_LINK_FINISHED . "</h4>\n";
         }
 
         $this->_print_cp_footer();
@@ -268,10 +268,10 @@ class admin_manage_archive extends happy_linux_manage
 
         $del = $this->_feed_handler->clear_over_num($num);
         if ($del) {
-            echo "<h4>" . _AM_RSSC_NUM_FEED_CLEARED . "</h4>\n";
-            echo $del . " " . _AM_RSSC_NUM_FEEDS . "<br />\n";
+            echo '<h4>' . _AM_RSSC_NUM_FEED_CLEARED . "</h4>\n";
+            echo $del . ' ' . _AM_RSSC_NUM_FEEDS . "<br />\n";
         } elseif (!$this->_feed_handler->returnExistError()) {
-            $this->_set_error_title("DB Error");
+            $this->_set_error_title('DB Error');
             $this->_set_errors($this->_feed_handler->getErrors());
             $this->_print_error(1);
         } else {

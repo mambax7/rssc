@@ -6,7 +6,7 @@
 // 2008-01-20 K.OHWADA
 //================================================================
 
-include "header.php";
+include 'header.php';
 
 $rssc_plugin        =& rssc_plugin::getInstance( RSSC_DIRNAME );
 $happy_linux_system =& happy_linux_system::getInstance();
@@ -16,7 +16,7 @@ include XOOPS_ROOT_PATH.'/header.php';
 // exit if not login
 if ( !$happy_linux_system->is_user() )
 {
-	xoops_error( "you have no permission" );
+	xoops_error('you have no permission');
 	include XOOPS_ROOT_PATH.'/footer.php';
 	exit();
 }

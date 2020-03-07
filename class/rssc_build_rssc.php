@@ -220,7 +220,7 @@ if( !class_exists('rssc_build_rssc') )
             if ($arr['entry_id']) {
                 $arr['id'] = $arr['entry_id'];
             } else {
-                $atom_id   = "tag:" . $this->_site_tag . "," . $this->_site_year . "://1.1." . $this->_count_line;
+                $atom_id   = 'tag:' . $this->_site_tag . ',' . $this->_site_year . '://1.1.' . $this->_count_line;
                 $arr['id'] = $this->_xml($atom_id);
             }
 

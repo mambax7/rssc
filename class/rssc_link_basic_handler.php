@@ -324,7 +324,7 @@ public function &get_channel()
         {
             $row =& $this->get_cache_row($lid);
             if (!is_array($row)) {
-                $this->_set_errors("rssc_link_handler: no link record: lid = " . $lid);
+                $this->_set_errors('rssc_link_handler: no link record: lid = ' . $lid);
                 return false;
             } else {
                 return $row['post_plugin'];
@@ -336,7 +336,7 @@ public function &get_channel()
         {
             $row =& $this->get_cache_row($lid);
             if (!is_array($row)) {
-                $this->_set_errors("rssc_link_handler: no link record: lid = " . $lid);
+                $this->_set_errors('rssc_link_handler: no link record: lid = ' . $lid);
                 return false;
             } else {
                 return $row['ltype'];
@@ -348,7 +348,7 @@ public function &get_channel()
         {
             $row =& $this->get_cache_row($lid);
             if (!is_array($row)) {
-                $this->_set_errors("rssc_link_handler: no link record: lid = " . $lid);
+                $this->_set_errors('rssc_link_handler: no link record: lid = ' . $lid);
                 return false;
             } else {
                 return $row['enclosure'];

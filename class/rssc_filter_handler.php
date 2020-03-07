@@ -84,7 +84,7 @@ if( !class_exists('rssc_filter_handler') )
             $arr = [];
             foreach ($list as $row) {
                 if ($row['reg']) {
-                    $pat = '/' . str_replace("/", '\/', $row[$target_name]) . '/i';
+                    $pat = '/' . str_replace('/', '\/', $row[$target_name]) . '/i';
                 } else {
                     $pat = '/' . preg_quote($row[$target_name], '/') . '/i';
                 }

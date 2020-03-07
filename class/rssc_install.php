@@ -257,8 +257,8 @@ if( ! class_exists('rssc_install') )
 
     public function _update_config_040()
         {
-            $sql = "
-  ALTER TABLE " . $this->_config_table . " ADD COLUMN (
+            $sql = '
+  ALTER TABLE ' . $this->_config_table . " ADD COLUMN (
   conf_valuetype varchar(255) NOT NULL default ''
 )";
 
@@ -315,8 +315,8 @@ if( ! class_exists('rssc_install') )
         {
             // remove ; in tail of sql
 
-            $sql = "
-CREATE TABLE " . $this->_xml_table . " (
+            $sql = '
+CREATE TABLE ' . $this->_xml_table . " (
   xid int(11) unsigned NOT NULL auto_increment,
   lid int(11) unsigned default '0',
   xml  mediumtext NOT NULL,
@@ -361,8 +361,8 @@ CREATE TABLE " . $this->_xml_table . " (
         //---------------------------------------------------------
     public function _create_word_table()
         {
-            $sql = "
-CREATE TABLE " . $this->_word_table . " (
+            $sql = '
+CREATE TABLE ' . $this->_word_table . " (
   sid   int(11) unsigned NOT NULL auto_increment,
   word  varchar(255) default '',
   reg   tinyint(1) unsigned default '0',
@@ -426,21 +426,21 @@ CREATE TABLE " . $this->_word_table . " (
 
     public function _update_link_130()
         {
-            $sql = "
-  ALTER TABLE " . $this->_link_table . " 
+            $sql = '
+  ALTER TABLE ' . $this->_link_table . ' 
   MODIFY url      text NOT NULL,
   MODIFY rdf_url  text NOT NULL,
   MODIFY rss_url  text NOT NULL,
   MODIFY atom_url text NOT NULL
-";
+';
 
             return $this->query($sql);
         }
 
     public function _update_link_100()
         {
-            $sql = "
-  ALTER TABLE " . $this->_link_table . " ADD COLUMN (
+            $sql = '
+  ALTER TABLE ' . $this->_link_table . " ADD COLUMN (
   icon varchar(255) default '',
   gicon_id int(10) default'0'
 )";
@@ -450,38 +450,38 @@ CREATE TABLE " . $this->_word_table . " (
 
     public function _update_link_080_1()
         {
-            $sql = "
-  ALTER TABLE " . $this->_link_table . " MODIFY 
+            $sql = '
+  ALTER TABLE ' . $this->_link_table . ' MODIFY 
   censor text NOT NULL
-";
+';
 
             return $this->query($sql);
         }
 
     public function _update_link_080_2()
         {
-            $sql = "
-  ALTER TABLE " . $this->_link_table . " MODIFY 
+            $sql = '
+  ALTER TABLE ' . $this->_link_table . ' MODIFY 
   plugin text NOT NULL
-";
+';
 
             return $this->query($sql);
         }
 
     public function _update_link_080_3()
         {
-            $sql = "
-  ALTER TABLE " . $this->_link_table . " ADD COLUMN (
+            $sql = '
+  ALTER TABLE ' . $this->_link_table . ' ADD COLUMN (
   post_plugin text NOT NULL
-)";
+)';
 
             return $this->query($sql);
         }
 
     public function _update_link_070()
         {
-            $sql = "
-  ALTER TABLE " . $this->_link_table . " ADD COLUMN (
+            $sql = '
+  ALTER TABLE ' . $this->_link_table . " ADD COLUMN (
   enclosure tinyint(2) default '1',
   censor    varchar(255) default '',
   plugin    varchar(255) default ''
@@ -544,8 +544,8 @@ CREATE TABLE " . $this->_word_table . " (
 
     public function _update_feed_130()
         {
-            $sql = "
-  ALTER TABLE " . $this->_feed_table . "
+            $sql = '
+  ALTER TABLE ' . $this->_feed_table . '
   MODIFY site_link           text NOT NULL,
   MODIFY entry_id            text NOT NULL,
   MODIFY guid                text NOT NULL,
@@ -553,15 +553,15 @@ CREATE TABLE " . $this->_word_table . " (
   MODIFY enclosure_url       text NOT NULL,
   MODIFY media_content_url   text NOT NULL,
   MODIFY media_thumbnail_url text NOT NULL
-";
+';
 
             return $this->query($sql);
         }
 
     public function _update_feed_100()
         {
-            $sql = "
-  ALTER TABLE " . $this->_feed_table . " ADD COLUMN (
+            $sql = '
+  ALTER TABLE ' . $this->_feed_table . " ADD COLUMN (
   geo_lat  double(10,8) NOT NULL default '0',
   geo_long double(11,8) NOT NULL default '0',
   media_content_url    varchar(255) default '',
@@ -600,14 +600,14 @@ CREATE TABLE " . $this->_word_table . " (
 
     public function _update_feed_090_1()
         {
-            $sql = "ALTER TABLE " . $this->_feed_table . " DROP INDEX link";
+            $sql = 'ALTER TABLE ' . $this->_feed_table . ' DROP INDEX link';
             return $this->query($sql);
         }
 
     public function _update_feed_090_2()
         {
-            $sql = "
-  ALTER TABLE " . $this->_feed_table . " MODIFY
+            $sql = '
+  ALTER TABLE ' . $this->_feed_table . " MODIFY
   link text default ''
 ";
 
@@ -616,14 +616,14 @@ CREATE TABLE " . $this->_word_table . " (
 
     public function _update_feed_090_3()
         {
-            $sql = "ALTER TABLE " . $this->_feed_table . " ADD INDEX link (link(10))";
+            $sql = 'ALTER TABLE ' . $this->_feed_table . ' ADD INDEX link (link(10))';
             return $this->query($sql);
         }
 
     public function _update_feed_060()
         {
-            $sql = "
-  ALTER TABLE " . $this->_feed_table . " ADD COLUMN (
+            $sql = '
+  ALTER TABLE ' . $this->_feed_table . " ADD COLUMN (
   act   tinyint(1) default '1'
 )";
 
@@ -632,8 +632,8 @@ CREATE TABLE " . $this->_word_table . " (
 
     public function _update_feed_030()
         {
-            $sql = "
-  ALTER TABLE " . $this->_feed_table . " ADD COLUMN (
+            $sql = '
+  ALTER TABLE ' . $this->_feed_table . " ADD COLUMN (
   enclosure_url  varchar(255) default '',
   enclosure_type varchar(255) default '',
   enclosure_length int(5) default '0'
@@ -658,8 +658,8 @@ CREATE TABLE " . $this->_word_table . " (
 
     public function _update_black_070()
         {
-            $sql = "
-  ALTER TABLE " . $this->_black_table . " ADD COLUMN (
+            $sql = '
+  ALTER TABLE ' . $this->_black_table . " ADD COLUMN (
   cache int(11) default '0',
   ctime int(11) default '0'
 )";
@@ -669,8 +669,8 @@ CREATE TABLE " . $this->_word_table . " (
 
     public function _update_black_060()
         {
-            $sql = "
-  ALTER TABLE " . $this->_black_table . " ADD COLUMN (
+            $sql = '
+  ALTER TABLE ' . $this->_black_table . " ADD COLUMN (
   act   tinyint(1) default '1',
   reg   tinyint(1) default '0',
   count int(11) default '0'
@@ -695,8 +695,8 @@ CREATE TABLE " . $this->_word_table . " (
 
     public function _update_white_070()
         {
-            $sql = "
-  ALTER TABLE " . $this->_white_table . " ADD COLUMN (
+            $sql = '
+  ALTER TABLE ' . $this->_white_table . " ADD COLUMN (
   cache int(11) default '0',
   ctime int(11) default '0'
 )";
@@ -706,8 +706,8 @@ CREATE TABLE " . $this->_word_table . " (
 
     public function _update_white_060()
         {
-            $sql = "
-  ALTER TABLE " . $this->_white_table . " ADD COLUMN (
+            $sql = '
+  ALTER TABLE ' . $this->_white_table . " ADD COLUMN (
   act   tinyint(1) default '1',
   reg   tinyint(1) default '0',
   count int(11) default '0'

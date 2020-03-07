@@ -85,8 +85,8 @@ class admin_link_list extends happy_linux_page_frame
 
         list($href1, $href2) = $this->_get_linkfeed($obj);
 
-        $view_image    = RSSC_URL . "/images/text.gif";
-        $edit_image    = RSSC_URL . "/images/edit.gif";
+        $view_image    = RSSC_URL . '/images/text.gif';
+        $edit_image    = RSSC_URL . '/images/edit.gif';
         $view_img_link = $this->build_html_img_tag($view_image, 0, 0, 0, 'link');
         $edit_img_link = $this->build_html_img_tag($edit_image, 0, 0, 0, 'edit');
         $view_url_lid  = RSSC_URL . '/single_link.php?lid=' . $lid;
@@ -114,17 +114,17 @@ class admin_link_list extends happy_linux_page_frame
     public function _get_linkfeed(&$obj)
     {
         $lid   = $obj->getVar('lid');
-        $lid_p = sprintf("%03d", $lid);
+        $lid_p = sprintf('%03d', $lid);
         $count = $this->_feed_handler->get_count_by_lid($lid);
 
         if ($count) {
             $name_feed = "FEED ($count)";
         } else {
-            $name_feed = "FEED";
+            $name_feed = 'FEED';
         }
 
-        $jump_rss  = "parse_rss.php?lid=" . $lid;
-        $jump_feed = "feed_list_lid.php?lid=" . $lid;
+        $jump_rss  = 'parse_rss.php?lid=' . $lid;
+        $jump_feed = 'feed_list_lid.php?lid=' . $lid;
         $href1     = $this->build_html_a_href_name($jump_rss, 'RSS');
         $href2     = $this->build_html_a_href_name($jump_feed, $name_feed);
 

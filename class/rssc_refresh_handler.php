@@ -534,7 +534,7 @@ if( !class_exists('rssc_refresh_handler') )
             $this->_set_log_func_name('_discover_rssurl');
 
             if (!$this->_rss_utility->discover($html_url, $sel)) {
-                $this->_set_errors("cannot discover xml link");
+                $this->_set_errors('cannot discover xml link');
                 $this->_set_errors($this->_rss_utility->getErrors());
                 return false;
             }

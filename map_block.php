@@ -33,7 +33,7 @@ $block = b_rssc_show_gmap( $options );
 
 echo "<html><head>\n";
 echo '<meta http-equiv="Content-Type" content="text/html; charset='. _CHARSET .'">'."\n";
-echo "<title>RSS map</title>";
+echo '<title>RSS map</title>';
 echo "</head>\n<body>\n";
 echo $block['map'] ;
 echo "</body></html>\n";

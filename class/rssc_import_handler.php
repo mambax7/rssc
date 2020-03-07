@@ -168,7 +168,7 @@ class rssc_import_handler extends happy_linux_error
     public function import_site_weblinks($site_url)
     {
         $this->_num++;
-        echo $this->_num . ": " . htmlspecialchars($site_url);
+        echo $this->_num . ': ' . htmlspecialchars($site_url);
 
         if ($this->_exist_url_in_rssc($site_url)) {
             echo " <b>skip</b> <br />\n";
@@ -227,7 +227,7 @@ class rssc_import_handler extends happy_linux_error
 
         $url = $site_url;
 
-        echo $this->_num . ": " . htmlspecialchars($url) . " <br />\n";
+        echo $this->_num . ': ' . htmlspecialchars($url) . " <br />\n";
 
         $black_obj =& $this->_black_handler->create();
 
@@ -261,7 +261,7 @@ class rssc_import_handler extends happy_linux_error
 
         $url = $site_url;
 
-        echo $this->_num . ": " . htmlspecialchars($url) . " <br />\n";
+        echo $this->_num . ': ' . htmlspecialchars($url) . " <br />\n";
 
         $white_obj =& $this->_white_handler->create();
 
@@ -336,7 +336,7 @@ class rssc_import_handler extends happy_linux_error
         $atom_url     = $orig_obj->get('atom_url');
         $orig_rss_url = $orig_obj->get('orig_rss_url');
 
-        echo $id . ": " . htmlspecialchars($title);
+        echo $id . ': ' . htmlspecialchars($title);
 
         // if exist same url
         if ($this->_exist_url($orig_rss_url)) {
@@ -387,7 +387,7 @@ class rssc_import_handler extends happy_linux_error
         $title = $weblinks_atomfeed_obj->get('title');
         $link  = $weblinks_atomfeed_obj->get('url');
 
-        echo $aid . ": " . htmlspecialchars($title);
+        echo $aid . ': ' . htmlspecialchars($title);
 
         if ($this->_exist_feed($link)) {
             echo " <b>skip</b> <br />\n";
@@ -554,11 +554,11 @@ class rssc_import_handler extends happy_linux_error
     public function build_form_next($title, $op, $submit, $offset = 0, $sub = 'Import')
     {
         $text = "<br /><hr />\n";
-        $text .= "<h4>" . $title . "</h4>\n";
+        $text .= '<h4>' . $title . "</h4>\n";
 
         if ($offset) {
             $next = $offset + $this->_LIMIT;
-            $text .= $sub . " " . $offset . " - " . $next . " th record<br />\n";
+            $text .= $sub . ' ' . $offset . ' - ' . $next . " th record<br />\n";
         }
 
         // show form

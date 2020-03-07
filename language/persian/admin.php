@@ -137,7 +137,7 @@ define('_AM_RSSC_CONF_RSS_MODE', 'Initial value of RSS mode');
 define('_AM_RSSC_CONF_XML_SAVE', 'ذخیره یXML');
 define('_AM_RSSC_CONF_XML_SAVE_DESC', 'اطلاعات XML را در جدول  لینک ذخیره میکند');
 define('_AM_RSSC_CONF_FUTURE_DAYS', 'روز های آینده');
-define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', "بعد از روز مشخص شده<br />تغذیه کننده ها را نمایش نده, اگر اطلاعات تغذیه کننده ها بیشتر از اطلاعات آن روز بود");
+define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', 'بعد از روز مشخص شده<br />تغذیه کننده ها را نمایش نده, اگر اطلاعات تغذیه کننده ها بیشتر از اطلاعات آن روز بود');
 
 // show configuration
 define('_AM_RSSC_CONF_SHOW_ORDER','سفارشی کردن برای نمایش');

@@ -216,7 +216,7 @@ public function __construct()
         //---------------------------------------------------------
     public function build_error_list(&$objs, $script)
         {
-            $msg = "<ul>";
+            $msg = '<ul>';
             foreach ($objs as $obj) {
                 $msg .= $this->_build_error_list_single($obj, $script);
             }
@@ -227,7 +227,7 @@ public function __construct()
         public function _build_error_list_single(&$obj, $script)
         {
             $sid   = $obj->get('sid');
-            $sid_s = sprintf("%03d", $sid);
+            $sid_s = sprintf('%03d', $sid);
             $url_l = $script . $sid;
 
             $text = '<li>';

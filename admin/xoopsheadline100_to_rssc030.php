@@ -117,19 +117,19 @@ class admin_import_xoopsheadline extends admin_import_base
 
         $next = $offset + $this->_LIMIT;
 
-        $table_xoopsheadline = $this->db_prefix("xoopsheadline");
+        $table_xoopsheadline = $this->db_prefix('xoopsheadline');
 
-        $sql1 = "SELECT count(*) FROM " . $table_xoopsheadline;
+        $sql1 = 'SELECT count(*) FROM ' . $table_xoopsheadline;
 
         $res1  =& $this->query($sql1);
         $row1  =& $this->_db->fetchRow($res1);
         $total = $row1[0];
 
-        echo "There are <b>" . $total . "</b> xoopsheadline in XoopsHeadline<br />\n";
-        echo "Transfer " . $offset . " - " . $next . " record <br /><br />\n";
+        echo 'There are <b>' . $total . "</b> xoopsheadline in XoopsHeadline<br />\n";
+        echo 'Transfer ' . $offset . ' - ' . $next . " record <br /><br />\n";
 
-        $sql2 = "SELECT * FROM " . $table_xoopsheadline;
-        $sql2 .= " ORDER BY headline_id";
+        $sql2 = 'SELECT * FROM ' . $table_xoopsheadline;
+        $sql2 .= ' ORDER BY headline_id';
         $res2 =& $this->query($sql2, $this->_LIMIT, $offset);
 
         while ($row2 = $this->_db->fetchArray($res2)) {
@@ -143,7 +143,7 @@ class admin_import_xoopsheadline extends admin_import_base
             $asblock   = $row2['headline_asblock'];
             $display   = $row2['headline_display'];
 
-            echo $id . ": " . htmlspecialchars($name);
+            echo $id . ': ' . htmlspecialchars($name);
 
             if ($this->_exist_url($url) || $this->_exist_url($rssurl)) {
                 echo " <b>skip</b> <br />\n";
@@ -212,7 +212,7 @@ $op = 'main';
 if ( isset($_POST['op']) )  $op = $_POST['op'];
 
 rssc_admin_print_bread( _AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'xoopshedline' );
-echo "<h3>"._AM_RSSC_IMPORT_XOOPSHEADLINE."</h3>\n";
+echo '<h3>' . _AM_RSSC_IMPORT_XOOPSHEADLINE . "</h3>\n";
 echo "Import DB xoopshedline 1.00 to rssc 0.30 <br /><br />\n";
 
 if( !$import->exist_module() ) 
@@ -224,10 +224,10 @@ if( !$import->exist_module() )
 
 switch ($op) 
 {
-case "import_xoopsheadline":
+case 'import_xoopsheadline':
 	if( !$import->check_token() ) 
 	{
-		xoops_error("Token Error");
+		xoops_error('Token Error');
 	}
 	else
 	{

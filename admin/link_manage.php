@@ -154,7 +154,7 @@ class admin_manage_link extends admin_manage_base
             $this->_print_cp_header();
             $this->_print_bread_op(_AM_RSSC_ADD_LINK, 'add_form', _RSSC_REFRESH_LINK);
             $this->_print_title(_AM_RSSC_ADD_LINK);
-            echo "<h4>" . _AM_RSSC_DBUPDATED . "</h4>\n";
+            echo '<h4>' . _AM_RSSC_DBUPDATED . "</h4>\n";
             $this->_form->show_refresh_link($this->_newid, 0);
 
             // BUG: dont show admin frame
@@ -255,7 +255,7 @@ class admin_manage_link extends admin_manage_base
             $this->_print_cp_header();
             $this->_print_bread_op(_AM_RSSC_MOD_LINK, 'mod_form', _RSSC_REFRESH_LINK);
             $this->_print_title(_AM_RSSC_MOD_LINK);
-            echo "<h3>" . _AM_RSSC_DBUPDATED . "</h3>\n";
+            echo '<h3>' . _AM_RSSC_DBUPDATED . "</h3>\n";
             $this->_form->show_refresh_link($this->_modid, 1);
 
             // BUG: dont show admin frame
@@ -413,7 +413,7 @@ class admin_manage_link extends admin_manage_base
 
         if ($this->_parse_result) {
             $time = $this->_TIME_FAILED;
-            $msg  .= "<br /><br />";
+            $msg  .= '<br /><br />';
             $msg  .= $this->_parse_result;
         }
 
@@ -478,7 +478,7 @@ class admin_manage_link extends admin_manage_base
         if (is_array($list) && count($list)) {
             $script = 'link_manage.php?op=mod_form&amp;lid=';
             $msg    = $this->_handler->build_error_rssurl_list($list, $script);
-            $err    = "<h4>" . _RSSC_LINK_ALREADY . "</h4>\n" . $msg;
+            $err    = '<h4>' . _RSSC_LINK_ALREADY . "</h4>\n" . $msg;
             $this->_set_error_extra($err);
             return false;
         }
@@ -546,7 +546,7 @@ class admin_form_link extends happy_linux_form_lib
     public $_CENSOR_COLS = 50;
 
     // icon
-    public $_DIR_ICON_REL = "images/icons";
+    public $_DIR_ICON_REL = 'images/icons';
     public $_IMG_ID_ICON  = 'rssc_img_icon';
     public $_DIR_ICON;
     public $_URL_ICON;
@@ -945,11 +945,11 @@ EOF;
         $name    = $module->getVar('name', 'n');
 
         $match = null;
-        if (preg_match("/^rssc_headline/", $dirname)) {
+        if (preg_match('/^rssc_headline/', $dirname)) {
             $match = 'rssc_headline';
-        } elseif (preg_match("/^rssc/", $dirname)) {
+        } elseif (preg_match('/^rssc/', $dirname)) {
             $match = 'rssc';
-        } elseif (preg_match("/^weblinks/", $dirname)) {
+        } elseif (preg_match('/^weblinks/', $dirname)) {
             $match = 'weblinks';
         }
 
@@ -982,7 +982,7 @@ EOF;
         $title_s = $obj->getVar('title', 's');
         $channel = $obj->get_channel();
 
-        echo "<h4>" . $title_s . "</h4>\n";
+        echo '<h4>' . $title_s . "</h4>\n";
         echo $this->build_form_table_by_array($channel);
         echo "<br />\n";
         echo $this->build_form_button_close_style();

@@ -42,7 +42,7 @@ $latest = $tpl->fetch( $tmplate );
 
 echo "<html><head>\n";
 echo '<meta http-equiv="Content-Type" content="text/html; charset='. _CHARSET .'">'."\n";
-echo "<title>RSS headline</title>";
+echo '<title>RSS headline</title>';
 echo "</head>\n<body>\n";
 echo $latest;
 echo "</body></html>\n";

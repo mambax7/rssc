@@ -67,8 +67,8 @@ if( !class_exists('rssc_config_handler') )
 
         public function add_column_table_040()
         {
-            $sql = "
-  ALTER TABLE " . $this->_table . " ADD COLUMN (
+            $sql = '
+  ALTER TABLE ' . $this->_table . " ADD COLUMN (
   conf_valuetype varchar(255) NOT NULL default ''
 )";
 

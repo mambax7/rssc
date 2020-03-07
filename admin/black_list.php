@@ -64,7 +64,7 @@ class admin_list_black extends admin_list_black_white
     {
         $jump = 'black_manage.php?op=mod_form&amp;bid=';
 
-        $jump_feed = "feed_list_bid.php?bid=" . $obj->get('bid');
+        $jump_feed = 'feed_list_bid.php?bid=' . $obj->get('bid');
         $name_feed = $this->_get_name_feed($obj);
 
         $arr = [

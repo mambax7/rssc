@@ -221,7 +221,7 @@ class admin_list_word extends happy_linux_page_frame
                 break;
         }
 
-        echo "<h4>" . _AM_RSSC_LIST_WORD . "</h4>\n";
+        echo '<h4>' . _AM_RSSC_LIST_WORD . "</h4>\n";
         printf(_RSSC_THEREARE, $this->_get_total_all());
         echo "<br /><br />\n";
 
@@ -237,7 +237,7 @@ class admin_list_word extends happy_linux_page_frame
         echo "<li><a href='?sortid=7'>" . _AM_RSSC_WORD_DESC . "</a></li>\n";
         echo "</td></tr></table>\n";
 
-        echo "<h4>" . $title . "</h4>\n";
+        echo '<h4>' . $title . "</h4>\n";
 
         $this->_print_search_form($found);
         echo $found . "<br />\n";
@@ -245,7 +245,7 @@ class admin_list_word extends happy_linux_page_frame
 
     public function _build_page_submit()
     {
-        $text = "<tr>";
+        $text = '<tr>';
         $text .= $this->_build_page_col_submit('del_all', _DELETE, 2);
         $text .= $this->_build_page_col_submit('mod_all', _EDIT, 3);
         $text .= "</tr>\n";

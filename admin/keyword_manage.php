@@ -169,7 +169,7 @@ class admin_manage_keyword extends admin_manage_base
     {
         $this->_print_cp_header();
         $this->_print_bread_op(_AM_RSSC_ADD_KEYWORD, 'add_form');
-        xoops_error("DB Error");
+        xoops_error('DB Error');
         $this->_print_error(1);
         $this->_print_cp_footer();
     }

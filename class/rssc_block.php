@@ -721,7 +721,7 @@ if( !class_exists('rssc_block') )
             if (strlen($str) > 0) {
                 return $str;
             }
-            return "---";
+            return '---';
         }
 
     public function build_date($mode)

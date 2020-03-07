@@ -60,9 +60,9 @@ if( !class_exists('rssc_white_basic_handler') )
         //---------------------------------------------------------
         public function &get_rows_act($limit = 0, $offset = 0)
         {
-            $sql  = "SELECT * FROM " . $this->_table;
+            $sql  = 'SELECT * FROM ' . $this->_table;
             $sql  .= " WHERE act=1 AND url<>'' ";
-            $sql  .= " ORDER BY wid ASC";
+            $sql  .= ' ORDER BY wid ASC';
             $rows =& $this->get_rows_by_sql($sql, $limit, $offset);
             return $rows;
         }

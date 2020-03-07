@@ -78,7 +78,7 @@ if( !class_exists('rssc_link_exist_handler') )
                 } else {
                     // cannot discover xml link
                     $ret_code = RSSC_CODE_DISCOVER_FAILED;
-                    $this->_set_errors("cannot discover xml link");
+                    $this->_set_errors('cannot discover xml link');
                     $this->_set_errors($this->_xml_utility->getErrors());
                 }
             }
@@ -112,7 +112,7 @@ if( !class_exists('rssc_link_exist_handler') )
         {
             $msg = '';
             if (is_array($list) && (count($list) > 0)) {
-                $msg = "<ul>";
+                $msg = '<ul>';
 
                 foreach ($list as $lid) {
                     $msg .= $this->_build_error_rssurl_list_single($lid, $script);
@@ -131,7 +131,7 @@ if( !class_exists('rssc_link_exist_handler') )
                 return '';
             }
 
-            $lid_p   = sprintf("%03d", $lid);
+            $lid_p   = sprintf('%03d', $lid);
             $url_l   = $script . $lid;
             $title_s = $obj->getVar('title');
             $url_s   = $obj->getVar('url');

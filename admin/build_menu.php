@@ -32,7 +32,7 @@ if ($op == 'rss_cache_clear')
 	else
 	{
 		$config_store->rss_cache_clear();
-		redirect_header("build_menu.php", 1, _HAPPY_LINUX_CLEARED );
+		redirect_header('build_menu.php', 1, _HAPPY_LINUX_CLEARED );
 	}
 }
 else
@@ -45,7 +45,7 @@ rssc_admin_print_menu();
 
 admin_print_build_menu();
 
-echo "<h4>"._HAPPY_LINUX_CONF_RSS_CACHE_CLEAR."</h4>\n";
+echo '<h4>' . _HAPPY_LINUX_CONF_RSS_CACHE_CLEAR . "</h4>\n";
 $config_form->show_form_rss_cache_clear( _HAPPY_LINUX_CONF_RSS_CACHE_CLEAR );
 
 rssc_admin_print_footer();
@@ -57,7 +57,7 @@ exit();
 function admin_print_build_menu()
 {
 
-echo "<h3>". _HAPPY_LINUX_CONF_RSS_MANAGE. "</h3>\n";
+echo '<h3>' . _HAPPY_LINUX_CONF_RSS_MANAGE . "</h3>\n";
 echo _HAPPY_LINUX_CONF_RSS_MANAGE_DESC. "<br /><br />\n";
 echo "<ul>\n";
 echo '<li><a href="build_rss.php?mode=rdf" target="_blank">';

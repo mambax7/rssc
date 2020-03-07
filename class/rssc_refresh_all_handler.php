@@ -288,7 +288,7 @@ if( !class_exists('rssc_refresh_all_handler') )
         {
             $time_now = $this->_get_time_now();
 
-            $text = _AM_RSSC_TIME_START . " " . $time_now . "<br /><br />\n";
+            $text = _AM_RSSC_TIME_START . ' ' . $time_now . "<br /><br />\n";
             return $text;
         }
 
@@ -314,33 +314,33 @@ if( !class_exists('rssc_refresh_all_handler') )
                 $link_broken = $this->_count_broken;
             }
 
-            $text .= _AM_RSSC_TIME_END . " " . $time_now . "<br /><br />\n";
-            $text .= "<table><tr>";
-            $text .= "<tr><td>" . _AM_RSSC_NUM_LINK_TOTAL . "</td>";
+            $text .= _AM_RSSC_TIME_END . ' ' . $time_now . "<br /><br />\n";
+            $text .= '<table><tr>';
+            $text .= '<tr><td>' . _AM_RSSC_NUM_LINK_TOTAL . '</td>';
             $text .= "<td>$this->_total_link " . _AM_RSSC_NUM_LINKS . "</td></tr>\n";
-            $text .= "<tr><td>" . _AM_RSSC_NUM_LINK_TARGET . "</td>";
+            $text .= '<tr><td>' . _AM_RSSC_NUM_LINK_TARGET . '</td>';
 
             if ($this->_lid_start) {
-                $text .= "<td>$this->_num_refresh " . _AM_RSSC_NUM_LINKS . " ( " . _RSSC_LINK_ID . " $this->_lid_start - $this->_lid_end )</td></tr>\n";
+                $text .= "<td>$this->_num_refresh " . _AM_RSSC_NUM_LINKS . ' ( ' . _RSSC_LINK_ID . " $this->_lid_start - $this->_lid_end )</td></tr>\n";
             } else {
                 $text .= "<td>$this->_num_refresh " . _AM_RSSC_NUM_LINKS . "</td></tr>\n";
             }
 
-            $text .= "<tr><td>" . _AM_RSSC_NUM_LINK_BROKEN . "</td>";
+            $text .= '<tr><td>' . _AM_RSSC_NUM_LINK_BROKEN . '</td>';
             $text .= "<td>$link_broken " . _AM_RSSC_NUM_LINKS . "</td></tr>\n";
-            $text .= "<tr><td>" . _AM_RSSC_NUM_LINK_UPDATED . "</td>";
+            $text .= '<tr><td>' . _AM_RSSC_NUM_LINK_UPDATED . '</td>';
             $text .= "<td>$this->_count_link " . _AM_RSSC_NUM_LINKS . "</td></tr>\n";
-            $text .= "<tr><td>" . _AM_RSSC_NUM_FEED_ALL . "</td>";
+            $text .= '<tr><td>' . _AM_RSSC_NUM_FEED_ALL . '</td>';
             $text .= "<td>$this->_count_all " . _AM_RSSC_NUM_FEEDS . "</td></tr>\n";
-            $text .= "<tr><td>" . _AM_RSSC_NUM_FEED_SKIP . "</td>";
+            $text .= '<tr><td>' . _AM_RSSC_NUM_FEED_SKIP . '</td>';
             $text .= "<td>$this->_count_skip " . _AM_RSSC_NUM_FEEDS . "</td></tr>\n";
-            $text .= "<tr><td>" . _AM_RSSC_NUM_FEED_REJECT . "</td>";
+            $text .= '<tr><td>' . _AM_RSSC_NUM_FEED_REJECT . '</td>';
             $text .= "<td>$this->_count_reject " . _AM_RSSC_NUM_FEEDS . "</td></tr>\n";
-            $text .= "<tr><td>" . _AM_RSSC_NUM_FEED_UPDATED . "</td>";
+            $text .= '<tr><td>' . _AM_RSSC_NUM_FEED_UPDATED . '</td>';
             $text .= "<td>$this->_count_update " . _AM_RSSC_NUM_FEEDS . "</td></tr>\n";
-            $text .= "<tr><td>" . _AM_RSSC_NUM_FEED_CLEARED . "</td>";
+            $text .= '<tr><td>' . _AM_RSSC_NUM_FEED_CLEARED . '</td>';
             $text .= "<td>$this->_num_feed_cleared " . _AM_RSSC_NUM_FEEDS . "</td></tr>\n";
-            $text .= "<tr><td>" . _AM_RSSC_TIME_ELAPSE . "</td>";
+            $text .= '<tr><td>' . _AM_RSSC_TIME_ELAPSE . '</td>';
             $text .= "<td>$time_elapse</td></tr>\n";
             $text .= "</table>\n";
 
@@ -351,9 +351,9 @@ if( !class_exists('rssc_refresh_all_handler') )
         {
             $text = "<br />\n";
             $text .= "<table border='1'><tr>";
-            $text .= "<th align='center'>" . _RSSC_LINK_ID . "</th>";
-            $text .= "<th align='center'>" . _RSSC_SITE_TITLE . "</th>";
-            $text .= "<th align='center'>" . _RSSC_RSS_URL . "</th>";
+            $text .= "<th align='center'>" . _RSSC_LINK_ID . '</th>';
+            $text .= "<th align='center'>" . _RSSC_SITE_TITLE . '</th>';
+            $text .= "<th align='center'>" . _RSSC_RSS_URL . '</th>';
             $text .= "</tr>\n";
 
             return $text;
@@ -361,17 +361,17 @@ if( !class_exists('rssc_refresh_all_handler') )
 
     public function _get_text_table_line($lid, $title, $url)
         {
-            $link_id = sprintf("%03d", $lid);
-            $jump    = XOOPS_URL . '/modules/' . $this->_DIRNAME . "/admin/link_manage.php?op=mod_form&amp;lid=" . $lid;
+            $link_id = sprintf('%03d', $lid);
+            $jump    = XOOPS_URL . '/modules/' . $this->_DIRNAME . '/admin/link_manage.php?op=mod_form&amp;lid=' . $lid;
 
             $title_html = $this->_sanitize_html_text($title);
             $href1      = $this->_make_html_url($jump, $link_id);
             $href2      = $this->_make_html_url($url);
 
-            $text = "<tr>";
-            $text .= "<td>" . $href1 . "</td>";
-            $text .= "<td>" . $title_html . "</td>";
-            $text .= "<td>" . $href2 . "</td>";
+            $text = '<tr>';
+            $text .= '<td>' . $href1 . '</td>';
+            $text .= '<td>' . $title_html . '</td>';
+            $text .= '<td>' . $href2 . '</td>';
             $text .= "</tr>\n";
 
             return $text;
@@ -379,7 +379,7 @@ if( !class_exists('rssc_refresh_all_handler') )
 
     public function _get_text_title()
         {
-            $text = "<h4>" . _AM_RSSC_REFRESH . "</h4>\n";
+            $text = '<h4>' . _AM_RSSC_REFRESH . "</h4>\n";
             return $text;
         }
 
@@ -422,7 +422,7 @@ if( !class_exists('rssc_refresh_all_handler') )
     public function _sanitize_html_text($text)
         {
             $text = htmlspecialchars($text, ENT_QUOTES);
-            $text = preg_replace("/&amp;/i", '&', $text);
+            $text = preg_replace('/&amp;/i', '&', $text);
             return $text;
         }
 
@@ -439,7 +439,7 @@ if( !class_exists('rssc_refresh_all_handler') )
         //---------------------------------------------------------
     public function _get_time_now()
         {
-            $time = date("Y-m-d H:i:s");
+            $time = date('Y-m-d H:i:s');
             return $time;
         }
 

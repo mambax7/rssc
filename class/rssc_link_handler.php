@@ -445,7 +445,7 @@ public function &get_enclosure_option()
         {
             $msg = null;
             if (is_array($list) && (count($list) > 0)) {
-                $msg = "<ul>";
+                $msg = '<ul>';
 
                 foreach ($list as $lid) {
                     $msg .= $this->_build_error_rssurl_list_single($lid, $script);
@@ -461,7 +461,7 @@ public function &get_enclosure_option()
             $text = null;
             $obj  = $this->getCache($lid);
             if (is_object($obj)) {
-                $lid_s   = sprintf("%03d", $lid);
+                $lid_s   = sprintf('%03d', $lid);
                 $url_l   = $script . $lid;
                 $title_s = $obj->getVar('title');
                 $url_s   = $obj->getVar('url');

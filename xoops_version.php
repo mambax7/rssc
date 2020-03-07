@@ -28,7 +28,7 @@ $RSSC_DIRNAME = basename( dirname( __FILE__ ) );
 $RSSC_MODULE_ROOT = XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME;
 $RSSC_MODULE_URL  = XOOPS_URL.'/modules/'.$RSSC_DIRNAME;
 
-if( ! preg_match( '/^(\D+)(\d*)$/' , $RSSC_DIRNAME , $regs ) ) echo ( "invalid dirname: " . htmlspecialchars( $RSSC_DIRNAME ) ) ;
+if( ! preg_match( '/^(\D+)(\d*)$/' , $RSSC_DIRNAME , $regs ) ) echo ('invalid dirname: ' . htmlspecialchars($RSSC_DIRNAME ) ) ;
 $RSSC_NUMBER = $regs[2] === '' ? '' : intval( $regs[2] ) ;
 
 include_once $RSSC_MODULE_ROOT.'/include/rssc_version.php';
