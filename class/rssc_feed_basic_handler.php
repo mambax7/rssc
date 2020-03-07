@@ -53,7 +53,7 @@ class rssc_feed_basic extends happy_linux_basic
 //---------------------------------------------------------
 public function __construct()
 {
-	$this->happy_linux_basic();
+	parent::__construct();
 
 	$this->init();
 }
@@ -203,7 +203,7 @@ public function subsutute_date()
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_basic_handler($dirname);
+            parent::__construct($dirname);
 
             $this->set_table_name('feed');
             $this->set_id_name('fid');

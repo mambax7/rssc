@@ -54,8 +54,8 @@ include_once RSSC_ROOT_PATH.'/class/rssc_view_handler.php';
 $headline_handler =& rssc_get_handler( 'headline',     RSSC_DIRNAME );
 $view_handler     =& rssc_get_handler( 'view',         RSSC_DIRNAME );
 $conf_handler     =& rssc_get_handler( 'config_basic', RSSC_DIRNAME );
-$post             =& happy_linux_post::getInstance();
-$pagenavi         =& happy_linux_pagenavi::getInstance();
+$post             = happy_linux_post::getInstance();
+$pagenavi         = happy_linux_pagenavi::getInstance();
 $map_class        =& rssc_map::getInstance( RSSC_DIRNAME );
 
 // --- template start ---

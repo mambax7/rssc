@@ -24,22 +24,23 @@ class rssc_xoopsheadline_handler extends happy_linux_basic_handler
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_basic_handler($this->_DIRNAME_XOOPSHEADLINE);
+        parent::__construct($this->_DIRNAME_XOOPSHEADLINE);
         $this->set_table_full($this->db_prefix('xoopsheadline'));
         $this->set_id_name('headline_id');
         $this->set_debug_db_error(1);
 
-        $system           =& happy_linux_system::getInstance();
+        $system           = happy_linux_system::getInstance();
         $this->system_uid = $system->get_uid();
         $this->_mid_orig  = $system->get_mid_by_dirname($this->_DIRNAME_XOOPSHEADLINE);
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new rssc_xoopsheadline_handler();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

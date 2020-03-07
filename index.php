@@ -53,7 +53,7 @@ include_once RSSC_ROOT_PATH.'/class/rssc_icon.php';
 
 $search_handler =& rssc_get_handler( 'search',       RSSC_DIRNAME );
 $conf_handler   =& rssc_get_handler( 'config_basic', RSSC_DIRNAME );
-$pagenavi       =& happy_linux_pagenavi::getInstance();
+$pagenavi       = happy_linux_pagenavi::getInstance();
 $icon_class     =& rssc_icon::getInstance();
 $map_class      =& rssc_map::getInstance( RSSC_DIRNAME );
 

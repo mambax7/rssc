@@ -37,7 +37,7 @@ if( !class_exists('rssc_headline_handler') )
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_error();
+            parent::__construct();
 
             // handler
             $this->_link_handler    =& rssc_get_handler('link_basic', $dirname);

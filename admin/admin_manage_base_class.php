@@ -38,7 +38,7 @@ class admin_manage_base extends happy_linux_manage
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_manage(RSSC_DIRNAME);
+        parent::__construct(RSSC_DIRNAME);
 
         $this->set_list_id_name('rssclist_id');
 
@@ -46,16 +46,17 @@ class admin_manage_base extends happy_linux_manage
         $this->_feed_handler =& rssc_get_handler('feed', RSSC_DIRNAME);
 
         // class
-        $this->_strings =& happy_linux_strings::getInstance();
-        $this->_system  =& happy_linux_system::getInstance();
+        $this->_strings = happy_linux_strings::getInstance();
+        $this->_system  = happy_linux_system::getInstance();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_manage_base();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

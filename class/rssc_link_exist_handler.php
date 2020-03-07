@@ -39,7 +39,7 @@ if( !class_exists('rssc_link_exist_handler') )
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_error();
+            parent::__construct();
 
             // class instance
             $this->_link_handler =& rssc_get_handler('link', $dirname);

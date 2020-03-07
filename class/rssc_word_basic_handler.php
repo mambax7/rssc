@@ -24,7 +24,7 @@ if( !class_exists('rssc_word_basic_handler') )
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_basic_handler($dirname);
+            parent::__construct($dirname);
 
             $this->set_table_name('word');
             $this->set_id_name('sid');

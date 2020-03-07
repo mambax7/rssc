@@ -41,18 +41,18 @@ class rssc_link_basic extends happy_linux_basic
 //---------------------------------------------------------
 public function __construct()
 {
-	$this->happy_linux_basic();
+	parent::__construct();
 }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new rssc_link_basic();
-	}
-	return $instance;
-}
+    public static function getInstance()
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new static();
+        }
+
+        return $instance;
+    }
 
 //---------------------------------------------------------
 // show
@@ -202,7 +202,7 @@ public function &get_channel()
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_basic_handler($dirname);
+            parent::__construct($dirname);
 
             $this->set_table_name('link');
             $this->set_id_name('lid');

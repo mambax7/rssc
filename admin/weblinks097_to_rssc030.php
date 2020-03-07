@@ -61,16 +61,15 @@ function admin_import_weblinks()
 	$this->get_mid();
 }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_import_weblinks();
-	}
+    public static function getInstance()
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new static();
+        }
 
-	return $instance;
-}
+        return $instance;
+    }
 
 //=========================================================
 // import from weblinks

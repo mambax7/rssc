@@ -29,7 +29,7 @@ class rssc_xml_basic extends happy_linux_basic
 //---------------------------------------------------------
 public function __construct()
 {
-	$this->happy_linux_basic();
+	parent::__construct();
 
 	$this->init();
 }
@@ -69,7 +69,7 @@ public function init()
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_basic_handler($dirname);
+            parent::__construct($dirname);
 
             $this->set_table_name('xml');
             $this->set_id_name('lid');

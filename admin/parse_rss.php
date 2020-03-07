@@ -67,16 +67,16 @@ class admin_parse_rss extends happy_linux_error
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_error();
+        parent::__construct();
 
         $this->_conf_handler       =& rssc_get_handler('config_basic', RSSC_DIRNAME);
         $this->_link_basic_handler =& rssc_get_handler('link_basic', RSSC_DIRNAME);
         $this->_xml_basic_handler  =& rssc_get_handler('xml_basic', RSSC_DIRNAME);
         $this->_refresh_handler    =& rssc_get_handler('refresh', RSSC_DIRNAME);
         $this->_view_handler       =& rssc_get_handler('view', RSSC_DIRNAME);
-        $this->_parser             =& happy_linux_rss_parser::getInstance();
-        $this->_utility            =& happy_linux_rss_utility::getInstance();
-        $this->_post               =& happy_linux_post::getInstance();
+        $this->_parser             = happy_linux_rss_parser::getInstance();
+        $this->_utility            = happy_linux_rss_utility::getInstance();
+        $this->_post               = happy_linux_post::getInstance();
         $this->_form               =& admin_form_rss::getInstance();
 
         $this->TEMPLATE_RDF  = RSSC_ROOT_PATH . '/templates/xml/rssc_view_rdf.html';
@@ -84,11 +84,11 @@ class admin_parse_rss extends happy_linux_error
         $this->TEMPLATE_ATOM = RSSC_ROOT_PATH . '/templates/xml/rssc_view_atom.html';
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_parse_rss();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;
@@ -410,17 +410,18 @@ class admin_form_rss extends happy_linux_form
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_form();
+        parent::__construct();
 
         $this->_link_handler =& rssc_get_handler('link', RSSC_DIRNAME);
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_rss();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

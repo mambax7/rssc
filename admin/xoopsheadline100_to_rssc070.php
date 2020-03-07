@@ -46,12 +46,13 @@ class admin_import_xoopsheadline extends rssc_import_handler
         $this->_xoopsheadline_handler =& rssc_xoopsheadline_handler::getInstance($this->_DIRNAME_XOOPSHEADLINE);
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_import_xoopsheadline();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

@@ -24,14 +24,14 @@ if( !class_exists('rssc_error') )
         //---------------------------------------------------------
         public function __construct()
         {
-            $this->happy_linux_error();
+            parent::__construct();
         }
 
-        public static function &getInstance()
+        public static function getInstance()
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new rssc_error();
+            if (null === $instance) {
+                $instance = new static();
             }
 
             return $instance;

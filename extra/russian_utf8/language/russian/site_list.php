@@ -51,12 +51,13 @@ if( !class_exists('rssc_site_list') )
             // dummy
         }
 
-        public static function &getInstance()
+        public static function getInstance()
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new rssc_site_list();
+            if (null === $instance) {
+                $instance = new static();
             }
+
             return $instance;
         }
 

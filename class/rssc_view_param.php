@@ -88,15 +88,15 @@ if( !class_exists('rssc_view_param') )
             $this->_MODULE_URL = XOOPS_URL . '/modules/' . $dirname;
             $this->_MODULE_DIR = XOOPS_ROOT_PATH . '/modules/' . $dirname;
 
-            $this->happy_linux_rss_viewer();
+            parent::__construct();
 
             // handler
             $this->_config_handler =& rssc_get_handler('config_basic', $dirname);
             $this->_link_handler   =& rssc_get_handler('link_basic', $dirname);
             $this->_feed_handler   =& rssc_get_handler('feed_basic', $dirname);
             $this->_plugin         =& rssc_plugin::getInstance($dirname);
-            $this->_system         =& happy_linux_system::getInstance();
-            $this->_image_class    =& happy_linux_image_size::getInstance();
+            $this->_system         = happy_linux_system::getInstance();
+            $this->_image_class    = happy_linux_image_size::getInstance();
         }
 
         public static function &getInstance($dirname)

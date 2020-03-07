@@ -22,7 +22,7 @@ include 'admin_header.php';
 include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/config_file.php';
 
 $conf_handler =& rssc_get_handler('config_basic', RSSC_DIRNAME);
-$config_file  =& happy_linux_config_file::getInstance();
+$config_file  = happy_linux_config_file::getInstance();
 
 $DIR_CONFIG  = RSSC_ROOT_PATH.'/cache';
 $FILE_CONFIG = $DIR_CONFIG.'/config.php';

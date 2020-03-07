@@ -37,7 +37,7 @@ class bin_refresh extends happy_linux_bin_base
     //---------------------------------------------------------
     public function __construct($dirname)
     {
-        $this->happy_linux_bin_base($dirname);
+        parent::__construct($dirname);
         $this->set_mailer($this->_MAILER);
         $this->set_filename('modules/' . $dirname . '/' . $this->_FILENAME_RESULT);
 

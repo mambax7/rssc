@@ -34,12 +34,13 @@ class admin_feed_list_wid extends admin_feed_list
         $this->_white_handler =& rssc_get_handler('white', RSSC_DIRNAME);
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_feed_list_wid();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

@@ -66,7 +66,7 @@ class rssc_feed extends happy_linux_object
 //---------------------------------------------------------
 public function __construct()
 {
-	$this->happy_linux_object();
+	parent::__construct();
 
 	$this->initVar('fid', XOBJ_DTYPE_INT, null, false);
 	$this->initVar('lid', XOBJ_DTYPE_INT, 0, false);
@@ -163,13 +163,13 @@ public function get_act_option()
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_object_handler($dirname, 'feed', 'fid', 'rssc_feed');
+            parent::__construct($dirname, 'feed', 'fid', 'rssc_feed');
 
             $this->set_debug_db_sql(RSSC_DEBUG_FEED_SQL);
             $this->set_debug_db_error(RSSC_DEBUG_ERROR);
 
             // class
-            $this->_strings =& happy_linux_strings::getInstance();
+            $this->_strings = happy_linux_strings::getInstance();
         }
 
         //=========================================================

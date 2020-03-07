@@ -48,12 +48,13 @@ class admin_list_black extends admin_list_black_white
         $this->_TITLE_ID_BW = _RSSC_BLACK_ID;
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_list_black();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

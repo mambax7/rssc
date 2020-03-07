@@ -64,7 +64,7 @@ class admin_config_form extends happy_linux_config_form
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_config_form();
+        parent::__construct();
 
         $define =& rssc_config_define::getInstance();
         $this->set_config_handler('config', RSSC_DIRNAME, 'rssc');
@@ -76,12 +76,13 @@ class admin_config_form extends happy_linux_config_form
         $this->load();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_config_form();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -140,7 +141,7 @@ class admin_config_form extends happy_linux_config_form
     //---------------------------------------------------------
     public function print_executable_kakasi()
     {
-        $kakasi      =& happy_linux_kakasi::getInstance();
+        $kakasi      = happy_linux_kakasi::getInstance();
         $kakasi_path = $this->_config_define_handler->get_by_name('kakasi_path', 'value');
 
         if ($kakasi->is_executable_kakasi($kakasi_path)) {
@@ -226,22 +227,22 @@ class admin_config_store extends happy_linux_error
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_error();
+        parent::__construct();
 
         // config_store_handler
-        $define               =& rssc_config_define::getInstance();
-        $this->_store_handler =& happy_linux_config_store_handler::getInstance();
+        $define               = rssc_config_define::getInstance();
+        $this->_store_handler = happy_linux_config_store_handler::getInstance();
         $this->_store_handler->set_handler('config', RSSC_DIRNAME, 'rssc');
         $this->_store_handler->set_define($define);
 
         $this->_install =& rssc_install::getInstance(RSSC_DIRNAME);
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_config_store();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;

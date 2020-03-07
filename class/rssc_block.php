@@ -44,12 +44,13 @@ if( !class_exists('rssc_block') )
             $this->_is_japanese = happy_linux_is_japanese();
         }
 
-        public static function &getInstance()
+        public static function getInstance()
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new rssc_block();
+            if (null === $instance) {
+                $instance = new static();
             }
+
             return $instance;
         }
 

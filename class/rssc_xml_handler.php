@@ -33,7 +33,7 @@ class rssc_xml extends happy_linux_object
 //---------------------------------------------------------
 public function __construct()
 {
-	$this->happy_linux_object();
+	parent::__construct();
 
 	$this->initVar('xid', XOBJ_DTYPE_INT, null, false);
 	$this->initVar('lid', XOBJ_DTYPE_INT, 0, false);
@@ -77,7 +77,7 @@ public function get_rawurldecode_xml()
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_object_handler($dirname, 'xml', 'lid', 'rssc_xml');
+            parent::__construct($dirname, 'xml', 'lid', 'rssc_xml');
 
             $this->set_debug_db_sql(RSSC_DEBUG_XML_SQL);
             $this->set_debug_db_error(RSSC_DEBUG_ERROR);

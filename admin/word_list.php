@@ -40,7 +40,7 @@ class admin_list_word extends happy_linux_page_frame
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_page_frame();
+        parent::__construct();
 
         $this->set_handler('word', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('sid');
@@ -56,15 +56,16 @@ class admin_list_word extends happy_linux_page_frame
         $this->set_flag_print_navi_pre(true);
         $this->set_flag_execute_time(true);
 
-        $this->_post =& happy_linux_post::getInstance();
+        $this->_post = happy_linux_post::getInstance();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_list_word();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -282,17 +283,18 @@ class admin_word_search_form extends happy_linux_form
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_form();
+        parent::__construct();
 
-        $this->_post =& happy_linux_post::getInstance();
+        $this->_post = happy_linux_post::getInstance();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_word_search_form();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

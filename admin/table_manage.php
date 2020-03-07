@@ -46,12 +46,13 @@ class admin_table_manage extends happy_linux_table_manage
         $this->_link_handler =& rssc_get_handler('link', RSSC_DIRNAME);
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_table_manage();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

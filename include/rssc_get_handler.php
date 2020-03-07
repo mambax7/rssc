@@ -18,7 +18,7 @@ if( !function_exists( 'rssc_get_handler' ) )
 
 function &rssc_get_handler($name=null, $module_dir=null)
 {
-	$ret =& happy_linux_get_handler($name, $module_dir, 'rssc');
+	$ret = happy_linux_get_handler($name, $module_dir, 'rssc');
 	return $ret;
 }
 

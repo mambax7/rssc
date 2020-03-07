@@ -25,7 +25,7 @@ class rssc_plugin_list
     {
         $this->_DIRNAME = $dirname;
 
-        $this->_system =& happy_linux_system::getInstance();
+        $this->_system = happy_linux_system::getInstance();
         $this->_plugin =& rssc_plugin::getInstance($dirname);
     }
 

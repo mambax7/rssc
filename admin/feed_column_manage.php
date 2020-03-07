@@ -49,21 +49,22 @@ class admin_feed_column_manage extends happy_linux_error
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_error();
+        parent::__construct();
 
-        $this->_feed_basic_handler =& rssc_get_handler('feed_basic', RSSC_DIRNAME);
-        $this->_post_class         =& happy_linux_post::getInstance();
+        $this->_feed_basic_handler = rssc_get_handler('feed_basic', RSSC_DIRNAME);
+        $this->_post_class         = happy_linux_post::getInstance();
         $this->_form_class         =& admin_form_feed_column::getInstance();
 
         $this->_THIS_URL = RSSC_URL . '/admin/feed_column_manage.php';
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_feed_column_manage();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -174,15 +175,16 @@ class admin_form_feed_column extends happy_linux_form
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_form();
+        parent::__construct();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_feed_column();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

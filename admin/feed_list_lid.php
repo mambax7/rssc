@@ -33,12 +33,13 @@ class admin_feed_list_lid extends admin_feed_list
         $this->_link_handler =& rssc_get_handler('link', RSSC_DIRNAME);
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_feed_list_lid();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

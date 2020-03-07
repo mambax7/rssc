@@ -25,20 +25,20 @@ function admin_plugin_list()
 {
 	$this->_plugin =& rssc_plugin::getInstance( RSSC_DIRNAME );
 
-	$this->_post  =& happy_linux_post::getInstance();
+	$this->_post  = happy_linux_post::getInstance();
 	$this->_test  =& admin_plugin_test::getInstance();
 	$this->_form  =& admin_form_plugin_test::getInstance();
 }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_plugin_list();
-	}
-	return $instance;
-}
+    public static function getInstance()
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new static();
+        }
+
+        return $instance;
+    }
 
 //---------------------------------------------------------
 // post
@@ -105,19 +105,19 @@ class admin_plugin_test
 function admin_plugin_test()
 {
 	$this->_plugin =& rssc_plugin::getInstance( RSSC_DIRNAME );
-	$this->_post   =& happy_linux_post::getInstance();
+	$this->_post   = happy_linux_post::getInstance();
 	$this->_form   =& admin_form_plugin_test::getInstance();
 }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_plugin_test();
-	}
-	return $instance;
-}
+    public static function getInstance()
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new static();
+        }
+
+        return $instance;
+    }
 
 //---------------------------------------------------------
 // excute
@@ -218,20 +218,20 @@ class admin_form_plugin_test extends happy_linux_form_lib
 //---------------------------------------------------------
 function admin_form_plugin_test()
 {
-	$this->happy_linux_form_lib();
+	parent::__construct();
 
-	$this->_post =& happy_linux_post::getInstance();
+	$this->_post = happy_linux_post::getInstance();
 }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_form_plugin_test();
-	}
-	return $instance;
-}
+    public static function getInstance()
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new static();
+        }
+
+        return $instance;
+    }
 
 //---------------------------------------------------------
 // show form

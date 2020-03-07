@@ -54,7 +54,7 @@ if( ! class_exists('rssc_install') )
         {
             $this->_DIRNAME = $dirname;
 
-            $this->happy_linux_module_install();
+            parent::__construct();
             $this->set_config_define_class(rssc_config_define::getInstance($dirname));
             $this->set_config_table_name($dirname . '_config');
 

@@ -33,7 +33,7 @@ if( !class_exists('rssc_config_handler') )
         //---------------------------------------------------------
         public function __construct()
         {
-            $this->happy_linux_config_base();
+            parent::__construct();
         }
 
         // --- class end ---
@@ -50,7 +50,7 @@ if( !class_exists('rssc_config_handler') )
         //---------------------------------------------------------
         public function __construct($dirname)
         {
-            $this->happy_linux_config_base_handler($dirname, 'config', 'conf_id', 'rssc_config');
+            parent::__construct($dirname, 'config', 'conf_id', 'rssc_config');
 
             $this->set_debug_db_sql(RSSC_DEBUG_CONFIG_SQL);
             $this->set_debug_db_error(RSSC_DEBUG_ERROR);

@@ -14,7 +14,7 @@ include_once XOOPS_ROOT_PATH.'/modules/happy_linux/api/admin.php';
 //=========================================================
 xoops_cp_header();
 
-$admin =& happy_linux_admin::getInstance();
+$admin = happy_linux_admin::getInstance();
 $admin->print_blocks();
 
 xoops_cp_footer();

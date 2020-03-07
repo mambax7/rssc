@@ -59,18 +59,19 @@ class admin_manage_keyword extends admin_manage_base
         $this->set_flag_execute_time(true);
 
         // handler, class
-        $this->_convert =& happy_linux_convert_encoding::getInstance();
-        $this->_system  =& happy_linux_system::getInstance();
+        $this->_convert = happy_linux_convert_encoding::getInstance();
+        $this->_system  = happy_linux_system::getInstance();
 
         $this->_list_id = 1;
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_manage_keyword();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -188,14 +189,14 @@ class admin_form_keyword extends happy_linux_form
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_form();
+        parent::__construct();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_keyword();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;

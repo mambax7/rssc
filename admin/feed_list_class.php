@@ -35,7 +35,7 @@ class admin_feed_list extends happy_linux_page_frame
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_page_frame();
+        parent::__construct();
 
         $this->set_handler('feed', RSSC_DIRNAME);
         $this->set_id_name('fid');
@@ -52,18 +52,19 @@ class admin_feed_list extends happy_linux_page_frame
         $this->set_flag_execute_time(true);
 
         // class instance
-        $this->_post    =& happy_linux_post::getInstance();
-        $this->_strings =& happy_linux_strings::getInstance();
+        $this->_post    = happy_linux_post::getInstance();
+        $this->_strings = happy_linux_strings::getInstance();
 
         $this->_url_feed_column_manage = RSSC_URL . '/admin/feed_column_manage.php';
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_feed_list();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

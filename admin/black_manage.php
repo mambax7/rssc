@@ -56,15 +56,16 @@ class admin_manage_black extends admin_manage_base
         $this->set_flag_execute_time(true);
 
         // handler
-        $this->_parser =& happy_linux_rss_parser::getInstance();
+        $this->_parser = happy_linux_rss_parser::getInstance();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_manage_black();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -234,11 +235,11 @@ class admin_form_black extends admin_form_black_white
         admin_form_black_white::__construct();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_black();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;

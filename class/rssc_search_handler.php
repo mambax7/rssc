@@ -55,8 +55,8 @@ if( !class_exists('rssc_search_handler') )
             rssc_view_param::__construct($dirname);
             $this->_init_view_param();
 
-            $this->_search =& happy_linux_search::getInstance();
-            $this->_post   =& happy_linux_post::getInstance();
+            $this->_search = happy_linux_search::getInstance();
+            $this->_post   = happy_linux_post::getInstance();
 
             $this->_search->set_lang_zenkaku(_HAPPY_LINUX_ZENKAKU);
             $this->_search->set_lang_hankaku(_HAPPY_LINUX_HANKAKU);

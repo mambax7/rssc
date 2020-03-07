@@ -87,7 +87,7 @@ if ( HAPPY_LINUX_VERSION < RSSC_HAPPY_LINUX_VERSION )
 
 // start execution time
 include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/time.php';
-$happy_linux_time =& happy_linux_time::getInstance();
+$happy_linux_time = happy_linux_time::getInstance();
 
 //---------------------------------------------------------
 // rssc

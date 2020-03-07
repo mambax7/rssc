@@ -46,8 +46,8 @@ include_once RSSC_ROOT_PATH."/class/rssc_view_handler.php";
 
 $view_handler =& rssc_get_handler( 'view',         RSSC_DIRNAME );
 $conf_handler =& rssc_get_handler( 'config_basic', RSSC_DIRNAME );
-$post         =& happy_linux_post::getInstance();
-$pagenavi     =& happy_linux_pagenavi::getInstance();
+$post         = happy_linux_post::getInstance();
+$pagenavi     = happy_linux_pagenavi::getInstance();
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php

@@ -51,7 +51,7 @@ if( !class_exists('rssc_build_rssc') )
         {
             $this->_DIRNAME = $dirname;
 
-            $this->happy_linux_build_rss();
+            parent::__construct();
             $this->set_generator('XOOPS rssc');
             $this->set_category('RSS Center');
             $this->set_rdf_title('RSS Center: RDF Feeds');
@@ -143,7 +143,7 @@ if( !class_exists('rssc_build_rssc') )
 
     public function _get_rss_mode()
         {
-            $post =& happy_linux_post::getInstance();
+            $post = happy_linux_post::getInstance();
             $mode = $post->get_get_text('mode', 'rss');
 
             switch ($mode) {

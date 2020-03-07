@@ -64,15 +64,16 @@ if( !class_exists('rssc_config_define') )
         //---------------------------------------------------------
     public function __construct()
         {
-            $this->happy_linux_config_define_base();
+            parent::__construct();
         }
 
-        public static function &getInstance()
+        public static function getInstance()
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new rssc_config_define();
+            if (null === $instance) {
+                $instance = new static();
             }
+
             return $instance;
         }
 

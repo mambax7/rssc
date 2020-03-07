@@ -43,7 +43,7 @@ if( !class_exists('rssc_plugin_mail') )
 
         public function execute(&$items)
         {
-            $happy_linux_system =& happy_linux_system::getInstance();
+            $happy_linux_system = happy_linux_system::getInstance();
 
             // assume to implode one item
             $this->set_plural_item_array($items);

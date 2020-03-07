@@ -23,8 +23,8 @@ $view_handler  =& rssc_get_handler( 'view',         RSSC_DIRNAME );
 $conf_handler  =& rssc_get_handler( 'config_basic', RSSC_DIRNAME );
 $map_class     =& rssc_map::getInstance( RSSC_DIRNAME );
 $icon_class    =& rssc_icon::getInstance();
-$post          =& happy_linux_post::getInstance();
-$pagenavi      =& happy_linux_pagenavi::getInstance();
+$post          = happy_linux_post::getInstance();
+$pagenavi      = happy_linux_pagenavi::getInstance();
 
 $map_div_id = RSSC_DIRNAME.'_map';
 $map_func   = RSSC_DIRNAME.'_map_load';

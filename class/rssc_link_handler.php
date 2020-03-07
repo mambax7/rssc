@@ -67,7 +67,7 @@ class rssc_link extends happy_linux_object
 //---------------------------------------------------------
 public function __construct()
 {
-	$this->happy_linux_object();
+	parent::__construct();
 
 	$this->initVar('lid', XOBJ_DTYPE_INT, null, false);
 	$this->initVar('uid', XOBJ_DTYPE_INT, 0, false);
@@ -113,7 +113,7 @@ public function set_vars_keyword( $site )
 		return false;
 	}
 
-	$convert =& happy_linux_convert_encoding::getInstance();
+	$convert = happy_linux_convert_encoding::getInstance();
 
 	$key_conv   = $convert->convert($key, $site['code'], $this->_charset);
 	$key_encode = urlencode( $key_conv );
@@ -250,7 +250,7 @@ public function &get_enclosure_option()
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_object_handler($dirname, 'link', 'lid', 'rssc_link');
+            parent::__construct($dirname, 'link', 'lid', 'rssc_link');
 
             $this->set_debug_db_sql(RSSC_DEBUG_LINK_SQL);
             $this->set_debug_db_error(RSSC_DEBUG_ERROR);

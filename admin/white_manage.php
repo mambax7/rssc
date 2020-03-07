@@ -48,11 +48,11 @@ class admin_manage_white extends admin_manage_base
         $this->set_flag_execute_time(true);
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_manage_white();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;
@@ -135,11 +135,11 @@ class admin_form_white extends admin_form_black_white
         admin_form_black_white::__construct();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_white();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;

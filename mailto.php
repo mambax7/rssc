@@ -9,7 +9,7 @@
 include 'header.php';
 
 $rssc_plugin        =& rssc_plugin::getInstance( RSSC_DIRNAME );
-$happy_linux_system =& happy_linux_system::getInstance();
+$happy_linux_system = happy_linux_system::getInstance();
 
 include XOOPS_ROOT_PATH.'/header.php';
 

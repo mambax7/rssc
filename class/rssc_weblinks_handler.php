@@ -25,7 +25,7 @@ class rssc_weblinks_handler extends happy_linux_basic_handler
     //---------------------------------------------------------
     public function __construct($dirname)
     {
-        $this->happy_linux_basic_handler($dirname);
+        parent::__construct($dirname);
         $this->set_table_name('link');
         $this->set_id_name('lid');
 
@@ -33,7 +33,7 @@ class rssc_weblinks_handler extends happy_linux_basic_handler
         $this->_table_link     = $this->db_prefix($dirname . '_link');
         $this->_table_atomfeed = $this->db_prefix($dirname . '_atomfeed');
 
-        $this->_strings =& happy_linux_strings::getInstance();
+        $this->_strings = happy_linux_strings::getInstance();
     }
 
     public static function &getInstance($dirname)

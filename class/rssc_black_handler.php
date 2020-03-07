@@ -42,7 +42,7 @@ class rssc_black extends happy_linux_object
 //---------------------------------------------------------
 public function __construct()
 {
-	$this->happy_linux_object();
+	parent::__construct();
 
 	$this->initVar('bid', XOBJ_DTYPE_INT, null, false);
 	$this->initVar('lid', XOBJ_DTYPE_INT, 0, false);
@@ -80,7 +80,7 @@ public function __construct()
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_object_handler($dirname, 'black', 'bid', 'rssc_black');
+            parent::__construct($dirname, 'black', 'bid', 'rssc_black');
 
             $this->set_debug_db_sql(RSSC_DEBUG_BLACK_SQL);
             $this->set_debug_db_error(RSSC_DEBUG_ERROR);

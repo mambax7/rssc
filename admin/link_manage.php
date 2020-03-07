@@ -105,16 +105,17 @@ class admin_manage_link extends admin_manage_base
 
         // handler
         $this->_refresh_handler =& rssc_get_handler('refresh', RSSC_DIRNAME);
-        $this->_parser          =& happy_linux_rss_parser::getInstance();
-        $this->_utility         =& happy_linux_rss_utility::getInstance();
+        $this->_parser          = happy_linux_rss_parser::getInstance();
+        $this->_utility         = happy_linux_rss_utility::getInstance();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_manage_link();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -557,13 +558,13 @@ class admin_form_link extends happy_linux_form_lib
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_form_lib();
+        parent::__construct();
 
         $this->_link_handler =& rssc_get_handler('link', RSSC_DIRNAME);
         $this->_xml_handler  =& rssc_get_handler('xml', RSSC_DIRNAME);
         $this->_feed_handler =& rssc_get_handler('feed', RSSC_DIRNAME);
-        $this->_post         =& happy_linux_post::getInstance();
-        $this->_system       =& happy_linux_system::getInstance();
+        $this->_post         = happy_linux_post::getInstance();
+        $this->_system       = happy_linux_system::getInstance();
         $this->_map_class    =& rssc_map::getInstance(RSSC_DIRNAME);
 
         $conf_handler =& rssc_get_handler('config_basic', RSSC_DIRNAME);
@@ -575,11 +576,11 @@ class admin_form_link extends happy_linux_form_lib
         $this->_URL_ICON_WHITE_DOT = RSSC_URL . '/images/white_dot.png';
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_link();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;

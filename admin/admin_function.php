@@ -35,26 +35,26 @@
 //=========================================================
 function rssc_admin_print_header()
 {
-	$menu =& happy_linux_admin_menu::getInstance();
+	$menu = happy_linux_admin_menu::getInstance();
 	echo $menu->build_header( RSSC_DIRNAME, _MI_RSSC_DESC );
 }
 
 function rssc_admin_print_footer()
 {
-	$menu =& happy_linux_admin_menu::getInstance();
+	$menu = happy_linux_admin_menu::getInstance();
 	echo $menu->build_footer();
 }
 
 function rssc_admin_print_powerdby()
 {
-	$menu =& happy_linux_admin_menu::getInstance();
+	$menu = happy_linux_admin_menu::getInstance();
 	echo $menu->build_powerdby();
 }
 
 function rssc_admin_print_bread( $name1, $url1='', $name2='' )
 {
-	$system =& happy_linux_system::getInstance();
-	$form   =& happy_linux_form::getInstance();
+	$system = happy_linux_system::getInstance();
+	$form   = happy_linux_form::getInstance();
 
 	$arr = [
         [
@@ -136,7 +136,7 @@ function rssc_admin_print_menu()
 
     ];
 
-	$menu =& happy_linux_admin_menu::getInstance();
+	$menu = happy_linux_admin_menu::getInstance();
 	echo $menu->build_menu_table($menu_arr, $MAX_COL);
 }
 

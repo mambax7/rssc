@@ -37,12 +37,13 @@ class admin_manage_word extends admin_manage_base
         $this->set_flag_execute_time(true);
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_manage_word();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -192,15 +193,16 @@ class admin_form_word extends happy_linux_form
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_form();
+        parent::__construct();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_word();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

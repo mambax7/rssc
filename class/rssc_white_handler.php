@@ -39,7 +39,7 @@ class rssc_white extends happy_linux_object
 //---------------------------------------------------------
 public function __construct()
 {
-	$this->happy_linux_object();
+	parent::__construct();
 
 	$this->initVar('wid', XOBJ_DTYPE_INT, null, false);
 	$this->initVar('lid', XOBJ_DTYPE_INT, 0, false);
@@ -77,7 +77,7 @@ public function __construct()
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_object_handler($dirname, 'white', 'wid', 'rssc_white');
+            parent::__construct($dirname, 'white', 'wid', 'rssc_white');
 
             $this->set_debug_db_sql(RSSC_DEBUG_WHITE_SQL);
             $this->set_debug_db_error(RSSC_DEBUG_ERROR);

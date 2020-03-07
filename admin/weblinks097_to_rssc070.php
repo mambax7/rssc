@@ -42,22 +42,22 @@ function admin_import_weblinks()
 	rssc_import_handler::__construct(RSSC_DIRNAME );
 	$this->set_mid_orig_by_dirname( $this->_DIRNAME_WEBLINKS );
 
-	$this->_rss_parser =& happy_linux_rss_parser::getInstance();
+	$this->_rss_parser = happy_linux_rss_parser::getInstance();
 
 	$this->_weblinks_handler =& rssc_weblinks_handler::getInstance( $this->_DIRNAME_WEBLINKS );
 	$this->_weblinks_handler->set_debug_db_error( true );
 	$this->_weblinks_handler->load_config();
 }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_import_weblinks();
-	}
-	return $instance;
-}
+    public static function getInstance()
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new static();
+        }
+
+        return $instance;
+    }
 
 //=========================================================
 // import from weblinks

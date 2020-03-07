@@ -27,7 +27,7 @@ class rssc_word extends happy_linux_object
 //---------------------------------------------------------
 public function __construct()
 {
-	$this->happy_linux_object();
+	parent::__construct();
 
 	$this->initVar('sid',    XOBJ_DTYPE_INT, null, false);
 	$this->initVar('word',   XOBJ_DTYPE_TXTBOX, null, false, 255);
@@ -54,7 +54,7 @@ public function __construct()
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_object_handler($dirname, 'word', 'sid', 'rssc_word');
+            parent::__construct($dirname, 'word', 'sid', 'rssc_word');
 
             $this->set_debug_db_sql(RSSC_DEBUG_WORD_SQL);
             $this->set_debug_db_error(RSSC_DEBUG_ERROR);

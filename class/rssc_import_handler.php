@@ -60,13 +60,13 @@ class rssc_import_handler extends happy_linux_error
     //---------------------------------------------------------
     public function __construct($dirname)
     {
-        $this->happy_linux_error();
+        parent::__construct();
 
-        $this->_system     =& happy_linux_system::getInstance();
-        $this->_strings    =& happy_linux_strings::getInstance();
-        $this->_form       =& happy_linux_form_lib::getInstance();
-        $this->_post       =& happy_linux_post::getInstance();
-        $this->_rss_parser =& happy_linux_rss_parser::getInstance();
+        $this->_system     = happy_linux_system::getInstance();
+        $this->_strings    = happy_linux_strings::getInstance();
+        $this->_form       = happy_linux_form_lib::getInstance();
+        $this->_post       = happy_linux_post::getInstance();
+        $this->_rss_parser = happy_linux_rss_parser::getInstance();
 
         $this->_link_handler       =& rssc_get_handler('link', $dirname);
         $this->_black_handler      =& rssc_get_handler('black', $dirname);

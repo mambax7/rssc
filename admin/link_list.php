@@ -37,7 +37,7 @@ class admin_link_list extends happy_linux_page_frame
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_page_frame();
+        parent::__construct();
         $this->set_handler('link', RSSC_DIRNAME);
         $this->set_id_name('lid');
         $this->set_lang_title(_AM_RSSC_LIST_LINK);
@@ -47,12 +47,13 @@ class admin_link_list extends happy_linux_page_frame
         $this->_feed_handler =& rssc_get_handler('feed', RSSC_DIRNAME);
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_link_list();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

@@ -56,7 +56,7 @@ class admin_manage_archive extends happy_linux_manage
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_manage(RSSC_DIRNAME);
+        parent::__construct(RSSC_DIRNAME);
 
         $this->set_handler('link_basic', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('lid');
@@ -69,19 +69,20 @@ class admin_manage_archive extends happy_linux_manage
         $this->_refresh_handler =& rssc_get_handler('refresh_all', RSSC_DIRNAME);
         $conf_handler           =& rssc_get_handler('config_basic', RSSC_DIRNAME);
 
-        $this->_post =& happy_linux_post::getInstance();
+        $this->_post = happy_linux_post::getInstance();
 
         $conf_data              =& $conf_handler->get_conf();
         $this->_conf_feed_limit = $conf_data['basic_feed_limit'];
         $this->_conf_word_limit = $conf_data['word_limit'];
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_manage_archive();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 
@@ -295,15 +296,16 @@ class admin_form_archive extends happy_linux_form_lib
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_form_lib();
+        parent::__construct();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_form_archive();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

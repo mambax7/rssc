@@ -140,7 +140,7 @@ if( !class_exists('rssc_refresh_handler') )
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_error();
+            parent::__construct();
 
             // handler
             $this->_config_handler =& rssc_get_handler('config_basic', $dirname);

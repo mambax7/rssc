@@ -44,11 +44,11 @@ class admin_import_xoopsheadline extends admin_import_base
         $this->get_mid();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_import_xoopsheadline();
+        if (null === $instance) {
+            $instance = new static();
         }
 
         return $instance;

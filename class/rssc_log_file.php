@@ -26,7 +26,7 @@ if( !class_exists('rssc_log_file') )
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->happy_linux_file();
+            parent::__construct();
             $this->_init($dirname);
         }
 

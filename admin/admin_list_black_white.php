@@ -24,19 +24,20 @@ class admin_list_black_white extends happy_linux_page_frame
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_page_frame();
+        parent::__construct();
         $this->set_max_sortid(4);
 
         // class instance
         $this->_feed_handler =& rssc_get_handler('feed', RSSC_DIRNAME);
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new admin_list_black_whitee();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
 

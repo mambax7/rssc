@@ -51,15 +51,16 @@ define('RSSC_CODE_DISCOVER_FAILED',        HAPPY_LINUX_RSS_CODE_DISCOVER_FAILED)
         //---------------------------------------------------------
         public function __construct()
         {
-            $this->happy_linux_rss_utility();
+            parent::__construct();
         }
 
-        public static function &getInstance()
+        public static function getInstance()
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new rssc_xml_utility();
+            if (null === $instance) {
+                $instance = new static();
             }
+
             return $instance;
         }
 

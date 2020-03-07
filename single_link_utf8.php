@@ -147,23 +147,23 @@ class rssc_single_link_utf8
         $this->_link_handler =& rssc_get_handler('link_basic', RSSC_DIRNAME);
         $this->_xml_handler  =& rssc_get_handler('xml_basic', RSSC_DIRNAME);
 
-        $this->_parser  =& happy_linux_rss_parser::getInstance();
-        $this->_viewer  =& happy_linux_rss_viewer::getInstance();
-        $this->_post    =& happy_linux_post::getInstance();
-        $this->_system  =& happy_linux_system::getInstance();
-        $this->_convert =& happy_linux_convert_encoding::getInstance();
-        $this->_strings =& happy_linux_strings::getInstance();
+        $this->_parser  = happy_linux_rss_parser::getInstance();
+        $this->_viewer  = happy_linux_rss_viewer::getInstance();
+        $this->_post    = happy_linux_post::getInstance();
+        $this->_system  = happy_linux_system::getInstance();
+        $this->_convert = happy_linux_convert_encoding::getInstance();
+        $this->_strings = happy_linux_strings::getInstance();
     }
 
-    public static function &getInstance()
+    public static function getInstance()
     {
         static $instance;
-        if (!isset($instance)) {
-            $instance = new rssc_single_link_utf8();
+        if (null === $instance) {
+            $instance = new static();
         }
+
         return $instance;
     }
-
     //---------------------------------------------------------
     // function
     //---------------------------------------------------------

@@ -31,12 +31,13 @@ if( !class_exists('rssc_icon') )
             $this->_db =& Database::getInstance();
         }
 
-        public static function &getInstance()
+        public static function getInstance()
         {
             static $instance;
-            if (!isset($instance)) {
-                $instance = new rssc_icon();
+            if (null === $instance) {
+                $instance = new static();
             }
+
             return $instance;
         }
 
