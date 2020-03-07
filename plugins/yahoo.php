@@ -75,4 +75,4 @@ if( !class_exists('rssc_plugin_yahoo') )
 // === class end ===
 }
 
-?>
+

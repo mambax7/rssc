@@ -140,4 +140,4 @@ function rssc_admin_print_menu()
 	echo $menu->build_menu_table($menu_arr, $MAX_COL);
 }
 
-?>
+

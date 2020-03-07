@@ -9,4 +9,3 @@
 
 $rssc_plugin_description = "link を yahoo スタイルから普通のスタイルに変換する";
 
-?>

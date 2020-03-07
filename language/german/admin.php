@@ -356,4 +356,4 @@ define('_AM_RSSC_LINK_CENSOR_DESC', 'Trennen Sie die einzelnen mit einem <b> | <
 }
 // --- define language begin ---
 
-?>
+

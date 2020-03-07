@@ -737,4 +737,4 @@ CREATE TABLE " . $this->_word_table . " (
 // === class end ===
 }
 
-?>
+

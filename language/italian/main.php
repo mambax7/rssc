@@ -327,4 +327,4 @@ define('_RSSC_XML_URL','RDF/RSS/ATOM URL');
 }
 // --- define language end ---
 
-?>
+

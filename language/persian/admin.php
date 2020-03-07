@@ -282,4 +282,3 @@ define('_AM_RSSC_CONF_HIGHLIGHT', 'استفاده از واژه های کلید�
 }
 // --- define language begin ---
 
-?>

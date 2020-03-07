@@ -183,4 +183,4 @@ class admin_form_black_white extends happy_linux_form
     // --- class end ---
 }
 
-?>
+

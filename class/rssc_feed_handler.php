@@ -574,4 +574,4 @@ public function get_act_option()
 // === class end ===
 }
 
-?>
+

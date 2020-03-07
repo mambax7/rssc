@@ -125,4 +125,4 @@ $manage =& rssc_get_location::getInstance( $RSSC_DIRNAME );
 $manage->main();
 exit();
 
-?>
+

@@ -88,4 +88,4 @@ class rssc_xoopsheadline_handler extends happy_linux_basic_handler
     // --- class end ---
 }
 
-?>
+

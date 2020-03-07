@@ -43,4 +43,3 @@ define('_MI_RSSC_BNAME_MAP','Карта RSS Google');
 }
 // --- define language end ---
 
-?>

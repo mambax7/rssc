@@ -522,4 +522,4 @@ public function &get_enclosure_option()
 // === class end ===
 }
 
-?>
+

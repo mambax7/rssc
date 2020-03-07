@@ -76,4 +76,4 @@ if( !class_exists('rssc_log_file') )
 // === class end ===
 }
 
-?>
+

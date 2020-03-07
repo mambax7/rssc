@@ -71,4 +71,4 @@ if( !class_exists('rssc_plugin_hamakei') )
 // === class end ===
 }
 
-?>
+

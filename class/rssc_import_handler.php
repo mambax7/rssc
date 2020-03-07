@@ -578,4 +578,4 @@ class rssc_import_handler extends happy_linux_error
     // --- class end ---
 }
 
-?>
+

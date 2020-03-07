@@ -174,4 +174,4 @@ public function init()
 // === class end ===
 }
 
-?>
+

@@ -70,4 +70,4 @@ if( !class_exists('rssc_plugin_implode') )
 // === class end ===
 }
 
-?>
+

@@ -43,4 +43,4 @@ if( !class_exists('rssc_error') )
 // === class end ===
 }
 
-?>
+

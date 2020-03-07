@@ -21,4 +21,3 @@ xoops_cp_footer();
 exit();
 // --- end of main ---
 
-?>

@@ -264,4 +264,4 @@ if( !class_exists('rssc_map') )
 // === class end ===
 }
 
-?>
+

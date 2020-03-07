@@ -261,4 +261,4 @@ if( !class_exists('rssc_block_map') )
 // === class end ===
 }
 
-?>
+

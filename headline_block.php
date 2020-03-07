@@ -48,4 +48,4 @@ echo $latest;
 echo "</body></html>\n";
 exit();
 
-?>
+

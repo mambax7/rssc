@@ -37,4 +37,4 @@ define('_MI_RSSC_ADMENU_LINKLIST','Lista Link');
 }
 // --- define language end ---
 
-?>
+

@@ -95,4 +95,4 @@ if ( !$rssc_plugin_list->is_module_admin() )
 echo $rssc_plugin_list->build_list();
 
 xoops_footer();
-?>
+

@@ -289,4 +289,4 @@ class admin_feed_list extends happy_linux_page_frame
     // --- class end ---
 }
 
-?>
+

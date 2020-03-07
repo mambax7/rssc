@@ -80,4 +80,4 @@ if( !class_exists('rssc_site_list') )
 // === class end ===
 }
 
-?>
+

@@ -278,4 +278,4 @@ xoops_cp_footer();
 exit();
 // === main end ===
 
-?>
+

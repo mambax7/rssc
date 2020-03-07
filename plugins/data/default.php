@@ -65,4 +65,4 @@ link to image
 // --- rssc_plugin_data_default end ---
 }
 
-?>
+

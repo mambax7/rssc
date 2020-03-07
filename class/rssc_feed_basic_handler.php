@@ -605,4 +605,4 @@ public function subsutute_date()
 // === class end ===
 }
 
-?>
+

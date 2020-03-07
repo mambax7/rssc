@@ -362,4 +362,3 @@ define('_RSSC_POST_PLUGIN','Post-Processing Plugin');
 }
 // --- define language end ---
 
-?>

@@ -9,4 +9,3 @@
 
 $rssc_plugin_description = "content からタグを削除する";
 
-?>

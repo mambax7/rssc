@@ -69,4 +69,4 @@ define('RSSC_CODE_DISCOVER_FAILED',        HAPPY_LINUX_RSS_CODE_DISCOVER_FAILED)
 // === class end ===
 }
 
-?>
+

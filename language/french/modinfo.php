@@ -45,4 +45,4 @@ define('_MI_RSSC_ADMENU_LINKLIST','Liste des liens');
 }
 // --- define language end ---
 
-?>
+

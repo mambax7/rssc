@@ -102,4 +102,3 @@ function b_rssc_show_blog( $options )
 // --- block function begin end ---
 }
 
-?>

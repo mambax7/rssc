@@ -374,4 +374,4 @@ public function &get_channel()
 // === class end ===
 }
 
-?>
+

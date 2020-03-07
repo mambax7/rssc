@@ -469,4 +469,3 @@ if( !defined('_AM_RSSC_PARSE_RSS') )
 	define('_AM_RSSC_REFRESH_LINK_FINISHED', 'Refresh feeds finished');
 }
 
-?>

@@ -29,4 +29,3 @@ define('_BL_RSSC_NO_FEED', 'Es gibt keine entsprechenden Feed');
 }
 // --- define language end ---
 
-?>

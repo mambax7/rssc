@@ -144,4 +144,4 @@ default:
 xoops_cp_footer();
 exit();
 
-?>
+

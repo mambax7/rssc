@@ -380,4 +380,3 @@ define('_RSSC_FEED_MEDIA_THUMBNAIL_HEIGHT', 'サムネイル高さ');
 }
 // --- define language end ---
 
-?>

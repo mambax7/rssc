@@ -65,4 +65,4 @@ if( !class_exists('rssc_plugin_strip_tags') )
 // === class end ===
 }
 
-?>
+

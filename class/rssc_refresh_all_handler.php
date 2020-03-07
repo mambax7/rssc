@@ -518,4 +518,4 @@ if( !class_exists('rssc_refresh_all_handler') )
 // === class end ===
 }
 
-?>
+

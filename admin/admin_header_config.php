@@ -26,4 +26,3 @@ include_once RSSC_ROOT_PATH.'/class/rssc_install.php';
 //include_once RSSC_ROOT_PATH.'/admin/admin_table_class.php';
 include_once RSSC_ROOT_PATH.'/admin/admin_config_class.php';
 
-?>

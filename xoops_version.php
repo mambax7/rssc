@@ -141,4 +141,3 @@ $modversion['templates'][6]['description'] = '';
 $modversion['onInstall'] = 'oninstall.php';
 $modversion['onUpdate']  = 'oninstall.php';
 
-?>

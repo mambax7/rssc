@@ -79,4 +79,4 @@ if( !class_exists('rssc_headline_handler') )
 // === class end ===
 }
 
-?>
+

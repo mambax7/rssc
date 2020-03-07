@@ -332,4 +332,4 @@ if( !class_exists('rssc_search_handler') )
 // === class end ===
 }
 
-?>
+

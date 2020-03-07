@@ -470,4 +470,3 @@ define('_AM_RSSC_LINK_GICON_SEL', 'Выбор иконки карт Google');
 }
 // --- define language begin ---
 
-?>

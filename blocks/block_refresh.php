@@ -70,4 +70,3 @@ function b_rssc_show_refresh( $options )
 // --- block function begin ---
 }
 
-?>

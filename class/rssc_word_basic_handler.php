@@ -132,4 +132,4 @@ if( !class_exists('rssc_word_basic_handler') )
 // === class end ===
 }
 
-?>
+

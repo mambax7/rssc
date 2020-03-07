@@ -447,4 +447,3 @@ define('_AM_RSSC_PLUGIN_TESTDATA_DESC', 'Enter the form of associative array');
 }
 // --- define language begin ---
 
-?>

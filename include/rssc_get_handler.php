@@ -25,4 +25,3 @@ function &rssc_get_handler($name=null, $module_dir=null)
 // --- rssc_get_handler end ---
 }
 
-?>

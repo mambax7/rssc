@@ -28,4 +28,3 @@ define('RSSC_C_MODE_AUTO',  HAPPY_LINUX_RSS_MODE_AUTO);
 }
 // --- define constant end ---
 
-?>

@@ -74,4 +74,4 @@ if( !class_exists('rssc_link_xml_handler') )
 // === class end ===
 }
 
-?>
+

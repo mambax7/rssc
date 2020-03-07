@@ -812,4 +812,4 @@ if( !class_exists('rssc_block') )
 // === class end ===
 }
 
-?>
+

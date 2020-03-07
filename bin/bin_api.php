@@ -108,4 +108,3 @@ if ( HAPPY_LINUX_VERSION < RSSC_HAPPY_LINUX_VERSION )
 	die( $msg );
 }
 
-?>

@@ -9,4 +9,3 @@
 
 $rssc_plugin_description = "content から要約を作成する";
 
-?>

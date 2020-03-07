@@ -32,4 +32,4 @@ define('_BL_RSSC_NO_FEED', 'Nessun feed corrispondente');
 }
 // --- define language end ---
 
-?>
+

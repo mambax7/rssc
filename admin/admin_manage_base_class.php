@@ -205,4 +205,4 @@ class admin_manage_base extends happy_linux_manage
     // --- class end ---
 }
 
-?>
+

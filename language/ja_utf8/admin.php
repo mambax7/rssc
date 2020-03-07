@@ -478,4 +478,3 @@ define('_AM_RSSC_CONF_URL_1', 'RSSCのsinglefeed');
 }
 // --- define language begin ---
 
-?>

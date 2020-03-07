@@ -1010,4 +1010,4 @@ if( !class_exists('rssc_refresh_handler') )
 // === class end ===
 }
 
-?>
+

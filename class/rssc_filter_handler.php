@@ -246,4 +246,4 @@ if( !class_exists('rssc_filter_handler') )
 // === class end ===
 }
 
-?>
+

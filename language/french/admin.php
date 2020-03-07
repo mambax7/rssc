@@ -291,4 +291,3 @@ define("_AM_RSSC_LINK_CENSOR_DESC", "S&eacute;pare chaun avec un <b>|</b><br />S
 }
 // --- define language end ---
 
-?>

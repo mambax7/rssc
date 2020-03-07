@@ -309,4 +309,4 @@ if( !class_exists('rssc_plugin_base') )
 // === class end ===
 }
 
-?>
+

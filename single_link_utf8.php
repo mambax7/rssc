@@ -311,4 +311,4 @@ class rssc_single_link_utf8
     // --- class end ---
 }
 
-?>
+

@@ -456,4 +456,3 @@ if( !defined('_RSSC_IN') )
 	define('_RSSC_IN', 'в');
 	define('_RSSC_MAP_LOADING', 'Загрузка ...');
 }
-?>

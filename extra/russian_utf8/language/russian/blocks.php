@@ -40,4 +40,3 @@ define('_BL_RSSC_LINK_ETC',  'т.д.');
 }
 // --- define language end ---
 
-?>

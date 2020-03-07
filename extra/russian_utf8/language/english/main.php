@@ -389,4 +389,3 @@ define('_RSSC_FEED_MEDIA_THUMBNAIL_HEIGHT', 'Thumbnail Height');
 }
 // --- define language end ---
 
-?>

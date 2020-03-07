@@ -1332,4 +1332,4 @@ if( !class_exists('rssc_config_define') )
 // === class end ===
 }
 
-?>
+

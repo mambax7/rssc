@@ -28,4 +28,3 @@ rssc_admin_print_footer();
 xoops_cp_footer();
 exit();
 
-?>

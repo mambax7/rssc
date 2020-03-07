@@ -392,4 +392,3 @@ define('_RSSC_FEED_MEDIA_THUMBNAIL_HEIGHT', 'Высота миниатюры');
 }
 // --- define language end ---
 
-?>

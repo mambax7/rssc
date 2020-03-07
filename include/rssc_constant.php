@@ -115,4 +115,3 @@ define('RSSC_DEBUG_XML_BASIC_SQL',    0 );
 }
 // --- define constant end ---
 
-?>

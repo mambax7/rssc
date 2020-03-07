@@ -118,4 +118,4 @@ $manage->main();
 xoops_cp_footer();
 exit();
 
-?>
+

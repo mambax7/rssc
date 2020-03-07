@@ -39,4 +39,4 @@ echo $block['map'] ;
 echo "</body></html>\n";
 exit();
 
-?>
+

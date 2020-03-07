@@ -139,4 +139,4 @@ function rssc_message_append_onupdate( &$module_obj , &$log )
 // === rssc_oninstall_base end ===
 }
 
-?>
+

@@ -326,4 +326,4 @@ class admin_config_store extends happy_linux_error
     // --- class end ---
 }
 
-?>
+

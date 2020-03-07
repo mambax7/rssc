@@ -59,4 +59,4 @@ if( !class_exists('rssc_plugin_latest_feeds') )
 // === class end ===
 }
 
-?>
+

@@ -93,4 +93,4 @@ if( !class_exists('rssc_plugin_mail') )
 // === class end ===
 }
 
-?>
+
