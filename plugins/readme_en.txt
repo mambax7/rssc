@@ -4,9 +4,9 @@ $Id: readme_en.txt,v 1.1 2011/12/29 14:37:12 ohwada Exp $
 how to make plugin
 =================================================
 
-"foobar" is exsample plugin name
+"foobar" is example plugin name
 
-1. exsapmple for plugin
+1. exapmple for plugin
 
 plugins/foobar.php
 ------
@@ -39,7 +39,7 @@ function convert()
 } // class_exists end
 -----
 
-2. exsapmple for plugin description in local language
+2. exapmple for plugin description in local language
 
 plugins/language/LOCAL_LANGUAGE_NAME/foobar.php
 -----
