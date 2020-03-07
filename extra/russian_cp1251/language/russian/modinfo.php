@@ -19,26 +19,26 @@ if( !defined('RSSC_LANG_MI_LOADED') )
 define('RSSC_LANG_MI_LOADED', 1);
 
 // The name of this module
-define('_MI_RSSC_NAME','RSS Центр');
-define('_MI_RSSC_DESC','Данный модуль собирает RDF/RSS/ATOM каналы, сохраняет в базе данных и ищет их.');
+define('_MI_RSSC_NAME','RSS Р¦РµРЅС‚СЂ');
+define('_MI_RSSC_DESC','Р”Р°РЅРЅС‹Р№ РјРѕРґСѓР»СЊ СЃРѕР±РёСЂР°РµС‚ RDF/RSS/ATOM РєР°РЅР°Р»С‹, СЃРѕС…СЂР°РЅСЏРµС‚ РІ Р±Р°Р·Рµ РґР°РЅРЅС‹С… Рё РёС‰РµС‚ РёС….');
 
 // Names of sub menu
-define('_MI_RSSC_SMNAME_HEADLINE','Простой заголовок');
+define('_MI_RSSC_SMNAME_HEADLINE','РџСЂРѕСЃС‚РѕР№ Р·Р°РіРѕР»РѕРІРѕРє');
 
 // Names of blocks
-define('_MI_RSSC_BNAME_LATEST','Последние RDF/RSS/ATOM каналы');
-define('_MI_RSSC_BNAME_HEADLINE','Простой заголовок');
-define('_MI_RSSC_BNAME_REFRESH','Простой заголовок (обновление)');
+define('_MI_RSSC_BNAME_LATEST','РџРѕСЃР»РµРґРЅРёРµ RDF/RSS/ATOM РєР°РЅР°Р»С‹');
+define('_MI_RSSC_BNAME_HEADLINE','РџСЂРѕСЃС‚РѕР№ Р·Р°РіРѕР»РѕРІРѕРє');
+define('_MI_RSSC_BNAME_REFRESH','РџСЂРѕСЃС‚РѕР№ Р·Р°РіРѕР»РѕРІРѕРє (РѕР±РЅРѕРІР»РµРЅРёРµ)');
 
 // 2006-09-20
-define('_MI_RSSC_BNAME_BLOG','Блог RSSC');
+define('_MI_RSSC_BNAME_BLOG','Р‘Р»РѕРі RSSC');
 
 // Names of admin menu
-define('_MI_RSSC_ADMENU_CONFIG','Конфигурация модуля');
-define('_MI_RSSC_ADMENU_LINKLIST','Список ссылок');
+define('_MI_RSSC_ADMENU_CONFIG','РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ РјРѕРґСѓР»СЏ');
+define('_MI_RSSC_ADMENU_LINKLIST','РЎРїРёСЃРѕРє СЃСЃС‹Р»РѕРє');
 
 // === 2009-02-20 ===
-define('_MI_RSSC_BNAME_MAP','Карта RSS Google');
+define('_MI_RSSC_BNAME_MAP','РљР°СЂС‚Р° RSS Google');
 
 }
 // --- define language end ---

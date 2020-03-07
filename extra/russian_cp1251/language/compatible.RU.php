@@ -39,45 +39,45 @@
 if( !defined('_RSSC_MAP') ) 
 {
 // map
-	define('_RSSC_MAP','Карты Google');
+	define('_RSSC_MAP','РљР°СЂС‚С‹ Google');
 
 // link table
-	define('_RSSC_LINK_ICON',  'Иконка');
-	define('_RSSC_LINK_GICON_ID', 'ID иконки карт Google');
+	define('_RSSC_LINK_ICON',  'РРєРѕРЅРєР°');
+	define('_RSSC_LINK_GICON_ID', 'ID РёРєРѕРЅРєРё РєР°СЂС‚ Google');
 
 // feed table
-	define('_RSSC_FEED_GEO_LAT',  'Широта');
-	define('_RSSC_FEED_GEO_LONG', 'Долгота');
-	define('_RSSC_FEED_MEDIA_CONTENT_URL',    'Адрес содержания');
-	define('_RSSC_FEED_MEDIA_CONTENT_TYPE',   'Тип содержания');
-	define('_RSSC_FEED_MEDIA_CONTENT_MEDIUM', 'Среднее содержание');
-	define('_RSSC_FEED_MEDIA_CONTENT_WIDTH',  'Ширина содержания');
-	define('_RSSC_FEED_MEDIA_CONTENT_HEIGHT', 'Высота содержания');
-	define('_RSSC_FEED_MEDIA_THUMBNAIL_URL',    'Адрес миниатюры');
-	define('_RSSC_FEED_MEDIA_THUMBNAIL_WIDTH',  'Ширина миниатюры');
-	define('_RSSC_FEED_MEDIA_THUMBNAIL_HEIGHT', 'Ширина миниатюры');
+	define('_RSSC_FEED_GEO_LAT',  'РЁРёСЂРѕС‚Р°');
+	define('_RSSC_FEED_GEO_LONG', 'Р”РѕР»РіРѕС‚Р°');
+	define('_RSSC_FEED_MEDIA_CONTENT_URL',    'РђРґСЂРµСЃ СЃРѕРґРµСЂР¶Р°РЅРёСЏ');
+	define('_RSSC_FEED_MEDIA_CONTENT_TYPE',   'РўРёРї СЃРѕРґРµСЂР¶Р°РЅРёСЏ');
+	define('_RSSC_FEED_MEDIA_CONTENT_MEDIUM', 'РЎСЂРµРґРЅРµРµ СЃРѕРґРµСЂР¶Р°РЅРёРµ');
+	define('_RSSC_FEED_MEDIA_CONTENT_WIDTH',  'РЁРёСЂРёРЅР° СЃРѕРґРµСЂР¶Р°РЅРёСЏ');
+	define('_RSSC_FEED_MEDIA_CONTENT_HEIGHT', 'Р’С‹СЃРѕС‚Р° СЃРѕРґРµСЂР¶Р°РЅРёСЏ');
+	define('_RSSC_FEED_MEDIA_THUMBNAIL_URL',    'РђРґСЂРµСЃ РјРёРЅРёР°С‚СЋСЂС‹');
+	define('_RSSC_FEED_MEDIA_THUMBNAIL_WIDTH',  'РЁРёСЂРёРЅР° РјРёРЅРёР°С‚СЋСЂС‹');
+	define('_RSSC_FEED_MEDIA_THUMBNAIL_HEIGHT', 'РЁРёСЂРёРЅР° РјРёРЅРёР°С‚СЋСЂС‹');
 }
 
 if( !defined('_AM_RSSC_FORM_MAP') ) 
 {
 // map
-	define('_AM_RSSC_FORM_MAP', 'Установка карт Google');
+	define('_AM_RSSC_FORM_MAP', 'РЈСЃС‚Р°РЅРѕРІРєР° РєР°СЂС‚ Google');
 
 // config
-	define('_AM_RSSC_CONF_WEBMAP_DIRNAME', 'Имя директории webmap');
-	define('_AM_RSSC_CONF_WEBMAP_DIRNAME_DESC', 'Установите имя директориимодуля webmap');
-	define('_AM_RSSC_CONF_SHOW_INFO_MAX','Максимальное количество символов маркера информации');
-	define('_AM_RSSC_CONF_SHOW_INFO_MAX_DSC', 'HTML теги удаляются<br /><b>-1</b> неограничено');
-	define('_AM_RSSC_CONF_SHOW_INFO_WIDTH','Максимальное количество символов маркера информации в строке');
-	define('_AM_RSSC_CONF_SHOW_INFO_WIDTH_DSC', 'Вставить новую строку, когда больше, чем это число<br /><b>-1</b> не ограничено');
-	define('_AM_RSSC_CONF_SHOW_ICON','Показать иконки');
-	define('_AM_RSSC_CONF_SHOW_ICON_DSC', 'Когда "ДА" - показать иконку');
-	define('_AM_RSSC_CONF_SHOW_THUMB','Показать изображение');
-	define('_AM_RSSC_CONF_SHOW_THUMB_DSC', 'Когда "ДА" - показать миниатюру изображения');
+	define('_AM_RSSC_CONF_WEBMAP_DIRNAME', 'РРјСЏ РґРёСЂРµРєС‚РѕСЂРёРё webmap');
+	define('_AM_RSSC_CONF_WEBMAP_DIRNAME_DESC', 'РЈСЃС‚Р°РЅРѕРІРёС‚Рµ РёРјСЏ РґРёСЂРµРєС‚РѕСЂРёРёРјРѕРґСѓР»СЏ webmap');
+	define('_AM_RSSC_CONF_SHOW_INFO_MAX','РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ РјР°СЂРєРµСЂР° РёРЅС„РѕСЂРјР°С†РёРё');
+	define('_AM_RSSC_CONF_SHOW_INFO_MAX_DSC', 'HTML С‚РµРіРё СѓРґР°Р»СЏСЋС‚СЃСЏ<br /><b>-1</b> РЅРµРѕРіСЂР°РЅРёС‡РµРЅРѕ');
+	define('_AM_RSSC_CONF_SHOW_INFO_WIDTH','РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ РјР°СЂРєРµСЂР° РёРЅС„РѕСЂРјР°С†РёРё РІ СЃС‚СЂРѕРєРµ');
+	define('_AM_RSSC_CONF_SHOW_INFO_WIDTH_DSC', 'Р’СЃС‚Р°РІРёС‚СЊ РЅРѕРІСѓСЋ СЃС‚СЂРѕРєСѓ, РєРѕРіРґР° Р±РѕР»СЊС€Рµ, С‡РµРј СЌС‚Рѕ С‡РёСЃР»Рѕ<br /><b>-1</b> РЅРµ РѕРіСЂР°РЅРёС‡РµРЅРѕ');
+	define('_AM_RSSC_CONF_SHOW_ICON','РџРѕРєР°Р·Р°С‚СЊ РёРєРѕРЅРєРё');
+	define('_AM_RSSC_CONF_SHOW_ICON_DSC', 'РљРѕРіРґР° "Р”Рђ" - РїРѕРєР°Р·Р°С‚СЊ РёРєРѕРЅРєСѓ');
+	define('_AM_RSSC_CONF_SHOW_THUMB','РџРѕРєР°Р·Р°С‚СЊ РёР·РѕР±СЂР°Р¶РµРЅРёРµ');
+	define('_AM_RSSC_CONF_SHOW_THUMB_DSC', 'РљРѕРіРґР° "Р”Рђ" - РїРѕРєР°Р·Р°С‚СЊ РјРёРЅРёР°С‚СЋСЂСѓ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ');
 
 // link form
-	define('_AM_RSSC_LINK_ICON_SEL',  'Выбор иконки');
-	define('_AM_RSSC_LINK_GICON_SEL', 'Выбор иконки карт Google');
+	define('_AM_RSSC_LINK_ICON_SEL',  'Р’С‹Р±РѕСЂ РёРєРѕРЅРєРё');
+	define('_AM_RSSC_LINK_GICON_SEL', 'Р’С‹Р±РѕСЂ РёРєРѕРЅРєРё РєР°СЂС‚ Google');
 }
 
 //---------------------------------------------------------
@@ -86,58 +86,58 @@ if( !defined('_AM_RSSC_FORM_MAP') )
 if( !defined('_RSSC_PLUGIN_LIST') ) 
 {
 // plugin list
-	define('_RSSC_PLUGIN_LIST', 'Список плагинов');
-	define('_RSSC_PLUGIN_NAME', 'Имя плагина');
-	define('_RSSC_PLUGIN_DESCRIPTION', 'Описание');
-	define('_RSSC_PLUGIN_USAGE', 'Использование');
+	define('_RSSC_PLUGIN_LIST', 'РЎРїРёСЃРѕРє РїР»Р°РіРёРЅРѕРІ');
+	define('_RSSC_PLUGIN_NAME', 'РРјСЏ РїР»Р°РіРёРЅР°');
+	define('_RSSC_PLUGIN_DESCRIPTION', 'РћРїРёСЃР°РЅРёРµ');
+	define('_RSSC_PLUGIN_USAGE', 'РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ');
 
 // link table
-	define('_RSSC_PRE_PLUGIN', 'Плагин предварительной обработки');
-	define('_RSSC_POST_PLUGIN','Плагин окончательной обработки');
+	define('_RSSC_PRE_PLUGIN', 'РџР»Р°РіРёРЅ РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕР№ РѕР±СЂР°Р±РѕС‚РєРё');
+	define('_RSSC_POST_PLUGIN','РџР»Р°РіРёРЅ РѕРєРѕРЅС‡Р°С‚РµР»СЊРЅРѕР№ РѕР±СЂР°Р±РѕС‚РєРё');
 }
 
 if( !defined('_AM_RSSC_FORM_HTMLOUT') ) 
 {
 // menu
-	define('_AM_RSSC_FORM_HTMLOUT',       'Установка вывода HTML');
-	define('_AM_RSSC_FORM_HTMLOUT_DESC',  "При обработке содержимого, когда 'Использовать HTML теги в содержании' - 'Да'<br />Все теги удаляются, когда 'Нет' <br />это рекомендуется для удаления или замены JavaScript и связей, чтобы предотвратить XSS (Перекрестные сценарии сайта - Cross Site Scripting) ");
-	define('_AM_RSSC_FORM_CUSTOM_PLUGIN', 'Пользовательские плагины');
+	define('_AM_RSSC_FORM_HTMLOUT',       'РЈСЃС‚Р°РЅРѕРІРєР° РІС‹РІРѕРґР° HTML');
+	define('_AM_RSSC_FORM_HTMLOUT_DESC',  "РџСЂРё РѕР±СЂР°Р±РѕС‚РєРµ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ, РєРѕРіРґР° 'РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ HTML С‚РµРіРё РІ СЃРѕРґРµСЂР¶Р°РЅРёРё' - 'Р”Р°'<br />Р’СЃРµ С‚РµРіРё СѓРґР°Р»СЏСЋС‚СЃСЏ, РєРѕРіРґР° 'РќРµС‚' <br />СЌС‚Рѕ СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ РёР»Рё Р·Р°РјРµРЅС‹ JavaScript Рё СЃРІСЏР·РµР№, С‡С‚РѕР±С‹ РїСЂРµРґРѕС‚РІСЂР°С‚РёС‚СЊ XSS (РџРµСЂРµРєСЂРµСЃС‚РЅС‹Рµ СЃС†РµРЅР°СЂРёРё СЃР°Р№С‚Р° - Cross Site Scripting) ");
+	define('_AM_RSSC_FORM_CUSTOM_PLUGIN', 'РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ РїР»Р°РіРёРЅС‹');
 
 // html out
-	define('_AM_RSSC_CONF_HTML_NON',    'Отметьте, чтобы сделать');
-	define('_AM_RSSC_CONF_HTML_SHOW',   'Очистить и показать в HTML');
-	define('_AM_RSSC_CONF_HTML_REMOVE', 'Удаление');
-	define('_AM_RSSC_CONF_HTML_REPLACE', 'Заменить строки');
-	define('_AM_RSSC_CONF_HTML_SCRIPT', 'Тег скрипта');
-	define('_AM_RSSC_CONF_HTML_SCRIPT_DESC', "Обработка '&lt;script&gt;...&lt;/script&gt;' ");
-	define('_AM_RSSC_CONF_HTML_STYLE', 'Тег стиля');
-	define('_AM_RSSC_CONF_HTML_STYLE_DESC', "Обработка '&lt;style&gt;...&lt;/style&gt;' ");
-	define('_AM_RSSC_CONF_HTML_LINK', 'Тег ссылки');
-	define('_AM_RSSC_CONF_HTML_LINK_DESC', "Обработка '&lt;link ... &gt;' ");
-	define('_AM_RSSC_CONF_HTML_COMMENT', 'Метки комментария');
-	define('_AM_RSSC_CONF_HTML_COMMENT_DESC', "Обработка '&lt;!-- ... --&gt;' ");
-	define('_AM_RSSC_CONF_HTML_CDATA', 'Метки CDATA');
-	define('_AM_RSSC_CONF_HTML_CDATA_DESC', "Обработка '&lt;![CDATA[ ... ]]&gt;' ");
-	define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE', 'Атрибуты onMouse');
-	define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', "Обработка 'onmouseover=\"...\"' или 'onclick=\"...\"' <br />заменять как 'on_mouseover_=\"...\"', когда 'Заменить' ");
-	define('_AM_RSSC_CONF_HTML_ATTR_STYLE', 'Атрибуты стиля');
-	define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', "Обработка 'style=\"...\"' или 'class=\"...\"' <br />заменять как 'style_=\"...\"', когда 'Заменить' ");
-	define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS', 'Удалить другие теги');
-	define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS_DESC', "Удалять или нет '&lt;img ... &gt;' '&lt;a ... &gt;' '&lt;link ... &gt;' т.д. ");
-	define('_AM_RSSC_CONF_HTML_OTHER_TAGS', 'Разрешенные теги');
-	define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', "Введенный тег не удалится, когда 'RУдалить другие теги' - 'Да' <br /> Пример: &lt;img&gt;&lt;a&gt; ");
-	define('_AM_RSSC_CONF_HTML_JAVASCRIPT', 'Строки JavaScriprt');
-	define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', "Обработка строк 'JavaScriprt' <br />заменяется на 'java_script', когда 'Заменить' ");
+	define('_AM_RSSC_CONF_HTML_NON',    'РћС‚РјРµС‚СЊС‚Рµ, С‡С‚РѕР±С‹ СЃРґРµР»Р°С‚СЊ');
+	define('_AM_RSSC_CONF_HTML_SHOW',   'РћС‡РёСЃС‚РёС‚СЊ Рё РїРѕРєР°Р·Р°С‚СЊ РІ HTML');
+	define('_AM_RSSC_CONF_HTML_REMOVE', 'РЈРґР°Р»РµРЅРёРµ');
+	define('_AM_RSSC_CONF_HTML_REPLACE', 'Р—Р°РјРµРЅРёС‚СЊ СЃС‚СЂРѕРєРё');
+	define('_AM_RSSC_CONF_HTML_SCRIPT', 'РўРµРі СЃРєСЂРёРїС‚Р°');
+	define('_AM_RSSC_CONF_HTML_SCRIPT_DESC', "РћР±СЂР°Р±РѕС‚РєР° '&lt;script&gt;...&lt;/script&gt;' ");
+	define('_AM_RSSC_CONF_HTML_STYLE', 'РўРµРі СЃС‚РёР»СЏ');
+	define('_AM_RSSC_CONF_HTML_STYLE_DESC', "РћР±СЂР°Р±РѕС‚РєР° '&lt;style&gt;...&lt;/style&gt;' ");
+	define('_AM_RSSC_CONF_HTML_LINK', 'РўРµРі СЃСЃС‹Р»РєРё');
+	define('_AM_RSSC_CONF_HTML_LINK_DESC', "РћР±СЂР°Р±РѕС‚РєР° '&lt;link ... &gt;' ");
+	define('_AM_RSSC_CONF_HTML_COMMENT', 'РњРµС‚РєРё РєРѕРјРјРµРЅС‚Р°СЂРёСЏ');
+	define('_AM_RSSC_CONF_HTML_COMMENT_DESC', "РћР±СЂР°Р±РѕС‚РєР° '&lt;!-- ... --&gt;' ");
+	define('_AM_RSSC_CONF_HTML_CDATA', 'РњРµС‚РєРё CDATA');
+	define('_AM_RSSC_CONF_HTML_CDATA_DESC', "РћР±СЂР°Р±РѕС‚РєР° '&lt;![CDATA[ ... ]]&gt;' ");
+	define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE', 'РђС‚СЂРёР±СѓС‚С‹ onMouse');
+	define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', "РћР±СЂР°Р±РѕС‚РєР° 'onmouseover=\"...\"' РёР»Рё 'onclick=\"...\"' <br />Р·Р°РјРµРЅСЏС‚СЊ РєР°Рє 'on_mouseover_=\"...\"', РєРѕРіРґР° 'Р—Р°РјРµРЅРёС‚СЊ' ");
+	define('_AM_RSSC_CONF_HTML_ATTR_STYLE', 'РђС‚СЂРёР±СѓС‚С‹ СЃС‚РёР»СЏ');
+	define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', "РћР±СЂР°Р±РѕС‚РєР° 'style=\"...\"' РёР»Рё 'class=\"...\"' <br />Р·Р°РјРµРЅСЏС‚СЊ РєР°Рє 'style_=\"...\"', РєРѕРіРґР° 'Р—Р°РјРµРЅРёС‚СЊ' ");
+	define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS', 'РЈРґР°Р»РёС‚СЊ РґСЂСѓРіРёРµ С‚РµРіРё');
+	define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS_DESC', "РЈРґР°Р»СЏС‚СЊ РёР»Рё РЅРµС‚ '&lt;img ... &gt;' '&lt;a ... &gt;' '&lt;link ... &gt;' С‚.Рґ. ");
+	define('_AM_RSSC_CONF_HTML_OTHER_TAGS', 'Р Р°Р·СЂРµС€РµРЅРЅС‹Рµ С‚РµРіРё');
+	define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', "Р’РІРµРґРµРЅРЅС‹Р№ С‚РµРі РЅРµ СѓРґР°Р»РёС‚СЃСЏ, РєРѕРіРґР° 'RРЈРґР°Р»РёС‚СЊ РґСЂСѓРіРёРµ С‚РµРіРё' - 'Р”Р°' <br /> РџСЂРёРјРµСЂ: &lt;img&gt;&lt;a&gt; ");
+	define('_AM_RSSC_CONF_HTML_JAVASCRIPT', 'РЎС‚СЂРѕРєРё JavaScriprt');
+	define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', "РћР±СЂР°Р±РѕС‚РєР° СЃС‚СЂРѕРє 'JavaScriprt' <br />Р·Р°РјРµРЅСЏРµС‚СЃСЏ РЅР° 'java_script', РєРѕРіРґР° 'Р—Р°РјРµРЅРёС‚СЊ' ");
 
 // plugin
-	define('_AM_RSSC_PRE_PLUGIN_DESC', 'Выполнить перед сохранением в базе данных');
-	define('_AM_RSSC_POST_PLUGIN_DESC', 'Выполнить после чтения в базе данных');
-	define('_AM_RSSC_PLUGIN_DESC_2', 'Разделите каждый с помощью <b>|</b>, когда указывается два или более плагинов ');
+	define('_AM_RSSC_PRE_PLUGIN_DESC', 'Р’С‹РїРѕР»РЅРёС‚СЊ РїРµСЂРµРґ СЃРѕС…СЂР°РЅРµРЅРёРµРј РІ Р±Р°Р·Рµ РґР°РЅРЅС‹С…');
+	define('_AM_RSSC_POST_PLUGIN_DESC', 'Р’С‹РїРѕР»РЅРёС‚СЊ РїРѕСЃР»Рµ С‡С‚РµРЅРёСЏ РІ Р±Р°Р·Рµ РґР°РЅРЅС‹С…');
+	define('_AM_RSSC_PLUGIN_DESC_2', 'Р Р°Р·РґРµР»РёС‚Рµ РєР°Р¶РґС‹Р№ СЃ РїРѕРјРѕС‰СЊСЋ <b>|</b>, РєРѕРіРґР° СѓРєР°Р·С‹РІР°РµС‚СЃСЏ РґРІР° РёР»Рё Р±РѕР»РµРµ РїР»Р°РіРёРЅРѕРІ ');
 
-	define('_AM_RSSC_PLUGIN_TEST', 'Тест для плагинов');
-	define('_AM_RSSC_PLUGIN', 'Плагины');
-	define('_AM_RSSC_PLUGIN_TESTDATA', 'Данные испытаний');
-	define('_AM_RSSC_PLUGIN_TESTDATA_DESC', 'Введите форму ассоциативного массива');
+	define('_AM_RSSC_PLUGIN_TEST', 'РўРµСЃС‚ РґР»СЏ РїР»Р°РіРёРЅРѕРІ');
+	define('_AM_RSSC_PLUGIN', 'РџР»Р°РіРёРЅС‹');
+	define('_AM_RSSC_PLUGIN_TESTDATA', 'Р”Р°РЅРЅС‹Рµ РёСЃРїС‹С‚Р°РЅРёР№');
+	define('_AM_RSSC_PLUGIN_TESTDATA_DESC', 'Р’РІРµРґРёС‚Рµ С„РѕСЂРјСѓ Р°СЃСЃРѕС†РёР°С‚РёРІРЅРѕРіРѕ РјР°СЃСЃРёРІР°');
 }
 
 //---------------------------------------------------------
@@ -146,33 +146,33 @@ if( !defined('_AM_RSSC_FORM_HTMLOUT') )
 if( !defined('_RSSC_LINK_ENCLOSURE') ) 
 {
 // link table
-	define('_RSSC_LINK_ENCLOSURE','Эксплуатация контейнера тега');
-	define('_RSSC_LINK_ENCLOSURE_NON','Не использовать');
-	define('_RSSC_LINK_ENCLOSURE_POD','Допускать подкаст');
-	define('_RSSC_LINK_CENSOR', 'Ввести цензуру слова в заголовке');
-	define('_RSSC_LINK_PLUGIN','Плагин');
+	define('_RSSC_LINK_ENCLOSURE','Р­РєСЃРїР»СѓР°С‚Р°С†РёСЏ РєРѕРЅС‚РµР№РЅРµСЂР° С‚РµРіР°');
+	define('_RSSC_LINK_ENCLOSURE_NON','РќРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ');
+	define('_RSSC_LINK_ENCLOSURE_POD','Р”РѕРїСѓСЃРєР°С‚СЊ РїРѕРґРєР°СЃС‚');
+	define('_RSSC_LINK_CENSOR', 'Р’РІРµСЃС‚Рё С†РµРЅР·СѓСЂСѓ СЃР»РѕРІР° РІ Р·Р°РіРѕР»РѕРІРєРµ');
+	define('_RSSC_LINK_PLUGIN','РџР»Р°РіРёРЅ');
 
 // black & white table
-	define('_RSSC_BW_CACHE','Кэш счетчика канала');
-	define('_RSSC_BW_CTIME','Время кэша счетчика канала');
+	define('_RSSC_BW_CACHE','РљСЌС€ СЃС‡РµС‚С‡РёРєР° РєР°РЅР°Р»Р°');
+	define('_RSSC_BW_CTIME','Р’СЂРµРјСЏ РєСЌС€Р° СЃС‡РµС‚С‡РёРєР° РєР°РЅР°Р»Р°');
 
 // keyword manage
-	define('_RSSC_KEYWORD','Ключевое слово');
+	define('_RSSC_KEYWORD','РљР»СЋС‡РµРІРѕРµ СЃР»РѕРІРѕ');
 }
 
 if( !defined('_AM_RSSC_CONF_SHOW_MODE_DATE') ) 
 {
 // config
-	define('_AM_RSSC_CONF_SHOW_MODE_DATE', 'Режим даты');
-	define('_AM_RSSC_CONF_SHOW_MODE_DATE_NON',    'Не показывать');
-	define('_AM_RSSC_CONF_SHOW_MODE_DATE_SHORT',  'короткий');
-	define('_AM_RSSC_CONF_SHOW_MODE_DATE_MIDDLE', 'средний');
-	define('_AM_RSSC_CONF_SHOW_MODE_DATE_LONG',   'длинный');
-	define('_AM_RSSC_CONF_SHOW_SITE', 'Информация о сайте');
-	define('_AM_RSSC_CONF_SHOW_SITE_DSC', 'Когда "ДА", показывать заголовок сайта и адрес');
+	define('_AM_RSSC_CONF_SHOW_MODE_DATE', 'Р РµР¶РёРј РґР°С‚С‹');
+	define('_AM_RSSC_CONF_SHOW_MODE_DATE_NON',    'РќРµ РїРѕРєР°Р·С‹РІР°С‚СЊ');
+	define('_AM_RSSC_CONF_SHOW_MODE_DATE_SHORT',  'РєРѕСЂРѕС‚РєРёР№');
+	define('_AM_RSSC_CONF_SHOW_MODE_DATE_MIDDLE', 'СЃСЂРµРґРЅРёР№');
+	define('_AM_RSSC_CONF_SHOW_MODE_DATE_LONG',   'РґР»РёРЅРЅС‹Р№');
+	define('_AM_RSSC_CONF_SHOW_SITE', 'РРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃР°Р№С‚Рµ');
+	define('_AM_RSSC_CONF_SHOW_SITE_DSC', 'РљРѕРіРґР° "Р”Рђ", РїРѕРєР°Р·С‹РІР°С‚СЊ Р·Р°РіРѕР»РѕРІРѕРє СЃР°Р№С‚Р° Рё Р°РґСЂРµСЃ');
 
 // link table
-	define('_AM_RSSC_LINK_CENSOR_DESC', 'Разделите каждый с помощью <b>|</b><br />чувствительны к регистру');
+	define('_AM_RSSC_LINK_CENSOR_DESC', 'Р Р°Р·РґРµР»РёС‚Рµ РєР°Р¶РґС‹Р№ СЃ РїРѕРјРѕС‰СЊСЋ <b>|</b><br />С‡СѓРІСЃС‚РІРёС‚РµР»СЊРЅС‹ Рє СЂРµРіРёСЃС‚СЂСѓ');
 }
 
 //---------------------------------------------------------
@@ -181,117 +181,117 @@ if( !defined('_AM_RSSC_CONF_SHOW_MODE_DATE') )
 if( !defined('_RSSC_WORD_ID') ) 
 {
 // word table
-	define('_RSSC_WORD_ID','ID слова');
-	define('_RSSC_WORD_WORD','Отклоненные слова');
-	define('_RSSC_WORD_POINT','Точка');
-	define('_RSSC_ACT','Статус');
-	define('_RSSC_ACT_NON','Неверный');
-	define('_RSSC_ACT_ACT','Верный');
-	define('_RSSC_REG','Выражение адреса');
-	define('_RSSC_REG_NORMAL','Нормальный');
-	define('_RSSC_REG_EXP','Регулярное выражение');
-	define('_RSSC_FREQ_COUNT','Счетчик чувствительности');
+	define('_RSSC_WORD_ID','ID СЃР»РѕРІР°');
+	define('_RSSC_WORD_WORD','РћС‚РєР»РѕРЅРµРЅРЅС‹Рµ СЃР»РѕРІР°');
+	define('_RSSC_WORD_POINT','РўРѕС‡РєР°');
+	define('_RSSC_ACT','РЎС‚Р°С‚СѓСЃ');
+	define('_RSSC_ACT_NON','РќРµРІРµСЂРЅС‹Р№');
+	define('_RSSC_ACT_ACT','Р’РµСЂРЅС‹Р№');
+	define('_RSSC_REG','Р’С‹СЂР°Р¶РµРЅРёРµ Р°РґСЂРµСЃР°');
+	define('_RSSC_REG_NORMAL','РќРѕСЂРјР°Р»СЊРЅС‹Р№');
+	define('_RSSC_REG_EXP','Р РµРіСѓР»СЏСЂРЅРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ');
+	define('_RSSC_FREQ_COUNT','РЎС‡РµС‚С‡РёРє С‡СѓРІСЃС‚РІРёС‚РµР»СЊРЅРѕСЃС‚Рё');
 
 // feed table
-	define('_RSSC_FEED_ACT',     'Статус');
-	define('_RSSC_FEED_ACT_NON', 'Не показывать');
-	define('_RSSC_FEED_ACT_VIEW','Показывать');
+	define('_RSSC_FEED_ACT',     'РЎС‚Р°С‚СѓСЃ');
+	define('_RSSC_FEED_ACT_NON', 'РќРµ РїРѕРєР°Р·С‹РІР°С‚СЊ');
+	define('_RSSC_FEED_ACT_VIEW','РџРѕРєР°Р·С‹РІР°С‚СЊ');
 
 // link table
-	define('_RSSC_LTYPE_NON','Нет обновленных каналов');
-	define('_RSSC_LTYPE_SEARCH','Поиск по сайту');
-	define('_RSSC_LTYPE_NORMAL','Нормальный');
+	define('_RSSC_LTYPE_NON','РќРµС‚ РѕР±РЅРѕРІР»РµРЅРЅС‹С… РєР°РЅР°Р»РѕРІ');
+	define('_RSSC_LTYPE_SEARCH','РџРѕРёСЃРє РїРѕ СЃР°Р№С‚Сѓ');
+	define('_RSSC_LTYPE_NORMAL','РќРѕСЂРјР°Р»СЊРЅС‹Р№');
 
-	define('_RSSC_XML_URL','Адрес RDF/RSS/ATOM');
+	define('_RSSC_XML_URL','РђРґСЂРµСЃ RDF/RSS/ATOM');
 }
 
 if( !defined('_AM_RSSC_LIST_WORD') ) 
 {
 // word_list
-	define('_AM_RSSC_LIST_WORD','Список отклоненных слов');
-	define('_AM_RSSC_WORD_MANAGE','Управление отслоненными словами');
-	define('_AM_RSSC_ADD_WORD','Добавить отклоняемое слово');
-	define('_AM_RSSC_MOD_WORD','Изменить отклоняемое слово');
-	define('_AM_RSSC_DEL_WORD','Удалить отклоняемое слово');
-	define('_AM_RSSC_POINT_ASC', 'Малая точка сортировки');
-	define('_AM_RSSC_POINT_DESC','Большая точка сортировки');
-	define('_AM_RSSC_COUNT_ASC', 'Малый счетчик чувствительности сортировка');
-	define('_AM_RSSC_COUNT_DESC','Больший счетчик чувствительности сортировка');
-	define('_AM_RSSC_WORD_ASC', 'А-Я сортировка');
-	define('_AM_RSSC_WORD_DESC','Я-А сортировка');
-	define('_AM_RSSC_NON_ACT','Нет списка показа');
-	define('_AM_RSSC_NON_ACT_ASC', 'Нет показанных ID по возрастанию');
-	define('_AM_RSSC_NON_ACT_DESC','Нет показанных ID по убыванию');
-	define('_AM_RSSC_WORD_ALREADY','Это слово уже зарегистрировано');
-	define('_AM_RSSC_WORD_SEARCH','Синонимный поиск');
+	define('_AM_RSSC_LIST_WORD','РЎРїРёСЃРѕРє РѕС‚РєР»РѕРЅРµРЅРЅС‹С… СЃР»РѕРІ');
+	define('_AM_RSSC_WORD_MANAGE','РЈРїСЂР°РІР»РµРЅРёРµ РѕС‚СЃР»РѕРЅРµРЅРЅС‹РјРё СЃР»РѕРІР°РјРё');
+	define('_AM_RSSC_ADD_WORD','Р”РѕР±Р°РІРёС‚СЊ РѕС‚РєР»РѕРЅСЏРµРјРѕРµ СЃР»РѕРІРѕ');
+	define('_AM_RSSC_MOD_WORD','РР·РјРµРЅРёС‚СЊ РѕС‚РєР»РѕРЅСЏРµРјРѕРµ СЃР»РѕРІРѕ');
+	define('_AM_RSSC_DEL_WORD','РЈРґР°Р»РёС‚СЊ РѕС‚РєР»РѕРЅСЏРµРјРѕРµ СЃР»РѕРІРѕ');
+	define('_AM_RSSC_POINT_ASC', 'РњР°Р»Р°СЏ С‚РѕС‡РєР° СЃРѕСЂС‚РёСЂРѕРІРєРё');
+	define('_AM_RSSC_POINT_DESC','Р‘РѕР»СЊС€Р°СЏ С‚РѕС‡РєР° СЃРѕСЂС‚РёСЂРѕРІРєРё');
+	define('_AM_RSSC_COUNT_ASC', 'РњР°Р»С‹Р№ СЃС‡РµС‚С‡РёРє С‡СѓРІСЃС‚РІРёС‚РµР»СЊРЅРѕСЃС‚Рё СЃРѕСЂС‚РёСЂРѕРІРєР°');
+	define('_AM_RSSC_COUNT_DESC','Р‘РѕР»СЊС€РёР№ СЃС‡РµС‚С‡РёРє С‡СѓРІСЃС‚РІРёС‚РµР»СЊРЅРѕСЃС‚Рё СЃРѕСЂС‚РёСЂРѕРІРєР°');
+	define('_AM_RSSC_WORD_ASC', 'Рђ-РЇ СЃРѕСЂС‚РёСЂРѕРІРєР°');
+	define('_AM_RSSC_WORD_DESC','РЇ-Рђ СЃРѕСЂС‚РёСЂРѕРІРєР°');
+	define('_AM_RSSC_NON_ACT','РќРµС‚ СЃРїРёСЃРєР° РїРѕРєР°Р·Р°');
+	define('_AM_RSSC_NON_ACT_ASC', 'РќРµС‚ РїРѕРєР°Р·Р°РЅРЅС‹С… ID РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ');
+	define('_AM_RSSC_NON_ACT_DESC','РќРµС‚ РїРѕРєР°Р·Р°РЅРЅС‹С… ID РїРѕ СѓР±С‹РІР°РЅРёСЋ');
+	define('_AM_RSSC_WORD_ALREADY','Р­С‚Рѕ СЃР»РѕРІРѕ СѓР¶Рµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРѕ');
+	define('_AM_RSSC_WORD_SEARCH','РЎРёРЅРѕРЅРёРјРЅС‹Р№ РїРѕРёСЃРє');
 
 // content filter
-	define('_AM_RSSC_FORM_FILTER','Установка фильтра');
-	define('_AM_RSSC_FORM_FILTER_DESC','Этот фильтр считает хранить или нет каналы в базе данных при автоматическом сборе');
-	define('_AM_RSSC_CONF_LINK_USE','Использовать таблицу ссылки');
-	define('_AM_RSSC_CONF_LINK_USE_DESC','Сохранять, когда "Тип" таблицы ссылки "Нормальный"');
-	define('_AM_RSSC_CONF_WHITE_USE','Использовать белый список');
-	define('_AM_RSSC_CONF_WHITE_USE_DESC','Сохранять, когда в белом списке');
-	define('_AM_RSSC_CONF_BLACK_USE','Использовать черный список');
-	define('_AM_RSSC_CONF_BLACK_USE_DESC','Не сохранять, когда в черном списке<br />Когда выбрано "Использовать", прерывается процесс фильтрации, если считать черный<br />Когда выбрано "Обучение", продолжить процесс фильтрации, с целью извлечения слов, если считать черный');
-	define('_AM_RSSC_CONF_BLACK_USE_NO','Не использовать');
-	define('_AM_RSSC_CONF_BLACK_USE_YES','Использовать');
-	define('_AM_RSSC_CONF_BLACK_USE_LEARN','Обучение');
-	define('_AM_RSSC_CONF_WORD_USE','Использовать список отклоненных слов');
-	define('_AM_RSSC_CONF_WORD_USE_DESC','Не сохранять, когда общая точка списка слов превышает уровень отклонения');
-	define('_AM_RSSC_CONF_WORD_LEVEL', 'Уровень отклонения');
-	define('_AM_RSSC_CONF_FEED_SAVE','Сохранение канала');
-	define('_AM_RSSC_CONF_FEED_SAVE_DESC','Сохранять или нет в таблице каналов, когда считается черным.<br />Когда "Сохранить", сохраняется в статусе "не показывать".');
-	define('_AM_RSSC_CONF_FEED_SAVE_NO', 'Не сохранять');
-	define('_AM_RSSC_CONF_FEED_SAVE_YES','Сохранять');
-	define('_AM_RSSC_CONF_LOG_USE','Использовать файл журнала');
-	define('_AM_RSSC_CONF_LOG_USE_DESC','Записывать файл журнала, когда считается черным');
-	define('_AM_RSSC_CONF_WHITE_COUNT','Подсчитывать белый список');
-	define('_AM_RSSC_CONF_WHITE_COUNT_DESC','Подсчитывать совпадающие записи, когда соответствует белому списку');
-	define('_AM_RSSC_CONF_BLACK_COUNT','Подсчитывать черный список');
-	define('_AM_RSSC_CONF_BLACK_COUNT_DESC','Подсчитывать совпадающие записи, когда соответствует черному списку');
-	define('_AM_RSSC_CONF_WORD_COUNT','Подсчитывать список отклоненных слов');
-	define('_AM_RSSC_CONF_WORD_COUNT_DESC','Подсчитывать совпадающие записи, когда соответствует списку отклоненных слов');
-	define('_AM_RSSC_CONF_BLACK_AUTO','Добавлять в черный список');
-	define('_AM_RSSC_CONF_BLACK_AUTO_DESC','Добавлять адрес в черный списокавтоматически, когда считается черным<br /><b>Уведомление</b> "статус" хранится как "недействительный"<br />Пожалуйста, измените на "действительный" при использовании');
-	define('_AM_RSSC_CONF_WORD_AUTO','Добавлять с список отклоненных слов');
-	define('_AM_RSSC_CONF_WORD_AUTO_DESC','Извлечение слов в содержании автоматически и добавление слов в список отклоненных слов автоматически, когда считается черным<br /><b>Уведомление</b> "точка" хранится как ноль<br />Пожалуйста, измените "точку" при использованиии');
-	define('_AM_RSSC_CONF_WORD_AUTO_NON','Не добавлять');
-	define('_AM_RSSC_CONF_WORD_AUTO_SYMBOL','Извлечение по пробелу или символу');
-	define('_AM_RSSC_CONF_WORD_AUTO_KAKASI','Извлечение KAKASI: только на японском языке');
+	define('_AM_RSSC_FORM_FILTER','РЈСЃС‚Р°РЅРѕРІРєР° С„РёР»СЊС‚СЂР°');
+	define('_AM_RSSC_FORM_FILTER_DESC','Р­С‚РѕС‚ С„РёР»СЊС‚СЂ СЃС‡РёС‚Р°РµС‚ С…СЂР°РЅРёС‚СЊ РёР»Рё РЅРµС‚ РєР°РЅР°Р»С‹ РІ Р±Р°Р·Рµ РґР°РЅРЅС‹С… РїСЂРё Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРј СЃР±РѕСЂРµ');
+	define('_AM_RSSC_CONF_LINK_USE','РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ СЃСЃС‹Р»РєРё');
+	define('_AM_RSSC_CONF_LINK_USE_DESC','РЎРѕС…СЂР°РЅСЏС‚СЊ, РєРѕРіРґР° "РўРёРї" С‚Р°Р±Р»РёС†С‹ СЃСЃС‹Р»РєРё "РќРѕСЂРјР°Р»СЊРЅС‹Р№"');
+	define('_AM_RSSC_CONF_WHITE_USE','РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ Р±РµР»С‹Р№ СЃРїРёСЃРѕРє');
+	define('_AM_RSSC_CONF_WHITE_USE_DESC','РЎРѕС…СЂР°РЅСЏС‚СЊ, РєРѕРіРґР° РІ Р±РµР»РѕРј СЃРїРёСЃРєРµ');
+	define('_AM_RSSC_CONF_BLACK_USE','РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‡РµСЂРЅС‹Р№ СЃРїРёСЃРѕРє');
+	define('_AM_RSSC_CONF_BLACK_USE_DESC','РќРµ СЃРѕС…СЂР°РЅСЏС‚СЊ, РєРѕРіРґР° РІ С‡РµСЂРЅРѕРј СЃРїРёСЃРєРµ<br />РљРѕРіРґР° РІС‹Р±СЂР°РЅРѕ "РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ", РїСЂРµСЂС‹РІР°РµС‚СЃСЏ РїСЂРѕС†РµСЃСЃ С„РёР»СЊС‚СЂР°С†РёРё, РµСЃР»Рё СЃС‡РёС‚Р°С‚СЊ С‡РµСЂРЅС‹Р№<br />РљРѕРіРґР° РІС‹Р±СЂР°РЅРѕ "РћР±СѓС‡РµРЅРёРµ", РїСЂРѕРґРѕР»Р¶РёС‚СЊ РїСЂРѕС†РµСЃСЃ С„РёР»СЊС‚СЂР°С†РёРё, СЃ С†РµР»СЊСЋ РёР·РІР»РµС‡РµРЅРёСЏ СЃР»РѕРІ, РµСЃР»Рё СЃС‡РёС‚Р°С‚СЊ С‡РµСЂРЅС‹Р№');
+	define('_AM_RSSC_CONF_BLACK_USE_NO','РќРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ');
+	define('_AM_RSSC_CONF_BLACK_USE_YES','РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ');
+	define('_AM_RSSC_CONF_BLACK_USE_LEARN','РћР±СѓС‡РµРЅРёРµ');
+	define('_AM_RSSC_CONF_WORD_USE','РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРїРёСЃРѕРє РѕС‚РєР»РѕРЅРµРЅРЅС‹С… СЃР»РѕРІ');
+	define('_AM_RSSC_CONF_WORD_USE_DESC','РќРµ СЃРѕС…СЂР°РЅСЏС‚СЊ, РєРѕРіРґР° РѕР±С‰Р°СЏ С‚РѕС‡РєР° СЃРїРёСЃРєР° СЃР»РѕРІ РїСЂРµРІС‹С€Р°РµС‚ СѓСЂРѕРІРµРЅСЊ РѕС‚РєР»РѕРЅРµРЅРёСЏ');
+	define('_AM_RSSC_CONF_WORD_LEVEL', 'РЈСЂРѕРІРµРЅСЊ РѕС‚РєР»РѕРЅРµРЅРёСЏ');
+	define('_AM_RSSC_CONF_FEED_SAVE','РЎРѕС…СЂР°РЅРµРЅРёРµ РєР°РЅР°Р»Р°');
+	define('_AM_RSSC_CONF_FEED_SAVE_DESC','РЎРѕС…СЂР°РЅСЏС‚СЊ РёР»Рё РЅРµС‚ РІ С‚Р°Р±Р»РёС†Рµ РєР°РЅР°Р»РѕРІ, РєРѕРіРґР° СЃС‡РёС‚Р°РµС‚СЃСЏ С‡РµСЂРЅС‹Рј.<br />РљРѕРіРґР° "РЎРѕС…СЂР°РЅРёС‚СЊ", СЃРѕС…СЂР°РЅСЏРµС‚СЃСЏ РІ СЃС‚Р°С‚СѓСЃРµ "РЅРµ РїРѕРєР°Р·С‹РІР°С‚СЊ".');
+	define('_AM_RSSC_CONF_FEED_SAVE_NO', 'РќРµ СЃРѕС…СЂР°РЅСЏС‚СЊ');
+	define('_AM_RSSC_CONF_FEED_SAVE_YES','РЎРѕС…СЂР°РЅСЏС‚СЊ');
+	define('_AM_RSSC_CONF_LOG_USE','РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С„Р°Р№Р» Р¶СѓСЂРЅР°Р»Р°');
+	define('_AM_RSSC_CONF_LOG_USE_DESC','Р—Р°РїРёСЃС‹РІР°С‚СЊ С„Р°Р№Р» Р¶СѓСЂРЅР°Р»Р°, РєРѕРіРґР° СЃС‡РёС‚Р°РµС‚СЃСЏ С‡РµСЂРЅС‹Рј');
+	define('_AM_RSSC_CONF_WHITE_COUNT','РџРѕРґСЃС‡РёС‚С‹РІР°С‚СЊ Р±РµР»С‹Р№ СЃРїРёСЃРѕРє');
+	define('_AM_RSSC_CONF_WHITE_COUNT_DESC','РџРѕРґСЃС‡РёС‚С‹РІР°С‚СЊ СЃРѕРІРїР°РґР°СЋС‰РёРµ Р·Р°РїРёСЃРё, РєРѕРіРґР° СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ Р±РµР»РѕРјСѓ СЃРїРёСЃРєСѓ');
+	define('_AM_RSSC_CONF_BLACK_COUNT','РџРѕРґСЃС‡РёС‚С‹РІР°С‚СЊ С‡РµСЂРЅС‹Р№ СЃРїРёСЃРѕРє');
+	define('_AM_RSSC_CONF_BLACK_COUNT_DESC','РџРѕРґСЃС‡РёС‚С‹РІР°С‚СЊ СЃРѕРІРїР°РґР°СЋС‰РёРµ Р·Р°РїРёСЃРё, РєРѕРіРґР° СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ С‡РµСЂРЅРѕРјСѓ СЃРїРёСЃРєСѓ');
+	define('_AM_RSSC_CONF_WORD_COUNT','РџРѕРґСЃС‡РёС‚С‹РІР°С‚СЊ СЃРїРёСЃРѕРє РѕС‚РєР»РѕРЅРµРЅРЅС‹С… СЃР»РѕРІ');
+	define('_AM_RSSC_CONF_WORD_COUNT_DESC','РџРѕРґСЃС‡РёС‚С‹РІР°С‚СЊ СЃРѕРІРїР°РґР°СЋС‰РёРµ Р·Р°РїРёСЃРё, РєРѕРіРґР° СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ СЃРїРёСЃРєСѓ РѕС‚РєР»РѕРЅРµРЅРЅС‹С… СЃР»РѕРІ');
+	define('_AM_RSSC_CONF_BLACK_AUTO','Р”РѕР±Р°РІР»СЏС‚СЊ РІ С‡РµСЂРЅС‹Р№ СЃРїРёСЃРѕРє');
+	define('_AM_RSSC_CONF_BLACK_AUTO_DESC','Р”РѕР±Р°РІР»СЏС‚СЊ Р°РґСЂРµСЃ РІ С‡РµСЂРЅС‹Р№ СЃРїРёСЃРѕРєР°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё, РєРѕРіРґР° СЃС‡РёС‚Р°РµС‚СЃСЏ С‡РµСЂРЅС‹Рј<br /><b>РЈРІРµРґРѕРјР»РµРЅРёРµ</b> "СЃС‚Р°С‚СѓСЃ" С…СЂР°РЅРёС‚СЃСЏ РєР°Рє "РЅРµРґРµР№СЃС‚РІРёС‚РµР»СЊРЅС‹Р№"<br />РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РёР·РјРµРЅРёС‚Рµ РЅР° "РґРµР№СЃС‚РІРёС‚РµР»СЊРЅС‹Р№" РїСЂРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё');
+	define('_AM_RSSC_CONF_WORD_AUTO','Р”РѕР±Р°РІР»СЏС‚СЊ СЃ СЃРїРёСЃРѕРє РѕС‚РєР»РѕРЅРµРЅРЅС‹С… СЃР»РѕРІ');
+	define('_AM_RSSC_CONF_WORD_AUTO_DESC','РР·РІР»РµС‡РµРЅРёРµ СЃР»РѕРІ РІ СЃРѕРґРµСЂР¶Р°РЅРёРё Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё Рё РґРѕР±Р°РІР»РµРЅРёРµ СЃР»РѕРІ РІ СЃРїРёСЃРѕРє РѕС‚РєР»РѕРЅРµРЅРЅС‹С… СЃР»РѕРІ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё, РєРѕРіРґР° СЃС‡РёС‚Р°РµС‚СЃСЏ С‡РµСЂРЅС‹Рј<br /><b>РЈРІРµРґРѕРјР»РµРЅРёРµ</b> "С‚РѕС‡РєР°" С…СЂР°РЅРёС‚СЃСЏ РєР°Рє РЅРѕР»СЊ<br />РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РёР·РјРµРЅРёС‚Рµ "С‚РѕС‡РєСѓ" РїСЂРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРёРё');
+	define('_AM_RSSC_CONF_WORD_AUTO_NON','РќРµ РґРѕР±Р°РІР»СЏС‚СЊ');
+	define('_AM_RSSC_CONF_WORD_AUTO_SYMBOL','РР·РІР»РµС‡РµРЅРёРµ РїРѕ РїСЂРѕР±РµР»Сѓ РёР»Рё СЃРёРјРІРѕР»Сѓ');
+	define('_AM_RSSC_CONF_WORD_AUTO_KAKASI','РР·РІР»РµС‡РµРЅРёРµ KAKASI: С‚РѕР»СЊРєРѕ РЅР° СЏРїРѕРЅСЃРєРѕРј СЏР·С‹РєРµ');
 
 // word extract
-	define('_AM_RSSC_FORM_WORD','Установка извлечения слов');
-	define('_AM_RSSC_CONF_JOIN_PREV', 'Регистрация слов');
-	define('_AM_RSSC_CONF_JOIN_PREV_DESC', 'Регистрировать прямые и обратные слова и сделать фразой');
-	define('_AM_RSSC_CONF_JOIN_GLUE', 'Промежуток слов');
-	define('_AM_RSSC_CONF_JOIN_GLUE_DESC', 'В английском установите пробел<br />В японском ничего не устанавливайте');
-	define('_AM_RSSC_CONF_KAKASI_PATH','Путь к командам KAKASI');
-	define('_AM_RSSC_CONF_KAKASI_MODE','Режим KAKASI');
-	define('_AM_RSSC_CONF_KAKASI_MODE_FILE','Использовать временный файл');
-	define('_AM_RSSC_CONF_KAKASI_MODE_PIPE','Использовать канал UNIX');
-	define('_AM_RSSC_CONF_CHAR_LENGTH', 'Минимальное количество символов');
-	define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'Минимальное количество символов для извлечения слова');
-	define('_AM_RSSC_CONF_WORD_LIMIT', 'Максимальное количество отклоненных слов');
-	define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Введите максимальное число слов хранимых в таблице слов<br />Удаляются старые записи, когда количество становится больше, чем это значение<br /><b>0</b> неограничено');
-	define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi исполняемо');
-	define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi не исполняемо');
-	define('_AM_RSSC_CONF_HTML_GET','Получить HTML');
-	define('_AM_RSSC_CONF_HTML_GET_DESC','Получить данные оригинального HTML автоматически, когда считается списком отклоненных слов<br />Когда выбрано "Использовать", точность расчета повышается , но время выполнения становятся долгим');
-	define('_AM_RSSC_CONF_HTML_GET_NO','Не использовать');
-	define('_AM_RSSC_CONF_HTML_GET_YES','Использовать');
-	define('_AM_RSSC_CONF_HTML_GET_BLACK','Использовать, когда считается черным');
-	define('_AM_RSSC_CONF_HTML_LIMIT', 'Максимальное количество символов HTML');
-	define('_AM_RSSC_CONF_HTML_LIMIT_DESC', 'Максимальное количество символов HTML, которые получаются автоматически<br />На некоторых сайтах, HTML данные большие, и время выполнения становятся долгим');
+	define('_AM_RSSC_FORM_WORD','РЈСЃС‚Р°РЅРѕРІРєР° РёР·РІР»РµС‡РµРЅРёСЏ СЃР»РѕРІ');
+	define('_AM_RSSC_CONF_JOIN_PREV', 'Р РµРіРёСЃС‚СЂР°С†РёСЏ СЃР»РѕРІ');
+	define('_AM_RSSC_CONF_JOIN_PREV_DESC', 'Р РµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ РїСЂСЏРјС‹Рµ Рё РѕР±СЂР°С‚РЅС‹Рµ СЃР»РѕРІР° Рё СЃРґРµР»Р°С‚СЊ С„СЂР°Р·РѕР№');
+	define('_AM_RSSC_CONF_JOIN_GLUE', 'РџСЂРѕРјРµР¶СѓС‚РѕРє СЃР»РѕРІ');
+	define('_AM_RSSC_CONF_JOIN_GLUE_DESC', 'Р’ Р°РЅРіР»РёР№СЃРєРѕРј СѓСЃС‚Р°РЅРѕРІРёС‚Рµ РїСЂРѕР±РµР»<br />Р’ СЏРїРѕРЅСЃРєРѕРј РЅРёС‡РµРіРѕ РЅРµ СѓСЃС‚Р°РЅР°РІР»РёРІР°Р№С‚Рµ');
+	define('_AM_RSSC_CONF_KAKASI_PATH','РџСѓС‚СЊ Рє РєРѕРјР°РЅРґР°Рј KAKASI');
+	define('_AM_RSSC_CONF_KAKASI_MODE','Р РµР¶РёРј KAKASI');
+	define('_AM_RSSC_CONF_KAKASI_MODE_FILE','РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РІСЂРµРјРµРЅРЅС‹Р№ С„Р°Р№Р»');
+	define('_AM_RSSC_CONF_KAKASI_MODE_PIPE','РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєР°РЅР°Р» UNIX');
+	define('_AM_RSSC_CONF_CHAR_LENGTH', 'РњРёРЅРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ');
+	define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'РњРёРЅРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ РґР»СЏ РёР·РІР»РµС‡РµРЅРёСЏ СЃР»РѕРІР°');
+	define('_AM_RSSC_CONF_WORD_LIMIT', 'РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚РєР»РѕРЅРµРЅРЅС‹С… СЃР»РѕРІ');
+	define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Р’РІРµРґРёС‚Рµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ СЃР»РѕРІ С…СЂР°РЅРёРјС‹С… РІ С‚Р°Р±Р»РёС†Рµ СЃР»РѕРІ<br />РЈРґР°Р»СЏСЋС‚СЃСЏ СЃС‚Р°СЂС‹Рµ Р·Р°РїРёСЃРё, РєРѕРіРґР° РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚Р°РЅРѕРІРёС‚СЃСЏ Р±РѕР»СЊС€Рµ, С‡РµРј СЌС‚Рѕ Р·РЅР°С‡РµРЅРёРµ<br /><b>0</b> РЅРµРѕРіСЂР°РЅРёС‡РµРЅРѕ');
+	define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi РёСЃРїРѕР»РЅСЏРµРјРѕ');
+	define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi РЅРµ РёСЃРїРѕР»РЅСЏРµРјРѕ');
+	define('_AM_RSSC_CONF_HTML_GET','РџРѕР»СѓС‡РёС‚СЊ HTML');
+	define('_AM_RSSC_CONF_HTML_GET_DESC','РџРѕР»СѓС‡РёС‚СЊ РґР°РЅРЅС‹Рµ РѕСЂРёРіРёРЅР°Р»СЊРЅРѕРіРѕ HTML Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё, РєРѕРіРґР° СЃС‡РёС‚Р°РµС‚СЃСЏ СЃРїРёСЃРєРѕРј РѕС‚РєР»РѕРЅРµРЅРЅС‹С… СЃР»РѕРІ<br />РљРѕРіРґР° РІС‹Р±СЂР°РЅРѕ "РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ", С‚РѕС‡РЅРѕСЃС‚СЊ СЂР°СЃС‡РµС‚Р° РїРѕРІС‹С€Р°РµС‚СЃСЏ , РЅРѕ РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ СЃС‚Р°РЅРѕРІСЏС‚СЃСЏ РґРѕР»РіРёРј');
+	define('_AM_RSSC_CONF_HTML_GET_NO','РќРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ');
+	define('_AM_RSSC_CONF_HTML_GET_YES','РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ');
+	define('_AM_RSSC_CONF_HTML_GET_BLACK','РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ, РєРѕРіРґР° СЃС‡РёС‚Р°РµС‚СЃСЏ С‡РµСЂРЅС‹Рј');
+	define('_AM_RSSC_CONF_HTML_LIMIT', 'РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ HTML');
+	define('_AM_RSSC_CONF_HTML_LIMIT_DESC', 'РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ HTML, РєРѕС‚РѕСЂС‹Рµ РїРѕР»СѓС‡Р°СЋС‚СЃСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё<br />РќР° РЅРµРєРѕС‚РѕСЂС‹С… СЃР°Р№С‚Р°С…, HTML РґР°РЅРЅС‹Рµ Р±РѕР»СЊС€РёРµ, Рё РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ СЃС‚Р°РЅРѕРІСЏС‚СЃСЏ РґРѕР»РіРёРј');
 
 // archive manage
-	define('_AM_RSSC_LEAN_BLACK', 'Обучение в черном списке');
-	define('_AM_RSSC_LEAN_BLACK_DESC','Патрулирование черного списка, с целью извлечения слов в содержании автоматически и добавление слов в список отклоненных слов автоматически');
-	define('_AM_RSSC_NUM_FEED_ALL','Число всех каналов');
-	define('_AM_RSSC_NUM_FEED_SKIP','Число уже сохраненных каналов');
-	define('_AM_RSSC_NUM_FEED_REJECT','Число каналов, считающихся черными');
+	define('_AM_RSSC_LEAN_BLACK', 'РћР±СѓС‡РµРЅРёРµ РІ С‡РµСЂРЅРѕРј СЃРїРёСЃРєРµ');
+	define('_AM_RSSC_LEAN_BLACK_DESC','РџР°С‚СЂСѓР»РёСЂРѕРІР°РЅРёРµ С‡РµСЂРЅРѕРіРѕ СЃРїРёСЃРєР°, СЃ С†РµР»СЊСЋ РёР·РІР»РµС‡РµРЅРёСЏ СЃР»РѕРІ РІ СЃРѕРґРµСЂР¶Р°РЅРёРё Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё Рё РґРѕР±Р°РІР»РµРЅРёРµ СЃР»РѕРІ РІ СЃРїРёСЃРѕРє РѕС‚РєР»РѕРЅРµРЅРЅС‹С… СЃР»РѕРІ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё');
+	define('_AM_RSSC_NUM_FEED_ALL','Р§РёСЃР»Рѕ РІСЃРµС… РєР°РЅР°Р»РѕРІ');
+	define('_AM_RSSC_NUM_FEED_SKIP','Р§РёСЃР»Рѕ СѓР¶Рµ СЃРѕС…СЂР°РЅРµРЅРЅС‹С… РєР°РЅР°Р»РѕРІ');
+	define('_AM_RSSC_NUM_FEED_REJECT','Р§РёСЃР»Рѕ РєР°РЅР°Р»РѕРІ, СЃС‡РёС‚Р°СЋС‰РёС…СЃСЏ С‡РµСЂРЅС‹РјРё');
 
-	define('_AM_RSSC_THEREARE_TITLE','в связанных <b>%s</b> присутствует <b>%s</b>');
+	define('_AM_RSSC_THEREARE_TITLE','РІ СЃРІСЏР·Р°РЅРЅС‹С… <b>%s</b> РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ <b>%s</b>');
 }
 
 
@@ -301,16 +301,16 @@ if( !defined('_AM_RSSC_LIST_WORD') )
 if( !defined('_AM_RSSC_FORM_PROXY') ) 
 {
 // proxy server
-	define('_AM_RSSC_FORM_PROXY', 'Конфигурация прокси сервера');
-	define('_AM_RSSC_CONF_PROXY_USE',  'Использовать прокси сервер');
-	define('_AM_RSSC_CONF_PROXY_HOST', 'Прокси сервер');
-	define('_AM_RSSC_CONF_PROXY_PORT', 'Прокси порт');
-	define('_AM_RSSC_CONF_PROXY_USER', 'Прокси имя пользователя');
-	define('_AM_RSSC_CONF_PROXY_USER_DESC', 'Введите имя пользователя, если ваш прокси сервер требует обычную проверку подлинности, <br />В противном случае, оставте пустым');
-	define('_AM_RSSC_CONF_PROXY_PASS', 'Прокси пароль');
-	define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'Введите пароль, если ваш прокси сервер требует обычную проверку подлинности, <br />В противном случае, оставте пустым');
+	define('_AM_RSSC_FORM_PROXY', 'РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ РїСЂРѕРєСЃРё СЃРµСЂРІРµСЂР°');
+	define('_AM_RSSC_CONF_PROXY_USE',  'РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРѕРєСЃРё СЃРµСЂРІРµСЂ');
+	define('_AM_RSSC_CONF_PROXY_HOST', 'РџСЂРѕРєСЃРё СЃРµСЂРІРµСЂ');
+	define('_AM_RSSC_CONF_PROXY_PORT', 'РџСЂРѕРєСЃРё РїРѕСЂС‚');
+	define('_AM_RSSC_CONF_PROXY_USER', 'РџСЂРѕРєСЃРё РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ');
+	define('_AM_RSSC_CONF_PROXY_USER_DESC', 'Р’РІРµРґРёС‚Рµ РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РµСЃР»Рё РІР°С€ РїСЂРѕРєСЃРё СЃРµСЂРІРµСЂ С‚СЂРµР±СѓРµС‚ РѕР±С‹С‡РЅСѓСЋ РїСЂРѕРІРµСЂРєСѓ РїРѕРґР»РёРЅРЅРѕСЃС‚Рё, <br />Р’ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ, РѕСЃС‚Р°РІС‚Рµ РїСѓСЃС‚С‹Рј');
+	define('_AM_RSSC_CONF_PROXY_PASS', 'РџСЂРѕРєСЃРё РїР°СЂРѕР»СЊ');
+	define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ, РµСЃР»Рё РІР°С€ РїСЂРѕРєСЃРё СЃРµСЂРІРµСЂ С‚СЂРµР±СѓРµС‚ РѕР±С‹С‡РЅСѓСЋ РїСЂРѕРІРµСЂРєСѓ РїРѕРґР»РёРЅРЅРѕСЃС‚Рё, <br />Р’ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ, РѕСЃС‚Р°РІС‚Рµ РїСѓСЃС‚С‹Рј');
 
-	define('_AM_RSSC_CONF_HIGHLIGHT', 'Использовать выделение ключевых слов');
+	define('_AM_RSSC_CONF_HIGHLIGHT', 'РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РІС‹РґРµР»РµРЅРёРµ РєР»СЋС‡РµРІС‹С… СЃР»РѕРІ');
 }
 
 //---------------------------------------------------------
@@ -319,44 +319,44 @@ if( !defined('_AM_RSSC_FORM_PROXY') )
 if( !defined('_RSSC_DB_ERROR') ) 
 {
 // error message
-	define('_RSSC_DB_ERROR',           'Ошибка базы данных RSSC');
-	define('_RSSC_DISCOVER_SUCCEEDED', 'Автоопределение RSS успешно');
-	define('_RSSC_DISCOVER_FAILED',    'Автоопределение RSS неудачно');
-	define('_RSSC_PARSE_MSG',          'Сообщение анализирования RSS');
-	define('_RSSC_PARSE_FAILED',            'Неудачное анализирование RSS');
-	define('_RSSC_PARSE_NOT_READ_XML_URL',  'Неудачное анализирование RSS: не читается адрес RSS');
-	define('_RSSC_PARSE_NOT_FIND_ENCODING', 'Неудачное анализирование RSS: не найдена кодировка');
-	define('_RSSC_REFRESH_ERROR', 'Ошибка обновления RSS');
-	define('_RSSC_LINK_NOT_EXIST',  'Отсутствует соответствующая ссылка в модуле RSSC');
-	define('_RSSC_LINK_EXIST_MORE', 'Присутствуют две или более ссылки, которые имеют тот же "Адрес RDF/RSS/ATOM"');
-	define('_RSSC_LINK_ALREADY',    'Такая ссылка уже существует, которая имеет тот же "Адрес RDF/RSS/ATOM"');
+	define('_RSSC_DB_ERROR',           'РћС€РёР±РєР° Р±Р°Р·С‹ РґР°РЅРЅС‹С… RSSC');
+	define('_RSSC_DISCOVER_SUCCEEDED', 'РђРІС‚РѕРѕРїСЂРµРґРµР»РµРЅРёРµ RSS СѓСЃРїРµС€РЅРѕ');
+	define('_RSSC_DISCOVER_FAILED',    'РђРІС‚РѕРѕРїСЂРµРґРµР»РµРЅРёРµ RSS РЅРµСѓРґР°С‡РЅРѕ');
+	define('_RSSC_PARSE_MSG',          'РЎРѕРѕР±С‰РµРЅРёРµ Р°РЅР°Р»РёР·РёСЂРѕРІР°РЅРёСЏ RSS');
+	define('_RSSC_PARSE_FAILED',            'РќРµСѓРґР°С‡РЅРѕРµ Р°РЅР°Р»РёР·РёСЂРѕРІР°РЅРёРµ RSS');
+	define('_RSSC_PARSE_NOT_READ_XML_URL',  'РќРµСѓРґР°С‡РЅРѕРµ Р°РЅР°Р»РёР·РёСЂРѕРІР°РЅРёРµ RSS: РЅРµ С‡РёС‚Р°РµС‚СЃСЏ Р°РґСЂРµСЃ RSS');
+	define('_RSSC_PARSE_NOT_FIND_ENCODING', 'РќРµСѓРґР°С‡РЅРѕРµ Р°РЅР°Р»РёР·РёСЂРѕРІР°РЅРёРµ RSS: РЅРµ РЅР°Р№РґРµРЅР° РєРѕРґРёСЂРѕРІРєР°');
+	define('_RSSC_REFRESH_ERROR', 'РћС€РёР±РєР° РѕР±РЅРѕРІР»РµРЅРёСЏ RSS');
+	define('_RSSC_LINK_NOT_EXIST',  'РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰Р°СЏ СЃСЃС‹Р»РєР° РІ РјРѕРґСѓР»Рµ RSSC');
+	define('_RSSC_LINK_EXIST_MORE', 'РџСЂРёСЃСѓС‚СЃС‚РІСѓСЋС‚ РґРІРµ РёР»Рё Р±РѕР»РµРµ СЃСЃС‹Р»РєРё, РєРѕС‚РѕСЂС‹Рµ РёРјРµСЋС‚ С‚РѕС‚ Р¶Рµ "РђРґСЂРµСЃ RDF/RSS/ATOM"');
+	define('_RSSC_LINK_ALREADY',    'РўР°РєР°СЏ СЃСЃС‹Р»РєР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, РєРѕС‚РѕСЂР°СЏ РёРјРµРµС‚ С‚РѕС‚ Р¶Рµ "РђРґСЂРµСЃ RDF/RSS/ATOM"');
 
 // refresh link
-	define('_RSSC_REFRESH_LINK', 'Обновление RDF/RSS/ATOM каналов');
-	define('_RSSC_REFRESH_LINK_DSC', 'Когда обновляются RSS каналы <br />Обнаруживать адреса <b>RDF/RSS/ATOM</b> автоматически и определять <b>Кодировку</b> автоматически, <br />если они не установлены.');
-	define('_RSSC_REFRESH_LINK_FINISHED', 'Обновление каналов закончено');
+	define('_RSSC_REFRESH_LINK', 'РћР±РЅРѕРІР»РµРЅРёРµ RDF/RSS/ATOM РєР°РЅР°Р»РѕРІ');
+	define('_RSSC_REFRESH_LINK_DSC', 'РљРѕРіРґР° РѕР±РЅРѕРІР»СЏСЋС‚СЃСЏ RSS РєР°РЅР°Р»С‹ <br />РћР±РЅР°СЂСѓР¶РёРІР°С‚СЊ Р°РґСЂРµСЃР° <b>RDF/RSS/ATOM</b> Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё Рё РѕРїСЂРµРґРµР»СЏС‚СЊ <b>РљРѕРґРёСЂРѕРІРєСѓ</b> Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё, <br />РµСЃР»Рё РѕРЅРё РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅС‹.');
+	define('_RSSC_REFRESH_LINK_FINISHED', 'РћР±РЅРѕРІР»РµРЅРёРµ РєР°РЅР°Р»РѕРІ Р·Р°РєРѕРЅС‡РµРЅРѕ');
 
 // for other module
-	define('_RSSC_RSSC_LID', 'ID ссылки модуля RSSC');
-	define('_RSSC_RSSC_LID_UPDATE', 'Обновление ID ссылки модуля RSSC');
-	define('_RSSC_GOTO_RSSC_ADMIN_LINK', 'Перейти к странице администрирования модуля RSSC');
+	define('_RSSC_RSSC_LID', 'ID СЃСЃС‹Р»РєРё РјРѕРґСѓР»СЏ RSSC');
+	define('_RSSC_RSSC_LID_UPDATE', 'РћР±РЅРѕРІР»РµРЅРёРµ ID СЃСЃС‹Р»РєРё РјРѕРґСѓР»СЏ RSSC');
+	define('_RSSC_GOTO_RSSC_ADMIN_LINK', 'РџРµСЂРµР№С‚Рё Рє СЃС‚СЂР°РЅРёС†Рµ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ РјРѕРґСѓР»СЏ RSSC');
 }
 
 if( !defined('_AM_RSSC_CONF_SHOW_TITLE_HTML') ) 
 {
 // show content with html
-	define('_AM_RSSC_CONF_SHOW_TITLE_HTML','Использовать HTML теги в заголовке');
-	define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', 'Когда выбрано "ДА", показывать заголовок с тегами HTML, если заголовок имеет HTML теги. <br />Когда выбрано "НЕТ", показывать заголовок с удаленными HTML тегами. ');
-	define('_AM_RSSC_CONF_SHOW_CONTENT_HTML','Использовать HTML теги в содержании');
-	define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', 'Когда выбрано "ДА", показывать содержание с тегами HTML, если содержание имеет HTML теги. <br />Когда выбрано "НЕТ", показывать содержание с удаленными HTML тегами. ');
-	define('_AM_RSSC_CONF_SHOW_MAX_CONTENT','Максимальное количество символов содержания');
-	define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'HTML теги удаляются, когда больше, чем это число<br /><b>-1</b> неограничено');
-	define('_AM_RSSC_CONF_SHOW_NUM_CONTENT','Максимальное количество RSS/ATOM каналов отображаемых содержание');
-	define('_AM_RSSC_CONF_SHOW_NUM_CONTENT_DSC', 'Введите максимальное число RSS/ATOM каналов отображаемых содержание.');
-	define('_AM_RSSC_CONF_SHOW_BLOG_LID','ID ссылки для отображения блога');
+	define('_AM_RSSC_CONF_SHOW_TITLE_HTML','РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ HTML С‚РµРіРё РІ Р·Р°РіРѕР»РѕРІРєРµ');
+	define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', 'РљРѕРіРґР° РІС‹Р±СЂР°РЅРѕ "Р”Рђ", РїРѕРєР°Р·С‹РІР°С‚СЊ Р·Р°РіРѕР»РѕРІРѕРє СЃ С‚РµРіР°РјРё HTML, РµСЃР»Рё Р·Р°РіРѕР»РѕРІРѕРє РёРјРµРµС‚ HTML С‚РµРіРё. <br />РљРѕРіРґР° РІС‹Р±СЂР°РЅРѕ "РќР•Рў", РїРѕРєР°Р·С‹РІР°С‚СЊ Р·Р°РіРѕР»РѕРІРѕРє СЃ СѓРґР°Р»РµРЅРЅС‹РјРё HTML С‚РµРіР°РјРё. ');
+	define('_AM_RSSC_CONF_SHOW_CONTENT_HTML','РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ HTML С‚РµРіРё РІ СЃРѕРґРµСЂР¶Р°РЅРёРё');
+	define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', 'РљРѕРіРґР° РІС‹Р±СЂР°РЅРѕ "Р”Рђ", РїРѕРєР°Р·С‹РІР°С‚СЊ СЃРѕРґРµСЂР¶Р°РЅРёРµ СЃ С‚РµРіР°РјРё HTML, РµСЃР»Рё СЃРѕРґРµСЂР¶Р°РЅРёРµ РёРјРµРµС‚ HTML С‚РµРіРё. <br />РљРѕРіРґР° РІС‹Р±СЂР°РЅРѕ "РќР•Рў", РїРѕРєР°Р·С‹РІР°С‚СЊ СЃРѕРґРµСЂР¶Р°РЅРёРµ СЃ СѓРґР°Р»РµРЅРЅС‹РјРё HTML С‚РµРіР°РјРё. ');
+	define('_AM_RSSC_CONF_SHOW_MAX_CONTENT','РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ СЃРѕРґРµСЂР¶Р°РЅРёСЏ');
+	define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'HTML С‚РµРіРё СѓРґР°Р»СЏСЋС‚СЃСЏ, РєРѕРіРґР° Р±РѕР»СЊС€Рµ, С‡РµРј СЌС‚Рѕ С‡РёСЃР»Рѕ<br /><b>-1</b> РЅРµРѕРіСЂР°РЅРёС‡РµРЅРѕ');
+	define('_AM_RSSC_CONF_SHOW_NUM_CONTENT','РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ RSS/ATOM РєР°РЅР°Р»РѕРІ РѕС‚РѕР±СЂР°Р¶Р°РµРјС‹С… СЃРѕРґРµСЂР¶Р°РЅРёРµ');
+	define('_AM_RSSC_CONF_SHOW_NUM_CONTENT_DSC', 'Р’РІРµРґРёС‚Рµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ RSS/ATOM РєР°РЅР°Р»РѕРІ РѕС‚РѕР±СЂР°Р¶Р°РµРјС‹С… СЃРѕРґРµСЂР¶Р°РЅРёРµ.');
+	define('_AM_RSSC_CONF_SHOW_BLOG_LID','ID СЃСЃС‹Р»РєРё РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ Р±Р»РѕРіР°');
 //	define('_AM_RSSC_CONF_SHOW_BLOG_LID_DSC', 'Enter Link ID to be show blog.');
 
-	define('_AM_RSSC_TABLE_MANAGE','Управление таблицами базы данных');
+	define('_AM_RSSC_TABLE_MANAGE','РЈРїСЂР°РІР»РµРЅРёРµ С‚Р°Р±Р»РёС†Р°РјРё Р±Р°Р·С‹ РґР°РЅРЅС‹С…');
 }
 
 //---------------------------------------------------------
@@ -366,32 +366,32 @@ if( !defined('_AM_RSSC_CONF_SHOW_TITLE_HTML') )
 if( !defined('_RSSC_PODCAST') ) 
 {
 // bread crumb
-	define('_HOME', 'ГЛАВНАЯ');
+	define('_HOME', 'Р“Р›РђР’РќРђРЇ');
 
 // podcast
-	define('_RSSC_PODCAST', 'Подкаст');
-	define('_RSSC_ENCLOSURE_URL',    'Адрес контейнера');
-	define('_RSSC_ENCLOSURE_TYPE',   'Тип контейнера');
-	define('_RSSC_ENCLOSURE_LENGTH', 'Длина контейнера');
+	define('_RSSC_PODCAST', 'РџРѕРґРєР°СЃС‚');
+	define('_RSSC_ENCLOSURE_URL',    'РђРґСЂРµСЃ РєРѕРЅС‚РµР№РЅРµСЂР°');
+	define('_RSSC_ENCLOSURE_TYPE',   'РўРёРї РєРѕРЅС‚РµР№РЅРµСЂР°');
+	define('_RSSC_ENCLOSURE_LENGTH', 'Р”Р»РёРЅР° РєРѕРЅС‚РµР№РЅРµСЂР°');
 }
 
 // admin
 if( !defined('_AM_RSSC_CONF_INDEX_DESC') ) 
 {
 // description at main
-	define('_AM_RSSC_CONF_INDEX_DESC','Описание на главную страницу');
-	define('_AM_RSSC_CONF_INDEX_DESC_DSC', 'Введите описание, если вы хотите чтобы оно отображалось на главной странице.');
-	define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Здесь описание.<br />Вы можете редактировать описание в "Настройка модуля".<br /></div><br />');
+	define('_AM_RSSC_CONF_INDEX_DESC','РћРїРёСЃР°РЅРёРµ РЅР° РіР»Р°РІРЅСѓСЋ СЃС‚СЂР°РЅРёС†Сѓ');
+	define('_AM_RSSC_CONF_INDEX_DESC_DSC', 'Р’РІРµРґРёС‚Рµ РѕРїРёСЃР°РЅРёРµ, РµСЃР»Рё РІС‹ С…РѕС‚РёС‚Рµ С‡С‚РѕР±С‹ РѕРЅРѕ РѕС‚РѕР±СЂР°Р¶Р°Р»РѕСЃСЊ РЅР° РіР»Р°РІРЅРѕР№ СЃС‚СЂР°РЅРёС†Рµ.');
+	define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Р—РґРµСЃСЊ РѕРїРёСЃР°РЅРёРµ.<br />Р’С‹ РјРѕР¶РµС‚Рµ СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РѕРїРёСЃР°РЅРёРµ РІ "РќР°СЃС‚СЂРѕР№РєР° РјРѕРґСѓР»СЏ".<br /></div><br />');
 
 // link table
-	define('_AM_RSSC_LINK_DESC','Обнаруживать адреса <b>RDF/RSS/ATOM</b> автоматически и определять <b>кодировку</b> автоматически, <br />когда вы не заполните, <br />если сайт поддерживает "RSS автоопределение"');
-	define('_AM_RSSC_LINK_EXIST', 'Уже существует этот "Адрес RDF/RSS/ATOM"');
-	define('_AM_RSSC_LINK_EXIST_MORE','Присутствуют два или несколько ссылок, которые имеют тот же "Адрес RDF/RSS/ATOM" ');
-	define('_AM_RSSC_AUTO_FIND_FAILD','RSS автоопределение неудачно');
-	define('_AM_RSSC_LINK_FORCE','Принудительное сохранение');
+	define('_AM_RSSC_LINK_DESC','РћР±РЅР°СЂСѓР¶РёРІР°С‚СЊ Р°РґСЂРµСЃР° <b>RDF/RSS/ATOM</b> Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё Рё РѕРїСЂРµРґРµР»СЏС‚СЊ <b>РєРѕРґРёСЂРѕРІРєСѓ</b> Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё, <br />РєРѕРіРґР° РІС‹ РЅРµ Р·Р°РїРѕР»РЅРёС‚Рµ, <br />РµСЃР»Рё СЃР°Р№С‚ РїРѕРґРґРµСЂР¶РёРІР°РµС‚ "RSS Р°РІС‚РѕРѕРїСЂРµРґРµР»РµРЅРёРµ"');
+	define('_AM_RSSC_LINK_EXIST', 'РЈР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ СЌС‚РѕС‚ "РђРґСЂРµСЃ RDF/RSS/ATOM"');
+	define('_AM_RSSC_LINK_EXIST_MORE','РџСЂРёСЃСѓС‚СЃС‚РІСѓСЋС‚ РґРІР° РёР»Рё РЅРµСЃРєРѕР»СЊРєРѕ СЃСЃС‹Р»РѕРє, РєРѕС‚РѕСЂС‹Рµ РёРјРµСЋС‚ С‚РѕС‚ Р¶Рµ "РђРґСЂРµСЃ RDF/RSS/ATOM" ');
+	define('_AM_RSSC_AUTO_FIND_FAILD','RSS Р°РІС‚РѕРѕРїСЂРµРґРµР»РµРЅРёРµ РЅРµСѓРґР°С‡РЅРѕ');
+	define('_AM_RSSC_LINK_FORCE','РџСЂРёРЅСѓРґРёС‚РµР»СЊРЅРѕРµ СЃРѕС…СЂР°РЅРµРЅРёРµ');
 
 // black & white table
-	define('_AM_RSSC_BLACK_MEMO','Заметка');
+	define('_AM_RSSC_BLACK_MEMO','Р—Р°РјРµС‚РєР°');
 }
 
 //---------------------------------------------------------
@@ -401,25 +401,25 @@ if( !defined('_AM_RSSC_CONF_INDEX_DESC') )
 if( !defined('_RSSC_SINGLE_LINK') ) 
 {
 // single link
-	define('_RSSC_SINGLE_LINK',  'Одиночная ссылка');
-	define('_RSSC_SINGLE_LINK_UTF8', 'Одиночная ссылка в кодировке UTF-8');
-	define('_RSSC_SINGLE_SUMMARY', 'Описание');
-	define('_RSSC_SINGLE_CONTENT', 'Содержимое допускает HTML теги');
-	define('_RSSC_UTF8_SUMMARY', 'Описание с UTF-8');
-	define('_RSSC_UTF8_CONTENT', 'Содержимое допускает HTML теги с UTF-8');
+	define('_RSSC_SINGLE_LINK',  'РћРґРёРЅРѕС‡РЅР°СЏ СЃСЃС‹Р»РєР°');
+	define('_RSSC_SINGLE_LINK_UTF8', 'РћРґРёРЅРѕС‡РЅР°СЏ СЃСЃС‹Р»РєР° РІ РєРѕРґРёСЂРѕРІРєРµ UTF-8');
+	define('_RSSC_SINGLE_SUMMARY', 'РћРїРёСЃР°РЅРёРµ');
+	define('_RSSC_SINGLE_CONTENT', 'РЎРѕРґРµСЂР¶РёРјРѕРµ РґРѕРїСѓСЃРєР°РµС‚ HTML С‚РµРіРё');
+	define('_RSSC_UTF8_SUMMARY', 'РћРїРёСЃР°РЅРёРµ СЃ UTF-8');
+	define('_RSSC_UTF8_CONTENT', 'РЎРѕРґРµСЂР¶РёРјРѕРµ РґРѕРїСѓСЃРєР°РµС‚ HTML С‚РµРіРё СЃ UTF-8');
 
 // detect encoding
-	define('_RSSC_ASSUME_ENCODING', 'Предложенное xml кодирование %s ,<br />потому что невозможно определить кодировку автоматически');
+	define('_RSSC_ASSUME_ENCODING', 'РџСЂРµРґР»РѕР¶РµРЅРЅРѕРµ xml РєРѕРґРёСЂРѕРІР°РЅРёРµ %s ,<br />РїРѕС‚РѕРјСѓ С‡С‚Рѕ РЅРµРІРѕР·РјРѕР¶РЅРѕ РѕРїСЂРµРґРµР»РёС‚СЊ РєРѕРґРёСЂРѕРІРєСѓ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё');
 
 // rss item
-	define('_RSSC_CREATED', 'Созданный');
-	define('_RSSC_ATOM_CONTRIBUTOR_NAME', 'Участник');
-	define('_RSSC_ATOM_CONTRIBUTOR_URI',  'Адрес участника');
-	define('_RSSC_ATOM_CONTRIBUTOR_EMAIL','Электронный адрес участника');
+	define('_RSSC_CREATED', 'РЎРѕР·РґР°РЅРЅС‹Р№');
+	define('_RSSC_ATOM_CONTRIBUTOR_NAME', 'РЈС‡Р°СЃС‚РЅРёРє');
+	define('_RSSC_ATOM_CONTRIBUTOR_URI',  'РђРґСЂРµСЃ СѓС‡Р°СЃС‚РЅРёРєР°');
+	define('_RSSC_ATOM_CONTRIBUTOR_EMAIL','Р­Р»РµРєС‚СЂРѕРЅРЅС‹Р№ Р°РґСЂРµСЃ СѓС‡Р°СЃС‚РЅРёРєР°');
 
 // no data
-	define('_RSSC_NO_HEADLINK','Присутствуют не выбранные заголовки ссылки');
-	define('_RSSC_NO_FEED','Отсутствуют данные канала');
+	define('_RSSC_NO_HEADLINK','РџСЂРёСЃСѓС‚СЃС‚РІСѓСЋС‚ РЅРµ РІС‹Р±СЂР°РЅРЅС‹Рµ Р·Р°РіРѕР»РѕРІРєРё СЃСЃС‹Р»РєРё');
+	define('_RSSC_NO_FEED','РћС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ РґР°РЅРЅС‹Рµ РєР°РЅР°Р»Р°');
 }
 
 // admin
@@ -427,33 +427,33 @@ if( !defined('_AM_RSSC_PARSE_RSS') )
 {
 // build rss
 //	define('_AM_RSSC_BUILD', 'Build RDF/RSS/ATOM');
-	define('_AM_RSSC_BUILD_DSC',  'Создать и показать RDF/RSS/ATOM для отладки');
+	define('_AM_RSSC_BUILD_DSC',  'РЎРѕР·РґР°С‚СЊ Рё РїРѕРєР°Р·Р°С‚СЊ RDF/RSS/ATOM РґР»СЏ РѕС‚Р»Р°РґРєРё');
 //	define('_AM_RSSC_BUILD_RDF',  'Build RDF');
 //	define('_AM_RSSC_BUILD_RSS',  'Build RSS');
 //	define('_AM_RSSC_BUILD_ATOM', 'Build ATOM');
 
 // parse rss
-	define('_AM_RSSC_PARSE_RSS', 'Анализировать RDF/RSS/ATOM');
+	define('_AM_RSSC_PARSE_RSS', 'РђРЅР°Р»РёР·РёСЂРѕРІР°С‚СЊ RDF/RSS/ATOM');
 
 // refresh link
-	define('_AM_RSSC_REFRESH_LINK', 'Обновить RDF/RSS/ATOM каналы');
-	define('_AM_RSSC_REFRESH_LINK_DSC', 'Когда обновляются RSS каналы <br />Обнаруживать адрес RSS автоматически и определять кодировку RSS автоматически, <br />если они не установлены.');
-	define('_AM_RSSC_REFRESH_LINK_FINISHED', 'Обновление каналов закончено');
+	define('_AM_RSSC_REFRESH_LINK', 'РћР±РЅРѕРІРёС‚СЊ RDF/RSS/ATOM РєР°РЅР°Р»С‹');
+	define('_AM_RSSC_REFRESH_LINK_DSC', 'РљРѕРіРґР° РѕР±РЅРѕРІР»СЏСЋС‚СЃСЏ RSS РєР°РЅР°Р»С‹ <br />РћР±РЅР°СЂСѓР¶РёРІР°С‚СЊ Р°РґСЂРµСЃ RSS Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё Рё РѕРїСЂРµРґРµР»СЏС‚СЊ РєРѕРґРёСЂРѕРІРєСѓ RSS Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё, <br />РµСЃР»Рё РѕРЅРё РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅС‹.');
+	define('_AM_RSSC_REFRESH_LINK_FINISHED', 'РћР±РЅРѕРІР»РµРЅРёРµ РєР°РЅР°Р»РѕРІ Р·Р°РєРѕРЅС‡РµРЅРѕ');
 }
 
 // execution
 if( !defined('_RSSC_EXECUTION_TIME') ) 
 {
-	define('_RSSC_EXECUTION_TIME', 'Время выполнения');
-	define('_RSSC_MEMORY_USAGE', 'Использование памяти');
-	define('_RSSC_SEC', 'сек');	
-	define('_RSSC_MB', 'МБ');
+	define('_RSSC_EXECUTION_TIME', 'Р’СЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ');
+	define('_RSSC_MEMORY_USAGE', 'РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РїР°РјСЏС‚Рё');
+	define('_RSSC_SEC', 'СЃРµРє');	
+	define('_RSSC_MB', 'РњР‘');
 }
 
 // other
 if( !defined('_RSSC_IN') ) 
 {
-	define('_RSSC_IN', 'в');
-	define('_RSSC_MAP_LOADING', 'Загрузка ...');
+	define('_RSSC_IN', 'РІ');
+	define('_RSSC_MAP_LOADING', 'Р—Р°РіСЂСѓР·РєР° ...');
 }
 ?>

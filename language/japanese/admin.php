@@ -29,7 +29,7 @@
 //=========================================================
 // RSS Center Module
 // 2006-01-01 K.OHWADA
-// ͭ����������
+// 有朋自遠方来
 //=========================================================
 
 // --- define language begin ---
@@ -39,187 +39,187 @@ if( !defined('RSSC_LANG_AM_LOADED') )
 define('RSSC_LANG_AM_LOADED', 1);
 
 // === menu ===
-define('_AM_RSSC_CONF', 'RSS���󥿡�����');
-define('_AM_RSSC_LIST_LINK', '��󥯰���');
-define('_AM_RSSC_LIST_BLACK', '�֥�å��ꥹ�Ȱ���');
-define('_AM_RSSC_LIST_WHITE', '�ۥ磻�ȥꥹ�Ȱ���');
-define('_AM_RSSC_LIST_FEED', 'feed����');
-define('_AM_RSSC_ADD_LINK', '��󥯤��ɲ�');
-define('_AM_RSSC_ADD_BLACK', '�֥�å��ꥹ�Ȥ��ɲ�');
-define('_AM_RSSC_ADD_WHITE', '�ۥ磻�ȥꥹ�Ȥ��ɲ�');
-define('_AM_RSSC_ADD_KEYWORD', '������ɤ��ɲ�');
-define('_AM_RSSC_ARCHIVE_MANAGE', '���������ִ���');
+define('_AM_RSSC_CONF', 'RSSセンター管理');
+define('_AM_RSSC_LIST_LINK', 'リンク一覧');
+define('_AM_RSSC_LIST_BLACK', 'ブラックリスト一覧');
+define('_AM_RSSC_LIST_WHITE', 'ホワイトリスト一覧');
+define('_AM_RSSC_LIST_FEED', 'feed一覧');
+define('_AM_RSSC_ADD_LINK', 'リンクの追加');
+define('_AM_RSSC_ADD_BLACK', 'ブラックリストの追加');
+define('_AM_RSSC_ADD_WHITE', 'ホワイトリストの追加');
+define('_AM_RSSC_ADD_KEYWORD', 'キーワードの追加');
+define('_AM_RSSC_ARCHIVE_MANAGE', 'アーカイブ管理');
 
-//define('_AM_RSSC_COMMAND_MANAGE', '���ޥ�ɴ���');
+//define('_AM_RSSC_COMMAND_MANAGE', 'コマンド管理');
 
-define('_AM_RSSC_UPDATE_MANAGE', '����ݡ��ȴ���');
-define('_AM_RSSC_VIEW_RSS', 'RDF/RSS/ATOM ��ɽ��');
+define('_AM_RSSC_UPDATE_MANAGE', 'インポート管理');
+define('_AM_RSSC_VIEW_RSS', 'RDF/RSS/ATOM の表示');
 
-//define('_AM_RSSC_GOTO_MODULE', '�⥸�塼���');
+//define('_AM_RSSC_GOTO_MODULE', 'モジュールへ');
 
 // === index & config ===
-define('_AM_RSSC_FORM_BASIC', '��������');
-define('_AM_RSSC_FORM_BASIC_DESC', '���ƤΥ⥸�塼��Ƕ��̤˻��Ѥ��ޤ�');
-define('_AM_RSSC_FORM_MAIN', '�ᥤ��ɽ������');
-define('_AM_RSSC_FORM_MAIN_DESC', '���Υ⥸�塼��Υᥤ�󡦥ڡ����ǻ��Ѥ��ޤ�');
-define('_AM_RSSC_FORM_BLOCK', '�֥��å�ɽ������');
-define('_AM_RSSC_FORM_BLOCK_DESC', '���Υ⥸�塼��Υ֥��å��ǻ��Ѥ��ޤ�');
+define('_AM_RSSC_FORM_BASIC', '基本設定');
+define('_AM_RSSC_FORM_BASIC_DESC', '全てのモジュールで共通に使用します');
+define('_AM_RSSC_FORM_MAIN', 'メイン表示設定');
+define('_AM_RSSC_FORM_MAIN_DESC', 'このモジュールのメイン・ページで使用します');
+define('_AM_RSSC_FORM_BLOCK', 'ブロック表示設定');
+define('_AM_RSSC_FORM_BLOCK_DESC', 'このモジュールのブロックで使用します');
 
-//define('_AM_RSSC_FORM_BIN', '���ޥ������');
-//define('_AM_RSSC_FORM_BIN_DESC', 'bin ���ޥ�ɤǻ��Ѥ��ޤ�');
-//define('_AM_RSSC_INIT_NOT','����ơ��֥뤬���������Ƥ��ʤ�');
-//define('_AM_RSSC_INIT_EXEC','����ơ��֥����������');
-//define('_AM_RSSC_VERSION_NOT','�С������ %s �ǤϤʤ�');
-//define('_AM_RSSC_UPGRADE_EXEC','����ơ��֥�򥢥åץ��졼�ɤ���');
-//define('_AM_RSSC_WARNING_NOT_WRITABLE','�ǥ��쥯�ȥ�ν���ߵ��Ĥ��ʤ�');
-//define('_AM_RSSC_CONF_NAME','����');
+//define('_AM_RSSC_FORM_BIN', 'コマンド設定');
+//define('_AM_RSSC_FORM_BIN_DESC', 'bin コマンドで使用します');
+//define('_AM_RSSC_INIT_NOT','設定テーブルが初期化されていない');
+//define('_AM_RSSC_INIT_EXEC','設定テーブルを初期化する');
+//define('_AM_RSSC_VERSION_NOT','バージョン %s ではない');
+//define('_AM_RSSC_UPGRADE_EXEC','設定テーブルをアップグレードする');
+//define('_AM_RSSC_WARNING_NOT_WRITABLE','デイレクトリの書込み許可がない');
+//define('_AM_RSSC_CONF_NAME','項目');
 
-define('_AM_RSSC_DBUPDATED', '�ǡ����١����򹹿�����');
-define('_AM_RSSC_FAILUPDATE', '�ǡ����١�������¸���Ǥ��ޤ���Ǥ���');
-define('_AM_RSSC_FAILDELETE', '�ǡ����١����κ�����Ǥ��ޤ���Ǥ���');
-define('_AM_RSSC_THERE_ARE_LINKS','�ǡ����١����ˤ� <b>%s</b> ��Υ�󥯤���Ͽ����Ƥ��ޤ���');
-define('_AM_RSSC_THERE_ARE_FEEDS','�ǡ����١����ˤ� <b>%s</b> ��� feed ����Ͽ����Ƥ��ޤ���');
+define('_AM_RSSC_DBUPDATED', 'データベースを更新した');
+define('_AM_RSSC_FAILUPDATE', 'データベースの保存ができませんでした');
+define('_AM_RSSC_FAILDELETE', 'データベースの削除ができませんでした');
+define('_AM_RSSC_THERE_ARE_LINKS','データベースには <b>%s</b> 件のリンクが登録されています。');
+define('_AM_RSSC_THERE_ARE_FEEDS','データベースには <b>%s</b> 件の feed が登録されています。');
 
 // === link manage ===
-define('_AM_RSSC_LINK_MANAGE','��󥯤δ���');
-define('_AM_RSSC_MOD_LINK','��󥯤ν���');
-define('_AM_RSSC_DEL_LINK','��󥯤κ��');
-define('_AM_RSSC_SHOW_RSS',  'RSSɽ��');
-define('_AM_RSSC_SHOW_FEED', 'feedɽ��');
-define('_AM_RSSC_FEED_BELONG_LINK', '���Υ�󥯤�°����feed��ɽ������');
-define('_AM_RSSC_ERROR_FILL', '���顼: %s �����Ϥ��Ʋ�����');
-define('_AM_RSSC_ERROR_ILLEGAL','���顼: %s �η����������Ǥ�');
+define('_AM_RSSC_LINK_MANAGE','リンクの管理');
+define('_AM_RSSC_MOD_LINK','リンクの修正');
+define('_AM_RSSC_DEL_LINK','リンクの削除');
+define('_AM_RSSC_SHOW_RSS',  'RSS表示');
+define('_AM_RSSC_SHOW_FEED', 'feed表示');
+define('_AM_RSSC_FEED_BELONG_LINK', 'このリンクに属するfeedを表示する');
+define('_AM_RSSC_ERROR_FILL', 'エラー: %s を入力して下さい');
+define('_AM_RSSC_ERROR_ILLEGAL','エラー: %s の形式が不正です');
 
 // === black list manage ===
-define('_AM_RSSC_BLACK_MANAGE','�֥�å��ꥹ�Ȥδ���');
-define('_AM_RSSC_MOD_BLACK','�֥�å��ꥹ�Ȥν���');
-define('_AM_RSSC_DEL_BLACK','�֥�å��ꥹ�Ȥκ��');
-define('_AM_RSSC_FEED_MATCH_LINK', '���Υꥹ�Ȥ˰��פ���feed��ɽ������');
+define('_AM_RSSC_BLACK_MANAGE','ブラックリストの管理');
+define('_AM_RSSC_MOD_BLACK','ブラックリストの修正');
+define('_AM_RSSC_DEL_BLACK','ブラックリストの削除');
+define('_AM_RSSC_FEED_MATCH_LINK', 'このリストに一致するfeedを表示する');
 
 // === white list manage ===
-define('_AM_RSSC_WHITE_MANAGE','�ۥ磻�ȥꥹ�Ȥδ���');
-define('_AM_RSSC_MOD_WHITE','�ۥ磻�ȥꥹ�Ȥν���');
-define('_AM_RSSC_DEL_WHITE','�ۥ磻�ȥꥹ�Ȥκ��');
+define('_AM_RSSC_WHITE_MANAGE','ホワイトリストの管理');
+define('_AM_RSSC_MOD_WHITE','ホワイトリストの修正');
+define('_AM_RSSC_DEL_WHITE','ホワイトリストの削除');
 
 // === feed list manage ===
-define('_AM_RSSC_ADD_FEED','feed���ɲ�');
-define('_AM_RSSC_MOD_FEED','feed�ν���');
-define('_AM_RSSC_DEL_FEED','feed�κ��');
-define('_AM_RSSC_THERE_ARE_MATCH','���˰��פ��� <b>%s</b> ��Υǡ���������ޤ�');
-define('_AM_RSSC_CONDITION','���');
+define('_AM_RSSC_ADD_FEED','feedの追加');
+define('_AM_RSSC_MOD_FEED','feedの修正');
+define('_AM_RSSC_DEL_FEED','feedの削除');
+define('_AM_RSSC_THERE_ARE_MATCH','条件に一致する <b>%s</b> 件のデータがあります');
+define('_AM_RSSC_CONDITION','条件');
 
 // === archive manage ===
-define('_AM_RSSC_REFRESH', '���������֤ι���');
-define('_AM_RSSC_REFRESH_NEXT','���� %s ��򹹿�����');
-define('_AM_RSSC_LINK_LIMIT','��󥯿��ξ��(limit)');
-define('_AM_RSSC_LINK_OFFSET','���ե��å�(offset)');
-define('_AM_RSSC_FEED_CLEAR','���������֤Υ��ꥢ');
-define('_AM_RSSC_FEED_CLEAR_OLD','���դθŤ���˥��ꥢ����');
-define('_AM_RSSC_FEED_CLEAR_NUM','���ꤷ������ʾ�ʤ�С����դθŤ���˥��ꥢ����');
+define('_AM_RSSC_REFRESH', 'アーカイブの更新');
+define('_AM_RSSC_REFRESH_NEXT','次の %s 件を更新する');
+define('_AM_RSSC_LINK_LIMIT','リンク数の上限(limit)');
+define('_AM_RSSC_LINK_OFFSET','オフセット(offset)');
+define('_AM_RSSC_FEED_CLEAR','アーカイブのクリア');
+define('_AM_RSSC_FEED_CLEAR_OLD','日付の古い順にクリアする');
+define('_AM_RSSC_FEED_CLEAR_NUM','指定した件数以上ならば、日付の古い順にクリアする');
 
 // refresh result
-define('_AM_RSSC_NO_REFRESH','���������󥯤��ʤ�');
-define('_AM_RSSC_TIME_START','���ϻ���');
-define('_AM_RSSC_TIME_END','��λ����');
-define('_AM_RSSC_TIME_ELAPSE','�в����');
-define('_AM_RSSC_MIN_SEC','%s ʬ %s ��');
-define('_AM_RSSC_NUM_LINK_TOTAL','����󥯿�');
-define('_AM_RSSC_NUM_LINK_TARGET','�оݤȤʤ��󥯿�');
-define('_AM_RSSC_NUM_LINK_BROKEN','����ڤ�Υ�󥯿�');
-define('_AM_RSSC_NUM_LINK_UPDATED','����������󥯿�');
-define('_AM_RSSC_NUM_FEED_UPDATED','�������� FEED�ε�����');
-define('_AM_RSSC_NUM_FEED_CLEARED','���ꥢ���� FEED�ε�����');
-define('_AM_RSSC_NUM_LINKS','��');
-define('_AM_RSSC_NUM_FEEDS','��');
-define('_AM_RSSC_FAILGET', '%s ����� XML �μ������Ǥ��ޤ���Ǥ�����');
-define('_AM_RSSC_GOTOTOP', '�ȥåפ����');
+define('_AM_RSSC_NO_REFRESH','更新するリンクがない');
+define('_AM_RSSC_TIME_START','開始時刻');
+define('_AM_RSSC_TIME_END','終了時刻');
+define('_AM_RSSC_TIME_ELAPSE','経過時間');
+define('_AM_RSSC_MIN_SEC','%s 分 %s 秒');
+define('_AM_RSSC_NUM_LINK_TOTAL','全リンク数');
+define('_AM_RSSC_NUM_LINK_TARGET','対象となるリンク数');
+define('_AM_RSSC_NUM_LINK_BROKEN','リンク切れのリンク数');
+define('_AM_RSSC_NUM_LINK_UPDATED','更新したリンク数');
+define('_AM_RSSC_NUM_FEED_UPDATED','更新した FEEDの記事数');
+define('_AM_RSSC_NUM_FEED_CLEARED','クリアした FEEDの記事数');
+define('_AM_RSSC_NUM_LINKS','件');
+define('_AM_RSSC_NUM_FEEDS','件');
+define('_AM_RSSC_FAILGET', '%s からの XML の取得ができませんでした。');
+define('_AM_RSSC_GOTOTOP', 'トップに戻る');
 
 // === configuration ===
 // basic configuration
-define('_AM_RSSC_CONF_FEED_LIMIT', 'FEED�����κ���η��');
-define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'feed �ơ��֥�˳�Ǽ����FEED�����κ���η������ꤹ��<br />�����ͤ�Ķ��������դθŤ������饯�ꥢ����롣<br /><b>0</b> ��̵���¤������侩���ʤ���');
-define('_AM_RSSC_CONF_RSS_ATOM', 'RSS��ATOM������');
-define('_AM_RSSC_CONF_RSS_ATOM_DESC', 'RSS URL��ATOM URL��ξ�������Ф��줿�Ȥ��ˡ��ɤ������Ѥ��뤫���򤷤ޤ�');
+define('_AM_RSSC_CONF_FEED_LIMIT', 'FEED記事の最大の件数');
+define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'feed テーブルに格納するFEED記事の最大の件数を指定する<br />この値を超えると日付の古い方からクリアされる。<br /><b>0</b> は無制限だが、推奨しない。');
+define('_AM_RSSC_CONF_RSS_ATOM', 'RSSとATOMの選択');
+define('_AM_RSSC_CONF_RSS_ATOM_DESC', 'RSS URLとATOM URLの両方が検出されたときに、どちらを使用するか選択します');
 define('_AM_RSSC_CONF_RSS_ATOM_SEL_ATOM', 'ATOM');
 define('_AM_RSSC_CONF_RSS_ATOM_SEL_RSS', 'RSS');
-define('_AM_RSSC_CONF_RSS_PARSER', 'RSS�ѡ�����������');
-define('_AM_RSSC_CONF_RSS_PARSER_SELF',  '��¢');
+define('_AM_RSSC_CONF_RSS_PARSER', 'RSSパーサーの選択');
+define('_AM_RSSC_CONF_RSS_PARSER_SELF',  '内蔵');
 define('_AM_RSSC_CONF_RSS_PARSER_XOOPS', 'XOOPS RSS Parser');
-define('_AM_RSSC_CONF_ATOM_PARSER', 'ATOM�ѡ�����������');
-define('_AM_RSSC_CONF_ATOM_PARSER_0', '��¢');
+define('_AM_RSSC_CONF_ATOM_PARSER', 'ATOMパーサーの選択');
+define('_AM_RSSC_CONF_ATOM_PARSER_0', '内蔵');
 define('_AM_RSSC_CONF_ATOM_PARSER_1', '');
-define('_AM_RSSC_CONF_RSS_MODE', 'RSS �⡼�ɤν����');
-define('_AM_RSSC_CONF_XML_SAVE', 'XML����¸����');
-define('_AM_RSSC_CONF_XML_SAVE_DESC', '�ɤ߽Ф���XML�� link �ơ��֥����¸����');
-define('_AM_RSSC_CONF_FUTURE_DAYS', '̤������դ�');
-define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', 'ñ�̤�����<br />������������̤��ε����Ǥ���С�ɽ�����ʤ�');
+define('_AM_RSSC_CONF_RSS_MODE', 'RSS モードの初期値');
+define('_AM_RSSC_CONF_XML_SAVE', 'XMLを保存する');
+define('_AM_RSSC_CONF_XML_SAVE_DESC', '読み出したXMLを link テーブルに保存する');
+define('_AM_RSSC_CONF_FUTURE_DAYS', '未来の日付け');
+define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', '単位は日数<br />この日数よりも未来の記事であれば、表示しない');
 
 // show configuration
-define('_AM_RSSC_CONF_SHOW_ORDER','ɽ���������');
-//define('_AM_RSSC_CONF_SHOW_ORDER_DESC','ɽ��������֤���ꤷ�Ƥ�������');
-define('_AM_RSSC_CONF_SHOW_ORDER_UPDATED','������������ updated');
-define('_AM_RSSC_CONF_SHOW_ORDER_PUBLISHED','������ȯ���� published');
-define('_AM_RSSC_CONF_SHOW_LINKS_PER_PAGE','���ڡ�����ɽ�������󥯷��');
-//define('_AM_RSSC_CONF_SHOW_LINKS_PER_PAGE_DESC','���ڡ����������ɽ���������������ꤷ�Ƥ�������');
-define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE','���ڡ�����ɽ������feed���');
-//define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE_DESC','���ڡ����������ɽ���������������ꤷ�Ƥ�������');
-define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK','��������ɽ������feed���');
-//define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK_DESC','����󥯤������ɽ���������������ꤷ�Ƥ�������');
-define('_AM_RSSC_CONF_SHOW_MAX_TITLE','�����ȥ�κ���ʸ����');
-define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','����ʸ������Ķ�����Ȥ��ϡ�HTML�����Ϻ������ޤ�<br /><b>-1</b> �ΤȤ��ϡ����¤ʤ��Ǥ�');
-define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY','����κ���ʸ����');
-define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC','<b>-1</b> �ΤȤ��ϡ����¤ʤ��Ǥ�');
+define('_AM_RSSC_CONF_SHOW_ORDER','表示する順番');
+//define('_AM_RSSC_CONF_SHOW_ORDER_DESC','表示する順番を指定してください');
+define('_AM_RSSC_CONF_SHOW_ORDER_UPDATED','新しい更新日 updated');
+define('_AM_RSSC_CONF_SHOW_ORDER_PUBLISHED','新しい発行日 published');
+define('_AM_RSSC_CONF_SHOW_LINKS_PER_PAGE','１ページに表示するリンク件数');
+//define('_AM_RSSC_CONF_SHOW_LINKS_PER_PAGE_DESC','１ページあたりに表示する最大件数を指定してください');
+define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE','１ページに表示するfeed件数');
+//define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE_DESC','１ページあたりに表示する最大件数を指定してください');
+define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK','１リンク毎に表示するfeed件数');
+//define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK_DESC','１リンクあたりに表示する最大件数を指定してください');
+define('_AM_RSSC_CONF_SHOW_MAX_TITLE','タイトルの最大文字数');
+define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','この文字数を超えたときは、HTMLタグは削除されます<br /><b>-1</b> のときは、制限なしです');
+define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY','要約の最大文字数');
+define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC','<b>-1</b> のときは、制限なしです');
 
 // main configuration
-define('_AM_RSSC_CONF_MAIN_SEARCH_MIN','�����Υ�����ɺ���ʸ����');
-//define('_AM_RSSC_CONF_MAIN_SEARCH_MIN_DESC','������Ԥ��ݤ�ɬ�פʥ�����ɤκ���ʸ��������ꤷ�Ƥ�������');
+define('_AM_RSSC_CONF_MAIN_SEARCH_MIN','検索のキーワード最低文字数');
+//define('_AM_RSSC_CONF_MAIN_SEARCH_MIN_DESC','検索を行う際に必要なキーワードの最低文字数を指定してください');
 
 // bin configuration
-//define('_AM_RSSC_CONF_BIN_PASS','�ѥ����');
-//define('_AM_RSSC_CONF_BIN_PASS_DESC','�ѥ���ɤ���ꤷ�Ƥ�������');
-//define('_AM_RSSC_CONF_BIN_SEND','�᡼�������');
-//define('_AM_RSSC_CONF_BIN_SEND_DESC','��̤�᡼�����������Ȥ��ϡ֤Ϥ��פ���ꤷ�Ƥ�������');
-//define('_AM_RSSC_CONF_BIN_MAILTO','������Υ᡼�륢�ɥ쥹');
-//define('_AM_RSSC_CONF_BIN_MAILTO_DESC','������Υ᡼�륢�ɥ쥹����ꤷ�Ƥ�������');
+//define('_AM_RSSC_CONF_BIN_PASS','パスワード');
+//define('_AM_RSSC_CONF_BIN_PASS_DESC','パスワードを指定してください');
+//define('_AM_RSSC_CONF_BIN_SEND','メールの送信');
+//define('_AM_RSSC_CONF_BIN_SEND_DESC','結果をメールを送信するときは「はい」を指定してください');
+//define('_AM_RSSC_CONF_BIN_MAILTO','送信先のメールアドレス');
+//define('_AM_RSSC_CONF_BIN_MAILTO_DESC','送信先のメールアドレスを指定してください');
 
 // === view rss ===
-define('_AM_RSSC_VIEW_RSS_OPTION', '���ץ��������');
-define('_AM_RSSC_NOT_SELECT_LINK','��󥯤����򤵤�Ƥ��ޤ���');
-define('_AM_RSSC_PLEASE_SELECT_LINK','��󥯰����������򤹤뤫��LINK ID �����Ϥ��Ƥ�������');
-define('_AM_RSSC_VIEW_PARSER', '�ѡ�����������');
-define('_AM_RSSC_VIEW_SAVE_ETC', '�ơ��֥��Ǽ�����ꡢ����¾');
-define('_AM_RSSC_VIEW_MODE', 'ɽ���⡼��');
-define('_AM_RSSC_VIEW_MODE_DESC', 'mode 0 �ΤȤ��ϡ��ơ��֥�˳�Ǽ���ʤ�');
-define('_AM_RSSC_VIEW_MODE_CURRENT', 'mode 0: �������� XML �ǡ���');
-define('_AM_RSSC_VIEW_MODE_LINK', 'mode 1: link �ơ��֥�˳�Ǽ���줿 XML �ǡ���');
-define('_AM_RSSC_VIEW_MODE_FEED', 'mode 2: feed �ơ��֥�˳�Ǽ���줿�ǡ���');
-define('_AM_RSSC_VIEW_SANITIZE', 'html ���˥���������');
-define('_AM_RSSC_VIEW_TITLE_HTML','�����ȥ��HTML������ɽ��');
-define('_AM_RSSC_VIEW_TITLE_HTML_DESC', '�֤Ϥ��פ����򤹤�ȡ�HTML����������Ȥ��ϡ����Τޤ�ɽ�����롣<br />�֤������פ����򤹤�ȡ�HTML������������ɽ�����롣');
-define('_AM_RSSC_VIEW_CONTENT_HTML','��ʸ��HTML������ɽ��');
-define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', '�֤Ϥ��פ����򤹤�ȡ�HTML����������Ȥ��ϡ����Τޤ�ɽ�����롣<br />�֤������פ����򤹤�ȡ�HTML������������ɽ�����롣');
-define('_AM_RSSC_VIEW_MAX_CONTENT','��ʸ�κ���ʸ����');
-define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','����ʸ������Ķ�����Ȥ��ϡ�HTML�����Ϻ������ޤ�<br /><b>-1</b> �ΤȤ��ϡ����¤ʤ��Ǥ�');
-define('_AM_RSSC_VIEW_LINK_UPDATE', 'link �ơ��֥�ι���');
-define('_AM_RSSC_VIEW_FEED_UPDATE', 'feed �ơ��֥�ι���');
-define('_AM_RSSC_VIEW_FORCE_DISCOVER', 'RSS URL�ζ�������');
-define('_AM_RSSC_VIEW_FORCE_DISCOVER_DESC', 'RSS�⡼�ɤ˴ط��ʤ���RDF/RSS/ATOM URL �򸡽Ф���URL���񤭤ޤ��ޤ�');
-define('_AM_RSSC_VIEW_FORCE_UPDATE', '���������֤ζ�������');
-define('_AM_RSSC_VIEW_FORCE_UPDATE_DESC', '�����ֳ֤˴ط��ʤ���RDF/RSS/ATOM ���ɤ߽Ф������������֤��񤭤ޤ��ޤ�');
-define('_AM_RSSC_VIEW_FORCE_OVERWRITE', 'feed �ơ��֥�ζ�������');
-define('_AM_RSSC_VIEW_FORCE_OVERWRITE_DESC', 'Ʊ�� RDF/RSS/ATOM �Υǡ�����¸�ߤ��Ƥ��Ƥ⡢feed �ơ��֥���񤭤ޤ��ޤ�');
-define('_AM_RSSC_VIEW_PRINT_LOG', '������ɽ��');
-define('_AM_RSSC_VIEW_PRINT_LOG_DESC', '�¹Ի���Ʊ���˥�����ɽ������');
-define('_AM_RSSC_VIEW_PRINT_ERROR', '���顼��ɽ��');
-define('_AM_RSSC_VIEW_PRINT_ERROR_DESC', '�¹Ի���Ʊ���˥��顼��ɽ������');
+define('_AM_RSSC_VIEW_RSS_OPTION', 'オプション設定');
+define('_AM_RSSC_NOT_SELECT_LINK','リンクが選択されていません');
+define('_AM_RSSC_PLEASE_SELECT_LINK','リンク一覧から選択するか。LINK ID を入力してください');
+define('_AM_RSSC_VIEW_PARSER', 'パーサーの設定');
+define('_AM_RSSC_VIEW_SAVE_ETC', 'テーブル格納の設定、その他');
+define('_AM_RSSC_VIEW_MODE', '表示モード');
+define('_AM_RSSC_VIEW_MODE_DESC', 'mode 0 のときは、テーブルに格納しない');
+define('_AM_RSSC_VIEW_MODE_CURRENT', 'mode 0: 取得した XML データ');
+define('_AM_RSSC_VIEW_MODE_LINK', 'mode 1: link テーブルに格納された XML データ');
+define('_AM_RSSC_VIEW_MODE_FEED', 'mode 2: feed テーブルに格納されたデータ');
+define('_AM_RSSC_VIEW_SANITIZE', 'html サニタイズする');
+define('_AM_RSSC_VIEW_TITLE_HTML','タイトルのHTMLタグの表示');
+define('_AM_RSSC_VIEW_TITLE_HTML_DESC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br />「いいえ」を選択すると、HTMLタグを削除して表示する。');
+define('_AM_RSSC_VIEW_CONTENT_HTML','本文のHTMLタグの表示');
+define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br />「いいえ」を選択すると、HTMLタグを削除して表示する。');
+define('_AM_RSSC_VIEW_MAX_CONTENT','本文の最大文字数');
+define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','この文字数を超えたときは、HTMLタグは削除されます<br /><b>-1</b> のときは、制限なしです');
+define('_AM_RSSC_VIEW_LINK_UPDATE', 'link テーブルの更新');
+define('_AM_RSSC_VIEW_FEED_UPDATE', 'feed テーブルの更新');
+define('_AM_RSSC_VIEW_FORCE_DISCOVER', 'RSS URLの強制検出');
+define('_AM_RSSC_VIEW_FORCE_DISCOVER_DESC', 'RSSモードに関係なく、RDF/RSS/ATOM URL を検出し、URLを上書きまします');
+define('_AM_RSSC_VIEW_FORCE_UPDATE', 'アーカイブの強制更新');
+define('_AM_RSSC_VIEW_FORCE_UPDATE_DESC', '更新間隔に関係なく、RDF/RSS/ATOM を読み出し、アーカイブを上書きまします');
+define('_AM_RSSC_VIEW_FORCE_OVERWRITE', 'feed テーブルの強制更新');
+define('_AM_RSSC_VIEW_FORCE_OVERWRITE_DESC', '同じ RDF/RSS/ATOM のデータが存在していても、feed テーブルを上書きまします');
+define('_AM_RSSC_VIEW_PRINT_LOG', 'ログの表示');
+define('_AM_RSSC_VIEW_PRINT_LOG_DESC', '実行時に同時にログを表示する');
+define('_AM_RSSC_VIEW_PRINT_ERROR', 'エラーの表示');
+define('_AM_RSSC_VIEW_PRINT_ERROR_DESC', '実行時に同時にエラーを表示する');
 
 // === command manage ===
-//define('_AM_RSSC_CREATE_CONFIG', '����ե����������');
-//define('_AM_RSSC_TEST_BIN_REFRESH', 'bin/refresh.php �Υƥ��ȼ¹�');
+//define('_AM_RSSC_CREATE_CONFIG', '設定ファイルの生成');
+//define('_AM_RSSC_TEST_BIN_REFRESH', 'bin/refresh.php のテスト実行');
 
 // === update manage ===
-define('_AM_RSSC_IMPORT_XOOPSHEADLINE', 'XoopsHeadline ����Υǡ����ܹ�');
-define('_AM_RSSC_IMPORT_WEBLINKS', 'WebLinks ����Υǡ����ܹ�');
+define('_AM_RSSC_IMPORT_XOOPSHEADLINE', 'XoopsHeadline からのデータ移行');
+define('_AM_RSSC_IMPORT_WEBLINKS', 'WebLinks からのデータ移行');
 
 // === rename ===
 define('_AM_RSSC_VIEW_FEED_PERPAGE', _AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE);
@@ -231,248 +231,248 @@ define('_AM_RSSC_VIEW_XML_SAVE', _AM_RSSC_CONF_XML_SAVE);
 define('_AM_RSSC_VIEW_XML_SAVE_DESC', _AM_RSSC_CONF_XML_SAVE_DESC);
 
 // 2006-01-20
-define('_AM_RSSC_ID_ASC', 'ID ����');
-define('_AM_RSSC_ID_DESC','ID �ս�');
+define('_AM_RSSC_ID_ASC', 'ID 正順');
+define('_AM_RSSC_ID_DESC','ID 逆順');
 
 // === 2006-06-04 ===
 // build rss
-//define('_AM_RSSC_BUILD', 'RDF/RSS/ATOM ������');
-//define('_AM_RSSC_BUILD_DSC',  '�ǥХå��Ѥ� RDF/RSS/ATOM ��������ɽ������');
-//define('_AM_RSSC_BUILD_RDF',  'RDF ������');
-//define('_AM_RSSC_BUILD_RSS',  'RSS ������');
-//define('_AM_RSSC_BUILD_ATOM', 'ATOM ������');
+//define('_AM_RSSC_BUILD', 'RDF/RSS/ATOM の生成');
+//define('_AM_RSSC_BUILD_DSC',  'デバック用に RDF/RSS/ATOM を生成し表示する');
+//define('_AM_RSSC_BUILD_RDF',  'RDF の生成');
+//define('_AM_RSSC_BUILD_RSS',  'RSS の生成');
+//define('_AM_RSSC_BUILD_ATOM', 'ATOM の生成');
 
 // parse rss
-define('_AM_RSSC_PARSE_RSS', 'RDF/RSS/ATOM �β���');
+define('_AM_RSSC_PARSE_RSS', 'RDF/RSS/ATOM の解析');
 
 // refresh link
-//define('_AM_RSSC_REFRESH_LINK', 'feed �����ι���');
-//define('_AM_RSSC_REFRESH_LINK_DSC', '����³���ơ�RDF/RSS/ATOM �� feed �����򹹿����ޤ���<br />�⤷���ꤵ��Ƥ��ʤ���С�<br /> <b>RDF/RSS/ATOM URL</b> �� <b>���󥳡���</b> ��ưŪ�˸��Ф��ޤ���');
-//define('_AM_RSSC_REFRESH_LINK_FINISHED', 'feed �����򹹿�����');
+//define('_AM_RSSC_REFRESH_LINK', 'feed 記事の更新');
+//define('_AM_RSSC_REFRESH_LINK_DSC', '引き続いて、RDF/RSS/ATOM の feed 記事を更新します。<br />もし設定されていなければ、<br /> <b>RDF/RSS/ATOM URL</b> と <b>エンコード</b> を自動的に検出します。');
+//define('_AM_RSSC_REFRESH_LINK_FINISHED', 'feed 記事を更新した');
 
 // === 2006-07-08 ===
 // description at main
-define('_AM_RSSC_CONF_INDEX_DESC','�ᥤ��ڡ���������');
-define('_AM_RSSC_CONF_INDEX_DESC_DSC', '�ᥤ��ڡ�����ɽ������Ȥ��ϡ�����ʸ����ꤷ�Ƥ���������');
-define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">�����ˤ�����ʸ��ɽ�����ޤ���<br />����ʸ�ϡ֥⥸�塼�������פˤ��Խ��Ǥ��ޤ���<br /></div><br />');
+define('_AM_RSSC_CONF_INDEX_DESC','メインページの説明');
+define('_AM_RSSC_CONF_INDEX_DESC_DSC', 'メインページに表示するときは、説明文を指定してください。');
+define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">ここには説明文を表示します。<br />説明文は「モジュールの設定」にて編集できます。<br /></div><br />');
 
 // link table
-define('_AM_RSSC_LINK_DESC','��Ͽ����WEB�����Ȥ� RSS Auto Discovery (��ư����) ���б����Ƥ�����ϡ�<br /><b>RDF/RSS/ATOM URL</b> �� <b>���󥳡���</b> �������ʤ��Ȥ⡢��ưŪ�����ꤵ��ޤ�');
-//define('_AM_RSSC_LINK_EXIST', '���Ρ�RDF/RSS/ATOM URL�פ���Ͽ�ѤߤǤ�');
-//define('_AM_RSSC_LINK_EXIST_MORE','Ʊ����RDF/RSS/ATOM URL�פ����ʣ���Υ�󥯤����Ĥ���ޤ���');
-//define('_AM_RSSC_AUTO_FIND_FAILD','RSS Auto Discovery  (��ư����) ������ޤ���Ǥ���');
-define('_AM_RSSC_LINK_FORCE','������¸');
+define('_AM_RSSC_LINK_DESC','登録するWEBサイトが RSS Auto Discovery (自動検出) に対応している場合は、<br /><b>RDF/RSS/ATOM URL</b> と <b>エンコード</b> を記入しなくとも、自動的に設定されます');
+//define('_AM_RSSC_LINK_EXIST', 'その「RDF/RSS/ATOM URL」は登録済みです');
+//define('_AM_RSSC_LINK_EXIST_MORE','同じ「RDF/RSS/ATOM URL」を持つ複数のリンクが見つかりました');
+//define('_AM_RSSC_AUTO_FIND_FAILD','RSS Auto Discovery  (自動検出) が出来ませんでした');
+define('_AM_RSSC_LINK_FORCE','強制保存');
 
 // black & white table
-define('_AM_RSSC_BLACK_MEMO','����');
+define('_AM_RSSC_BLACK_MEMO','備考');
 
 // === 2006-09-20 ===
 // show content with html
-define('_AM_RSSC_CONF_SHOW_TITLE_HTML','�����ȥ��HTML������ɽ��');
-define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', '�֤Ϥ��פ����򤹤�ȡ�HTML����������Ȥ��ϡ����Τޤ�ɽ�����롣<br />�֤������פ����򤹤�ȡ�HTML������������ɽ�����롣');
-define('_AM_RSSC_CONF_SHOW_CONTENT_HTML','��ʸ��HTML������ɽ��');
-define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', '�֤Ϥ��פ����򤹤�ȡ�HTML����������Ȥ��ϡ����Τޤ�ɽ�����롣<br />�֤������פ����򤹤�ȡ�HTML������������ɽ�����롣');
-define('_AM_RSSC_CONF_SHOW_MAX_CONTENT','��ʸ�κ���ʸ����');
-define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', '����ʸ������Ķ�����Ȥ��ϡ�HTML�����Ϻ������ޤ�<br /><b>-1</b> �ΤȤ��ϡ����¤ʤ��Ǥ�');
-define('_AM_RSSC_CONF_SHOW_NUM_CONTENT','��ʸ��ɽ������feed���');
-define('_AM_RSSC_CONF_SHOW_NUM_CONTENT_DSC', '��ʸ��ɽ���������������ꤷ�Ƥ�������');
-define('_AM_RSSC_CONF_SHOW_BLOG_LID','Bolg ��ɽ������ Link ID');
-//define('_AM_RSSC_CONF_SHOW_BLOG_LID_DSC', 'Bolg ��ɽ������ Link ID ����ꤷ�Ƥ�������');
+define('_AM_RSSC_CONF_SHOW_TITLE_HTML','タイトルのHTMLタグの表示');
+define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br />「いいえ」を選択すると、HTMLタグを削除して表示する。');
+define('_AM_RSSC_CONF_SHOW_CONTENT_HTML','本文のHTMLタグの表示');
+define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br />「いいえ」を選択すると、HTMLタグを削除して表示する。');
+define('_AM_RSSC_CONF_SHOW_MAX_CONTENT','本文の最大文字数');
+define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'この文字数を超えたときは、HTMLタグは削除されます<br /><b>-1</b> のときは、制限なしです');
+define('_AM_RSSC_CONF_SHOW_NUM_CONTENT','本文を表示するfeed件数');
+define('_AM_RSSC_CONF_SHOW_NUM_CONTENT_DSC', '本文を表示する最大件数を指定してください');
+define('_AM_RSSC_CONF_SHOW_BLOG_LID','Bolg を表示する Link ID');
+//define('_AM_RSSC_CONF_SHOW_BLOG_LID_DSC', 'Bolg を表示する Link ID を指定してください');
 
-define('_AM_RSSC_TABLE_MANAGE','DB�ơ��֥����');
+define('_AM_RSSC_TABLE_MANAGE','DBテーブル管理');
 
 // === 2006-11-08 ===
 // proxy server
-define('_AM_RSSC_FORM_PROXY', '�ץ������������С� ����');
-define('_AM_RSSC_CONF_PROXY_USE',  '�ץ������������С�����Ѥ���');
-define('_AM_RSSC_CONF_PROXY_HOST', '�ץ��������ۥ���̾');
-define('_AM_RSSC_CONF_PROXY_PORT', '�ץ��������ݡ����ֹ�');
-define('_AM_RSSC_CONF_PROXY_USER', '�ץ��������桼��̾');
-define('_AM_RSSC_CONF_PROXY_USER_DESC', '�ץ������������С���BASICǧ�ڤ�ɬ�פȤ�����ϡ��桼��̾�����Ϥ���<br />�����Ǥʤ���С�����Τޤޤˤ���');
-define('_AM_RSSC_CONF_PROXY_PASS', '�ץ��������ѥ����');
-define('_AM_RSSC_CONF_PROXY_PASS_DESC', '�ץ������������С���BASICǧ�ڤ�ɬ�פȤ�����ϡ��ѥ���ɤ����Ϥ���<br />�����Ǥʤ���С�����Τޤޤˤ���');
+define('_AM_RSSC_FORM_PROXY', 'プロキシ・サーバー 設定');
+define('_AM_RSSC_CONF_PROXY_USE',  'プロキシ・サーバーを使用する');
+define('_AM_RSSC_CONF_PROXY_HOST', 'プロキシ・ホスト名');
+define('_AM_RSSC_CONF_PROXY_PORT', 'プロキシ・ポート番号');
+define('_AM_RSSC_CONF_PROXY_USER', 'プロキシ・ユーザ名');
+define('_AM_RSSC_CONF_PROXY_USER_DESC', 'プロキシ・サーバーがBASIC認証を必要とする場合は、ユーザ名を入力する<br />そうでなければ、空欄のままにする');
+define('_AM_RSSC_CONF_PROXY_PASS', 'プロキシ・パスワード');
+define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'プロキシ・サーバーがBASIC認証を必要とする場合は、パスワードを入力する<br />そうでなければ、空欄のままにする');
 
-define('_AM_RSSC_CONF_HIGHLIGHT', '������ɤΥϥ��饤��ɽ������Ѥ���');
+define('_AM_RSSC_CONF_HIGHLIGHT', 'キーワードのハイライト表示を使用する');
 
 // === 2007-06-01 ===
 // word_list
-define('_AM_RSSC_LIST_WORD','�ػ߸�ΰ���');
-define('_AM_RSSC_WORD_MANAGE','�ػ߸�δ���');
-define('_AM_RSSC_ADD_WORD','�ػ߸���ɲ�');
-define('_AM_RSSC_MOD_WORD','�ػ߸�ν���');
-define('_AM_RSSC_DEL_WORD','�ػ߸�κ��');
-define('_AM_RSSC_POINT_ASC', '�����ξ��ʤ���');
-define('_AM_RSSC_POINT_DESC','������¿����');
-define('_AM_RSSC_COUNT_ASC', '�и�����ξ��ʤ���');
-define('_AM_RSSC_COUNT_DESC','�и������¿����');
-define('_AM_RSSC_WORD_ASC', 'ABC���������� ��');
-define('_AM_RSSC_WORD_DESC','ABC���������� �ս�');
-define('_AM_RSSC_NON_ACT','��ɽ���ΰ���');
-define('_AM_RSSC_NON_ACT_ASC', '��ɽ�� ID����');
-define('_AM_RSSC_NON_ACT_DESC','��ɽ�� ID�ս�');
-define('_AM_RSSC_WORD_ALREADY','���ζػ߸����Ͽ����Ƥ���');
-define('_AM_RSSC_WORD_SEARCH','����� ����');
+define('_AM_RSSC_LIST_WORD','禁止語の一覧');
+define('_AM_RSSC_WORD_MANAGE','禁止語の管理');
+define('_AM_RSSC_ADD_WORD','禁止語の追加');
+define('_AM_RSSC_MOD_WORD','禁止語の修正');
+define('_AM_RSSC_DEL_WORD','禁止語の削除');
+define('_AM_RSSC_POINT_ASC', '点数の少ない順');
+define('_AM_RSSC_POINT_DESC','点数の多い順');
+define('_AM_RSSC_COUNT_ASC', '出現回数の少ない順');
+define('_AM_RSSC_COUNT_DESC','出現回数の多い順');
+define('_AM_RSSC_WORD_ASC', 'ABCあいうえお 順');
+define('_AM_RSSC_WORD_DESC','ABCあいうえお 逆順');
+define('_AM_RSSC_NON_ACT','非表示の一覧');
+define('_AM_RSSC_NON_ACT_ASC', '非表示 ID正順');
+define('_AM_RSSC_NON_ACT_DESC','非表示 ID逆順');
+define('_AM_RSSC_WORD_ALREADY','その禁止語は登録されている');
+define('_AM_RSSC_WORD_SEARCH','類似語 検索');
 
 // content filter
-define('_AM_RSSC_FORM_FILTER','�ե��륿����');
-define('_AM_RSSC_FORM_FILTER_DESC','feed ������ư��������Ȥ��ˡ��ǡ����١�������¸���뤷�ʤ���Ƚ�ꤹ����Ȥ�');
-define('_AM_RSSC_CONF_LINK_USE','��󥯥ơ��֥�λ���');
-define('_AM_RSSC_CONF_LINK_USE_DESC','��󥯥ơ��֥�Ρ֥����ספ����̾�פǤ���С���¸����');
-define('_AM_RSSC_CONF_WHITE_USE','�ۥ磻�ȥꥹ�Ȥλ���');
-define('_AM_RSSC_CONF_WHITE_USE_DESC','�ۥ磻�ȥꥹ�Ȥˤ���С���¸����');
-define('_AM_RSSC_CONF_BLACK_USE','�֥�å��ꥹ�Ȥλ���');
-define('_AM_RSSC_CONF_BLACK_USE_DESC','�֥�å��ꥹ�Ȥˤ���С���¸���ʤ�<br />���ѤǤϡ��֥�å���Ƚ�ꤹ��ȡ��ʹߤν��������Ǥ���<br />�ؽ��⡼�ɤǤϡ��ػ߸����Ф��뤿�ᡢ�������³����');
-define('_AM_RSSC_CONF_BLACK_USE_NO','̤����');
-define('_AM_RSSC_CONF_BLACK_USE_YES','����');
-define('_AM_RSSC_CONF_BLACK_USE_LEARN','�ؽ��⡼��');
-define('_AM_RSSC_CONF_WORD_USE','�ػ߸�ꥹ�Ȥλ���');
-define('_AM_RSSC_CONF_WORD_USE_DESC','�ػ߸�ꥹ�Ȥι��������Ƚ���٥��Ķ����ȡ���¸���ʤ�');
-define('_AM_RSSC_CONF_WORD_LEVEL', 'Ƚ���٥�');
-define('_AM_RSSC_CONF_FEED_SAVE','feed ��������¸');
-define('_AM_RSSC_CONF_FEED_SAVE_DESC','�֥�å���Ƚ�ꤷ���Ȥ��ˡ�feed �ơ��֥����¸���뤫�ݤ���<br />
-����¸����פǤϡ���ɽ���ξ��֤ˤ�����¸���ޤ���');
-define('_AM_RSSC_CONF_FEED_SAVE_NO', '��¸���ʤ�');
-define('_AM_RSSC_CONF_FEED_SAVE_YES','��¸����');
-define('_AM_RSSC_CONF_LOG_USE','�����ե�����λ���');
-define('_AM_RSSC_CONF_LOG_USE_DESC','�֥�å���Ƚ�ꤷ���Ȥ��ˡ������ե��������¸����');
-define('_AM_RSSC_CONF_WHITE_COUNT','�ۥ磻�ȥꥹ�ȤΥ������');
-define('_AM_RSSC_CONF_WHITE_COUNT_DESC','�ۥ磻�ȥꥹ�Ȥ˹��פ����Ȥ��������ξ��򥫥���ȥ��åפ���');
-define('_AM_RSSC_CONF_BLACK_COUNT','�֥�å��ꥹ�ȤΥ������');
-define('_AM_RSSC_CONF_BLACK_COUNT_DESC','�֥�å��ꥹ�Ȥ˹��פ����Ȥ��������ξ��򥫥���ȥ��åפ���');
-define('_AM_RSSC_CONF_WORD_COUNT','�ػ߸�ꥹ�ȤΥ������');
-define('_AM_RSSC_CONF_WORD_COUNT_DESC','�ػ߸�ꥹ�Ȥ˹��פ����Ȥ��������ξ��򥫥���ȥ��åפ���');
-define('_AM_RSSC_CONF_BLACK_AUTO','�֥�å��ꥹ�Ȥμ�ư��Ͽ');
-define('_AM_RSSC_CONF_BLACK_AUTO_DESC','�֥�å���Ƚ�ꤵ�줿URL��֥�å��ꥹ�Ȥ˼�ưŪ����Ͽ����<br /><b>����</b> ��̵���׾��֤���Ͽ���ޤ�<br />���Ѥ�����ϡ�ͭ���פ��ѹ����Ƥ�������');
-define('_AM_RSSC_CONF_WORD_AUTO','�ػ߸�μ�ư��Ͽ');
-define('_AM_RSSC_CONF_WORD_AUTO_DESC','�֥�å���Ƚ�ꤵ�줿����ƥ�Ĥ˴ޤޤ��ñ���ưŪ����Ф��ơ��ػ߸�ꥹ�Ȥ˼�ưŪ����Ͽ����<br /><b>����</b> ��������=0 ����Ͽ���ޤ�<br />���Ѥ���������������ꤷ�Ƥ�������');
-define('_AM_RSSC_CONF_WORD_AUTO_NON','��ư��Ͽ���ʤ�');
-define('_AM_RSSC_CONF_WORD_AUTO_SYMBOL','����䵭��ˤ��ñ������');
-define('_AM_RSSC_CONF_WORD_AUTO_KAKASI','KAKASI�ˤ��ñ������');
+define('_AM_RSSC_FORM_FILTER','フィルタ設定');
+define('_AM_RSSC_FORM_FILTER_DESC','feed 記事を自動収集するときに、データベースに保存するしないを判定する仕組み');
+define('_AM_RSSC_CONF_LINK_USE','リンクテーブルの使用');
+define('_AM_RSSC_CONF_LINK_USE_DESC','リンクテーブルの「タイプ」が「通常」であれば、保存する');
+define('_AM_RSSC_CONF_WHITE_USE','ホワイトリストの使用');
+define('_AM_RSSC_CONF_WHITE_USE_DESC','ホワイトリストにあれば、保存する');
+define('_AM_RSSC_CONF_BLACK_USE','ブラックリストの使用');
+define('_AM_RSSC_CONF_BLACK_USE_DESC','ブラックリストにあれば、保存しない<br />使用では、ブラックと判定すると、以降の処理を中断する<br />学習モードでは、禁止語を抽出するため、処理を継続する');
+define('_AM_RSSC_CONF_BLACK_USE_NO','未使用');
+define('_AM_RSSC_CONF_BLACK_USE_YES','使用');
+define('_AM_RSSC_CONF_BLACK_USE_LEARN','学習モード');
+define('_AM_RSSC_CONF_WORD_USE','禁止語リストの使用');
+define('_AM_RSSC_CONF_WORD_USE_DESC','禁止語リストの合計得点が判定レベルを超えると、保存しない');
+define('_AM_RSSC_CONF_WORD_LEVEL', '判定レベル');
+define('_AM_RSSC_CONF_FEED_SAVE','feed 記事の保存');
+define('_AM_RSSC_CONF_FEED_SAVE_DESC','ブラックと判定したときに、feed テーブルに保存するか否か。<br />
+「保存する」では、非表示の状態にして保存します。');
+define('_AM_RSSC_CONF_FEED_SAVE_NO', '保存しない');
+define('_AM_RSSC_CONF_FEED_SAVE_YES','保存する');
+define('_AM_RSSC_CONF_LOG_USE','ログファイルの使用');
+define('_AM_RSSC_CONF_LOG_USE_DESC','ブラックと判定したときに、ログファイルに保存する');
+define('_AM_RSSC_CONF_WHITE_COUNT','ホワイトリストのカウント');
+define('_AM_RSSC_CONF_WHITE_COUNT_DESC','ホワイトリストに合致したとき、該当の条件をカウントアップする');
+define('_AM_RSSC_CONF_BLACK_COUNT','ブラックリストのカウント');
+define('_AM_RSSC_CONF_BLACK_COUNT_DESC','ブラックリストに合致したとき、該当の条件をカウントアップする');
+define('_AM_RSSC_CONF_WORD_COUNT','禁止語リストのカウント');
+define('_AM_RSSC_CONF_WORD_COUNT_DESC','禁止語リストに合致したとき、該当の条件をカウントアップする');
+define('_AM_RSSC_CONF_BLACK_AUTO','ブラックリストの自動登録');
+define('_AM_RSSC_CONF_BLACK_AUTO_DESC','ブラックと判定されたURLをブラックリストに自動的に登録する<br /><b>注意</b> 「無効」状態で登録します<br />使用する場合は「有効」に変更してください');
+define('_AM_RSSC_CONF_WORD_AUTO','禁止語の自動登録');
+define('_AM_RSSC_CONF_WORD_AUTO_DESC','ブラックと判定されたコンテンツに含まれる単語を自動的に抽出して、禁止語リストに自動的に登録する<br /><b>注意</b> 「点数」=0 で登録します<br />使用する場合は点数を設定してください');
+define('_AM_RSSC_CONF_WORD_AUTO_NON','自動登録しない');
+define('_AM_RSSC_CONF_WORD_AUTO_SYMBOL','空白や記号による単語の抽出');
+define('_AM_RSSC_CONF_WORD_AUTO_KAKASI','KAKASIによる単語の抽出');
 
 // word extract
-define('_AM_RSSC_FORM_WORD','ñ����Ф�����');
-define('_AM_RSSC_CONF_JOIN_PREV', 'ñ���Ϣ��');
-define('_AM_RSSC_CONF_JOIN_PREV_DESC', '�����ñ���Ϣ�뤷���ϸ����');
-define('_AM_RSSC_CONF_JOIN_GLUE', 'ñ���Ϣ���');
-define('_AM_RSSC_CONF_JOIN_GLUE_DESC', '���ܸ�Ǥϲ�����ꤷ�ʤ�<br />�Ѹ�Ǥ�Ⱦ�Ѷ������ꤹ��');
-define('_AM_RSSC_CONF_KAKASI_PATH','KAKASI�Υ��ޥ�ɥѥ�');
-define('_AM_RSSC_CONF_KAKASI_MODE','KAKASI�Υ⡼��');
-define('_AM_RSSC_CONF_KAKASI_MODE_FILE','����ե��������Ѥ���');
-define('_AM_RSSC_CONF_KAKASI_MODE_PIPE','UNIX pipe ����Ѥ���');
-define('_AM_RSSC_CONF_CHAR_LENGTH', 'ñ��κǾ�ʸ����');
-define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', '��Ф���ñ��κǾ���(Ⱦ��)ʸ����');
-define('_AM_RSSC_CONF_WORD_LIMIT', '�ػ߸�κ������Ͽ��');
-define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'word �ơ��֥�˳�Ǽ����ػ߸�κ������Ͽ������ꤹ��<br />�����ͤ�Ķ��������դθŤ������饯�ꥢ����롣<br /><b>0</b> ��̵���¤������侩���ʤ���');
-define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi ���¹Բ�ǽ�Ǥ�');
-define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi ���¹ԤǤ��ޤ���');
-define('_AM_RSSC_CONF_HTML_GET','HTML�μ�ư����');
-define('_AM_RSSC_CONF_HTML_GET_DESC','�ػ߸�ꥹ�Ȥ���Ѥ���Ƚ���Ԥ��Ȥ��ˡ�ȯ������HTML�ǡ�����ư�������ޤ�<br />HTML�ǡ������������ȡ�Ƚ������٤ϸ��夷�ޤ������¹Ի��֤��礭���ʤ�ޤ�');
-define('_AM_RSSC_CONF_HTML_GET_NO','��ư�������ʤ�');
-define('_AM_RSSC_CONF_HTML_GET_YES','��ư��������');
-define('_AM_RSSC_CONF_HTML_GET_BLACK','�֥�å���Ƚ�ꤵ��Ȥ��˼�ư��������');
-define('_AM_RSSC_CONF_HTML_LIMIT', 'HTML�ǡ����κ����ʸ����');
-define('_AM_RSSC_CONF_HTML_LIMIT_DESC', '��ư��������HTML�ǡ����κ����ʸ����<br />�����Ȥˤ�äƤ��礭�ʥǡ����Ȥʤꡢ����ʬ �¹Ի��֤�Ĺ���ʤ�ޤ�');
+define('_AM_RSSC_FORM_WORD','単語抽出の設定');
+define('_AM_RSSC_CONF_JOIN_PREV', '単語の連結');
+define('_AM_RSSC_CONF_JOIN_PREV_DESC', '前後の単語と連結し、熟語を作る');
+define('_AM_RSSC_CONF_JOIN_GLUE', '単語の連結子');
+define('_AM_RSSC_CONF_JOIN_GLUE_DESC', '日本語では何も指定しない<br />英語では半角空白を指定する');
+define('_AM_RSSC_CONF_KAKASI_PATH','KAKASIのコマンドパス');
+define('_AM_RSSC_CONF_KAKASI_MODE','KAKASIのモード');
+define('_AM_RSSC_CONF_KAKASI_MODE_FILE','一時ファイルを使用する');
+define('_AM_RSSC_CONF_KAKASI_MODE_PIPE','UNIX pipe を使用する');
+define('_AM_RSSC_CONF_CHAR_LENGTH', '単語の最小文字数');
+define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', '抽出する単語の最小の(半角)文字数');
+define('_AM_RSSC_CONF_WORD_LIMIT', '禁止語の最大の登録数');
+define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'word テーブルに格納する禁止語の最大の登録数を指定する<br />この値を超えると日付の古い方からクリアされる。<br /><b>0</b> は無制限だが、推奨しない。');
+define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi が実行可能です');
+define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi が実行できません');
+define('_AM_RSSC_CONF_HTML_GET','HTMLの自動取得');
+define('_AM_RSSC_CONF_HTML_GET_DESC','禁止語リストを使用して判定を行うときに、発言元のHTMLデータを自動取得します<br />HTMLデータを取得すると、判定の精度は向上しますが、実行時間も大きくなります');
+define('_AM_RSSC_CONF_HTML_GET_NO','自動取得しない');
+define('_AM_RSSC_CONF_HTML_GET_YES','自動取得する');
+define('_AM_RSSC_CONF_HTML_GET_BLACK','ブラックと判定されときに自動取得する');
+define('_AM_RSSC_CONF_HTML_LIMIT', 'HTMLデータの最大の文字数');
+define('_AM_RSSC_CONF_HTML_LIMIT_DESC', '自動取得したHTMLデータの最大の文字数<br />サイトによっては大きなデータとなり、その分 実行時間が長くなります');
 
 // archive manage
-define('_AM_RSSC_LEAN_BLACK', '�֥�å��ꥹ�Ȥγؽ�');
-define('_AM_RSSC_LEAN_BLACK_DESC','�֥�å��ꥹ�Ȥ��󤷡�����ƥ�Ĥ˴ޤޤ��ñ���ưŪ����Ф��ơ��ػ߸�ꥹ�Ȥ˼�ưŪ����Ͽ����');
-define('_AM_RSSC_NUM_FEED_ALL','���Ƥ�FEED�ε�����');
-define('_AM_RSSC_NUM_FEED_SKIP','���Ǥ���¸����Ƥ���FEED�ε�����');
-define('_AM_RSSC_NUM_FEED_REJECT','�֥�å���Ƚ�ꤵ�줿FEED�ε�����');
+define('_AM_RSSC_LEAN_BLACK', 'ブラックリストの学習');
+define('_AM_RSSC_LEAN_BLACK_DESC','ブラックリストを巡回し、コンテンツに含まれる単語を自動的に抽出して、禁止語リストに自動的に登録する');
+define('_AM_RSSC_NUM_FEED_ALL','全てのFEEDの記事数');
+define('_AM_RSSC_NUM_FEED_SKIP','すでに保存されていたFEEDの記事数');
+define('_AM_RSSC_NUM_FEED_REJECT','ブラックと判定されたFEEDの記事数');
 
-define('_AM_RSSC_THEREARE_TITLE','<b>%s</b> �˴ؤ���ǡ����� <b>%s</b> �Ǥ���');
+define('_AM_RSSC_THEREARE_TITLE','<b>%s</b> に関するデータは <b>%s</b> です。');
 
 // === 2007-10-10 ===
 // config
-define('_AM_RSSC_CONF_SHOW_MODE_DATE', '���դμ���');
-define('_AM_RSSC_CONF_SHOW_MODE_DATE_NON',    'ɽ�����ʤ�');
+define('_AM_RSSC_CONF_SHOW_MODE_DATE', '日付の種類');
+define('_AM_RSSC_CONF_SHOW_MODE_DATE_NON',    '表示しない');
 define('_AM_RSSC_CONF_SHOW_MODE_DATE_SHORT',  'short');
 define('_AM_RSSC_CONF_SHOW_MODE_DATE_MIDDLE', 'middle');
 define('_AM_RSSC_CONF_SHOW_MODE_DATE_LONG',   'long');
-define('_AM_RSSC_CONF_SHOW_SITE', '�����Ⱦ���');
-define('_AM_RSSC_CONF_SHOW_SITE_DSC', '������̾��URL��ɽ�����뤫');
+define('_AM_RSSC_CONF_SHOW_SITE', 'サイト情報');
+define('_AM_RSSC_CONF_SHOW_SITE_DSC', 'サイト名とURLを表示するか');
 
 // link table
-define('_AM_RSSC_LINK_CENSOR_DESC', 'ʸ�����ʸ����δ֤� <b>|</b> �Ƕ��ڤ�ޤ�<br />��ʸ����ʸ���϶��̤��ޤ�');
+define('_AM_RSSC_LINK_CENSOR_DESC', '文字列と文字列の間は <b>|</b> で区切ります<br />大文字小文字は区別します');
 
 // === 2008-01-20 ===
 // menu
-define('_AM_RSSC_FORM_HTMLOUT',       'HTML��������');
-define('_AM_RSSC_FORM_HTMLOUT_DESC',  '��ʸ��HTML������ɽ����֤Ϥ��פ����ꤷ���Ȥ��Ρ���ʸ�ν���<br />�֤������פΤȤ��ϡ����ƤΥ����Ϻ�������<br />XSS (�����������ȥ�����ץƥ���) �ɻߤΤ���ˡ�JavaScript �ط��ε��ҤϺ�����뤫ʸ�����Ѵ����뤳�Ȥ򤪴��ᤷ�ޤ�');
-define('_AM_RSSC_FORM_CUSTOM_PLUGIN', '�������ࡦ�ץ饰����');
+define('_AM_RSSC_FORM_HTMLOUT',       'HTML出力設定');
+define('_AM_RSSC_FORM_HTMLOUT_DESC',  '本文のHTMLタグの表示を「はい」に設定したときの、本文の処理<br />「いいえ」のときは、全てのタグは削除される<br />XSS (クロスサイトスクリプティング) 防止のために、JavaScript 関係の記述は削除するか文字列変換することをお勧めします');
+define('_AM_RSSC_FORM_CUSTOM_PLUGIN', 'カスタム・プラグイン');
 
 // html out
-define('_AM_RSSC_CONF_HTML_NON',    '���⤷�ʤ�');
-define('_AM_RSSC_CONF_HTML_SHOW',   '���˥���������HTMLɽ������');
-define('_AM_RSSC_CONF_HTML_REMOVE', '�������');
-define('_AM_RSSC_CONF_HTML_REPLACE', 'ʸ������Ѵ�����');
-define('_AM_RSSC_CONF_HTML_SCRIPT', 'script ����');
-define('_AM_RSSC_CONF_HTML_SCRIPT_DESC', '&lt;script&gt;...&lt;/script&gt; �ν���');
-define('_AM_RSSC_CONF_HTML_STYLE', 'style ����');
-define('_AM_RSSC_CONF_HTML_STYLE_DESC', '&lt;style&gt;...&lt;/style&gt; �ν���');
-define('_AM_RSSC_CONF_HTML_LINK', 'link ����');
-define('_AM_RSSC_CONF_HTML_LINK_DESC', '&lt;link ... &gt; �ν���');
-define('_AM_RSSC_CONF_HTML_COMMENT', '�����ȵ���');
-define('_AM_RSSC_CONF_HTML_COMMENT_DESC', '&lt;!-- ... --&gt; �ν���');
-define('_AM_RSSC_CONF_HTML_CDATA', 'CDATA ����');
-define('_AM_RSSC_CONF_HTML_CDATA_DESC', '&lt;![CDATA[ ... ]]&gt; �ν���');
-define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE', 'onMouse °��');
-define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', 'onmouseover="..." �� onclick="..." �ν���<br />���Ѵ��פΤȤ��� on_mouseover_="..." �Τ褦�ˤʤ�');
-define('_AM_RSSC_CONF_HTML_ATTR_STYLE', 'style °��');
-define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', 'style="..." �� class="..." �ν���<br />���Ѵ��פΤȤ��� style_="..." �Τ褦�ˤʤ�');
-define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS', '����¾�Υ����κ��');
-define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS_DESC', '&lt;img ... &gt; &lt;a ... &gt; &lt;link ... &gt; �ʤɤΥ����������뤫');
-define('_AM_RSSC_CONF_HTML_OTHER_TAGS', '������ʤ�����');
-define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', '�֤���¾�Υ����κ���פ��֤Ϥ��פΤȤ��ˡ�������ʤ�������������<br /> ��: <img><a>');
-define('_AM_RSSC_CONF_HTML_JAVASCRIPT', 'JavaScriprt ʸ����');
-define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', 'JavaScriprt �Ȥ���ʸ������Ф������<br />���Ѵ��פΤȤ��� java_script �Ȥʤ�');
+define('_AM_RSSC_CONF_HTML_NON',    '何もしない');
+define('_AM_RSSC_CONF_HTML_SHOW',   'サニタイズしてHTML表示する');
+define('_AM_RSSC_CONF_HTML_REMOVE', '削除する');
+define('_AM_RSSC_CONF_HTML_REPLACE', '文字列を変換する');
+define('_AM_RSSC_CONF_HTML_SCRIPT', 'script タグ');
+define('_AM_RSSC_CONF_HTML_SCRIPT_DESC', '&lt;script&gt;...&lt;/script&gt; の処理');
+define('_AM_RSSC_CONF_HTML_STYLE', 'style タグ');
+define('_AM_RSSC_CONF_HTML_STYLE_DESC', '&lt;style&gt;...&lt;/style&gt; の処理');
+define('_AM_RSSC_CONF_HTML_LINK', 'link タグ');
+define('_AM_RSSC_CONF_HTML_LINK_DESC', '&lt;link ... &gt; の処理');
+define('_AM_RSSC_CONF_HTML_COMMENT', 'コメント記号');
+define('_AM_RSSC_CONF_HTML_COMMENT_DESC', '&lt;!-- ... --&gt; の処理');
+define('_AM_RSSC_CONF_HTML_CDATA', 'CDATA 記号');
+define('_AM_RSSC_CONF_HTML_CDATA_DESC', '&lt;![CDATA[ ... ]]&gt; の処理');
+define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE', 'onMouse 属性');
+define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', 'onmouseover="..." や onclick="..." の処理<br />「変換」のときは on_mouseover_="..." のようになる');
+define('_AM_RSSC_CONF_HTML_ATTR_STYLE', 'style 属性');
+define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', 'style="..." や class="..." の処理<br />「変換」のときは style_="..." のようになる');
+define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS', 'その他のタグの削除');
+define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS_DESC', '&lt;img ... &gt; &lt;a ... &gt; &lt;link ... &gt; などのタグを削除するか');
+define('_AM_RSSC_CONF_HTML_OTHER_TAGS', '削除しないタグ');
+define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', '「その他のタグの削除」が「はい」のときに、削除しないタグを記入する<br /> 例: <img><a>');
+define('_AM_RSSC_CONF_HTML_JAVASCRIPT', 'JavaScriprt 文字列');
+define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', 'JavaScriprt という文字列に対する処理<br />「変換」のときは java_script となる');
 
 // plugin
-define('_AM_RSSC_PRE_PLUGIN_DESC', '�ǡ����١����˳�Ǽ�������˼¹Ԥ����');
-define('_AM_RSSC_POST_PLUGIN_DESC', '�ǡ����١��������ɤ߽Ф�����˼¹Ԥ����');
-define('_AM_RSSC_PLUGIN_DESC_2', 'ʣ���Υץ饰�������ꤹ����� <b>|</b> �Ƕ��ڤ�ޤ�');
+define('_AM_RSSC_PRE_PLUGIN_DESC', 'データベースに格納する前に実行される');
+define('_AM_RSSC_POST_PLUGIN_DESC', 'データベースから読み出した後に実行される');
+define('_AM_RSSC_PLUGIN_DESC_2', '複数のプラグインを指定する場合は <b>|</b> で区切ります');
 
-define('_AM_RSSC_PLUGIN_TEST', '�ץ饰����Υƥ���');
-define('_AM_RSSC_PLUGIN', '�ץ饰����');
-define('_AM_RSSC_PLUGIN_TESTDATA', '�ƥ��ȥǡ���');
-define('_AM_RSSC_PLUGIN_TESTDATA_DESC', 'Ϣ������η����ǵ��Ҥ���');
+define('_AM_RSSC_PLUGIN_TEST', 'プラグインのテスト');
+define('_AM_RSSC_PLUGIN', 'プラグイン');
+define('_AM_RSSC_PLUGIN_TESTDATA', 'テストデータ');
+define('_AM_RSSC_PLUGIN_TESTDATA_DESC', '連想配列の形式で記述する');
 
 // === 2009-02-20 ===
 // map
-define('_AM_RSSC_FORM_MAP', 'Google �ޥå� ����');
+define('_AM_RSSC_FORM_MAP', 'Google マップ 設定');
 
 // config
 define('_AM_RSSC_CONF_WEBMAP_DIRNAME', 'webmap dirname');
-define('_AM_RSSC_CONF_WEBMAP_DIRNAME_DESC', 'webmap �⥸�塼��Υǥ��쥯�ȥ�̾�����ꤹ��');
-define('_AM_RSSC_CONF_SHOW_INFO_MAX','�ޡ����������Τκ���ʸ����');
-define('_AM_RSSC_CONF_SHOW_INFO_MAX_DSC', 'HTML�����Ϻ������ޤ�<br /><b>-1</b> �ΤȤ��ϡ����¤ʤ��Ǥ�');
-define('_AM_RSSC_CONF_SHOW_INFO_WIDTH','�ޡ������Σ��Ԥκ���ʸ����');
-define('_AM_RSSC_CONF_SHOW_INFO_WIDTH_DSC', '����ʸ�����ʾ�ΤȤ��ϲ��Ԥ���ޤ�<br /><b>-1</b> �ΤȤ��ϡ����¤ʤ��Ǥ�');
-define('_AM_RSSC_CONF_SHOW_ICON','��������ɽ��');
-define('_AM_RSSC_CONF_SHOW_ICON_DSC', '���������ɽ�����뤫');
-define('_AM_RSSC_CONF_SHOW_THUMB','����ɽ��');
-define('_AM_RSSC_CONF_SHOW_THUMB_DSC', '����ͥ��������ɽ�����뤫');
+define('_AM_RSSC_CONF_WEBMAP_DIRNAME_DESC', 'webmap モジュールのディレクトリ名を設定する');
+define('_AM_RSSC_CONF_SHOW_INFO_MAX','マーカーの全体の最大文字数');
+define('_AM_RSSC_CONF_SHOW_INFO_MAX_DSC', 'HTMLタグは削除されます<br /><b>-1</b> のときは、制限なしです');
+define('_AM_RSSC_CONF_SHOW_INFO_WIDTH','マーカーの１行の最大文字数');
+define('_AM_RSSC_CONF_SHOW_INFO_WIDTH_DSC', 'この文字数以上のときは改行されます<br /><b>-1</b> のときは、制限なしです');
+define('_AM_RSSC_CONF_SHOW_ICON','アイコン表示');
+define('_AM_RSSC_CONF_SHOW_ICON_DSC', 'アイコンを表示するか');
+define('_AM_RSSC_CONF_SHOW_THUMB','画像表示');
+define('_AM_RSSC_CONF_SHOW_THUMB_DSC', 'サムネイル画像を表示するか');
 
 // link form
-define('_AM_RSSC_LINK_ICON_SEL',  '�������������');
-define('_AM_RSSC_LINK_GICON_SEL', 'Google�������������');
+define('_AM_RSSC_LINK_ICON_SEL',  'アイコンの選択');
+define('_AM_RSSC_LINK_GICON_SEL', 'Googleアイコンの選択');
 
 // === 2012-03-01 ===
-define('_AM_RSSC_MAP_MANAGE',  'GoogleMap ����');
-define('_AM_RSSC_FEED_COLUMN_MANAGE', 'feed ��������');
+define('_AM_RSSC_MAP_MANAGE',  'GoogleMap 管理');
+define('_AM_RSSC_FEED_COLUMN_MANAGE', 'feed カラム管理');
 
 // config
-define('_AM_RSSC_CONF_WEBMAP_ADDRESS', '����');
-define('_AM_RSSC_CONF_WEBMAP_ADDRESS_DESC', '���١����٤ξ��򼨤����');
-define('_AM_RSSC_CONF_WEBMAP_LATITUDE',  '����');
-define('_AM_RSSC_CONF_WEBMAP_LONGITUDE', '����');
-define('_AM_RSSC_CONF_WEBMAP_ZOOM',      '������');
+define('_AM_RSSC_CONF_WEBMAP_ADDRESS', '住所');
+define('_AM_RSSC_CONF_WEBMAP_ADDRESS_DESC', '緯度・経度の場所を示すメモ');
+define('_AM_RSSC_CONF_WEBMAP_LATITUDE',  '緯度');
+define('_AM_RSSC_CONF_WEBMAP_LONGITUDE', '経度');
+define('_AM_RSSC_CONF_WEBMAP_ZOOM',      'ズーム');
 
 // === 2012-04-02 ===
-define('_AM_RSSC_CONF_URL', 'URL������');
-define('_AM_RSSC_CONF_URL_DESC', '�����ȥ�Υϥ��ѡ����');
-define('_AM_RSSC_CONF_URL_0', '���Υ����Ȥ�URL');
-define('_AM_RSSC_CONF_URL_1', 'RSSC��singlefeed');
+define('_AM_RSSC_CONF_URL', 'URLの選択');
+define('_AM_RSSC_CONF_URL_DESC', 'タイトルのハイパーリンク');
+define('_AM_RSSC_CONF_URL_0', '元のサイトのURL');
+define('_AM_RSSC_CONF_URL_1', 'RSSCのsinglefeed');
 
 }
 // --- define language begin ---
