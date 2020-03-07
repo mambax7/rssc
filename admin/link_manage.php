@@ -91,7 +91,7 @@ class admin_manage_link extends admin_manage_base
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
-    public function admin_manage_link()
+    public function __construct()
     {
         admin_manage_base::__construct();
 
@@ -555,7 +555,7 @@ class admin_form_link extends happy_linux_form_lib
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
-    public function admin_form_link()
+    public function __construct()
     {
         $this->happy_linux_form_lib();
 

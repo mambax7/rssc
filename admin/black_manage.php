@@ -43,7 +43,7 @@ class admin_manage_black extends admin_manage_base
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
-    public function admin_manage_black()
+    public function __construct()
     {
         admin_manage_base::__construct();
 
@@ -229,7 +229,7 @@ class admin_form_black extends admin_form_black_white
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
-    public function admin_form_black()
+    public function __construct()
     {
         admin_form_black_white::__construct();
     }

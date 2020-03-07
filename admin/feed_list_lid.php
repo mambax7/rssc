@@ -25,7 +25,7 @@ class admin_feed_list_lid extends admin_feed_list
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
-    public function admin_feed_list_lid()
+    public function __construct()
     {
         admin_feed_list::__construct();
         $this->set_max_sortid(4);

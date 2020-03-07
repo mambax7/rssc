@@ -38,7 +38,7 @@ class admin_import_xoopsheadline extends rssc_import_handler
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
-    public function admin_import_xoopsheadline()
+    public function __construct()
     {
         rssc_import_handler::__construct(RSSC_DIRNAME);
         $this->set_mid_orig_by_dirname($this->_DIRNAME_XOOPSHEADLINE);

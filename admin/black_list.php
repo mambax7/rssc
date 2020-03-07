@@ -37,7 +37,7 @@ class admin_list_black extends admin_list_black_white
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
-    public function admin_list_black()
+    public function __construct()
     {
         admin_list_black_white::__construct();
         $this->set_handler('black', RSSC_DIRNAME);
