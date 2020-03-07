@@ -32,95 +32,93 @@ include_once RSSC_ROOT_PATH."/admin/admin_form_black_white.php";
 class admin_manage_white extends admin_manage_base
 {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function admin_manage_white()
-{
-	admin_manage_base::__construct();
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function admin_manage_white()
+    {
+        admin_manage_base::__construct();
 
-	$this->set_handler( 'white', RSSC_DIRNAME, 'rssc' );
-	$this->set_id_name( 'wid' );
-	$this->set_form_class( 'admin_form_white' );
-	$this->set_script(   'white_manage.php' );
-	$this->set_redirect( 'white_list.php', 'white_list.php?sortid=1' );
-	$this->set_title( _AM_RSSC_ADD_WHITE, _AM_RSSC_MOD_WHITE, _AM_RSSC_DEL_WHITE );
-	$this->set_flag_execute_time( true );
+        $this->set_handler('white', RSSC_DIRNAME, 'rssc');
+        $this->set_id_name('wid');
+        $this->set_form_class('admin_form_white');
+        $this->set_script('white_manage.php');
+        $this->set_redirect('white_list.php', 'white_list.php?sortid=1');
+        $this->set_title(_AM_RSSC_ADD_WHITE, _AM_RSSC_MOD_WHITE, _AM_RSSC_DEL_WHITE);
+        $this->set_flag_execute_time(true);
+    }
 
-}
+    public static function &getInstance()
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new admin_manage_white();
+        }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_manage_white();
-	}
+        return $instance;
+    }
 
-	return $instance;
-}
+    //---------------------------------------------------------
+    // main_add_form()
+    //---------------------------------------------------------
+    public function main_add_form()
+    {
+        $this->_main_add_form();
+    }
 
-//---------------------------------------------------------
-// main_add_form()
-//---------------------------------------------------------
-function main_add_form()
-{
-	$this->_main_add_form();
-}
+    public function _print_add_form()
+    {
+        return $this->_print_add_form_black_white();
+    }
 
-function _print_add_form()
-{
-	return $this->_print_add_form_black_white();
-}
+    //---------------------------------------------------------
+    // main_add_table()
+    //---------------------------------------------------------
+    public function main_add_table()
+    {
+        $this->_main_add_table(true);
+    }
 
-//---------------------------------------------------------
-// main_add_table()
-//---------------------------------------------------------
-function main_add_table()
-{
-	$this->_main_add_table( true );
-}
+    //---------------------------------------------------------
+    // main_mod_form()
+    //---------------------------------------------------------
+    public function main_mod_form()
+    {
+        $this->_main_mod_form();
+    }
 
-//---------------------------------------------------------
-// main_mod_form()
-//---------------------------------------------------------
-function main_mod_form()
-{
-	$this->_main_mod_form();
-}
+    //---------------------------------------------------------
+    // main_mod_table()
+    //---------------------------------------------------------
+    public function main_mod_table()
+    {
+        $this->_main_mod_table(true);
+    }
 
-//---------------------------------------------------------
-// main_mod_table()
-//---------------------------------------------------------
-function main_mod_table()
-{
-	$this->_main_mod_table( true );
-}
+    public function _check_mod_table()
+    {
+        $this->_clear_errors();
+        $this->_check_url_by_post('url', _RSSC_SITE_LINK);
+        return $this->returnExistError();
+    }
 
-function _check_mod_table()
-{
-	$this->_clear_errors();
-	$this->_check_url_by_post('url', _RSSC_SITE_LINK);
-	return $this->returnExistError();
-}
+    //---------------------------------------------------------
+    // main_del_table()
+    //---------------------------------------------------------
+    public function main_del_table()
+    {
+        $this->_main_del_table(true);
+    }
 
-//---------------------------------------------------------
-// main_del_table()
-//---------------------------------------------------------
-function main_del_table()
-{
-	$this->_main_del_table( true );
-}
+    //---------------------------------------------------------
+    // main_add_bulk()
+    //---------------------------------------------------------
+    public function main_add_bulk()
+    {
+        $this->_main_add_bulk_black_white();
+    }
 
-//---------------------------------------------------------
-// main_add_bulk()
-//---------------------------------------------------------
-function main_add_bulk()
-{
-	$this->_main_add_bulk_black_white();
-}
-
-// --- class end ---
+    // --- class end ---
 }
 
 //=========================================================
@@ -129,40 +127,39 @@ function main_add_bulk()
 class admin_form_white extends admin_form_black_white
 {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function admin_form_white()
-{
-	admin_form_black_white::__construct();
-}
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function admin_form_white()
+    {
+        admin_form_black_white::__construct();
+    }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_form_white();
-	}
+    public static function &getInstance()
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new admin_form_white();
+        }
 
-	return $instance;
-}
+        return $instance;
+    }
 
-//---------------------------------------------------------
-// show black & white
-//---------------------------------------------------------
-function _show(&$obj, $extra=null, $mode=0)
-{
-	$this->_id_name        = 'wid';
-	$this->_form_title_add = _AM_RSSC_ADD_WHITE;
-	$this->_form_title_mod = _AM_RSSC_MOD_WHITE;
+    //---------------------------------------------------------
+    // show black & white
+    //---------------------------------------------------------
+    public function _show(&$obj, $extra = null, $mode = 0)
+    {
+        $this->_id_name        = 'wid';
+        $this->_form_title_add = _AM_RSSC_ADD_WHITE;
+        $this->_form_title_mod = _AM_RSSC_MOD_WHITE;
 
-	$this->_jump_feed = 'feed_list_wid.php?wid='. $obj->get('wid');
+        $this->_jump_feed = 'feed_list_wid.php?wid=' . $obj->get('wid');
 
-	$this->_show_black_white($obj, $extra, $mode);
-}
+        $this->_show_black_white($obj, $extra, $mode);
+    }
 
-// --- class end ---
+    // --- class end ---
 }
 
 //=========================================================

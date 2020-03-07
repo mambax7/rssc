@@ -37,193 +37,186 @@ include_once RSSC_ROOT_PATH.'/admin/admin_form_black_white.php';
 //=========================================================
 class admin_manage_black extends admin_manage_base
 {
-// handler
-	var $_parser;
+    // handler
+    var $_parser;
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function admin_manage_black()
-{
-	admin_manage_base::__construct();
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function admin_manage_black()
+    {
+        admin_manage_base::__construct();
 
-	$this->set_handler( 'black', RSSC_DIRNAME, 'rssc' );
-	$this->set_id_name( 'bid' );
-	$this->set_form_class( 'admin_form_black' );
-	$this->set_script(   'black_manage.php' );
-	$this->set_redirect( 'black_list.php', 'black_list.php?sortid=1' );
-	$this->set_title( _AM_RSSC_ADD_BLACK, _AM_RSSC_MOD_BLACK, _AM_RSSC_DEL_BLACK );
-	$this->set_flag_execute_time( true );
+        $this->set_handler('black', RSSC_DIRNAME, 'rssc');
+        $this->set_id_name('bid');
+        $this->set_form_class('admin_form_black');
+        $this->set_script('black_manage.php');
+        $this->set_redirect('black_list.php', 'black_list.php?sortid=1');
+        $this->set_title(_AM_RSSC_ADD_BLACK, _AM_RSSC_MOD_BLACK, _AM_RSSC_DEL_BLACK);
+        $this->set_flag_execute_time(true);
 
-// handler
-	$this->_parser =& happy_linux_rss_parser::getInstance();
-}
+        // handler
+        $this->_parser =& happy_linux_rss_parser::getInstance();
+    }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_manage_black();
-	}
-	return $instance;
-}
+    public static function &getInstance()
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new admin_manage_black();
+        }
+        return $instance;
+    }
 
-//---------------------------------------------------------
-// main_add_form()
-//---------------------------------------------------------
-function main_add_form()
-{
-	$this->_main_add_form();
-}
+    //---------------------------------------------------------
+    // main_add_form()
+    //---------------------------------------------------------
+    public function main_add_form()
+    {
+        $this->_main_add_form();
+    }
 
-function _print_add_form()
-{
-	return $this->_print_add_form_black_white();
-}
+    public function _print_add_form()
+    {
+        return $this->_print_add_form_black_white();
+    }
 
-//---------------------------------------------------------
-// main_add_table()
-//---------------------------------------------------------
-function main_add_table()
-{
-	$this->_main_add_table( true );
-}
+    //---------------------------------------------------------
+    // main_add_table()
+    //---------------------------------------------------------
+    public function main_add_table()
+    {
+        $this->_main_add_table(true);
+    }
 
-//---------------------------------------------------------
-// main_mod_form()
-//---------------------------------------------------------
-function main_mod_form()
-{
-	$this->_main_mod_form();
-}
+    //---------------------------------------------------------
+    // main_mod_form()
+    //---------------------------------------------------------
+    public function main_mod_form()
+    {
+        $this->_main_mod_form();
+    }
 
-//---------------------------------------------------------
-// main_mod_table()
-//---------------------------------------------------------
-function main_mod_table()
-{
-	$this->_main_mod_table( true );
-}
+    //---------------------------------------------------------
+    // main_mod_table()
+    //---------------------------------------------------------
+    public function main_mod_table()
+    {
+        $this->_main_mod_table(true);
+    }
 
-function _check_mod_table()
-{
-	$this->_clear_errors();
+    public function _check_mod_table()
+    {
+        $this->_clear_errors();
 
-	if ( $this->_post->get_post_int('reg') ) {
-		$this->_check_fill_by_post('url', _RSSC_SITE_LINK);
-	} else {
-		$this->_check_url_by_post('url', _RSSC_SITE_LINK);
-	}
+        if ($this->_post->get_post_int('reg')) {
+            $this->_check_fill_by_post('url', _RSSC_SITE_LINK);
+        } else {
+            $this->_check_url_by_post('url', _RSSC_SITE_LINK);
+        }
 
-	return $this->returnExistError();
-}
+        return $this->returnExistError();
+    }
 
-function _exec_mod_table()
-{
-	$url1 = $this->_post->get_post_text('url');
+    public function _exec_mod_table()
+    {
+        $url1 = $this->_post->get_post_text('url');
 
-	if ( $this->_post->get_post_int('reg') ) {
-		$url2 = $this->_strings->prepare_text($url1, true);
-	} else {
-		$url2 = $this->_strings->prepare_url($url1, true);
-	}
+        if ($this->_post->get_post_int('reg')) {
+            $url2 = $this->_strings->prepare_text($url1, true);
+        } else {
+            $url2 = $this->_strings->prepare_url($url1, true);
+        }
 
-	$this->_modid = $this->_get_post_get_id();
-	$this->_obj->assignVars( $_POST );
-	$this->_obj->set('url', $url2);
+        $this->_modid = $this->_get_post_get_id();
+        $this->_obj->assignVars($_POST);
+        $this->_obj->set('url', $url2);
 
-	if ( !$this->_handler->update( $this->_obj ) ) 
-	{
-		$this->_set_errors( $this->_LANG_FAIL_MOD );
-		$this->_set_errors( $this->_handler->getErrors() );
-		return false;
-	}
-	return true;
-}
+        if (!$this->_handler->update($this->_obj)) {
+            $this->_set_errors($this->_LANG_FAIL_MOD);
+            $this->_set_errors($this->_handler->getErrors());
+            return false;
+        }
+        return true;
+    }
 
-//---------------------------------------------------------
-// main_del_table()
-//---------------------------------------------------------
-function main_del_table()
-{
-	$this->_main_del_table( true );
-}
+    //---------------------------------------------------------
+    // main_del_table()
+    //---------------------------------------------------------
+    public function main_del_table()
+    {
+        $this->_main_del_table(true);
+    }
 
-//---------------------------------------------------------
-// main_add_bulk()
-//---------------------------------------------------------
-function main_add_bulk()
-{
-	$this->_main_add_bulk_black_white();
-}
+    //---------------------------------------------------------
+    // main_add_bulk()
+    //---------------------------------------------------------
+    public function main_add_bulk()
+    {
+        $this->_main_add_bulk_black_white();
+    }
 
-//---------------------------------------------------------
-// main_addlist()
-//---------------------------------------------------------
-function main_addlist()
-{
-	$this->_print_cp_header();
-	$this->_print_menu();
-	$this->_print_title( _AM_RSSC_ADD_BLACK );
+    //---------------------------------------------------------
+    // main_addlist()
+    //---------------------------------------------------------
+    public function main_addlist()
+    {
+        $this->_print_cp_header();
+        $this->_print_menu();
+        $this->_print_title(_AM_RSSC_ADD_BLACK);
 
-	if ( !$this->_print_add_list() )
-	{
-		$this->_print_error(1);
-	}
-}
+        if (!$this->_print_add_list()) {
+            $this->_print_error(1);
+        }
+    }
 
-function _print_add_list()
-{
-	$fid  = $this->_post->get_get_int('fid');
+    public function _print_add_list()
+    {
+        $fid = $this->_post->get_get_int('fid');
 
-	$feed = $this->_get_feed_by_fid($fid);
-	if ( !$feed )
-	{
-		return false;
-	}
+        $feed = $this->_get_feed_by_fid($fid);
+        if (!$feed) {
+            return false;
+        }
 
-	$feed_title = $feed['title'];
-	$feed_link  = $feed['link'];
+        $feed_title = $feed['title'];
+        $feed_link  = $feed['link'];
 
-	$parse_obj =& $this->_parser->discover_and_parse_by_html_url( $feed_link );
-	if ( is_object($parse_obj) )
-	{
-		$title = $parse_obj->get_channel_by_key('title');
-		$link  = $parse_obj->get_channel_by_key('link');
-		$site_title = $title;
-		$site_link  = $link;
-	}
-	else
-	{
-		$title = $feed_title;
-		$link  = $feed_link;
-		$site_title = '';
-		$site_link  = '';
-	}
+        $parse_obj =& $this->_parser->discover_and_parse_by_html_url($feed_link);
+        if (is_object($parse_obj)) {
+            $title      = $parse_obj->get_channel_by_key('title');
+            $link       = $parse_obj->get_channel_by_key('link');
+            $site_title = $title;
+            $site_link  = $link;
+        } else {
+            $title      = $feed_title;
+            $link       = $feed_link;
+            $site_title = '';
+            $site_link  = '';
+        }
 
-	$memo  = '';
-	$memo .= $feed['site_title']."\n";
-	$memo .= $feed['site_link']."\n";
-	$memo .= $feed_title."\n";
-	$memo .= $feed_link."\n";
-	$memo .= $site_title."\n";
-	$memo .= $site_link."\n";
+        $memo = '';
+        $memo .= $feed['site_title'] . "\n";
+        $memo .= $feed['site_link'] . "\n";
+        $memo .= $feed_title . "\n";
+        $memo .= $feed_link . "\n";
+        $memo .= $site_title . "\n";
+        $memo .= $site_link . "\n";
 
-	$obj =& $this->_handler->create();
+        $obj =& $this->_handler->create();
 
-// set values just as enter
-	$obj->assignVars( $feed );
+        // set values just as enter
+        $obj->assignVars($feed);
 
-	$obj->set('url',   $link );
-	$obj->set('title', $title );
-	$obj->set('memo',  $memo );
+        $obj->set('url', $link);
+        $obj->set('title', $title);
+        $obj->set('memo', $memo);
 
-	$this->_form->_show_add($obj);
-	return true;
-}
+        $this->_form->_show_add($obj);
+        return true;
+    }
 
-// --- class end ---
+    // --- class end ---
 }
 
 
@@ -233,40 +226,39 @@ function _print_add_list()
 class admin_form_black extends admin_form_black_white
 {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function admin_form_black()
-{
-	admin_form_black_white::__construct();
-}
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function admin_form_black()
+    {
+        admin_form_black_white::__construct();
+    }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_form_black();
-	}
+    public static function &getInstance()
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new admin_form_black();
+        }
 
-	return $instance;
-}
+        return $instance;
+    }
 
-//---------------------------------------------------------
-// show black & white
-//---------------------------------------------------------
-function _show(&$obj, $extra=null, $mode=0)
-{
-	$this->_id_name        = 'bid';
-	$this->_form_title_add = _AM_RSSC_ADD_BLACK;
-	$this->_form_title_mod = _AM_RSSC_MOD_BLACK;
+    //---------------------------------------------------------
+    // show black & white
+    //---------------------------------------------------------
+    public function _show(&$obj, $extra = null, $mode = 0)
+    {
+        $this->_id_name        = 'bid';
+        $this->_form_title_add = _AM_RSSC_ADD_BLACK;
+        $this->_form_title_mod = _AM_RSSC_MOD_BLACK;
 
-	$this->_jump_feed = 'feed_list_bid.php?bid='. $obj->get('bid');
+        $this->_jump_feed = 'feed_list_bid.php?bid=' . $obj->get('bid');
 
-	$this->_show_black_white($obj, $extra, $mode);
-}
+        $this->_show_black_white($obj, $extra, $mode);
+    }
 
-// --- class end ---
+    // --- class end ---
 }
 
 //=========================================================

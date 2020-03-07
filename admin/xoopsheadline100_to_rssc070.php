@@ -32,76 +32,71 @@ include_once RSSC_ROOT_PATH.'/class/rssc_xoopsheadline_handler.php';
 //=========================================================
 class admin_import_xoopsheadline extends rssc_import_handler
 {
-	var $_DIRNAME_XOOPSHEADLINE = 'xoopsheadline';
-	var $_xoopsheadline_handler;
+    var $_DIRNAME_XOOPSHEADLINE = 'xoopsheadline';
+    var $_xoopsheadline_handler;
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function admin_import_xoopsheadline()
-{
-	rssc_import_handler::__construct(RSSC_DIRNAME );
-	$this->set_mid_orig_by_dirname( $this->_DIRNAME_XOOPSHEADLINE );
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function admin_import_xoopsheadline()
+    {
+        rssc_import_handler::__construct(RSSC_DIRNAME);
+        $this->set_mid_orig_by_dirname($this->_DIRNAME_XOOPSHEADLINE);
 
-	$this->_xoopsheadline_handler =& rssc_xoopsheadline_handler::getInstance( $this->_DIRNAME_XOOPSHEADLINE );
+        $this->_xoopsheadline_handler =& rssc_xoopsheadline_handler::getInstance($this->_DIRNAME_XOOPSHEADLINE);
+    }
 
-}
+    public static function &getInstance()
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new admin_import_xoopsheadline();
+        }
+        return $instance;
+    }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_import_xoopsheadline();
-	}
-	return $instance;
-}
+    //=========================================================
+    // import from xoopsheadline
+    //=========================================================
+    public function hl_first_step()
+    {
+        $this->_hl_form_xoopsheadline();
+    }
 
-//=========================================================
-// import from xoopsheadline
-//=========================================================
-function hl_first_step()
-{
-	$this->_hl_form_xoopsheadline();
-}
+    public function hl_import_xoopsheadline()
+    {
+        echo "<h4>import link table</h4>\n";
 
-function hl_import_xoopsheadline()
-{
-	echo "<h4>import link table</h4>\n";
+        $offset = $this->get_post_offset();
+        $next   = $this->calc_next();
 
-	$offset = $this->get_post_offset();
-	$next   = $this->calc_next();
+        $total = $this->_xoopsheadline_handler->get_count_all();
+        $objs  =& $this->_xoopsheadline_handler->get_objects_for_import($this->_LIMIT, $offset);
 
-	$total =  $this->_xoopsheadline_handler->get_count_all();
-	$objs  =& $this->_xoopsheadline_handler->get_objects_for_import($this->_LIMIT, $offset);
+        echo "There are <b>" . $total . "</b> xoopsheadline in XoopsHeadline<br />\n";
+        echo "Transfer " . $offset . " - " . $next . " record <br /><br />\n";
 
-	echo "There are <b>".$total."</b> xoopsheadline in XoopsHeadline<br />\n";
-	echo "Transfer ".$offset." - ".$next." record <br /><br />\n";
+        foreach ($objs as $obj) {
+            $rssc_lid = $this->import_link_common($obj);
+        }
 
-	foreach ($objs as $obj)
-	{
-		$rssc_lid = $this->import_link_common( $obj );
-	}
+        if ($total > $next) {
+            $this->_form_link($next);
+        } else {
+            $this->_print_finish();
+        }
+    }
 
-	if ( $total > $next ) {
-		$this->_form_link($next);
-	} else {
-		$this->_print_finish();
-	}
+    public function _hl_form_xoopsheadline()
+    {
+        $title  = 'import xoopsheadline';
+        $op     = 'import_xoopsheadline';
+        $submit = 'GO';
 
-}
+        $this->_print_form_next($title, $op, $submit);
+    }
 
-function _hl_form_xoopsheadline()
-{
-	$title  = 'import xoopsheadline';
-	$op     = 'import_xoopsheadline';
-	$submit = 'GO';
-
-	$this->_print_form_next($title, $op, $submit);
-
-}
-
-// --- class end ---
+    // --- class end ---
 }
 
 //================================================================

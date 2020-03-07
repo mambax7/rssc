@@ -34,52 +34,51 @@ include_once RSSC_ROOT_PATH.'/admin/admin_list_black_white.php';
 class admin_list_black extends admin_list_black_white
 {
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function admin_list_black()
-{
-	admin_list_black_white::__construct();
-	$this->set_handler('black', RSSC_DIRNAME);
-	$this->set_id_name('bid');
-	$this->set_flag_execute_time( true );
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function admin_list_black()
+    {
+        admin_list_black_white::__construct();
+        $this->set_handler('black', RSSC_DIRNAME);
+        $this->set_id_name('bid');
+        $this->set_flag_execute_time(true);
 
-	$this->_TITLE_BW    = _AM_RSSC_LIST_BLACK;
-	$this->_TITLE_ID_BW = _RSSC_BLACK_ID;
-}
+        $this->_TITLE_BW    = _AM_RSSC_LIST_BLACK;
+        $this->_TITLE_ID_BW = _RSSC_BLACK_ID;
+    }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new admin_list_black();
-	}
-	return $instance;
-}
+    public static function &getInstance()
+    {
+        static $instance;
+        if (!isset($instance)) {
+            $instance = new admin_list_black();
+        }
+        return $instance;
+    }
 
-//---------------------------------------------------------
-// function
-//---------------------------------------------------------
-function &_get_cols(&$obj)
-{
-	$jump = 'black_manage.php?op=mod_form&amp;bid=';
+    //---------------------------------------------------------
+    // function
+    //---------------------------------------------------------
+    public function &_get_cols(&$obj)
+    {
+        $jump = 'black_manage.php?op=mod_form&amp;bid=';
 
-	$jump_feed = "feed_list_bid.php?bid=". $obj->get('bid');
-	$name_feed = $this->_get_name_feed( $obj );
+        $jump_feed = "feed_list_bid.php?bid=" . $obj->get('bid');
+        $name_feed = $this->_get_name_feed($obj);
 
-	$arr = array(
-		$this->_build_page_id_link_by_obj( $obj, 'bid', $jump),
-		$this->build_html_a_href_name($jump_feed, $name_feed),
-		$this->_build_page_name_link_by_obj($obj, 'url'),
-		$this->_build_page_label_by_obj( $obj, 'title'),
-		$this->_build_page_label_by_obj( $obj, 'count'),
-	);
+        $arr = [
+            $this->_build_page_id_link_by_obj($obj, 'bid', $jump),
+            $this->build_html_a_href_name($jump_feed, $name_feed),
+            $this->_build_page_name_link_by_obj($obj, 'url'),
+            $this->_build_page_label_by_obj($obj, 'title'),
+            $this->_build_page_label_by_obj($obj, 'count'),
+        ];
 
-	return $arr;
-}
+        return $arr;
+    }
 
-// --- class end ---
+    // --- class end ---
 }
 
 //=========================================================
