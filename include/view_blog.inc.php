@@ -87,7 +87,7 @@ else
 //---------------------------------------------------------
 function rssc_view_blog_base($DIRNAME, $lid=0, $options=null)
 {
-	if ($lid == 0)
+	if (0 == $lid)
 	{
 		$text = '<span style="color: #ff0000;">'._BL_RSSC_NO_LINK_ID."</span>\n";
 		return $text;
@@ -164,7 +164,7 @@ function rssc_view_blog_base($DIRNAME, $lid=0, $options=null)
 
 	$count = count($feeds);
 
-	if ( $count == 0 )
+	if (0 == $count)
 	{
 		$text = '<span style="color: #ff0000;">'._BL_RSSC_NO_FEED."</span>\n";
 		return $text;

@@ -138,7 +138,7 @@ class admin_plugin_test
         if ($post_data) {
             $str  = '$data = ' . $this->_add_semicolon_to_tail($post_data);
             $ret1 = eval($str);
-            if ($ret1 === false) {
+            if (false === $ret1) {
                 xoops_error('cannot eval data');
                 echo "<br />\n";
                 return false;
@@ -183,7 +183,7 @@ class admin_plugin_test
 
     public function _add_semicolon_to_tail($str)
     {
-        if (substr(trim($str), -1, 1) != ';') {
+        if (';' != substr(trim($str), -1, 1)) {
             $str .= ';';
         }
         return $str;

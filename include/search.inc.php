@@ -61,7 +61,7 @@ function rssc_search_base($dirname, $queryarray, $andor, $limit, $offset, $uid)
 	$hightlight_key = '';
 	$where = '';
 
-	if ( $uid != 0 ) 
+	if (0 != $uid)
 	{	$where .= "uid=$uid ";	}
 
 	$count = count($queryarray);

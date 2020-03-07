@@ -14,7 +14,7 @@ $config_store =& admin_config_store::getInstance();
 
 $op = $config_form->get_post_get_op();
 
-if ($op == 'save')
+if ('save' == $op)
 {
 	if( !$config_form->check_token() ) 
 	{
