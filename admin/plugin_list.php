@@ -21,7 +21,7 @@ class admin_plugin_list
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
-    public function admin_plugin_list()
+    public function __construct()
     {
         $this->_plugin =& rssc_plugin::getInstance(RSSC_DIRNAME);
 
@@ -100,7 +100,7 @@ class admin_plugin_test
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
-    public function admin_plugin_test()
+    public function __construct()
     {
         $this->_plugin =& rssc_plugin::getInstance(RSSC_DIRNAME);
         $this->_post   = happy_linux_post::getInstance();
@@ -206,7 +206,7 @@ class admin_form_plugin_test extends happy_linux_form_lib
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
-    public function admin_form_plugin_test()
+    public function __construct()
     {
         parent::__construct();
 

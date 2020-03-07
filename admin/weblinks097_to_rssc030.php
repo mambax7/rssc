@@ -44,7 +44,7 @@ class admin_import_weblinks extends admin_import_base
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
-    public function admin_import_weblinks()
+    public function __construct()
     {
         $this->admin_import_base();
         $this->set_dirname_orig($this->_DIRNAME_WEBLINKS);
