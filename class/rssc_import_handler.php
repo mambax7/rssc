@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_import_handler.php,v 1.1 2011/12/29 14:37:15 ohwada Exp $
+// $Id: rssc_importHandler.php,v 1.1 2011/12/29 14:37:15 ohwada Exp $
 
 // 2007-10-10 K.OHWADA
 // move from admin_import_base_class.php
@@ -18,17 +18,17 @@
 //=========================================================
 
 //=========================================================
-// class rssc_import_handler
+// class rssc_importHandler
 //=========================================================
-class rssc_import_handler extends happy_linux_error
+class rssc_importHandler extends happy_linux_error
 {
     public $_LIMIT            = 100;
     public $_FLAG_UPDATE_LINK = true;
 
-    public $_link_handler;
-    public $_black_handler;
-    public $_white_handler;
-    public $_feed_basic_handler;
+    public $_linkHandler;
+    public $_blackHandler;
+    public $_whiteHandler;
+    public $_feed_basicHandler;
 
     public $_form;
     public $_post;
@@ -68,10 +68,10 @@ class rssc_import_handler extends happy_linux_error
         $this->_post       = happy_linux_post::getInstance();
         $this->_rss_parser = happy_linux_rss_parser::getInstance();
 
-        $this->_link_handler       =& rssc_get_handler('link', $dirname);
-        $this->_black_handler      =& rssc_get_handler('black', $dirname);
-        $this->_white_handler      =& rssc_get_handler('white', $dirname);
-        $this->_feed_basic_handler =& rssc_get_handler('feed_basic', $dirname);
+        $this->_linkHandler       =& rssc_getHandler('link', $dirname);
+        $this->_blackHandler      =& rssc_getHandler('black', $dirname);
+        $this->_whiteHandler      =& rssc_getHandler('white', $dirname);
+        $this->_feed_basicHandler =& rssc_getHandler('feed_basic', $dirname);
     }
 
     public static function getInstance($dirname)
@@ -172,11 +172,11 @@ class rssc_import_handler extends happy_linux_error
         echo $this->_num . ': ' . htmlspecialchars($site_url);
 
         if ($this->_exist_url_in_rssc($site_url)) {
-            echo " <b>skip</b> <br />\n";
+            echo " <b>skip</b> <br>\n";
             return false;
         }
 
-        echo " <br />\n";
+        echo " <br>\n";
         $title = '';
         $link  = '';
 
@@ -193,7 +193,7 @@ class rssc_import_handler extends happy_linux_error
         $url     = $link;
         $rss_url = $site_url;
 
-        $link_obj =& $this->_link_handler->create();
+        $link_obj =  $this->_linkHandler->create();
         $link_obj->set('uid', 1);    // admin
         $link_obj->set('mid', $this->_mid_orig);
         $link_obj->set('ltype', RSSC_C_LINK_LTYPE_SERACH);
@@ -202,7 +202,7 @@ class rssc_import_handler extends happy_linux_error
         $link_obj->setVar('title', $title, true);
         $link_obj->setVar('url', $url, true);
         $link_obj->setVar('rss_url', $rss_url, true);
-        $this->_link_handler->insert($link_obj);
+        $this->_linkHandler->insert($link_obj);
 
         unset($link_obj);
 
@@ -228,16 +228,16 @@ class rssc_import_handler extends happy_linux_error
 
         $url = $site_url;
 
-        echo $this->_num . ': ' . htmlspecialchars($url) . " <br />\n";
+        echo $this->_num . ': ' . htmlspecialchars($url) . " <br>\n";
 
-        $black_obj =& $this->_black_handler->create();
+        $black_obj =  $this->_blackHandler->create();
 
         $black_obj->set('uid', 1);    // admin
         $black_obj->set('mid', $this->_mid_orig);
         $black_obj->setVar('title', $title, true);
         $black_obj->setVar('url', $url, true);
 
-        $this->_black_handler->insert($black_obj);
+        $this->_blackHandler->insert($black_obj);
         unset($black_obj);
 
         return true;
@@ -262,16 +262,16 @@ class rssc_import_handler extends happy_linux_error
 
         $url = $site_url;
 
-        echo $this->_num . ': ' . htmlspecialchars($url) . " <br />\n";
+        echo $this->_num . ': ' . htmlspecialchars($url) . " <br>\n";
 
-        $white_obj =& $this->_white_handler->create();
+        $white_obj =  $this->_whiteHandler->create();
 
         $white_obj->set('uid', 1);    // admin
         $white_obj->set('mid', $this->_mid_orig);
         $white_obj->setVar('title', $title, true);
         $white_obj->setVar('url', $url, true);
 
-        $this->_white_handler->insert($white_obj);
+        $this->_whiteHandler->insert($white_obj);
         unset($white_obj);
 
         return true;
@@ -341,25 +341,25 @@ class rssc_import_handler extends happy_linux_error
 
         // if exist same url
         if ($this->_exist_url($orig_rss_url)) {
-            echo " <b>update</b> <br />\n";
+            echo " <b>update</b> <br>\n";
             $rssc_lid = $this->_exist_lid;
 
             // overwrite data in rssc link table
             if ($this->_FLAG_UPDATE_LINK) {
-                $link_obj =& $this->_link_handler->get($rssc_lid);
+                $link_obj =& $this->_linkHandler->get($rssc_lid);
                 if (is_object($link_obj)) {
                     $link_obj->set('mid', $mid);
                     $link_obj->set('p1', $p1);
 
-                    $this->_link_handler->update($link_obj);
+                    $this->_linkHandler->update($link_obj);
                     unset($link_obj);
                 }
             }
         } // if not exist same url
         else {
-            echo " insert <br />\n";
+            echo " insert <br>\n";
 
-            $link_obj =& $this->_link_handler->create();
+            $link_obj =  $this->_linkHandler->create();
             $link_obj->set('p1', $p1);
             $link_obj->set('uid', $uid);
             $link_obj->set('mid', $mid);
@@ -372,7 +372,7 @@ class rssc_import_handler extends happy_linux_error
             $link_obj->setVar('rss_url', $rss_url, true);
             $link_obj->setVar('atom_url', $atom_url, true);
 
-            $rssc_lid = $this->_link_handler->insert($link_obj);
+            $rssc_lid = $this->_linkHandler->insert($link_obj);
             unset($link_obj);
         }
 
@@ -391,11 +391,11 @@ class rssc_import_handler extends happy_linux_error
         echo $aid . ': ' . htmlspecialchars($title);
 
         if ($this->_exist_feed($link)) {
-            echo " <b>skip</b> <br />\n";
+            echo " <b>skip</b> <br>\n";
             return false;
         }
 
-        echo " <br />\n";
+        echo " <br>\n";
 
         $lid            = $this->_get_feed_lid($weblinks_atomfeed_obj);
         $uid            = $this->_get_feed_uid($lid);
@@ -411,7 +411,7 @@ class rssc_import_handler extends happy_linux_error
         $author_email   = $weblinks_atomfeed_obj->get('author_email');
         $content        = $weblinks_atomfeed_obj->get('content');
 
-        $feed_obj =& $this->_feed_basic_handler->create();
+        $feed_obj =  $this->_feed_basicHandler->create();
 
         $feed_obj->set('lid', $lid);
         $feed_obj->set('uid', $uid);
@@ -431,7 +431,7 @@ class rssc_import_handler extends happy_linux_error
         $feed_obj->setVar('content', $content, true);
         $feed_obj->set_search();
 
-        $this->_feed_basic_handler->insert($feed_obj);
+        $this->_feed_basicHandler->insert($feed_obj);
         unset($feed_obj);
 
         return true;
@@ -443,7 +443,7 @@ class rssc_import_handler extends happy_linux_error
     public function _exist_url($url)
     {
         $this->_exist_lid = 0;
-        $list             =& $this->_link_handler->get_list_by_rssurl($url);
+        $list             =& $this->_linkHandler->get_list_by_rssurl($url);
         if (is_array($list) && (count($list) > 0)) {
             $this->_exist_lid = $list[0];
             return true;
@@ -453,7 +453,7 @@ class rssc_import_handler extends happy_linux_error
 
     public function _set_lid_list()
     {
-        $link_objs =& $this->_link_handler->getObjects();
+        $link_objs =& $this->_linkHandler->getObjects();
 
         $arr1 = [];
         $arr2 = [];
@@ -527,7 +527,7 @@ class rssc_import_handler extends happy_linux_error
 
     public function _exist_feed($link)
     {
-        $count =& $this->_feed_basic_handler->get_count_by_link($link);
+        $count =& $this->_feed_basicHandler->get_count_by_link($link);
         if ($count) {
             return true;
         }
@@ -539,9 +539,9 @@ class rssc_import_handler extends happy_linux_error
     //---------------------------------------------------------
     public function _print_finish()
     {
-        echo "<br /><hr />\n";
+        echo "<br><hr>\n";
         echo "<h4>FINISHED</h4>\n";
-        echo "<a href='index.php'>GOTO Admin Menu</a><br />\n";
+        echo "<a href='index.php'>GOTO Admin Menu</a><br>\n";
     }
 
     //---------------------------------------------------------
@@ -554,12 +554,12 @@ class rssc_import_handler extends happy_linux_error
 
     public function build_form_next($title, $op, $submit, $offset = 0, $sub = 'Import')
     {
-        $text = "<br /><hr />\n";
+        $text = "<br><hr>\n";
         $text .= '<h4>' . $title . "</h4>\n";
 
         if ($offset) {
             $next = $offset + $this->_LIMIT;
-            $text .= $sub . ' ' . $offset . ' - ' . $next . " th record<br />\n";
+            $text .= $sub . ' ' . $offset . ' - ' . $next . " th record<br>\n";
         }
 
         // show form

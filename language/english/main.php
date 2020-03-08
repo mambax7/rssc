@@ -253,7 +253,7 @@ define('_RSSC_SINGLE_LINK_UTF8', 'Single Link with UTF-8');
 //define('_RSSC_UTF8_CONTENT', 'Content allowed HTML tags with UTF-8');
 
 // detect encoding
-define('_RSSC_ASSUME_ENCODING', 'assume xml encoding %s ,<br />because cannot detect encoding automatically');
+define('_RSSC_ASSUME_ENCODING', 'assume xml encoding %s ,<br>because cannot detect encoding automatically');
 
 // rss item
 //define('_RSSC_CREATED', 'Created');
@@ -300,7 +300,7 @@ define('_RSSC_LINK_ALREADY',    'This link exists already which have same "RDF/R
 
 // refresh link
 define('_RSSC_REFRESH_LINK', 'Refresh RDF/RSS/ATOM feeds');
-define('_RSSC_REFRESH_LINK_DSC', 'Then, refresh RSS feeds <br />Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br />if they are not set up.');
+define('_RSSC_REFRESH_LINK_DSC', 'Then, refresh RSS feeds <br>Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br>if they are not set up.');
 define('_RSSC_REFRESH_LINK_FINISHED', 'Refresh feeds finished');
 
 // for other module

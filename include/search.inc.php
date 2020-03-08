@@ -11,7 +11,7 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/search.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/search.php';
 
 $rssc_dirname = basename( dirname(__DIR__) );
 
@@ -49,7 +49,7 @@ function rssc_search_base($dirname, $queryarray, $andor, $limit, $offset, $uid)
 		return $block;
 	}
 
-	while ($row1 = $xoopsDB->fetchArray($res1)) 
+	while (false !== ($row1 = $xoopsDB->fetchArray($res1))) 
 	{
 		$conf_data[ $row1['conf_name'] ] = $row1['conf_value'];
 	}
@@ -106,13 +106,13 @@ function rssc_search_base($dirname, $queryarray, $andor, $limit, $offset, $uid)
 
 	// title
 		$title = $row2['title'];
-		$title = preg_replace('/>/', '> ', $title);
+		$title = preg_replace('>/', '> ', $title);
 		$title = strip_tags( $title );
 		$ret[$i]['title'] = $title;
 
 	// show context
 		$context = $row2['content'];
-		$context = preg_replace('/>/', '> ', $context);
+		$context = preg_replace('>/', '> ', $context);
 		$context = strip_tags( $context );
 		$ret[$i]['context'] = happy_linux_build_search_context($context, $queryarray);
 

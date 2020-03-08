@@ -36,8 +36,8 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/multibyte.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/api/language.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/multibyte.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/api/language.php';
 
 // --- block function begin ---
 if( !function_exists( 'b_rssc_show_latest' ) ) 
@@ -52,7 +52,7 @@ function b_rssc_show_latest( $options )
 {
 	$DIRNAME  = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
-	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
 	$block_class = rssc_block::getInstance();
 	return $block_class->show_latest( $DIRNAME );
 }
@@ -66,7 +66,7 @@ function b_rssc_show_map( $options )
 {
 	$DIRNAME  = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
-	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
 	$block_class = rssc_block::getInstance();
 	return $block_class->show_map( $DIRNAME );
 }
@@ -80,7 +80,7 @@ function b_rssc_show_headline( $options )
 {
 	$DIRNAME = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
-	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
 	$block_class = rssc_block::getInstance();
 	return $block_class->show_headline( $DIRNAME );
 }
@@ -94,7 +94,7 @@ function b_rssc_show_blog( $options )
 {
 	$DIRNAME = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
-	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
 	$block_class = rssc_block::getInstance();
 	return $block_class->show_blog( $DIRNAME );
 }

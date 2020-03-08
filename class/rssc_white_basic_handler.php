@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_white_basic_handler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
+// $Id: rssc_white_basicHandler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
 
 // 2007-06-01 K.OHWADA
 // get_rows_act() countup()
@@ -8,7 +8,7 @@
 // small change
 
 // 2006-07-10 K.OHWADA
-// use happy_linux_basic_handler
+// use happy_linux_basicHandler
 
 // 2006-06-04 K.OHWADA
 // this is new file
@@ -19,7 +19,7 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_white_basic_handler') ) 
+if( !class_exists('rssc_white_basicHandler') ) 
 {
 
 //=========================================================
@@ -28,7 +28,7 @@ if( !class_exists('rssc_white_basic_handler') )
 // this class handle MySQL table directly
 // this class does not use another class
 //=========================================================
-    class rssc_white_basic_handler extends happy_linux_basic_handler
+    class rssc_white_basicHandler extends happy_linux_basicHandler
     {
 
         //---------------------------------------------------------

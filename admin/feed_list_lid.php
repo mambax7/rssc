@@ -9,15 +9,15 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
-include 'feed_list_class.php';
+require __DIR__ . '/admin_header.php';
+require __DIR__ . '/feed_list_class.php';
 
 //=========================================================
 // class admin list feed
 //=========================================================
 class admin_feed_list_lid extends admin_feed_list
 {
-    public $_link_handler;
+    public $_linkHandler;
 
     public $_lid       = 0;
     public $_total_lid = 0;
@@ -30,7 +30,7 @@ class admin_feed_list_lid extends admin_feed_list
         admin_feed_list::__construct();
         $this->set_max_sortid(4);
 
-        $this->_link_handler = rssc_get_handler('link', RSSC_DIRNAME);
+        $this->_linkHandler = rssc_getHandler('link', RSSC_DIRNAME);
     }
 
     public static function getInstance()
@@ -55,8 +55,8 @@ class admin_feed_list_lid extends admin_feed_list
 
     public function _get_total()
     {
-        $this->_total_lid     = $this->_handler->get_count_by_lid($this->_lid);
-        $this->_total_non_act = $this->_handler->get_count_by_lid_non_act($this->_lid);
+        $this->_total_lid     = $this->Handler->get_count_by_lid($this->_lid);
+        $this->_total_non_act = $this->Handler->get_count_by_lid_non_act($this->_lid);
         switch ($this->_sortid) {
             case 2:
             case 3:
@@ -79,20 +79,20 @@ class admin_feed_list_lid extends admin_feed_list
     {
         switch ($this->_sortid) {
             case 1:
-                $objs =& $this->_handler->get_objects_by_lid_desc($this->_lid, $limit, $start);
+                $objs =& $this->Handler->get_objects_by_lid_desc($this->_lid, $limit, $start);
                 break;
 
             case 2:
-                $objs =& $this->_handler->get_objects_by_lid_non_act_asc($this->_lid, $limit, $start);
+                $objs =& $this->Handler->get_objects_by_lid_non_act_asc($this->_lid, $limit, $start);
                 break;
 
             case 3:
-                $objs =& $this->_handler->get_objects_by_lid_non_act_desc($this->_lid, $limit, $start);
+                $objs =& $this->Handler->get_objects_by_lid_non_act_desc($this->_lid, $limit, $start);
                 break;
 
             case 0:
             default:
-                $objs =& $this->_handler->get_objects_by_lid_asc($this->_lid, $limit, $start);
+                $objs =& $this->Handler->get_objects_by_lid_asc($this->_lid, $limit, $start);
                 break;
         }
         return $objs;
@@ -103,12 +103,12 @@ class admin_feed_list_lid extends admin_feed_list
     //---------------------------------------------------------
     public function _print_sub()
     {
-        $link_obj = $this->_link_handler->get($this->_lid);
+        $link_obj = $this->_linkHandler->get($this->_lid);
         if (is_object($link_obj)) {
             $title_s = $link_obj->getVar('title', 's');
             $link    = '<a href="link_manage.php?op=mod_form&lid=' . $this->_lid . '">' . $title_s . '</a>';
             printf(_AM_RSSC_THEREARE_TITLE, $link, $this->_total_lid);
-            echo "<br /><br />\n";
+            echo "<br><br>\n";
         }
     }
 

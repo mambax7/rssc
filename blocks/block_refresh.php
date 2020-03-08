@@ -10,8 +10,8 @@
 // 2007-06-01 K.OHWADA
 // api/refresh.php
 
-// rssc_xml_basic_handler
-// rssc_word_basic_handler
+// rssc_xml_basicHandler
+// rssc_word_basicHandler
 
 // 2006-09-20 K.OHWADA
 // small change
@@ -37,8 +37,8 @@ $RSSC_DIRNAME = basename( dirname(__DIR__) );
 //---------------------------------------------------------
 // rssc
 //---------------------------------------------------------
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/view.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/refresh.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/view.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/refresh.php';
 
 
 //---------------------------------------------------------
@@ -50,18 +50,18 @@ function b_rssc_show_refresh( $options )
 {
 	$DIRNAME = empty( $options[0] ) ? basename( dirname(__DIR__) ) : $options[0] ;
 
-//	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME .'/api/view.php';
-	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME .'/api/refresh.php';
-	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
+//	require_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME .'/api/view.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME .'/api/refresh.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
 
-	$headline_handler =& rssc_get_handler('headline',     $DIRNAME);
-	$conf_handler     =& rssc_get_handler('config_basic', $DIRNAME);
-	$conf_data        =& $conf_handler->get_conf();
+	$headlineHandler =& rssc_getHandler('headline',     $DIRNAME);
+	$confHandler     =& rssc_getHandler('config_basic', $DIRNAME);
+	$conf_data        =& $confHandler->get_conf();
 
 	$link_limit  = $conf_data['block_headline_links_perpage'];
 	$link_start  = 0;
 
-	$headline_handler->refresh_headline($link_limit, $link_start);
+	$headlineHandler->refresh_headline($link_limit, $link_start);
 
 	$block_class = rssc_block::getInstance();
 	return $block_class->show_headline( $DIRNAME );

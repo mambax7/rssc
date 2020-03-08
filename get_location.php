@@ -12,30 +12,30 @@
 //---------------------------------------------------------
 // xoops system files
 //---------------------------------------------------------
-include '../../mainfile.php';
-include_once XOOPS_ROOT_PATH.'/class/template.php';
+require dirname(dirname(__DIR__)) . '/mainfile.php';
+require_once XOOPS_ROOT_PATH.'/class/template.php';
 
 //---------------------------------------------------------
 // happy_linux
 //---------------------------------------------------------
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/functions.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/strings.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/error.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/basic_handler.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/functions.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/strings.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/error.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/basicHandler.php';
 
 //---------------------------------------------------------
 // rssc
 //---------------------------------------------------------
 $RSSC_DIRNAME = $xoopsModule->dirname();
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_constant.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_get_handler.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_constant.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_get_handler.php';
 
 //=========================================================
 // class rssc_get_location
 //=========================================================
 class rssc_get_location
 {
-    public $_conf_handler;
+    public $_confHandler;
     public $_api_class;
 
     public $_conf;
@@ -51,8 +51,8 @@ class rssc_get_location
     //---------------------------------------------------------
     public function __construct($dirname)
     {
-        $this->_conf_handler =& rssc_get_handler('config_basic', $dirname);
-        $this->_conf         = $this->_conf_handler->get_conf();
+        $this->_confHandler =& rssc_getHandler('config_basic', $dirname);
+        $this->_conf         = $this->_confHandler->get_conf();
     }
 
     public static function getInstance($dirname)
@@ -103,7 +103,7 @@ class rssc_get_location
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>get location</title>
 </head>
 <body>

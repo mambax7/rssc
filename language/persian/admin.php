@@ -122,7 +122,7 @@ define('_AM_RSSC_GOTOTOP', 'Goto Top');
 // === configuration ===
 // basic configuration
 define('_AM_RSSC_CONF_FEED_LIMIT', 'بیشترین تعداد تغذیه کننده ها');
-define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'بیشترین تعداد  تغذیه کننده ها را در جدول مقابل وارد کنید<br />وقتی عدد جدید ثبت شود . اطلاعات ثبت شده ی قبلی پاک میشود<br /><b>0</b> نامحدود است');
+define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'بیشترین تعداد  تغذیه کننده ها را در جدول مقابل وارد کنید<br>وقتی عدد جدید ثبت شود . اطلاعات ثبت شده ی قبلی پاک میشود<br><b>0</b> نامحدود است');
 define('_AM_RSSC_CONF_RSS_ATOM', 'انتخواب کنید RSS یا ATOM');
 define('_AM_RSSC_CONF_RSS_ATOM_DESC', 'RSS یا ATOM را  برای وقتی که هر دو لینک RSS یا ATOM پیدا شد انتخواب کنید');
 define('_AM_RSSC_CONF_RSS_ATOM_SEL_ATOM', 'ATOM');
@@ -137,7 +137,7 @@ define('_AM_RSSC_CONF_RSS_MODE', 'Initial value of RSS mode');
 define('_AM_RSSC_CONF_XML_SAVE', 'ذخیره یXML');
 define('_AM_RSSC_CONF_XML_SAVE_DESC', 'اطلاعات XML را در جدول  لینک ذخیره میکند');
 define('_AM_RSSC_CONF_FUTURE_DAYS', 'روز های آینده');
-define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', 'بعد از روز مشخص شده<br />تغذیه کننده ها را نمایش نده, اگر اطلاعات تغذیه کننده ها بیشتر از اطلاعات آن روز بود');
+define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', 'بعد از روز مشخص شده<br>تغذیه کننده ها را نمایش نده, اگر اطلاعات تغذیه کننده ها بیشتر از اطلاعات آن روز بود');
 
 // show configuration
 define('_AM_RSSC_CONF_SHOW_ORDER','سفارشی کردن برای نمایش');
@@ -151,7 +151,7 @@ define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE','تعداد تغذیه کننده ه�
 define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK','تغذیه کننده ها برای هر لینک');
 //define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK_DESC','');
 define('_AM_RSSC_CONF_SHOW_MAX_TITLE','بیشترین تعداد کارکتر ها در عنوان');
-define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','tag های HTML خالی میشود, وقتی عددی بیشتر از مقدار فعلی وارد کنی<br /><b>-1</b> نامحدود میکند');
+define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','tag های HTML خالی میشود, وقتی عددی بیشتر از مقدار فعلی وارد کنی<br><b>-1</b> نامحدود میکند');
 define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY','بیشترین تعداد کارکتر ها در خلاصه');
 define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC','<b>-1</b> نامحدود میکند');
 
@@ -180,11 +180,11 @@ define('_AM_RSSC_VIEW_MODE_LINK', 'روش 1: داده های XML در  جدول 
 define('_AM_RSSC_VIEW_MODE_FEED', 'روش 2: داده های XML در جدول های تغذیه کننده ذخیره شود.');
 define('_AM_RSSC_VIEW_SANITIZE', 'HTML Sanitize');
 define('_AM_RSSC_VIEW_TITLE_HTML','نمایش tag های HTML در عنوان');
-define('_AM_RSSC_VIEW_TITLE_HTML_DESC', '.قتی بله را انتخواب کنید  نمایش داده ها شامل tag های HTML هم میشود <br />وقتی نه را انتخواب کنید tag های HTML نمایش داده نمیشود ');
+define('_AM_RSSC_VIEW_TITLE_HTML_DESC', '.قتی بله را انتخواب کنید  نمایش داده ها شامل tag های HTML هم میشود <br>وقتی نه را انتخواب کنید tag های HTML نمایش داده نمیشود ');
 define('_AM_RSSC_VIEW_CONTENT_HTML','نمایش tag های HTML در محتوا');
-define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', '.قتی بله را انتخواب کنید  نمایش داده ها شامل tag های HTML هم میشود <br />وقتی نه را انتخواب کنید tag های HTML نمایش داده نمیشود ');
+define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', '.قتی بله را انتخواب کنید  نمایش داده ها شامل tag های HTML هم میشود <br>وقتی نه را انتخواب کنید tag های HTML نمایش داده نمیشود ');
 define('_AM_RSSC_VIEW_MAX_CONTENT','بیشترین تعداد کارتر ها در محتوا');
-define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','tag های HTML خالی میشود, وقتی عددی بیشتر از مقدار فعلی وارد کنی<br /><b>-1</b> نامحدود میکند');
+define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','tag های HTML خالی میشود, وقتی عددی بیشتر از مقدار فعلی وارد کنی<br><b>-1</b> نامحدود میکند');
 define('_AM_RSSC_VIEW_LINK_UPDATE', 'جدول لینک ها به روز شد');
 define('_AM_RSSC_VIEW_FEED_UPDATE', 'جدول تغذیه کننده ها به روز شد');
 define('_AM_RSSC_VIEW_FORCE_DISCOVER', 'نیرو های یابنده ی آدرس RSS');
@@ -232,17 +232,17 @@ define('_AM_RSSC_PARSE_RSS', 'تجزیه کردن RDF/RSS/ATOM');
 
 // refresh link
 //define('_AM_RSSC_REFRESH_LINK', 'تازه کردن تغزیه کننده های RDF/RSS/ATOM');
-//define('_AM_RSSC_REFRESH_LINK_DSC', 'Then, refresh RSS feeds <br />Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br />if they are not set up.');
+//define('_AM_RSSC_REFRESH_LINK_DSC', 'Then, refresh RSS feeds <br>Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br>if they are not set up.');
 //define('_AM_RSSC_REFRESH_LINK_FINISHED', 'تازه کردن تغیزه کننده ها به پایان رسید');
 
 // === 2006-07-08 ===
 // description at main
 define('_AM_RSSC_CONF_INDEX_DESC','توضیح در صفحه ی اول');
 define('_AM_RSSC_CONF_INDEX_DESC_DSC', 'متن توضیح را وارد کنید . این متن در صفحه ی اول ماژول نمایش داده میشود');
-define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">این متن توضیحات ماژول است<br />شما  میتوانید این متن را در قسمت تنظیمات ماژول ویرایش کنید.<br /></div><br />');
+define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">این متن توضیحات ماژول است<br>شما  میتوانید این متن را در قسمت تنظیمات ماژول ویرایش کنید.<br></div><br>');
 
 // link table
-define('_AM_RSSC_LINK_DESC','Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br />when you dont fill, <br />if web site support "RSS Auto Discovery"');
+define('_AM_RSSC_LINK_DESC','Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br>when you dont fill, <br>if web site support "RSS Auto Discovery"');
 //define('_AM_RSSC_LINK_EXIST', 'قبلا "RDF/RSS/ATOM آدرس" موجود بوده است');
 //define('_AM_RSSC_LINK_EXIST_MORE','There are twe or more links which have same "RDF/RSS/ عنوان سایت" ');
 //define('_AM_RSSC_AUTO_FIND_FAILD','RSS Auto Discovery Faild');
@@ -254,11 +254,11 @@ define('_AM_RSSC_BLACK_MEMO','یاداشت');
 // === 2006-09-20 ===
 // show content with html
 define('_AM_RSSC_CONF_SHOW_TITLE_HTML','استفاده از tag های HTML در این جدول');
-define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', 'وقتی بله را انتخواب کنید عنوان به وصیله ی  tag های HTML نمایش داده میشود, اگر عنوان HTML tag داشته باشد. <br />وقتی   نه را انتخواب کنید عنوان با tag های هاشور خورده HTML نمایش داده میشود  . ');
+define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', 'وقتی بله را انتخواب کنید عنوان به وصیله ی  tag های HTML نمایش داده میشود, اگر عنوان HTML tag داشته باشد. <br>وقتی   نه را انتخواب کنید عنوان با tag های هاشور خورده HTML نمایش داده میشود  . ');
 define('_AM_RSSC_CONF_SHOW_CONTENT_HTML','استفاده از tag های HTML برای محتویات');
-define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', 'وقتی بله را انتخواب کنید محتویات به وصیله ی tag های HTML نمایش داده میشود, اگر محتوا HTML tag داشته باشد. <br />وقتی نه را انتخواب کنید  محتوایت با tag های هاشور خورده HTML نمایش داده میشود. ');
+define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', 'وقتی بله را انتخواب کنید محتویات به وصیله ی tag های HTML نمایش داده میشود, اگر محتوا HTML tag داشته باشد. <br>وقتی نه را انتخواب کنید  محتوایت با tag های هاشور خورده HTML نمایش داده میشود. ');
 define('_AM_RSSC_CONF_SHOW_MAX_CONTENT','بیشترین تعداد کارکتر ها در عنوان');
-define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'tag های HTML خالی میشود, وقتی عددی بیشتر از مقدار فعلی وارد کنید<br /><b>-1</b> نامحدود میکند');
+define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'tag های HTML خالی میشود, وقتی عددی بیشتر از مقدار فعلی وارد کنید<br><b>-1</b> نامحدود میکند');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT','بیشترین تعداد تغذیه کننده های RSS/ATOM نمایش داده شده در محتوا');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT_DSC', 'بیشترین تعداد تغذیه کننده های RSS/ATOM را که در محتوا نمایش داده میشود وارد کنید.');
 define('_AM_RSSC_CONF_SHOW_BLOG_LID','ID لینک برای نمایش در blog');
@@ -273,9 +273,9 @@ define('_AM_RSSC_CONF_PROXY_USE',  'استفاده از پروکسی سرور');
 define('_AM_RSSC_CONF_PROXY_HOST', 'هاست پروکسی');
 define('_AM_RSSC_CONF_PROXY_PORT', 'پورت پروکسی');
 define('_AM_RSSC_CONF_PROXY_USER', 'نام کاربری  پروکسی');
-define('_AM_RSSC_CONF_PROXY_USER_DESC', 'نام کاربری را وارد کنید, اگر سرور پروکسی شما نیاز به تاید اطلاعات پایه دارد, <br />در غیر این صورت کادر مقابل را خالی بگذارید');
+define('_AM_RSSC_CONF_PROXY_USER_DESC', 'نام کاربری را وارد کنید, اگر سرور پروکسی شما نیاز به تاید اطلاعات پایه دارد, <br>در غیر این صورت کادر مقابل را خالی بگذارید');
 define('_AM_RSSC_CONF_PROXY_PASS', 'واژه ی رمز پروکسی');
-define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'واژه ی رمز را وارد کنید, اگر سرور پروکسی شما نیاز به اطلاعات پایه دارد <br />در غیر این صورت کادر مقابل را خالی بگذارید');
+define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'واژه ی رمز را وارد کنید, اگر سرور پروکسی شما نیاز به اطلاعات پایه دارد <br>در غیر این صورت کادر مقابل را خالی بگذارید');
 
 define('_AM_RSSC_CONF_HIGHLIGHT', 'استفاده از واژه های کلیدی های لایت');
 

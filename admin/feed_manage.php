@@ -13,7 +13,7 @@
 
 // 2007-06-01 K.OHWADA
 // main_mod_all()
-// rssc_feed_basic_handler.php
+// rssc_feed_basicHandler.php
 
 // 2006-09-18 K.OHWADA
 // show bread crumb
@@ -34,9 +34,9 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_feed_basic_handler.php';
-include_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
+require __DIR__ . '/admin_header.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_feed_basicHandler.php';
+require_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
 
 //=========================================================
 // class feed manage
@@ -51,7 +51,7 @@ class admin_manage_feed extends admin_manage_base
     {
         admin_manage_base::__construct();
 
-        $this->set_handler('feed', RSSC_DIRNAME, 'rssc');
+        $this->setHandler('feed', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('fid');
         $this->set_form_class('admin_form_feed');
         $this->set_script('feed_manage.php');
@@ -81,7 +81,7 @@ class admin_manage_feed extends admin_manage_base
 
     public function _print_add_form()
     {
-        $obj =& $this->_handler->create();
+        $obj =  $this->Handler->create();
         $obj->set('uid', $this->_system->get_uid());
         $obj->set('mid', $this->_system->get_mid());
 

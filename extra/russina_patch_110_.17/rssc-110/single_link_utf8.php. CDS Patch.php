@@ -7,7 +7,7 @@
 
 // 2007-06-01 K.OHWADA
 // use api/rss_builder.php
-// link_basic_handler, xml_basic_handler
+// link_basicHandler, xml_basicHandler
 
 // 2006-11-08 K.OHWADA
 // use basic_highlight
@@ -30,11 +30,11 @@
 // 2006-06-04 K.OHWADA
 //================================================================
 
-include 'header.php';
-include_once XOOPS_ROOT_PATH.'/class/template.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/api/rss_parser.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/object.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/object_handler.php';
+require __DIR__ . '/header.php';
+require_once XOOPS_ROOT_PATH.'/class/template.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/api/rss_parser.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/object.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/objectHandler.php';
 
 $single =& rssc_single_link_utf8::getInstance();
 
@@ -124,9 +124,9 @@ exit();
 //=========================================================
 class rssc_single_link_utf8
 {
-	var $_link_handler;
-	var $_xml_handler;
-	var $_conf_handler;
+	var $_linkHandler;
+	var $_xmlHandler;
+	var $_confHandler;
 	var $_parser;
 	var $_viewer;
 	var $_system;
@@ -149,9 +149,9 @@ class rssc_single_link_utf8
 //---------------------------------------------------------
 function rssc_single_link_utf8()
 {
-	$this->_conf_handler  =& rssc_get_handler('config_basic', RSSC_DIRNAME);
-	$this->_link_handler  =& rssc_get_handler('link_basic',   RSSC_DIRNAME);
-	$this->_xml_handler   =& rssc_get_handler('xml_basic',    RSSC_DIRNAME);
+	$this->_confHandler  =& rssc_getHandler('config_basic', RSSC_DIRNAME);
+	$this->_linkHandler  =& rssc_getHandler('link_basic',   RSSC_DIRNAME);
+	$this->_xmlHandler   =& rssc_getHandler('xml_basic',    RSSC_DIRNAME);
 
 	$this->_parser  =& happy_linux_rss_parser::getInstance();
 	$this->_viewer  =& happy_linux_rss_viewer::getInstance();
@@ -176,7 +176,7 @@ public static function &getInstance()
 //---------------------------------------------------------
 function exists_link($lid)
 {
-	$ret = $this->_link_handler->exists_by_lid($lid);
+	$ret = $this->_linkHandler->exists_by_lid($lid);
 	return $ret;
 }
 
@@ -187,14 +187,14 @@ function &get_sanitized_parse_by_lid($lid, $mode)
 // BUG: Call to undefined method happy_linux_convert_encoding::set_internal_encoding() 
 	happy_linux_internal_encoding( $this->ENCODING_UTF8 );
 
-	$conf =& $this->_conf_handler->get_conf();
+	$conf =& $this->_confHandler->get_conf();
 	$limit = $conf['main_link_feeds_perlink'];
 
-	$link =& $this->_link_handler->get_link_by_lid($lid);
+	$link =& $this->_linkHandler->get_link_by_lid($lid);
 	if ( !is_array( $link ) )
 	{	return $false;	}
 
-	$xml =& $this->_xml_handler->get_xml_by_lid($lid);
+	$xml =& $this->_xmlHandler->get_xml_by_lid($lid);
 	if ( empty($xml) )
 	{	return $false;	}
 
@@ -212,7 +212,7 @@ function &get_sanitized_parse_by_lid($lid, $mode)
 	}
 
 // PHP 5.2: Assigning the return value of new by reference
-	$view_obj =& $this->_viewer->create();
+	$view_obj =  $this->_viewer->create();
 	$view_obj->set_vars( $parse_obj->get_vars() );
 	$view_obj->view_format();
 	$view_obj->set_is_japanese( $this->_system->is_japanese() );

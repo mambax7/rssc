@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_xml_basic_handler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
+// $Id: rssc_xml_basicHandler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
 
 // 2008-01-30 K.OHWADA
 // bug: not save xml
@@ -7,7 +7,7 @@
 // add_update_xml()
 
 // 2007-06-01 K.OHWADA
-// divid from link_basic_handler
+// divid from link_basicHandler
 
 //=========================================================
 // Rss Center Module
@@ -15,7 +15,7 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_xml_basic_handler') ) 
+if( !class_exists('rssc_xml_basicHandler') ) 
 {
 
 //=========================================================
@@ -56,12 +56,12 @@ public function init()
 
 
 //=========================================================
-// class rssc_xml_basic_handler
+// class rssc_xml_basicHandler
 // this class is used by command line
 // this class handle MySQL table directly
 // this class does not use another class
 //=========================================================
-    class rssc_xml_basic_handler extends happy_linux_basic_handler
+    class rssc_xml_basicHandler extends happy_linux_basicHandler
     {
 
         //---------------------------------------------------------

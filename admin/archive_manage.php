@@ -27,20 +27,20 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
-include_once RSSC_ROOT_PATH.'/api/refresh.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/bin_file.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_refresh_all_handler.php';
+require_once RSSC_ROOT_PATH.'/api/refresh.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/bin_file.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_refresh_allHandler.php';
 
 //=========================================================
 // class archive manage
 //=========================================================
 class admin_manage_archive extends happy_linux_manage
 {
-    public $_feed_handler;
-    public $_black_handler;
-    public $_refresh_handler;
+    public $_feedHandler;
+    public $_blackHandler;
+    public $_refreshHandler;
 
     public $_post;
 
@@ -58,20 +58,20 @@ class admin_manage_archive extends happy_linux_manage
     {
         parent::__construct(RSSC_DIRNAME);
 
-        $this->set_handler('link_basic', RSSC_DIRNAME, 'rssc');
+        $this->setHandler('link_basic', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('lid');
         $this->set_form_class('admin_form_archive');
         $this->set_script('archive_manage.php');
         $this->set_flag_execute_time(true);
 
-        $this->_feed_handler    =& rssc_get_handler('feed_basic', RSSC_DIRNAME);
-        $this->_black_handler   =& rssc_get_handler('black_basic', RSSC_DIRNAME);
-        $this->_refresh_handler =& rssc_get_handler('refresh_all', RSSC_DIRNAME);
-        $conf_handler           =& rssc_get_handler('config_basic', RSSC_DIRNAME);
+        $this->_feedHandler    =& rssc_getHandler('feed_basic', RSSC_DIRNAME);
+        $this->_blackHandler   =& rssc_getHandler('black_basic', RSSC_DIRNAME);
+        $this->_refreshHandler =& rssc_getHandler('refresh_all', RSSC_DIRNAME);
+        $confHandler           =& rssc_getHandler('config_basic', RSSC_DIRNAME);
 
         $this->_post = happy_linux_post::getInstance();
 
-        $conf_data              =& $conf_handler->get_conf();
+        $conf_data              =& $confHandler->get_conf();
         $this->_conf_feed_limit = $conf_data['basic_feed_limit'];
         $this->_conf_word_limit = $conf_data['word_limit'];
     }
@@ -123,8 +123,8 @@ class admin_manage_archive extends happy_linux_manage
     //---------------------------------------------------------
     public function main_form()
     {
-        $total_link = $this->_handler->get_count_all();
-        $total_feed = $this->_feed_handler->get_count_all();
+        $total_link = $this->Handler->get_count_all();
+        $total_feed = $this->_feedHandler->get_count_all();
 
         $this->_print_cp_header();
         $this->_print_bread_op(_AM_RSSC_ARCHIVE_MANAGE, 'main_form');
@@ -132,9 +132,9 @@ class admin_manage_archive extends happy_linux_manage
         rssc_admin_print_menu();
         echo '<h3>' . _AM_RSSC_ARCHIVE_MANAGE . "</h3>\n";
         printf(_AM_RSSC_THERE_ARE_LINKS, $total_link);
-        echo "<br />\n";
+        echo "<br>\n";
         printf(_AM_RSSC_THERE_ARE_FEEDS, $total_feed);
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         $this->_print_form();
         $this->_print_cp_footer();
@@ -152,7 +152,7 @@ class admin_manage_archive extends happy_linux_manage
 
         echo "<a name='learn'></a>";
         echo '<h4>' . _AM_RSSC_LEAN_BLACK . "</h4>\n";
-        echo _AM_RSSC_LEAN_BLACK_DESC . "<br /><br />\n";
+        echo _AM_RSSC_LEAN_BLACK_DESC . "<br><br>\n";
         $this->_form->show_learn($limit, $offset);
 
         echo "<a name='clear'></a>";
@@ -168,7 +168,7 @@ class admin_manage_archive extends happy_linux_manage
         $limit  = $this->get_post_limit();
         $offset = $this->get_post_offset();
 
-        $total_link = $this->_handler->get_count_all();
+        $total_link = $this->Handler->get_count_all();
 
         $this->_print_cp_header();
         $this->_print_bread_op(_AM_RSSC_ARCHIVE_MANAGE, 'main_form', _AM_RSSC_REFRESH);
@@ -178,22 +178,22 @@ class admin_manage_archive extends happy_linux_manage
             exit();
         }
 
-        $this->_refresh_handler->set_feed_limit($this->_conf_feed_limit);
-        $this->_refresh_handler->set_word_limit($this->_conf_word_limit);
-        $this->_refresh_handler->set_flag_chmod(true);
+        $this->_refreshHandler->set_feed_limit($this->_conf_feed_limit);
+        $this->_refreshHandler->set_word_limit($this->_conf_word_limit);
+        $this->_refreshHandler->set_flag_chmod(true);
 
-        $ret = $this->_refresh_handler->refresh($limit, $offset);
+        $ret = $this->_refreshHandler->refresh($limit, $offset);
         if (!$ret) {
-            echo $this->_feed_handler->getErrorCode();
+            echo $this->_feedHandler->getErrorCode();
 
             $this->_set_error_title('Refresh Error');
-            $this->_set_errors($this->_refresh_handler->getErrors());
+            $this->_set_errors($this->_refreshHandler->getErrors());
             $this->_print_error(1);
         }
 
         $next = $offset + $limit;
         if (($limit > 0) && ($next < $total_link)) {
-            echo "<br />\n";
+            echo "<br>\n";
             $this->_form->show_refresh_next($limit, $next);
         } else {
             echo '<h4>' . _RSSC_REFRESH_LINK_FINISHED . "</h4>\n";
@@ -217,7 +217,7 @@ class admin_manage_archive extends happy_linux_manage
         $limit  = $this->get_post_limit();
         $offset = $this->get_post_offset();
 
-        $total_link = $this->_black_handler->get_count_all();
+        $total_link = $this->_blackHandler->get_count_all();
 
         $this->_print_cp_header();
         $this->_print_bread_op(_AM_RSSC_ARCHIVE_MANAGE, 'main_form', _AM_RSSC_LEAN_BLACK);
@@ -227,22 +227,22 @@ class admin_manage_archive extends happy_linux_manage
             exit();
         }
 
-        $this->_refresh_handler->set_feed_limit($this->_conf_feed_limit);
-        $this->_refresh_handler->set_word_limit($this->_conf_word_limit);
-        $this->_refresh_handler->set_flag_chmod(true);
+        $this->_refreshHandler->set_feed_limit($this->_conf_feed_limit);
+        $this->_refreshHandler->set_word_limit($this->_conf_word_limit);
+        $this->_refreshHandler->set_flag_chmod(true);
 
-        $ret = $this->_refresh_handler->learn_black($limit, $offset);
+        $ret = $this->_refreshHandler->learn_black($limit, $offset);
         if (!$ret) {
-            echo $this->_feed_handler->getErrorCode();
+            echo $this->_feedHandler->getErrorCode();
 
             $this->_set_error_title('Learning Error');
-            $this->_set_errors($this->_refresh_handler->getErrors());
+            $this->_set_errors($this->_refreshHandler->getErrors());
             $this->_print_error(1);
         }
 
         $next = $offset + $limit;
         if (($limit > 0) && ($next < $total_link)) {
-            echo "<br />\n";
+            echo "<br>\n";
             $this->_form->show_learn_next($limit, $next);
         } else {
             echo '<h4>' . _RSSC_REFRESH_LINK_FINISHED . "</h4>\n";
@@ -267,13 +267,13 @@ class admin_manage_archive extends happy_linux_manage
             exit();
         }
 
-        $del = $this->_feed_handler->clear_over_num($num);
+        $del = $this->_feedHandler->clear_over_num($num);
         if ($del) {
             echo '<h4>' . _AM_RSSC_NUM_FEED_CLEARED . "</h4>\n";
-            echo $del . ' ' . _AM_RSSC_NUM_FEEDS . "<br />\n";
-        } elseif (!$this->_feed_handler->returnExistError()) {
+            echo $del . ' ' . _AM_RSSC_NUM_FEEDS . "<br>\n";
+        } elseif (!$this->_feedHandler->returnExistError()) {
             $this->_set_error_title('DB Error');
-            $this->_set_errors($this->_feed_handler->getErrors());
+            $this->_set_errors($this->_feedHandler->getErrors());
             $this->_print_error(1);
         } else {
             echo $this->_form->build_html_blue(_HAPPY_LINUX_NO_ACTION);

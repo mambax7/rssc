@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_feed_handler.php,v 1.3 2012/04/10 03:06:50 ohwada Exp $
+// $Id: rssc_feedHandler.php,v 1.3 2012/04/10 03:06:50 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
 // site_link XOBJ_DTYPE_URL -> XOBJ_DTYPE_URL_AREA
@@ -30,7 +30,7 @@
 // remove get_feed_by_fid() get_feeds_by_lid()
 
 // 2006-07-10 K.OHWADA
-// use happy_linux_object happy_linux_object_handler
+// use happy_linux_object happy_linux_objectHandler
 // use happy_linux_strings
 // support podcast
 
@@ -46,7 +46,7 @@
 // class feed
 // this file contain 2 class
 //   rssc_feed
-//   rssc_feed_handler
+//   rssc_feedHandler
 // 2006-01-01 K.OHWADA
 //=========================================================
 
@@ -152,7 +152,7 @@ public function get_act_option()
 //=========================================================
 // class feed handler
 //=========================================================
-    class rssc_feed_handler extends happy_linux_object_handler
+    class rssc_feedHandler extends happy_linux_objectHandler
     {
 
         // class

@@ -6,23 +6,23 @@
 // 2009-02-20 K.OHWADA
 //================================================================
 
-include '../../mainfile.php';
+require dirname(dirname(__DIR__)) . '/mainfile.php';
 
 //---------------------------------------------------------
 // rssc
 //---------------------------------------------------------
 $DIRNAME = basename(__DIR__) ;
 $MODULE_DIR = XOOPS_ROOT_PATH.'/modules/'.$DIRNAME ;
-include_once $MODULE_DIR.'/blocks/block_latest.php';
+require_once $MODULE_DIR.'/blocks/block_latest.php';
 
 global $xoopsConfig;
 $XOOPS_LANGUAGE = $xoopsConfig['language'];
 $file_lang = $MODULE_DIR.'/language/'.$XOOPS_LANGUAGE.'/blocks.php';
 $file_eng  = $MODULE_DIR.'/language/english/blocks.php';
 if ( file_exists( $file_lang ) ) {
-	include_once $file_lang;
+	require_once $file_lang;
 } else {
-	include_once $file_eng;
+	require_once $file_eng;
 }
 
 //---------------------------------------------------------

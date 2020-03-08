@@ -28,7 +28,7 @@ if( !class_exists('rssc_icon') )
         //---------------------------------------------------------
     public function __construct()
         {
-            $this->_db = Database::getInstance();
+            $this->_db = XoopsDatabaseFactory::getDatabaseConnection();
         }
 
         public static function getInstance()
@@ -103,7 +103,7 @@ if( !class_exists('rssc_icon') )
                 return false;
             }
 
-            while ($row = $this->_db->fetchArray($res)) {
+            while (false !== ($row = $this->_db->fetchArray($res))) {
                 $arr[$row['conf_name']] = $row['conf_value'];
             }
             return $arr;
@@ -121,7 +121,7 @@ if( !class_exists('rssc_icon') )
                 return false;
             }
 
-            while ($row = $this->_db->fetchArray($res)) {
+            while (false !== ($row = $this->_db->fetchArray($res))) {
                 $rows[] = $row;
             }
             return $rows;

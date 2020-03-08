@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_feed_basic_handler.php,v 1.1 2011/12/29 14:37:15 ohwada Exp $
+// $Id: rssc_feed_basicHandler.php,v 1.1 2011/12/29 14:37:15 ohwada Exp $
 
 // 2009-02-20 K.OHWADA
 // geo_lat
@@ -23,13 +23,13 @@
 // add get_clear_num()
 
 // 2006-07-10 K.OHWADA
-// use happy_linux_basic happy_linux_basic_handler
+// use happy_linux_basic happy_linux_basicHandler
 // corresponding to podcast
 // add enclosure
 
 // 2006-06-04 K.OHWADA
 // this is new file
-// move from feed_handler
+// move from feedHandler
 
 //=========================================================
 // Rss Center Module
@@ -37,7 +37,7 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_feed_basic_handler') ) 
+if( !class_exists('rssc_feed_basicHandler') ) 
 {
 
 //=========================================================
@@ -185,12 +185,12 @@ public function subsutute_date()
 
 
 //=========================================================
-// class rssc_feed_basic_handler
+// class rssc_feed_basicHandler
 // this class is used by command line
 // this class handle MySQL table directly
 // this class does not use another class
 //=========================================================
-    class rssc_feed_basic_handler extends happy_linux_basic_handler
+    class rssc_feed_basicHandler extends happy_linux_basicHandler
     {
         // set false, if not insert
         public $_DEBUG_INSERT_EXEC = true;
@@ -216,7 +216,7 @@ public function subsutute_date()
         //---------------------------------------------------------
         // insert
         //---------------------------------------------------------
-    public function insert(&$obj)
+    public function insert(XoopsObject $obj)
         {
             if (!$this->_check_class($obj)) {
                 $this->_set_errors('feed table: not match class');

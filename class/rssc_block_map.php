@@ -122,7 +122,7 @@ if( !class_exists('rssc_block_map') )
                 return $false;
             }
 
-            include_once $file;
+            require_once $file;
 
             if (!class_exists('webmap3_api_map')) {
                 return $false;
@@ -162,21 +162,21 @@ if( !class_exists('rssc_block_map') )
             $img = $this->build_info_img($feed);
 
             if ($title_link && $title) {
-                $title_info = $title_link . $this->build_info_title($title) . '</a><br />';
+                $title_info = $title_link . $this->build_info_title($title) . '</a><br>';
             } elseif ($title_link) {
-                $title_info = $title_link . 'no title' . '</a><br />';
+                $title_info = $title_link . 'no title' . '</a><br>';
             } elseif ($title) {
-                $title_info = $this->build_info_title($title) . '<br />';
+                $title_info = $this->build_info_title($title) . '<br>';
             }
 
             if ($title_link && $img) {
-                $img_info = $title_link . $img . '</a><br />';
+                $img_info = $title_link . $img . '</a><br>';
             } elseif ($img_link && $img) {
-                $img_info = $img_link . $img . '</a><br />';
+                $img_info = $img_link . $img . '</a><br>';
             } elseif ($img_link) {
-                $img_info = $img_link . 'media' . '</a><br />';
+                $img_info = $img_link . 'media' . '</a><br>';
             } elseif ($img) {
-                $img_info = $img . '<br />';
+                $img_info = $img . '<br>';
             }
 
             $info = $title_info . $img_info;
@@ -220,9 +220,9 @@ if( !class_exists('rssc_block_map') )
             }
 
             if ($src && $width && $height) {
-                $img = '<img src="' . $this->sanitize($src) . '" width="' . (int)$width . '" height="' . (int)$height . '" border="0" />';
+                $img = '<img src="' . $this->sanitize($src) . '" width="' . (int)$width . '" height="' . (int)$height . '" border="0">';
             } elseif ($src && $width) {
-                $img = '<img src="' . $this->sanitize($src) . '" width="' . (int)$width . '" border="0" />';
+                $img = '<img src="' . $this->sanitize($src) . '" width="' . (int)$width . '" border="0">';
             }
 
             return $img;

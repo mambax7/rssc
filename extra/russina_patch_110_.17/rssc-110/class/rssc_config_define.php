@@ -1092,7 +1092,7 @@ function &get_define()
 	$config[171]['name']        = 'pre_plugin';
 	$config[171]['catid']       = 17;
 	$config[171]['title']       = '_RSSC_PRE_PLUGIN';
-	$config[171]['description'] = _AM_RSSC_PRE_PLUGIN_DESC.'<br />'._AM_RSSC_PLUGIN_DESC_2;
+	$config[171]['description'] = _AM_RSSC_PRE_PLUGIN_DESC.'<br>'._AM_RSSC_PLUGIN_DESC_2;
 	$config[171]['formtype']    = 'textarea';
 	$config[171]['valuetype']   = 'text';
 	$config[171]['default']     = '';
@@ -1100,7 +1100,7 @@ function &get_define()
 	$config[172]['name']        = 'post_plugin';
 	$config[172]['catid']       = 17;
 	$config[172]['title']       = '_RSSC_POST_PLUGIN';
-	$config[172]['description'] = _AM_RSSC_POST_PLUGIN_DESC.'<br />'._AM_RSSC_PLUGIN_DESC_2;
+	$config[172]['description'] = _AM_RSSC_POST_PLUGIN_DESC.'<br>'._AM_RSSC_PLUGIN_DESC_2;
 	$config[172]['formtype']    = 'textarea';
 	$config[172]['valuetype']   = 'text';
 	$config[172]['default']     = '';

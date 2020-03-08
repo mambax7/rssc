@@ -298,9 +298,9 @@ if( !class_exists('rssc_plugin_base') )
             return $this->_DIRNAME;
         }
 
-        public function &get_handler($name)
+        public function &getHandler($name)
         {
-            return rssc_get_handler($name, $this->_DIRNAME);
+            return rssc_getHandler($name, $this->_DIRNAME);
         }
 
         // --- class end ---

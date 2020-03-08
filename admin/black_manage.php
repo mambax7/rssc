@@ -25,12 +25,12 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/api/rss_parser.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/api/rss_parser.php';
 
-include_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
-include_once RSSC_ROOT_PATH.'/admin/admin_form_black_white.php';
+require_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
+require_once RSSC_ROOT_PATH.'/admin/admin_form_black_white.php';
 
 //=========================================================
 // class black manage
@@ -47,7 +47,7 @@ class admin_manage_black extends admin_manage_base
     {
         admin_manage_base::__construct();
 
-        $this->set_handler('black', RSSC_DIRNAME, 'rssc');
+        $this->setHandler('black', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('bid');
         $this->set_form_class('admin_form_black');
         $this->set_script('black_manage.php');
@@ -133,9 +133,9 @@ class admin_manage_black extends admin_manage_base
         $this->_obj->assignVars($_POST);
         $this->_obj->set('url', $url2);
 
-        if (!$this->_handler->update($this->_obj)) {
+        if (!$this->Handler->update($this->_obj)) {
             $this->_set_errors($this->_LANG_FAIL_MOD);
-            $this->_set_errors($this->_handler->getErrors());
+            $this->_set_errors($this->Handler->getErrors());
             return false;
         }
         return true;
@@ -204,7 +204,7 @@ class admin_manage_black extends admin_manage_base
         $memo .= $site_title . "\n";
         $memo .= $site_link . "\n";
 
-        $obj =& $this->_handler->create();
+        $obj =  $this->Handler->create();
 
         // set values just as enter
         $obj->assignVars($feed);

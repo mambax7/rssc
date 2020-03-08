@@ -2,7 +2,7 @@
 // $Id: rssc_install.php.\040ORIGINAL\0401.10.php,v 1.1 2012/04/08 23:42:20 ohwada Exp $
 
 // 2011-12-29 K.OHWADA
-// TYPE=MyISAM -> ENGINE=MyISAM
+// ENGINE=MyISAM -> ENGINE=MyISAM
 
 // 2009-02-20 K.OHWADA
 // _update_feed_100()
@@ -291,7 +291,7 @@ function _build_msg_copy_link_to_xml()
 	}
 	else
 	{
-		$msg  = $this->_highlight( 'ERROR: '.$title )."<br />\n";
+		$msg  = $this->_highlight( 'ERROR: '.$title )."<br>\n";
 		$msg .= $this->_get_errors();
 	}
 

@@ -6,7 +6,7 @@
 // _KEYWORD => _RSSC_KEYWORD
 
 // 2007-06-01 K.OHWADA
-// link_xml_handler
+// link_xmlHandler
 // include file under local language
 
 // 2006-09-18 K.OHWADA
@@ -26,8 +26,8 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
-include_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
+require __DIR__ . '/admin_header.php';
+require_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
 
 
 //=========================================================
@@ -50,7 +50,7 @@ class admin_manage_keyword extends admin_manage_base
     {
         admin_manage_base::__construct();
 
-        $this->set_handler('link_xml', RSSC_DIRNAME, 'rssc');
+        $this->setHandler('link_xml', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('lid');
         $this->set_form_class('admin_form_keyword');
         $this->set_script('keyword_manage.php');
@@ -83,7 +83,7 @@ class admin_manage_keyword extends admin_manage_base
         $language = $this->_system->get_language();
 
         if (file_exists(RSSC_ROOT_PATH . '/language/' . $language . '/site_list.php')) {
-            include_once RSSC_ROOT_PATH . '/language/' . $language . '/site_list.php';
+            require_once RSSC_ROOT_PATH . '/language/' . $language . '/site_list.php';
             $this->_list = rssc_site_list::getInstance();
             return true;
         }
@@ -100,7 +100,7 @@ class admin_manage_keyword extends admin_manage_base
 
     public function _print_add_form()
     {
-        $obj = $this->_handler->create();
+        $obj = $this->Handler->create();
         $obj->setVar('uid', $this->_system->get_uid());
         $obj->setVar('mid', $this->_system->get_mid());
         $obj->setVar('mode', $this->_MODE);
@@ -145,11 +145,11 @@ class admin_manage_keyword extends admin_manage_base
         $this->_clear_errors();
 
         foreach ($this->_list->get_site_list() as $site) {
-            $obj = $this->_handler->create();
+            $obj = $this->Handler->create();
             $obj->set_vars_keyword($site);
-            $newid = $this->_handler->insert($obj);
+            $newid = $this->Handler->insert($obj);
             if (!$newid) {
-                $this->_set_errors($this->_handler->getErrors());
+                $this->_set_errors($this->Handler->getErrors());
             }
         }
 
@@ -282,20 +282,20 @@ function print_notice()
 	rssc_admin_print_menu();
 
 ?>
-<br />
-<font color='red'>NOT support in your language</font><br />
-<br />
-There are the RSS search site which carries out RSS feeds of the search results, such as <br />
-In English<br />
-- <a href="http://blogsearch.google.com/" target="_blank">http://blogsearch.google.com/</a><br />
-<br />
-In Japanese<br />
-- <a href="http://sf.livedoor.com/" target="_blank">http://sf.livedoor.com/</a><br />
-<br />
-I dont know same site in your language. <br />
-If you know, please teach me.<br />
-Webmaster of <a href="http://linux2.ohwada.net/" target="_blank">Happy Linux</a><br />
-<br />
+<br>
+<font color='red'>NOT support in your language</font><br>
+<br>
+There are the RSS search site which carries out RSS feeds of the search results, such as <br>
+In English<br>
+- <a href="http://blogsearch.google.com/" target="_blank">http://blogsearch.google.com/</a><br>
+<br>
+In Japanese<br>
+- <a href="http://sf.livedoor.com/" target="_blank">http://sf.livedoor.com/</a><br>
+<br>
+I dont know same site in your language. <br>
+If you know, please teach me.<br>
+Webmaster of <a href="http://linux2.ohwada.net/" target="_blank">Happy Linux</a><br>
+<br>
 <?php
 
 	xoops_cp_footer();

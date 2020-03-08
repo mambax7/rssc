@@ -31,7 +31,7 @@ $RSSC_MODULE_URL  = XOOPS_URL.'/modules/'.$RSSC_DIRNAME;
 if( ! preg_match( '/^(\D+)(\d*)$/' , $RSSC_DIRNAME , $regs ) ) echo ('invalid dirname: ' . htmlspecialchars($RSSC_DIRNAME ) ) ;
 $RSSC_NUMBER = '' === $regs[2] ? '' : (int)$regs[2];
 
-include_once $RSSC_MODULE_ROOT.'/include/rssc_version.php';
+require_once $RSSC_MODULE_ROOT.'/include/rssc_version.php';
 
 if ('rssc' == $regs[1])
 {
@@ -45,7 +45,7 @@ else
 $modversion['name'] = _MI_RSSC_NAME.$name_ext;
 $modversion['description'] = _MI_RSSC_DESC;
 $modversion['version'] = RSSC_VERSION;
-$modversion['author'] = 'Kenichi OHWADA<br />( http://linux2.ohwada.net/ )';
+$modversion['author'] = 'Kenichi OHWADA<br>( http://linux2.ohwada.net/ )';
 $modversion['credits'] = '';
 $modversion['help'] = '';
 $modversion['license'] = 'GPL see LICENSE';

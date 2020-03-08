@@ -28,7 +28,7 @@
 // use XoopsGTicket
 
 // 2006-07-08 K.OHWADA
-// use config_base_handler.php etc
+// use config_baseHandler.php etc
 // use check_version() for v0.30
 // description in main page
 
@@ -41,9 +41,9 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include_once 'admin_header_config.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_block_map.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_map.php';
+require_once __DIR__ . '/admin_header_config.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_block_map.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_map.php';
 
 $DIR_CONFIG = RSSC_ROOT_PATH.'/cache';
 
@@ -125,8 +125,8 @@ elseif ( !$config_store->check_version() )
 elseif ( !is_writable( $DIR_CONFIG ) )
 {
 	xoops_error( _HAPPY_LINUX_CONF_NOT_WRITABLE );
-	echo "<br />\n";
-	echo "$DIR_CONFIG <br /><br />\n";
+	echo "<br>\n";
+	echo "$DIR_CONFIG <br><br>\n";
 }
 else
 {
@@ -137,22 +137,22 @@ else
 	$config_form->init_form();
 
 	echo '<h4>' . _AM_RSSC_FORM_BASIC . "</h4>\n";
-	echo _AM_RSSC_FORM_BASIC_DESC."<br />\n";
+	echo _AM_RSSC_FORM_BASIC_DESC."<br>\n";
 	$config_form->set_form_title( _AM_RSSC_FORM_BASIC );
 	$config_form->show_by_catid( 1 );
 
 	echo '<h4>' . _AM_RSSC_FORM_MAIN . "</h4>\n";
-	echo _AM_RSSC_FORM_MAIN_DESC."<br />\n";
+	echo _AM_RSSC_FORM_MAIN_DESC."<br>\n";
 
 // description in main page
 	$config_form->set_form_title( _AM_RSSC_FORM_MAIN );
 	$config_form->show_by_catid( 3 );
-	echo "<br />\n";
+	echo "<br>\n";
 
 	$config_form->show_main();
 
 	echo '<h4>' . _AM_RSSC_FORM_BLOCK . "</h4>\n";
-	echo _AM_RSSC_FORM_BLOCK_DESC."<br />\n";
+	echo _AM_RSSC_FORM_BLOCK_DESC."<br>\n";
 	$config_form->show_block();
 
 	echo '<h4>' . _AM_RSSC_FORM_PROXY . "</h4>\n";

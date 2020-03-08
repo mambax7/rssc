@@ -3,7 +3,7 @@
 
 // 2007-10-10 K.OHWADA
 // rssc v0.70
-// rssc_import_handler
+// rssc_importHandler
 
 // 2006-09-20 K.OHWADA
 // use rssc_admin_print_bread()
@@ -19,34 +19,34 @@
 //================================================================
 
 // system files
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
-include_once RSSC_ROOT_PATH.'/api/refresh.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_import_handler.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_weblinks_handler.php';
+require_once RSSC_ROOT_PATH.'/api/refresh.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_importHandler.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_weblinksHandler.php';
 
 //=========================================================
 // class admin_import_weblinks
 //=========================================================
-class admin_import_weblinks extends rssc_import_handler
+class admin_import_weblinks extends rssc_importHandler
 {
     public $_DIRNAME_WEBLINKS = 'weblinks';
 
-    public $_weblinks_handler;
+    public $_weblinksHandler;
 
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
     public function __construct()
     {
-        rssc_import_handler::__construct(RSSC_DIRNAME);
+        rssc_importHandler::__construct(RSSC_DIRNAME);
         $this->set_mid_orig_by_dirname($this->_DIRNAME_WEBLINKS);
 
         $this->_rss_parser = happy_linux_rss_parser::getInstance();
 
-        $this->_weblinks_handler = rssc_weblinks_handler::getInstance($this->_DIRNAME_WEBLINKS);
-        $this->_weblinks_handler->set_debug_db_error(true);
-        $this->_weblinks_handler->load_config();
+        $this->_weblinksHandler = rssc_weblinksHandler::getInstance($this->_DIRNAME_WEBLINKS);
+        $this->_weblinksHandler->set_debug_db_error(true);
+        $this->_weblinksHandler->load_config();
     }
 
     public static function getInstance()
@@ -65,15 +65,15 @@ class admin_import_weblinks extends rssc_import_handler
     public function first_step()
     {
         ?>
-        <br/>
-        There are 5 steps. <br/>
-        1. import rss site <br/>
-        2. import black list <br/>
-        3. import white list <br/>
-        4. import link table <br/>
-        5. import feed table <br/>
-        excute each <?php echo $this->_LIMIT; ?> records at a time <br/>
-        <br/>
+        <br>
+        There are 5 steps. <br>
+        1. import rss site <br>
+        2. import black list <br>
+        3. import white list <br>
+        4. import link table <br>
+        5. import feed table <br>
+        excute each <?php echo $this->_LIMIT; ?> records at a time <br>
+        <br>
         <?php
 
         $this->_form_site();
@@ -86,10 +86,10 @@ class admin_import_weblinks extends rssc_import_handler
         $offset = $this->get_post_offset();
         $next   = $this->calc_next();
 
-        $site_list = $this->_weblinks_handler->get_config_list_by_name('rss_site');
+        $site_list = $this->_weblinksHandler->get_config_list_by_name('rss_site');
         $total     = count($site_list);
 
-        echo 'There are <b>' . $total . "</b> rss site in weblinks<br /><br />\n";
+        echo 'There are <b>' . $total . "</b> rss site in weblinks<br><br>\n";
 
         $this->clear_num();
 
@@ -107,10 +107,10 @@ class admin_import_weblinks extends rssc_import_handler
         $offset = $this->get_post_offset();
         $next   = $this->calc_next();
 
-        $site_list = $this->_weblinks_handler->get_config_list_by_name('rss_black');
+        $site_list = $this->_weblinksHandler->get_config_list_by_name('rss_black');
         $total     = count($site_list);
 
-        echo 'There are <b>' . $total . "</b> black list in weblinks<br /><br />\n";
+        echo 'There are <b>' . $total . "</b> black list in weblinks<br><br>\n";
 
         $this->clear_num();
 
@@ -128,10 +128,10 @@ class admin_import_weblinks extends rssc_import_handler
         $offset = $this->get_post_offset();
         $next   = $this->calc_next();
 
-        $site_list = $this->_weblinks_handler->get_config_list_by_name('rss_white');
+        $site_list = $this->_weblinksHandler->get_config_list_by_name('rss_white');
         $total     = count($site_list);
 
-        echo 'There are <b>' . $total . "</b> white list in weblinks<br /><br />\n";
+        echo 'There are <b>' . $total . "</b> white list in weblinks<br><br>\n";
 
         $this->clear_num();
 
@@ -146,14 +146,14 @@ class admin_import_weblinks extends rssc_import_handler
     {
         echo "<h4>STEP 4: import link table</h4>\n";
 
-        $total  = $this->_weblinks_handler->get_link_count_rss_flag_prev_ver();
+        $total  = $this->_weblinksHandler->get_link_count_rss_flag_prev_ver();
         $offset = $this->get_post_offset();
         $next   = $this->calc_next($total);
 
-        echo 'There are <b>' . $total . "</b> rss links in weblinks<br />\n";
-        echo 'Transfer ' . $offset . ' - ' . $next . " record <br /><br />\n";
+        echo 'There are <b>' . $total . "</b> rss links in weblinks<br>\n";
+        echo 'Transfer ' . $offset . ' - ' . $next . " record <br><br>\n";
 
-        $objs =& $this->_weblinks_handler->get_link_objects_rss_flag_prev_ver($this->_LIMIT, $offset);
+        $objs =& $this->_weblinksHandler->get_link_objects_rss_flag_prev_ver($this->_LIMIT, $offset);
 
         foreach ($objs as $obj) {
             $rssc_lid = $this->import_link_weblinks($obj);
@@ -170,14 +170,14 @@ class admin_import_weblinks extends rssc_import_handler
     {
         echo "<h4>STEP 5: import feed table</h4>\n";
 
-        $total  = $this->_weblinks_handler->get_atomfeed_count();
+        $total  = $this->_weblinksHandler->get_atomfeed_count();
         $offset = $this->get_post_offset();
         $next   = $this->calc_next($total);
 
-        echo 'There are <b>' . $total . "</b> feeds in weblinks<br />\n";
-        echo 'Transfer ' . $offset . ' - ' . $next . " record <br /><br />\n";
+        echo 'There are <b>' . $total . "</b> feeds in weblinks<br>\n";
+        echo 'Transfer ' . $offset . ' - ' . $next . " record <br><br>\n";
 
-        $objs =& $this->_weblinks_handler->get_atomfeed_objects($this->_LIMIT, $offset);
+        $objs =& $this->_weblinksHandler->get_atomfeed_objects($this->_LIMIT, $offset);
 
         $this->_set_lid_list();
 
@@ -265,7 +265,7 @@ if ( isset($_POST['op']) )  $op = $_POST['op'];
 
 rssc_admin_print_bread( _AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'weblinks' );
 echo '<h3>' . _AM_RSSC_IMPORT_WEBLINKS . "</h3>\n";
-echo "Import DB weblinks 0.97 to rssc 0.70 <br /><br />\n";
+echo "Import DB weblinks 0.97 to rssc 0.70 <br><br>\n";
 
 if( !$import->exist_module() ) 
 {

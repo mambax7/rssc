@@ -18,7 +18,7 @@ if( !class_exists('rssc_plugin_latest_feeds') )
 {
     class rssc_plugin_latest_feeds extends rssc_plugin_base
     {
-        public $_feed_handler;
+        public $_feedHandler;
 
         public $_FEED_ORDER  = RSSC_C_ORDER_TEXT_UPDATED;
         public $_DEFAULT_NUM = 10;
@@ -46,10 +46,10 @@ if( !class_exists('rssc_plugin_latest_feeds') )
 
         public function execute(&$items)
         {
-            $feed_handler =& $this->get_handler('feed_basic');
+            $feedHandler =& $this->getHandler('feed_basic');
 
             $limit = (int)$this->get_param_by_num(0, $this->_DEFAULT_NUM);
-            $rows  =& $feed_handler->get_rows_public_by_order($this->_FEED_ORDER, $limit);
+            $rows  =& $feedHandler->get_rows_public_by_order($this->_FEED_ORDER, $limit);
             return $rows;
         }
 

@@ -25,7 +25,7 @@
 class admin_manage_base extends happy_linux_manage
 {
     // handler
-    public $_feed_handler;
+    public $_feedHandler;
 
     // class
     public $_strings;
@@ -43,7 +43,7 @@ class admin_manage_base extends happy_linux_manage
         $this->set_list_id_name('rssclist_id');
 
         // handler
-        $this->_feed_handler =& rssc_get_handler('feed', RSSC_DIRNAME);
+        $this->_feedHandler =& rssc_getHandler('feed', RSSC_DIRNAME);
 
         // class
         $this->_strings = happy_linux_strings::getInstance();
@@ -89,7 +89,7 @@ class admin_manage_base extends happy_linux_manage
     //---------------------------------------------------------
     public function _print_add_form_black_white()
     {
-        $obj =& $this->_handler->create();
+        $obj =  $this->Handler->create();
         $obj->set('uid', $this->_system->get_uid());
         $obj->set('mid', $this->_system->get_mid());
 
@@ -148,14 +148,14 @@ class admin_manage_base extends happy_linux_manage
                 continue;
             }
 
-            $obj = $this->_handler->create();
+            $obj = $this->Handler->create();
             $obj->assignVars($_POST);
             $obj->set('url', $url2);
 
-            if (!$this->_handler->insert($obj)) {
+            if (!$this->Handler->insert($obj)) {
                 $flag_err = true;
                 $this->_set_errors("$url2 :" . _AM_RSSC_FAILUPDATE);
-                $this->_set_errors($this->_handler->getErrors());
+                $this->_set_errors($this->Handler->getErrors());
             }
         }
 
@@ -168,7 +168,7 @@ class admin_manage_base extends happy_linux_manage
 
     public function _print_add_preview_form()
     {
-        $obj =& $this->_handler->create();
+        $obj =  $this->Handler->create();
 
         // set values just as enter
         $obj->assignVars($_POST);
@@ -192,7 +192,7 @@ class admin_manage_base extends happy_linux_manage
             return false;
         }
 
-        $feed_obj = $this->_feed_handler->get($fid);
+        $feed_obj = $this->_feedHandler->get($fid);
 
         if (!is_object($feed_obj)) {
             $this->_set_errors(_NO_RECORD);

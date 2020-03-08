@@ -20,8 +20,8 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
-include 'feed_list_class.php';
+require __DIR__ . '/admin_header.php';
+require __DIR__ . '/feed_list_class.php';
 
 //=========================================================
 // main

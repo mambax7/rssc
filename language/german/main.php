@@ -231,7 +231,7 @@ define('_RSSC_SINGLE_LINK_UTF8', 'Einzel Link mit UTF-8');
 //define('_RSSC_UTF8_SUMMARY', 'Summary with UTF-8');
 //define('_RSSC_UTF8_CONTENT', 'Content allowed HTML tags with UTF-8');
 // detect encoding
-define('_RSSC_ASSUME_ENCODING', 'Davon ausgehen, xml encoding% s, <br /> wird nicht automatisch erkannt und Codiert');
+define('_RSSC_ASSUME_ENCODING', 'Davon ausgehen, xml encoding% s, <br> wird nicht automatisch erkannt und Codiert');
 // rss item
 define('_RSSC_CREATED', 'Herstellen');
 define('_RSSC_ATOM_CONTRIBUTOR_NAME', 'Mitarbeiter');
@@ -272,7 +272,7 @@ define('_RSSC_LINK_EXIST_MORE', 'Es gibt zwei oder mehrere gleiche Links "RDF / 
 define('_RSSC_LINK_ALREADY', 'Dieser Link existiert bereits"RDF / RSS / ATOM-URL"');
 // refresh link
 define('_RSSC_REFRESH_LINK', 'Erneuern RDF/RSS/ATOM feeds');
-define('_RSSC_REFRESH_LINK_DSC', 'RSS-Feeds aktualisieren <br /> Finden <b> RDF / RSS / ATOM-URL </b> automatisch erkennen und <b> Encoden </b>automatically, <br />if they are not set up.');
+define('_RSSC_REFRESH_LINK_DSC', 'RSS-Feeds aktualisieren <br> Finden <b> RDF / RSS / ATOM-URL </b> automatisch erkennen und <b> Encoden </b>automatically, <br>if they are not set up.');
 define('_RSSC_REFRESH_LINK_FINISHED', 'Aktualisierung Eingabe beendet');
 // for other module
 define('_RSSC_RSSC_LID', 'Link ID vom RSSC module');

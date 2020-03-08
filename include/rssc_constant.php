@@ -60,12 +60,12 @@ define('RSSC_C_DATE_INT_LONG',   3);
 // 2006-09-01
 define('RSSC_CODE_NORMAL', 0);
 
-// rssc_pase_handler
+// rssc_paseHandler
 define('RSSC_CODE_PARSE_NOT_READ_XML_URL',  111);
 define('RSSC_CODE_PARSE_NOT_FIND_ENCODING', 112);
 define('RSSC_CODE_PARSE_FAILED',            113);
 
-// rssc_refresh_handler
+// rssc_refreshHandler
 define('RSSC_CODE_DB_ERROR',      121);
 define('RSSC_CODE_PARSE_MSG',     122);
 define('RSSC_CODE_REFRESH_ERROR', 123);

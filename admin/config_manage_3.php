@@ -6,7 +6,7 @@
 // 2008-01-20 K.OHWADA
 //=========================================================
 
-include_once 'admin_header_config.php';
+require_once __DIR__ . '/admin_header_config.php';
 
 // class
 $config_form  =& admin_config_form::getInstance();
@@ -14,7 +14,7 @@ $config_store =& admin_config_store::getInstance();
 
 $op = $config_form->get_post_get_op();
 
-if ($op == 'save')
+if ('save' == $op)
 {
 	if( !$config_form->check_token() ) 
 	{
@@ -39,7 +39,7 @@ echo "<h4>"._MI_RSSC_ADMENU_CONFIG."</h4>\n";
 $config_form->init_form();
 
 echo "<h4>"._AM_RSSC_FORM_HTMLOUT."</h4>\n";
-echo _AM_RSSC_FORM_HTMLOUT_DESC."<br /><br />\n";
+echo _AM_RSSC_FORM_HTMLOUT_DESC."<br><br>\n";
 $config_form->set_form_title( _AM_RSSC_FORM_HTMLOUT );
 $config_form->show_by_catid( 15 );
 

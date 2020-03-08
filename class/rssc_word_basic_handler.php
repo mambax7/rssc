@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_word_basic_handler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
+// $Id: rssc_word_basicHandler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
 
 //=========================================================
 // Rss Center Module
@@ -7,7 +7,7 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_word_basic_handler') ) 
+if( !class_exists('rssc_word_basicHandler') ) 
 {
 
 //=========================================================
@@ -16,7 +16,7 @@ if( !class_exists('rssc_word_basic_handler') )
 // this class handle MySQL table directly
 // this class does not use another class
 //=========================================================
-    class rssc_word_basic_handler extends happy_linux_basic_handler
+    class rssc_word_basicHandler extends happy_linux_basicHandler
     {
 
         //---------------------------------------------------------

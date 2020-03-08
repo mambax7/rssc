@@ -11,7 +11,7 @@
 class admin_list_black_white extends happy_linux_page_frame
 {
     // class instance
-    public $_feed_handler;
+    public $_feedHandler;
 
     // black & white
     public $_TITLE_BW    = null;
@@ -28,7 +28,7 @@ class admin_list_black_white extends happy_linux_page_frame
         $this->set_max_sortid(4);
 
         // class instance
-        $this->_feed_handler = rssc_get_handler('feed', RSSC_DIRNAME);
+        $this->_feedHandler = rssc_getHandler('feed', RSSC_DIRNAME);
     }
 
     public static function getInstance()
@@ -61,20 +61,20 @@ class admin_list_black_white extends happy_linux_page_frame
     {
         switch ($this->_sortid) {
             case 1:
-                $objs =& $this->_handler->get_objects_desc($limit, $start);
+                $objs =& $this->Handler->get_objects_desc($limit, $start);
                 break;
 
             case 2:
-                $objs =& $this->_handler->get_objects_count_desc($limit, $start);
+                $objs =& $this->Handler->get_objects_count_desc($limit, $start);
                 break;
 
             case 3:
-                $objs =& $this->_handler->get_objects_count_asc($limit, $start);
+                $objs =& $this->Handler->get_objects_count_asc($limit, $start);
                 break;
 
             case 0:
             default:
-                $objs =& $this->_handler->get_objects_asc($limit, $start);
+                $objs =& $this->Handler->get_objects_asc($limit, $start);
                 break;
         }
 
@@ -104,7 +104,7 @@ class admin_list_black_white extends happy_linux_page_frame
 
         echo '<h4>' . $this->_TITLE_BW . "</h4>\n";
         printf(_RSSC_THEREARE, $this->_get_total_all());
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         echo "<table width='80%' border='0' cellspacing='1' class='outer'>";
         echo "<tr class='odd'><td>";
@@ -131,7 +131,7 @@ class admin_list_black_white extends happy_linux_page_frame
     public function _get_count(&$obj)
     {
         if (time() > ($obj->get('ctime') + $this->_CACHE_TIME)) {
-            $count = $this->_feed_handler->get_count_by_link($obj->get('url'));
+            $count = $this->_feedHandler->get_count_by_link($obj->get('url'));
             if ($count) {
                 $this->_update_cache($obj, $count);
             }
@@ -145,7 +145,7 @@ class admin_list_black_white extends happy_linux_page_frame
     {
         $obj->setVar('cache', $cache);
         $obj->setVar('ctime', time());
-        return $this->_handler->update($obj, true);
+        return $this->Handler->update($obj, true);
     }
 
     // --- class end ---

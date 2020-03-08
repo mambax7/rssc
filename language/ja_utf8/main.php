@@ -252,7 +252,7 @@ define('_RSSC_SINGLE_LINK_UTF8', 'リンク 単体表示 UTF-8 形式');
 //define('_RSSC_UTF8_CONTENT', '本文 HTMLタグ 許可 UTF-8 形式');
 
 // detect encoding
-define('_RSSC_ASSUME_ENCODING', 'エンコードを自動的に検出できなかったので、<br />エンコードを %s と仮定した。<br />');
+define('_RSSC_ASSUME_ENCODING', 'エンコードを自動的に検出できなかったので、<br>エンコードを %s と仮定した。<br>');
 
 // rss item
 //define('_RSSC_CREATED', '作成日');
@@ -303,7 +303,7 @@ define('_RSSC_GOTO_RSSC_ADMIN_LINK', 'RSSCモジュールの管理画面へ');
 
 // refresh link
 define('_RSSC_REFRESH_LINK', 'feed 記事の更新');
-define('_RSSC_REFRESH_LINK_DSC', '引き続いて、RDF/RSS/ATOM の feed 記事を更新します。<br />もし設定されていなければ、<br /> <b>RDF/RSS/ATOM URL</b> と <b>エンコード</b> を自動的に検出します。');
+define('_RSSC_REFRESH_LINK_DSC', '引き続いて、RDF/RSS/ATOM の feed 記事を更新します。<br>もし設定されていなければ、<br> <b>RDF/RSS/ATOM URL</b> と <b>エンコード</b> を自動的に検出します。');
 define('_RSSC_REFRESH_LINK_FINISHED', 'feed 記事を更新した');
 
 // === 2007-06-01 ===

@@ -137,7 +137,7 @@ define('_AM_RSSC_GOTOTOP', '¥È¥Ã¥×¤ËÌá¤ë');
 // === configuration ===
 // basic configuration
 define('_AM_RSSC_CONF_FEED_LIMIT', 'FEEDµ­»ö¤ÎºÇÂç¤Î·ï¿ô');
-define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'feed ¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤¹¤ëFEEDµ­»ö¤ÎºÇÂç¤Î·ï¿ô¤ò»ØÄê¤¹¤ë<br />¤³¤ÎÃÍ¤òÄ¶¤¨¤ë¤ÈÆüÉÕ¤Î¸Å¤¤Êý¤«¤é¥¯¥ê¥¢¤µ¤ì¤ë¡£<br /><b>0</b> ¤ÏÌµÀ©¸Â¤À¤¬¡¢¿ä¾©¤·¤Ê¤¤¡£');
+define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'feed ¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤¹¤ëFEEDµ­»ö¤ÎºÇÂç¤Î·ï¿ô¤ò»ØÄê¤¹¤ë<br>¤³¤ÎÃÍ¤òÄ¶¤¨¤ë¤ÈÆüÉÕ¤Î¸Å¤¤Êý¤«¤é¥¯¥ê¥¢¤µ¤ì¤ë¡£<br><b>0</b> ¤ÏÌµÀ©¸Â¤À¤¬¡¢¿ä¾©¤·¤Ê¤¤¡£');
 define('_AM_RSSC_CONF_RSS_ATOM', 'RSS¤ÈATOM¤ÎÁªÂò');
 define('_AM_RSSC_CONF_RSS_ATOM_DESC', 'RSS URL¤ÈATOM URL¤ÎÎ¾Êý¤¬¸¡½Ð¤µ¤ì¤¿¤È¤­¤Ë¡¢¤É¤Á¤é¤ò»ÈÍÑ¤¹¤ë¤«ÁªÂò¤·¤Þ¤¹');
 define('_AM_RSSC_CONF_RSS_ATOM_SEL_ATOM', 'ATOM');
@@ -152,7 +152,7 @@ define('_AM_RSSC_CONF_RSS_MODE', 'RSS ¥â¡¼¥É¤Î½é´üÃÍ');
 define('_AM_RSSC_CONF_XML_SAVE', 'XML¤òÊÝÂ¸¤¹¤ë');
 define('_AM_RSSC_CONF_XML_SAVE_DESC', 'ÆÉ¤ß½Ð¤·¤¿XML¤ò link ¥Æ¡¼¥Ö¥ë¤ËÊÝÂ¸¤¹¤ë');
 define('_AM_RSSC_CONF_FUTURE_DAYS', 'Ì¤Íè¤ÎÆüÉÕ¤±');
-define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', 'Ã±°Ì¤ÏÆü¿ô<br />¤³¤ÎÆü¿ô¤è¤ê¤âÌ¤Íè¤Îµ­»ö¤Ç¤¢¤ì¤Ð¡¢É½¼¨¤·¤Ê¤¤');
+define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', 'Ã±°Ì¤ÏÆü¿ô<br>¤³¤ÎÆü¿ô¤è¤ê¤âÌ¤Íè¤Îµ­»ö¤Ç¤¢¤ì¤Ð¡¢É½¼¨¤·¤Ê¤¤');
 
 // show configuration
 define('_AM_RSSC_CONF_SHOW_ORDER','É½¼¨¤¹¤ë½çÈÖ');
@@ -166,7 +166,7 @@ define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE','£±¥Ú¡¼¥¸¤ËÉ½¼¨¤¹¤ëfeed·ï¿ô');
 define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK','£±¥ê¥ó¥¯Ëè¤ËÉ½¼¨¤¹¤ëfeed·ï¿ô');
 //define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK_DESC','£±¥ê¥ó¥¯¤¢¤¿¤ê¤ËÉ½¼¨¤¹¤ëºÇÂç·ï¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤');
 define('_AM_RSSC_CONF_SHOW_MAX_TITLE','¥¿¥¤¥È¥ë¤ÎºÇÂçÊ¸»ú¿ô');
-define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','¤³¤ÎÊ¸»ú¿ô¤òÄ¶¤¨¤¿¤È¤­¤Ï¡¢HTML¥¿¥°¤Ïºï½ü¤µ¤ì¤Þ¤¹<br /><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
+define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','¤³¤ÎÊ¸»ú¿ô¤òÄ¶¤¨¤¿¤È¤­¤Ï¡¢HTML¥¿¥°¤Ïºï½ü¤µ¤ì¤Þ¤¹<br><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
 define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY','Í×Ìó¤ÎºÇÂçÊ¸»ú¿ô');
 define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC','<b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
 
@@ -195,11 +195,11 @@ define('_AM_RSSC_VIEW_MODE_LINK', 'mode 1: link ¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤µ¤ì¤¿ XML ¥Ç¡¼¥¿'
 define('_AM_RSSC_VIEW_MODE_FEED', 'mode 2: feed ¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤µ¤ì¤¿¥Ç¡¼¥¿');
 define('_AM_RSSC_VIEW_SANITIZE', 'html ¥µ¥Ë¥¿¥¤¥º¤¹¤ë');
 define('_AM_RSSC_VIEW_TITLE_HTML','¥¿¥¤¥È¥ë¤ÎHTML¥¿¥°¤ÎÉ½¼¨');
-define('_AM_RSSC_VIEW_TITLE_HTML_DESC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
+define('_AM_RSSC_VIEW_TITLE_HTML_DESC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br>¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
 define('_AM_RSSC_VIEW_CONTENT_HTML','ËÜÊ¸¤ÎHTML¥¿¥°¤ÎÉ½¼¨');
-define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
+define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br>¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
 define('_AM_RSSC_VIEW_MAX_CONTENT','ËÜÊ¸¤ÎºÇÂçÊ¸»ú¿ô');
-define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','¤³¤ÎÊ¸»ú¿ô¤òÄ¶¤¨¤¿¤È¤­¤Ï¡¢HTML¥¿¥°¤Ïºï½ü¤µ¤ì¤Þ¤¹<br /><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
+define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','¤³¤ÎÊ¸»ú¿ô¤òÄ¶¤¨¤¿¤È¤­¤Ï¡¢HTML¥¿¥°¤Ïºï½ü¤µ¤ì¤Þ¤¹<br><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
 define('_AM_RSSC_VIEW_LINK_UPDATE', 'link ¥Æ¡¼¥Ö¥ë¤Î¹¹¿·');
 define('_AM_RSSC_VIEW_FEED_UPDATE', 'feed ¥Æ¡¼¥Ö¥ë¤Î¹¹¿·');
 define('_AM_RSSC_VIEW_FORCE_DISCOVER', 'RSS URL¤Î¶¯À©¸¡½Ð');
@@ -247,17 +247,17 @@ define('_AM_RSSC_PARSE_RSS', 'RDF/RSS/ATOM ¤Î²òÀÏ');
 
 // refresh link
 //define('_AM_RSSC_REFRESH_LINK', 'feed µ­»ö¤Î¹¹¿·');
-//define('_AM_RSSC_REFRESH_LINK_DSC', '°ú¤­Â³¤¤¤Æ¡¢RDF/RSS/ATOM ¤Î feed µ­»ö¤ò¹¹¿·¤·¤Þ¤¹¡£<br />¤â¤·ÀßÄê¤µ¤ì¤Æ¤¤¤Ê¤±¤ì¤Ð¡¢<br /> <b>RDF/RSS/ATOM URL</b> ¤È <b>¥¨¥ó¥³¡¼¥É</b> ¤ò¼«Æ°Åª¤Ë¸¡½Ð¤·¤Þ¤¹¡£');
+//define('_AM_RSSC_REFRESH_LINK_DSC', '°ú¤­Â³¤¤¤Æ¡¢RDF/RSS/ATOM ¤Î feed µ­»ö¤ò¹¹¿·¤·¤Þ¤¹¡£<br>¤â¤·ÀßÄê¤µ¤ì¤Æ¤¤¤Ê¤±¤ì¤Ð¡¢<br> <b>RDF/RSS/ATOM URL</b> ¤È <b>¥¨¥ó¥³¡¼¥É</b> ¤ò¼«Æ°Åª¤Ë¸¡½Ð¤·¤Þ¤¹¡£');
 //define('_AM_RSSC_REFRESH_LINK_FINISHED', 'feed µ­»ö¤ò¹¹¿·¤·¤¿');
 
 // === 2006-07-08 ===
 // description at main
 define('_AM_RSSC_CONF_INDEX_DESC','¥á¥¤¥ó¥Ú¡¼¥¸¤ÎÀâÌÀ');
 define('_AM_RSSC_CONF_INDEX_DESC_DSC', '¥á¥¤¥ó¥Ú¡¼¥¸¤ËÉ½¼¨¤¹¤ë¤È¤­¤Ï¡¢ÀâÌÀÊ¸¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤¡£');
-define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">¤³¤³¤Ë¤ÏÀâÌÀÊ¸¤òÉ½¼¨¤·¤Þ¤¹¡£<br />ÀâÌÀÊ¸¤Ï¡Ö¥â¥¸¥å¡¼¥ë¤ÎÀßÄê¡×¤Ë¤ÆÊÔ½¸¤Ç¤­¤Þ¤¹¡£<br /></div><br />');
+define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">¤³¤³¤Ë¤ÏÀâÌÀÊ¸¤òÉ½¼¨¤·¤Þ¤¹¡£<br>ÀâÌÀÊ¸¤Ï¡Ö¥â¥¸¥å¡¼¥ë¤ÎÀßÄê¡×¤Ë¤ÆÊÔ½¸¤Ç¤­¤Þ¤¹¡£<br></div><br>');
 
 // link table
-define('_AM_RSSC_LINK_DESC','ÅÐÏ¿¤¹¤ëWEB¥µ¥¤¥È¤¬ RSS Auto Discovery (¼«Æ°¸¡½Ð) ¤ËÂÐ±þ¤·¤Æ¤¤¤ë¾ì¹ç¤Ï¡¢<br /><b>RDF/RSS/ATOM URL</b> ¤È <b>¥¨¥ó¥³¡¼¥É</b> ¤òµ­Æþ¤·¤Ê¤¯¤È¤â¡¢¼«Æ°Åª¤ËÀßÄê¤µ¤ì¤Þ¤¹');
+define('_AM_RSSC_LINK_DESC','ÅÐÏ¿¤¹¤ëWEB¥µ¥¤¥È¤¬ RSS Auto Discovery (¼«Æ°¸¡½Ð) ¤ËÂÐ±þ¤·¤Æ¤¤¤ë¾ì¹ç¤Ï¡¢<br><b>RDF/RSS/ATOM URL</b> ¤È <b>¥¨¥ó¥³¡¼¥É</b> ¤òµ­Æþ¤·¤Ê¤¯¤È¤â¡¢¼«Æ°Åª¤ËÀßÄê¤µ¤ì¤Þ¤¹');
 //define('_AM_RSSC_LINK_EXIST', '¤½¤Î¡ÖRDF/RSS/ATOM URL¡×¤ÏÅÐÏ¿ºÑ¤ß¤Ç¤¹');
 //define('_AM_RSSC_LINK_EXIST_MORE','Æ±¤¸¡ÖRDF/RSS/ATOM URL¡×¤ò»ý¤ÄÊ£¿ô¤Î¥ê¥ó¥¯¤¬¸«¤Ä¤«¤ê¤Þ¤·¤¿');
 //define('_AM_RSSC_AUTO_FIND_FAILD','RSS Auto Discovery  (¼«Æ°¸¡½Ð) ¤¬½ÐÍè¤Þ¤»¤ó¤Ç¤·¤¿');
@@ -269,11 +269,11 @@ define('_AM_RSSC_BLACK_MEMO','È÷¹Í');
 // === 2006-09-20 ===
 // show content with html
 define('_AM_RSSC_CONF_SHOW_TITLE_HTML','¥¿¥¤¥È¥ë¤ÎHTML¥¿¥°¤ÎÉ½¼¨');
-define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
+define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br>¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
 define('_AM_RSSC_CONF_SHOW_CONTENT_HTML','ËÜÊ¸¤ÎHTML¥¿¥°¤ÎÉ½¼¨');
-define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
+define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br>¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
 define('_AM_RSSC_CONF_SHOW_MAX_CONTENT','ËÜÊ¸¤ÎºÇÂçÊ¸»ú¿ô');
-define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', '¤³¤ÎÊ¸»ú¿ô¤òÄ¶¤¨¤¿¤È¤­¤Ï¡¢HTML¥¿¥°¤Ïºï½ü¤µ¤ì¤Þ¤¹<br /><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
+define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', '¤³¤ÎÊ¸»ú¿ô¤òÄ¶¤¨¤¿¤È¤­¤Ï¡¢HTML¥¿¥°¤Ïºï½ü¤µ¤ì¤Þ¤¹<br><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT','ËÜÊ¸¤òÉ½¼¨¤¹¤ëfeed·ï¿ô');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT_DSC', 'ËÜÊ¸¤òÉ½¼¨¤¹¤ëºÇÂç·ï¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤');
 define('_AM_RSSC_CONF_SHOW_BLOG_LID','Bolg ¤òÉ½¼¨¤¹¤ë Link ID');
@@ -288,9 +288,9 @@ define('_AM_RSSC_CONF_PROXY_USE',  '¥×¥í¥­¥·¡¦¥µ¡¼¥Ð¡¼¤ò»ÈÍÑ¤¹¤ë');
 define('_AM_RSSC_CONF_PROXY_HOST', '¥×¥í¥­¥·¡¦¥Û¥¹¥ÈÌ¾');
 define('_AM_RSSC_CONF_PROXY_PORT', '¥×¥í¥­¥·¡¦¥Ý¡¼¥ÈÈÖ¹æ');
 define('_AM_RSSC_CONF_PROXY_USER', '¥×¥í¥­¥·¡¦¥æ¡¼¥¶Ì¾');
-define('_AM_RSSC_CONF_PROXY_USER_DESC', '¥×¥í¥­¥·¡¦¥µ¡¼¥Ð¡¼¤¬BASICÇ§¾Ú¤òÉ¬Í×¤È¤¹¤ë¾ì¹ç¤Ï¡¢¥æ¡¼¥¶Ì¾¤òÆþÎÏ¤¹¤ë<br />¤½¤¦¤Ç¤Ê¤±¤ì¤Ð¡¢¶õÍó¤Î¤Þ¤Þ¤Ë¤¹¤ë');
+define('_AM_RSSC_CONF_PROXY_USER_DESC', '¥×¥í¥­¥·¡¦¥µ¡¼¥Ð¡¼¤¬BASICÇ§¾Ú¤òÉ¬Í×¤È¤¹¤ë¾ì¹ç¤Ï¡¢¥æ¡¼¥¶Ì¾¤òÆþÎÏ¤¹¤ë<br>¤½¤¦¤Ç¤Ê¤±¤ì¤Ð¡¢¶õÍó¤Î¤Þ¤Þ¤Ë¤¹¤ë');
 define('_AM_RSSC_CONF_PROXY_PASS', '¥×¥í¥­¥·¡¦¥Ñ¥¹¥ï¡¼¥É');
-define('_AM_RSSC_CONF_PROXY_PASS_DESC', '¥×¥í¥­¥·¡¦¥µ¡¼¥Ð¡¼¤¬BASICÇ§¾Ú¤òÉ¬Í×¤È¤¹¤ë¾ì¹ç¤Ï¡¢¥Ñ¥¹¥ï¡¼¥É¤òÆþÎÏ¤¹¤ë<br />¤½¤¦¤Ç¤Ê¤±¤ì¤Ð¡¢¶õÍó¤Î¤Þ¤Þ¤Ë¤¹¤ë');
+define('_AM_RSSC_CONF_PROXY_PASS_DESC', '¥×¥í¥­¥·¡¦¥µ¡¼¥Ð¡¼¤¬BASICÇ§¾Ú¤òÉ¬Í×¤È¤¹¤ë¾ì¹ç¤Ï¡¢¥Ñ¥¹¥ï¡¼¥É¤òÆþÎÏ¤¹¤ë<br>¤½¤¦¤Ç¤Ê¤±¤ì¤Ð¡¢¶õÍó¤Î¤Þ¤Þ¤Ë¤¹¤ë');
 
 define('_AM_RSSC_CONF_HIGHLIGHT', '¥­¡¼¥ï¡¼¥É¤Î¥Ï¥¤¥é¥¤¥ÈÉ½¼¨¤ò»ÈÍÑ¤¹¤ë');
 
@@ -321,7 +321,7 @@ define('_AM_RSSC_CONF_LINK_USE_DESC','¥ê¥ó¥¯¥Æ¡¼¥Ö¥ë¤Î¡Ö¥¿¥¤¥×¡×¤¬¡ÖÄÌ¾ï¡×¤Ç¤¢¤ì
 define('_AM_RSSC_CONF_WHITE_USE','¥Û¥ï¥¤¥È¥ê¥¹¥È¤Î»ÈÍÑ');
 define('_AM_RSSC_CONF_WHITE_USE_DESC','¥Û¥ï¥¤¥È¥ê¥¹¥È¤Ë¤¢¤ì¤Ð¡¢ÊÝÂ¸¤¹¤ë');
 define('_AM_RSSC_CONF_BLACK_USE','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Î»ÈÍÑ');
-define('_AM_RSSC_CONF_BLACK_USE_DESC','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Ë¤¢¤ì¤Ð¡¢ÊÝÂ¸¤·¤Ê¤¤<br />»ÈÍÑ¤Ç¤Ï¡¢¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤¹¤ë¤È¡¢°Ê¹ß¤Î½èÍý¤òÃæÃÇ¤¹¤ë<br />³Ø½¬¥â¡¼¥É¤Ç¤Ï¡¢¶Ø»ß¸ì¤òÃê½Ð¤¹¤ë¤¿¤á¡¢½èÍý¤ò·ÑÂ³¤¹¤ë');
+define('_AM_RSSC_CONF_BLACK_USE_DESC','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Ë¤¢¤ì¤Ð¡¢ÊÝÂ¸¤·¤Ê¤¤<br>»ÈÍÑ¤Ç¤Ï¡¢¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤¹¤ë¤È¡¢°Ê¹ß¤Î½èÍý¤òÃæÃÇ¤¹¤ë<br>³Ø½¬¥â¡¼¥É¤Ç¤Ï¡¢¶Ø»ß¸ì¤òÃê½Ð¤¹¤ë¤¿¤á¡¢½èÍý¤ò·ÑÂ³¤¹¤ë');
 define('_AM_RSSC_CONF_BLACK_USE_NO','Ì¤»ÈÍÑ');
 define('_AM_RSSC_CONF_BLACK_USE_YES','»ÈÍÑ');
 define('_AM_RSSC_CONF_BLACK_USE_LEARN','³Ø½¬¥â¡¼¥É');
@@ -329,7 +329,7 @@ define('_AM_RSSC_CONF_WORD_USE','¶Ø»ß¸ì¥ê¥¹¥È¤Î»ÈÍÑ');
 define('_AM_RSSC_CONF_WORD_USE_DESC','¶Ø»ß¸ì¥ê¥¹¥È¤Î¹ç·×ÆÀÅÀ¤¬È½Äê¥ì¥Ù¥ë¤òÄ¶¤¨¤ë¤È¡¢ÊÝÂ¸¤·¤Ê¤¤');
 define('_AM_RSSC_CONF_WORD_LEVEL', 'È½Äê¥ì¥Ù¥ë');
 define('_AM_RSSC_CONF_FEED_SAVE','feed µ­»ö¤ÎÊÝÂ¸');
-define('_AM_RSSC_CONF_FEED_SAVE_DESC','¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤·¤¿¤È¤­¤Ë¡¢feed ¥Æ¡¼¥Ö¥ë¤ËÊÝÂ¸¤¹¤ë¤«ÈÝ¤«¡£<br />
+define('_AM_RSSC_CONF_FEED_SAVE_DESC','¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤·¤¿¤È¤­¤Ë¡¢feed ¥Æ¡¼¥Ö¥ë¤ËÊÝÂ¸¤¹¤ë¤«ÈÝ¤«¡£<br>
 ¡ÖÊÝÂ¸¤¹¤ë¡×¤Ç¤Ï¡¢ÈóÉ½¼¨¤Î¾õÂÖ¤Ë¤·¤ÆÊÝÂ¸¤·¤Þ¤¹¡£');
 define('_AM_RSSC_CONF_FEED_SAVE_NO', 'ÊÝÂ¸¤·¤Ê¤¤');
 define('_AM_RSSC_CONF_FEED_SAVE_YES','ÊÝÂ¸¤¹¤ë');
@@ -342,9 +342,9 @@ define('_AM_RSSC_CONF_BLACK_COUNT_DESC','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Ë¹çÃ×¤·¤¿¤È¤­¡¢³ºÅö¤Î¾ò·
 define('_AM_RSSC_CONF_WORD_COUNT','¶Ø»ß¸ì¥ê¥¹¥È¤Î¥«¥¦¥ó¥È');
 define('_AM_RSSC_CONF_WORD_COUNT_DESC','¶Ø»ß¸ì¥ê¥¹¥È¤Ë¹çÃ×¤·¤¿¤È¤­¡¢³ºÅö¤Î¾ò·ï¤ò¥«¥¦¥ó¥È¥¢¥Ã¥×¤¹¤ë');
 define('_AM_RSSC_CONF_BLACK_AUTO','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Î¼«Æ°ÅÐÏ¿');
-define('_AM_RSSC_CONF_BLACK_AUTO_DESC','¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤µ¤ì¤¿URL¤ò¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Ë¼«Æ°Åª¤ËÅÐÏ¿¤¹¤ë<br /><b>Ãí°Õ</b> ¡ÖÌµ¸ú¡×¾õÂÖ¤ÇÅÐÏ¿¤·¤Þ¤¹<br />»ÈÍÑ¤¹¤ë¾ì¹ç¤Ï¡ÖÍ­¸ú¡×¤ËÊÑ¹¹¤·¤Æ¤¯¤À¤µ¤¤');
+define('_AM_RSSC_CONF_BLACK_AUTO_DESC','¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤µ¤ì¤¿URL¤ò¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Ë¼«Æ°Åª¤ËÅÐÏ¿¤¹¤ë<br><b>Ãí°Õ</b> ¡ÖÌµ¸ú¡×¾õÂÖ¤ÇÅÐÏ¿¤·¤Þ¤¹<br>»ÈÍÑ¤¹¤ë¾ì¹ç¤Ï¡ÖÍ­¸ú¡×¤ËÊÑ¹¹¤·¤Æ¤¯¤À¤µ¤¤');
 define('_AM_RSSC_CONF_WORD_AUTO','¶Ø»ß¸ì¤Î¼«Æ°ÅÐÏ¿');
-define('_AM_RSSC_CONF_WORD_AUTO_DESC','¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤µ¤ì¤¿¥³¥ó¥Æ¥ó¥Ä¤Ë´Þ¤Þ¤ì¤ëÃ±¸ì¤ò¼«Æ°Åª¤ËÃê½Ð¤·¤Æ¡¢¶Ø»ß¸ì¥ê¥¹¥È¤Ë¼«Æ°Åª¤ËÅÐÏ¿¤¹¤ë<br /><b>Ãí°Õ</b> ¡ÖÅÀ¿ô¡×=0 ¤ÇÅÐÏ¿¤·¤Þ¤¹<br />»ÈÍÑ¤¹¤ë¾ì¹ç¤ÏÅÀ¿ô¤òÀßÄê¤·¤Æ¤¯¤À¤µ¤¤');
+define('_AM_RSSC_CONF_WORD_AUTO_DESC','¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤µ¤ì¤¿¥³¥ó¥Æ¥ó¥Ä¤Ë´Þ¤Þ¤ì¤ëÃ±¸ì¤ò¼«Æ°Åª¤ËÃê½Ð¤·¤Æ¡¢¶Ø»ß¸ì¥ê¥¹¥È¤Ë¼«Æ°Åª¤ËÅÐÏ¿¤¹¤ë<br><b>Ãí°Õ</b> ¡ÖÅÀ¿ô¡×=0 ¤ÇÅÐÏ¿¤·¤Þ¤¹<br>»ÈÍÑ¤¹¤ë¾ì¹ç¤ÏÅÀ¿ô¤òÀßÄê¤·¤Æ¤¯¤À¤µ¤¤');
 define('_AM_RSSC_CONF_WORD_AUTO_NON','¼«Æ°ÅÐÏ¿¤·¤Ê¤¤');
 define('_AM_RSSC_CONF_WORD_AUTO_SYMBOL','¶õÇò¤äµ­¹æ¤Ë¤è¤ëÃ±¸ì¤ÎÃê½Ð');
 define('_AM_RSSC_CONF_WORD_AUTO_KAKASI','KAKASI¤Ë¤è¤ëÃ±¸ì¤ÎÃê½Ð');
@@ -354,7 +354,7 @@ define('_AM_RSSC_FORM_WORD','Ã±¸ìÃê½Ð¤ÎÀßÄê');
 define('_AM_RSSC_CONF_JOIN_PREV', 'Ã±¸ì¤ÎÏ¢·ë');
 define('_AM_RSSC_CONF_JOIN_PREV_DESC', 'Á°¸å¤ÎÃ±¸ì¤ÈÏ¢·ë¤·¡¢½Ï¸ì¤òºî¤ë');
 define('_AM_RSSC_CONF_JOIN_GLUE', 'Ã±¸ì¤ÎÏ¢·ë»Ò');
-define('_AM_RSSC_CONF_JOIN_GLUE_DESC', 'ÆüËÜ¸ì¤Ç¤Ï²¿¤â»ØÄê¤·¤Ê¤¤<br />±Ñ¸ì¤Ç¤ÏÈ¾³Ñ¶õÇò¤ò»ØÄê¤¹¤ë');
+define('_AM_RSSC_CONF_JOIN_GLUE_DESC', 'ÆüËÜ¸ì¤Ç¤Ï²¿¤â»ØÄê¤·¤Ê¤¤<br>±Ñ¸ì¤Ç¤ÏÈ¾³Ñ¶õÇò¤ò»ØÄê¤¹¤ë');
 define('_AM_RSSC_CONF_KAKASI_PATH','KAKASI¤Î¥³¥Þ¥ó¥É¥Ñ¥¹');
 define('_AM_RSSC_CONF_KAKASI_MODE','KAKASI¤Î¥â¡¼¥É');
 define('_AM_RSSC_CONF_KAKASI_MODE_FILE','°ì»þ¥Õ¥¡¥¤¥ë¤ò»ÈÍÑ¤¹¤ë');
@@ -362,16 +362,16 @@ define('_AM_RSSC_CONF_KAKASI_MODE_PIPE','UNIX pipe ¤ò»ÈÍÑ¤¹¤ë');
 define('_AM_RSSC_CONF_CHAR_LENGTH', 'Ã±¸ì¤ÎºÇ¾®Ê¸»ú¿ô');
 define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'Ãê½Ð¤¹¤ëÃ±¸ì¤ÎºÇ¾®¤Î(È¾³Ñ)Ê¸»ú¿ô');
 define('_AM_RSSC_CONF_WORD_LIMIT', '¶Ø»ß¸ì¤ÎºÇÂç¤ÎÅÐÏ¿¿ô');
-define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'word ¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤¹¤ë¶Ø»ß¸ì¤ÎºÇÂç¤ÎÅÐÏ¿¿ô¤ò»ØÄê¤¹¤ë<br />¤³¤ÎÃÍ¤òÄ¶¤¨¤ë¤ÈÆüÉÕ¤Î¸Å¤¤Êý¤«¤é¥¯¥ê¥¢¤µ¤ì¤ë¡£<br /><b>0</b> ¤ÏÌµÀ©¸Â¤À¤¬¡¢¿ä¾©¤·¤Ê¤¤¡£');
+define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'word ¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤¹¤ë¶Ø»ß¸ì¤ÎºÇÂç¤ÎÅÐÏ¿¿ô¤ò»ØÄê¤¹¤ë<br>¤³¤ÎÃÍ¤òÄ¶¤¨¤ë¤ÈÆüÉÕ¤Î¸Å¤¤Êý¤«¤é¥¯¥ê¥¢¤µ¤ì¤ë¡£<br><b>0</b> ¤ÏÌµÀ©¸Â¤À¤¬¡¢¿ä¾©¤·¤Ê¤¤¡£');
 define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi ¤¬¼Â¹Ô²ÄÇ½¤Ç¤¹');
 define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi ¤¬¼Â¹Ô¤Ç¤­¤Þ¤»¤ó');
 define('_AM_RSSC_CONF_HTML_GET','HTML¤Î¼«Æ°¼èÆÀ');
-define('_AM_RSSC_CONF_HTML_GET_DESC','¶Ø»ß¸ì¥ê¥¹¥È¤ò»ÈÍÑ¤·¤ÆÈ½Äê¤ò¹Ô¤¦¤È¤­¤Ë¡¢È¯¸À¸µ¤ÎHTML¥Ç¡¼¥¿¤ò¼«Æ°¼èÆÀ¤·¤Þ¤¹<br />HTML¥Ç¡¼¥¿¤ò¼èÆÀ¤¹¤ë¤È¡¢È½Äê¤ÎÀºÅÙ¤Ï¸þ¾å¤·¤Þ¤¹¤¬¡¢¼Â¹Ô»þ´Ö¤âÂç¤­¤¯¤Ê¤ê¤Þ¤¹');
+define('_AM_RSSC_CONF_HTML_GET_DESC','¶Ø»ß¸ì¥ê¥¹¥È¤ò»ÈÍÑ¤·¤ÆÈ½Äê¤ò¹Ô¤¦¤È¤­¤Ë¡¢È¯¸À¸µ¤ÎHTML¥Ç¡¼¥¿¤ò¼«Æ°¼èÆÀ¤·¤Þ¤¹<br>HTML¥Ç¡¼¥¿¤ò¼èÆÀ¤¹¤ë¤È¡¢È½Äê¤ÎÀºÅÙ¤Ï¸þ¾å¤·¤Þ¤¹¤¬¡¢¼Â¹Ô»þ´Ö¤âÂç¤­¤¯¤Ê¤ê¤Þ¤¹');
 define('_AM_RSSC_CONF_HTML_GET_NO','¼«Æ°¼èÆÀ¤·¤Ê¤¤');
 define('_AM_RSSC_CONF_HTML_GET_YES','¼«Æ°¼èÆÀ¤¹¤ë');
 define('_AM_RSSC_CONF_HTML_GET_BLACK','¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤µ¤ì¤È¤­¤Ë¼«Æ°¼èÆÀ¤¹¤ë');
 define('_AM_RSSC_CONF_HTML_LIMIT', 'HTML¥Ç¡¼¥¿¤ÎºÇÂç¤ÎÊ¸»ú¿ô');
-define('_AM_RSSC_CONF_HTML_LIMIT_DESC', '¼«Æ°¼èÆÀ¤·¤¿HTML¥Ç¡¼¥¿¤ÎºÇÂç¤ÎÊ¸»ú¿ô<br />¥µ¥¤¥È¤Ë¤è¤Ã¤Æ¤ÏÂç¤­¤Ê¥Ç¡¼¥¿¤È¤Ê¤ê¡¢¤½¤ÎÊ¬ ¼Â¹Ô»þ´Ö¤¬Ä¹¤¯¤Ê¤ê¤Þ¤¹');
+define('_AM_RSSC_CONF_HTML_LIMIT_DESC', '¼«Æ°¼èÆÀ¤·¤¿HTML¥Ç¡¼¥¿¤ÎºÇÂç¤ÎÊ¸»ú¿ô<br>¥µ¥¤¥È¤Ë¤è¤Ã¤Æ¤ÏÂç¤­¤Ê¥Ç¡¼¥¿¤È¤Ê¤ê¡¢¤½¤ÎÊ¬ ¼Â¹Ô»þ´Ö¤¬Ä¹¤¯¤Ê¤ê¤Þ¤¹');
 
 // archive manage
 define('_AM_RSSC_LEAN_BLACK', '¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Î³Ø½¬');
@@ -393,12 +393,12 @@ define('_AM_RSSC_CONF_SHOW_SITE', '¥µ¥¤¥È¾ðÊó');
 define('_AM_RSSC_CONF_SHOW_SITE_DSC', '¥µ¥¤¥ÈÌ¾¤ÈURL¤òÉ½¼¨¤¹¤ë¤«');
 
 // link table
-define('_AM_RSSC_LINK_CENSOR_DESC', 'Ê¸»úÎó¤ÈÊ¸»úÎó¤Î´Ö¤Ï <b>|</b> ¤Ç¶èÀÚ¤ê¤Þ¤¹<br />ÂçÊ¸»ú¾®Ê¸»ú¤Ï¶èÊÌ¤·¤Þ¤¹');
+define('_AM_RSSC_LINK_CENSOR_DESC', 'Ê¸»úÎó¤ÈÊ¸»úÎó¤Î´Ö¤Ï <b>|</b> ¤Ç¶èÀÚ¤ê¤Þ¤¹<br>ÂçÊ¸»ú¾®Ê¸»ú¤Ï¶èÊÌ¤·¤Þ¤¹');
 
 // === 2008-01-20 ===
 // menu
 define('_AM_RSSC_FORM_HTMLOUT',       'HTML½ÐÎÏÀßÄê');
-define('_AM_RSSC_FORM_HTMLOUT_DESC',  'ËÜÊ¸¤ÎHTML¥¿¥°¤ÎÉ½¼¨¤ò¡Ö¤Ï¤¤¡×¤ËÀßÄê¤·¤¿¤È¤­¤Î¡¢ËÜÊ¸¤Î½èÍý<br />¡Ö¤¤¤¤¤¨¡×¤Î¤È¤­¤Ï¡¢Á´¤Æ¤Î¥¿¥°¤Ïºï½ü¤µ¤ì¤ë<br />XSS (¥¯¥í¥¹¥µ¥¤¥È¥¹¥¯¥ê¥×¥Æ¥£¥ó¥°) ËÉ»ß¤Î¤¿¤á¤Ë¡¢JavaScript ´Ø·¸¤Îµ­½Ò¤Ïºï½ü¤¹¤ë¤«Ê¸»úÎóÊÑ´¹¤¹¤ë¤³¤È¤ò¤ª´«¤á¤·¤Þ¤¹');
+define('_AM_RSSC_FORM_HTMLOUT_DESC',  'ËÜÊ¸¤ÎHTML¥¿¥°¤ÎÉ½¼¨¤ò¡Ö¤Ï¤¤¡×¤ËÀßÄê¤·¤¿¤È¤­¤Î¡¢ËÜÊ¸¤Î½èÍý<br>¡Ö¤¤¤¤¤¨¡×¤Î¤È¤­¤Ï¡¢Á´¤Æ¤Î¥¿¥°¤Ïºï½ü¤µ¤ì¤ë<br>XSS (¥¯¥í¥¹¥µ¥¤¥È¥¹¥¯¥ê¥×¥Æ¥£¥ó¥°) ËÉ»ß¤Î¤¿¤á¤Ë¡¢JavaScript ´Ø·¸¤Îµ­½Ò¤Ïºï½ü¤¹¤ë¤«Ê¸»úÎóÊÑ´¹¤¹¤ë¤³¤È¤ò¤ª´«¤á¤·¤Þ¤¹');
 define('_AM_RSSC_FORM_CUSTOM_PLUGIN', '¥«¥¹¥¿¥à¡¦¥×¥é¥°¥¤¥ó');
 
 // html out
@@ -417,15 +417,15 @@ define('_AM_RSSC_CONF_HTML_COMMENT_DESC', '&lt;!-- ... --&gt; ¤Î½èÍý');
 define('_AM_RSSC_CONF_HTML_CDATA', 'CDATA µ­¹æ');
 define('_AM_RSSC_CONF_HTML_CDATA_DESC', '&lt;![CDATA[ ... ]]&gt; ¤Î½èÍý');
 define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE', 'onMouse Â°À­');
-define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', 'onmouseover="..." ¤ä onclick="..." ¤Î½èÍý<br />¡ÖÊÑ´¹¡×¤Î¤È¤­¤Ï on_mouseover_="..." ¤Î¤è¤¦¤Ë¤Ê¤ë');
+define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', 'onmouseover="..." ¤ä onclick="..." ¤Î½èÍý<br>¡ÖÊÑ´¹¡×¤Î¤È¤­¤Ï on_mouseover_="..." ¤Î¤è¤¦¤Ë¤Ê¤ë');
 define('_AM_RSSC_CONF_HTML_ATTR_STYLE', 'style Â°À­');
-define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', 'style="..." ¤ä class="..." ¤Î½èÍý<br />¡ÖÊÑ´¹¡×¤Î¤È¤­¤Ï style_="..." ¤Î¤è¤¦¤Ë¤Ê¤ë');
+define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', 'style="..." ¤ä class="..." ¤Î½èÍý<br>¡ÖÊÑ´¹¡×¤Î¤È¤­¤Ï style_="..." ¤Î¤è¤¦¤Ë¤Ê¤ë');
 define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS', '¤½¤ÎÂ¾¤Î¥¿¥°¤Îºï½ü');
 define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS_DESC', '&lt;img ... &gt; &lt;a ... &gt; &lt;link ... &gt; ¤Ê¤É¤Î¥¿¥°¤òºï½ü¤¹¤ë¤«');
 define('_AM_RSSC_CONF_HTML_OTHER_TAGS', 'ºï½ü¤·¤Ê¤¤¥¿¥°');
-define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', '¡Ö¤½¤ÎÂ¾¤Î¥¿¥°¤Îºï½ü¡×¤¬¡Ö¤Ï¤¤¡×¤Î¤È¤­¤Ë¡¢ºï½ü¤·¤Ê¤¤¥¿¥°¤òµ­Æþ¤¹¤ë<br /> Îã: <img><a>');
+define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', '¡Ö¤½¤ÎÂ¾¤Î¥¿¥°¤Îºï½ü¡×¤¬¡Ö¤Ï¤¤¡×¤Î¤È¤­¤Ë¡¢ºï½ü¤·¤Ê¤¤¥¿¥°¤òµ­Æþ¤¹¤ë<br> Îã: <img><a>');
 define('_AM_RSSC_CONF_HTML_JAVASCRIPT', 'JavaScriprt Ê¸»úÎó');
-define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', 'JavaScriprt ¤È¤¤¤¦Ê¸»úÎó¤ËÂÐ¤¹¤ë½èÍý<br />¡ÖÊÑ´¹¡×¤Î¤È¤­¤Ï java_script ¤È¤Ê¤ë');
+define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', 'JavaScriprt ¤È¤¤¤¦Ê¸»úÎó¤ËÂÐ¤¹¤ë½èÍý<br>¡ÖÊÑ´¹¡×¤Î¤È¤­¤Ï java_script ¤È¤Ê¤ë');
 
 // plugin
 define('_AM_RSSC_PRE_PLUGIN_DESC', '¥Ç¡¼¥¿¥Ù¡¼¥¹¤Ë³ÊÇ¼¤¹¤ëÁ°¤Ë¼Â¹Ô¤µ¤ì¤ë');
@@ -445,9 +445,9 @@ define('_AM_RSSC_FORM_MAP', 'Google ¥Þ¥Ã¥× ÀßÄê');
 define('_AM_RSSC_CONF_WEBMAP_DIRNAME', 'webmap dirname');
 define('_AM_RSSC_CONF_WEBMAP_DIRNAME_DESC', 'webmap ¥â¥¸¥å¡¼¥ë¤Î¥Ç¥£¥ì¥¯¥È¥êÌ¾¤òÀßÄê¤¹¤ë');
 define('_AM_RSSC_CONF_SHOW_INFO_MAX','¥Þ¡¼¥«¡¼¤ÎÁ´ÂÎ¤ÎºÇÂçÊ¸»ú¿ô');
-define('_AM_RSSC_CONF_SHOW_INFO_MAX_DSC', 'HTML¥¿¥°¤Ïºï½ü¤µ¤ì¤Þ¤¹<br /><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
+define('_AM_RSSC_CONF_SHOW_INFO_MAX_DSC', 'HTML¥¿¥°¤Ïºï½ü¤µ¤ì¤Þ¤¹<br><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
 define('_AM_RSSC_CONF_SHOW_INFO_WIDTH','¥Þ¡¼¥«¡¼¤Î£±¹Ô¤ÎºÇÂçÊ¸»ú¿ô');
-define('_AM_RSSC_CONF_SHOW_INFO_WIDTH_DSC', '¤³¤ÎÊ¸»ú¿ô°Ê¾å¤Î¤È¤­¤Ï²þ¹Ô¤µ¤ì¤Þ¤¹<br /><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
+define('_AM_RSSC_CONF_SHOW_INFO_WIDTH_DSC', '¤³¤ÎÊ¸»ú¿ô°Ê¾å¤Î¤È¤­¤Ï²þ¹Ô¤µ¤ì¤Þ¤¹<br><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
 define('_AM_RSSC_CONF_SHOW_ICON','¥¢¥¤¥³¥óÉ½¼¨');
 define('_AM_RSSC_CONF_SHOW_ICON_DSC', '¥¢¥¤¥³¥ó¤òÉ½¼¨¤¹¤ë¤«');
 define('_AM_RSSC_CONF_SHOW_THUMB','²èÁüÉ½¼¨');

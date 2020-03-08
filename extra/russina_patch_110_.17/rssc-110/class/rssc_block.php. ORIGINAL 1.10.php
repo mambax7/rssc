@@ -33,7 +33,7 @@ class rssc_block
 //---------------------------------------------------------
 function rssc_block()
 {
-	$this->_db =& Database::getInstance();
+	$this->_db = XoopsDatabaseFactory::getDatabaseConnection();
 	$this->_is_japanese = happy_linux_is_japanese() ;
 }
 
@@ -404,7 +404,7 @@ function get_feed_latest( $param )
 	}
 
 	$rows = array();
-	while ($row = $this->_db->fetchArray($res)) {
+	while (false !== ($row = $this->_db->fetchArray($res))) {
 		$rows[] = $row;
 	}
 	return $rows;
@@ -432,7 +432,7 @@ function get_feed_lid( $param )
 	$res = $this->_db->query($sql, $limit, 0);
 
 	$rows = array();
-	while ($row = $this->_db->fetchArray($res)) {
+	while (false !== ($row = $this->_db->fetchArray($res))) {
 		$rows[] = $row;
 	}
 	return $rows;
@@ -469,7 +469,7 @@ function get_link_headline( $param )
 	}
 
 	$rows = array();
-	while ($row = $this->_db->fetchArray($res)) {
+	while (false !== ($row = $this->_db->fetchArray($res))) {
 		$rows[] = $row;
 	}
 	return $rows;
@@ -480,7 +480,7 @@ function get_link_headline( $param )
 //---------------------------------------------------------
 function get_icon_list( $DIRNAME )
 {
-	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_icon.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_icon.php';
 	$icon_class =& rssc_icon::getInstance();
 	return  $icon_class->build_template_icon_list( $DIRNAME );
 }
@@ -496,7 +496,7 @@ function get_map( $param )
 	$info_width     = $param['info_width'] ;
 	$feeds          = $param['feeds'] ;
 
-	include_once XOOPS_ROOT_PATH.'/modules/'. $rssc_dirname  .'/class/rssc_map.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'. $rssc_dirname  .'/class/rssc_map.php';
 	$map_class =& rssc_map::getInstance();
 
 	$ret = $map_class->init( $webmap_dirname );

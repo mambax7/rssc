@@ -22,9 +22,9 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
-include_once RSSC_ROOT_PATH . '/admin/admin_manage_base_class.php';
-include_once RSSC_ROOT_PATH . '/admin/admin_form_black_white.php';
+require __DIR__ . '/admin_header.php';
+require_once RSSC_ROOT_PATH . '/admin/admin_manage_base_class.php';
+require_once RSSC_ROOT_PATH . '/admin/admin_form_black_white.php';
 
 //=========================================================
 // class white manage
@@ -39,7 +39,7 @@ class admin_manage_white extends admin_manage_base
     {
         admin_manage_base::__construct();
 
-        $this->set_handler('white', RSSC_DIRNAME, 'rssc');
+        $this->setHandler('white', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('wid');
         $this->set_form_class('admin_form_white');
         $this->set_script('white_manage.php');

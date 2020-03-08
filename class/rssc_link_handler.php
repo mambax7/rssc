@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_link_handler.php,v 1.2 2012/04/10 03:06:50 ohwada Exp $
+// $Id: rssc_linkHandler.php,v 1.2 2012/04/10 03:06:50 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
 // url XOBJ_DTYPE_URL -> XOBJ_DTYPE_URL_AREA
@@ -17,16 +17,16 @@
 // enclosure censor plugin in link
 
 // 2007-06-01 K.OHWADA
-// divid to xml_handler
+// divid to xmlHandler
 // add get_ltype_option()
 // use rssc_link_basic
 
 // 2006-09-18 K.OHWADA
-// move build_error_rssurl_list() from rssc_link_exist_handler
+// move build_error_rssurl_list() from rssc_link_existHandler
 // change _build_insert_sql() get_list_by_rssurl()
 
 // 2006-07-10 K.OHWADA
-// use happy_linux_object happy_linux_object_handler
+// use happy_linux_object happy_linux_objectHandler
 
 // 2006-06-04 K.OHWADA
 // add build_show(), get_export_channel()
@@ -42,12 +42,12 @@
 // Rss Center Module
 // this file contain 2 class
 //   rssc_link
-//   rssc_link_handler
+//   rssc_linkHandler
 // 2006-01-01 K.OHWADA
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_link_handler') ) 
+if( !class_exists('rssc_linkHandler') ) 
 {
 
 //=========================================================
@@ -239,7 +239,7 @@ public function &get_enclosure_option()
 //=========================================================
 // class link handler
 //=========================================================
-    class rssc_link_handler extends happy_linux_object_handler
+    class rssc_linkHandler extends happy_linux_objectHandler
     {
         // link table
         public $_link_lid;
@@ -476,7 +476,7 @@ public function &get_enclosure_option()
 
     public function get_mode_option()
         {
-            $obj =& $this->create();
+            $obj =  $this->create();
             return $obj->get_mode_option();
         }
 
@@ -490,7 +490,7 @@ public function &get_enclosure_option()
         {
             $lid = (int)$lid;
             if ($lid < 0) {
-                $this->_set_errors('rssc_link_handler: lid not above zero');
+                $this->_set_errors('rssc_linkHandler: lid not above zero');
                 return false;
             }
 
@@ -501,14 +501,14 @@ public function &get_enclosure_option()
         public function _get_link_obj($lid)
         {
             if (!$this->_set_lid($lid)) {
-                $this->_set_errors('rssc_link_handler: lid not above zero');
+                $this->_set_errors('rssc_linkHandler: lid not above zero');
                 return false;
             }
 
             $obj =& $this->get($lid);
 
             if (!is_object($obj)) {
-                $this->_set_errors('rssc_link_handler: link object not exist');
+                $this->_set_errors('rssc_linkHandler: link object not exist');
                 return false;
             }
 

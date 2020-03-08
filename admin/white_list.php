@@ -23,9 +23,9 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
-include_once RSSC_ROOT_PATH.'/admin/admin_list_black_white.php';
+require_once RSSC_ROOT_PATH.'/admin/admin_list_black_white.php';
 
 //=========================================================
 // class admin list white
@@ -39,7 +39,7 @@ class admin_list_white extends admin_list_black_white
     public function __construct()
     {
         admin_list_black_white::__construct();
-        $this->set_handler('white', RSSC_DIRNAME);
+        $this->setHandler('white', RSSC_DIRNAME);
         $this->set_id_name('wid');
         $this->set_flag_execute_time(true);
 

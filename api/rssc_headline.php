@@ -5,7 +5,7 @@
 // api/view.php api/refresh.php
 
 // 2006-09-15 K.OHWADA
-// not use rssc_link_exist_handler.php
+// not use rssc_link_existHandler.php
 // use happy_linux/include/version.php
 
 // 2006-07-10 K.OHWADA
@@ -28,17 +28,17 @@ if ( !file_exists(XOOPS_ROOT_PATH.'/modules/happy_linux/include/version.php') )
 	die('require happy_linux module');
 }
 
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/version.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/version.php';
 
 //---------------------------------------------------------
 // rssc
 //---------------------------------------------------------
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/view.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/refresh.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/manage.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/lang_main.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/view.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/refresh.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/manage.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/lang_main.php';
 
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_version.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_version.php';
 
 // check happy_linux version
 if ( HAPPY_LINUX_VERSION < RSSC_HAPPY_LINUX_VERSION ) 

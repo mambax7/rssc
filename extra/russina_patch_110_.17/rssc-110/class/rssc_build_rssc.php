@@ -35,8 +35,8 @@ class rssc_build_rssc extends happy_linux_build_rss
 {
 	var $_DIRNAME;
 
-	var $_config_handler;
-	var $_search_handler;
+	var $_configHandler;
+	var $_searchHandler;
 
 	var $_CACHE_ID_QUERY = 'query';
 
@@ -132,35 +132,35 @@ function view()
 //---------------------------------------------------------
 function _init()
 {
-	$this->_config_handler =& rssc_get_handler( 'config_basic', $this->_DIRNAME );
-	$this->_search_handler =& rssc_get_handler( 'search',       $this->_DIRNAME );
+	$this->_configHandler =& rssc_getHandler( 'config_basic', $this->_DIRNAME );
+	$this->_searchHandler =& rssc_getHandler( 'search',       $this->_DIRNAME );
 }
 
 function _get_query()
 {
-	return $this->_search_handler->get_post_get_query();
+	return $this->_searchHandler->get_post_get_query();
 }
 
 function &_get_feeds()
 {
-	$conf =& $this->_config_handler->get_conf();
+	$conf =& $this->_configHandler->get_conf();
 	$max_limit = $conf['main_search_perpage'];
 
-	$this->_search_handler->setFeedLimit(  $max_limit );
-	$this->_search_handler->setMinKeyword( $conf['main_search_min'] );
-	$this->_search_handler->setFeedOrder(  $conf['main_search_order'] );
-	$this->_search_handler->setFutureDays( $conf['basic_future_days'] );
-	$this->_search_handler->setFlagSanitize(0);	// not sanitize
+	$this->_searchHandler->setFeedLimit(  $max_limit );
+	$this->_searchHandler->setMinKeyword( $conf['main_search_min'] );
+	$this->_searchHandler->setFeedOrder(  $conf['main_search_order'] );
+	$this->_searchHandler->setFutureDays( $conf['basic_future_days'] );
+	$this->_searchHandler->setFlagSanitize(0);	// not sanitize
 
-	$limit = $this->_search_handler->get_get_limit();
-	$start = $this->_search_handler->get_get_start();
+	$limit = $this->_searchHandler->get_get_limit();
+	$start = $this->_searchHandler->get_get_start();
 
 	if ($limit <= 0)
 	{
 		$limit = $max_limit;
 	}
 
-	$feeds =& $this->_search_handler->get_feeds_for_rss($limit, $start);
+	$feeds =& $this->_searchHandler->get_feeds_for_rss($limit, $start);
 	return $feeds;
 }
 

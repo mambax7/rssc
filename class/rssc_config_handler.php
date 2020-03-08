@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_config_handler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
+// $Id: rssc_configHandler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
 
 // 2006-09-01 K.OHWADA
 // add check_version_040() add_column_table_040()
@@ -7,19 +7,19 @@
 // 2006-07-08 K.OHWADA
 // this file is renewal
 // unify with weblinks
-// use happy_linux_config_base happy_linux_config_base_handler
+// use happy_linux_config_base happy_linux_config_baseHandler
 
 //================================================================
 // RSS Center Module
 // this file contain 2 class
 //   rssc_config 
-//   rssc_config_handler
+//   rssc_configHandler
 // porting form RSSC 
 // 2006-07-08 K.OHWADA
 //================================================================
 
 // === class begin ===
-if( !class_exists('rssc_config_handler') ) 
+if( !class_exists('rssc_configHandler') ) 
 {
 
 //================================================================
@@ -42,7 +42,7 @@ if( !class_exists('rssc_config_handler') )
 //=========================================================
 // class config handler
 //=========================================================
-    class rssc_config_handler extends happy_linux_config_base_handler
+    class rssc_configHandler extends happy_linux_config_baseHandler
     {
 
         //---------------------------------------------------------

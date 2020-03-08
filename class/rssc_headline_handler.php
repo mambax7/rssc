@@ -1,8 +1,8 @@
 <?php
-// $Id: rssc_headline_handler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
+// $Id: rssc_headlineHandler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
 
 // 2007-06-01 K.OHWADA
-// link_basic_handler
+// link_basicHandler
 
 // 2006-07-10 K.OHWADA
 // use happy_linux_error
@@ -12,7 +12,7 @@
 
 // 2006-06-04 K.OHWADA
 // this is new file
-// move from rssc_refresh_handler.php
+// move from rssc_refreshHandler.php
 
 //=========================================================
 // Rss Center Module
@@ -20,17 +20,17 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_headline_handler') ) 
+if( !class_exists('rssc_headlineHandler') ) 
 {
 
 //=========================================================
-// class rssc_headline_handler
+// class rssc_headlineHandler
 //=========================================================
-    class rssc_headline_handler extends happy_linux_error
+    class rssc_headlineHandler extends happy_linux_error
     {
         // handler
-        public $_link_handler;
-        public $_refresh_handler;
+        public $_linkHandler;
+        public $_refreshHandler;
 
         //---------------------------------------------------------
         // constructor
@@ -40,8 +40,8 @@ if( !class_exists('rssc_headline_handler') )
             parent::__construct();
 
             // handler
-            $this->_link_handler    =& rssc_get_handler('link_basic', $dirname);
-            $this->_refresh_handler =& rssc_get_handler('refresh', $dirname);
+            $this->_linkHandler    =& rssc_getHandler('link_basic', $dirname);
+            $this->_refreshHandler =& rssc_getHandler('refresh', $dirname);
         }
 
         //---------------------------------------------------------
@@ -51,13 +51,13 @@ if( !class_exists('rssc_headline_handler') )
         {
             $this->_clear_errors();
 
-            $lid_arr = $this->_link_handler->get_headline_lids($limit, $start);
+            $lid_arr = $this->_linkHandler->get_headline_lids($limit, $start);
 
             // refresh
             foreach ($lid_arr as $lid) {
-                if (!$this->_refresh_handler->refresh($lid)) {
+                if (!$this->_refreshHandler->refresh($lid)) {
                     // Fatal error: Call to a member function on a non-object
-                    $this->_set_errors($this->_refresh_handler->getErrors());
+                    $this->_set_errors($this->_refreshHandler->getErrors());
                 }
             }
 
@@ -69,7 +69,7 @@ if( !class_exists('rssc_headline_handler') )
         //---------------------------------------------------------
         public function &get_headline_links($limit = 0, $start = 0)
         {
-            $links =& $this->_link_handler->get_headlines($limit, $start);
+            $links =& $this->_linkHandler->get_headlines($limit, $start);
             return $links;
         }
 

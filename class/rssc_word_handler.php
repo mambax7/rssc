@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_word_handler.php,v 1.1 2011/12/29 14:37:16 ohwada Exp $
+// $Id: rssc_wordHandler.php,v 1.1 2011/12/29 14:37:16 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
 // move create_table() to rssc_install.php
@@ -8,12 +8,12 @@
 // Rss Center Module
 // this file contain 2 class
 //   rssc_word
-//   rssc_word_handler
+//   rssc_wordHandler
 // 2007-06-01 K.OHWADA
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_word_handler') ) 
+if( !class_exists('rssc_wordHandler') ) 
 {
 
 //=========================================================
@@ -46,7 +46,7 @@ public function __construct()
 //=========================================================
 // class word handler
 //=========================================================
-    class rssc_word_handler extends happy_linux_object_handler
+    class rssc_wordHandler extends happy_linux_objectHandler
     {
 
         //---------------------------------------------------------

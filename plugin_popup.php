@@ -6,7 +6,7 @@
 // 2008-01-20 K.OHWADA
 //================================================================
 
-include 'header.php';
+require __DIR__ . '/header.php';
 
 //=========================================================
 // class rssc_plugin_list
@@ -70,7 +70,7 @@ class rssc_plugin_list
     public function _build_close()
     {
         $text = '<div style="text-align:center;">';
-        $text .= '<input value="' . _CLOSE . '" type="button" onclick="javascript:window.close();" />';
+        $text .= '<input value="' . _CLOSE . '" type="button" onclick="javascript:window.close();">';
         $text .= '</div>' . "\n";
         return $text;
     }

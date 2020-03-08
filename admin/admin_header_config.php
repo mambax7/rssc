@@ -6,23 +6,23 @@
 // 2007-11-11 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
 //---------------------------------------------------------
 // happy_linux
 //---------------------------------------------------------
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/config_base_handler.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/config_define_handler.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/config_store_handler.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/module_install.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/config_baseHandler.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/config_defineHandler.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/config_storeHandler.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/module_install.php';
 
 //---------------------------------------------------------
 // whatsnew
 //---------------------------------------------------------
-include_once RSSC_ROOT_PATH.'/class/rssc_config_define.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_config_handler.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_install.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_config_define.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_configHandler.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_install.php';
 
-//include_once RSSC_ROOT_PATH.'/admin/admin_table_class.php';
-include_once RSSC_ROOT_PATH.'/admin/admin_config_class.php';
+//require_once RSSC_ROOT_PATH.'/admin/admin_table_class.php';
+require_once RSSC_ROOT_PATH.'/admin/admin_config_class.php';
 

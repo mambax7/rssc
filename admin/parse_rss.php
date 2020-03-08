@@ -11,7 +11,7 @@
 
 // 2007-06-01 K.OHWADA
 // api/refresh.php
-// link_basic_handler xml_basic_handler
+// link_basicHandler xml_basicHandler
 // get_lang_items()
 
 // 2006-11-08 K.OHWADA
@@ -33,12 +33,12 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
-include_once XOOPS_ROOT_PATH.'/class/template.php';
+require_once XOOPS_ROOT_PATH.'/class/template.php';
 
-include_once RSSC_ROOT_PATH.'/api/view.php';
-include_once RSSC_ROOT_PATH.'/api/refresh.php';
+require_once RSSC_ROOT_PATH.'/api/view.php';
+require_once RSSC_ROOT_PATH.'/api/refresh.php';
 
 //=========================================================
 // class admin_parse_rss
@@ -46,11 +46,11 @@ include_once RSSC_ROOT_PATH.'/api/refresh.php';
 class admin_parse_rss extends happy_linux_error
 {
     // handler
-    public $_config_handler;
-    public $_refresh_handler;
-    public $_view_handler;
-    public $_link_basic_handler;
-    public $_xml_basic_handler;
+    public $_configHandler;
+    public $_refreshHandler;
+    public $_viewHandler;
+    public $_link_basicHandler;
+    public $_xml_basicHandler;
     public $_parser;
     public $_post;
     public $_form;
@@ -69,11 +69,11 @@ class admin_parse_rss extends happy_linux_error
     {
         parent::__construct();
 
-        $this->_conf_handler       =& rssc_get_handler('config_basic', RSSC_DIRNAME);
-        $this->_link_basic_handler =& rssc_get_handler('link_basic', RSSC_DIRNAME);
-        $this->_xml_basic_handler  =& rssc_get_handler('xml_basic', RSSC_DIRNAME);
-        $this->_refresh_handler    =& rssc_get_handler('refresh', RSSC_DIRNAME);
-        $this->_view_handler       =& rssc_get_handler('view', RSSC_DIRNAME);
+        $this->_confHandler       =& rssc_getHandler('config_basic', RSSC_DIRNAME);
+        $this->_link_basicHandler =& rssc_getHandler('link_basic', RSSC_DIRNAME);
+        $this->_xml_basicHandler  =& rssc_getHandler('xml_basic', RSSC_DIRNAME);
+        $this->_refreshHandler    =& rssc_getHandler('refresh', RSSC_DIRNAME);
+        $this->_viewHandler       =& rssc_getHandler('view', RSSC_DIRNAME);
         $this->_parser             = happy_linux_rss_parser::getInstance();
         $this->_utility            = happy_linux_rss_utility::getInstance();
         $this->_post               = happy_linux_post::getInstance();
@@ -100,7 +100,7 @@ class admin_parse_rss extends happy_linux_error
     public function main()
     {
         echo '<h3>' . _AM_RSSC_PARSE_RSS . "</h3>\n";
-        echo "<a href='#option'>" . _AM_RSSC_VIEW_RSS_OPTION . "</a><br /><br />\n";
+        echo "<a href='#option'>" . _AM_RSSC_VIEW_RSS_OPTION . "</a><br><br>\n";
 
         $op  = $this->get_post_op();
         $lid = $this->get_post_get_lid();
@@ -120,14 +120,14 @@ class admin_parse_rss extends happy_linux_error
                     $this->display_tpl($param);
                 }
             } else {
-                echo "<font color='red'>" . _NO_RECORD . "</font><br />\n";
+                echo "<font color='red'>" . _NO_RECORD . "</font><br>\n";
             }
         } else {
-            echo "<font color='red'>" . _AM_RSSC_NOT_SELECT_LINK . "</font><br /><br />\n";
-            echo _AM_RSSC_PLEASE_SELECT_LINK . "<br />\n";
+            echo "<font color='red'>" . _AM_RSSC_NOT_SELECT_LINK . "</font><br><br>\n";
+            echo _AM_RSSC_PLEASE_SELECT_LINK . "<br>\n";
         }
 
-        echo "<br />\n";
+        echo "<br>\n";
         echo "<a name='option'><h4>" . _AM_RSSC_VIEW_RSS_OPTION . "</h4></a>\n";
 
         $this->show_rss($param);
@@ -138,13 +138,13 @@ class admin_parse_rss extends happy_linux_error
     //---------------------------------------------------------
     public function exists_link($lid)
     {
-        $ret = $this->_link_basic_handler->exists_by_lid($lid);
+        $ret = $this->_link_basicHandler->exists_by_lid($lid);
         return $ret;
     }
 
     public function &get_link_by_lid($lid)
     {
-        $ret =& $this->_link_basic_handler->get_link_by_lid($lid);
+        $ret =& $this->_link_basicHandler->get_link_by_lid($lid);
         return $ret;
     }
 
@@ -154,7 +154,7 @@ class admin_parse_rss extends happy_linux_error
     public function &get_param($lid = '')
     {
         $false     = false;
-        $conf_data =& $this->_conf_handler->get_conf();
+        $conf_data =& $this->_confHandler->get_conf();
 
         $title    = '';
         $rdf_url  = '';
@@ -207,13 +207,13 @@ class admin_parse_rss extends happy_linux_error
 
     public function get_result($lid, $param)
     {
-        $link_obj =& $this->_link_basic_handler->get_cache_object_by_id($lid);
+        $link_obj =& $this->_link_basicHandler->get_cache_object_by_id($lid);
         if (!is_object($link_obj)) {
             xoops_error('no link object');
             return false;
         }
 
-        $link_xml =& $this->_xml_basic_handler->get_xml_by_lid($lid);
+        $link_xml =& $this->_xml_basicHandler->get_xml_by_lid($lid);
         if (empty($link_xml)) {
             xoops_error('no xml data');
             return false;
@@ -227,45 +227,45 @@ class admin_parse_rss extends happy_linux_error
 
         //	$this->_template = $this->get_template( $rss_mode );
 
-        $this->_refresh_handler->set_debug_parse(1, $xml_url, $link_encoding, $rss_mode);
-        //	$this->_refresh_handler->setRssParser(          $param['parser_rss'] );
-        $this->_refresh_handler->set_link_update($param['link_update']);
-        $this->_refresh_handler->set_feed_update($param['feed_update']);
-        $this->_refresh_handler->set_xml_save($param['xml_save']);
-        $this->_refresh_handler->set_force_discover($param['force_discover']);
-        $this->_refresh_handler->set_force_refresh($param['force_update']);
-        $this->_refresh_handler->set_force_overwrite($param['force_overwrite']);
-        $this->_refresh_handler->set_debug_print_log($param['print_log']);
-        $this->_refresh_handler->set_debug_print_error($param['print_error']);
+        $this->_refreshHandler->set_debug_parse(1, $xml_url, $link_encoding, $rss_mode);
+        //	$this->_refreshHandler->setRssParser(          $param['parser_rss'] );
+        $this->_refreshHandler->set_link_update($param['link_update']);
+        $this->_refreshHandler->set_feed_update($param['feed_update']);
+        $this->_refreshHandler->set_xml_save($param['xml_save']);
+        $this->_refreshHandler->set_force_discover($param['force_discover']);
+        $this->_refreshHandler->set_force_refresh($param['force_update']);
+        $this->_refreshHandler->set_force_overwrite($param['force_overwrite']);
+        $this->_refreshHandler->set_debug_print_log($param['print_log']);
+        $this->_refreshHandler->set_debug_print_error($param['print_error']);
 
-        $this->_view_handler->setFlagSanitize($param['sanitize']);
-        $this->_view_handler->setFeedStart(0);
-        $this->_view_handler->setFeedLimit($param['feed_perpage']);
-        $this->_view_handler->set_title_html($param['title_html']);
-        $this->_view_handler->set_content_html($param['content_html']);
-        $this->_view_handler->set_max_title($param['max_title']);
-        $this->_view_handler->set_max_content($param['max_content']);
-        $this->_view_handler->set_max_summary($param['max_summary']);
+        $this->_viewHandler->setFlagSanitize($param['sanitize']);
+        $this->_viewHandler->setFeedStart(0);
+        $this->_viewHandler->setFeedLimit($param['feed_perpage']);
+        $this->_viewHandler->set_title_html($param['title_html']);
+        $this->_viewHandler->set_content_html($param['content_html']);
+        $this->_viewHandler->set_max_title($param['max_title']);
+        $this->_viewHandler->set_max_content($param['max_content']);
+        $this->_viewHandler->set_max_summary($param['max_summary']);
 
         if (1 == $mode) {
             $result =& $this->get_sanitized_parse_by_lid($lid);
         } elseif (2 == $mode) {
-            if (!$this->_refresh_handler->refresh($lid)) {
-                $this->_set_errors($this->_refresh_handler->getErrors());
+            if (!$this->_refreshHandler->refresh($lid)) {
+                $this->_set_errors($this->_refreshHandler->getErrors());
             }
 
-            $result =& $this->_view_handler->get_sanitized_store_by_lid($lid);
+            $result =& $this->_viewHandler->get_sanitized_store_by_lid($lid);
         } else {
-            $this->_refresh_handler->set_link_update(0);
-            $this->_refresh_handler->set_feed_update(0);
-            $this->_refresh_handler->set_force_refresh(1);
+            $this->_refreshHandler->set_link_update(0);
+            $this->_refreshHandler->set_feed_update(0);
+            $this->_refreshHandler->set_force_refresh(1);
 
-            if (!$this->_refresh_handler->refresh($lid)) {
-                $this->_set_errors($this->_refresh_handler->getErrors());
+            if (!$this->_refreshHandler->refresh($lid)) {
+                $this->_set_errors($this->_refreshHandler->getErrors());
             }
 
-            $data   =& $this->_refresh_handler->getData();
-            $result =& $this->_view_handler->view_format_sanitize($data);
+            $data   =& $this->_refreshHandler->getData();
+            $result =& $this->_viewHandler->view_format_sanitize($data);
         }
 
         if ($this->_error_flag) {
@@ -285,7 +285,7 @@ class admin_parse_rss extends happy_linux_error
             return $false;
         }
 
-        $xml =& $this->_xml_basic_handler->get_xml_by_lid($lid);
+        $xml =& $this->_xml_basicHandler->get_xml_by_lid($lid);
         if (empty($xml)) {
             return $false;
         }
@@ -301,7 +301,7 @@ class admin_parse_rss extends happy_linux_error
         $data1 =& $parse_obj->get_vars();
 
         // sanitize
-        $data2 =& $this->_view_handler->view_sanitize($data1);
+        $data2 =& $this->_viewHandler->view_sanitize($data1);
         return $data2;
     }
 
@@ -403,7 +403,7 @@ class admin_parse_rss extends happy_linux_error
 //=========================================================
 class admin_form_rss extends happy_linux_form
 {
-    public $_link_handler;
+    public $_linkHandler;
 
     //---------------------------------------------------------
     // constructor
@@ -412,7 +412,7 @@ class admin_form_rss extends happy_linux_form
     {
         parent::__construct();
 
-        $this->_link_handler = rssc_get_handler('link', RSSC_DIRNAME);
+        $this->_linkHandler = rssc_getHandler('link', RSSC_DIRNAME);
     }
 
     public static function getInstance()
@@ -505,7 +505,7 @@ class admin_form_rss extends happy_linux_form
         ];
 
         $cap = $this->build_form_caption(_AM_RSSC_VIEW_MODE, _AM_RSSC_VIEW_MODE_DESC);
-        $ele = $this->build_html_input_radio_select('mode_view', $this->_datas['mode_view'], $options, '<br />');
+        $ele = $this->build_html_input_radio_select('mode_view', $this->_datas['mode_view'], $options, '<br>');
         echo $this->build_form_table_line($cap, $ele);
     }
 
@@ -517,7 +517,7 @@ class admin_form_rss extends happy_linux_form
         ];
 
         $cap = $this->build_form_caption(_AM_RSSC_CONF_RSS_ATOM, _AM_RSSC_CONF_RSS_ATOM_DESC);
-        $ele = $this->build_html_input_radio_select('rss_atom', $this->_datas['rss_atom'], $options, '<br />');
+        $ele = $this->build_html_input_radio_select('rss_atom', $this->_datas['rss_atom'], $options, '<br>');
         echo $this->build_form_table_line($cap, $ele);
     }
 
@@ -528,14 +528,14 @@ class admin_form_rss extends happy_linux_form
     //		_AM_RSSC_CONF_RSS_PARSER_SELF  => RSSC_C_PARSER_RSS_SELF
     //		);
     //	$cap = $this->build_form_caption(_AM_RSSC_CONF_RSS_PARSER);
-    //	$ele = $this->build_html_input_radio_select('parser_rss', $this->_datas['parser_rss'], $options, '<br />');
+    //	$ele = $this->build_html_input_radio_select('parser_rss', $this->_datas['parser_rss'], $options, '<br>');
     //	echo $this->build_form_table_line($cap, $ele);
     //}
 
     public function _print_sel_rss_mode()
     {
         // PHP 5.2: Assigning the return value of new by reference
-        $mode_opt = $this->_link_handler->get_mode_option();
+        $mode_opt = $this->_linkHandler->get_mode_option();
         $ele_mode = $this->build_html_input_radio_select('rss_mode', $this->_datas['rss_mode'], $mode_opt);
         echo $this->build_form_table_line(_RSSC_RSS_MODE, $ele_mode);
     }

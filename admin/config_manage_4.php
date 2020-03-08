@@ -6,7 +6,7 @@
 // 2008-01-20 K.OHWADA
 //=========================================================
 
-include_once 'admin_header_config.php';
+require_once __DIR__ . '/admin_header_config.php';
 
 // class
 $config_form  = admin_config_form::getInstance();
@@ -42,7 +42,7 @@ echo '<h4>' . _AM_RSSC_FORM_CUSTOM_PLUGIN . "</h4>\n";
 
 echo '<a href="'. RSSC_URL .'/plugin_popup.php" target="_blank">';
 echo ' - '._RSSC_PLUGIN_LIST;
-echo '</a>'."<br /><br />\n";
+echo '</a>'."<br><br>\n";
 
 $config_form->set_form_title( _AM_RSSC_FORM_CUSTOM_PLUGIN );
 $config_form->show_by_catid( 17 );

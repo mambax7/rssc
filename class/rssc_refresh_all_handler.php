@@ -1,12 +1,12 @@
 <?php
-// $Id: rssc_refresh_all_handler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
+// $Id: rssc_refresh_allHandler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
 
 // 2007-10-10 K.OHWADA
 // PHP 5.2: Non-static method
 // PHP 5.2: Assigning the return value of new by reference
 
 // 2007-06-10 K.OHWADA
-// word_basic_handler
+// word_basicHandler
 // happy_linux_bin_file
 // use get_active_id_array()
 // use open_log()
@@ -28,23 +28,23 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_refresh_all_handler') ) 
+if( !class_exists('rssc_refresh_allHandler') ) 
 {
 
 //=========================================================
-// class rssc_refresh_all_handler
+// class rssc_refresh_allHandler
 // this class is used by command line
 //=========================================================
-    class rssc_refresh_all_handler extends happy_linux_error
+    class rssc_refresh_allHandler extends happy_linux_error
     {
         public $_DIRNAME;
 
         // handler
-        public $_link_handler;
-        public $_feed_handler;
-        public $_black_handler;
-        public $_word_handler;
-        public $_refresh_handler;
+        public $_linkHandler;
+        public $_feedHandler;
+        public $_blackHandler;
+        public $_wordHandler;
+        public $_refreshHandler;
         public $_rss_utility;
         public $_bin_file;
 
@@ -83,16 +83,16 @@ if( !class_exists('rssc_refresh_all_handler') )
             $this->_DIRNAME = $dirname;
 
             // handler
-            $this->_link_handler    =& rssc_get_handler('link_basic', $dirname);
-            $this->_feed_handler    =& rssc_get_handler('feed_basic', $dirname);
-            $this->_black_handler   =& rssc_get_handler('black_basic', $dirname);
-            $this->_word_handler    =& rssc_get_handler('word_basic', $dirname);
-            $this->_refresh_handler =& rssc_get_handler('refresh', $dirname);
+            $this->_linkHandler    =& rssc_getHandler('link_basic', $dirname);
+            $this->_feedHandler    =& rssc_getHandler('feed_basic', $dirname);
+            $this->_blackHandler   =& rssc_getHandler('black_basic', $dirname);
+            $this->_wordHandler    =& rssc_getHandler('word_basic', $dirname);
+            $this->_refreshHandler =& rssc_getHandler('refresh', $dirname);
 
             // PHP 5.2: Non-static method
             $this->_bin_file =& happy_linux_get_singleton('bin_file');
 
-            $this->_rss_utility =& $this->_refresh_handler->_rss_utility;
+            $this->_rss_utility =& $this->_refreshHandler->_rss_utility;
         }
 
         //=========================================================
@@ -105,8 +105,8 @@ if( !class_exists('rssc_refresh_all_handler') )
         {
             $this->_refresh_clear();
 
-            $this->_total_link = $this->_link_handler->get_count_all();
-            $lid_arr           =& $this->_link_handler->get_active_id_array($limit, $start);
+            $this->_total_link = $this->_linkHandler->get_count_all();
+            $lid_arr           =& $this->_linkHandler->get_active_id_array($limit, $start);
 
             $count_lids = count($lid_arr);
             if (0 == $count_lids) {
@@ -121,7 +121,7 @@ if( !class_exists('rssc_refresh_all_handler') )
             $this->_refresh_pre();
 
             foreach ($lid_arr as $lid) {
-                $link_obj =& $this->_link_handler->get_object_by_id($lid);
+                $link_obj =& $this->_linkHandler->get_object_by_id($lid);
                 if (!is_object($link_obj)) {
                     $this->_set_errors("no link record: lid = $lid");
                     continue;
@@ -139,8 +139,8 @@ if( !class_exists('rssc_refresh_all_handler') )
         {
             $this->_refresh_clear();
 
-            $this->_total_link = $this->_black_handler->get_count_all();
-            $lid_arr           =& $this->_black_handler->get_active_id_array($limit, $start);
+            $this->_total_link = $this->_blackHandler->get_count_all();
+            $lid_arr           =& $this->_blackHandler->get_active_id_array($limit, $start);
 
             $count_lids = count($lid_arr);
             if (0 == $count_lids) {
@@ -187,9 +187,9 @@ if( !class_exists('rssc_refresh_all_handler') )
 
     public function _refresh_pre()
         {
-            $this->_refresh_handler->set_force_refresh(1);
-            $this->_refresh_handler->clear_count();
-            $this->_refresh_handler->open_log();
+            $this->_refreshHandler->set_force_refresh(1);
+            $this->_refreshHandler->clear_count();
+            $this->_refreshHandler->open_log();
 
             $data = '';
             $data .= $this->_get_text_title();
@@ -207,15 +207,15 @@ if( !class_exists('rssc_refresh_all_handler') )
                 return;
             }
 
-            if ($this->_refresh_handler->refresh_by_obj($link_obj)) {
+            if ($this->_refreshHandler->refresh_by_obj($link_obj)) {
                 $this->_count_link++;
             } else {
-                $code = $this->_refresh_handler->getErrorCode();
+                $code = $this->_refreshHandler->getErrorCode();
                 if (RSSC_CODE_PARSE_FAILED == $code) {
                     $this->_count_broken++;
                     $this->_broken_arr[] = [$lid, $title, $rss_url];
                 } else {
-                    $this->_set_errors($this->_refresh_handler->getErrors());
+                    $this->_set_errors($this->_refreshHandler->getErrors());
                     $this->_set_error_code($code);
                 }
             }
@@ -223,14 +223,14 @@ if( !class_exists('rssc_refresh_all_handler') )
 
     public function _refresh_post()
         {
-            $this->_count_all    = $this->_refresh_handler->get_count_all();
-            $this->_count_skip   = $this->_refresh_handler->get_count_skip();
-            $this->_count_reject = $this->_refresh_handler->get_count_reject();
-            $this->_count_update = $this->_refresh_handler->get_count_update();
-            $this->_refresh_handler->close_log($this->_flag_chmod);
+            $this->_count_all    = $this->_refreshHandler->get_count_all();
+            $this->_count_skip   = $this->_refreshHandler->get_count_skip();
+            $this->_count_reject = $this->_refreshHandler->get_count_reject();
+            $this->_count_update = $this->_refreshHandler->get_count_update();
+            $this->_refreshHandler->close_log($this->_flag_chmod);
 
-            $this->_num_feed_cleared = $this->_feed_handler->clear_over_num($this->_feed_limit);
-            $this->_num_word_cleared = $this->_word_handler->clear_over_num($this->_word_limit);
+            $this->_num_feed_cleared = $this->_feedHandler->clear_over_num($this->_feed_limit);
+            $this->_num_word_cleared = $this->_wordHandler->clear_over_num($this->_word_limit);
 
             $data = $this->_get_text_html_result();
             $this->print_write_data($data);
@@ -288,7 +288,7 @@ if( !class_exists('rssc_refresh_all_handler') )
         {
             $time_now = $this->_get_time_now();
 
-            $text = _AM_RSSC_TIME_START . ' ' . $time_now . "<br /><br />\n";
+            $text = _AM_RSSC_TIME_START . ' ' . $time_now . "<br><br>\n";
             return $text;
         }
 
@@ -314,7 +314,7 @@ if( !class_exists('rssc_refresh_all_handler') )
                 $link_broken = $this->_count_broken;
             }
 
-            $text .= _AM_RSSC_TIME_END . ' ' . $time_now . "<br /><br />\n";
+            $text .= _AM_RSSC_TIME_END . ' ' . $time_now . "<br><br>\n";
             $text .= '<table><tr>';
             $text .= '<tr><td>' . _AM_RSSC_NUM_LINK_TOTAL . '</td>';
             $text .= "<td>$this->_total_link " . _AM_RSSC_NUM_LINKS . "</td></tr>\n";
@@ -349,7 +349,7 @@ if( !class_exists('rssc_refresh_all_handler') )
 
     public function _get_text_table_start()
         {
-            $text = "<br />\n";
+            $text = "<br>\n";
             $text .= "<table border='1'><tr>";
             $text .= "<th align='center'>" . _RSSC_LINK_ID . '</th>';
             $text .= "<th align='center'>" . _RSSC_SITE_TITLE . '</th>';
@@ -385,13 +385,13 @@ if( !class_exists('rssc_refresh_all_handler') )
 
     public function _get_text_no_refresh()
         {
-            $text = _AM_RSSC_NO_REFRESH . "<br />\n";
+            $text = _AM_RSSC_NO_REFRESH . "<br>\n";
             return $text;
         }
 
     public function _get_text_table_end()
         {
-            return "</table><br />\n";
+            return "</table><br>\n";
         }
 
     public function print_write_data($data)
@@ -460,7 +460,7 @@ if( !class_exists('rssc_refresh_all_handler') )
             $false = false;
 
             // exist
-            $row =& $this->_black_handler->get_row_by_id($id);
+            $row =& $this->_blackHandler->get_row_by_id($id);
             if (!is_array($row) && !count($row)) {
                 return $false;
             }
@@ -473,7 +473,7 @@ if( !class_exists('rssc_refresh_all_handler') )
 
             // build fake object
             // PHP 5.2: Assigning the return value of new by reference
-            $link_obj =& $this->_link_handler->create();
+            $link_obj =  $this->_linkHandler->create();
 
             $link_obj->set('lid', 0);    // undefine
             $link_obj->set('ltype', RSSC_C_LINK_LTYPE_SEARCH);

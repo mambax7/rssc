@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_search_handler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
+// $Id: rssc_searchHandler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
 
 // 2008-01-20 K.OHWADA
 // _init_view_param()
@@ -27,13 +27,13 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_search_handler') ) 
+if( !class_exists('rssc_searchHandler') ) 
 {
 
 //=========================================================
-// class rssc_search_handler
+// class rssc_searchHandler
 //=========================================================
-    class rssc_search_handler extends rssc_view_param
+    class rssc_searchHandler extends rssc_view_param
     {
         // class instance
         public $_search;
@@ -91,7 +91,7 @@ if( !class_exists('rssc_search_handler') )
                 return $feeds;
             }
 
-            $count = $this->_feed_handler->get_count_public_by_where($this->_where);
+            $count = $this->_feedHandler->get_count_public_by_where($this->_where);
 
             if ($count > 0) {
                 $feeds =& $this->_get_search_feeds($this->_feed_limit, $this->_feed_start);
@@ -112,7 +112,7 @@ if( !class_exists('rssc_search_handler') )
             }
 
             if ($this->_where) {
-                $ret = $this->_feed_handler->get_count_public_by_where($this->_where);
+                $ret = $this->_feedHandler->get_count_public_by_where($this->_where);
             }
 
             return $ret;
@@ -131,7 +131,7 @@ if( !class_exists('rssc_search_handler') )
         // index.php
     public function &getLatest($limit = 0, $start = 0)
         {
-            $rows  =& $this->_feed_handler->get_rows_public_by_order($this->_feed_order, $limit, $start);
+            $rows  =& $this->_feedHandler->get_rows_public_by_order($this->_feed_order, $limit, $start);
             $feeds =& $this->view_format_sanitize_feed_rows($rows, $this->_flag_sanitize);
             return $feeds;
         }
@@ -139,7 +139,7 @@ if( !class_exists('rssc_search_handler') )
         // index.php
     public function getTotal()
         {
-            $ret = $this->_feed_handler->get_count_public();
+            $ret = $this->_feedHandler->get_count_public();
             return $ret;
         }
 
@@ -319,7 +319,7 @@ if( !class_exists('rssc_search_handler') )
         {
             $feeds = [];
             if ($this->_where) {
-                $rows =& $this->_feed_handler->get_rows_public_by_where($this->_where, $this->_feed_order, $limit, $start);
+                $rows =& $this->_feedHandler->get_rows_public_by_where($this->_where, $this->_feed_order, $limit, $start);
                 $this->set_keyword_array($this->_sql_query_array);
                 $feeds =& $this->view_format_sanitize_feed_rows($rows, $this->_flag_sanitize);
             }

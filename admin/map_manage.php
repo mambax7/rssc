@@ -9,16 +9,16 @@
 // 2012-03-01 K.OHWADA
 //=========================================================
 
-include_once 'admin_header_config.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_block_map.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_map.php';
+require_once __DIR__ . '/admin_header_config.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_block_map.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_map.php';
 
 //=========================================================
 // class map manage
 //=========================================================
 class admin_map_manage
 {
-    public $_conf_handler;
+    public $_confHandler;
     public $_config_form;
     public $_config_store;
     public $_map_class;
@@ -30,12 +30,12 @@ class admin_map_manage
     //---------------------------------------------------------
     public function __construct($dirname)
     {
-        $this->_conf_handler =& rssc_get_handler('config_basic', $dirname);
+        $this->_confHandler =& rssc_getHandler('config_basic', $dirname);
         $this->_config_form  = admin_config_form::getInstance();
         $this->_config_store = admin_config_store::getInstance();
         $this->_map_class    =& rssc_map::getInstance($dirname);
 
-        $this->_conf =& $this->_conf_handler->get_conf();
+        $this->_conf =& $this->_confHandler->get_conf();
     }
 
     public static function getInstance($dirname)

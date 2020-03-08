@@ -12,8 +12,8 @@
 // 2007-06-01 K.OHWADA
 //=========================================================
 
-include_once 'admin_header_config.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/kakasi.php';
+require_once __DIR__ . '/admin_header_config.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/kakasi.php';
 
 // class
 $config_form  = admin_config_form::getInstance();
@@ -46,7 +46,7 @@ echo '<h4>' . _MI_RSSC_ADMENU_CONFIG . "</h4>\n";
 $config_form->init_form();
 
 echo '<h4>' . _AM_RSSC_FORM_FILTER . "</h4>\n";
-echo _AM_RSSC_FORM_FILTER_DESC."<br /><br />\n";
+echo _AM_RSSC_FORM_FILTER_DESC."<br><br>\n";
 $config_form->set_form_title( _AM_RSSC_FORM_FILTER );
 $config_form->show_by_catid( 11 );
 

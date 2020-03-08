@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_xml_handler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
+// $Id: rssc_xmlHandler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
 // move create_table() to rssc_install.php
@@ -8,18 +8,18 @@
 // remove ; in tail of sql
 
 // 2007-06-01 K.OHWADA
-// divid from link_handler
+// divid from linkHandler
 
 //=========================================================
 // Rss Center Module
 // this file contain 2 class
 //   rssc_xml
-//   rssc_xml_handler
+//   rssc_xmlHandler
 // 2007-06-01 K.OHWADA
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_xml_handler') ) 
+if( !class_exists('rssc_xmlHandler') ) 
 {
 
 //=========================================================
@@ -69,7 +69,7 @@ public function get_rawurldecode_xml()
 //=========================================================
 // class xml handler
 //=========================================================
-    class rssc_xml_handler extends happy_linux_object_handler
+    class rssc_xmlHandler extends happy_linux_objectHandler
     {
 
         //---------------------------------------------------------

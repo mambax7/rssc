@@ -6,12 +6,12 @@
 // 2012-03-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
-include_once XOOPS_ROOT_PATH.'/class/template.php';
+require_once XOOPS_ROOT_PATH.'/class/template.php';
 
-include_once RSSC_ROOT_PATH.'/api/view.php';
-include_once RSSC_ROOT_PATH.'/api/refresh.php';
+require_once RSSC_ROOT_PATH.'/api/view.php';
+require_once RSSC_ROOT_PATH.'/api/refresh.php';
 
 //---------------------------------------------------------
 // entry_id
@@ -30,7 +30,7 @@ include_once RSSC_ROOT_PATH.'/api/refresh.php';
 class admin_feed_column_manage extends happy_linux_error
 {
     // handler
-    public $_feed_basic_handler;
+    public $_feed_basicHandler;
     public $_post;
     public $_form;
 
@@ -51,7 +51,7 @@ class admin_feed_column_manage extends happy_linux_error
     {
         parent::__construct();
 
-        $this->_feed_basic_handler = rssc_get_handler('feed_basic', RSSC_DIRNAME);
+        $this->_feed_basicHandler = rssc_getHandler('feed_basic', RSSC_DIRNAME);
         $this->_post_class         = happy_linux_post::getInstance();
         $this->_form_class = admin_form_feed_column::getInstance();
 
@@ -115,12 +115,12 @@ class admin_feed_column_manage extends happy_linux_error
             ];
         }
 
-        $ret = $this->_feed_basic_handler->update_column_type($arr);
+        $ret = $this->_feed_basicHandler->update_column_type($arr);
         if ($ret) {
             $msg  = _HAPPY_LINUX_UPDATED;
             $time = 3;
         } else {
-            $msg  = $this->_feed_basic_handler->getErrros(1);
+            $msg  = $this->_feed_basicHandler->getErrros(1);
             $time = 5;
         }
 
@@ -130,7 +130,7 @@ class admin_feed_column_manage extends happy_linux_error
     public function form()
     {
         echo '<h3>' . _AM_RSSC_FEED_COLUMN_MANAGE . "</h3>\n";
-        $rows = $this->_feed_basic_handler->get_columns();
+        $rows = $this->_feed_basicHandler->get_columns();
         $keys = array_keys($this->_COLUMN_ARRAY);
 
         $arr = [];

@@ -42,8 +42,8 @@ class bin_refresh extends happy_linux_bin_base
         $this->set_filename('modules/' . $dirname . '/' . $this->_FILENAME_RESULT);
 
         // class Instant
-        $this->_refresh =& rssc_get_handler('refresh_all', $dirname);
-        $this->_config  =& rssc_get_handler('config_basic', $dirname);
+        $this->_refresh =& rssc_getHandler('refresh_all', $dirname);
+        $this->_config  =& rssc_getHandler('config_basic', $dirname);
     }
 
     //=========================================================

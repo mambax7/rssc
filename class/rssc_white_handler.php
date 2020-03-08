@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_white_handler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
+// $Id: rssc_whiteHandler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
 // move add_column_table_xxx() to rssc_install.php
@@ -11,7 +11,7 @@
 // add field act reg count
 
 // 2006-07-10 K.OHWADA
-// use happy_linux_object happy_linux_object_handler
+// use happy_linux_object happy_linux_objectHandler
 
 // 2006-01-20 K.OHWADA
 // small change
@@ -20,12 +20,12 @@
 // Rss center Module
 // this file contain 2 class
 //   rssc_white
-//   rssc_white_handler
+//   rssc_whiteHandler
 // 2006-01-01 K.OHWADA
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_white_handler') ) 
+if( !class_exists('rssc_whiteHandler') ) 
 {
 
 //=========================================================
@@ -69,7 +69,7 @@ public function __construct()
 //=========================================================
 // class white handler
 //=========================================================
-    class rssc_white_handler extends happy_linux_object_handler
+    class rssc_whiteHandler extends happy_linux_objectHandler
     {
 
         //---------------------------------------------------------

@@ -18,10 +18,10 @@
 // 2006-01-01 K.OHWADA
 //================================================================
 
-include 'admin_header.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/config_file.php';
+require __DIR__ . '/admin_header.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/config_file.php';
 
-$conf_handler =& rssc_get_handler('config_basic', RSSC_DIRNAME);
+$confHandler =& rssc_getHandler('config_basic', RSSC_DIRNAME);
 $config_file  = happy_linux_config_file::getInstance();
 
 $DIR_CONFIG  = RSSC_ROOT_PATH.'/cache';
@@ -30,9 +30,9 @@ $FILE_CONFIG = $DIR_CONFIG.'/config.php';
 xoops_cp_header();
 rssc_admin_print_bread( _HAPPY_LINUX_CONF_COMMAND_MANAGE, 'command_manage.php', _HAPPY_LINUX_CONF_CREATE_CONFIG );
 echo '<h3>' . _HAPPY_LINUX_CONF_CREATE_CONFIG . "</h3>\n";
-echo "Create config file for bin/refresh.php <br /><br />\n";
+echo "Create config file for bin/refresh.php <br><br>\n";
 
-$conf =& $conf_handler->get_conf();
+$conf =& $confHandler->get_conf();
 $pass = $conf['bin_pass'];
 $url  = RSSC_URL.'/bin/refresh.php?pass='.$pass.'&amp;limit=10';
 
@@ -40,14 +40,14 @@ if ( is_writable( $DIR_CONFIG ) )
 {
 	$config_file->_save_config( $FILE_CONFIG );
 
-	echo "<hr />\n";
+	echo "<hr>\n";
 	echo '<h4>' . _HAPPY_LINUX_CREATED . "</h4>\n";
-	echo '<a href="'.$url.'">'._HAPPY_LINUX_CONF_TEST_BIN.": bin/refresh.php</a><br /><br/>\n";
+	echo '<a href="'.$url.'">'._HAPPY_LINUX_CONF_TEST_BIN.": bin/refresh.php</a><br><br>\n";
 }
 else
 {
 	echo '<h3 style="color: #ff0000;">'._HAPPY_LINUX_CONF_NOT_WRITABLE."</h3>\n";
-	echo "$DIR_CONFIG <br /><br />\n";
+	echo "$DIR_CONFIG <br><br>\n";
 }
 
 xoops_cp_footer();

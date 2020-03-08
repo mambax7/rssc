@@ -142,7 +142,7 @@ define('_AM_RSSC_GOTOTOP', 'ÇáÃÚáì');
 // === configuration ===
 // basic configuration
 define('_AM_RSSC_CONF_FEED_LIMIT', 'ÇáÚÏÏ ÇáÃÞÕì áÜ feeds');
-define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'ÃßÊÈ ÇÞÕì ÚÏÏ ãä feeds ÇáÊí ÊÎÒä Ýí ÞÇÚÏÉ ÇáÈíÇäÇÊ<br />ÓæÝ ÊãÓÍ ÇáÓÌáÇÊ ÇáÞÏíãÉ ÚäÏãÇ íßæä ÇßËÑ ãä åÐÇ ÇáÑÞã<br /><b>0</b> ÛíÑ ãÍÏæÏ');
+define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'ÃßÊÈ ÇÞÕì ÚÏÏ ãä feeds ÇáÊí ÊÎÒä Ýí ÞÇÚÏÉ ÇáÈíÇäÇÊ<br>ÓæÝ ÊãÓÍ ÇáÓÌáÇÊ ÇáÞÏíãÉ ÚäÏãÇ íßæä ÇßËÑ ãä åÐÇ ÇáÑÞã<br><b>0</b> ÛíÑ ãÍÏæÏ');
 define('_AM_RSSC_CONF_RSS_ATOM', 'ÃÎÊÑ RSS Ãæ ATOM');
 define('_AM_RSSC_CONF_RSS_ATOM_DESC', 'Select RSS or ATOM, when both RSS URL and ATOM URL are detected');
 define('_AM_RSSC_CONF_RSS_ATOM_SEL_ATOM', 'ATOM');
@@ -157,7 +157,7 @@ define('_AM_RSSC_CONF_RSS_MODE', 'Initial value of RSS mode');
 define('_AM_RSSC_CONF_XML_SAVE', 'ÍÝÙ XML');
 define('_AM_RSSC_CONF_XML_SAVE_DESC', 'ÍÝÙ ÑÇÈØ XML Ýí ÞÇÚÏÉ ÇáÈíÇäÇÊ');
 define('_AM_RSSC_CONF_FUTURE_DAYS', 'ÇáÃíÇã ÇáÞÇÏãÉ (ÇáãÓÊÞÈáíÉ)');
-define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', "1 ÚÈÇÑÉ Úä íæã<br />Not show feed, if feed's date is rather than this days");
+define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', "1 ÚÈÇÑÉ Úä íæã<br>Not show feed, if feed's date is rather than this days");
 
 // show configuration
 define('_AM_RSSC_CONF_SHOW_ORDER','ØÑíÞÉ ÇáÚÑÖ');
@@ -171,7 +171,7 @@ define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE','Feeds Ýí ßá ÕÝÍÉ');
 define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK','Feeds áßá ÑÇÈØ');
 //define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK_DESC','');
 define('_AM_RSSC_CONF_SHOW_MAX_TITLE','ÇáÚÏÏ ÇáÃÞÕì ááÍÑÝ Ýí ÇáÚäæÇä');
-define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','ÇÒÇáÉ ÊÇÛ html ÚäÏãÇ íßæä ÇßËÑ ãä åÐÇ ÇáÚÏÏ <br /><b>(-1)</b> ÛíÑ ãÍÏæÏ');
+define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','ÇÒÇáÉ ÊÇÛ html ÚäÏãÇ íßæä ÇßËÑ ãä åÐÇ ÇáÚÏÏ <br><b>(-1)</b> ÛíÑ ãÍÏæÏ');
 define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY','ÃÞÕì ÚÏÏ ãä ÇáÍÑæÝ Ýí ÇáÎáÇÕÉ');
 define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC','<b>(-1)</b> ÛíÑ ãÍÏæÏ');
 
@@ -200,11 +200,11 @@ define('_AM_RSSC_VIEW_MODE_LINK', 'mode 1: XML data saved in link table');
 define('_AM_RSSC_VIEW_MODE_FEED', 'mode 2: data saved in feed table');
 define('_AM_RSSC_VIEW_SANITIZE', 'HTML Sanitize');
 define('_AM_RSSC_VIEW_TITLE_HTML','ÚÑÖ ÊÇÛ HTML Ýí ÇáÚäæÇä');
-define('_AM_RSSC_VIEW_TITLE_HTML_DESC', 'äÚã", ÚÑÖ ÊÇÛ htm ãÚ ÇáÚäæÇä ÇÐÇ ßÇä ãæÌæÏ . <br />"áÇ"áÇÊÚÑÖ ÊÇÛ html ãÚ ÇáÚäæÇä. ');
+define('_AM_RSSC_VIEW_TITLE_HTML_DESC', 'äÚã", ÚÑÖ ÊÇÛ htm ãÚ ÇáÚäæÇä ÇÐÇ ßÇä ãæÌæÏ . <br>"áÇ"áÇÊÚÑÖ ÊÇÛ html ãÚ ÇáÚäæÇä. ');
 define('_AM_RSSC_VIEW_CONTENT_HTML','ÚÑÖ ÊÇÛ HTML Ýí ÇáãÍÊæì');
-define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', 'äÚã", ÚÑÖ ÊÇÛ htm ãÚ ÇáãÍÊæì ÇÐÇ ßÇä ãæÌæÏ . <br />"áÇ", áÇÊÚÑÖ ÊÇÛ html ãÚ ÇáãÍÊæì. ');
+define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', 'äÚã", ÚÑÖ ÊÇÛ htm ãÚ ÇáãÍÊæì ÇÐÇ ßÇä ãæÌæÏ . <br>"áÇ", áÇÊÚÑÖ ÊÇÛ html ãÚ ÇáãÍÊæì. ');
 define('_AM_RSSC_VIEW_MAX_CONTENT','ÃÞÕì ÚÏÏ ãä ÇáÍÑæÝ Ýí ÇáãÍÊæì');
-define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','ÅÒÇáÉ ÊÇÛ HTML ÚäÏãÇ íßæä ÃßËÑ ãä ÇáÚÏÏ<br /><b>(-1)</b> ÛíÑ ãÍÏæÏ');
+define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','ÅÒÇáÉ ÊÇÛ HTML ÚäÏãÇ íßæä ÃßËÑ ãä ÇáÚÏÏ<br><b>(-1)</b> ÛíÑ ãÍÏæÏ');
 define('_AM_RSSC_VIEW_LINK_UPDATE', 'ÊÍÏíË ÌÏæá ÇáÑæÇÈØ');
 define('_AM_RSSC_VIEW_FEED_UPDATE', 'ÊÍÏíË ÌÏæá Feed');
 define('_AM_RSSC_VIEW_FORCE_DISCOVER', 'Force to discover RSS URL');
@@ -252,17 +252,17 @@ define('_AM_RSSC_PARSE_RSS', 'ÊÚÏíá ÎÇÕ Úáí RDF/RSS/ATOM');
 
 // refresh link
 //define('_AM_RSSC_REFRESH_LINK', 'Refresh RDF/RSS/ATOM feeds');
-//define('_AM_RSSC_REFRESH_LINK_DSC', 'Then, refresh RSS feeds <br />Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br />if they are not set up.');
+//define('_AM_RSSC_REFRESH_LINK_DSC', 'Then, refresh RSS feeds <br>Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br>if they are not set up.');
 //define('_AM_RSSC_REFRESH_LINK_FINISHED', 'Refresh feeds finished');
 
 // === 2006-07-08 ===
 // description at main
 define('_AM_RSSC_CONF_INDEX_DESC','ÇáæÕÝ Ýí ÇáÕÝÍÉ ÇáÑÆíÓíÉ');
 define('_AM_RSSC_CONF_INDEX_DESC_DSC', 'ÇßÊÈ ãáÇÍÙÉ ÇáæÕÝ¡ ÚäÏãÇ ÊÑíÏ ÚÑÖåÇ Ýí ÇáÕÝÍÉ ÇáÑÆíÓíÉ.');
-define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Here are description note.<br />You can edit description note at "Module Configuration".<br /></div><br />');
+define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Here are description note.<br>You can edit description note at "Module Configuration".<br></div><br>');
 
 // link table
-define('_AM_RSSC_LINK_DESC','Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br />when you dont fill, <br />if web site support "RSS Auto Discovery"');
+define('_AM_RSSC_LINK_DESC','Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br>when you dont fill, <br>if web site support "RSS Auto Discovery"');
 //define('_AM_RSSC_LINK_EXIST', 'Already exists this "RDF/RSS/ATOM URL"');
 //define('_AM_RSSC_LINK_EXIST_MORE','There are twe or more links which have same "RDF/RSS/ATOM URL" ');
 //define('_AM_RSSC_AUTO_FIND_FAILD','RSS Auto Discovery Faild');
@@ -274,11 +274,11 @@ define('_AM_RSSC_BLACK_MEMO','ÇáãÐßÑÉ');
 // === 2006-09-20 ===
 // show content with html
 define('_AM_RSSC_CONF_SHOW_TITLE_HTML','ÇÓÊÚãá ÊÇÛ HTML Ýí ÇáÚäæÇä');
-define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', '"äÚã", ÚÑÖ ÊÇÛ htm ãÚ ÇáÚäæÇä ÇÐÇ ßÇä ãæÌæÏ . <br />"áÇ"áÇÊÚÑÖ ÊÇÛ html ãÚ ÇáÚäæÇä. ');
+define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', '"äÚã", ÚÑÖ ÊÇÛ htm ãÚ ÇáÚäæÇä ÇÐÇ ßÇä ãæÌæÏ . <br>"áÇ"áÇÊÚÑÖ ÊÇÛ html ãÚ ÇáÚäæÇä. ');
 define('_AM_RSSC_CONF_SHOW_CONTENT_HTML','ÇÓÊÚãá ÊÇÛ HTML Ýí ÇáãÍÊæì');
 define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', '"äÚã", ÚÑÖ ÊÇÛ htm ãÚ ÇáãÍÊæì ÇÐÇ ßÇä ãæÌæÏ . "áÇ", áÇÊÚÑÖ ÊÇÛ html ãÚ ÇáãÍÊæì.');
 define('_AM_RSSC_CONF_SHOW_MAX_CONTENT','ÇÞÕì ÚÏÏ ãä ÇáÍÑæÝ Ýí ÇáãÍÊæì');
-define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'ÇÒÇáÉ ÊÇÛ html ÚäÏãÇ íßæä ÇßËÑ ãä åÐÇ ÇáÚÏÏ <br /><b>(-1)</b> ÛíÑ ãÍÏæÏ');
+define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'ÇÒÇáÉ ÊÇÛ html ÚäÏãÇ íßæä ÇßËÑ ãä åÐÇ ÇáÚÏÏ <br><b>(-1)</b> ÛíÑ ãÍÏæÏ');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT','Maximum number of RSS/ATOM feeds displayed content');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT_DSC', 'Enter the maximum number of RSS/ATOM feeds displayed content.');
 define('_AM_RSSC_CONF_SHOW_BLOG_LID','ÑÞã ÇáÑÇÈØ áÚÑÖ ÇáÈáæÞ');
@@ -293,9 +293,9 @@ define('_AM_RSSC_CONF_PROXY_USE',  'ÇÓÊÚãá ÓíÑÝÑ ÇáÈÑæßÓí');
 define('_AM_RSSC_CONF_PROXY_HOST', 'ÈÑæßÓí ÇáãÖíÝ');
 define('_AM_RSSC_CONF_PROXY_PORT', 'ÈÑæßÓí ÈæÑÊ');
 define('_AM_RSSC_CONF_PROXY_USER', 'ÇÓã ãÓÊÎÏã ÇáÈÑæßÓí');
-define('_AM_RSSC_CONF_PROXY_USER_DESC', 'ÇßÊÈ ÇÓã ÇáãÓÊÎÏã ÇÐÇ ßÇä íÍÊÇÌ, <br />ÇÊÑßÉ ÝÇÑÛÇ ÇÐÇ áã íßä íÍÊÇÌ');
+define('_AM_RSSC_CONF_PROXY_USER_DESC', 'ÇßÊÈ ÇÓã ÇáãÓÊÎÏã ÇÐÇ ßÇä íÍÊÇÌ, <br>ÇÊÑßÉ ÝÇÑÛÇ ÇÐÇ áã íßä íÍÊÇÌ');
 define('_AM_RSSC_CONF_PROXY_PASS', 'ÇáÑÞã ÇáÓÑí ááÈÑæßÓí');
-define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'ÇßÊÈ ÇáÑÞã ÇáÓÑí ÇÐÇ ßÇä íÍÊÇÌ,  <br />ÇÊÑßÉ ÝÇÑÛÇ ÇÐÇ áã íä íÍÊÇÌ');
+define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'ÇßÊÈ ÇáÑÞã ÇáÓÑí ÇÐÇ ßÇä íÍÊÇÌ,  <br>ÇÊÑßÉ ÝÇÑÛÇ ÇÐÇ áã íä íÍÊÇÌ');
 
 define('_AM_RSSC_CONF_HIGHLIGHT', 'Use Keyword Highlight');
 
@@ -328,7 +328,7 @@ define('_AM_RSSC_CONF_WHITE_USE','ÇÓÊÚãá ÇáÞÇÆãÉ ÇáÈíÖÇÁ');
 define('_AM_RSSC_CONF_WHITE_USE_DESC','ÍÝÙ ÚäÏãÇ íßæä Ýí ÇáÞÇÆãÉ ÇáÈíÖÇÁ');
 define('_AM_RSSC_CONF_BLACK_USE','ÇÓÊÚãá ÇáÞÇÆãÉ ÇáÓæÏÇÁ');
 //define('_AM_RSSC_CONF_BLACK_USE_DESC','Not store when in black list');
-define('_AM_RSSC_CONF_BLACK_USE_DESC','Not store when in black list<br />When select "Use", interrupt filtering process, if judge black<br />When select "Learning", continue filtering process, for purpose extracting words, if judge black');
+define('_AM_RSSC_CONF_BLACK_USE_DESC','Not store when in black list<br>When select "Use", interrupt filtering process, if judge black<br>When select "Learning", continue filtering process, for purpose extracting words, if judge black');
 define('_AM_RSSC_CONF_BLACK_USE_NO','áÇ ÊÓÊÚãá');
 define('_AM_RSSC_CONF_BLACK_USE_YES','ÇÓÊÚãá');
 define('_AM_RSSC_CONF_BLACK_USE_LEARN','ÊÚáã');
@@ -336,7 +336,7 @@ define('_AM_RSSC_CONF_WORD_USE','ÇÓÊÚãÇá ÞÇÆãÉ ÇáßáãÇÊ Çáã
 define('_AM_RSSC_CONF_WORD_USE_DESC','áä íÊã ÇáÍÝÙ ÚäÏãÇ ÊÊÌÇæÒ äÞÇØ ÇáßáãÇÊ ÇáãÑÝæÖÉ ÇáÑÞã Ýí ãÓÊæì ÇáÑÝÖ');
 define('_AM_RSSC_CONF_WORD_LEVEL', 'ãÓÊæì ÇáÑÝÖ');
 define('_AM_RSSC_CONF_FEED_SAVE','ÍÝÙ Feed');
-define('_AM_RSSC_CONF_FEED_SAVE_DESC','Store or not into feed table when judge black.<br />When "Save", save in "not show" status.');
+define('_AM_RSSC_CONF_FEED_SAVE_DESC','Store or not into feed table when judge black.<br>When "Save", save in "not show" status.');
 define('_AM_RSSC_CONF_FEED_SAVE_NO', 'áÇ ÊÍÝÙ');
 define('_AM_RSSC_CONF_FEED_SAVE_YES','ÍÝÙ');
 define('_AM_RSSC_CONF_LOG_USE','ÇÓÊÚãÇá ÓÌá ÇáãáÝ');
@@ -348,9 +348,9 @@ define('_AM_RSSC_CONF_BLACK_COUNT_DESC','Count up the matching record when match
 define('_AM_RSSC_CONF_WORD_COUNT','ÃÍÊÓÇÈ ÞÇÆãÉ ÇáßáãÇÊ ÇáãÑÝæÖÉ');
 define('_AM_RSSC_CONF_WORD_COUNT_DESC','Count up the matching record when match with reject word list');
 define('_AM_RSSC_CONF_BLACK_AUTO','ÃÖÝ Ýí ÇáÞÇÆãÉ ÇáÓæÏÇÁ');
-define('_AM_RSSC_CONF_BLACK_AUTO_DESC','Add URL in black list automatically when judge black<br /><b>Notice</b> "status" is stored as "invalid"<br />Please change into "valid" when using');
+define('_AM_RSSC_CONF_BLACK_AUTO_DESC','Add URL in black list automatically when judge black<br><b>Notice</b> "status" is stored as "invalid"<br>Please change into "valid" when using');
 define('_AM_RSSC_CONF_WORD_AUTO','ÃÖÝ Çáì ÞÇÆãÉ ÇáßáãÇÊ ÇáãÑÝæÖÉ');
-define('_AM_RSSC_CONF_WORD_AUTO_DESC','Extract words in the content automatically, and add words in reject word list automatically, when judge black<br /><b>Notice</b> "point" is stored as zero<br />Please change "point" when using');
+define('_AM_RSSC_CONF_WORD_AUTO_DESC','Extract words in the content automatically, and add words in reject word list automatically, when judge black<br><b>Notice</b> "point" is stored as zero<br>Please change "point" when using');
 define('_AM_RSSC_CONF_WORD_AUTO_NON','áÇ ÊÖÝ');
 define('_AM_RSSC_CONF_WORD_AUTO_SYMBOL','Extract by the symbol pause');
 define('_AM_RSSC_CONF_WORD_AUTO_KAKASI','Extract by KAKASI: Japanese Only');
@@ -360,7 +360,7 @@ define('_AM_RSSC_FORM_WORD','ÎíÇÑÇÊ ÇÓÊÎÑÇÌ ÇáßáãÉ');
 define('_AM_RSSC_CONF_JOIN_PREV', 'Word Join');
 define('_AM_RSSC_CONF_JOIN_PREV_DESC', 'join to forword and backword word, and make a phrase');
 define('_AM_RSSC_CONF_JOIN_GLUE', 'ãÓÇÝÉ ÇáßáãÉ');
-define('_AM_RSSC_CONF_JOIN_GLUE_DESC', 'in English set space<br />in Japanese set noting');
+define('_AM_RSSC_CONF_JOIN_GLUE_DESC', 'in English set space<br>in Japanese set noting');
 define('_AM_RSSC_CONF_KAKASI_PATH','Command Path of KAKASI');
 define('_AM_RSSC_CONF_KAKASI_MODE','Mode of KAKASI');
 define('_AM_RSSC_CONF_KAKASI_MODE_FILE','ÅÓÊÚãá ãáÝ temporary');
@@ -368,16 +368,16 @@ define('_AM_RSSC_CONF_KAKASI_MODE_PIPE','Use UNIX pipe');
 define('_AM_RSSC_CONF_CHAR_LENGTH', 'ÇÞá ÚÏÏ ãä ÇáÍÑæÝ');
 define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'ÇÞá ÚÏÏ ãä ÇáÍÑæÝ áÇÓÊÎÑÇÌ ÇáßáãÉ');
 define('_AM_RSSC_CONF_WORD_LIMIT', 'ÇÞÕì ÚÏÏ ãä ÑÝÖ ÇáßáãÇÊ');
-define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Enter the maximum number of word stored in word table<br />Clears the older records, when it becomes more than this value<br /><b>0</b> ÛíÑ ãÍÏæÏ');
+define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Enter the maximum number of word stored in word table<br>Clears the older records, when it becomes more than this value<br><b>0</b> ÛíÑ ãÍÏæÏ');
 define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi is executable');
 define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi is not executable');
 define('_AM_RSSC_CONF_HTML_GET','ÌáÈ HTML');
-define('_AM_RSSC_CONF_HTML_GET_DESC','get origin HTML data automatically, when judge with reject word list<br />When select "Use", the precision of the judgment is improved , but the execution time become long');
+define('_AM_RSSC_CONF_HTML_GET_DESC','get origin HTML data automatically, when judge with reject word list<br>When select "Use", the precision of the judgment is improved , but the execution time become long');
 define('_AM_RSSC_CONF_HTML_GET_NO','áÇ ÊÓÊÚãá');
 define('_AM_RSSC_CONF_HTML_GET_YES','ÇÓÊÚãá');
 define('_AM_RSSC_CONF_HTML_GET_BLACK','Use when jugde black');
 define('_AM_RSSC_CONF_HTML_LIMIT', 'ÇÞÕì ÚÏÏ ãä ÍÑæÝ HTML');
-define('_AM_RSSC_CONF_HTML_LIMIT_DESC', 'The maxmum number of HTML characters which get automatically<br />At some sites, HTML is the big data, and then the execution time become long');
+define('_AM_RSSC_CONF_HTML_LIMIT_DESC', 'The maxmum number of HTML characters which get automatically<br>At some sites, HTML is the big data, and then the execution time become long');
 
 // archive manage
 define('_AM_RSSC_LEAN_BLACK', 'ÊÚáã ãä ÇáÞÇÆãÉ ÇáÓæÏÇÁ');
@@ -399,13 +399,13 @@ define('_AM_RSSC_CONF_SHOW_SITE', 'ãÚáæãÇÊ ÇáãæÞÚ');
 define('_AM_RSSC_CONF_SHOW_SITE_DSC', '"äÚã" ÊÚäí ¡ÚÑÖ ÇÓã ÇáãæÞÚ æÚäæÇäÉ');
 
 // link table
-define('_AM_RSSC_LINK_CENSOR_DESC', 'Separate each with <b>|</b><br />case sensitive');
+define('_AM_RSSC_LINK_CENSOR_DESC', 'Separate each with <b>|</b><br>case sensitive');
 
 
 // === 2008-01-20 ===
 // menu
 define('_AM_RSSC_FORM_HTMLOUT',       'ÎíÇÑÇÊ äÇÊÌ HTML');
-define('_AM_RSSC_FORM_HTMLOUT_DESC',  "The processing of content ,when 'Use of HTML tag of the content' is 'Yes'<br />All tags are removed ,when 'No' <br />it recommends to remove or replace JavaScript and the relation, to prevent XSS (Cross Site Scripting) ");
+define('_AM_RSSC_FORM_HTMLOUT_DESC',  "The processing of content ,when 'Use of HTML tag of the content' is 'Yes'<br>All tags are removed ,when 'No' <br>it recommends to remove or replace JavaScript and the relation, to prevent XSS (Cross Site Scripting) ");
 define('_AM_RSSC_FORM_CUSTOM_PLUGIN', 'Custom Plugins');
 
 // html out
@@ -424,15 +424,15 @@ define('_AM_RSSC_CONF_HTML_COMMENT_DESC', "The processing of '&lt;!-- ... --&gt;
 define('_AM_RSSC_CONF_HTML_CDATA', 'CDATA mark');
 define('_AM_RSSC_CONF_HTML_CDATA_DESC', "The processing of '&lt;![CDATA[ ... ]]&gt;' ");
 define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE', 'onMouse attribute');
-define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', "The processing of 'onmouseover=\"...\"' or 'onclick=\"...\"' <br />replace as 'on_mouseover_=\"...\"', when 'Replace' ");
+define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', "The processing of 'onmouseover=\"...\"' or 'onclick=\"...\"' <br>replace as 'on_mouseover_=\"...\"', when 'Replace' ");
 define('_AM_RSSC_CONF_HTML_ATTR_STYLE', 'style attribute');
-define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', "The processing of 'style=\"...\"' or 'class=\"...\"' <br />replace as 'style_=\"...\"', when 'Replace' ");
+define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', "The processing of 'style=\"...\"' or 'class=\"...\"' <br>replace as 'style_=\"...\"', when 'Replace' ");
 define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS', 'Remove other tags');
 define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS_DESC', "Rremove or not '&lt;img ... &gt;' '&lt;a ... &gt;' '&lt;link ... &gt;' etc ");
 define('_AM_RSSC_CONF_HTML_OTHER_TAGS', 'allow tags');
-define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', "Enter the tag not to remove, when 'Remove other tags' is 'Yes' <br /> exsample: <img><a> ");
+define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', "Enter the tag not to remove, when 'Remove other tags' is 'Yes' <br> exsample: <img><a> ");
 define('_AM_RSSC_CONF_HTML_JAVASCRIPT', 'JavaScriprt stings');
-define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', "The processing of stings as 'JavaScriprt' <br />replace as 'java_script', when 'Replace' ");
+define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', "The processing of stings as 'JavaScriprt' <br>replace as 'java_script', when 'Replace' ");
 
 // plugin
 define('_AM_RSSC_PRE_PLUGIN_DESC', 'Execute before storing in the database');

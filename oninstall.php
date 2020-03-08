@@ -21,22 +21,22 @@ $XOOPS_LANGUAGE = $xoopsConfig['language'];
 if ( file_exists( XOOPS_ROOT_PATH.'/modules/happy_linux/api/module_install.php' ) ) 
 {
 
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/api/module_install.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/rss_constant.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/api/module_install.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/rss_constant.php';
 
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_constant.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_rss_constant.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_config_define.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_install.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_constant.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_rss_constant.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_config_define.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_install.php';
 
 // admin.php
 if (file_exists( XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/'.$XOOPS_LANGUAGE.'/admin.php' )) 
 {
-	include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/'.$XOOPS_LANGUAGE.'/admin.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/'.$XOOPS_LANGUAGE.'/admin.php';
 }
 else
 {
-	include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/english/admin.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/english/admin.php';
 }
 
 // --- eval begin ---

@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_link_basic_handler.php,v 1.1 2011/12/29 14:37:15 ohwada Exp $
+// $Id: rssc_link_basicHandler.php,v 1.1 2011/12/29 14:37:15 ohwada Exp $
 
 // 2008-01-30 K.OHWADA
 // get_cache_post_plugin_by_lid()
@@ -8,18 +8,18 @@
 // enclosure
 
 // 2007-06-01 K.OHWADA
-// divid to xml_basic_handler
+// divid to xml_basicHandler
 // get_link_by_lid() etc
 
 // 2006-09-20 K.OHWADA
 // small change
 
 // 2006-07-10 K.OHWADA
-// use happy_linux_basic happy_linux_basic_handler
+// use happy_linux_basic happy_linux_basicHandler
 
 // 2006-06-04 K.OHWADA
 // this is new file
-// move from link_handler
+// move from linkHandler
 
 //=========================================================
 // Rss Center Module
@@ -27,7 +27,7 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_link_basic_handler') ) 
+if( !class_exists('rssc_link_basicHandler') ) 
 {
 
 //=========================================================
@@ -109,7 +109,7 @@ public function &get_show()
 //---------------------------------------------------------
 // element
 //---------------------------------------------------------
-// refresh_handler
+// refreshHandler
 public function get_rssurl_by_mode()
 {
 	$mode     = $this->get('mode');
@@ -189,12 +189,12 @@ public function &get_channel()
 }
 
 //=========================================================
-// class rssc_link_basic_handler
+// class rssc_link_basicHandler
 // this class is used by command line
 // this class handle MySQL table directly
 // this class does not use another class
 //=========================================================
-    class rssc_link_basic_handler extends happy_linux_basic_handler
+    class rssc_link_basicHandler extends happy_linux_basicHandler
     {
 
         //---------------------------------------------------------
@@ -324,7 +324,7 @@ public function &get_channel()
         {
             $row =& $this->get_cache_row($lid);
             if (!is_array($row)) {
-                $this->_set_errors('rssc_link_handler: no link record: lid = ' . $lid);
+                $this->_set_errors('rssc_linkHandler: no link record: lid = ' . $lid);
                 return false;
             } else {
                 return $row['post_plugin'];
@@ -336,7 +336,7 @@ public function &get_channel()
         {
             $row =& $this->get_cache_row($lid);
             if (!is_array($row)) {
-                $this->_set_errors('rssc_link_handler: no link record: lid = ' . $lid);
+                $this->_set_errors('rssc_linkHandler: no link record: lid = ' . $lid);
                 return false;
             } else {
                 return $row['ltype'];
@@ -348,7 +348,7 @@ public function &get_channel()
         {
             $row =& $this->get_cache_row($lid);
             if (!is_array($row)) {
-                $this->_set_errors('rssc_link_handler: no link record: lid = ' . $lid);
+                $this->_set_errors('rssc_linkHandler: no link record: lid = ' . $lid);
                 return false;
             } else {
                 return $row['enclosure'];
@@ -361,7 +361,7 @@ public function &get_channel()
             $ret = false;
             $obj =& $this->get_cache_object_by_id($lid);
             if (!is_object($obj)) {
-                $this->_set_errors("rssc_xml_handler: no xml record: lid = $lid");
+                $this->_set_errors("rssc_xmlHandler: no xml record: lid = $lid");
                 return $ret;
             }
             $ret =& $obj->get_channel();

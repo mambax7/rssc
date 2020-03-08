@@ -37,21 +37,21 @@
 // 2006-06-04 K.OHWADA
 //================================================================
 
-include 'header.php';
+require __DIR__ . '/header.php';
 
-include_once RSSC_ROOT_PATH."/class/rssc_view_handler.php";
+require_once RSSC_ROOT_PATH."/class/rssc_viewHandler.php";
 
-$view_handler =& rssc_get_handler( 'view',         RSSC_DIRNAME );
-$conf_handler =& rssc_get_handler( 'config_basic', RSSC_DIRNAME );
+$viewHandler =& rssc_getHandler( 'view',         RSSC_DIRNAME );
+$confHandler =& rssc_getHandler( 'config_basic', RSSC_DIRNAME );
 $post         =& happy_linux_post::getInstance();
 $pagenavi     =& happy_linux_pagenavi::getInstance();
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$xoopsOption['template_main'] = RSSC_DIRNAME.'_single_link.html';
-include XOOPS_ROOT_PATH.'/header.php';
+$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME.'_single_link.html';
+require XOOPS_ROOT_PATH.'/header.php';
 
-$conf  =& $conf_handler->get_conf();
+$conf  =& $confHandler->get_conf();
 $limit =  $conf['main_link_feeds_perlink'];
 
 $lid           = $post->get_get_int('lid');
@@ -59,16 +59,16 @@ $mode          = $post->get_get_int('mode');
 $keyword_array = $post->get_get_keyword_array();
 $urlencode     = $post->get_urlencode_keywords();
 
-$view_handler->setFlagSanitize( true );
-$view_handler->set_flag_ltype( true );
-$view_handler->set_flag_enclosure( true );
-$view_handler->set_title_html(   $conf['main_link_title_html'] );
-$view_handler->set_max_title(    $conf['main_link_max_title'] );
-$view_handler->set_content_html( $conf['main_link_content_html'] );
-$view_handler->set_max_content(  $conf['main_link_max_content'] );
-$view_handler->set_max_summary(  $conf['main_link_max_summary'] );
-$view_handler->set_highlight(    $conf['basic_highlight'] );
-$view_handler->set_keyword_array( $keyword_array );
+$viewHandler->setFlagSanitize( true );
+$viewHandler->set_flag_ltype( true );
+$viewHandler->set_flag_enclosure( true );
+$viewHandler->set_title_html(   $conf['main_link_title_html'] );
+$viewHandler->set_max_title(    $conf['main_link_max_title'] );
+$viewHandler->set_content_html( $conf['main_link_content_html'] );
+$viewHandler->set_max_content(  $conf['main_link_max_content'] );
+$viewHandler->set_max_summary(  $conf['main_link_max_summary'] );
+$viewHandler->set_highlight(    $conf['basic_highlight'] );
+$viewHandler->set_keyword_array( $keyword_array );
 
 $pagenavi->setPerpage($limit);
 $pagenavi->getGetPage();
@@ -81,9 +81,9 @@ $total = 0;
 $link_show = 0;
 $feed_show = 0;
 
-if ( $view_handler->exists_link($lid) )
+if ( $viewHandler->exists_link($lid) )
 {
-	$link  =& $view_handler->get_link_by_lid($lid);
+	$link  =& $viewHandler->get_link_by_lid($lid);
 
 	if ( is_array($link) && (count($link) > 0) )
 	{
@@ -91,12 +91,12 @@ if ( $view_handler->exists_link($lid) )
 		$xoopsTpl->assign('link', $link);
 	}
 
-	$total = $view_handler->get_feed_count_by_lid($lid);
+	$total = $viewHandler->get_feed_count_by_lid($lid);
 
 	$pagenavi->setTotal($total);
 	$start =  $pagenavi->calcStart();
 
-	$feeds =& $view_handler->get_feeds_by_lid($lid, $limit, $start);
+	$feeds =& $viewHandler->get_feeds_by_lid($lid, $limit, $start);
 
 	if ( is_array($feeds) && (count($feeds) > 0) )
 	{
@@ -112,7 +112,7 @@ if ( $view_handler->exists_link($lid) )
 	$navi = $pagenavi->build($url);
 }
 
-$xoopsTpl->assign( $view_handler->get_tpl_common_param() );
+$xoopsTpl->assign( $viewHandler->get_tpl_common_param() );
 
 $xoopsTpl->assign('lang_total',   sprintf(_RSSC_THEREARE,   $total) );
 /* CDS Patch. RSS Center. 1.02. 6. BOF */
@@ -129,12 +129,12 @@ $xoopsTpl->assign('mode',  $mode);
 $xoopsTpl->assign('rssc_keywords',   $urlencode);
 
 // page title
-$module_name_s = $view_handler->get_module_name('s');
+$module_name_s = $viewHandler->get_module_name('s');
 $xoopsTpl->assign('xoops_pagetitle', $module_name_s.' - '.$link['title_s']);
 
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time() );
 $xoopsTpl->assign('memory_usage',   happy_linux_get_memory_usage_mb() );
-include XOOPS_ROOT_PATH.'/footer.php';
+require XOOPS_ROOT_PATH.'/footer.php';
 exit();
 // --- main end ---
 

@@ -6,7 +6,7 @@
 // _update_feed_130()
 
 // 2011-12-29 K.OHWADA
-// TYPE=MyISAM -> ENGINE=MyISAM
+// ENGINE=MyISAM -> ENGINE=MyISAM
 
 // 2009-02-20 K.OHWADA
 // _update_feed_100()
@@ -302,7 +302,7 @@ if( ! class_exists('rssc_install') )
             if ($this->return_errors()) {
                 $msg = $title . ' successfully ';
             } else {
-                $msg = $this->_highlight('ERROR: ' . $title) . "<br />\n";
+                $msg = $this->_highlight('ERROR: ' . $title) . "<br>\n";
                 $msg .= $this->_get_errors();
             }
 

@@ -287,7 +287,7 @@ if( !class_exists('rssc_plugin') )
             $flase = false;
 
             if (file_exists(XOOPS_ROOT_PATH . '/' . $file)) {
-                include_once XOOPS_ROOT_PATH . '/' . $file;
+                require_once XOOPS_ROOT_PATH . '/' . $file;
             } else {
                 return $false;
             }
@@ -307,7 +307,7 @@ if( !class_exists('rssc_plugin') )
             $rssc_plugin_description = '';
 
             if (file_exists(XOOPS_ROOT_PATH . '/' . $file)) {
-                include_once XOOPS_ROOT_PATH . '/' . $file;
+                require_once XOOPS_ROOT_PATH . '/' . $file;
             } else {
                 return false;
             }
@@ -321,7 +321,7 @@ if( !class_exists('rssc_plugin') )
             $func = 'rssc_plugin_data_' . $name;
 
             if (file_exists(XOOPS_ROOT_PATH . '/' . $file)) {
-                include_once XOOPS_ROOT_PATH . '/' . $file;
+                require_once XOOPS_ROOT_PATH . '/' . $file;
             } else {
                 return false;
             }
@@ -354,7 +354,7 @@ if( !class_exists('rssc_plugin') )
     public function _print_msg($msg)
         {
             if ($this->_FLAG_PRINT) {
-                echo htmlspecialchars($msg, ENT_QUOTES) . "<br />\n";
+                echo htmlspecialchars($msg, ENT_QUOTES) . "<br>\n";
             }
         }
 
@@ -478,7 +478,7 @@ if( !class_exists('rssc_plugin') )
                 $text .= '</tr>' . "\n";
             }
 
-            $text .= '</table><br />' . "\n";
+            $text .= '</table><br>' . "\n";
             return $text;
         }
 

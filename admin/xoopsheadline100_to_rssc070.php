@@ -3,7 +3,7 @@
 
 // 2007-10-10 K.OHWADA
 // rssc v0.70
-// rssc_import_handler
+// rssc_importHandler
 
 // 2006-09-20 K.OHWADA
 // use rssc_admin_print_bread()
@@ -19,31 +19,31 @@
 //================================================================
 
 // system files
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
-include_once RSSC_ROOT_PATH.'/api/refresh.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_import_handler.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_xoopsheadline_handler.php';
+require_once RSSC_ROOT_PATH.'/api/refresh.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_importHandler.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_xoopsheadlineHandler.php';
 
 
 //=========================================================
 // RSS Center Module
 // 2006-01-01 K.OHWADA
 //=========================================================
-class admin_import_xoopsheadline extends rssc_import_handler
+class admin_import_xoopsheadline extends rssc_importHandler
 {
     public $_DIRNAME_XOOPSHEADLINE = 'xoopsheadline';
-    public $_xoopsheadline_handler;
+    public $_xoopsheadlineHandler;
 
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
     public function __construct()
     {
-        rssc_import_handler::__construct(RSSC_DIRNAME);
+        rssc_importHandler::__construct(RSSC_DIRNAME);
         $this->set_mid_orig_by_dirname($this->_DIRNAME_XOOPSHEADLINE);
 
-        $this->_xoopsheadline_handler = rssc_xoopsheadline_handler::getInstance($this->_DIRNAME_XOOPSHEADLINE);
+        $this->_xoopsheadlineHandler = rssc_xoopsheadlineHandler::getInstance($this->_DIRNAME_XOOPSHEADLINE);
     }
 
     public static function getInstance()
@@ -71,11 +71,11 @@ class admin_import_xoopsheadline extends rssc_import_handler
         $offset = $this->get_post_offset();
         $next   = $this->calc_next();
 
-        $total = $this->_xoopsheadline_handler->get_count_all();
-        $objs  =& $this->_xoopsheadline_handler->get_objects_for_import($this->_LIMIT, $offset);
+        $total = $this->_xoopsheadlineHandler->get_count_all();
+        $objs  =& $this->_xoopsheadlineHandler->get_objects_for_import($this->_LIMIT, $offset);
 
-        echo 'There are <b>' . $total . "</b> xoopsheadline in XoopsHeadline<br />\n";
-        echo 'Transfer ' . $offset . ' - ' . $next . " record <br /><br />\n";
+        echo 'There are <b>' . $total . "</b> xoopsheadline in XoopsHeadline<br>\n";
+        echo 'Transfer ' . $offset . ' - ' . $next . " record <br><br>\n";
 
         foreach ($objs as $obj) {
             $rssc_lid = $this->import_link_common($obj);
@@ -113,7 +113,7 @@ if ( isset($_POST['op']) )  $op = $_POST['op'];
 
 rssc_admin_print_bread( _AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'xoopshedline' );
 echo '<h3>' . _AM_RSSC_IMPORT_XOOPSHEADLINE . "</h3>\n";
-echo "Import DB xoopshedline 1.00 to rssc 0.70 <br /><br />\n";
+echo "Import DB xoopshedline 1.00 to rssc 0.70 <br><br>\n";
 
 if( !$import->exist_module() ) 
 {

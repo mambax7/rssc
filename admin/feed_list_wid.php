@@ -9,15 +9,15 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
-include 'feed_list_class.php';
+require __DIR__ . '/admin_header.php';
+require __DIR__ . '/feed_list_class.php';
 
 //=========================================================
 // class admin list feed
 //=========================================================
 class admin_feed_list_wid extends admin_feed_list
 {
-    public $_white_handler;
+    public $_whiteHandler;
 
     public $_wid        = 0;
     public $_total_link = 0;
@@ -31,7 +31,7 @@ class admin_feed_list_wid extends admin_feed_list
         admin_feed_list::__construct();
         $this->set_max_sortid(4);
 
-        $this->_white_handler = rssc_get_handler('white', RSSC_DIRNAME);
+        $this->_whiteHandler = rssc_getHandler('white', RSSC_DIRNAME);
     }
 
     public static function getInstance()
@@ -51,15 +51,15 @@ class admin_feed_list_wid extends admin_feed_list
     {
         if (isset($_GET['wid'])) {
             $this->_wid  = $this->_post->get_get_int('wid');
-            $white_obj   =& $this->_white_handler->get($this->_wid);
+            $white_obj   =& $this->_whiteHandler->get($this->_wid);
             $this->_link = $white_obj->get('url');
         }
     }
 
     public function _get_total()
     {
-        $this->_total_link    = $this->_handler->get_count_by_link($this->_link);
-        $this->_total_non_act = $this->_handler->get_count_by_link_non_act($this->_link);
+        $this->_total_link    = $this->Handler->get_count_by_link($this->_link);
+        $this->_total_non_act = $this->Handler->get_count_by_link_non_act($this->_link);
         switch ($this->_sortid) {
             case 2:
             case 3:
@@ -82,20 +82,20 @@ class admin_feed_list_wid extends admin_feed_list
     {
         switch ($this->_sortid) {
             case 1:
-                $objs =& $this->_handler->get_objects_by_link_desc($this->_link, $limit, $start);
+                $objs =& $this->Handler->get_objects_by_link_desc($this->_link, $limit, $start);
                 break;
 
             case 2:
-                $objs =& $this->_handler->get_objects_by_link_non_act_asc($this->_link, $limit, $start);
+                $objs =& $this->Handler->get_objects_by_link_non_act_asc($this->_link, $limit, $start);
                 break;
 
             case 3:
-                $objs =& $this->_handler->get_objects_by_link_non_act_desc($this->_link, $limit, $start);
+                $objs =& $this->Handler->get_objects_by_link_non_act_desc($this->_link, $limit, $start);
                 break;
 
             case 0:
             default:
-                $objs =& $this->_handler->get_objects_by_link_asc($this->_link, $limit, $start);
+                $objs =& $this->Handler->get_objects_by_link_asc($this->_link, $limit, $start);
                 break;
         }
         return $objs;
@@ -106,12 +106,12 @@ class admin_feed_list_wid extends admin_feed_list
     //---------------------------------------------------------
     public function _print_sub()
     {
-        $white_obj = $this->_white_handler->get($this->_wid);
+        $white_obj = $this->_whiteHandler->get($this->_wid);
         if (is_object($white_obj)) {
             $title_s = $white_obj->getVar('title', 's');
             $link    = '<a href="white_manage.php?op=mod_form&wid=' . $this->_wid . '">' . $title_s . '</a>';
             printf(_AM_RSSC_THEREARE_TITLE, $link, $this->_total_link);
-            echo "<br /><br />\n";
+            echo "<br><br>\n";
         }
     }
 

@@ -137,7 +137,7 @@ define('_AM_RSSC_GOTOTOP', 'トップに戻る');
 // === configuration ===
 // basic configuration
 define('_AM_RSSC_CONF_FEED_LIMIT', 'FEED記事の最大の件数');
-define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'feed テーブルに格納するFEED記事の最大の件数を指定する<br />この値を超えると日付の古い方からクリアされる。<br /><b>0</b> は無制限だが、推奨しない。');
+define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'feed テーブルに格納するFEED記事の最大の件数を指定する<br>この値を超えると日付の古い方からクリアされる。<br><b>0</b> は無制限だが、推奨しない。');
 define('_AM_RSSC_CONF_RSS_ATOM', 'RSSとATOMの選択');
 define('_AM_RSSC_CONF_RSS_ATOM_DESC', 'RSS URLとATOM URLの両方が検出されたときに、どちらを使用するか選択します');
 define('_AM_RSSC_CONF_RSS_ATOM_SEL_ATOM', 'ATOM');
@@ -152,7 +152,7 @@ define('_AM_RSSC_CONF_RSS_MODE', 'RSS モードの初期値');
 define('_AM_RSSC_CONF_XML_SAVE', 'XMLを保存する');
 define('_AM_RSSC_CONF_XML_SAVE_DESC', '読み出したXMLを link テーブルに保存する');
 define('_AM_RSSC_CONF_FUTURE_DAYS', '未来の日付け');
-define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', '単位は日数<br />この日数よりも未来の記事であれば、表示しない');
+define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', '単位は日数<br>この日数よりも未来の記事であれば、表示しない');
 
 // show configuration
 define('_AM_RSSC_CONF_SHOW_ORDER','表示する順番');
@@ -166,7 +166,7 @@ define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE','１ページに表示するfeed件�
 define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK','１リンク毎に表示するfeed件数');
 //define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK_DESC','１リンクあたりに表示する最大件数を指定してください');
 define('_AM_RSSC_CONF_SHOW_MAX_TITLE','タイトルの最大文字数');
-define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','この文字数を超えたときは、HTMLタグは削除されます<br /><b>-1</b> のときは、制限なしです');
+define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','この文字数を超えたときは、HTMLタグは削除されます<br><b>-1</b> のときは、制限なしです');
 define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY','要約の最大文字数');
 define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC','<b>-1</b> のときは、制限なしです');
 
@@ -195,11 +195,11 @@ define('_AM_RSSC_VIEW_MODE_LINK', 'mode 1: link テーブルに格納された X
 define('_AM_RSSC_VIEW_MODE_FEED', 'mode 2: feed テーブルに格納されたデータ');
 define('_AM_RSSC_VIEW_SANITIZE', 'html サニタイズする');
 define('_AM_RSSC_VIEW_TITLE_HTML','タイトルのHTMLタグの表示');
-define('_AM_RSSC_VIEW_TITLE_HTML_DESC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br />「いいえ」を選択すると、HTMLタグを削除して表示する。');
+define('_AM_RSSC_VIEW_TITLE_HTML_DESC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br>「いいえ」を選択すると、HTMLタグを削除して表示する。');
 define('_AM_RSSC_VIEW_CONTENT_HTML','本文のHTMLタグの表示');
-define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br />「いいえ」を選択すると、HTMLタグを削除して表示する。');
+define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br>「いいえ」を選択すると、HTMLタグを削除して表示する。');
 define('_AM_RSSC_VIEW_MAX_CONTENT','本文の最大文字数');
-define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','この文字数を超えたときは、HTMLタグは削除されます<br /><b>-1</b> のときは、制限なしです');
+define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','この文字数を超えたときは、HTMLタグは削除されます<br><b>-1</b> のときは、制限なしです');
 define('_AM_RSSC_VIEW_LINK_UPDATE', 'link テーブルの更新');
 define('_AM_RSSC_VIEW_FEED_UPDATE', 'feed テーブルの更新');
 define('_AM_RSSC_VIEW_FORCE_DISCOVER', 'RSS URLの強制検出');
@@ -247,17 +247,17 @@ define('_AM_RSSC_PARSE_RSS', 'RDF/RSS/ATOM の解析');
 
 // refresh link
 //define('_AM_RSSC_REFRESH_LINK', 'feed 記事の更新');
-//define('_AM_RSSC_REFRESH_LINK_DSC', '引き続いて、RDF/RSS/ATOM の feed 記事を更新します。<br />もし設定されていなければ、<br /> <b>RDF/RSS/ATOM URL</b> と <b>エンコード</b> を自動的に検出します。');
+//define('_AM_RSSC_REFRESH_LINK_DSC', '引き続いて、RDF/RSS/ATOM の feed 記事を更新します。<br>もし設定されていなければ、<br> <b>RDF/RSS/ATOM URL</b> と <b>エンコード</b> を自動的に検出します。');
 //define('_AM_RSSC_REFRESH_LINK_FINISHED', 'feed 記事を更新した');
 
 // === 2006-07-08 ===
 // description at main
 define('_AM_RSSC_CONF_INDEX_DESC','メインページの説明');
 define('_AM_RSSC_CONF_INDEX_DESC_DSC', 'メインページに表示するときは、説明文を指定してください。');
-define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">ここには説明文を表示します。<br />説明文は「モジュールの設定」にて編集できます。<br /></div><br />');
+define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">ここには説明文を表示します。<br>説明文は「モジュールの設定」にて編集できます。<br></div><br>');
 
 // link table
-define('_AM_RSSC_LINK_DESC','登録するWEBサイトが RSS Auto Discovery (自動検出) に対応している場合は、<br /><b>RDF/RSS/ATOM URL</b> と <b>エンコード</b> を記入しなくとも、自動的に設定されます');
+define('_AM_RSSC_LINK_DESC','登録するWEBサイトが RSS Auto Discovery (自動検出) に対応している場合は、<br><b>RDF/RSS/ATOM URL</b> と <b>エンコード</b> を記入しなくとも、自動的に設定されます');
 //define('_AM_RSSC_LINK_EXIST', 'その「RDF/RSS/ATOM URL」は登録済みです');
 //define('_AM_RSSC_LINK_EXIST_MORE','同じ「RDF/RSS/ATOM URL」を持つ複数のリンクが見つかりました');
 //define('_AM_RSSC_AUTO_FIND_FAILD','RSS Auto Discovery  (自動検出) が出来ませんでした');
@@ -269,11 +269,11 @@ define('_AM_RSSC_BLACK_MEMO','備考');
 // === 2006-09-20 ===
 // show content with html
 define('_AM_RSSC_CONF_SHOW_TITLE_HTML','タイトルのHTMLタグの表示');
-define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br />「いいえ」を選択すると、HTMLタグを削除して表示する。');
+define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br>「いいえ」を選択すると、HTMLタグを削除して表示する。');
 define('_AM_RSSC_CONF_SHOW_CONTENT_HTML','本文のHTMLタグの表示');
-define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br />「いいえ」を選択すると、HTMLタグを削除して表示する。');
+define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', '「はい」を選択すると、HTMLタグがあるときは、そのまま表示する。<br>「いいえ」を選択すると、HTMLタグを削除して表示する。');
 define('_AM_RSSC_CONF_SHOW_MAX_CONTENT','本文の最大文字数');
-define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'この文字数を超えたときは、HTMLタグは削除されます<br /><b>-1</b> のときは、制限なしです');
+define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'この文字数を超えたときは、HTMLタグは削除されます<br><b>-1</b> のときは、制限なしです');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT','本文を表示するfeed件数');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT_DSC', '本文を表示する最大件数を指定してください');
 define('_AM_RSSC_CONF_SHOW_BLOG_LID','Bolg を表示する Link ID');
@@ -288,9 +288,9 @@ define('_AM_RSSC_CONF_PROXY_USE',  'プロキシ・サーバーを使用する')
 define('_AM_RSSC_CONF_PROXY_HOST', 'プロキシ・ホスト名');
 define('_AM_RSSC_CONF_PROXY_PORT', 'プロキシ・ポート番号');
 define('_AM_RSSC_CONF_PROXY_USER', 'プロキシ・ユーザ名');
-define('_AM_RSSC_CONF_PROXY_USER_DESC', 'プロキシ・サーバーがBASIC認証を必要とする場合は、ユーザ名を入力する<br />そうでなければ、空欄のままにする');
+define('_AM_RSSC_CONF_PROXY_USER_DESC', 'プロキシ・サーバーがBASIC認証を必要とする場合は、ユーザ名を入力する<br>そうでなければ、空欄のままにする');
 define('_AM_RSSC_CONF_PROXY_PASS', 'プロキシ・パスワード');
-define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'プロキシ・サーバーがBASIC認証を必要とする場合は、パスワードを入力する<br />そうでなければ、空欄のままにする');
+define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'プロキシ・サーバーがBASIC認証を必要とする場合は、パスワードを入力する<br>そうでなければ、空欄のままにする');
 
 define('_AM_RSSC_CONF_HIGHLIGHT', 'キーワードのハイライト表示を使用する');
 
@@ -321,7 +321,7 @@ define('_AM_RSSC_CONF_LINK_USE_DESC','リンクテーブルの「タイプ」が
 define('_AM_RSSC_CONF_WHITE_USE','ホワイトリストの使用');
 define('_AM_RSSC_CONF_WHITE_USE_DESC','ホワイトリストにあれば、保存する');
 define('_AM_RSSC_CONF_BLACK_USE','ブラックリストの使用');
-define('_AM_RSSC_CONF_BLACK_USE_DESC','ブラックリストにあれば、保存しない<br />使用では、ブラックと判定すると、以降の処理を中断する<br />学習モードでは、禁止語を抽出するため、処理を継続する');
+define('_AM_RSSC_CONF_BLACK_USE_DESC','ブラックリストにあれば、保存しない<br>使用では、ブラックと判定すると、以降の処理を中断する<br>学習モードでは、禁止語を抽出するため、処理を継続する');
 define('_AM_RSSC_CONF_BLACK_USE_NO','未使用');
 define('_AM_RSSC_CONF_BLACK_USE_YES','使用');
 define('_AM_RSSC_CONF_BLACK_USE_LEARN','学習モード');
@@ -329,7 +329,7 @@ define('_AM_RSSC_CONF_WORD_USE','禁止語リストの使用');
 define('_AM_RSSC_CONF_WORD_USE_DESC','禁止語リストの合計得点が判定レベルを超えると、保存しない');
 define('_AM_RSSC_CONF_WORD_LEVEL', '判定レベル');
 define('_AM_RSSC_CONF_FEED_SAVE','feed 記事の保存');
-define('_AM_RSSC_CONF_FEED_SAVE_DESC','ブラックと判定したときに、feed テーブルに保存するか否か。<br />
+define('_AM_RSSC_CONF_FEED_SAVE_DESC','ブラックと判定したときに、feed テーブルに保存するか否か。<br>
 「保存する」では、非表示の状態にして保存します。');
 define('_AM_RSSC_CONF_FEED_SAVE_NO', '保存しない');
 define('_AM_RSSC_CONF_FEED_SAVE_YES','保存する');
@@ -342,9 +342,9 @@ define('_AM_RSSC_CONF_BLACK_COUNT_DESC','ブラックリストに合致したと
 define('_AM_RSSC_CONF_WORD_COUNT','禁止語リストのカウント');
 define('_AM_RSSC_CONF_WORD_COUNT_DESC','禁止語リストに合致したとき、該当の条件をカウントアップする');
 define('_AM_RSSC_CONF_BLACK_AUTO','ブラックリストの自動登録');
-define('_AM_RSSC_CONF_BLACK_AUTO_DESC','ブラックと判定されたURLをブラックリストに自動的に登録する<br /><b>注意</b> 「無効」状態で登録します<br />使用する場合は「有効」に変更してください');
+define('_AM_RSSC_CONF_BLACK_AUTO_DESC','ブラックと判定されたURLをブラックリストに自動的に登録する<br><b>注意</b> 「無効」状態で登録します<br>使用する場合は「有効」に変更してください');
 define('_AM_RSSC_CONF_WORD_AUTO','禁止語の自動登録');
-define('_AM_RSSC_CONF_WORD_AUTO_DESC','ブラックと判定されたコンテンツに含まれる単語を自動的に抽出して、禁止語リストに自動的に登録する<br /><b>注意</b> 「点数」=0 で登録します<br />使用する場合は点数を設定してください');
+define('_AM_RSSC_CONF_WORD_AUTO_DESC','ブラックと判定されたコンテンツに含まれる単語を自動的に抽出して、禁止語リストに自動的に登録する<br><b>注意</b> 「点数」=0 で登録します<br>使用する場合は点数を設定してください');
 define('_AM_RSSC_CONF_WORD_AUTO_NON','自動登録しない');
 define('_AM_RSSC_CONF_WORD_AUTO_SYMBOL','空白や記号による単語の抽出');
 define('_AM_RSSC_CONF_WORD_AUTO_KAKASI','KAKASIによる単語の抽出');
@@ -354,7 +354,7 @@ define('_AM_RSSC_FORM_WORD','単語抽出の設定');
 define('_AM_RSSC_CONF_JOIN_PREV', '単語の連結');
 define('_AM_RSSC_CONF_JOIN_PREV_DESC', '前後の単語と連結し、熟語を作る');
 define('_AM_RSSC_CONF_JOIN_GLUE', '単語の連結子');
-define('_AM_RSSC_CONF_JOIN_GLUE_DESC', '日本語では何も指定しない<br />英語では半角空白を指定する');
+define('_AM_RSSC_CONF_JOIN_GLUE_DESC', '日本語では何も指定しない<br>英語では半角空白を指定する');
 define('_AM_RSSC_CONF_KAKASI_PATH','KAKASIのコマンドパス');
 define('_AM_RSSC_CONF_KAKASI_MODE','KAKASIのモード');
 define('_AM_RSSC_CONF_KAKASI_MODE_FILE','一時ファイルを使用する');
@@ -362,16 +362,16 @@ define('_AM_RSSC_CONF_KAKASI_MODE_PIPE','UNIX pipe を使用する');
 define('_AM_RSSC_CONF_CHAR_LENGTH', '単語の最小文字数');
 define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', '抽出する単語の最小の(半角)文字数');
 define('_AM_RSSC_CONF_WORD_LIMIT', '禁止語の最大の登録数');
-define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'word テーブルに格納する禁止語の最大の登録数を指定する<br />この値を超えると日付の古い方からクリアされる。<br /><b>0</b> は無制限だが、推奨しない。');
+define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'word テーブルに格納する禁止語の最大の登録数を指定する<br>この値を超えると日付の古い方からクリアされる。<br><b>0</b> は無制限だが、推奨しない。');
 define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi が実行可能です');
 define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi が実行できません');
 define('_AM_RSSC_CONF_HTML_GET','HTMLの自動取得');
-define('_AM_RSSC_CONF_HTML_GET_DESC','禁止語リストを使用して判定を行うときに、発言元のHTMLデータを自動取得します<br />HTMLデータを取得すると、判定の精度は向上しますが、実行時間も大きくなります');
+define('_AM_RSSC_CONF_HTML_GET_DESC','禁止語リストを使用して判定を行うときに、発言元のHTMLデータを自動取得します<br>HTMLデータを取得すると、判定の精度は向上しますが、実行時間も大きくなります');
 define('_AM_RSSC_CONF_HTML_GET_NO','自動取得しない');
 define('_AM_RSSC_CONF_HTML_GET_YES','自動取得する');
 define('_AM_RSSC_CONF_HTML_GET_BLACK','ブラックと判定されときに自動取得する');
 define('_AM_RSSC_CONF_HTML_LIMIT', 'HTMLデータの最大の文字数');
-define('_AM_RSSC_CONF_HTML_LIMIT_DESC', '自動取得したHTMLデータの最大の文字数<br />サイトによっては大きなデータとなり、その分 実行時間が長くなります');
+define('_AM_RSSC_CONF_HTML_LIMIT_DESC', '自動取得したHTMLデータの最大の文字数<br>サイトによっては大きなデータとなり、その分 実行時間が長くなります');
 
 // archive manage
 define('_AM_RSSC_LEAN_BLACK', 'ブラックリストの学習');
@@ -393,13 +393,13 @@ define('_AM_RSSC_CONF_SHOW_SITE', 'サイト情報');
 define('_AM_RSSC_CONF_SHOW_SITE_DSC', 'サイト名とURLを表示するか');
 
 // link table
-define('_AM_RSSC_LINK_CENSOR_DESC', '文字列と文字列の間は <b>|</b> で区切ります<br />大文字小文字は区別します');
+define('_AM_RSSC_LINK_CENSOR_DESC', '文字列と文字列の間は <b>|</b> で区切ります<br>大文字小文字は区別します');
 
 
 // === 2008-01-20 ===
 // menu
 define('_AM_RSSC_FORM_HTMLOUT',       'HTML出力設定');
-define('_AM_RSSC_FORM_HTMLOUT_DESC',  '本文のHTMLタグの表示を「はい」に設定したときの、本文の処理<br />「いいえ」のときは、全てのタグは削除される<br />XSS (クロスサイトスクリプティング) 防止のために、JavaScript 関係の記述は削除するか文字列変換することをお勧めします');
+define('_AM_RSSC_FORM_HTMLOUT_DESC',  '本文のHTMLタグの表示を「はい」に設定したときの、本文の処理<br>「いいえ」のときは、全てのタグは削除される<br>XSS (クロスサイトスクリプティング) 防止のために、JavaScript 関係の記述は削除するか文字列変換することをお勧めします');
 define('_AM_RSSC_FORM_CUSTOM_PLUGIN', 'カスタム・プラグイン');
 
 // html out
@@ -418,15 +418,15 @@ define('_AM_RSSC_CONF_HTML_COMMENT_DESC', '&lt;!-- ... --&gt; の処理');
 define('_AM_RSSC_CONF_HTML_CDATA', 'CDATA 記号');
 define('_AM_RSSC_CONF_HTML_CDATA_DESC', '&lt;![CDATA[ ... ]]&gt; の処理');
 define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE', 'onMouse 属性');
-define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', 'onmouseover="..." や onclick="..." の処理<br />「変換」のときは on_mouseover_="..." のようになる');
+define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', 'onmouseover="..." や onclick="..." の処理<br>「変換」のときは on_mouseover_="..." のようになる');
 define('_AM_RSSC_CONF_HTML_ATTR_STYLE', 'style 属性');
-define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', 'style="..." や class="..." の処理<br />「変換」のときは style_="..." のようになる');
+define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', 'style="..." や class="..." の処理<br>「変換」のときは style_="..." のようになる');
 define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS', 'その他のタグの削除');
 define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS_DESC', '&lt;img ... &gt; &lt;a ... &gt; &lt;link ... &gt; などのタグを削除するか');
 define('_AM_RSSC_CONF_HTML_OTHER_TAGS', '削除しないタグ');
-define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', '「その他のタグの削除」が「はい」のときに、削除しないタグを記入する<br /> 例: <img><a>');
+define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', '「その他のタグの削除」が「はい」のときに、削除しないタグを記入する<br> 例: <img><a>');
 define('_AM_RSSC_CONF_HTML_JAVASCRIPT', 'JavaScriprt 文字列');
-define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', 'JavaScriprt という文字列に対する処理<br />「変換」のときは java_script となる');
+define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', 'JavaScriprt という文字列に対する処理<br>「変換」のときは java_script となる');
 
 // plugin
 define('_AM_RSSC_PRE_PLUGIN_DESC', 'データベースに格納する前に実行される');
@@ -446,9 +446,9 @@ define('_AM_RSSC_FORM_MAP', 'Google マップ 設定');
 define('_AM_RSSC_CONF_WEBMAP_DIRNAME', 'webmap dirname');
 define('_AM_RSSC_CONF_WEBMAP_DIRNAME_DESC', 'webmap モジュールのディレクトリ名を設定する');
 define('_AM_RSSC_CONF_SHOW_INFO_MAX','マーカーの全体の最大文字数');
-define('_AM_RSSC_CONF_SHOW_INFO_MAX_DSC', 'HTMLタグは削除されます<br /><b>-1</b> のときは、制限なしです');
+define('_AM_RSSC_CONF_SHOW_INFO_MAX_DSC', 'HTMLタグは削除されます<br><b>-1</b> のときは、制限なしです');
 define('_AM_RSSC_CONF_SHOW_INFO_WIDTH','マーカーの１行の最大文字数');
-define('_AM_RSSC_CONF_SHOW_INFO_WIDTH_DSC', 'この文字数以上のときは改行されます<br /><b>-1</b> のときは、制限なしです');
+define('_AM_RSSC_CONF_SHOW_INFO_WIDTH_DSC', 'この文字数以上のときは改行されます<br><b>-1</b> のときは、制限なしです');
 define('_AM_RSSC_CONF_SHOW_ICON','アイコン表示');
 define('_AM_RSSC_CONF_SHOW_ICON_DSC', 'アイコンを表示するか');
 define('_AM_RSSC_CONF_SHOW_THUMB','画像表示');

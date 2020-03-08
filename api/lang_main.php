@@ -16,13 +16,13 @@ $XOOPS_LANGUAGE = $xoopsConfig['language'];
 // main.php
 if ( file_exists(XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/'.$XOOPS_LANGUAGE.'/main.php') ) 
 {
-	include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/'.$XOOPS_LANGUAGE.'/main.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/'.$XOOPS_LANGUAGE.'/main.php';
 }
 else
 {
-	include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/english/main.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/english/main.php';
 }
 
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/compatible.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/compatible.php';
 
 ?>

@@ -6,7 +6,7 @@
 <a href="<{$xoops_url}>/modules/<{$dirname}>/"><{$module_name}></a>
  &gt;&gt; 
 <b><{$link.title_s}></b>
-<br /><br />
+<br><br>
 
 <h3 align="center"><{$module_name}></h3>
 
@@ -25,19 +25,19 @@
 <li><a href="single_link.php?lid=<{$link.lid}>&amp;keywords=<{$rssc_keywords}>"><{$lang_single_link}></a></li>
 <li><a href="single_link_utf8.php?lid=<{$link.lid}>&amp;keywords=<{$rssc_keywords}>"><{$lang_single_link_utf8}></a></li>
 </ul>
-<br />
+<br>
 
 <{if ($link_show == 1) }>
   <a href="<{$xoops_url}>/modules/<{$dirname}>/single_link.php?lid=<{$link.lid}>&amp;keywords=<{$rssc_keywords}>">
-  <img src="<{$xoops_url}>/modules/<{$dirname}>/images/dir.gif" border="0" alt="link" /></a> 
+  <img src="<{$xoops_url}>/modules/<{$dirname}>/images/dir.gif" border="0" alt="link"></a> 
   <{if $is_module_admin}>
     <a href="<{$xoops_url}>/modules/<{$dirname}>/admin/link_manage.php?op=mod_form&amp;lid=<{$link.lid}>">
-    <img src="<{$xoops_url}>/modules/<{$dirname}>/images/edit.gif" border="0" alt="edit link" />
+    <img src="<{$xoops_url}>/modules/<{$dirname}>/images/edit.gif" border="0" alt="edit link">
     </a> 
   <{/if}>
   <{if ($link.url_xml_s != "") && ($link.icon_s != "") }>
     <a href="<{$link.url_xml_s}>" target="_blank">
-    <img src="<{$xoops_url}>/modules/<{$dirname}>/images/<{$link.icon_s}>" border="0" alt="<{$link.title_s}>" /></a>
+    <img src="<{$xoops_url}>/modules/<{$dirname}>/images/<{$link.icon_s}>" border="0" alt="<{$link.title_s}>"></a>
   <{/if}>
   <{if ($link.url_s != '') }>
     <a href="<{$link.url_s}>" target="_blank"><{$link.title_s}></a>
@@ -47,24 +47,24 @@
   <{if ($link.updated_long != '') }>
     (<{$link.updated_long}>)
   <{/if}>
-  <br /><br />
+  <br><br>
 
-  <{$lang_total}><br /><br />
+  <{$lang_total}><br><br>
 
   <{if ($feed_show == 1) }>
     <{foreach item=feed from=$feeds}>
       <div>
       <a href="<{$xoops_url}>/modules/<{$dirname}>/single_feed.php?fid=<{$feed.fid}>&amp;keywords=<{$rssc_keywords}>">
-      <img src="<{$xoops_url}>/modules/<{$dirname}>/images/text.gif" border="0" alt="feed" /></a>
+      <img src="<{$xoops_url}>/modules/<{$dirname}>/images/text.gif" border="0" alt="feed"></a>
       <{if $is_module_admin}>
         <a href="<{$xoops_url}>/modules/<{$dirname}>/admin/feed_manage.php?op=mod_form&amp;fid=<{$feed.fid}>">
-        <img src="<{$xoops_url}>/modules/<{$dirname}>/images/edit.gif" border="0" alt="edit feed" />
+        <img src="<{$xoops_url}>/modules/<{$dirname}>/images/edit.gif" border="0" alt="edit feed">
         </a> 
         <{if ($feed.ltype == 1)||($feed.lid == 0) }>
           <a href="<{$xoops_url}>/modules/<{$dirname}>/admin/link_manage.php?op=addlink&amp;fid=<{$feed.fid}>">
-          <img src="<{$xoops_url}>/modules/<{$dirname}>/images/addlink.gif" border="0" alt="addlink" /></a>
+          <img src="<{$xoops_url}>/modules/<{$dirname}>/images/addlink.gif" border="0" alt="addlink"></a>
           <a href="<{$xoops_url}>/modules/<{$dirname}>/admin/black_manage.php?op=addlist&amp;fid=<{$feed.fid}>">
-          <img src="<{$xoops_url}>/modules/<{$dirname}>/images/blacklist.gif" border="0" alt="blacklist" /></a>
+          <img src="<{$xoops_url}>/modules/<{$dirname}>/images/blacklist.gif" border="0" alt="blacklist"></a>
         <{/if}>
       <{/if}>
       <{if ($feed.link != '') }>
@@ -76,9 +76,9 @@
         (<{$feed.updated_long}>)
       <{/if}>
       <{if (($feed.enclosure_mode == 1)&&($feed.enclosure_url != '')) }>
-        <br />
+        <br>
         <a href="<{$feed.enclosure_url}>" target="_blank">
-        <img src="<{$xoops_url}>/modules/<{$dirname}>/images/sound2.gif" border="0" alt="sound" /> 
+        <img src="<{$xoops_url}>/modules/<{$dirname}>/images/sound2.gif" border="0" alt="sound"> 
         <{$lang_podcast}></a> : 
         <{if ($feed.enclosure_type != '') }>
           <{$feed.enclosure_type}> 
@@ -86,7 +86,7 @@
         <{if ($feed.enclosure_length_kb != '') }>
           <{$feed.enclosure_length_kb}> <{$unit_kb}>
         <{/if}>
-        <br />
+        <br>
       <{/if}>
       <{if ($feed.summary != '') }>
         <div class="rssc_summary"><{$feed.summary|wordwrap:160}></div>
@@ -94,7 +94,7 @@
       <{if ($feed.content != '') }>
         <div class="rssc_content"><{$feed.content|wordwrap:160}></div>
       <{/if}>
-      <br />
+      <br>
       </div>
     <{/foreach}>
 
@@ -103,14 +103,14 @@
     <{/if}>
 
   <{else}>
-    <font color="blue"><{$lang_no_feed}></font><br />
+    <font color="blue"><{$lang_no_feed}></font><br>
   <{/if}>
 
 <{else}>
-  <font color="red"><{$lang_no_record}></font><br />
+  <font color="red"><{$lang_no_record}></font><br>
 <{/if}>
 
-<hr />
+<hr>
 <div class="rssc_execution_time"><{$smarty.const._RSSC_EXECUTION_TIME}> : <{$execution_time}> <{$smarty.const._RSSC_SEC}> </div>
 <{if $is_module_admin && ($memory_usage > 0)}>
 	<div class="rssc_memory_usage"><{$smarty.const._RSSC_MEMORY_USAGE}> : <{$memory_usage}> <{$smarty.const._RSSC_MB}> </div>
@@ -118,9 +118,9 @@
 
 <{if $is_module_admin }>
   <a href="<{$xoops_url}>/modules/<{$dirname}>/admin/index.php">
-  <{$lang_goto_admin}></a><br />
+  <{$lang_goto_admin}></a><br>
   <{if $rssc_error != '' }>
-    <{$lang_error}><br />
-    <font color="red"><{$rssc_error}></font><br />
+    <{$lang_error}><br>
+    <font color="red"><{$rssc_error}></font><br>
   <{/if}>
 <{/if}>

@@ -15,18 +15,18 @@
 //================================================================
 
 // system files
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
 // system files
-include_once XOOPS_ROOT_PATH.'/class/snoopy.php';
+require_once XOOPS_ROOT_PATH.'/class/snoopy.php';
 
 // module files
-include_once RSSC_ROOT_PATH.'/admin/admin_import_base_class.php';
-include_once RSSC_ROOT_PATH.'/class/magpie/rssc_magpie_parse.php';
-include_once RSSC_ROOT_PATH.'/class/magpie/rssc_magpie_cache.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_xml_object.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_xml_utility.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_parse_handler.php';
+require_once RSSC_ROOT_PATH.'/admin/admin_import_base_class.php';
+require_once RSSC_ROOT_PATH.'/class/magpie/rssc_magpie_parse.php';
+require_once RSSC_ROOT_PATH.'/class/magpie/rssc_magpie_cache.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_xml_object.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_xml_utility.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_parseHandler.php';
 
 //=========================================================
 // class admin_import_weblinks
@@ -35,7 +35,7 @@ class admin_import_weblinks extends admin_import_base
 {
     public $_DIRNAME_WEBLINKS = 'weblinks';
 
-    public $_parse_handler;
+    public $_parseHandler;
 
     public $_table_weblinks_link;
     public $_table_weblinks_feed;
@@ -52,7 +52,7 @@ class admin_import_weblinks extends admin_import_base
         $this->set_debug_db_sql(0);
         $this->set_debug_db_error(1);
 
-        $this->_parse_handler =& rssc_parse_handler::getInstance();
+        $this->_parseHandler =& rssc_parseHandler::getInstance();
 
         $this->_table_weblinks_link   = $this->db_prefix($this->_DIRNAME_WEBLINKS . '_link');
         $this->_table_weblinks_feed   = $this->db_prefix($this->_DIRNAME_WEBLINKS . '_atomfeed');
@@ -77,15 +77,15 @@ class admin_import_weblinks extends admin_import_base
     public function first_step()
     {
         ?>
-        <br/>
-        There are 5 steps. <br/>
-        1. import rss site <br/>
-        2. import black list <br/>
-        3. import white list <br/>
-        4. import link table <br/>
-        5. import feed table <br/>
-        excute each <?php echo $this->_LIMIT; ?> records at a time <br/>
-        <br/>
+        <br>
+        There are 5 steps. <br>
+        1. import rss site <br>
+        2. import black list <br>
+        3. import white list <br>
+        4. import link table <br>
+        5. import feed table <br>
+        excute each <?php echo $this->_LIMIT; ?> records at a time <br>
+        <br>
         <?php
 
         $this->_form_site();
@@ -106,7 +106,7 @@ class admin_import_weblinks extends admin_import_base
         $site_list = $this->_get_weblinks_list('rss_site');
         $total     = count($site_list);
 
-        echo 'There are <b>' . $total . "</b> rss site in weblinks<br /><br />\n";
+        echo 'There are <b>' . $total . "</b> rss site in weblinks<br><br>\n";
 
         $i = 0;
 
@@ -115,16 +115,16 @@ class admin_import_weblinks extends admin_import_base
             $i++;
 
             if ($this->_exist_url($site_url)) {
-                echo " <b>skip</b> <br />\n";
+                echo " <b>skip</b> <br>\n";
                 continue;
             }
 
-            echo " <br />\n";
+            echo " <br>\n";
 
             $title = '';
             $link  = '';
 
-            $parse_obj = $this->_parse_handler->parse_by_url($site_url);
+            $parse_obj = $this->_parseHandler->parse_by_url($site_url);
             if (is_object($parse_obj)) {
                 $title = $parse_obj->get_channel_by_key('title');
                 $link  = $parse_obj->get_channel_by_key('link');
@@ -137,7 +137,7 @@ class admin_import_weblinks extends admin_import_base
             $url     = $link;
             $rss_url = $site_url;
 
-            $link_obj =& $this->_link_handler->create();
+            $link_obj =  $this->_linkHandler->create();
 
             $link_obj->set('uid', 1);    // admin
             $link_obj->set('mid', $this->_mid);
@@ -148,7 +148,7 @@ class admin_import_weblinks extends admin_import_base
             $link_obj->setVar('url', $url, true);
             $link_obj->setVar('rss_url', $rss_url, true);
 
-            $this->_link_handler->insert($link_obj);
+            $this->_linkHandler->insert($link_obj);
             unset($link_obj);
         }
 
@@ -187,14 +187,14 @@ class admin_import_weblinks extends admin_import_base
         $site_list = $this->_get_weblinks_list('rss_black');
         $total     = count($site_list);
 
-        echo 'There are <b>' . $total . "</b> black list in weblinks<br /><br />\n";
+        echo 'There are <b>' . $total . "</b> black list in weblinks<br><br>\n";
 
         $i = 0;
 
         foreach ($site_list as $site_url) {
             $title = '';
 
-            $parse_obj =& $this->_parse_handler->discover_and_parse_by_html_url($site_url);
+            $parse_obj =& $this->_parseHandler->discover_and_parse_by_html_url($site_url);
             if (is_object($parse_obj)) {
                 $title = $parse_obj->get_channel_by_key('title');
             }
@@ -205,16 +205,16 @@ class admin_import_weblinks extends admin_import_base
 
             $url = $site_url;
 
-            echo $i . ': ' . htmlspecialchars($url) . " <br />\n";
+            echo $i . ': ' . htmlspecialchars($url) . " <br>\n";
 
-            $black_obj =& $this->_black_handler->create();
+            $black_obj =  $this->_blackHandler->create();
 
             $black_obj->set('uid', 1);    // admin
             $black_obj->set('mid', $this->_mid);
             $black_obj->setVar('title', $title, true);
             $black_obj->setVar('url', $url, true);
 
-            $this->_black_handler->insert($black_obj);
+            $this->_blackHandler->insert($black_obj);
             unset($black_obj);
 
             $i++;
@@ -255,14 +255,14 @@ class admin_import_weblinks extends admin_import_base
         $site_list = $this->_get_weblinks_list('rss_white');
         $total     = count($site_list);
 
-        echo 'There are <b>' . $total . "</b> white list in weblinks<br /><br />\n";
+        echo 'There are <b>' . $total . "</b> white list in weblinks<br><br>\n";
 
         $i = 0;
 
         foreach ($site_list as $site_url) {
             $title = '';
 
-            $parse_obj =& $this->_parse_handler->discover_and_parse_by_html_url($site_url);
+            $parse_obj =& $this->_parseHandler->discover_and_parse_by_html_url($site_url);
             if (is_object($parse_obj)) {
                 $title = $parse_obj->get_channel_by_key('title');
             }
@@ -273,16 +273,16 @@ class admin_import_weblinks extends admin_import_base
 
             $url = $site_url;
 
-            echo $i . ': ' . htmlspecialchars($url) . " <br />\n";
+            echo $i . ': ' . htmlspecialchars($url) . " <br>\n";
 
-            $white_obj =& $this->_white_handler->create();
+            $white_obj =  $this->_whiteHandler->create();
 
             $white_obj->set('uid', 1);    // admin
             $white_obj->set('mid', $this->_mid);
             $white_obj->setVar('title', $title, true);
             $white_obj->setVar('url', $url, true);
 
-            $this->_white_handler->insert($white_obj);
+            $this->_whiteHandler->insert($white_obj);
             unset($white_obj);
 
             $i++;
@@ -375,15 +375,15 @@ class admin_import_weblinks extends admin_import_base
         $row1  =& $this->_db->fetchRow($res1);
         $total = $row1[0];
 
-        echo 'There are <b>' . $total . "</b> rss links in weblinks<br />\n";
-        echo 'Transfer ' . $offset . ' - ' . $next . " record <br /><br />\n";
+        echo 'There are <b>' . $total . "</b> rss links in weblinks<br>\n";
+        echo 'Transfer ' . $offset . ' - ' . $next . " record <br><br>\n";
 
         $sql2 = 'SELECT * FROM ' . $this->_table_weblinks_link;
         $sql2 .= ' WHERE ( rss_flag=1 OR rss_flag=2 ) ORDER BY lid';
 
         $res2 =& $this->query($sql2, $this->_LIMIT, $offset);
 
-        while ($row2 = $this->_db->fetchArray($res2)) {
+        while (false !== ($row2 = $this->_db->fetchArray($res2))) {
             $lid   = $row2['lid'];
             $url   = $row2['url'];
             $url2  = $row2['rss_url'];
@@ -393,11 +393,11 @@ class admin_import_weblinks extends admin_import_base
             echo $lid . ': ' . htmlspecialchars($title);
 
             if ($this->_exist_url($url) || $this->_exist_url($url2)) {
-                echo " <b>skip</b> <br />\n";
+                echo " <b>skip</b> <br>\n";
                 continue;
             }
 
-            echo " <br />\n";
+            echo " <br>\n";
 
             $p1       = $lid;    // store lid;
             $rss_url  = '';
@@ -419,7 +419,7 @@ class admin_import_weblinks extends admin_import_base
                     break;
             }
 
-            $link_obj =& $this->_link_handler->create();
+            $link_obj =  $this->_linkHandler->create();
 
             $link_obj->set('uid', 1);    // admin
             $link_obj->set('mid', $this->_mid);
@@ -431,7 +431,7 @@ class admin_import_weblinks extends admin_import_base
             $link_obj->setVar('rss_url', $rss_url, true);
             $link_obj->setVar('atom_url', $atom_url, true);
 
-            $this->_link_handler->insert($link_obj);
+            $this->_linkHandler->insert($link_obj);
             unset($link_obj);
         }
 
@@ -507,14 +507,14 @@ class admin_import_weblinks extends admin_import_base
         $row1  =& $this->_db->fetchRow($res1);
         $total = $row1[0];
 
-        echo 'There are <b>' . $total . "</b> feeds in weblinks<br />\n";
-        echo 'Transfer ' . $offset . ' - ' . $next . " record <br /><br />\n";
+        echo 'There are <b>' . $total . "</b> feeds in weblinks<br>\n";
+        echo 'Transfer ' . $offset . ' - ' . $next . " record <br><br>\n";
 
         $sql2 = 'SELECT * FROM ' . $this->_table_weblinks_feed;
         $sql2 .= ' ORDER BY aid';
         $res2 =& $this->query($sql2, $this->_LIMIT, $offset);
 
-        while ($row2 = $this->_db->fetchArray($res2)) {
+        while (false !== ($row2 = $this->_db->fetchArray($res2))) {
             $aid   = $row2['aid'];
             $title = $row2['title'];
             $link  = $row2['url'];
@@ -522,11 +522,11 @@ class admin_import_weblinks extends admin_import_base
             echo $aid . ': ' . htmlspecialchars($title);
 
             if ($this->_exist_feed($link)) {
-                echo " <b>skip</b> <br />\n";
+                echo " <b>skip</b> <br>\n";
                 continue;
             }
 
-            echo " <br />\n";
+            echo " <br>\n";
 
             $lid            = $this->_get_feed_lid($row2);
             $uid            = $this->_get_feed_uid($lid);
@@ -542,7 +542,7 @@ class admin_import_weblinks extends admin_import_base
             $author_email   = $row2['author_email'];
             $content        = $row2['content'];
 
-            $feed_obj =& $this->_feed_handler->create();
+            $feed_obj =  $this->_feedHandler->create();
 
             $feed_obj->set('lid', $lid);
             $feed_obj->set('uid', $uid);
@@ -562,7 +562,7 @@ class admin_import_weblinks extends admin_import_base
             $feed_obj->setVar('content', $content, true);
             $feed_obj->set_search();
 
-            $this->_feed_handler->insert($feed_obj);
+            $this->_feedHandler->insert($feed_obj);
             unset($feed_obj);
         }
 
@@ -662,7 +662,7 @@ if ( isset($_POST['op']) )  $op = $_POST['op'];
 
 rssc_admin_print_bread( _AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'weblinks' );
 echo '<h3>' . _AM_RSSC_IMPORT_WEBLINKS . "</h3>\n";
-echo "Import DB weblinks 0.96 to rssc 0.30 <br /><br />\n";
+echo "Import DB weblinks 0.96 to rssc 0.30 <br><br>\n";
 
 if( !$import->exist_module() ) 
 {

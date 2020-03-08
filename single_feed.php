@@ -37,52 +37,52 @@
 // 2006-01-01 K.OHWADA
 //================================================================
 
-include 'header.php';
-include_once RSSC_ROOT_PATH . '/class/rssc_view_handler.php';
+require __DIR__ . '/header.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_viewHandler.php';
 
-$view_handler =& rssc_get_handler( 'view',         RSSC_DIRNAME );
-$conf_handler =& rssc_get_handler( 'config_basic', RSSC_DIRNAME );
+$viewHandler =& rssc_getHandler( 'view',         RSSC_DIRNAME );
+$confHandler =& rssc_getHandler( 'config_basic', RSSC_DIRNAME );
 $post         = happy_linux_post::getInstance();
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$xoopsOption['template_main'] = RSSC_DIRNAME.'_single_feed.html';
-include XOOPS_ROOT_PATH.'/header.php';
+$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME.'_single_feed.html';
+require XOOPS_ROOT_PATH.'/header.php';
 
-$conf =& $conf_handler->get_conf();
+$conf =& $confHandler->get_conf();
 
 $fid           = $post->get_get_int('fid');
 $keyword_array = $post->get_get_keyword_array();
 $urlencode     = $post->get_urlencode_keywords();
 
-$view_handler->setFlagSanitize( true );	// sanitize
-$view_handler->set_flag_ltype( true );
-$view_handler->set_flag_enclosure( true );
-$view_handler->set_title_html(   $conf['main_single_title_html'] );
-$view_handler->set_content_html( $conf['main_single_content_html'] );
-$view_handler->set_max_title(    $conf['main_single_max_title'] );
-$view_handler->set_max_content(  $conf['main_single_max_content'] );
-$view_handler->set_max_summary(  $conf['main_single_max_summary'] );
-$view_handler->set_highlight(    $conf['basic_highlight'] );
-$view_handler->set_keyword_array( $keyword_array );
+$viewHandler->setFlagSanitize( true );	// sanitize
+$viewHandler->set_flag_ltype( true );
+$viewHandler->set_flag_enclosure( true );
+$viewHandler->set_title_html(   $conf['main_single_title_html'] );
+$viewHandler->set_content_html( $conf['main_single_content_html'] );
+$viewHandler->set_max_title(    $conf['main_single_max_title'] );
+$viewHandler->set_max_content(  $conf['main_single_max_content'] );
+$viewHandler->set_max_summary(  $conf['main_single_max_summary'] );
+$viewHandler->set_highlight(    $conf['basic_highlight'] );
+$viewHandler->set_keyword_array( $keyword_array );
 
 $feed  = [];
 $link  = [];
 $error = '';
 $show  = 0;
 
-if ( $view_handler->exists_feed($fid) )
+if ( $viewHandler->exists_feed($fid) )
 {
-	$feed =& $view_handler->get_feed_by_fid($fid);
+	$feed =& $viewHandler->get_feed_by_fid($fid);
 
 	if ( is_array($feed) && isset($feed['lid']) )
 	{
 		$show = 1;
-		$link =& $view_handler->get_link_by_lid( $feed['lid'] );
+		$link =& $viewHandler->get_link_by_lid( $feed['lid'] );
 	}
 }
 
-$xoopsTpl->assign( $view_handler->get_tpl_common_param() );
+$xoopsTpl->assign( $viewHandler->get_tpl_common_param() );
 
 $xoopsTpl->assign('rssc_show',   $show);
 $xoopsTpl->assign('rssc_error',  $error);
@@ -91,12 +91,12 @@ $xoopsTpl->assign('feed',  $feed);
 $xoopsTpl->assign('rssc_keywords',   $urlencode);
 
 // page title
-$module_name_s = $view_handler->get_module_name('s');
+$module_name_s = $viewHandler->get_module_name('s');
 $xoopsTpl->assign('xoops_pagetitle', $module_name_s.' - '.$feed['title']);
 
 $xoopsTpl->assign('execution_time', happy_linux_get_execution_time() );
 $xoopsTpl->assign('memory_usage',   happy_linux_get_memory_usage_mb() );
-include XOOPS_ROOT_PATH.'/footer.php';
+require XOOPS_ROOT_PATH.'/footer.php';
 exit();
 // --- main end ---
 

@@ -6,7 +6,7 @@
 <a href="<{$xoops_url}>/modules/<{$dirname}>/"><{$module_name}></a>
  &gt;&gt; 
 <b><{$lang_main}></b>
-<br /><br />
+<br><br>
 
 <h3 align="center"><{$module_name}></h3>
 
@@ -26,30 +26,30 @@
 <a href="<{$xoops_url}>/modules/<{$dirname}>/headline.php"><{$lang_headline}></a>
 &nbsp;
 </td></tr></table>
-<br />
+<br>
 
 <div align="center">
 <form action="<{$xoops_url}>/modules/<{$dirname}>/index.php" method="get">
-<input type="text" id="query" name="query" size="30" maxlength="255" value="<{$rssc_query}>" />
+<input type="text" id="query" name="query" size="30" maxlength="255" value="<{$rssc_query}>">
 <select id="andor" name="andor" size="1">
 <option value="AND"   <{$rssc_and}>   ><{$lang_all}></option>
 <option value="OR"    <{$rssc_or}>    ><{$lang_any}></option>
 <option value="exact" <{$rssc_exact}> ><{$lang_exact}></option>
 </select>
-<input type="hidden" name="action" value="results" />
-<input type="submit" value="<{$lang_search}>" />
+<input type="hidden" name="action" value="results">
+<input type="submit" value="<{$lang_search}>">
 </form>
-</div><br />
+</div><br>
 
-<{$lang_total}><br /><br />
+<{$lang_total}><br><br>
 
 <a href="<{$xoops_url}>/modules/<{$dirname}>/rss.php?mode=rdf&amp;query=<{$rssc_query_urlencode}>&amp;andor=<{$rssc_andor}>&amp;limit=<{$feed_limit}>&amp;start=<{$feed_start}>" target="_blink" >
-<img src="<{$xoops_url}>/modules/<{$dirname}>/images/rdf.png" border="0" alt="rdf" /></a> 
+<img src="<{$xoops_url}>/modules/<{$dirname}>/images/rdf.png" border="0" alt="rdf"></a> 
 <a href="<{$xoops_url}>/modules/<{$dirname}>/rss.php?mode=rss&amp;query=<{$rssc_query_urlencode}>&amp;andor=<{$rssc_andor}>&amp;limit=<{$feed_limit}>&amp;start=<{$feed_start}>" target="_blink" >
-<img src="<{$xoops_url}>/modules/<{$dirname}>/images/rss.png" border="0" alt="rss" /></a> 
+<img src="<{$xoops_url}>/modules/<{$dirname}>/images/rss.png" border="0" alt="rss"></a> 
 <a href="<{$xoops_url}>/modules/<{$dirname}>/rss.php?mode=atom&amp;query=<{$rssc_query_urlencode}>&amp;andor=<{$rssc_andor}>&amp;limit=<{$feed_limit}>&amp;start=<{$feed_start}>" target="_blink" >
-<img src="<{$xoops_url}>/modules/<{$dirname}>/images/atom.png" border="0" alt="atom" /></a> 
-<br /><br />
+<img src="<{$xoops_url}>/modules/<{$dirname}>/images/atom.png" border="0" alt="atom"></a> 
+<br><br>
 
 <{if $rssc_show == 1}>
   <h4><{$lang_latest}></h4>
@@ -65,41 +65,41 @@
   <{foreach item=keyword from=$rssc_keywords}>
     <strong><{$keyword}></strong> 
   <{/foreach}>
-  <br />
+  <br>
 
   <{if $rssc_show_candidate }>
-    <br />
-    <{$lang_candidate}>:<br />
+    <br>
+    <{$lang_candidate}>:<br>
     <{foreach item=candidate from=$rssc_candidates}>
       <strong><{$candidate.keyword}></strong>(<{$candidate.lang}>) 
     <{/foreach}>
-    <br />
+    <br>
   <{/if}>
 
   <{if $rssc_show_ignore }>
-    <br />
-    <{$lang_ignore}><br />
+    <br>
+    <{$lang_ignore}><br>
     <{foreach item=ignore from=$rssc_ignores}>
     <strong><{$ignore}></strong> 
     <{/foreach}>
-    <br />
+    <br>
   <{/if}>
 
   <{if $rssc_show == 2}>
-    <br />
-    <{$rssc_found}><br /><br />
+    <br>
+    <{$rssc_found}><br><br>
     <{$feed_list}>
     <{if ($rssc_navi != '') }>
       <div align='center'><{$rssc_navi}></div>
     <{/if}>
 
   <{else}>
-    <font color="red"><{$rssc_reason}></font><br />
+    <font color="red"><{$rssc_reason}></font><br>
 
   <{/if}>
 
 <{else}>
-  <font color="red"><{$rssc_reason}></font><br />
+  <font color="red"><{$rssc_reason}></font><br>
 
 <{/if}>
 
@@ -107,7 +107,7 @@
   <div align="left"><{$icon_list}></div>
 <{/if}>
 
-<hr />
+<hr>
 <div class="rssc_execution_time"><{$smarty.const._RSSC_EXECUTION_TIME}> : <{$execution_time}> <{$smarty.const._RSSC_SEC}> </div>
 <{if $is_module_admin && ($memory_usage > 0)}>
 	<div class="rssc_memory_usage"><{$smarty.const._RSSC_MEMORY_USAGE}> : <{$memory_usage}> <{$smarty.const._RSSC_MB}> </div>
@@ -120,9 +120,9 @@
 
 <{if $is_module_admin }>
   <a href="<{$xoops_url}>/modules/<{$dirname}>/admin/index.php">
-  <{$lang_goto_admin}></a><br />
+  <{$lang_goto_admin}></a><br>
   <{if $rssc_error != '' }>
-    <{$lang_error}><br />
-    <font color="red"><{$rssc_error}></font><br />
+    <{$lang_error}><br>
+    <font color="red"><{$rssc_error}></font><br>
   <{/if}>
 <{/if}>

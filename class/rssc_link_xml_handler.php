@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_link_xml_handler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
+// $Id: rssc_link_xmlHandler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
 
 //=========================================================
 // Rss Center Module
@@ -7,30 +7,30 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_link_xml_handler') ) 
+if( !class_exists('rssc_link_xmlHandler') ) 
 {
 
 //=========================================================
 // class link handler
 //=========================================================
-    class rssc_link_xml_handler extends rssc_link_handler
+    class rssc_link_xmlHandler extends rssc_linkHandler
     {
-        public $_xml_handler;
+        public $_xmlHandler;
 
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            rssc_link_handler::__construct($dirname);
+            rssc_linkHandler::__construct($dirname);
 
-            $this->_xml_handler =& rssc_get_handler('xml', $dirname);
+            $this->_xmlHandler =& rssc_getHandler('xml', $dirname);
         }
 
         //---------------------------------------------------------
         // basic function
         //---------------------------------------------------------
-    public function insert(&$obj, $force = false)
+    public function insert(XoopsObject $obj, $force = false)
         {
             // link table
             $newid = parent::insert($obj, $force);
@@ -39,18 +39,18 @@ if( !class_exists('rssc_link_xml_handler') )
             }
 
             // xml table
-            $xml_obj =& $this->_xml_handler->create();
+            $xml_obj =  $this->_xmlHandler->create();
             $xml_obj->set_vars_insert($newid);
-            $xml_newid = $this->_xml_handler->insert($xml_obj);
+            $xml_newid = $this->_xmlHandler->insert($xml_obj);
             if (!$xml_newid) {
-                $this->_set_errors($this->_xml_handler->getErrors());
+                $this->_set_errors($this->_xmlHandler->getErrors());
                 return false;
             }
 
             return $newid;
         }
 
-        public function delete(&$obj, $force = false)
+        public function delete(XoopsObject $obj, $force = false)
         {
             // link table
             $ret = parent::delete($obj, $force);
@@ -59,9 +59,9 @@ if( !class_exists('rssc_link_xml_handler') )
             }
 
             // xml table
-            $ret = $this->_xml_handler->delete_by_id($obj->get('lid'));
+            $ret = $this->_xmlHandler->delete_by_id($obj->get('lid'));
             if (!$ret) {
-                $this->_set_errors($this->_xml_handler->getErrors());
+                $this->_set_errors($this->_xmlHandler->getErrors());
                 return false;
             }
 

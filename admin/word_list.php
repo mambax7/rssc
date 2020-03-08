@@ -12,7 +12,7 @@
 // 2007-06-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
 global $xoopsConfig;
 $XOOPS_LANGUAGE = $xoopsConfig['language'];
@@ -20,11 +20,11 @@ $XOOPS_LANGUAGE = $xoopsConfig['language'];
 // system search
 if ( file_exists(XOOPS_ROOT_PATH.'/language/'.$XOOPS_LANGUAGE.'/search.php') ) 
 {
-	include_once XOOPS_ROOT_PATH.'/language/'.$XOOPS_LANGUAGE.'/search.php';
+	require_once XOOPS_ROOT_PATH.'/language/'.$XOOPS_LANGUAGE.'/search.php';
 }
 else
 {
-	include_once XOOPS_ROOT_PATH.'/language/english/search.php';
+	require_once XOOPS_ROOT_PATH.'/language/english/search.php';
 }
 
 //=========================================================
@@ -42,7 +42,7 @@ class admin_list_word extends happy_linux_page_frame
     {
         parent::__construct();
 
-        $this->set_handler('word', RSSC_DIRNAME, 'rssc');
+        $this->setHandler('word', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('sid');
         $this->set_max_sortid(9);
 
@@ -78,7 +78,7 @@ class admin_list_word extends happy_linux_page_frame
 
         switch ($this->_sortid) {
             case 8:
-                $total = $this->_handler->get_count_by_word_search($this->_search_word);
+                $total = $this->Handler->get_count_by_word_search($this->_search_word);
                 break;
 
             case 0:
@@ -90,7 +90,7 @@ class admin_list_word extends happy_linux_page_frame
             case 6:
             case 7:
             default:
-                $total = $this->_handler->getCount();
+                $total = $this->Handler->getCount();
                 break;
         }
         return $total;
@@ -135,40 +135,40 @@ class admin_list_word extends happy_linux_page_frame
     {
         switch ($this->_sortid) {
             case 1:
-                $objs =& $this->_handler->get_objects_desc($limit, $start);
+                $objs =& $this->Handler->get_objects_desc($limit, $start);
                 break;
 
             case 2:
-                $objs =& $this->_handler->get_objects_point_desc($limit, $start);
+                $objs =& $this->Handler->get_objects_point_desc($limit, $start);
                 break;
 
             case 3:
-                $objs =& $this->_handler->get_objects_point_asc($limit, $start);
+                $objs =& $this->Handler->get_objects_point_asc($limit, $start);
                 break;
 
             case 4:
-                $objs =& $this->_handler->get_objects_count_desc($limit, $start);
+                $objs =& $this->Handler->get_objects_count_desc($limit, $start);
                 break;
 
             case 5:
-                $objs =& $this->_handler->get_objects_count_asc($limit, $start);
+                $objs =& $this->Handler->get_objects_count_asc($limit, $start);
                 break;
 
             case 6:
-                $objs =& $this->_handler->get_objects_word_asc($limit, $start);
+                $objs =& $this->Handler->get_objects_word_asc($limit, $start);
                 break;
 
             case 7:
-                $objs =& $this->_handler->get_objects_word_desc($limit, $start);
+                $objs =& $this->Handler->get_objects_word_desc($limit, $start);
                 break;
 
             case 8:
-                $objs =& $this->_handler->get_objects_by_word_search($this->_search_word, $limit, $start);
+                $objs =& $this->Handler->get_objects_by_word_search($this->_search_word, $limit, $start);
                 break;
 
             case 0:
             default:
-                $objs =& $this->_handler->get_objects_asc($limit, $start);
+                $objs =& $this->Handler->get_objects_asc($limit, $start);
                 break;
         }
 
@@ -224,7 +224,7 @@ class admin_list_word extends happy_linux_page_frame
 
         echo '<h4>' . _AM_RSSC_LIST_WORD . "</h4>\n";
         printf(_RSSC_THEREARE, $this->_get_total_all());
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         echo "<table width='80%' border='0' cellspacing='1' class='outer'>";
         echo "<tr class='odd'><td>";
@@ -241,7 +241,7 @@ class admin_list_word extends happy_linux_page_frame
         echo '<h4>' . $title . "</h4>\n";
 
         $this->_print_search_form($found);
-        echo $found . "<br />\n";
+        echo $found . "<br>\n";
     }
 
     public function _build_page_submit()
@@ -310,7 +310,7 @@ class admin_word_search_form extends happy_linux_form
         echo $this->build_html_input_hidden('sortid', 8);
         echo $this->build_html_input_submit('submit', _AM_RSSC_WORD_SEARCH);
         echo $this->build_form_end();
-        echo "<br />\n";
+        echo "<br>\n";
     }
 
     // --- class end ---

@@ -28,28 +28,28 @@
 // 2006-06-04 K.OHWADA
 //================================================================
 
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
-include_once RSSC_ROOT_PATH.'/api/rss_builder.php';
+require_once RSSC_ROOT_PATH.'/api/rss_builder.php';
 
-$search_handler =& rssc_get_handler( 'search', RSSC_DIRNAME );
-$conf_handler   =& rssc_get_handler( 'config_basic', RSSC_DIRNAME );
+$searchHandler =& rssc_getHandler( 'search', RSSC_DIRNAME );
+$confHandler   =& rssc_getHandler( 'config_basic', RSSC_DIRNAME );
 $builder        =& rssc_build_rssc::getInstance( RSSC_DIRNAME );
 
-$conf =& $conf_handler->get_conf();
+$conf =& $confHandler->get_conf();
 $max_limit = $conf['main_search_perpage'];
 $min       = $conf['main_search_min'];
 
-$start = $search_handler->get_get_start();
-$limit = $search_handler->get_get_limit();
-$mode  = $search_handler->get_get_rss_mode();
+$start = $searchHandler->get_get_start();
+$limit = $searchHandler->get_get_limit();
+$mode  = $searchHandler->get_get_rss_mode();
 
 if ($limit <= 0)
 {
 	$limit = $max_limit;
 }
 
-$feeds =& $search_handler->getLatest($limit, $start);
+$feeds =& $searchHandler->getLatest($limit, $start);
 
 $builder->set_view_goto_title( _HAPPY_LINUX_CONF_RSS_MANAGE );
 $builder->set_view_goto_url( RSSC_URL.'/admin/build_menu.php' );

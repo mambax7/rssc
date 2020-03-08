@@ -40,24 +40,24 @@
 // 2006-01-01 K.OHWADA
 //================================================================
 
-include 'header.php';
+require __DIR__ . '/header.php';
 
-include_once RSSC_ROOT_PATH.'/class/rssc_search_handler.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_icon.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_map.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_searchHandler.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_icon.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_map.php';
 
-$search_handler =& rssc_get_handler( 'search',       RSSC_DIRNAME );
-$conf_handler   =& rssc_get_handler( 'config_basic', RSSC_DIRNAME );
+$searchHandler =& rssc_getHandler( 'search',       RSSC_DIRNAME );
+$confHandler   =& rssc_getHandler( 'config_basic', RSSC_DIRNAME );
 $pagenavi       =& happy_linux_pagenavi::getInstance();
 $icon_class     =& rssc_icon::getInstance();
 $map_class      =& rssc_map::getInstance();
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$xoopsOption['template_main'] = RSSC_DIRNAME.'_index.html';
-include XOOPS_ROOT_PATH.'/header.php';
+$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME.'_index.html';
+require XOOPS_ROOT_PATH.'/header.php';
 
-$conf =& $conf_handler->get_conf();
+$conf =& $confHandler->get_conf();
 $limit      = $conf['main_search_perpage'];
 $min        = $conf['main_search_min'];
 $show_thumb = $conf['main_search_show_thumb'] ;
@@ -65,28 +65,28 @@ $show_site  = $conf['main_search_show_site'] ;
 $show_icon  = $conf['main_search_show_icon'] ;
 $webmap_dirname = $conf['webmap_dirname'] ;
 
-$search_handler->setFeedLimit(  $limit );
-$search_handler->setMinKeyword( $min );
-$search_handler->setFeedOrder(  $conf['main_search_order'] );
-$search_handler->setFutureDays( $conf['basic_future_days'] );
+$searchHandler->setFeedLimit(  $limit );
+$searchHandler->setMinKeyword( $min );
+$searchHandler->setFeedOrder(  $conf['main_search_order'] );
+$searchHandler->setFutureDays( $conf['basic_future_days'] );
 
-$search_handler->setFlagSanitize( true );
-$search_handler->set_flag_ltype( true );
-$search_handler->set_flag_enclosure( true );
-$search_handler->set_title_html(   $conf['main_search_title_html'] );
-$search_handler->set_content_html( $conf['main_search_content_html'] );
-$search_handler->set_max_title(    $conf['main_search_max_title'] );
-$search_handler->set_max_content(  $conf['main_search_max_content'] );
-$search_handler->set_max_summary(  $conf['main_search_max_summary'] );
-$search_handler->set_highlight(    $conf['basic_highlight'] );
+$searchHandler->setFlagSanitize( true );
+$searchHandler->set_flag_ltype( true );
+$searchHandler->set_flag_enclosure( true );
+$searchHandler->set_title_html(   $conf['main_search_title_html'] );
+$searchHandler->set_content_html( $conf['main_search_content_html'] );
+$searchHandler->set_max_title(    $conf['main_search_max_title'] );
+$searchHandler->set_max_content(  $conf['main_search_max_content'] );
+$searchHandler->set_max_summary(  $conf['main_search_max_summary'] );
+$searchHandler->set_highlight(    $conf['basic_highlight'] );
 
 $pagenavi->setPerpage($limit);
 $pagenavi->getGetPage();
 
-$action   = $search_handler->get_post_get_action();
-$andor    = $search_handler->get_post_get_andor();
-$query    = $search_handler->get_post_get_query();
-$total    = $search_handler->getTotal();
+$action   = $searchHandler->get_post_get_action();
+$andor    = $searchHandler->get_post_get_andor();
+$query    = $searchHandler->get_post_get_query();
+$total    = $searchHandler->getTotal();
 
 $feeds     = array();
 $count     = 0;
@@ -119,20 +119,20 @@ if ( $action == 'results')
 {
 	if ($query)
 	{
-		if ( $search_handler->parseQuery() )
+		if ( $searchHandler->parseQuery() )
 		{
-			$and       = $search_handler->getAnd();
-			$or        = $search_handler->getOr();
-			$exact     = $search_handler->getExact();
-			$count     = $search_handler->getSearchCount();
-			$query_urlencode  = $search_handler->getQueryUrlencode();
-			$merged_urlencode = $search_handler->getMergedUrlencode();
+			$and       = $searchHandler->getAnd();
+			$or        = $searchHandler->getOr();
+			$exact     = $searchHandler->getExact();
+			$count     = $searchHandler->getSearchCount();
+			$query_urlencode  = $searchHandler->getQueryUrlencode();
+			$merged_urlencode = $searchHandler->getMergedUrlencode();
 
-			$keywords       = $search_handler->get_query_array();
-			$ignores        = $search_handler->get_ignore_array();
-			$candidates     = $search_handler->get_candidate_array();
-			$show_ignore    = $search_handler->get_count_ignore_array();
-			$show_candidate = $search_handler->get_count_candidate_array();
+			$keywords       = $searchHandler->get_query_array();
+			$ignores        = $searchHandler->get_ignore_array();
+			$candidates     = $searchHandler->get_candidate_array();
+			$show_ignore    = $searchHandler->get_count_ignore_array();
+			$show_candidate = $searchHandler->get_count_candidate_array();
 
 			if ($count > 0) 
 			{
@@ -140,7 +140,7 @@ if ( $action == 'results')
 
 				$pagenavi->setTotal($count);
 				$start =  $pagenavi->calcStart();
-				$feeds =& $search_handler->getSearchFeeds($limit, $start);
+				$feeds =& $searchHandler->getSearchFeeds($limit, $start);
 
 				$search_url  = RSSC_URL.'/index.php?action=results';
 				$search_url .= '&amp;query='.$query_urlencode;
@@ -175,7 +175,7 @@ else
 
 	$pagenavi->setTotal($total);
 	$start =  $pagenavi->calcStart();
-	$feeds =& $search_handler->getLatest($limit, $start);
+	$feeds =& $searchHandler->getLatest($limit, $start);
 
 	$search_url = RSSC_URL.'/index.php';
 	$navi = $pagenavi->build($search_url);
@@ -205,10 +205,10 @@ if ( is_array($feeds) && count($feeds) ) {
 		'show_site'  => $show_site ,
 		'keywords'   => $keywords ,
 	);
-	$feed_list = $search_handler->fetch_tpl_feed_list( $param );
+	$feed_list = $searchHandler->fetch_tpl_feed_list( $param );
 }
 
-$xoopsTpl->assign( $search_handler->get_tpl_common_param() );
+$xoopsTpl->assign( $searchHandler->get_tpl_common_param() );
 
 // RDF/RSS/ATOM auto discovery
 $dir_rssc = 'modules/'.RSSC_DIRNAME;
@@ -265,7 +265,7 @@ $xoopsTpl->assign('feed_list',  $feed_list);
 $xoopsTpl->assign('happy_linux_url', get_happy_linux_url() );
 $xoopsTpl->assign('execution_time',  happy_linux_get_execution_time() );
 $xoopsTpl->assign('memory_usage',    happy_linux_get_memory_usage_mb() );
-include XOOPS_ROOT_PATH.'/footer.php';
+require XOOPS_ROOT_PATH.'/footer.php';
 exit();
 // --- main end ---
 

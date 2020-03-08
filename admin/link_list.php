@@ -21,7 +21,7 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
 //=========================================================
 // class admin_link_list
@@ -30,7 +30,7 @@ class admin_link_list extends happy_linux_page_frame
 {
 
     // handler
-    public $_feed_handler;
+    public $_feedHandler;
 
     //---------------------------------------------------------
     // constructor
@@ -38,13 +38,13 @@ class admin_link_list extends happy_linux_page_frame
     public function __construct()
     {
         parent::__construct();
-        $this->set_handler('link', RSSC_DIRNAME);
+        $this->setHandler('link', RSSC_DIRNAME);
         $this->set_id_name('lid');
         $this->set_lang_title(_AM_RSSC_LIST_LINK);
         $this->set_flag_execute_time(true);
 
         // handler
-        $this->_feed_handler = rssc_get_handler('feed', RSSC_DIRNAME);
+        $this->_feedHandler = rssc_getHandler('feed', RSSC_DIRNAME);
     }
 
     public static function getInstance()
@@ -63,7 +63,7 @@ class admin_link_list extends happy_linux_page_frame
     // Notice: Only variables should be assigned by reference
     public function &_get_table_header()
     {
-        $edit = _RSSC_LINK_ID . '<br />(' . _EDIT . ')';
+        $edit = _RSSC_LINK_ID . '<br>(' . _EDIT . ')';
 
         $arr = [
             $edit,
@@ -116,7 +116,7 @@ class admin_link_list extends happy_linux_page_frame
     {
         $lid   = $obj->getVar('lid');
         $lid_p = sprintf('%03d', $lid);
-        $count = $this->_feed_handler->get_count_by_lid($lid);
+        $count = $this->_feedHandler->get_count_by_lid($lid);
 
         if ($count) {
             $name_feed = "FEED ($count)";

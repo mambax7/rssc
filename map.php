@@ -15,12 +15,12 @@
 // 2009-02-20 K.OHWADA
 //================================================================
 
-include 'header.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_view_handler.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_block_map.php';
+require __DIR__ . '/header.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_viewHandler.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_block_map.php';
 
-$view_handler  =& rssc_get_handler( 'view',         RSSC_DIRNAME );
-$conf_handler  =& rssc_get_handler( 'config_basic', RSSC_DIRNAME );
+$viewHandler  =& rssc_getHandler( 'view',         RSSC_DIRNAME );
+$confHandler  =& rssc_getHandler( 'config_basic', RSSC_DIRNAME );
 $map_class     =& rssc_map::getInstance( RSSC_DIRNAME );
 $icon_class = rssc_icon::getInstance();
 $post          = happy_linux_post::getInstance();
@@ -31,10 +31,10 @@ $map_func   = RSSC_DIRNAME.'_map_load';
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$xoopsOption['template_main'] = RSSC_DIRNAME.'_map.html';
-include XOOPS_ROOT_PATH.'/header.php';
+$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME.'_map.html';
+require XOOPS_ROOT_PATH.'/header.php';
 
-$conf =& $conf_handler->get_conf();
+$conf =& $confHandler->get_conf();
 $feed_limit     = $conf['main_map_perpage'];
 $show_thumb     = $conf['main_map_show_thumb'] ;
 $show_site      = $conf['main_map_show_site'] ;
@@ -59,28 +59,28 @@ $icon_list   = null ;
 $ret = $map_class->init_map( $webmap_dirname );
 if ( $ret ) {
 
-	$view_handler->setFeedOrder(  $conf['main_map_order'] );
-	$view_handler->setFutureDays( $conf['basic_future_days'] );
-	$view_handler->setFlagSanitize( true );
-	$view_handler->set_flag_ltype( true );
-	$view_handler->set_flag_enclosure( true );
-	$view_handler->set_title_html(   $conf['main_map_title_html'] );
-	$view_handler->set_content_html( $conf['main_map_content_html'] );
-	$view_handler->set_max_title(    $conf['main_map_max_title'] );
-	$view_handler->set_max_content(  $conf['main_map_max_content'] );
-	$view_handler->set_max_summary(  $conf['main_map_max_summary'] );
+	$viewHandler->setFeedOrder(  $conf['main_map_order'] );
+	$viewHandler->setFutureDays( $conf['basic_future_days'] );
+	$viewHandler->setFlagSanitize( true );
+	$viewHandler->set_flag_ltype( true );
+	$viewHandler->set_flag_enclosure( true );
+	$viewHandler->set_title_html(   $conf['main_map_title_html'] );
+	$viewHandler->set_content_html( $conf['main_map_content_html'] );
+	$viewHandler->set_max_title(    $conf['main_map_max_title'] );
+	$viewHandler->set_max_content(  $conf['main_map_max_content'] );
+	$viewHandler->set_max_summary(  $conf['main_map_max_summary'] );
 
 	$pagenavi->setPerpage( $feed_limit );
 	$pagenavi->getGetPage();
 
 	$where = ' (( geo_lat != 0 ) OR ( geo_long != 0 )) ';
 
-	$feed_total = $view_handler->get_feed_count_by_where( $where );
+	$feed_total = $viewHandler->get_feed_count_by_where( $where );
 
 	$pagenavi->setTotal($feed_total);
 	$feed_start = $pagenavi->calcStart();
 
-	$feeds = $view_handler->get_feeds_by_where( $where, $feed_limit, $feed_start );
+	$feeds = $viewHandler->get_feeds_by_where( $where, $feed_limit, $feed_start );
 
 	if ( is_array($feeds) && count($feeds) ) {
 		$feed_show = 1;
@@ -97,7 +97,7 @@ if ( $ret ) {
 			'show_site'  => $show_site ,
 			'keywords'   => null ,
         ];
-		$feed_list = $view_handler->fetch_tpl_feed_list( $param );
+		$feed_list = $viewHandler->fetch_tpl_feed_list( $param );
 	}
 
 	$url = RSSC_URL.'/map.php';
@@ -120,7 +120,7 @@ $xoopsTpl->assign('feed_list',   $feed_list );
 
 $xoopsTpl->assign('icon_list',   $icon_list );
 
-$xoopsTpl->assign( $view_handler->get_tpl_common_param() );
+$xoopsTpl->assign( $viewHandler->get_tpl_common_param() );
 
 $xoopsTpl->assign('lang_total',   sprintf(_RSSC_THEREARE, $feed_total) );
 
@@ -132,7 +132,7 @@ $xoopsTpl->assign('rssc_navi',   $navi);
 
 $xoopsTpl->assign('execution_time',  happy_linux_get_execution_time() );
 $xoopsTpl->assign('memory_usage',    happy_linux_get_memory_usage_mb() );
-include XOOPS_ROOT_PATH.'/footer.php';
+require XOOPS_ROOT_PATH.'/footer.php';
 exit();
 // --- main end ---
 

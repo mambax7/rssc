@@ -21,7 +21,7 @@
 // set_flag_execute_time()
 
 // 2007-06-01 K.OHWADA
-// link_xml_handler, xml_handler
+// link_xmlHandler, xmlHandler
 // api/refresh.php
 // use get_ltype_option()
 // use feed_list_lid.php
@@ -33,7 +33,7 @@
 // show bread crumb
 // use XoopsGTicket
 // add _refresh_link_error() etc
-// use rssc_xml_utlity : not use rssc_link_exist_handler
+// use rssc_xml_utlity : not use rssc_link_existHandler
 // use build_lib_button_hidden_array()
 // use _check_url_by_post()
 // use RSSC_CODE_PARSE_NOT_READ_XML_URL
@@ -57,12 +57,12 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
-include_once RSSC_ROOT_PATH.'/api/refresh.php';
-include_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_block_map.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_map.php';
+require_once RSSC_ROOT_PATH.'/api/refresh.php';
+require_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_block_map.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_map.php';
 
 //=========================================================
 // class link manage
@@ -76,7 +76,7 @@ class admin_manage_link extends admin_manage_base
     public $_HEADER           = 'Content-Type:text/xml; charset=utf-8';
 
     // handler
-    public $_refresh_handler;
+    public $_refreshHandler;
     public $_parser;
     public $_utility;
 
@@ -95,7 +95,7 @@ class admin_manage_link extends admin_manage_base
     {
         admin_manage_base::__construct();
 
-        $this->set_handler('link_xml', RSSC_DIRNAME, 'rssc');
+        $this->setHandler('link_xml', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('lid');
         $this->set_form_class('admin_form_link');
         $this->set_script('link_manage.php');
@@ -104,7 +104,7 @@ class admin_manage_link extends admin_manage_base
         $this->set_flag_execute_time(true);
 
         // handler
-        $this->_refresh_handler =& rssc_get_handler('refresh', RSSC_DIRNAME);
+        $this->_refreshHandler =& rssc_getHandler('refresh', RSSC_DIRNAME);
         $this->_parser          = happy_linux_rss_parser::getInstance();
         $this->_utility         = happy_linux_rss_utility::getInstance();
     }
@@ -129,7 +129,7 @@ class admin_manage_link extends admin_manage_base
 
     public function _print_add_form()
     {
-        $obj =& $this->_handler->create();
+        $obj =  $this->Handler->create();
         $obj->set('uid', $this->_system->get_uid());
         $obj->set('mid', $this->_system->get_mid());
         $obj->set('mode', $this->_MODE);
@@ -212,12 +212,12 @@ class admin_manage_link extends admin_manage_base
     public function _exec_add_table()
     {
         if ($this->_DEBUG_INSERT) {
-            $obj =& $this->_handler->create();
+            $obj =  $this->Handler->create();
             $obj->_set_vars_insert();
-            $newid = $this->_handler->insert($obj);
+            $newid = $this->Handler->insert($obj);
             if (!$newid) {
                 $this->_set_errors($this->_LANG_FAIL_ADD);
-                $this->_set_errors($this->_handler->getErrors());
+                $this->_set_errors($this->Handler->getErrors());
                 return false;
             }
 
@@ -329,7 +329,7 @@ class admin_manage_link extends admin_manage_base
             $encoding = '';
         }
 
-        $obj =& $this->_handler->create();
+        $obj =  $this->Handler->create();
         $obj->set('uid', $this->_system->get_uid());
         $obj->set('mid', $this->_system->get_mid());
         $obj->set('mode', (int)$xml_mode);
@@ -363,36 +363,36 @@ class admin_manage_link extends admin_manage_base
     public function _exec_refresh_link()
     {
         $lid = $this->_post->get_post_int('lid');
-        $this->_refresh_handler->set_force_refresh(1);
+        $this->_refreshHandler->set_force_refresh(1);
 
-        $ret = $this->_refresh_handler->refresh_link_for_add_link($lid);
+        $ret = $this->_refreshHandler->refresh_link_for_add_link($lid);
         switch ($ret) {
             case 0:
                 return true;
 
             case RSSC_CODE_PARSE_MSG:
-                $this->_parse_result = $this->_refresh_handler->get_parse_result();
+                $this->_parse_result = $this->_refreshHandler->get_parse_result();
                 return true;
 
             case RSSC_CODE_PARSE_NOT_READ_XML_URL:
                 $this->_set_error_title(_RSSC_PARSE_NOT_READ_XML_URL);
-                $this->_set_errors($this->_refresh_handler->getErrors());
+                $this->_set_errors($this->_refreshHandler->getErrors());
                 return false;
 
             case RSSC_CODE_PARSE_FAILED:
                 $this->_set_error_title(_RSSC_PARSE_FAILED);
-                $this->_set_errors($this->_refresh_handler->getErrors());
+                $this->_set_errors($this->_refreshHandler->getErrors());
                 return false;
 
             case RSSC_CODE_DB_ERROR:
                 $this->_set_error_title(_RSSC_DB_ERROR);
-                $this->_set_errors($this->_refresh_handler->getErrors());
+                $this->_set_errors($this->_refreshHandler->getErrors());
                 return false;
 
             case RSSC_CODE_REFRESH_ERROR:
             default:
                 $this->_set_error_title(_RSSC_REFRESH_ERROR);
-                $this->_set_errors($this->_refresh_handler->getErrors());
+                $this->_set_errors($this->_refreshHandler->getErrors());
                 return false;
         }
 
@@ -414,7 +414,7 @@ class admin_manage_link extends admin_manage_base
 
         if ($this->_parse_result) {
             $time = $this->_TIME_FAILED;
-            $msg  .= '<br /><br />';
+            $msg  .= '<br><br>';
             $msg  .= $this->_parse_result;
         }
 
@@ -443,9 +443,9 @@ class admin_manage_link extends admin_manage_base
 
         $lid = $this->_post->get_post_get_int('lid');
         $url = 'link_manage.php?op=mod_form&amp;lid=' . $lid;
-        echo "<br /><hr /><br />\n";
-        echo '- <a href="' . $redirect . '">' . _AM_RSSC_LIST_LINK . "</a><br />\n";
-        echo '- <a href="' . $url . '">' . _AM_RSSC_MOD_LINK . "</a><br />\n";
+        echo "<br><hr><br>\n";
+        echo '- <a href="' . $redirect . '">' . _AM_RSSC_LIST_LINK . "</a><br>\n";
+        echo '- <a href="' . $url . '">' . _AM_RSSC_MOD_LINK . "</a><br>\n";
     }
 
     //---------------------------------------------------------
@@ -475,10 +475,10 @@ class admin_manage_link extends admin_manage_base
         $rss_url  = $this->_utility->get_rss_url();
         $atom_url = $this->_utility->get_atom_url();
 
-        $list =& $this->_handler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url);
+        $list =& $this->Handler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url);
         if (is_array($list) && count($list)) {
             $script = 'link_manage.php?op=mod_form&amp;lid=';
-            $msg    = $this->_handler->build_error_rssurl_list($list, $script);
+            $msg    = $this->Handler->build_error_rssurl_list($list, $script);
             $err    = '<h4>' . _RSSC_LINK_ALREADY . "</h4>\n" . $msg;
             $this->_set_error_extra($err);
             return false;
@@ -530,9 +530,9 @@ class admin_manage_link extends admin_manage_base
 //=========================================================
 class admin_form_link extends happy_linux_form_lib
 {
-    public $_link_handler;
-    public $_xml_handler;
-    public $_feed_handler;
+    public $_linkHandler;
+    public $_xmlHandler;
+    public $_feedHandler;
     public $_post;
     public $_system;
     public $_html_class;
@@ -560,15 +560,15 @@ class admin_form_link extends happy_linux_form_lib
     {
         parent::__construct();
 
-        $this->_link_handler =& rssc_get_handler('link', RSSC_DIRNAME);
-        $this->_xml_handler  =& rssc_get_handler('xml', RSSC_DIRNAME);
-        $this->_feed_handler =& rssc_get_handler('feed', RSSC_DIRNAME);
+        $this->_linkHandler =& rssc_getHandler('link', RSSC_DIRNAME);
+        $this->_xmlHandler  =& rssc_getHandler('xml', RSSC_DIRNAME);
+        $this->_feedHandler =& rssc_getHandler('feed', RSSC_DIRNAME);
         $this->_post         = happy_linux_post::getInstance();
         $this->_system       = happy_linux_system::getInstance();
         $this->_map_class    =& rssc_map::getInstance(RSSC_DIRNAME);
 
-        $conf_handler =& rssc_get_handler('config_basic', RSSC_DIRNAME);
-        $this->_conf  = $conf_handler->get_conf();
+        $confHandler =& rssc_getHandler('config_basic', RSSC_DIRNAME);
+        $this->_conf  = $confHandler->get_conf();
 
         // icon
         $this->_DIR_ICON           = RSSC_ROOT_PATH . '/' . $this->_DIR_ICON_REL;
@@ -591,7 +591,7 @@ class admin_form_link extends happy_linux_form_lib
     //---------------------------------------------------------
     public function _show(&$obj, $extra = null, $show_mode = 0)
     {
-        echo _AM_RSSC_LINK_DESC . "<br /><br />\n";
+        echo _AM_RSSC_LINK_DESC . "<br><br>\n";
 
         echo $this->_build_icon_js();
 
@@ -627,24 +627,24 @@ class admin_form_link extends happy_linux_form_lib
         $atom_url = $obj->get('atom_url');
 
         if (HAPPY_LINUX_MODE_MOD == $show_mode) {
-            $list =& $this->_link_handler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url, $lid);
+            $list =& $this->_linkHandler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url, $lid);
             if (is_array($list) && count($list)) {
                 $script = 'link_manage.php?op=mod_form&amp;lid=';
                 echo $this->build_html_highlight(_RSSC_LINK_EXIST_MORE);
-                echo "<br /><br />\n";
-                echo $this->_link_handler->build_error_rssurl_list($list, $script);
-                echo "<br /><br />\n";
+                echo "<br><br>\n";
+                echo $this->_linkHandler->build_error_rssurl_list($list, $script);
+                echo "<br><br>\n";
             }
 
-            $total_feed = $this->_feed_handler->get_count_by_lid($lid);
+            $total_feed = $this->_feedHandler->get_count_by_lid($lid);
 
             // bug: always 'rssc' directory
             $url_feed = 'feed_list_lid.php?lid=' . $lid;
 
             printf(_AM_RSSC_THERE_ARE_MATCH, $total_feed);
-            echo "<br /><br />\n";
+            echo "<br><br>\n";
             echo $this->build_html_a_href_name($url_feed, _AM_RSSC_FEED_BELONG_LINK);
-            echo "<br /><br />\n";
+            echo "<br><br>\n";
         }
 
         // form start
@@ -716,18 +716,18 @@ class admin_form_link extends happy_linux_form_lib
 
         $ele_plugin_list = '<a href="' . RSSC_URL . '/plugin_popup.php" target="_blank">';
         $ele_plugin_list .= ' - ' . _RSSC_PLUGIN_LIST;
-        $ele_plugin_list .= '</a>' . "<br />\n";
+        $ele_plugin_list .= '</a>' . "<br>\n";
         echo $this->build_form_table_line('', $ele_plugin_list);
 
         $cap_pre_plugin = $this->build_form_caption(
             _RSSC_PRE_PLUGIN,
-            _AM_RSSC_PRE_PLUGIN_DESC . '<br />' . _AM_RSSC_PLUGIN_DESC_2
+            _AM_RSSC_PRE_PLUGIN_DESC . '<br>' . _AM_RSSC_PLUGIN_DESC_2
         );
         echo $this->build_obj_table_textarea($cap_pre_plugin, 'plugin');
 
         $cap_post_plugin = $this->build_form_caption(
             _RSSC_POST_PLUGIN,
-            _AM_RSSC_POST_PLUGIN_DESC . '<br />' . _AM_RSSC_PLUGIN_DESC_2
+            _AM_RSSC_POST_PLUGIN_DESC . '<br>' . _AM_RSSC_PLUGIN_DESC_2
         );
         echo $this->build_obj_table_textarea($cap_post_plugin, 'post_plugin');
 
@@ -765,7 +765,7 @@ class admin_form_link extends happy_linux_form_lib
         echo $this->build_form_table_line('channel', $ele_channel);
 
         $ele_xml = '';
-        $xml_obj =& $this->_xml_handler->get($lid);
+        $xml_obj =& $this->_xmlHandler->get($lid);
         if (is_object($xml_obj)) {
             $val_xml = $xml_obj->get_rawurldecode_xml();
             if ($val_xml) {
@@ -858,7 +858,7 @@ EOF;
         }
 
         $str = $this->build_icon_select($name, $value, $options, $extra);
-        $str .= "<br />\n";
+        $str .= "<br>\n";
         $str .= $this->build_icon_img_tag($this->_IMG_ID_ICON, $img_src, 'icon');
 
         return $str;
@@ -888,7 +888,7 @@ EOF;
         $text .= 'src="' . $src . '" ';
         $text .= 'alt="' . $alt . '" ';
         $text .= 'border="0" ';
-        $text .= " />\n";
+        $text .= ">\n";
 
         return $text;
     }
@@ -985,7 +985,7 @@ EOF;
 
         echo '<h4>' . $title_s . "</h4>\n";
         echo $this->build_form_table_by_array($channel);
-        echo "<br />\n";
+        echo "<br>\n";
         echo $this->build_form_button_close_style();
     }
 
@@ -993,7 +993,7 @@ EOF;
     {
         $lid     = $obj->get('lid');
         $xml     = false;
-        $xml_obj =& $this->_xml_handler->get($lid);
+        $xml_obj =& $this->_xmlHandler->get($lid);
         if (is_object($xml_obj)) {
             $xml = $xml_obj->get_rawurldecode_xml();
         }

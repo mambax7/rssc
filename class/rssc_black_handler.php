@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_black_handler.php,v 1.1 2011/12/29 14:37:16 ohwada Exp $
+// $Id: rssc_blackHandler.php,v 1.1 2011/12/29 14:37:16 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
 // move add_column_table_xxx() to rssc_install.php
@@ -11,7 +11,7 @@
 // add field act reg count
 
 // 2006-07-10 K.OHWADA
-// use happy_linux_object happy_linux_object_handler
+// use happy_linux_object happy_linux_objectHandler
 
 // 2006-06-04 K.OHWADA
 // suppress notice : Only variable references should be returned by reference
@@ -23,12 +23,12 @@
 // Rss Center Module
 // this file contain 2 class
 //   rssc_black
-//   rssc_black_handler
+//   rssc_blackHandler
 // 2006-01-01 K.OHWADA
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_black_handler') ) 
+if( !class_exists('rssc_blackHandler') ) 
 {
 
 //=========================================================
@@ -72,7 +72,7 @@ public function __construct()
 //=========================================================
 // class black handler
 //=========================================================
-    class rssc_black_handler extends happy_linux_object_handler
+    class rssc_blackHandler extends happy_linux_objectHandler
     {
 
         //---------------------------------------------------------

@@ -85,17 +85,17 @@ function rssc_admin_print_menu()
 {
 	$MAX_COL = 5;
 
-	$link_handler  =& rssc_get_handler('link',  RSSC_DIRNAME);
-	$black_handler =& rssc_get_handler('black', RSSC_DIRNAME);
-	$white_handler =& rssc_get_handler('white', RSSC_DIRNAME);
-	$feed_handler  =& rssc_get_handler('feed',  RSSC_DIRNAME);
-	$word_handler  =& rssc_get_handler('word',  RSSC_DIRNAME);
+	$linkHandler  =& rssc_getHandler('link',  RSSC_DIRNAME);
+	$blackHandler =& rssc_getHandler('black', RSSC_DIRNAME);
+	$whiteHandler =& rssc_getHandler('white', RSSC_DIRNAME);
+	$feedHandler  =& rssc_getHandler('feed',  RSSC_DIRNAME);
+	$wordHandler  =& rssc_getHandler('word',  RSSC_DIRNAME);
 
-	$total_link  = $link_handler->getCount();
-	$total_black = $black_handler->getCount();
-	$total_white = $white_handler->getCount();
-	$total_feed  = $feed_handler->getCount();
-	$total_word  = $word_handler->getCount();
+	$total_link  = $linkHandler->getCount();
+	$total_black = $blackHandler->getCount();
+	$total_white = $whiteHandler->getCount();
+	$total_feed  = $feedHandler->getCount();
+	$total_word  = $wordHandler->getCount();
 
 	$link_list  = _AM_RSSC_LIST_LINK. " ($total_link)";
 	$black_list = _AM_RSSC_LIST_BLACK." ($total_black)";

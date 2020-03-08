@@ -27,7 +27,7 @@
 class admin_form_black_white extends happy_linux_form
 {
     // class instance
-    public $_feed_handler;
+    public $_feedHandler;
 
     // black & white
     public $_id_name;
@@ -43,7 +43,7 @@ class admin_form_black_white extends happy_linux_form
         parent::__construct();
 
         // class instance
-        $this->_feed_handler = rssc_get_handler('feed', RSSC_DIRNAME);
+        $this->_feedHandler = rssc_getHandler('feed', RSSC_DIRNAME);
     }
 
     public static function getInstance()
@@ -86,15 +86,15 @@ class admin_form_black_white extends happy_linux_form
 
         if (1 == $mode) {
             $url        = $obj->get('url');
-            $total_feed = $this->_feed_handler->get_count_by_link($url);
+            $total_feed = $this->_feedHandler->get_count_by_link($url);
 
             $cache_value = $total_feed;
             $ctime_value = time();
 
             printf(_AM_RSSC_THERE_ARE_MATCH, $total_feed);
-            echo "<br /><br />\n";
+            echo "<br><br>\n";
             echo $this->build_html_a_href_name($this->_jump_feed, _AM_RSSC_FEED_MATCH_LINK);
-            echo "<br /><br />\n";
+            echo "<br><br>\n";
         }
 
         // form start

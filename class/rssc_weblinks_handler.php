@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_weblinks_handler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
+// $Id: rssc_weblinksHandler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
 
 // 2007-10-10 K.OHWADA
 // move from weblinks097_to_rssc030.php
@@ -10,9 +10,9 @@
 //=========================================================
 
 //=========================================================
-// class rssc_weblinks_handler
+// class rssc_weblinksHandler
 //=========================================================
-class rssc_weblinks_handler extends happy_linux_basic_handler
+class rssc_weblinksHandler extends happy_linux_basicHandler
 {
     public $_table_config;
     public $_table_link;

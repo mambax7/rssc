@@ -11,7 +11,7 @@
 // add set_proxy()
 
 // 2006-09-20 K.OHWADA
-// move discover_for_manage() from rssc_link_exist_handler
+// move discover_for_manage() from rssc_link_existHandler
 // use set_error_code()
 
 // 2006-07-10 K.OHWADA
@@ -20,7 +20,7 @@
 // 2006-06-04 K.OHWADA
 // add DEFAULT_ENCODINGS
 // move get_unixtime_rfc822(), get_unixtime_w3cdtf() from parse_base
-// move parse_by_url() to parse_handler
+// move parse_by_url() to parseHandler
 // suppress notice : Only variable references should be returned by reference
 
 //=========================================================

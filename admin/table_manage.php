@@ -16,18 +16,18 @@
 // 2006-09-10 K.OHWADA
 //================================================================
 
-include 'admin_header.php';
-include 'admin_header_config.php';
+require __DIR__ . '/admin_header.php';
+require __DIR__ . '/admin_header_config.php';
 
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/table_manage.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/xoops_block_checker.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/table_manage.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/xoops_block_checker.php';
 
 //================================================================
 // class admin_table_manage
 //================================================================
 class admin_table_manage extends happy_linux_table_manage
 {
-    public $_link_handler;
+    public $_linkHandler;
 
     public $_TITLE_LINK_CHECK = 'check link table';
 
@@ -38,12 +38,12 @@ class admin_table_manage extends happy_linux_table_manage
     {
         $this->happy_linux_table_manage(RSSC_DIRNAME);
 
-        $this->set_config_handler('config', RSSC_DIRNAME, 'rssc');
+        $this->set_configHandler('config', RSSC_DIRNAME, 'rssc');
         $this->set_config_define(rssc_config_define::getInstance());
         $this->set_install_class(rssc_install::getInstance(RSSC_DIRNAME));
         $this->set_xoops_block_checker();
 
-        $this->_link_handler = rssc_get_handler('link', RSSC_DIRNAME);
+        $this->_linkHandler = rssc_getHandler('link', RSSC_DIRNAME);
     }
 
     public static function getInstance()
@@ -82,8 +82,8 @@ class admin_table_manage extends happy_linux_table_manage
 
         // check link table
         echo '<h4>' . $this->_TITLE_LINK_CHECK . "</h4>\n";
-        echo "check to overlap same RDF/RSS/ATOM url<br />\n";
-        echo 'There are <b>' . $this->_link_handler->getCount() . "</b> links <br />\n";
+        echo "check to overlap same RDF/RSS/ATOM url<br>\n";
+        echo 'There are <b>' . $this->_linkHandler->getCount() . "</b> links <br>\n";
 
         $this->_print_form_link_start();
     }
@@ -99,54 +99,54 @@ class admin_table_manage extends happy_linux_table_manage
     //---------------------------------------------------------
     public function check_link()
     {
-        $total = $this->_link_handler->getCount();
+        $total = $this->_linkHandler->getCount();
 
         $this->print_bread($this->_TITLE_LINK_CHECK);
         echo '<h4>' . $this->_TITLE_LINK_CHECK . "</h4>\n";
-        echo 'There are <b>' . $total . "</b> links <br />\n";
+        echo 'There are <b>' . $total . "</b> links <br>\n";
 
         $max    = $this->get_max_record();
         $offset = $this->get_post_offset();
         $start  = $offset + 1;
         $end    = $this->calc_end($start, $total);
 
-        echo 'check ' . $start . ' - ' . $end . " th record <br /><br />\n";
+        echo 'check ' . $start . ' - ' . $end . " th record <br><br>\n";
 
         $count_more = 0;
 
-        $objs =& $this->_link_handler->get_objects_asc($max, $offset);
+        $objs =& $this->_linkHandler->get_objects_asc($max, $offset);
         foreach ($objs as $obj) {
-            $this->_link_handler->set_cache_by_obj($obj);
+            $this->_linkHandler->set_cache_by_obj($obj);
             $lid_1    = $obj->get('lid');
             $title_1  = $obj->get('title');
             $rdf_url  = $obj->get('rdf_url');
             $rss_url  = $obj->get('rss_url');
             $atom_url = $obj->get('atom_url');
 
-            $lid_arr =& $this->_link_handler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url, $lid_1);
+            $lid_arr =& $this->_linkHandler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url, $lid_1);
             if (is_array($lid_arr) && count($lid_arr)) {
                 echo $this->_build_link_manage($lid_1, $title_1);
-                echo " : <b>same links</b> <br />\n";
+                echo " : <b>same links</b> <br>\n";
                 $count_more++;
 
                 foreach ($lid_arr as $lid_2) {
-                    $obj_2 =& $this->_link_handler->getCache($lid_2);
+                    $obj_2 =& $this->_linkHandler->getCache($lid_2);
                     if (is_object($obj_2)) {
                         $title_2 = $obj_2->get('title');
                         echo ' --- ';
                         echo $this->_build_link_manage($lid_2, $title_2);
-                        echo "<br />\n";
+                        echo "<br>\n";
                     }
                 }
             }
         }
 
-        echo "<br />\n";
+        echo "<br>\n";
 
         if ($count_more) {
             echo 'There are ';
             echo $this->build_span_red_bold($count_more);
-            echo " links which have same links <br />\n";
+            echo " links which have same links <br>\n";
         } else {
             $this->print_blue('check OK');
         }
@@ -189,7 +189,7 @@ class admin_table_manage extends happy_linux_table_manage
 
     public function _print_form_link_common($submit, $desc = null, $offset = 0)
     {
-        echo "<br />\n";
+        echo "<br>\n";
         echo $this->_form->build_lib_box_limit_offset(
             $this->_TITLE_LINK_CHECK,
             $desc,

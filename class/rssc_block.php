@@ -40,7 +40,7 @@ if( !class_exists('rssc_block') )
         //---------------------------------------------------------
     public function __construct()
         {
-            $this->_db          = Database::getInstance();
+            $this->_db          = XoopsDatabaseFactory::getDatabaseConnection();
             $this->_is_japanese = happy_linux_is_japanese();
         }
 
@@ -381,7 +381,7 @@ if( !class_exists('rssc_block') )
             }
 
             $conf = [];
-            while ($row = $this->_db->fetchArray($res)) {
+            while (false !== ($row = $this->_db->fetchArray($res))) {
                 $conf[$row['conf_name']] = $row['conf_value'];
             }
             return $conf;
@@ -420,7 +420,7 @@ if( !class_exists('rssc_block') )
             }
 
             $rows = [];
-            while ($row = $this->_db->fetchArray($res)) {
+            while (false !== ($row = $this->_db->fetchArray($res))) {
                 $rows[] = $row;
             }
             return $rows;
@@ -448,7 +448,7 @@ if( !class_exists('rssc_block') )
             $res = $this->_db->query($sql, $limit, 0);
 
             $rows = [];
-            while ($row = $this->_db->fetchArray($res)) {
+            while (false !== ($row = $this->_db->fetchArray($res))) {
                 $rows[] = $row;
             }
             return $rows;
@@ -485,7 +485,7 @@ if( !class_exists('rssc_block') )
             }
 
             $rows = [];
-            while ($row = $this->_db->fetchArray($res)) {
+            while (false !== ($row = $this->_db->fetchArray($res))) {
                 $rows[] = $row;
             }
             return $rows;
@@ -496,7 +496,7 @@ if( !class_exists('rssc_block') )
         //---------------------------------------------------------
     public function get_icon_list($DIRNAME)
         {
-            include_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/rssc_icon.php';
+            require_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/rssc_icon.php';
             $icon_class = rssc_icon::getInstance();
             return $icon_class->build_template_icon_list($DIRNAME);
         }
@@ -507,7 +507,7 @@ if( !class_exists('rssc_block') )
     public function get_map($param)
         {
             $dirname = $param['dirname'];
-            include_once XOOPS_ROOT_PATH . '/modules/' . $dirname . '/class/rssc_block_map.php';
+            require_once XOOPS_ROOT_PATH . '/modules/' . $dirname . '/class/rssc_block_map.php';
             $map_class =& rssc_block_map::getSingleton($dirname);
             return $map_class->build_map_block($param);
         }

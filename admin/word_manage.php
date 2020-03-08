@@ -11,8 +11,8 @@
 // 2007-06-01 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
-include_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
+require __DIR__ . '/admin_header.php';
+require_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
 
 //=========================================================
 // class word manage
@@ -27,7 +27,7 @@ class admin_manage_word extends admin_manage_base
     {
         admin_manage_base::__construct();
 
-        $this->set_handler('word', RSSC_DIRNAME, 'rssc');
+        $this->setHandler('word', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('sid');
         $this->set_form_class('admin_form_word');
         $this->set_script('word_manage.php');
@@ -71,10 +71,10 @@ class admin_manage_word extends admin_manage_base
         }
 
         $word = $this->_post->get_post_text('word');
-        $objs =& $this->_handler->get_objects_by_word($word);
+        $objs =& $this->Handler->get_objects_by_word($word);
         if (is_array($objs) && count($objs)) {
             $script = 'word_manage.php?op=mod_form&amp;sid=';
-            $msg    = $this->_handler->build_error_list($objs, $script);
+            $msg    = $this->Handler->build_error_list($objs, $script);
             $err    = '<h4>' . _AM_RSSC_WORD_ALREADY . "</h4>\n" . $msg;
             $this->_set_error_extra($err);
             return false;
@@ -148,7 +148,7 @@ class admin_manage_word extends admin_manage_base
             $point = (int)$v;
             $word  = $word_arr[$sid];
 
-            $obj =& $this->_handler->get($sid);
+            $obj =& $this->Handler->get($sid);
             if (!is_object($obj)) {
                 continue;
             }
@@ -162,9 +162,9 @@ class admin_manage_word extends admin_manage_base
             $obj->setVar('point', $point);
             $obj->setVar('word', $word);
 
-            $ret = $this->_handler->update($obj);
+            $ret = $this->Handler->update($obj);
             if (!$ret) {
-                $this->_set_error($this->_handler->getErrors());
+                $this->_set_error($this->Handler->getErrors());
             }
         }
 

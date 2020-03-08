@@ -38,8 +38,8 @@ if( !class_exists('rssc_build_rssc') )
     {
         public $_DIRNAME;
 
-        public $_config_handler;
-        public $_search_handler;
+        public $_configHandler;
+        public $_searchHandler;
 
         public $_CACHE_ID_QUERY  = 'query';
         public $_URL_SINGLE_FEED = '';
@@ -110,35 +110,35 @@ if( !class_exists('rssc_build_rssc') )
         //---------------------------------------------------------
     public function _init()
         {
-            $this->_config_handler =& rssc_get_handler('config_basic', $this->_DIRNAME);
-            $this->_search_handler =& rssc_get_handler('search', $this->_DIRNAME);
+            $this->_configHandler =& rssc_getHandler('config_basic', $this->_DIRNAME);
+            $this->_searchHandler =& rssc_getHandler('search', $this->_DIRNAME);
 
-            $this->_conf =& $this->_config_handler->get_conf();
+            $this->_conf =& $this->_configHandler->get_conf();
         }
 
     public function _get_query()
         {
-            return $this->_search_handler->get_post_get_query();
+            return $this->_searchHandler->get_post_get_query();
         }
 
     public function &_get_feeds()
         {
             $max_limit = $this->_conf['main_search_perpage'];
 
-            $this->_search_handler->setFeedLimit($max_limit);
-            $this->_search_handler->setMinKeyword($this->_conf['main_search_min']);
-            $this->_search_handler->setFeedOrder($this->_conf['main_search_order']);
-            $this->_search_handler->setFutureDays($this->_conf['basic_future_days']);
-            $this->_search_handler->setFlagSanitize(0);    // not sanitize
+            $this->_searchHandler->setFeedLimit($max_limit);
+            $this->_searchHandler->setMinKeyword($this->_conf['main_search_min']);
+            $this->_searchHandler->setFeedOrder($this->_conf['main_search_order']);
+            $this->_searchHandler->setFutureDays($this->_conf['basic_future_days']);
+            $this->_searchHandler->setFlagSanitize(0);    // not sanitize
 
-            $limit = $this->_search_handler->get_get_limit();
-            $start = $this->_search_handler->get_get_start();
+            $limit = $this->_searchHandler->get_get_limit();
+            $start = $this->_searchHandler->get_get_start();
 
             if ($limit <= 0) {
                 $limit = $max_limit;
             }
 
-            $feeds =& $this->_search_handler->get_feeds_for_rss($limit, $start);
+            $feeds =& $this->_searchHandler->get_feeds_for_rss($limit, $start);
             return $feeds;
         }
 

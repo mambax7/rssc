@@ -55,9 +55,9 @@ if( !class_exists('rssc_view_param') )
         public $_MODULE_DIR;
 
         // handler
-        public $_config_handler;
-        public $_link_handler;
-        public $_feed_handler;
+        public $_configHandler;
+        public $_linkHandler;
+        public $_feedHandler;
         public $_plugin;
         public $_system;
         public $_image_class;
@@ -91,9 +91,9 @@ if( !class_exists('rssc_view_param') )
             parent::__construct();
 
             // handler
-            $this->_config_handler =& rssc_get_handler('config_basic', $dirname);
-            $this->_link_handler   =& rssc_get_handler('link_basic', $dirname);
-            $this->_feed_handler   =& rssc_get_handler('feed_basic', $dirname);
+            $this->_configHandler =& rssc_getHandler('config_basic', $dirname);
+            $this->_linkHandler   =& rssc_getHandler('link_basic', $dirname);
+            $this->_feedHandler   =& rssc_getHandler('feed_basic', $dirname);
             $this->_plugin         =& rssc_plugin::getInstance($dirname);
             $this->_system         = happy_linux_system::getInstance();
             $this->_image_class    = happy_linux_image_size::getInstance();
@@ -111,7 +111,7 @@ if( !class_exists('rssc_view_param') )
 
     public function _init_view_param()
         {
-            $this->_conf =& $this->_config_handler->get_conf();
+            $this->_conf =& $this->_configHandler->get_conf();
 
             $this->set_mode_content_script($this->_conf['html_script']);
             $this->set_mode_content_style($this->_conf['html_style']);
@@ -186,7 +186,7 @@ if( !class_exists('rssc_view_param') )
             $feed['thumb_height'] = $thumb_height;
 
             if (isset($item['lid'])) {
-                $link_row = $this->_link_handler->get_cache_row($item['lid']);
+                $link_row = $this->_linkHandler->get_cache_row($item['lid']);
                 if (is_array($link_row)) {
                     if ($this->_flag_ltype) {
                         $feed['ltype'] = $link_row['ltype'];
@@ -248,7 +248,7 @@ if( !class_exists('rssc_view_param') )
             $temp = $item;
 
             if (isset($item['lid'])) {
-                $plugin_line = $this->_link_handler->get_cache_post_plugin_by_lid($item['lid']);
+                $plugin_line = $this->_linkHandler->get_cache_post_plugin_by_lid($item['lid']);
 
                 $ret1 = $this->_plugin->execute_single($temp, $plugin_line);
                 if ($ret1) {
@@ -321,7 +321,7 @@ if( !class_exists('rssc_view_param') )
 
     public function setFutureDays($value)
         {
-            $this->_feed_handler->set_future($value);
+            $this->_feedHandler->set_future($value);
         }
 
         //---------------------------------------------------------
@@ -362,7 +362,7 @@ if( !class_exists('rssc_view_param') )
     public function _get_module_header()
         {
             $url  = $this->_MODULE_URL . '/rssc.css';
-            $text = '<link href="' . $url . '" rel="stylesheet" type="text/css" media="all" />' . "\n";
+            $text = '<link href="' . $url . '" rel="stylesheet" type="text/css" media="all">' . "\n";
             $text .= $this->_system->get_template_vars('xoops_module_header') . "\n";
             return $text;
         }

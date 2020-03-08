@@ -145,7 +145,7 @@ define('_AM_RSSC_GOTOTOP', 'Перейти вверх');
 // === configuration ===
 // basic configuration
 define('_AM_RSSC_CONF_FEED_LIMIT', 'Максимальное количество каналов');
-define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'Введите максимальное количество каналов, сохраняемое в таблице каналов<br />Удаляются старые записи, когда они становятся больше, чем это значение<br /><b>0</b> неограничено');
+define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'Введите максимальное количество каналов, сохраняемое в таблице каналов<br>Удаляются старые записи, когда они становятся больше, чем это значение<br><b>0</b> неограничено');
 define('_AM_RSSC_CONF_RSS_ATOM', 'Выбор RSS или ATOM');
 define('_AM_RSSC_CONF_RSS_ATOM_DESC', 'Выбрать RSS или ATOM, когда оба адреса RSS и ATOM обнаружены');
 define('_AM_RSSC_CONF_RSS_ATOM_SEL_ATOM', 'ATOM');
@@ -160,7 +160,7 @@ define('_AM_RSSC_CONF_RSS_MODE', 'Начальное значение RSS режима');
 define('_AM_RSSC_CONF_XML_SAVE', 'Сохранять XML');
 define('_AM_RSSC_CONF_XML_SAVE_DESC', 'Сохранять полученный XML в таблице ссылок');
 define('_AM_RSSC_CONF_FUTURE_DAYS', 'Будущие дни');
-define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', "Количество дней<br />Не показывать канал, если дата каналов больше, чем эти дни");
+define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', "Количество дней<br>Не показывать канал, если дата каналов больше, чем эти дни");
 
 // show configuration
 define('_AM_RSSC_CONF_SHOW_ORDER','Порядок показа');
@@ -174,7 +174,7 @@ define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE','Каналов на страницу');
 define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK','Каналов на ссылку');
 //define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK_DESC','');
 define('_AM_RSSC_CONF_SHOW_MAX_TITLE','Максимальное количество символов в заголовке');
-define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','HTML теги удаляются, когда больше этого числа<br /><b>-1</b> неограничено');
+define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','HTML теги удаляются, когда больше этого числа<br><b>-1</b> неограничено');
 define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY','Максимальное количество символов в описании');
 define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC','<b>-1</b> неограничено');
 
@@ -203,11 +203,11 @@ define('_AM_RSSC_VIEW_MODE_LINK', 'режим 1: XML данные, сохраненные в таблице сс
 define('_AM_RSSC_VIEW_MODE_FEED', 'режим 2: данные, сохраненные в таблице канала');
 define('_AM_RSSC_VIEW_SANITIZE', 'HTML очистка');
 define('_AM_RSSC_VIEW_TITLE_HTML','Показывать HTML теги в заголовке');
-define('_AM_RSSC_VIEW_TITLE_HTML_DESC', 'Когда выбрано ДА, показывать это как HTML теги. <br />Когда выбрано НЕТ, показывать это после удаления HTML тегов. ');
+define('_AM_RSSC_VIEW_TITLE_HTML_DESC', 'Когда выбрано ДА, показывать это как HTML теги. <br>Когда выбрано НЕТ, показывать это после удаления HTML тегов. ');
 define('_AM_RSSC_VIEW_CONTENT_HTML','Показывать HTML теги в содержании');
-define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', 'Когда выбрано ДА, показывать это как HTML теги. <br />Когда выбрано НЕТ, показывать это после удаления HTML тегов. ');
+define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', 'Когда выбрано ДА, показывать это как HTML теги. <br>Когда выбрано НЕТ, показывать это после удаления HTML тегов. ');
 define('_AM_RSSC_VIEW_MAX_CONTENT','Максимальное количество символов в содержании');
-define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','HTML будут удалены, когда больше, чем это число<br /><b>-1</b> неограничено');
+define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','HTML будут удалены, когда больше, чем это число<br><b>-1</b> неограничено');
 define('_AM_RSSC_VIEW_LINK_UPDATE', 'Обновление таблицы ссылки');
 define('_AM_RSSC_VIEW_FEED_UPDATE', 'Обновление таблицы канала');
 define('_AM_RSSC_VIEW_FORCE_DISCOVER', 'Принудительно обнаружить адрес RSS');
@@ -255,17 +255,17 @@ define('_AM_RSSC_PARSE_RSS', 'Анализировать RDF/RSS/ATOM');
 
 // refresh link
 //define('_AM_RSSC_REFRESH_LINK', 'Refresh RDF/RSS/ATOM feeds');
-//define('_AM_RSSC_REFRESH_LINK_DSC', 'Then, refresh RSS feeds <br />Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br />if they are not set up.');
+//define('_AM_RSSC_REFRESH_LINK_DSC', 'Then, refresh RSS feeds <br>Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br>if they are not set up.');
 //define('_AM_RSSC_REFRESH_LINK_FINISHED', 'Refresh feeds finished');
 
 // === 2006-07-08 ===
 // description at main
 define('_AM_RSSC_CONF_INDEX_DESC','Описание на главную страницу');
 define('_AM_RSSC_CONF_INDEX_DESC_DSC', 'Введите описание, если вы хотите чтобы оно отображалось на главной странице.');
-define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Здесь описание.<br />Вы можете редактировать описание в "Настройка модуля".<br /></div><br />');
+define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Здесь описание.<br>Вы можете редактировать описание в "Настройка модуля".<br></div><br>');
 
 // link table
-define('_AM_RSSC_LINK_DESC','Обнаруживать адреса <b>RDF/RSS/ATOM</b> автоматически и определять <b>кодировку</b> автоматически, <br />когда вы не заполните, <br />если сайт поддерживает "RSS автоопределение"');
+define('_AM_RSSC_LINK_DESC','Обнаруживать адреса <b>RDF/RSS/ATOM</b> автоматически и определять <b>кодировку</b> автоматически, <br>когда вы не заполните, <br>если сайт поддерживает "RSS автоопределение"');
 //define('_AM_RSSC_LINK_EXIST', 'Already exists this "RDF/RSS/ATOM URL"');
 //define('_AM_RSSC_LINK_EXIST_MORE','There are twe or more links which have same "RDF/RSS/ATOM URL" ');
 //define('_AM_RSSC_AUTO_FIND_FAILD','RSS Auto Discovery Faild');
@@ -277,11 +277,11 @@ define('_AM_RSSC_BLACK_MEMO','Заметка');
 // === 2006-09-20 ===
 // show content with html
 define('_AM_RSSC_CONF_SHOW_TITLE_HTML','Использовать HTML теги в заголовке');
-define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', 'Когда выбрано "ДА", показывать заголовок с тегами HTML, если заголовок имеет HTML теги. <br />Когда выбрано "НЕТ", показывать заголовок с удаленными HTML тегами. ');
+define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', 'Когда выбрано "ДА", показывать заголовок с тегами HTML, если заголовок имеет HTML теги. <br>Когда выбрано "НЕТ", показывать заголовок с удаленными HTML тегами. ');
 define('_AM_RSSC_CONF_SHOW_CONTENT_HTML','Использовать HTML теги в содержании');
-define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', 'Когда выбрано "ДА", показывать содержание с тегами HTML, если содержание имеет HTML теги. <br />Когда выбрано "НЕТ", показывать содержание с удаленными HTML тегами. ');
+define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', 'Когда выбрано "ДА", показывать содержание с тегами HTML, если содержание имеет HTML теги. <br>Когда выбрано "НЕТ", показывать содержание с удаленными HTML тегами. ');
 define('_AM_RSSC_CONF_SHOW_MAX_CONTENT','Максимальное количество символов содержания');
-define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'HTML теги удаляются, когда больше, чем это число<br /><b>-1</b> неограничено');
+define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'HTML теги удаляются, когда больше, чем это число<br><b>-1</b> неограничено');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT','Максимальное количество RSS/ATOM каналов отображаемых содержание');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT_DSC', 'Введите максимальное число RSS/ATOM каналов отображаемых содержание.');
 define('_AM_RSSC_CONF_SHOW_BLOG_LID','ID ссылки для отображения блога');
@@ -296,9 +296,9 @@ define('_AM_RSSC_CONF_PROXY_USE',  'Использовать прокси сервер');
 define('_AM_RSSC_CONF_PROXY_HOST', 'Прокси сервер');
 define('_AM_RSSC_CONF_PROXY_PORT', 'Прокси порт');
 define('_AM_RSSC_CONF_PROXY_USER', 'Прокси имя пользователя');
-define('_AM_RSSC_CONF_PROXY_USER_DESC', 'Введите имя пользователя, если ваш прокси сервер требует обычную проверку подлинности, <br />В противном случае, оставте пустым');
+define('_AM_RSSC_CONF_PROXY_USER_DESC', 'Введите имя пользователя, если ваш прокси сервер требует обычную проверку подлинности, <br>В противном случае, оставте пустым');
 define('_AM_RSSC_CONF_PROXY_PASS', 'Прокси пароль');
-define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'Введите пароль, если ваш прокси сервер требует обычную проверку подлинности, <br />В противном случае, оставте пустым');
+define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'Введите пароль, если ваш прокси сервер требует обычную проверку подлинности, <br>В противном случае, оставте пустым');
 
 define('_AM_RSSC_CONF_HIGHLIGHT', 'Использовать выделение ключевых слов');
 
@@ -331,7 +331,7 @@ define('_AM_RSSC_CONF_WHITE_USE','Использовать белый список');
 define('_AM_RSSC_CONF_WHITE_USE_DESC','Сохранять, когда в белом списке');
 define('_AM_RSSC_CONF_BLACK_USE','Использовать черный список');
 //define('_AM_RSSC_CONF_BLACK_USE_DESC','Not store when in black list');
-define('_AM_RSSC_CONF_BLACK_USE_DESC','Не сохранять, когда в черном списке<br />Когда выбрано "Использовать", прерывается процесс фильтрации, если считать черный<br />Когда выбрано "Обучение", продолжить процесс фильтрации, с целью извлечения слов, если считать черный');
+define('_AM_RSSC_CONF_BLACK_USE_DESC','Не сохранять, когда в черном списке<br>Когда выбрано "Использовать", прерывается процесс фильтрации, если считать черный<br>Когда выбрано "Обучение", продолжить процесс фильтрации, с целью извлечения слов, если считать черный');
 define('_AM_RSSC_CONF_BLACK_USE_NO','Не использовать');
 define('_AM_RSSC_CONF_BLACK_USE_YES','Использовать');
 define('_AM_RSSC_CONF_BLACK_USE_LEARN','Обучение');
@@ -339,7 +339,7 @@ define('_AM_RSSC_CONF_WORD_USE','Использовать список отклоненных слов');
 define('_AM_RSSC_CONF_WORD_USE_DESC','Не сохранять, когда общая точка списка слов превышает уровень отклонения');
 define('_AM_RSSC_CONF_WORD_LEVEL', 'Уровень отклонения');
 define('_AM_RSSC_CONF_FEED_SAVE','Сохранение канала');
-define('_AM_RSSC_CONF_FEED_SAVE_DESC','Сохранять или нет в таблице каналов, когда считается черным.<br />Когда "Сохранить", сохраняется в статусе "не показывать".');
+define('_AM_RSSC_CONF_FEED_SAVE_DESC','Сохранять или нет в таблице каналов, когда считается черным.<br>Когда "Сохранить", сохраняется в статусе "не показывать".');
 define('_AM_RSSC_CONF_FEED_SAVE_NO', 'Не сохранять');
 define('_AM_RSSC_CONF_FEED_SAVE_YES','Сохранять');
 define('_AM_RSSC_CONF_LOG_USE','Использовать файл журнала');
@@ -351,9 +351,9 @@ define('_AM_RSSC_CONF_BLACK_COUNT_DESC','Подсчитывать совпадающие записи, когда 
 define('_AM_RSSC_CONF_WORD_COUNT','Подсчитывать список отклоненных слов');
 define('_AM_RSSC_CONF_WORD_COUNT_DESC','Подсчитывать совпадающие записи, когда соответствует списку отклоненных слов');
 define('_AM_RSSC_CONF_BLACK_AUTO','Добавлять в черный список');
-define('_AM_RSSC_CONF_BLACK_AUTO_DESC','Добавлять адрес в черный списокавтоматически, когда считается черным<br /><b>Уведомление</b> "статус" хранится как "недействительный"<br />Пожалуйста, измените на "действительный" при использовании');
+define('_AM_RSSC_CONF_BLACK_AUTO_DESC','Добавлять адрес в черный списокавтоматически, когда считается черным<br><b>Уведомление</b> "статус" хранится как "недействительный"<br>Пожалуйста, измените на "действительный" при использовании');
 define('_AM_RSSC_CONF_WORD_AUTO','Добавлять с список отклоненных слов');
-define('_AM_RSSC_CONF_WORD_AUTO_DESC','Извлечение слов в содержании автоматически и добавление слов в список отклоненных слов автоматически, когда считается черным<br /><b>Уведомление</b> "точка" хранится как ноль<br />Пожалуйста, измените "точку" при использованиии');
+define('_AM_RSSC_CONF_WORD_AUTO_DESC','Извлечение слов в содержании автоматически и добавление слов в список отклоненных слов автоматически, когда считается черным<br><b>Уведомление</b> "точка" хранится как ноль<br>Пожалуйста, измените "точку" при использованиии');
 define('_AM_RSSC_CONF_WORD_AUTO_NON','Не добавлять');
 define('_AM_RSSC_CONF_WORD_AUTO_SYMBOL','Извлечение по пробелу или символу');
 define('_AM_RSSC_CONF_WORD_AUTO_KAKASI','Извлечение KAKASI: только на японском языке');
@@ -363,7 +363,7 @@ define('_AM_RSSC_FORM_WORD','Установка извлечения слов');
 define('_AM_RSSC_CONF_JOIN_PREV', 'Регистрация слов');
 define('_AM_RSSC_CONF_JOIN_PREV_DESC', 'Регистрировать прямые и обратные слова и сделать фразой');
 define('_AM_RSSC_CONF_JOIN_GLUE', 'Промежуток слов');
-define('_AM_RSSC_CONF_JOIN_GLUE_DESC', 'В английском установите пробел<br />В японском ничего не устанавливайте');
+define('_AM_RSSC_CONF_JOIN_GLUE_DESC', 'В английском установите пробел<br>В японском ничего не устанавливайте');
 define('_AM_RSSC_CONF_KAKASI_PATH','Путь к командам KAKASI');
 define('_AM_RSSC_CONF_KAKASI_MODE','Режим KAKASI');
 define('_AM_RSSC_CONF_KAKASI_MODE_FILE','Использовать временный файл');
@@ -371,16 +371,16 @@ define('_AM_RSSC_CONF_KAKASI_MODE_PIPE','Использовать канал UNIX');
 define('_AM_RSSC_CONF_CHAR_LENGTH', 'Минимальное количество символов');
 define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'Минимальное количество символов для извлечения слова');
 define('_AM_RSSC_CONF_WORD_LIMIT', 'Максимальное количество отклоненных слов');
-define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Введите максимальное число слов хранимых в таблице слов<br />Удаляются старые записи, когда количество становится больше, чем это значение<br /><b>0</b> неограничено');
+define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Введите максимальное число слов хранимых в таблице слов<br>Удаляются старые записи, когда количество становится больше, чем это значение<br><b>0</b> неограничено');
 define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi исполняемо');
 define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi не исполняемо');
 define('_AM_RSSC_CONF_HTML_GET','Получить HTML');
-define('_AM_RSSC_CONF_HTML_GET_DESC','Получить данные оригинального HTML автоматически, когда считается списком отклоненных слов<br />Когда выбрано "Использовать", точность расчета повышается , но время выполнения становятся долгим');
+define('_AM_RSSC_CONF_HTML_GET_DESC','Получить данные оригинального HTML автоматически, когда считается списком отклоненных слов<br>Когда выбрано "Использовать", точность расчета повышается , но время выполнения становятся долгим');
 define('_AM_RSSC_CONF_HTML_GET_NO','Не использовать');
 define('_AM_RSSC_CONF_HTML_GET_YES','Использовать');
 define('_AM_RSSC_CONF_HTML_GET_BLACK','Использовать, когда считается черным');
 define('_AM_RSSC_CONF_HTML_LIMIT', 'Максимальное количество символов HTML');
-define('_AM_RSSC_CONF_HTML_LIMIT_DESC', 'Максимальное количество символов HTML, которые получаются автоматически<br />На некоторых сайтах, HTML данные большие, и время выполнения становятся долгим');
+define('_AM_RSSC_CONF_HTML_LIMIT_DESC', 'Максимальное количество символов HTML, которые получаются автоматически<br>На некоторых сайтах, HTML данные большие, и время выполнения становятся долгим');
 
 // archive manage
 define('_AM_RSSC_LEAN_BLACK', 'Обучение в черном списке');
@@ -402,13 +402,13 @@ define('_AM_RSSC_CONF_SHOW_SITE', 'Информация о сайте');
 define('_AM_RSSC_CONF_SHOW_SITE_DSC', 'Когда "ДА", показывать заголовок сайта и адрес');
 
 // link table
-define('_AM_RSSC_LINK_CENSOR_DESC', 'Разделите каждый с помощью <b>|</b><br />чувствительны к регистру');
+define('_AM_RSSC_LINK_CENSOR_DESC', 'Разделите каждый с помощью <b>|</b><br>чувствительны к регистру');
 
 
 // === 2008-01-20 ===
 // menu
 define('_AM_RSSC_FORM_HTMLOUT',       'Установка вывода HTML');
-define('_AM_RSSC_FORM_HTMLOUT_DESC',  "При обработке содержимого, когда 'Использовать HTML теги в содержании' - 'Да'<br />Все теги удаляются, когда 'Нет' <br />это рекомендуется для удаления или замены JavaScript и связей, чтобы предотвратить XSS (Перекрестные сценарии сайта - Cross Site Scripting) ");
+define('_AM_RSSC_FORM_HTMLOUT_DESC',  "При обработке содержимого, когда 'Использовать HTML теги в содержании' - 'Да'<br>Все теги удаляются, когда 'Нет' <br>это рекомендуется для удаления или замены JavaScript и связей, чтобы предотвратить XSS (Перекрестные сценарии сайта - Cross Site Scripting) ");
 define('_AM_RSSC_FORM_CUSTOM_PLUGIN', 'Пользовательские плагины');
 
 // html out
@@ -427,15 +427,15 @@ define('_AM_RSSC_CONF_HTML_COMMENT_DESC', "Обработка '&lt;!-- ... --&gt;' ");
 define('_AM_RSSC_CONF_HTML_CDATA', 'Метки CDATA');
 define('_AM_RSSC_CONF_HTML_CDATA_DESC', "Обработка '&lt;![CDATA[ ... ]]&gt;' ");
 define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE', 'Атрибуты onMouse');
-define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', "Обработка 'onmouseover=\"...\"' или 'onclick=\"...\"' <br />заменять как 'on_mouseover_=\"...\"', когда 'Заменить' ");
+define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', "Обработка 'onmouseover=\"...\"' или 'onclick=\"...\"' <br>заменять как 'on_mouseover_=\"...\"', когда 'Заменить' ");
 define('_AM_RSSC_CONF_HTML_ATTR_STYLE', 'Атрибуты стиля');
-define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', "Обработка 'style=\"...\"' или 'class=\"...\"' <br />заменять как 'style_=\"...\"', когда 'Заменить' ");
+define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', "Обработка 'style=\"...\"' или 'class=\"...\"' <br>заменять как 'style_=\"...\"', когда 'Заменить' ");
 define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS', 'Удалить другие теги');
 define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS_DESC', "Удалять или нет '&lt;img ... &gt;' '&lt;a ... &gt;' '&lt;link ... &gt;' т.д. ");
 define('_AM_RSSC_CONF_HTML_OTHER_TAGS', 'Разрешенные теги');
-define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', "Введенный тег не удалится, когда 'RУдалить другие теги' - 'Да' <br /> Пример: &lt;img&gt;&lt;a&gt; ");
+define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', "Введенный тег не удалится, когда 'RУдалить другие теги' - 'Да' <br> Пример: &lt;img&gt;&lt;a&gt; ");
 define('_AM_RSSC_CONF_HTML_JAVASCRIPT', 'Строки JavaScriprt');
-define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', "Обработка строк 'JavaScriprt' <br />заменяется на 'java_script', когда 'Заменить' ");
+define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', "Обработка строк 'JavaScriprt' <br>заменяется на 'java_script', когда 'Заменить' ");
 
 // plugin
 define('_AM_RSSC_PRE_PLUGIN_DESC', 'Выполнить перед сохранением в базе данных');
@@ -455,9 +455,9 @@ define('_AM_RSSC_FORM_MAP', 'Установка карт Google');
 define('_AM_RSSC_CONF_WEBMAP_DIRNAME', 'Имя директории webmap');
 define('_AM_RSSC_CONF_WEBMAP_DIRNAME_DESC', 'Установите имя директориимодуля webmap');
 define('_AM_RSSC_CONF_SHOW_INFO_MAX','Максимальное количество символов маркера информации');
-define('_AM_RSSC_CONF_SHOW_INFO_MAX_DSC', 'HTML теги удаляются<br /><b>-1</b> неограничено');
+define('_AM_RSSC_CONF_SHOW_INFO_MAX_DSC', 'HTML теги удаляются<br><b>-1</b> неограничено');
 define('_AM_RSSC_CONF_SHOW_INFO_WIDTH','Максимальное количество символов маркера информации в строке');
-define('_AM_RSSC_CONF_SHOW_INFO_WIDTH_DSC', 'Вставить новую строку, когда больше, чем это число<br /><b>-1</b> не ограничено');
+define('_AM_RSSC_CONF_SHOW_INFO_WIDTH_DSC', 'Вставить новую строку, когда больше, чем это число<br><b>-1</b> не ограничено');
 define('_AM_RSSC_CONF_SHOW_ICON','Показать иконки');
 define('_AM_RSSC_CONF_SHOW_ICON_DSC', 'Когда "ДА" - показать иконку');
 define('_AM_RSSC_CONF_SHOW_THUMB','Показать изображение');

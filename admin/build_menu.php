@@ -14,7 +14,7 @@
 // 2006-06-04 K.OHWADA
 //================================================================
 
-include 'admin_header_config.php';
+require __DIR__ . '/admin_header_config.php';
 
 // class
 $config_form  = admin_config_form::getInstance();
@@ -58,20 +58,20 @@ function admin_print_build_menu()
 {
 
 echo '<h3>' . _HAPPY_LINUX_CONF_RSS_MANAGE . "</h3>\n";
-echo _HAPPY_LINUX_CONF_RSS_MANAGE_DESC. "<br /><br />\n";
+echo _HAPPY_LINUX_CONF_RSS_MANAGE_DESC. "<br><br>\n";
 echo "<ul>\n";
 echo '<li><a href="build_rss.php?mode=rdf" target="_blank">';
 echo '<img src="'. RSSC_URL .'/images/rdf.png"> ';
 echo _HAPPY_LINUX_CONF_DEBUG_RDF;
-echo "</a><br /><br /></li>\n";
+echo "</a><br><br></li>\n";
 echo '<li><a href="build_rss.php?mode=rss" target="_blank">';
 echo '<img src="'. RSSC_URL .'/images/rss.png"> ';
 echo _HAPPY_LINUX_CONF_DEBUG_RSS;
-echo "</a><br /><br /></li>\n";
+echo "</a><br><br></li>\n";
 echo '<li><a href="build_rss.php?mode=atom" target="_blank">';
 echo '<img src="'. RSSC_URL .'/images/atom.png"> ';
 echo _HAPPY_LINUX_CONF_DEBUG_ATOM;
-echo "</a><br /><br /></li>\n";
+echo "</a><br><br></li>\n";
 echo "</ul>\n";
 
 }

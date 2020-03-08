@@ -25,7 +25,7 @@ class rssc_icon
 //---------------------------------------------------------
 function rssc_icon()
 {
-	$this->_db =& Database::getInstance();
+	$this->_db = XoopsDatabaseFactory::getDatabaseConnection();
 }
 
 public static function &getInstance()
@@ -110,7 +110,7 @@ function get_config_row( $dirname )
 		return false;
 	}
 
-	while ($row = $this->_db->fetchArray($res)) {
+	while (false !== ($row = $this->_db->fetchArray($res))) {
 		$arr[ $row['conf_name'] ] = $row['conf_value'];
 	}
 	return $arr;
@@ -128,7 +128,7 @@ function get_link_rows( $dirname )
 		return false;
 	}
 
-	while ($row = $this->_db->fetchArray($res)) {
+	while (false !== ($row = $this->_db->fetchArray($res))) {
 		$rows[] = $row ;
 	}
 	return $rows;

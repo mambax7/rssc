@@ -256,7 +256,7 @@ define('_RSSC_SINGLE_LINK_UTF8', 'ќдиночна€ ссылка в кодировке UTF-8');
 //define('_RSSC_UTF8_CONTENT', 'Content allowed HTML tags with UTF-8');
 
 // detect encoding
-define('_RSSC_ASSUME_ENCODING', 'ѕредложенное xml кодирование %s ,<br />потому что невозможно определить кодировку автоматически');
+define('_RSSC_ASSUME_ENCODING', 'ѕредложенное xml кодирование %s ,<br>потому что невозможно определить кодировку автоматически');
 
 // rss item
 //define('_RSSC_CREATED', 'Created');
@@ -303,7 +303,7 @@ define('_RSSC_LINK_ALREADY',    '“ака€ ссылка уже существует, котора€ имеет тот 
 
 // refresh link
 define('_RSSC_REFRESH_LINK', 'ќбновление RDF/RSS/ATOM каналов');
-define('_RSSC_REFRESH_LINK_DSC', ' огда обновл€ютс€ RSS каналы <br />ќбнаруживать адреса <b>RDF/RSS/ATOM</b> автоматически и определ€ть <b> одировку</b> автоматически, <br />если они не установлены.');
+define('_RSSC_REFRESH_LINK_DSC', ' огда обновл€ютс€ RSS каналы <br>ќбнаруживать адреса <b>RDF/RSS/ATOM</b> автоматически и определ€ть <b> одировку</b> автоматически, <br>если они не установлены.');
 define('_RSSC_REFRESH_LINK_FINISHED', 'ќбновление каналов закончено');
 
 // for other module

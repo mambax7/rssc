@@ -6,23 +6,23 @@
 // 2008-01-20 K.OHWADA
 //================================================================
 
-include 'header.php';
+require __DIR__ . '/header.php';
 
 $rssc_plugin        =& rssc_plugin::getInstance( RSSC_DIRNAME );
 $happy_linux_system = happy_linux_system::getInstance();
 
-include XOOPS_ROOT_PATH.'/header.php';
+require XOOPS_ROOT_PATH.'/header.php';
 
 // exit if not login
 if ( !$happy_linux_system->is_user() )
 {
 	xoops_error('you have no permission');
-	include XOOPS_ROOT_PATH.'/footer.php';
+	require XOOPS_ROOT_PATH.'/footer.php';
 	exit();
 }
 
 echo "<h4>plugin demo</h4>\n";
-echo "mail latest 10 feeds to login user <br /><br />\n";
+echo "mail latest 10 feeds to login user <br><br>\n";
 
 $rssc_plugin->init_once();
 $rssc_plugin->set_flag_print( true );
@@ -44,5 +44,5 @@ else
 	echo "<h4>error</h4>\n";
 }
 
-include XOOPS_ROOT_PATH.'/footer.php';
+require XOOPS_ROOT_PATH.'/footer.php';
 exit();

@@ -1,11 +1,11 @@
 <?php
-// $Id: rssc_filter_handler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
+// $Id: rssc_filterHandler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
 
 // 2009-03-01 K.OHWADA
 // replace_control_code()
 
 // 2007-10-10 K.OHWADA
-// rename rssc_filter to rssc_filter_handler
+// rename rssc_filter to rssc_filterHandler
 // judge_title()
 
 //=========================================================
@@ -14,7 +14,7 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_filter_handler') ) 
+if( !class_exists('rssc_filterHandler') ) 
 {
 
 // minus value for reject
@@ -27,11 +27,11 @@ if( !class_exists('rssc_filter_handler') )
 //=========================================================
 // class word
 //=========================================================
-    class rssc_filter_handler
+    class rssc_filterHandler
     {
-        public $_black_handler;
-        public $_white_handler;
-        public $_word_handler;
+        public $_blackHandler;
+        public $_whiteHandler;
+        public $_wordHandler;
 
         public $_conf       = null;
         public $_black_list = [];
@@ -48,10 +48,10 @@ if( !class_exists('rssc_filter_handler') )
         //---------------------------------------------------------
     public function __construct($dirname)
         {
-            $this->_config_handler =& rssc_get_handler('config_basic', $dirname);
-            $this->_black_handler  =& rssc_get_handler('black_basic', $dirname);
-            $this->_white_handler  =& rssc_get_handler('white_basic', $dirname);
-            $this->_word_handler   =& rssc_get_handler('word_basic', $dirname);
+            $this->_configHandler =& rssc_getHandler('config_basic', $dirname);
+            $this->_blackHandler  =& rssc_getHandler('black_basic', $dirname);
+            $this->_whiteHandler  =& rssc_getHandler('white_basic', $dirname);
+            $this->_wordHandler   =& rssc_getHandler('word_basic', $dirname);
         }
 
         //---------------------------------------------------------
@@ -67,15 +67,15 @@ if( !class_exists('rssc_filter_handler') )
 
     public function _init()
         {
-            $this->_conf =& $this->_config_handler->get_conf();
+            $this->_conf =& $this->_configHandler->get_conf();
             if ($this->_conf['white_use']) {
-                $this->_white_list =& $this->_init_list($this->_white_handler->get_rows_act(), 'wid', 'url');
+                $this->_white_list =& $this->_init_list($this->_whiteHandler->get_rows_act(), 'wid', 'url');
             }
             if ($this->_conf['black_use']) {
-                $this->_black_list =& $this->_init_list($this->_black_handler->get_rows_act(), 'bid', 'url');
+                $this->_black_list =& $this->_init_list($this->_blackHandler->get_rows_act(), 'bid', 'url');
             }
             if ($this->_conf['word_use']) {
-                $this->_word_list =& $this->_init_list($this->_word_handler->get_rows_act(), 'sid', 'word');
+                $this->_word_list =& $this->_init_list($this->_wordHandler->get_rows_act(), 'sid', 'word');
             }
         }
 
@@ -186,7 +186,7 @@ if( !class_exists('rssc_filter_handler') )
             foreach ($this->_white_list as $row) {
                 if (preg_match($row['pattern'], $url)) {
                     if ($this->_conf['white_count']) {
-                        $this->_white_handler->countup($row['wid']);
+                        $this->_whiteHandler->countup($row['wid']);
                     }
                     return $row['wid'];
                 }
@@ -203,7 +203,7 @@ if( !class_exists('rssc_filter_handler') )
             foreach ($this->_black_list as $row) {
                 if (preg_match($row['pattern'], $url)) {
                     if ($this->_conf['black_count']) {
-                        $this->_black_handler->countup($row['bid']);
+                        $this->_blackHandler->countup($row['bid']);
                     }
                     return $row['bid'];
                 }
@@ -223,7 +223,7 @@ if( !class_exists('rssc_filter_handler') )
                     $total += $row['point'];
                     $words .= $row['sid'] . ':' . $row['point'] . ':' . $row['word'] . ' ';
                     if ($this->_conf['word_count']) {
-                        $this->_word_handler->countup($row['sid']);
+                        $this->_wordHandler->countup($row['sid']);
                     }
                 }
             }

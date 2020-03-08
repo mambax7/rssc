@@ -16,8 +16,8 @@
 // 2007-05-26 K.OHWADA
 //=========================================================
 
-include_once RSSC_ROOT_PATH.'/class/rssc_feed_basic_handler.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_feed_handler.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_feed_basicHandler.php';
+require_once RSSC_ROOT_PATH.'/class/rssc_feedHandler.php';
 
 //=========================================================
 // class admin list feed
@@ -37,7 +37,7 @@ class admin_feed_list extends happy_linux_page_frame
     {
         parent::__construct();
 
-        $this->set_handler('feed', RSSC_DIRNAME);
+        $this->setHandler('feed', RSSC_DIRNAME);
         $this->set_id_name('fid');
         $this->set_max_sortid(4);
 
@@ -73,7 +73,7 @@ class admin_feed_list extends happy_linux_page_frame
     //---------------------------------------------------------
     public function _get_total()
     {
-        $this->_total_non_act = $this->_handler->get_count_non_act();
+        $this->_total_non_act = $this->Handler->get_count_non_act();
         switch ($this->_sortid) {
             case 2:
             case 3:
@@ -83,7 +83,7 @@ class admin_feed_list extends happy_linux_page_frame
             case 0:
             case 1:
             default:
-                $total = $this->_handler->getCount();
+                $total = $this->Handler->getCount();
                 break;
         }
         return $total;
@@ -111,20 +111,20 @@ class admin_feed_list extends happy_linux_page_frame
     {
         switch ($this->_sortid) {
             case 1:
-                $objs =& $this->_handler->get_objects_desc($limit, $start);
+                $objs =& $this->Handler->get_objects_desc($limit, $start);
                 break;
 
             case 2:
-                $objs =& $this->_handler->get_objects_non_act_asc($limit, $start);
+                $objs =& $this->Handler->get_objects_non_act_asc($limit, $start);
                 break;
 
             case 3:
-                $objs =& $this->_handler->get_objects_non_act_desc($limit, $start);
+                $objs =& $this->Handler->get_objects_non_act_desc($limit, $start);
                 break;
 
             case 0:
             default:
-                $objs =& $this->_handler->get_objects_asc($limit, $start);
+                $objs =& $this->Handler->get_objects_asc($limit, $start);
                 break;
         }
         return $objs;
@@ -177,7 +177,7 @@ class admin_feed_list extends happy_linux_page_frame
     {
         echo '<h4>' . _AM_RSSC_LIST_FEED . "</h4>\n";
         printf(_RSSC_THEREARE, $this->_get_total_all());
-        echo "<br /><br />\n";
+        echo "<br><br>\n";
 
         $this->_print_sub();
         $this->_print_index();
@@ -238,8 +238,8 @@ class admin_feed_list extends happy_linux_page_frame
         if ($condition) {
             $total = $this->_get_total();
             printf(_AM_RSSC_THERE_ARE_MATCH, $total);
-            echo "<br />\n";
-            echo _AM_RSSC_CONDITION . ': ' . $condition . "<br /><br />\n";
+            echo "<br>\n";
+            echo _AM_RSSC_CONDITION . ': ' . $condition . "<br><br>\n";
         }
     }
 

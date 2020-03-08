@@ -120,7 +120,7 @@ define('_AM_RSSC_GOTOTOP', 'Gehe zum Anfang');
 // === configuration ===
 // basic configuration
 define('_AM_RSSC_CONF_FEED_LIMIT', 'Die maximale Anzahl von RSS-Eingabe');
-define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'Geben Sie die maximale Anzahl von RSS-Feeds in Feed-Tabelle<br />die älteren Löschen,sobald sie mehr als dieser Wert<br /><b>0</b> ist es unbegrenzt');
+define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'Geben Sie die maximale Anzahl von RSS-Feeds in Feed-Tabelle<br>die älteren Löschen,sobald sie mehr als dieser Wert<br><b>0</b> ist es unbegrenzt');
 define('_AM_RSSC_CONF_RSS_ATOM', 'Makiere RSS or ATOM');
 define('_AM_RSSC_CONF_RSS_ATOM_DESC', 'Wählen Sie RSS oder ATOM, wenn beide RSS-und ATOM-URL URL entdeckt worden sind');
 define('_AM_RSSC_CONF_RSS_ATOM_SEL_ATOM', 'ATOM');
@@ -135,7 +135,7 @@ define('_AM_RSSC_CONF_RSS_MODE', 'Initial-Wert von RSS mode');
 define('_AM_RSSC_CONF_XML_SAVE', 'Speichern XML');
 define('_AM_RSSC_CONF_XML_SAVE_DESC', 'XML zu speichern in die Link Tabelle');
 define('_AM_RSSC_CONF_FUTURE_DAYS', 'unbestimmter Zeitpunkt');
-define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', 'Eine Einheit ist ein Tag<br />Feed nicht anzeigen,wenn er nicht mit den Tagen übereinstimmt');
+define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', 'Eine Einheit ist ein Tag<br>Feed nicht anzeigen,wenn er nicht mit den Tagen übereinstimmt');
 // show configuration
 define('_AM_RSSC_CONF_SHOW_ORDER', 'Zeigen');
 //define('_AM_RSSC_CONF_SHOW_ORDER_DESC', '');
@@ -148,7 +148,7 @@ define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE', 'Feeds pro Seite');
 define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK', 'Feeds pro Link');
 //define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK_DESC', '');
 define('_AM_RSSC_CONF_SHOW_MAX_TITLE', 'Die maximale Anzahl der Zeichen des Titels');
-define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC', 'HTML-Tags sind zugelassen, wenn mehr als diese Anzahl<br /><b>-1</b> ist unlimitiert');
+define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC', 'HTML-Tags sind zugelassen, wenn mehr als diese Anzahl<br><b>-1</b> ist unlimitiert');
 define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY', 'Die maximale Anzahl der Zeichen der Zusammenfassung');
 define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC', '<b>-1</b> ist unbegrenzt');
 // main configuration
@@ -174,11 +174,11 @@ define('_AM_RSSC_VIEW_MODE_LINK', 'mode 1: XML Daten speichern in Link Tabelle')
 define('_AM_RSSC_VIEW_MODE_FEED', 'mode 2: Daten speichern in Eingabe Tabelle');
 define('_AM_RSSC_VIEW_SANITIZE', 'HTML Saniert');
 define('_AM_RSSC_VIEW_TITLE_HTML', 'Zeigen HTML tags des Titel');
-define('_AM_RSSC_VIEW_TITLE_HTML_DESC', 'Wenn ja ausgewählt, zeigen inclusive HTML tags. <br />Wenn nein ausgewählt, ohne HTML tags zeigen. ');
+define('_AM_RSSC_VIEW_TITLE_HTML_DESC', 'Wenn ja ausgewählt, zeigen inclusive HTML tags. <br>Wenn nein ausgewählt, ohne HTML tags zeigen. ');
 define('_AM_RSSC_VIEW_CONTENT_HTML', 'Zeigen HTML Tags Inhalt');
-define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', 'Wenn ja ausgewählt, zeigen inclusive HTML tags. <br />Wenn nein ausgewählt, ohne HTML tags zeigen. ');
+define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', 'Wenn ja ausgewählt, zeigen inclusive HTML tags. <br>Wenn nein ausgewählt, ohne HTML tags zeigen. ');
 define('_AM_RSSC_VIEW_MAX_CONTENT', 'Die maximale Anzahl der Zeichen von Content');
-define('_AM_RSSC_VIEW_MAX_CONTENT_DESC', 'HTML Tags begrenzt, wenn mehr Zeichen sind<br /><b>-1</b> ist es unlimited');
+define('_AM_RSSC_VIEW_MAX_CONTENT_DESC', 'HTML Tags begrenzt, wenn mehr Zeichen sind<br><b>-1</b> ist es unlimited');
 define('_AM_RSSC_VIEW_LINK_UPDATE', 'Update Link Tabelle');
 define('_AM_RSSC_VIEW_FEED_UPDATE', 'Update EingabeTabelle');
 define('_AM_RSSC_VIEW_FORCE_DISCOVER', 'Force zu entdecken RSS-URL');
@@ -220,15 +220,15 @@ define('_AM_RSSC_ID_DESC', 'ID Übertragung');
 define('_AM_RSSC_PARSE_RSS', 'Parse RDF/RSS/ATOM');
 // refresh link
 //define('_AM_RSSC_REFRESH_LINK', 'Refresh RDF/RSS/ATOM feeds');
-//define('_AM_RSSC_REFRESH_LINK_DSC', 'Then, refresh RSS feeds <br />Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br />if they are not set up.');
+//define('_AM_RSSC_REFRESH_LINK_DSC', 'Then, refresh RSS feeds <br>Discover <b>RDF/RSS/ATOM URL</b> automatically and detect <b>Encoding</b> automatically, <br>if they are not set up.');
 //define('_AM_RSSC_REFRESH_LINK_FINISHED', 'Refresh feeds finished');
 // === 2006-07-08 ===
 // description at main
 define('_AM_RSSC_CONF_INDEX_DESC', 'Beschreibung auf Startseite');
 define('_AM_RSSC_CONF_INDEX_DESC_DSC', 'Beschreibung wenn Sie möchten, um auf die Hauptseite zu gelangen.');
-define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Hier sind Beschreibung zu     beachten.<br />Sie können Beschreibung bearbeiten unter "Module Konfiguration".<br /></div><br />');
+define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">Hier sind Beschreibung zu     beachten.<br>Sie können Beschreibung bearbeiten unter "Module Konfiguration".<br></div><br>');
 // link table
-define('_AM_RSSC_LINK_DESC', 'Finden <b>RDF/RSS/ATOM URL</b> automatisch erkennen <b>Encoding</b> wenn nicht ausgefüllt <br />bzw. bei Fehler, <br />Support aufsuchen "RSS Auto Discovery"');
+define('_AM_RSSC_LINK_DESC', 'Finden <b>RDF/RSS/ATOM URL</b> automatisch erkennen <b>Encoding</b> wenn nicht ausgefüllt <br>bzw. bei Fehler, <br>Support aufsuchen "RSS Auto Discovery"');
 //define('_AM_RSSC_LINK_EXIST', 'Already exists this "RDF/RSS/ATOM URL"');
 //define('_AM_RSSC_LINK_EXIST_MORE', 'There are twe or more links which have same "RDF/RSS/ATOM URL" ');
 //define('_AM_RSSC_AUTO_FIND_FAILD', 'RSS Auto Discovery Faild');
@@ -238,11 +238,11 @@ define('_AM_RSSC_BLACK_MEMO', 'Memo');
 // === 2006-09-20 ===
 // show content with html
 define('_AM_RSSC_CONF_SHOW_TITLE_HTML', 'HTML Tag nutzen beim Titel');
-define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', 'Wenn "Ja",Titel zeigen mit HTML-Tags, falls der Titel haben HTML-Tag. <br /> Wenn "NEIN", zeigen Titel Striping HTML-Tag. ');
+define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', 'Wenn "Ja",Titel zeigen mit HTML-Tags, falls der Titel haben HTML-Tag. <br> Wenn "NEIN", zeigen Titel Striping HTML-Tag. ');
 define('_AM_RSSC_CONF_SHOW_CONTENT_HTML', 'HTML Tag nutzen für Content');
-define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', 'Wenn "Ja",Inhalt zeigen mit HTML Tag, wenn Inhalt HTML Tag hat. <br />Wenn "NEIN", zeigen Inhalt Striping HTML-Tag. ');
+define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', 'Wenn "Ja",Inhalt zeigen mit HTML Tag, wenn Inhalt HTML Tag hat. <br>Wenn "NEIN", zeigen Inhalt Striping HTML-Tag. ');
 define('_AM_RSSC_CONF_SHOW_MAX_CONTENT', 'Die maximale Anzahl der Zeichen vom Inhalt');
-define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'HTML-Tags sind stripped, wenn mehr als diese Anzahl<br /><b>-1</b> ist unlimited');
+define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'HTML-Tags sind stripped, wenn mehr als diese Anzahl<br><b>-1</b> ist unlimited');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT', 'Maximale Anzahl RSS/ATOM Feeds Anzeige im Content');
 define('_AM_RSSC_CONF_SHOW_NUM_CONTENT_DSC', 'Maximale Anzahl  RSS/ATOM Eingabe Anzeige Inhalt');
 define('_AM_RSSC_CONF_SHOW_BLOG_LID', 'Link ID anzeigen im Block');
@@ -255,9 +255,9 @@ define('_AM_RSSC_CONF_PROXY_USE', 'Proxy Server nutzen');
 define('_AM_RSSC_CONF_PROXY_HOST', 'Proxy Host');
 define('_AM_RSSC_CONF_PROXY_PORT', 'Proxy Port');
 define('_AM_RSSC_CONF_PROXY_USER', 'Proxy Username');
-define('_AM_RSSC_CONF_PROXY_USER_DESC', 'Geben Sie Benutzernamen, wenn der Proxy-Server-Authentifizierung benötigt BASIC, <br />wenn nicht frei lassen');
+define('_AM_RSSC_CONF_PROXY_USER_DESC', 'Geben Sie Benutzernamen, wenn der Proxy-Server-Authentifizierung benötigt BASIC, <br>wenn nicht frei lassen');
 define('_AM_RSSC_CONF_PROXY_PASS', 'Proxy Password');
-define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'Geben Sie das Passwort ein, wenn der Proxy-Server-Authentifizierung benötigt BASIC, <br />wenn nicht bleibt leer');
+define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'Geben Sie das Passwort ein, wenn der Proxy-Server-Authentifizierung benötigt BASIC, <br>wenn nicht bleibt leer');
 define('_AM_RSSC_CONF_HIGHLIGHT', 'Verwenden Sie Keyword-Highlight');
 // === 2007-06-01 ===
 // word_list
@@ -285,8 +285,8 @@ define('_AM_RSSC_CONF_LINK_USE_DESC', 'Speicher, wenn "Type" der Link Tabelle is
 define('_AM_RSSC_CONF_WHITE_USE', 'Benutze White Liste');
 define('_AM_RSSC_CONF_WHITE_USE_DESC', 'Gespeichert, wenn in der weißen Liste');
 define('_AM_RSSC_CONF_BLACK_USE', 'Benutze Black Liste');
-define('_AM_RSSC_CONF_BLACK_USE_DESC', 'Nicht speichern, wenn in der schwarzen Liste <br /> Wenn Sie "Use", Interrupt-Filter-Prozess, wenn Richter schwarz <br /> Wenn Sie "lernen", weiterhin Filter-Prozess, für den Zweck Extraktion Worten, wenn Richtung schwarz');
-define('_AM_RSSC_CONF_BLACK_USE_DESC', 'Nicht speichern, wenn in der schwarzen Liste <br /> Wenn Sie "Use", Interrupt-Filter-Prozess, wenn Richter schwarz <br /> Wenn Sie "lernen", weiterhin Filter-Prozess, für den Zweck Extraktion Worten, wenn Richtung schwarz');
+define('_AM_RSSC_CONF_BLACK_USE_DESC', 'Nicht speichern, wenn in der schwarzen Liste <br> Wenn Sie "Use", Interrupt-Filter-Prozess, wenn Richter schwarz <br> Wenn Sie "lernen", weiterhin Filter-Prozess, für den Zweck Extraktion Worten, wenn Richtung schwarz');
+define('_AM_RSSC_CONF_BLACK_USE_DESC', 'Nicht speichern, wenn in der schwarzen Liste <br> Wenn Sie "Use", Interrupt-Filter-Prozess, wenn Richter schwarz <br> Wenn Sie "lernen", weiterhin Filter-Prozess, für den Zweck Extraktion Worten, wenn Richtung schwarz');
 define('_AM_RSSC_CONF_BLACK_USE_NO', 'nicht benutzt');
 define('_AM_RSSC_CONF_BLACK_USE_YES', 'nutzen');
 define('_AM_RSSC_CONF_BLACK_USE_LEARN', 'lernen');
@@ -306,9 +306,9 @@ define('_AM_RSSC_CONF_BLACK_COUNT_DESC', 'Berechne die mit passender Datensatz a
 define('_AM_RSSC_CONF_WORD_COUNT', 'Berechne Liste abgelehnte Worte');
 define('_AM_RSSC_CONF_WORD_COUNT_DESC', 'Zählen Sie die passenden Einträge mit ablehnen, wenn in der Wort-Liste');
 define('_AM_RSSC_CONF_BLACK_AUTO', 'In die Black Liste einfügen');
-define('_AM_RSSC_CONF_BLACK_AUTO_DESC', 'URL hinzufügen in schwarzen Liste automatisch<b> <br /> </b> "Status" ist als "ungültig" <br /> Bitte ändern Sie in "gültig", wenn Sie');
+define('_AM_RSSC_CONF_BLACK_AUTO_DESC', 'URL hinzufügen in schwarzen Liste automatisch<b> <br> </b> "Status" ist als "ungültig" <br> Bitte ändern Sie in "gültig", wenn Sie');
 define('_AM_RSSC_CONF_WORD_AUTO', 'In die Bad Word Liste einfügen');
-define('_AM_RSSC_CONF_WORD_AUTO_DESC', 'Auswahl Wörter in der Content automatisch, und fügen Sie Wörter in Wort ablehnen Liste automatisch<b> <br /> </b> "point" ist als Null <br /> Bitte ändern "point", wenn Sie');
+define('_AM_RSSC_CONF_WORD_AUTO_DESC', 'Auswahl Wörter in der Content automatisch, und fügen Sie Wörter in Wort ablehnen Liste automatisch<b> <br> </b> "point" ist als Null <br> Bitte ändern "point", wenn Sie');
 define('_AM_RSSC_CONF_WORD_AUTO_NON', 'Nicht eingefügt');
 define('_AM_RSSC_CONF_WORD_AUTO_SYMBOL', 'Auswahl durch das Symbol Pause');
 define('_AM_RSSC_CONF_WORD_AUTO_KAKASI', 'Auswahl by KAKASI: nur Japanisch');
@@ -317,7 +317,7 @@ define('_AM_RSSC_FORM_WORD', 'Wort Auswahl Einstellung');
 define('_AM_RSSC_CONF_JOIN_PREV', 'Wort verbinden');
 define('_AM_RSSC_CONF_JOIN_PREV_DESC', 'Gehe vor und zurück, und bilden Sie eine Phrase');
 define('_AM_RSSC_CONF_JOIN_GLUE', 'Wort Speicher');
-define('_AM_RSSC_CONF_JOIN_GLUE_DESC', 'Auf Englisch eingestellt Raum <br /> auf Japanisch eingestellt fest,');
+define('_AM_RSSC_CONF_JOIN_GLUE_DESC', 'Auf Englisch eingestellt Raum <br> auf Japanisch eingestellt fest,');
 define('_AM_RSSC_CONF_KAKASI_PATH', 'Command Path of KAKASI');
 define('_AM_RSSC_CONF_KAKASI_MODE', 'Mode of KAKASI');
 define('_AM_RSSC_CONF_KAKASI_MODE_FILE', 'Nutze temp File');
@@ -325,16 +325,16 @@ define('_AM_RSSC_CONF_KAKASI_MODE_PIPE', 'Benutze UNIX Pipe');
 define('_AM_RSSC_CONF_CHAR_LENGTH', 'Die minimale Anzahl der Zeichen');
 define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'Die minimale Anzahl der Zeichen der exakten  Worte');
 define('_AM_RSSC_CONF_WORD_LIMIT', 'Maximale Anzahl der verbotenen Worte');
-define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Geben Sie die maximale Anzahl der gespeicherten Wort in Wort Tisch <br /> Löscht den älteren Aufzeichnungen, sobald sie mehr als dieser Wert <b> 0 <br /> </b> ist umlimited');
+define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Geben Sie die maximale Anzahl der gespeicherten Wort in Wort Tisch <br> Löscht den älteren Aufzeichnungen, sobald sie mehr als dieser Wert <b> 0 <br> </b> ist umlimited');
 define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi ist ausführbar');
 define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi ist nicht ausführbar');
 define('_AM_RSSC_CONF_HTML_GET', 'HTML');
-define('_AM_RSSC_CONF_HTML_GET_DESC', 'Sie Herkunft HTML-Daten automatisch, wenn Richter ablehnen Wort Liste <br /> Wenn Sie "Use", die Präzision des Urteils wird verbessert, aber die Ausführung lange Zeit geworden');
+define('_AM_RSSC_CONF_HTML_GET_DESC', 'Sie Herkunft HTML-Daten automatisch, wenn Richter ablehnen Wort Liste <br> Wenn Sie "Use", die Präzision des Urteils wird verbessert, aber die Ausführung lange Zeit geworden');
 define('_AM_RSSC_CONF_HTML_GET_NO', 'Nicht benutzt');
 define('_AM_RSSC_CONF_HTML_GET_YES', 'Benutzen');
 define('_AM_RSSC_CONF_HTML_GET_BLACK', 'Benutze wenn bewertete Black');
 define('_AM_RSSC_CONF_HTML_LIMIT', 'Die Maximum Anzahl von HTML-Zeichen');
-define('_AM_RSSC_CONF_HTML_LIMIT_DESC', 'Die maxmum Reihe von HTML-Zeichen, die sich automatisch <br /> An einigen Standorten ist die große HTML-Daten, und dann ist die Ausführung lange Zeit geworden');
+define('_AM_RSSC_CONF_HTML_LIMIT_DESC', 'Die maxmum Reihe von HTML-Zeichen, die sich automatisch <br> An einigen Standorten ist die große HTML-Daten, und dann ist die Ausführung lange Zeit geworden');
 // archive manage
 define('_AM_RSSC_LEAN_BLACK', 'Black List erlermen');
 define('_AM_RSSC_LEAN_BLACK_DESC', 'Patrol in die schwarze Liste, für die Zwecke Extrahieren Wörter in der Content automatisch, und das Hinzufügen von Wörtern in der Liste automatisch ablehnen Wort');
@@ -352,7 +352,7 @@ define('_AM_RSSC_CONF_SHOW_MODE_DATE_LONG', 'Lang');
 define('_AM_RSSC_CONF_SHOW_SITE', 'Seiten Information');
 define('_AM_RSSC_CONF_SHOW_SITE_DSC', 'Wenn Ja,zeige Seiten Titel und url');
 // link table
-define('_AM_RSSC_LINK_CENSOR_DESC', 'Trennen Sie die einzelnen mit einem <b> | </b> <br /> Groß-und Kleinschreibung');
+define('_AM_RSSC_LINK_CENSOR_DESC', 'Trennen Sie die einzelnen mit einem <b> | </b> <br> Groß-und Kleinschreibung');
 }
 // --- define language begin ---
 

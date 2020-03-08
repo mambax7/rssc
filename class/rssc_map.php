@@ -81,7 +81,7 @@ if( !class_exists('rssc_map') )
                 return false;
             }
 
-            include_once $file;
+            require_once $file;
             if (!defined('_C_WEBMAP3_VERSION')) {
                 return false;
             }
@@ -105,7 +105,7 @@ if( !class_exists('rssc_map') )
                 return false;
             }
 
-            include_once $file;
+            require_once $file;
             if (!class_exists('webmap3_api_html')) {
                 return false;
             }
@@ -136,7 +136,7 @@ if( !class_exists('rssc_map') )
                 return false;
             }
 
-            include_once $file;
+            require_once $file;
 
             if (!class_exists('webmap3_api_form')) {
                 return false;
@@ -170,7 +170,7 @@ if( !class_exists('rssc_map') )
                 return false;
             }
 
-            include_once $file;
+            require_once $file;
 
             if (!class_exists('webmap3_api_map')) {
                 return false;
@@ -229,7 +229,7 @@ if( !class_exists('rssc_map') )
         //---------------------------------------------------------
     public function get_conf($dirname)
         {
-            $db           = Database::getInstance();
+            $db           = XoopsDatabaseFactory::getDatabaseConnection();
             $table_config = $db->prefix($dirname . '_config');
 
             $sql = 'SELECT * FROM ' . $table_config . ' ORDER BY conf_id ASC';
@@ -240,7 +240,7 @@ if( !class_exists('rssc_map') )
             }
 
             $conf = [];
-            while ($row = $db->fetchArray($res)) {
+            while (false !== ($row = $db->fetchArray($res))) {
                 $conf[$row['conf_name']] = $row['conf_value'];
             }
             return $conf;

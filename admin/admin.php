@@ -7,6 +7,6 @@
 // 2007-06-01 K.OHWADA
 //=========================================================
 
-include '../../../include/cp_header.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/admin/admin.php';
+require dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/admin/admin.php';
 

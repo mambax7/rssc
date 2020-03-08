@@ -15,7 +15,7 @@
 // exsample for custom block
 // type: php script
 //---------------------------------------------------------
-// include_once XOOPS_ROOT_PATH."/modules/rssc/include/view_blog.inc.php";
+// require_once XOOPS_ROOT_PATH."/modules/rssc/include/view_blog.inc.php";
 // echo rssc_view_blog( link_id [ , options ] );
 //---------------------------------------------------------
 
@@ -38,48 +38,48 @@ if( !function_exists( 'rssc_view_blog_base' ) )
 {
 
 // system files
-include_once XOOPS_ROOT_PATH.'/class/snoopy.php';
+require_once XOOPS_ROOT_PATH.'/class/snoopy.php';
 
 // happy_linux files
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/functions.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/multibyte.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/system.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/error.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/strings.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/highlight.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/post.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/remote_file.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/convert_encoding.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/basic_handler.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/object.php';
-include_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/object_handler.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/functions.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/multibyte.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/system.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/error.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/strings.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/highlight.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/post.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/remote_file.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/convert_encoding.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/basicHandler.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/object.php';
+require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/objectHandler.php';
 
 // rssc files
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_constant.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_get_handler.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_config_basic_handler.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_link_basic_handler.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_feed_basic_handler.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_black_basic_handler.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_white_basic_handler.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_xml_utility.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_xml_object.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_parse_handler.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_refresh_handler.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_view_param.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_view_handler.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/magpie/rssc_magpie_parse.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/magpie/rssc_magpie_cache.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_constant.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_get_handler.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_config_basicHandler.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_link_basicHandler.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_feed_basicHandler.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_black_basicHandler.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_white_basicHandler.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_xml_utility.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_xml_object.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_parseHandler.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_refreshHandler.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_view_param.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/rssc_viewHandler.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/magpie/rssc_magpie_parse.php';
+require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/class/magpie/rssc_magpie_cache.php';
 
 global $xoopsConfig;
 $XOOPS_LANGUAGE = $xoopsConfig['language'];
 if ( file_exists(XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/'.$XOOPS_LANGUAGE.'/blocks.php') ) 
 {
-	include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/'.$XOOPS_LANGUAGE.'/blocks.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/'.$XOOPS_LANGUAGE.'/blocks.php';
 }
 else
 {
-	include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/english/blocks.php';
+	require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/english/blocks.php';
 }
 
 //---------------------------------------------------------
@@ -145,22 +145,22 @@ function rssc_view_blog_base($DIRNAME, $lid=0, $options=null)
 
 	$url_sound_gif = XOOPS_URL.'/modules/'.$DIRNAME.'/images/sound2.gif';
 
-	$refresh_handler =& rssc_get_handler('refresh', $DIRNAME);
-	$view_handler    =& rssc_get_handler('view',    $DIRNAME);
+	$refreshHandler =& rssc_getHandler('refresh', $DIRNAME);
+	$viewHandler    =& rssc_getHandler('view',    $DIRNAME);
 
-	$refresh_handler->refresh($lid);
+	$refreshHandler->refresh($lid);
 
-	$view_handler->setFlagSanitize( true );	// sanitize
-	$view_handler->setFeedStart(     0 );
-	$view_handler->set_title_html(   $flag_title_html );
-	$view_handler->set_content_html( $flag_content_html );
-	$view_handler->set_max_title(    $max_title );
-	$view_handler->set_max_content(  $max_content );
-	$view_handler->set_max_summary(  $max_summary );
-	$view_handler->setFeedLimit(     $num_feed );
-	$view_handler->setFeedOrder(     $order );
+	$viewHandler->setFlagSanitize( true );	// sanitize
+	$viewHandler->setFeedStart(     0 );
+	$viewHandler->set_title_html(   $flag_title_html );
+	$viewHandler->set_content_html( $flag_content_html );
+	$viewHandler->set_max_title(    $max_title );
+	$viewHandler->set_max_content(  $max_content );
+	$viewHandler->set_max_summary(  $max_summary );
+	$viewHandler->setFeedLimit(     $num_feed );
+	$viewHandler->setFeedOrder(     $order );
 
-	$feeds =& $view_handler->getFeeds( $lid );
+	$feeds =& $viewHandler->getFeeds( $lid );
 
 	$count = count($feeds);
 
@@ -211,9 +211,9 @@ function rssc_view_blog_base($DIRNAME, $lid=0, $options=null)
 
 		if ( isset($feed['enclosure_url']) && $feed['enclosure_url'] )
 		{
-			$text .= "<br />\n";
+			$text .= "<br>\n";
 			$text .= '<a href="'.$feed['enclosure_url'].'" target="_blank">';
-			$text .= '<img src="'.$url_sound_gif.'" border="0" alt="sound" />';
+			$text .= '<img src="'.$url_sound_gif.'" border="0" alt="sound">';
 			$text .= _BL_RSSC_PODCAST;
 			$text .= '</a> : ';
 
@@ -232,24 +232,24 @@ function rssc_view_blog_base($DIRNAME, $lid=0, $options=null)
 		{
 			if ( isset($feed['content']) && $feed['content'] )
 			{
-				$text .= "<br />\n";
+				$text .= "<br>\n";
 				$text .= $feed['content'];
-   				$text .= "<br /><br />\n";
+   				$text .= "<br><br>\n";
 			}
 			elseif ( isset($feed['summary']) && $feed['summary'] )
 			{
-				$text .= "<br />\n";
+				$text .= "<br>\n";
 				$text .= $feed['summary'];
-   				$text .= "<br /><br />\n";
+   				$text .= "<br><br>\n";
 			}
 		}
 		else
 		{
 			if ( isset($feed['summary']) && $feed['summary'] )
 			{
-				$text .= "<br />\n";
+				$text .= "<br>\n";
 				$text .= $feed['summary'];
-   				$text .= "<br /><br />\n";
+   				$text .= "<br><br>\n";
 			}
 		}
 

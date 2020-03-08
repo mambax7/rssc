@@ -6,7 +6,7 @@
 // 2008-01-20 K.OHWADA
 //=========================================================
 
-include 'admin_header.php';
+require __DIR__ . '/admin_header.php';
 
 //=========================================================
 // class admin list plugin
@@ -76,11 +76,11 @@ class admin_plugin_list
         echo '<h4>' . _AM_RSSC_PLUGIN_TEST . "</h4>\n";
 
         $this->_form->show();
-        echo "<br /><hr />\n";
+        echo "<br><hr>\n";
 
         $this->_test->execute();
 
-        echo "<hr /><br />\n";
+        echo "<hr><br>\n";
         echo '<a href="plugin_list.php"> - ' . _RSSC_PLUGIN_LIST . "</a>\n";
     }
 
@@ -127,7 +127,7 @@ class admin_plugin_test
 
         if (empty($plugins)) {
             xoops_error('no plugins');
-            echo "<br />\n";
+            echo "<br>\n";
             return false;
         }
 
@@ -140,14 +140,14 @@ class admin_plugin_test
             $ret1 = eval($str);
             if (false === $ret1) {
                 xoops_error('cannot eval data');
-                echo "<br />\n";
+                echo "<br>\n";
                 return false;
             }
         } else {
             $ret2 = $this->_plugin->get_exsample_data();
             if (empty($ret2)) {
                 xoops_error('cannot get data');
-                echo "<br />\n";
+                echo "<br>\n";
                 return false;
             }
             $data = $ret2;

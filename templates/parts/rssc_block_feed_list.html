@@ -10,9 +10,9 @@
   <{if $show_icon }>
     <a href="<{$xoops_url}>/modules/<{$dirname}>/single_link.php?lid=<{$feed.lid}>">
     <{if ($feed.icon == '') || ($feed.icon == '---') }>
-      <img src="<{$xoops_url}>/modules/<{$dirname}>/images/icons/default.gif" border="0" alt="icon" />
+      <img src="<{$xoops_url}>/modules/<{$dirname}>/images/icons/default.gif" border="0" alt="icon">
     <{else}>
-      <img src="<{$xoops_url}>/modules/<{$dirname}>/images/icons/<{$feed.icon}>" border="0" alt="icon" />
+      <img src="<{$xoops_url}>/modules/<{$dirname}>/images/icons/<{$feed.icon}>" border="0" alt="icon">
     <{/if}>
     </a>
   <{/if}>
@@ -40,9 +40,9 @@
 
   <{* $feed.updated_unix|formatTimestamp:"Y-m-d" *}>
   <{if (($feed.enclosure_mode == 1)&&($feed.enclosure_url_s != '')) }>
-    <br />
+    <br>
     <a href="<{$feed.enclosure_url_s}>" target="_blank">
-    <img src="<{$xoops_url}>/modules/<{$dirname}>/images/sound2.gif" border="0" alt="sound" /> 
+    <img src="<{$xoops_url}>/modules/<{$dirname}>/images/sound2.gif" border="0" alt="sound"> 
     <{$lang_podcast}></a> : 
     <{if ($feed.enclosure_type_s != '') }>
       <{$feed.enclosure_type_s}> 
@@ -60,9 +60,9 @@
       <td valign="top">
       <a href="<{$feed.link_s}>" target="_blank">
       <{if ($feed.thumb_width > 0) && ($feed.thumb_height > 0 ) }>
-        <img src="<{$feed.thumb_url_s}>" width="<{$feed.thumb_width}>" height="<{$feed.thumb_height}>" border="0" alt="<{$feed.title_s}>" />
+        <img src="<{$feed.thumb_url_s}>" width="<{$feed.thumb_width}>" height="<{$feed.thumb_height}>" border="0" alt="<{$feed.title_s}>">
       <{else}>
-        <img src="<{$feed.thumb_url_s}>" width="<{$max_width}>" border="0" alt="<{$feed.title_s}>" />
+        <img src="<{$feed.thumb_url_s}>" width="<{$max_width}>" border="0" alt="<{$feed.title_s}>">
       <{/if}>
       </a>
       </td>
@@ -83,7 +83,7 @@
   <{if $show_li }>
     </li>
   <{else}>
-    <br />
+    <br>
   <{/if}>
 <{/foreach}>
 <{if $show_li }>
