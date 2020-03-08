@@ -17,22 +17,20 @@
 
 //---------------------------------------------------------
 //	convert link
-//	http://xxx/*http://yyy/
-//	http://xxx/*http%3A//yyy/
-//	http://xxx/*-http://yyy/
-//	http://xxx/*-http%3A//yyy/
+//	https://xxx/*https://yyy/
+//	https://xxx/*http%3A//yyy/
+//	https://xxx/*-https://yyy/
+//	https://xxx/*-http%3A//yyy/
 //---------------------------------------------------------
 
 // === class begin ===
-if( !class_exists('rssc_plugin_yahoo') ) 
-{
+if (!class_exists('rssc_plugin_yahoo')) {
     class rssc_plugin_yahoo extends rssc_plugin_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct()
+        public function __construct()
         {
             rssc_plugin_base::__construct();
         }
@@ -40,28 +38,30 @@ if( !class_exists('rssc_plugin_yahoo') )
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
-    public function description()
+        public function description()
         {
             return 'convert the link to ordinary style from yahoo style';
         }
 
-    public function convert()
+        public function convert()
         {
             $link = $this->get_item_by_key('link');
             if ($link) {
                 $this->set_item_by_key('link', $this->_convert_link($link));
+
                 return true;
             }
+
             return false;
         }
 
         public function _convert_link($link)
         {
-            $pattern1 = '|http://.*\*\-?(http\%3A//.*)|i';
-            $pattern2 = '|http://.*\*\-?(http://.*)|i';
+            $pattern1 = '|https://.*\*\-?(http\%3A//.*)|i';
+            $pattern2 = '|https://.*\*\-?(https://.*)|i';
 
             if (preg_match($pattern1, $link, $matches1)) {
-                return str_replace('http%3A//', 'http://', $matches1[1]);
+                return str_replace('http%3A//', 'https://', $matches1[1]);
             } elseif (preg_match($pattern2, $link, $matches2)) {
                 return $matches2[1];
             }
@@ -71,8 +71,5 @@ if( !class_exists('rssc_plugin_yahoo') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

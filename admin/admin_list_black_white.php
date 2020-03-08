@@ -61,20 +61,17 @@ class admin_list_black_white extends happy_linux_page_frame
     {
         switch ($this->_sortid) {
             case 1:
-                $objs =& $this->Handler->get_objects_desc($limit, $start);
+                $objs = $this->handler->get_objects_desc($limit, $start);
                 break;
-
             case 2:
-                $objs =& $this->Handler->get_objects_count_desc($limit, $start);
+                $objs = $this->handler->get_objects_count_desc($limit, $start);
                 break;
-
             case 3:
-                $objs =& $this->Handler->get_objects_count_asc($limit, $start);
+                $objs = $this->handler->get_objects_count_asc($limit, $start);
                 break;
-
             case 0:
             default:
-                $objs =& $this->Handler->get_objects_asc($limit, $start);
+                $objs = $this->handler->get_objects_asc($limit, $start);
                 break;
         }
 
@@ -87,15 +84,12 @@ class admin_list_black_white extends happy_linux_page_frame
             case 1:
                 $title = _HAPPY_LINUX_ID_DESC;
                 break;
-
             case 2:
                 $title = _AM_RSSC_COUNT_DESC;
                 break;
-
             case 3:
                 $title = _AM_RSSC_COUNT_ASC;
                 break;
-
             case 0:
             default:
                 $title = _HAPPY_LINUX_ID_ASC;
@@ -125,6 +119,7 @@ class admin_list_black_white extends happy_linux_page_frame
         } else {
             $name = 'FEED';
         }
+
         return $name;
     }
 
@@ -138,6 +133,7 @@ class admin_list_black_white extends happy_linux_page_frame
         } else {
             $count = $obj->get('cache');
         }
+
         return $count;
     }
 
@@ -145,10 +141,9 @@ class admin_list_black_white extends happy_linux_page_frame
     {
         $obj->setVar('cache', $cache);
         $obj->setVar('ctime', time());
-        return $this->Handler->update($obj, true);
+
+        return $this->handler->update($obj, true);
     }
 
     // --- class end ---
 }
-
-

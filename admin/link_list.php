@@ -28,7 +28,6 @@ require __DIR__ . '/admin_header.php';
 //=========================================================
 class admin_link_list extends happy_linux_page_frame
 {
-
     // handler
     public $_feedHandler;
 
@@ -38,7 +37,7 @@ class admin_link_list extends happy_linux_page_frame
     public function __construct()
     {
         parent::__construct();
-        $this->setHandler('link', RSSC_DIRNAME);
+        $this->set_handler('link', RSSC_DIRNAME);
         $this->set_id_name('lid');
         $this->set_lang_title(_AM_RSSC_LIST_LINK);
         $this->set_flag_execute_time(true);
@@ -135,7 +134,6 @@ class admin_link_list extends happy_linux_page_frame
     // --- class end ---
 }
 
-
 //=========================================================
 // main
 //=========================================================
@@ -150,5 +148,3 @@ $list->_show();
 xoops_cp_footer();
 exit();
 // --- end of main ---
-
-

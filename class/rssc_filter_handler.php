@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_filterHandler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
+// $Id: rssc_filter_handler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
 
 // 2009-03-01 K.OHWADA
 // replace_control_code()
@@ -14,20 +14,18 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_filterHandler') ) 
-{
+if (!class_exists('rssc_filter_handler')) {
+    // minus value for reject
+    define('RSSC_CODE_FILTER_NORMAL', 0);
+    define('RSSC_CODE_FILTER_REJECT_BLACK', -1);
+    define('RSSC_CODE_FILTER_REJECT_WORD', -2);
+    define('RSSC_CODE_FILTER_WHITE', 11);
+    define('RSSC_CODE_FILTER_PASS', 12);
 
-// minus value for reject
-	define('RSSC_CODE_FILTER_NORMAL',        0);
-	define('RSSC_CODE_FILTER_REJECT_BLACK', -1);
-	define('RSSC_CODE_FILTER_REJECT_WORD',  -2);
-	define('RSSC_CODE_FILTER_WHITE',        11);
-	define('RSSC_CODE_FILTER_PASS',         12);
-
-//=========================================================
-// class word
-//=========================================================
-    class rssc_filterHandler
+    //=========================================================
+    // class word
+    //=========================================================
+    class rssc_filter_handler
     {
         public $_blackHandler;
         public $_whiteHandler;
@@ -46,18 +44,18 @@ if( !class_exists('rssc_filterHandler') )
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
-            $this->_configHandler =& rssc_getHandler('config_basic', $dirname);
-            $this->_blackHandler  =& rssc_getHandler('black_basic', $dirname);
-            $this->_whiteHandler  =& rssc_getHandler('white_basic', $dirname);
-            $this->_wordHandler   =& rssc_getHandler('word_basic', $dirname);
+            $this->_configHandler = rssc_getHandler('config_basic', $dirname);
+            $this->_blackHandler  = rssc_getHandler('black_basic', $dirname);
+            $this->_whiteHandler  = rssc_getHandler('white_basic', $dirname);
+            $this->_wordHandler   = rssc_getHandler('word_basic', $dirname);
         }
 
         //---------------------------------------------------------
         // init
         //---------------------------------------------------------
-    public function init_once()
+        public function init_once()
         {
             if (!$this->_flag_init) {
                 $this->_init();
@@ -65,21 +63,21 @@ if( !class_exists('rssc_filterHandler') )
             }
         }
 
-    public function _init()
+        public function _init()
         {
-            $this->_conf =& $this->_configHandler->get_conf();
+            $this->_conf = &$this->_configHandler->get_conf();
             if ($this->_conf['white_use']) {
-                $this->_white_list =& $this->_init_list($this->_whiteHandler->get_rows_act(), 'wid', 'url');
+                $this->_white_list = &$this->_init_list($this->_whiteHandler->get_rows_act(), 'wid', 'url');
             }
             if ($this->_conf['black_use']) {
-                $this->_black_list =& $this->_init_list($this->_blackHandler->get_rows_act(), 'bid', 'url');
+                $this->_black_list = &$this->_init_list($this->_blackHandler->get_rows_act(), 'bid', 'url');
             }
             if ($this->_conf['word_use']) {
-                $this->_word_list =& $this->_init_list($this->_wordHandler->get_rows_act(), 'sid', 'word');
+                $this->_word_list = &$this->_init_list($this->_wordHandler->get_rows_act(), 'sid', 'word');
             }
         }
 
-    public function &_init_list($list, $id_name, $target_name)
+        public function &_init_list($list, $id_name, $target_name)
         {
             $arr = [];
             foreach ($list as $row) {
@@ -88,17 +86,18 @@ if( !class_exists('rssc_filterHandler') )
                 } else {
                     $pat = '/' . preg_quote($row[$target_name], '/') . '/i';
                 }
-                $temp                =& $row;
+                $temp                = &$row;
                 $temp['pattern']     = $pat;
                 $arr[$row[$id_name]] = $temp;
             }
+
             return $arr;
         }
 
         //---------------------------------------------------------
         // public
         //---------------------------------------------------------
-    public function judge_title($censor, $title)
+        public function judge_title($censor, $title)
         {
             $censor = $this->replace_control_code($censor);
 
@@ -116,6 +115,7 @@ if( !class_exists('rssc_filterHandler') )
                 $pattern = '/' . preg_quote($word) . '/';
                 if (preg_match($pattern, $title)) {
                     $this->_log = 'reject title:' . $word;
+
                     return false;
                 }
             }
@@ -123,7 +123,7 @@ if( !class_exists('rssc_filterHandler') )
             return true;
         }
 
-    public function judge_cont($url, $content)
+        public function judge_cont($url, $content)
         {
             $this->_match_words = '';
             $this->_log         = '';
@@ -134,6 +134,7 @@ if( !class_exists('rssc_filterHandler') )
                 $wid = $this->_check_white($url);
                 if ($wid) {
                     $this->_log = 'pass white:' . $wid . ' ' . $url;
+
                     return RSSC_CODE_FILTER_WHITE;
                 }
             }
@@ -145,6 +146,7 @@ if( !class_exists('rssc_filterHandler') )
                     // reject if black
                     if (1 == $this->_conf['black_use']) {
                         $this->_log = 'reject black:' . $bid . ' ' . $url;
+
                         return RSSC_CODE_FILTER_REJECT_BLACK;
                     }
 
@@ -162,14 +164,16 @@ if( !class_exists('rssc_filterHandler') )
             // pass if lower level
             if ($total < $this->_conf['word_level']) {
                 $this->_log = 'pass ' . $log;
+
                 return RSSC_CODE_FILTER_PASS;
             }
 
             $this->_log = 'reject ' . $log;
+
             return RSSC_CODE_FILTER_REJECT_WORD;
         }
 
-    public function get_log()
+        public function get_log()
         {
             return $this->_log;
         }
@@ -177,7 +181,7 @@ if( !class_exists('rssc_filterHandler') )
         //---------------------------------------------------------
         // private
         //---------------------------------------------------------
-    public function _check_white($url)
+        public function _check_white($url)
         {
             if (0 == count($this->_white_list)) {
                 return false;
@@ -188,13 +192,15 @@ if( !class_exists('rssc_filterHandler') )
                     if ($this->_conf['white_count']) {
                         $this->_whiteHandler->countup($row['wid']);
                     }
+
                     return $row['wid'];
                 }
             }
+
             return false;
         }
 
-    public function _check_black($url)
+        public function _check_black($url)
         {
             if (0 == count($this->_black_list)) {
                 return false;
@@ -205,13 +211,15 @@ if( !class_exists('rssc_filterHandler') )
                     if ($this->_conf['black_count']) {
                         $this->_blackHandler->countup($row['bid']);
                     }
+
                     return $row['bid'];
                 }
             }
+
             return false;
         }
 
-    public function _check_word($content)
+        public function _check_word($content)
         {
             $total = 0;
             $count = 0;
@@ -230,6 +238,7 @@ if( !class_exists('rssc_filterHandler') )
 
             $this->_match_count = $count;
             $this->_match_words = $words;
+
             return $total;
         }
 
@@ -237,13 +246,11 @@ if( !class_exists('rssc_filterHandler') )
         {
             $str = preg_replace('/[\x00-\x1F]/', $replace, $str);
             $str = preg_replace('/[\x7F]/', $replace, $str);
+
             return $str;
         }
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

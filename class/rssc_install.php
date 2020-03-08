@@ -28,12 +28,10 @@
 // 2007-11-11 K.OHWADA
 //=========================================================
 
-if( ! class_exists('rssc_install') ) 
-{
-
-//=========================================================
-// class rssc_install
-//=========================================================
+if (!class_exists('rssc_install')) {
+    //=========================================================
+    // class rssc_install
+    //=========================================================
     class rssc_install extends happy_linux_module_install
     {
         public $_DIRNAME;
@@ -50,7 +48,7 @@ if( ! class_exists('rssc_install') )
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
 
@@ -79,7 +77,7 @@ if( ! class_exists('rssc_install') )
         //---------------------------------------------------------
         // public
         //---------------------------------------------------------
-    public function check_install()
+        public function check_install()
         {
             if (!$this->check_init_config()) {
                 return false;
@@ -88,7 +86,7 @@ if( ! class_exists('rssc_install') )
             return true;
         }
 
-    public function install()
+        public function install()
         {
             $this->init_config();
             $this->set_msg($this->get_init_config_msg());
@@ -96,107 +94,126 @@ if( ! class_exists('rssc_install') )
             return $this->return_flag_error();
         }
 
-    public function check_update()
+        public function check_update()
         {
             if (!$this->exists_table($this->_xml_table)) {
                 $this->_set_error('NOT exist xml table');
+
                 return false;
             }
 
             if (!$this->exists_table($this->_word_table)) {
                 $this->_set_error('NOT exist word table');
+
                 return false;
             }
 
             if (!$this->_check_config_040()) {
                 $this->_set_error('NOT config 040');
+
                 return false;
             }
 
             if (!$this->_check_link_130()) {
                 $this->_set_error('NOT link 130');
+
                 return false;
             }
 
             if (!$this->_check_link_100()) {
                 $this->_set_error('NOT link 100');
+
                 return false;
             }
 
             if (!$this->_check_link_080_1()) {
                 $this->_set_error('NOT link 080_1');
+
                 return false;
             }
 
             if (!$this->_check_link_080_2()) {
                 $this->_set_error('NOT link 080_2');
+
                 return false;
             }
 
             if (!$this->_check_link_080_3()) {
                 $this->_set_error('NOT link 080_3');
+
                 return false;
             }
 
             if (!$this->_check_link_070()) {
                 $this->_set_error('NOT link 070');
+
                 return false;
             }
 
             if (!$this->_check_black_060()) {
                 $this->_set_error('NOT black 060');
+
                 return false;
             }
 
             if (!$this->_check_black_070()) {
                 $this->_set_error('NOT black 070');
+
                 return false;
             }
 
             if (!$this->_check_white_060()) {
                 $this->_set_error('NOT white 060');
+
                 return false;
             }
 
             if (!$this->_check_white_070()) {
                 $this->_set_error('NOT white 070');
+
                 return false;
             }
 
             if (!$this->_check_feed_130()) {
                 $this->_set_error('NOT feed 130');
+
                 return false;
             }
 
             if (!$this->_check_feed_100()) {
                 $this->_set_error('NOT feed 100');
+
                 return false;
             }
 
             if (!$this->_check_feed_090()) {
                 $this->_set_error('NOT feed 090');
+
                 return false;
             }
 
             if (!$this->_check_feed_060()) {
                 $this->_set_error('NOT feed 060');
+
                 return false;
             }
 
             if (!$this->_check_feed_030()) {
                 $this->_set_error('NOT feed 030');
+
                 return false;
             }
 
             if (!$this->check_update_config()) {
                 $this->_set_error('NOT update config');
+
                 return false;
             }
 
             return true;
         }
 
-    public function update()
+        public function update()
         {
             if (!$this->exists_table($this->_xml_table)) {
                 $this->clear_error();
@@ -251,12 +268,12 @@ if( ! class_exists('rssc_install') )
         //---------------------------------------------------------
         // config table
         //---------------------------------------------------------
-    public function _check_config_040()
+        public function _check_config_040()
         {
             return $this->exists_column($this->_config_table, 'conf_valuetype');
         }
 
-    public function _update_config_040()
+        public function _update_config_040()
         {
             $sql = '
   ALTER TABLE ' . $this->_config_table . " ADD COLUMN (
@@ -269,7 +286,7 @@ if( ! class_exists('rssc_install') )
         //---------------------------------------------------------
         // copy link to xml
         //---------------------------------------------------------
-    public function _copy_link_to_xml()
+        public function _copy_link_to_xml()
         {
             $this->clear_error();
 
@@ -293,7 +310,7 @@ if( ! class_exists('rssc_install') )
             return $this->return_errors();
         }
 
-    public function _build_msg_copy_link_to_xml()
+        public function _build_msg_copy_link_to_xml()
         {
             $link_table = $this->_sanitize($this->_link_table);
             $xml_table  = $this->_sanitize($this->_xml_table);
@@ -312,7 +329,7 @@ if( ! class_exists('rssc_install') )
         //---------------------------------------------------------
         // xml table
         //---------------------------------------------------------
-    public function _create_xml_table()
+        public function _create_xml_table()
         {
             // remove ; in tail of sql
 
@@ -333,12 +350,12 @@ CREATE TABLE ' . $this->_xml_table . " (
             return $this->query($sql);
         }
 
-    public function _insert_xml($row)
+        public function _insert_xml($row)
         {
             return $this->query($this->_build_insert_xml_sql($row));
         }
 
-    public function _build_insert_xml_sql($lid, $xml)
+        public function _build_insert_xml_sql($lid, $xml)
         {
             $sql = 'INSERT INTO ' . $this->_xml_table . ' (';
             $sql .= 'lid, ';
@@ -351,16 +368,17 @@ CREATE TABLE ' . $this->_xml_table . " (
             return $sql;
         }
 
-    public function _get_xml_count($lid)
+        public function _get_xml_count($lid)
         {
             $sql = 'SELECT count(*) FROM ' . $this->_link_table . ' WHERE lid=' . (int)$lid;
+
             return $this->get_count_by_sql($sql);
         }
 
         //---------------------------------------------------------
         // word table
         //---------------------------------------------------------
-    public function _create_word_table()
+        public function _create_word_table()
         {
             $sql = '
 CREATE TABLE ' . $this->_word_table . " (
@@ -383,7 +401,7 @@ CREATE TABLE ' . $this->_word_table . " (
         //---------------------------------------------------------
         // link table
         //---------------------------------------------------------
-    public function _check_link_130()
+        public function _check_link_130()
         {
             return $this->preg_match_column_type_array(
                 $this->_link_table,
@@ -392,12 +410,12 @@ CREATE TABLE ' . $this->_word_table . " (
             );
         }
 
-    public function _check_link_100()
+        public function _check_link_100()
         {
             return $this->exists_column($this->_link_table, 'gicon_id');
         }
 
-    public function _check_link_080_1()
+        public function _check_link_080_1()
         {
             return $this->preg_match_column_type_array(
                 $this->_link_table,
@@ -406,7 +424,7 @@ CREATE TABLE ' . $this->_word_table . " (
             );
         }
 
-    public function _check_link_080_2()
+        public function _check_link_080_2()
         {
             return $this->preg_match_column_type_array(
                 $this->_link_table,
@@ -415,17 +433,17 @@ CREATE TABLE ' . $this->_word_table . " (
             );
         }
 
-    public function _check_link_080_3()
+        public function _check_link_080_3()
         {
             return $this->exists_column($this->_link_table, 'post_plugin');
         }
 
-    public function _check_link_070()
+        public function _check_link_070()
         {
             return $this->exists_column($this->_link_table, 'enclosure');
         }
 
-    public function _update_link_130()
+        public function _update_link_130()
         {
             $sql = '
   ALTER TABLE ' . $this->_link_table . ' 
@@ -438,7 +456,7 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-    public function _update_link_100()
+        public function _update_link_100()
         {
             $sql = '
   ALTER TABLE ' . $this->_link_table . " ADD COLUMN (
@@ -449,7 +467,7 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-    public function _update_link_080_1()
+        public function _update_link_080_1()
         {
             $sql = '
   ALTER TABLE ' . $this->_link_table . ' MODIFY 
@@ -459,7 +477,7 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-    public function _update_link_080_2()
+        public function _update_link_080_2()
         {
             $sql = '
   ALTER TABLE ' . $this->_link_table . ' MODIFY 
@@ -469,7 +487,7 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-    public function _update_link_080_3()
+        public function _update_link_080_3()
         {
             $sql = '
   ALTER TABLE ' . $this->_link_table . ' ADD COLUMN (
@@ -479,7 +497,7 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-    public function _update_link_070()
+        public function _update_link_070()
         {
             $sql = '
   ALTER TABLE ' . $this->_link_table . " ADD COLUMN (
@@ -491,7 +509,7 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-    public function _update_link_for_xml($lid, $ltype)
+        public function _update_link_for_xml($lid, $ltype)
         {
             $sql = 'UPDATE ' . $this->_link_table . ' SET ';
             $sql .= 'ltype=' . (int)$ltype;
@@ -501,16 +519,17 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-    public function &_get_link_rows()
+        public function &_get_link_rows()
         {
             $sql = 'SELECT * FROM ' . $this->_link_table . ' ORDER BY lid';
+
             return $this->get_rows_by_sql($sql);
         }
 
         //---------------------------------------------------------
         // feed table
         //---------------------------------------------------------
-    public function _check_feed_130()
+        public function _check_feed_130()
         {
             return $this->preg_match_column_type_array(
                 $this->_feed_table,
@@ -519,12 +538,12 @@ CREATE TABLE ' . $this->_word_table . " (
             );
         }
 
-    public function _check_feed_100()
+        public function _check_feed_100()
         {
             return $this->exists_column($this->_feed_table, 'geo_lat');
         }
 
-    public function _check_feed_090()
+        public function _check_feed_090()
         {
             return $this->preg_match_column_type_array(
                 $this->_feed_table,
@@ -533,17 +552,17 @@ CREATE TABLE ' . $this->_word_table . " (
             );
         }
 
-    public function _check_feed_060()
+        public function _check_feed_060()
         {
             return $this->exists_column($this->_feed_table, 'act');
         }
 
-    public function _check_feed_030()
+        public function _check_feed_030()
         {
             return $this->exists_column($this->_feed_table, 'enclosure_url');
         }
 
-    public function _update_feed_130()
+        public function _update_feed_130()
         {
             $sql = '
   ALTER TABLE ' . $this->_feed_table . '
@@ -559,7 +578,7 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-    public function _update_feed_100()
+        public function _update_feed_100()
         {
             $sql = '
   ALTER TABLE ' . $this->_feed_table . " ADD COLUMN (
@@ -579,7 +598,7 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-    public function _update_feed_090()
+        public function _update_feed_090()
         {
             $ret = $this->_update_feed_090_1();
             if (!$ret) {
@@ -599,13 +618,14 @@ CREATE TABLE ' . $this->_word_table . " (
             return true;
         }
 
-    public function _update_feed_090_1()
+        public function _update_feed_090_1()
         {
             $sql = 'ALTER TABLE ' . $this->_feed_table . ' DROP INDEX link';
+
             return $this->query($sql);
         }
 
-    public function _update_feed_090_2()
+        public function _update_feed_090_2()
         {
             $sql = '
   ALTER TABLE ' . $this->_feed_table . " MODIFY
@@ -615,13 +635,14 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-    public function _update_feed_090_3()
+        public function _update_feed_090_3()
         {
             $sql = 'ALTER TABLE ' . $this->_feed_table . ' ADD INDEX link (link(10))';
+
             return $this->query($sql);
         }
 
-    public function _update_feed_060()
+        public function _update_feed_060()
         {
             $sql = '
   ALTER TABLE ' . $this->_feed_table . " ADD COLUMN (
@@ -631,7 +652,7 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-    public function _update_feed_030()
+        public function _update_feed_030()
         {
             $sql = '
   ALTER TABLE ' . $this->_feed_table . " ADD COLUMN (
@@ -643,21 +664,20 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-
         //---------------------------------------------------------
         // black table
         //---------------------------------------------------------
-    public function _check_black_070()
+        public function _check_black_070()
         {
             return $this->exists_column($this->_black_table, 'cache');
         }
 
-    public function _check_black_060()
+        public function _check_black_060()
         {
             return $this->exists_column($this->_black_table, 'act');
         }
 
-    public function _update_black_070()
+        public function _update_black_070()
         {
             $sql = '
   ALTER TABLE ' . $this->_black_table . " ADD COLUMN (
@@ -668,7 +688,7 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-    public function _update_black_060()
+        public function _update_black_060()
         {
             $sql = '
   ALTER TABLE ' . $this->_black_table . " ADD COLUMN (
@@ -680,21 +700,20 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-
         //---------------------------------------------------------
         // white table
         //---------------------------------------------------------
-    public function _check_white_070()
+        public function _check_white_070()
         {
             return $this->exists_column($this->_white_table, 'cache');
         }
 
-    public function _check_white_060()
+        public function _check_white_060()
         {
             return $this->exists_column($this->_white_table, 'act');
         }
 
-    public function _update_white_070()
+        public function _update_white_070()
         {
             $sql = '
   ALTER TABLE ' . $this->_white_table . " ADD COLUMN (
@@ -705,7 +724,7 @@ CREATE TABLE ' . $this->_word_table . " (
             return $this->query($sql);
         }
 
-    public function _update_white_060()
+        public function _update_white_060()
         {
             $sql = '
   ALTER TABLE ' . $this->_white_table . " ADD COLUMN (
@@ -734,8 +753,5 @@ CREATE TABLE ' . $this->_word_table . " (
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

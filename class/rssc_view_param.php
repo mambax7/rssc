@@ -5,7 +5,7 @@
 // conf_url
 
 // 2009-02-20 K.OHWADA
-// gicon_id 
+// gicon_id
 
 // 2008-01-20 K.OHWADA
 // _execute_plugin()
@@ -42,12 +42,10 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_view_param') ) 
-{
-
-//=========================================================
-// class rssc_view_param
-//=========================================================
+if (!class_exists('rssc_view_param')) {
+    //=========================================================
+    // class rssc_view_param
+    //=========================================================
     class rssc_view_param extends happy_linux_rss_viewer
     {
         public $_DIRNAME;
@@ -82,7 +80,7 @@ if( !class_exists('rssc_view_param') )
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
             $this->_DIRNAME    = $dirname;
             $this->_MODULE_URL = XOOPS_URL . '/modules/' . $dirname;
@@ -91,15 +89,15 @@ if( !class_exists('rssc_view_param') )
             parent::__construct();
 
             // handler
-            $this->_configHandler =& rssc_getHandler('config_basic', $dirname);
-            $this->_linkHandler   =& rssc_getHandler('link_basic', $dirname);
-            $this->_feedHandler   =& rssc_getHandler('feed_basic', $dirname);
-            $this->_plugin         =& rssc_plugin::getInstance($dirname);
-            $this->_system         = happy_linux_system::getInstance();
-            $this->_image_class    = happy_linux_image_size::getInstance();
+            $this->_configHandler = rssc_getHandler('config_basic', $dirname);
+            $this->_linkHandler   = rssc_getHandler('link_basic', $dirname);
+            $this->_feedHandler   = rssc_getHandler('feed_basic', $dirname);
+            $this->_plugin        = rssc_plugin::getInstance($dirname);
+            $this->_system        = happy_linux_system::getInstance();
+            $this->_image_class   = happy_linux_image_size::getInstance();
         }
 
-        public static function getInstance($dirname)
+        public static function getInstance($dirname=null)
         {
             static $instance;
             if (null === $instance) {
@@ -109,9 +107,9 @@ if( !class_exists('rssc_view_param') )
             return $instance;
         }
 
-    public function _init_view_param()
+        public function _init_view_param()
         {
-            $this->_conf =& $this->_configHandler->get_conf();
+            $this->_conf = &$this->_configHandler->get_conf();
 
             $this->set_mode_content_script($this->_conf['html_script']);
             $this->set_mode_content_style($this->_conf['html_style']);
@@ -131,27 +129,29 @@ if( !class_exists('rssc_view_param') )
         //---------------------------------------------------------
         // view sanitize
         //---------------------------------------------------------
-    public function &view_format_sanitize_feed_objs($feed_objs, $flag_sanitize = true)
+        public function &view_format_sanitize_feed_objs($feed_objs, $flag_sanitize = true)
         {
             $feeds = [];
             if (is_array($feed_objs) && (count($feed_objs) > 0)) {
                 foreach ($feed_objs as $obj) {
-                    $feeds[] =& $this->view_format_sanitize_single_feed_obj($obj, $flag_sanitize);
+                    $feeds[] = &$this->view_format_sanitize_single_feed_obj($obj, $flag_sanitize);
                 }
             }
+
             return $feeds;
         }
 
-    public function &view_format_sanitize_single_feed_obj($feed_obj, $flag_sanitize = true)
+        public function &view_format_sanitize_single_feed_obj($feed_obj, $flag_sanitize = true)
         {
             $feed = [];
             if (is_object($feed_obj)) {
-                $feed =& $this->view_format_sanitize_single_feed($feed_obj->getVarAll(), $flag_sanitize);
+                $feed = &$this->view_format_sanitize_single_feed($feed_obj->getVarAll(), $flag_sanitize);
             }
+
             return $feed;
         }
 
-    public function &view_format_sanitize_feed_rows($feed_rows, $flag_sanitize = true)
+        public function &view_format_sanitize_feed_rows($feed_rows, $flag_sanitize = true)
         {
             $feeds = [];
             if (is_array($feed_rows) && (count($feed_rows) > 0)) {
@@ -159,19 +159,21 @@ if( !class_exists('rssc_view_param') )
                     $feeds[] = $this->view_format_sanitize_single_feed_row($row, $flag_sanitize);
                 }
             }
+
             return $feeds;
         }
 
-    public function &view_format_sanitize_single_feed_row(&$feed_row, $flag_sanitize = true)
+        public function &view_format_sanitize_single_feed_row($feed_row, $flag_sanitize = true)
         {
             $feed = [];
             if (is_array($feed_row)) {
                 $feed = $this->view_format_sanitize_single_feed($feed_row, $flag_sanitize);
             }
+
             return $feed;
         }
 
-    public function &view_format_sanitize_single_feed($orig, $flag_sanitize = true)
+        public function &view_format_sanitize_single_feed($orig, $flag_sanitize = true)
         {
             $item             = $this->_execute_plugin($orig);
             $feed             = $this->view_format_sanitize_single_item($item, $flag_sanitize);
@@ -202,10 +204,11 @@ if( !class_exists('rssc_view_param') )
                     }
                 }
             }
+
             return $feed;
         }
 
-    public function view_format_thumb($item)
+        public function view_format_thumb($item)
         {
             $thumb_url    = null;
             $thumb_width  = 0;
@@ -232,7 +235,7 @@ if( !class_exists('rssc_view_param') )
             return [$thumb_url, $thumb_width, $thumb_height];
         }
 
-    public function adjust_size($width, $height)
+        public function adjust_size($width, $height)
         {
             return $this->_image_class->adjust_size(
                 $width,
@@ -243,7 +246,7 @@ if( !class_exists('rssc_view_param') )
             );
         }
 
-    public function _execute_plugin($item)
+        public function _execute_plugin($item)
         {
             $temp = $item;
 
@@ -273,13 +276,12 @@ if( !class_exists('rssc_view_param') )
         //---------------------------------------------------------
         // set and get property
         //---------------------------------------------------------
-    public function setFeedOrder($value)
+        public function setFeedOrder($value)
         {
             switch ((int)$value) {
                 case RSSC_C_ORDER_INT_PUBLISHED:
                     $order = RSSC_C_ORDER_TEXT_PUBLISHED;
                     break;
-
                 case RSSC_C_ORDER_INT_UPDATED:
                 default:
                     $order = RSSC_C_ORDER_TEXT_UPDATED;
@@ -289,37 +291,37 @@ if( !class_exists('rssc_view_param') )
             $this->_feed_order = $order;
         }
 
-    public function setFeedStart($value)
+        public function setFeedStart($value)
         {
             $this->_feed_start = (int)$value;
         }
 
-    public function setFeedLimit($value)
+        public function setFeedLimit($value)
         {
             $this->_feed_limit = (int)$value;
         }
 
-    public function setFlagSanitize($value)
+        public function setFlagSanitize($value)
         {
             $this->_flag_sanitize = (bool)$value;
         }
 
-    public function set_flag_ltype($value)
+        public function set_flag_ltype($value)
         {
             $this->_flag_ltype = (bool)$value;
         }
 
-    public function set_flag_enclosure($value)
+        public function set_flag_enclosure($value)
         {
             $this->_flag_enclosure = (bool)$value;
         }
 
-    public function set_flag_gicon($value)
+        public function set_flag_gicon($value)
         {
             $this->_flag_gicon = (bool)$value;
         }
 
-    public function setFutureDays($value)
+        public function setFutureDays($value)
         {
             $this->_feedHandler->set_future($value);
         }
@@ -327,7 +329,7 @@ if( !class_exists('rssc_view_param') )
         //---------------------------------------------------------
         // template common
         //---------------------------------------------------------
-    public function &get_tpl_common_param()
+        public function &get_tpl_common_param()
         {
             $arr = [
                 'lang_edit'             => _EDIT,
@@ -350,20 +352,22 @@ if( !class_exists('rssc_view_param') )
                 'xoops_module_header'   => $this->_get_module_header(),
                 'conf_url'              => $this->_conf['basic_url'],
             ];
+
             return $arr;
         }
 
-    public function get_module_name($format = 's')
+        public function get_module_name($format = 's')
         {
             return $this->_system->get_module_name($format);
         }
 
         // some block use xoops_module_header
-    public function _get_module_header()
+        public function _get_module_header()
         {
             $url  = $this->_MODULE_URL . '/rssc.css';
             $text = '<link href="' . $url . '" rel="stylesheet" type="text/css" media="all">' . "\n";
             $text .= $this->_system->get_template_vars('xoops_module_header') . "\n";
+
             return $text;
         }
 
@@ -395,8 +399,5 @@ if( !class_exists('rssc_view_param') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

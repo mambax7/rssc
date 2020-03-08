@@ -267,5 +267,5 @@ CREATE TABLE rssc_word (
 ) ENGINE=MyISAM;
 # --------------------------------------------------------
 
-INSERT INTO rssc_link VALUES (1, 1, 0, 0, 0, 0, 'XOOPS.org', 'http://www.xoops.org/', 2, 3600, 1, 2, '', 'http://www.xoops.org/backend.php', '', 'utf-8', 0, '', '', 0, 0, '', '', 1, '', '', '', '', 0 );
+INSERT INTO rssc_link VALUES (1, 1, 0, 0, 0, 0, 'XOOPS.org', 'https://www.xoops.org/', 2, 3600, 1, 2, '', 'https://www.xoops.org/backend.php', '', 'utf-8', 0, '', '', 0, 0, '', '', 1, '', '', '', '', 0 );
 INSERT INTO rssc_xml VALUES (1, 1, '', 0, 0, '', '');

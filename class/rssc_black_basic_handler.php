@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_black_basicHandler.php,v 1.1 2011/12/29 14:37:16 ohwada Exp $
+// $Id: rssc_black_basic_handler.php,v 1.1 2011/12/29 14:37:16 ohwada Exp $
 
 // 2007-06-01 K.OHWADA
 // get_rows_act() countup() add_link()
@@ -8,7 +8,7 @@
 // small change
 
 // 2006-07-08 K.OHWADA
-// use happy_linux_basicHandler
+// use happy_linux_basic_handler
 
 // 2006-06-04 K.OHWADA
 // this is new file
@@ -19,22 +19,19 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_black_basicHandler') ) 
-{
-
-//=========================================================
-// class black handler
-// this class is used by command line
-// this class handle MySQL table directly
-// this class does not use another class
-//=========================================================
-    class rssc_black_basicHandler extends happy_linux_basicHandler
+if (!class_exists('rssc_black_basic_handler')) {
+    //=========================================================
+    // class black handler
+    // this class is used by command line
+    // this class handle MySQL table directly
+    // this class does not use another class
+    //=========================================================
+    class rssc_black_basic_handler extends happy_linux_basic_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
             parent::__construct($dirname);
 
@@ -48,7 +45,7 @@ if( !class_exists('rssc_black_basicHandler') )
         //---------------------------------------------------------
         // insert
         //---------------------------------------------------------
-    public function insert_link($title, $url, $act = 0)
+        public function insert_link($title, $url, $act = 0)
         {
             $sql = 'INSERT INTO ' . $this->_table . ' ( ';
             $sql .= 'title, url, act';
@@ -59,46 +56,51 @@ if( !class_exists('rssc_black_basicHandler') )
             $sql .= ' )';
 
             $ret = $this->query($sql);
+
             return $ret;
         }
 
         //---------------------------------------------------------
         // update
         //---------------------------------------------------------
-    public function countup($bid)
+        public function countup($bid)
         {
             $sql = 'UPDATE ' . $this->_table . ' SET count = count+1 WHERE bid=' . (int)$bid;
             $ret = $this->query($sql);
+
             return $ret;
         }
 
         //---------------------------------------------------------
         // select
         //---------------------------------------------------------
-    public function exist_url($url)
+        public function exist_url($url)
         {
             $sql = 'SELECT count(*) FROM ' . $this->_table;
             $sql .= ' WHERE url=' . $this->quote($url);
             $ret = $this->get_count_by_sql($sql);
+
             return $ret;
         }
 
-    public function &get_rows_act($limit = 0, $offset = 0)
+        public function &get_rows_act($limit = 0, $offset = 0)
         {
             $sql  = 'SELECT * FROM ' . $this->_table;
             $sql  .= " WHERE act=1 AND url<>'' ";
             $sql  .= ' ORDER BY bid ASC';
-            $rows =& $this->get_rows_by_sql($sql, $limit, $offset);
+            $rows = &$this->get_rows_by_sql($sql, $limit, $offset);
+
             return $rows;
         }
 
         // refresh all
-    public function &get_active_id_array($limit = 0, $offset = 0)
+        public function &get_active_id_array($limit = 0, $offset = 0)
         {
             $sql  = 'SELECT bid FROM ' . $this->_table;
             $sql  .= " WHERE act=1 AND url<>'' ";
             $sql  .= ' ORDER BY bid ASC';
-            $rows =& $this->get_first_row_by_sql($sql, $limit, $offset);
+            $rows = &$this->get_first_row_by_sql($sql, $limit, $offset);
+
             return $rows;
         }
 
@@ -111,13 +113,11 @@ if( !class_exists('rssc_black_basicHandler') )
             if (!$this->exist_url($url)) {
                 return $this->insert_link($title, $url);
             }
+
             return true;    // no action
         }
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

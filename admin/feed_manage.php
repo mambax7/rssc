@@ -13,7 +13,7 @@
 
 // 2007-06-01 K.OHWADA
 // main_mod_all()
-// rssc_feed_basicHandler.php
+// rssc_feed_basic_handler.php
 
 // 2006-09-18 K.OHWADA
 // show bread crumb
@@ -35,15 +35,14 @@
 //=========================================================
 
 require __DIR__ . '/admin_header.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_feed_basicHandler.php';
-require_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_feed_basic_handler.php';
+require_once RSSC_ROOT_PATH . '/admin/admin_manage_base_class.php';
 
 //=========================================================
 // class feed manage
 //=========================================================
 class admin_manage_feed extends admin_manage_base
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -51,7 +50,7 @@ class admin_manage_feed extends admin_manage_base
     {
         admin_manage_base::__construct();
 
-        $this->setHandler('feed', RSSC_DIRNAME, 'rssc');
+        $this->set_handler('feed', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('fid');
         $this->set_form_class('admin_form_feed');
         $this->set_script('feed_manage.php');
@@ -81,11 +80,12 @@ class admin_manage_feed extends admin_manage_base
 
     public function _print_add_form()
     {
-        $obj =  $this->Handler->create();
+        $obj = $this->handler->create();
         $obj->set('uid', $this->_system->get_uid());
         $obj->set('mid', $this->_system->get_mid());
 
         $this->_print_form($obj, null, $this->_MODE_INSERT);
+
         return true;
     }
 
@@ -101,6 +101,7 @@ class admin_manage_feed extends admin_manage_base
     {
         $this->_clear_errors();
         $this->_check_add_mod();
+
         return $this->returnExistError();
     }
 
@@ -131,6 +132,7 @@ class admin_manage_feed extends admin_manage_base
     {
         $this->_clear_errors();
         $this->_check_add_mod();
+
         return $this->returnExistError();
     }
 
@@ -170,6 +172,7 @@ class admin_manage_feed extends admin_manage_base
     {
         // set act = 0
         $this->_obj->setVar('act', 0);
+
         return $this->_obj;
     }
 
@@ -213,7 +216,7 @@ class admin_form_feed extends happy_linux_form
     //---------------------------------------------------------
     // show feed
     //---------------------------------------------------------
-    public function _show(&$obj, $extra = null, $mode = 0)
+    public function _show($obj, $extra = null, $mode = 0)
     {
         switch ($mode) {
             case HAPPY_LINUX_MODE_MOD:
@@ -223,7 +226,6 @@ class admin_form_feed extends happy_linux_form
                 $op         = 'mod_table';
                 $button_val = _HAPPY_LINUX_MODIFY;
                 break;
-
             case HAPPY_LINUX_MODE_ADD:
             case HAPPY_LINUX_MODE_ADD_PREVIEW:
             default:
@@ -351,7 +353,6 @@ class admin_form_feed extends happy_linux_form
         echo $this->build_form_table_end();
         echo $this->build_form_end();
         // --- form end ---
-
     }
 
     // --- class end ---
@@ -363,35 +364,27 @@ class admin_form_feed extends happy_linux_form
 $manage = admin_manage_feed::getInstance();
 
 $op = $manage->get_op();
-switch ($op)
-{
-	case 'add_table':
-		$manage->main_add_table();
-		break;
-
-	case 'mod_form':
-		$manage->main_mod_form();
-		break;
-
-	case 'mod_table':
-		$manage->main_mod_table();
-		break;
-
-	case 'del_table':
-		$manage->main_del_table();
-		break;
-
-	case 'mod_all':
-		$manage->main_mod_all();
-		break;
-
-	case 'add_form':
-	default:
-		$manage->main_add_form();
-		break;
+switch ($op) {
+    case 'add_table':
+        $manage->main_add_table();
+        break;
+    case 'mod_form':
+        $manage->main_mod_form();
+        break;
+    case 'mod_table':
+        $manage->main_mod_table();
+        break;
+    case 'del_table':
+        $manage->main_del_table();
+        break;
+    case 'mod_all':
+        $manage->main_mod_all();
+        break;
+    case 'add_form':
+    default:
+        $manage->main_add_form();
+        break;
 }
 
 exit();
 // --- end of main ---
-
-

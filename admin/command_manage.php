@@ -21,44 +21,36 @@ $config_store = admin_config_store::getInstance();
 
 $op = $config_form->get_post_get_op();
 
-if ('save' == $op)
-{
-	if( !$config_form->check_token() ) 
-	{
-		xoops_cp_header();
-		$config_form->print_xoops_token_error();
-	}
-	else
-	{
-		$config_store->save();
-		redirect_header('command_manage.php', 1, _HAPPY_LINUX_UPDATED);
-	}
-}
-else
-{
-	xoops_cp_header();
+if ('save' == $op) {
+    if (!$config_form->check_token()) {
+        xoops_cp_header();
+        $config_form->print_xoops_token_error();
+    } else {
+        $config_store->save();
+        redirect_header('command_manage.php', 1, _HAPPY_LINUX_UPDATED);
+    }
+} else {
+    xoops_cp_header();
 }
 
 $pass = $config_form->get_value_by_name('bin_pass');
-$url  = RSSC_URL.'/bin/refresh.php?pass='.$pass.'&amp;limit=10';
+$url  = RSSC_URL . '/bin/refresh.php?pass=' . $pass . '&amp;limit=10';
 
 rssc_admin_print_header();
 rssc_admin_print_menu();
 
 echo '<h4>' . _HAPPY_LINUX_CONF_COMMAND_MANAGE . "</h4>\n";
 
-$text  = '<a href="create_config.php">'._HAPPY_LINUX_CONF_CREATE_CONFIG."</a><br><br>\n";
-$text .= '<a href="'.$url.'">'._HAPPY_LINUX_CONF_TEST_BIN.": bin/refresh.php</a><br><br>\n";
-echo $config_form->build_lib_box_style( _HAPPY_LINUX_CONF_COMMAND_MANAGE, '', $text );
+$text = '<a href="create_config.php">' . _HAPPY_LINUX_CONF_CREATE_CONFIG . "</a><br><br>\n";
+$text .= '<a href="' . $url . '">' . _HAPPY_LINUX_CONF_TEST_BIN . ": bin/refresh.php</a><br><br>\n";
+echo $config_form->build_lib_box_style(_HAPPY_LINUX_CONF_COMMAND_MANAGE, '', $text);
 
 echo '<h4>' . _HAPPY_LINUX_CONF_BIN . "</h4>\n";
-echo _HAPPY_LINUX_CONF_BIN_DESC."<br><br>\n";
-$config_form->set_form_title( _HAPPY_LINUX_CONF_BIN );
-$config_form->show_by_catid( 2 );
+echo _HAPPY_LINUX_CONF_BIN_DESC . "<br><br>\n";
+$config_form->set_form_title(_HAPPY_LINUX_CONF_BIN);
+$config_form->show_by_catid(2);
 
 rssc_admin_print_footer();
 xoops_cp_footer();
 exit();
 // --- main end ---
-
-?>

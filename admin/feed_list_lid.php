@@ -55,20 +55,20 @@ class admin_feed_list_lid extends admin_feed_list
 
     public function _get_total()
     {
-        $this->_total_lid     = $this->Handler->get_count_by_lid($this->_lid);
-        $this->_total_non_act = $this->Handler->get_count_by_lid_non_act($this->_lid);
+        $this->_total_lid     = $this->handler->get_count_by_lid($this->_lid);
+        $this->_total_non_act = $this->handler->get_count_by_lid_non_act($this->_lid);
         switch ($this->_sortid) {
             case 2:
             case 3:
                 $total = $this->_total_non_act;
                 break;
-
             case 0:
             case 1:
             default:
                 $total = $this->_total_lid;
                 break;
         }
+
         return $total;
     }
 
@@ -79,22 +79,20 @@ class admin_feed_list_lid extends admin_feed_list
     {
         switch ($this->_sortid) {
             case 1:
-                $objs =& $this->Handler->get_objects_by_lid_desc($this->_lid, $limit, $start);
+                $objs = $this->handler->get_objects_by_lid_desc($this->_lid, $limit, $start);
                 break;
-
             case 2:
-                $objs =& $this->Handler->get_objects_by_lid_non_act_asc($this->_lid, $limit, $start);
+                $objs = $this->handler->get_objects_by_lid_non_act_asc($this->_lid, $limit, $start);
                 break;
-
             case 3:
-                $objs =& $this->Handler->get_objects_by_lid_non_act_desc($this->_lid, $limit, $start);
+                $objs = $this->handler->get_objects_by_lid_non_act_desc($this->_lid, $limit, $start);
                 break;
-
             case 0:
             default:
-                $objs =& $this->Handler->get_objects_by_lid_asc($this->_lid, $limit, $start);
+                $objs = $this->handler->get_objects_by_lid_asc($this->_lid, $limit, $start);
                 break;
         }
+
         return $objs;
     }
 
@@ -120,12 +118,12 @@ class admin_feed_list_lid extends admin_feed_list
             case 3:
                 $condition .= ', act = 0';
                 break;
-
             case 0:
             case 1:
             default:
                 break;
         }
+
         return $condition;
     }
 
@@ -135,12 +133,14 @@ class admin_feed_list_lid extends admin_feed_list
     public function _get_script_sortid($sortid)
     {
         $script = $this->_get_script() . '&amp;sortid=' . $sortid;
+
         return $script;
     }
 
     public function _get_script()
     {
         $script = xoops_getenv('PHP_SELF') . '?lid=' . $this->_lid;
+
         return $script;
     }
 
@@ -160,5 +160,3 @@ $list->_show();
 xoops_cp_footer();
 exit();
 // --- end of main ---
-
-

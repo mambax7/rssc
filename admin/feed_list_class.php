@@ -16,8 +16,8 @@
 // 2007-05-26 K.OHWADA
 //=========================================================
 
-require_once RSSC_ROOT_PATH.'/class/rssc_feed_basicHandler.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_feedHandler.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_feed_basic_handler.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_feed_handler.php';
 
 //=========================================================
 // class admin list feed
@@ -37,7 +37,7 @@ class admin_feed_list extends happy_linux_page_frame
     {
         parent::__construct();
 
-        $this->setHandler('feed', RSSC_DIRNAME);
+        $this->set_handler('feed', RSSC_DIRNAME);
         $this->set_id_name('fid');
         $this->set_max_sortid(4);
 
@@ -73,19 +73,19 @@ class admin_feed_list extends happy_linux_page_frame
     //---------------------------------------------------------
     public function _get_total()
     {
-        $this->_total_non_act = $this->Handler->get_count_non_act();
+        $this->_total_non_act = $this->handler->get_count_non_act();
         switch ($this->_sortid) {
             case 2:
             case 3:
                 $total = $this->_total_non_act;
                 break;
-
             case 0:
             case 1:
             default:
-                $total = $this->Handler->getCount();
+                $total = $this->handler->getCount();
                 break;
         }
+
         return $total;
     }
 
@@ -111,22 +111,20 @@ class admin_feed_list extends happy_linux_page_frame
     {
         switch ($this->_sortid) {
             case 1:
-                $objs =& $this->Handler->get_objects_desc($limit, $start);
+                $objs = $this->handler->get_objects_desc($limit, $start);
                 break;
-
             case 2:
-                $objs =& $this->Handler->get_objects_non_act_asc($limit, $start);
+                $objs = $this->handler->get_objects_non_act_asc($limit, $start);
                 break;
-
             case 3:
-                $objs =& $this->Handler->get_objects_non_act_desc($limit, $start);
+                $objs = $this->handler->get_objects_non_act_desc($limit, $start);
                 break;
-
             case 0:
             default:
-                $objs =& $this->Handler->get_objects_asc($limit, $start);
+                $objs = $this->handler->get_objects_asc($limit, $start);
                 break;
         }
+
         return $objs;
     }
 
@@ -167,6 +165,7 @@ class admin_feed_list extends happy_linux_page_frame
         if (0 == $obj->getVar('act')) {
             return 'odd';
         }
+
         return '';
     }
 
@@ -196,15 +195,12 @@ class admin_feed_list extends happy_linux_page_frame
             case 2:
                 $title = _AM_RSSC_NON_ACT_ASC;
                 break;
-
             case 3:
                 $title = _AM_RSSC_NON_ACT_DESC;
                 break;
-
             case 1:
                 $title = _HAPPY_LINUX_ID_DESC;
                 break;
-
             case 0:
             case 1:
             default:
@@ -251,24 +247,25 @@ class admin_feed_list extends happy_linux_page_frame
             case 3:
                 $condition = 'act = 0';
                 break;
-
             case 0:
             case 1:
             default:
                 break;
         }
+
         return $condition;
     }
 
     //---------------------------------------------------------
     // form
     //---------------------------------------------------------
-    public function _build_page_col_submit($colspan = 1)
+    public function _build_page_col_submit($name=null, $value=null, $colspan=1)
     {
         $text = $this->build_html_td_tag_begin($this->_SUBMIT_ALIGN, $this->_SUBMIT_VALIGN, $colspan, $this->_SUBMIT_ROWSPAN, $this->_SUBMIT_CLASS);
         $text .= $this->build_html_input_submit('del_all', _DELETE);
         $text .= $this->build_html_input_submit('mod_all', _RSSC_FEED_ACT_NON);
         $text .= $this->build_html_td_tag_end();
+
         return $text;
     }
 
@@ -278,16 +275,16 @@ class admin_feed_list extends happy_linux_page_frame
     public function _get_script_sortid($sortid)
     {
         $script = $this->_get_script() . '?sortid=' . $sortid;
+
         return $script;
     }
 
     public function _get_script()
     {
         $script = xoops_getenv('PHP_SELF');
+
         return $script;
     }
 
     // --- class end ---
 }
-
-

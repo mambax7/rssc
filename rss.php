@@ -31,12 +31,10 @@
 
 require __DIR__ . '/header.php';
 
-require_once RSSC_ROOT_PATH.'/api/rss_builder.php';
+require_once RSSC_ROOT_PATH . '/api/rss_builder.php';
 
-$builder =& rssc_build_rssc::getInstance( RSSC_DIRNAME );
+$builder = rssc_build_rssc::getInstance(RSSC_DIRNAME);
 $builder->build();
 
 exit();
 // --- main end ---
-
-?>

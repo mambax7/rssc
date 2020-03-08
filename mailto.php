@@ -8,41 +8,37 @@
 
 require __DIR__ . '/header.php';
 
-$rssc_plugin        =& rssc_plugin::getInstance( RSSC_DIRNAME );
+$rssc_plugin        = rssc_plugin::getInstance(RSSC_DIRNAME);
 $happy_linux_system = happy_linux_system::getInstance();
 
-require XOOPS_ROOT_PATH.'/header.php';
+require XOOPS_ROOT_PATH . '/header.php';
 
 // exit if not login
-if ( !$happy_linux_system->is_user() )
-{
-	xoops_error('you have no permission');
-	require XOOPS_ROOT_PATH.'/footer.php';
-	exit();
+if (!$happy_linux_system->is_user()) {
+    xoops_error('you have no permission');
+    require XOOPS_ROOT_PATH . '/footer.php';
+    exit();
 }
 
 echo "<h4>plugin demo</h4>\n";
 echo "mail latest 10 feeds to login user <br><br>\n";
 
 $rssc_plugin->init_once();
-$rssc_plugin->set_flag_print( true );
+$rssc_plugin->set_flag_print(true);
 
-$mailto   = $happy_linux_system->get_email();	// login user
-$subject  = $happy_linux_system->get_sitename();
+$mailto  = $happy_linux_system->get_email();    // login user
+$subject = $happy_linux_system->get_sitename();
 $subject .= ': latest 10 feeds';
-$plugins  = 'latest_feeds(10) | summary(100) | implode | ';
-$plugins .= 'mail('. $mailto .','. $subject .') ';
-$data     = null;
+$plugins = 'latest_feeds(10) | summary(100) | implode | ';
+$plugins .= 'mail(' . $mailto . ',' . $subject . ') ';
+$data    = null;
 
-$ret = $rssc_plugin->execute( $data, $plugins );
-if ($ret)
-{
-	echo "<h4>mail sended</h4>\n";
-}
-else
-{
-	echo "<h4>error</h4>\n";
+$ret = $rssc_plugin->execute($data, $plugins);
+if ($ret) {
+    echo "<h4>mail sended</h4>\n";
+} else {
+    echo "<h4>error</h4>\n";
 }
 
-require XOOPS_ROOT_PATH.'/footer.php';
+require XOOPS_ROOT_PATH . '/footer.php';
 exit();

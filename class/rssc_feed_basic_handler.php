@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_feed_basicHandler.php,v 1.1 2011/12/29 14:37:15 ohwada Exp $
+// $Id: rssc_feed_basic_handler.php,v 1.1 2011/12/29 14:37:15 ohwada Exp $
 
 // 2009-02-20 K.OHWADA
 // geo_lat
@@ -23,7 +23,7 @@
 // add get_clear_num()
 
 // 2006-07-10 K.OHWADA
-// use happy_linux_basic happy_linux_basicHandler
+// use happy_linux_basic happy_linux_basic_handler
 // corresponding to podcast
 // add enclosure
 
@@ -37,160 +37,151 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_feed_basicHandler') ) 
-{
+if (!class_exists('rssc_feed_basic_handler')) {
+    //=========================================================
+    // class rssc_feed_basic
+    //=========================================================
+    class rssc_feed_basic extends happy_linux_basic
+    {
+        // constant
+        public $_FLAG_SUBSUTUTE_DATE = true;
 
-//=========================================================
-// class rssc_feed_basic
-//=========================================================
-class rssc_feed_basic extends happy_linux_basic
-{
-// constant
-	public $_FLAG_SUBSUTUTE_DATE = true;
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct()
+        {
+            parent::__construct();
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-public function __construct()
-{
-	parent::__construct();
+            $this->init();
+        }
 
-	$this->init();
-}
+        //---------------------------------------------------------
+        // init
+        //---------------------------------------------------------
+        public function init()
+        {
+            $this->_vars = [
+                'lid'              => 0,
+                'uid'              => 0,
+                'mid'              => 0,
+                'p1'               => 0,
+                'p2'               => 0,
+                'p3'               => 0,
+                'site_title'       => '',
+                'site_link'        => '',
+                'title'            => '',
+                'link'             => '',
+                'entry_id'         => '',
+                'guid'             => '',
+                'updated_unix'     => 0,
+                'published_unix'   => 0,
+                'category'         => '',
+                'author_name'      => '',
+                'author_uri'       => '',
+                'author_email'     => '',
+                'type_cont'        => '',
+                'raws'             => '',
+                'content'          => '',
+                'search'           => '',
+                'aux_int_1'        => 0,
+                'aux_int_2'        => 0,
+                'aux_text_1'       => '',
+                'aux_text_2'       => '',
 
-//---------------------------------------------------------
-// init
-//---------------------------------------------------------
-public function init()
-{
-	$this->_vars = [
-		'lid' => 0,
-		'uid' => 0,
-		'mid' => 0,
-		'p1'  => 0,
-		'p2'  => 0,
-		'p3'  => 0,
-		'site_title' => '',
-		'site_link'  => '',
-		'title'    => '',
-		'link'     => '',
-		'entry_id' => '',
-		'guid'     => '',
-		'updated_unix'   => 0,
-		'published_unix' => 0,
-		'category'     => '',
-		'author_name'  => '',
-		'author_uri'   => '',
-		'author_email' => '',
-		'type_cont'    => '',
-		'raws'    => '',
-		'content' => '',
-		'search'  => '',
-		'aux_int_1' => 0,
-		'aux_int_2' => 0,
-		'aux_text_1' => '',
-		'aux_text_2' => '',
+                // enclosure
+                'enclosure_url'    => '',
+                'enclosure_type'   => '',
+                'enclosure_length' => 0,
 
-// enclosure
-		'enclosure_url'    => '',
-		'enclosure_type'   => '',
-		'enclosure_length' => 0,
+                'act'                    => 1,    // active
 
-		'act' => 1,	// active
+                // geo
+                'geo_lat'                => 0,
+                'geo_long'               => 0,
 
-// geo
-		'geo_lat'    => 0,
-		'geo_long'   => 0,
+                // media
+                'media_content_url'      => '',
+                'media_content_type'     => '',
+                'media_content_medium'   => '',
+                'media_content_filesize' => 0,
+                'media_content_width'    => 0,
+                'media_content_height'   => 0,
+                'media_thumbnail_url'    => '',
+                'media_thumbnail_width'  => 0,
+                'media_thumbnail_height' => 0,
+            ];
+        }
 
-// media
-		'media_content_url'      => '',
-		'media_content_type'     => '',
-		'media_content_medium'   => '',
-		'media_content_filesize' => 0,
-		'media_content_width'    => 0,
-		'media_content_height'   => 0,
-		'media_thumbnail_url'    => '',
-		'media_thumbnail_width'  => 0,
-		'media_thumbnail_height' => 0,
+        //---------------------------------------------------------
+        // element
+        //---------------------------------------------------------
+        public function set_search()
+        {
+            $search = $this->get('title') . ' ' . $this->get('content');
+            $search = $this->strip_control($search);
+            $search = $this->strip_style_tag($search);
+            $search = $this->add_space_after_tag($search);
+            $search = strip_tags($search);
 
-    ];
+            $this->set('search', $search);
+        }
 
-}
+        public function set_raws($item)
+        {
+            // atom
+            if (isset($item['atom_content'])) {
+                $item['atom_content'] = '';
+            }
 
-//---------------------------------------------------------
-// element
-//---------------------------------------------------------
-public function set_search()
-{
-	$search = $this->get('title').' '.$this->get('content');
-	$search = $this->strip_control($search);
-	$search = $this->strip_style_tag($search);
-	$search = $this->add_space_after_tag($search);
-	$search = strip_tags($search);
+            // rss
+            if (isset($item['content'])) {
+                $item['content'] = '';
+            }
 
-	$this->set('search', $search);
-}
+            $this->getVarArray('raws', $item);
+        }
 
-public function set_raws($item)
-{
-// atom
-	if ( isset($item['atom_content']) )
-	{
-		$item['atom_content'] = '';
-	}
+        public function &get_raws()
+        {
+            $ret = &$this->getVarArray('raws');
 
-// rss
-	if ( isset($item['content']) )
-	{
-		$item['content'] = '';
-	}
+            return $ret;
+        }
 
-	$this->getVarArray('raws', $item);
-}
+        //---------------------------------------------------------
+        // subsutute date
+        // some feed have no date
+        // subsutute by present time
+        //---------------------------------------------------------
+        public function subsutute_date()
+        {
+            // no action, if not flag
+            if (!$this->_FLAG_SUBSUTUTE_DATE) {
+                return;
+            }
 
-public function &get_raws()
-{
-	$ret =& $this->getVarArray('raws');
-	return $ret;
-}
+            $time = time();
 
-//---------------------------------------------------------
-// subsutute date
-// some feed have no date
-// subsutute by present time
-//---------------------------------------------------------
-public function subsutute_date()
-{
-// no action, if not flag
-	if ( !$this->_FLAG_SUBSUTUTE_DATE )
-	{
-		return;
-	}
+            if (0 == $this->get('updated_unix')) {
+                $this->set('updated_unix', $time);
+            }
 
-	$time = time();
+            if (0 == $this->get('published_unix')) {
+                $this->set('published_unix', $time);
+            }
+        }
 
-	if (0 == $this->get('updated_unix'))
-	{
-		$this->set('updated_unix', $time);
-	}
+        // --- class end ---
+    }
 
-	if (0 == $this->get('published_unix'))
-	{
-		$this->set('published_unix', $time);
-	}
-}
-
-// --- class end ---
-}
-
-
-//=========================================================
-// class rssc_feed_basicHandler
-// this class is used by command line
-// this class handle MySQL table directly
-// this class does not use another class
-//=========================================================
-    class rssc_feed_basicHandler extends happy_linux_basicHandler
+    //=========================================================
+    // class rssc_feed_basic_handler
+    // this class is used by command line
+    // this class handle MySQL table directly
+    // this class does not use another class
+    //=========================================================
+    class rssc_feed_basic_handler extends happy_linux_basic_handler
     {
         // set false, if not insert
         public $_DEBUG_INSERT_EXEC = true;
@@ -201,7 +192,7 @@ public function subsutute_date()
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
             parent::__construct($dirname);
 
@@ -216,10 +207,11 @@ public function subsutute_date()
         //---------------------------------------------------------
         // insert
         //---------------------------------------------------------
-    public function insert(XoopsObject $obj)
+        public function insert($obj)
         {
             if (!$this->_check_class($obj)) {
                 $this->_set_errors('feed table: not match class');
+
                 return false;
             }
 
@@ -332,16 +324,18 @@ public function subsutute_date()
             }
 
             $newid = $this->_db->getInsertId();
+
             return $newid;
         }
 
         //---------------------------------------------------------
         // delete
         //---------------------------------------------------------
-    public function delete_by_link($link)
+        public function delete_by_link($link)
         {
             $sql = 'DELETE FROM ' . $this->_table . ' WHERE link=' . $this->quote($link);
             $ret = $this->query($sql);
+
             return $ret;
         }
 
@@ -349,16 +343,17 @@ public function subsutute_date()
         // get count
         //---------------------------------------------------------
         // index.php
-    public function &get_count_public()
+        public function &get_count_public()
         {
             $sql   = 'SELECT COUNT(*) FROM ' . $this->_table . ' WHERE ';
             $sql   .= $this->_get_where_public();
             $count = $this->get_count_by_sql($sql);
+
             return $count;
         }
 
         // single_link.php
-    public function &get_count_public_by_lid($lid)
+        public function &get_count_public_by_lid($lid)
         {
             $future = $this->_get_future_time();
 
@@ -366,10 +361,11 @@ public function subsutute_date()
             $sql   .= $this->_get_where_public();
             $sql   .= ' AND lid=' . (int)$lid;
             $count = $this->get_count_by_sql($sql);
+
             return $count;
         }
 
-    public function &get_count_public_by_mid($mid)
+        public function &get_count_public_by_mid($mid)
         {
             $ret = false;
             if ($mid) {
@@ -378,46 +374,51 @@ public function subsutute_date()
                 $sql .= ' AND mid=' . (int)$mid;
                 $ret = $this->get_count_by_sql($sql);
             }
+
             return $ret;
         }
 
         // search
-    public function get_count_public_by_where($where)
+        public function get_count_public_by_where($where)
         {
             $sql = 'SELECT COUNT(*) FROM ' . $this->_table . ' WHERE ';
             $sql .= $this->_get_where_public();
             $sql .= ' AND ' . $where;
             $ret = $this->get_count_by_sql($sql);
+
             return $ret;
         }
 
         // inactive or time not change
-    public function get_count_by_link_time($link, $time)
+        public function get_count_by_link_time($link, $time)
         {
             $sql   = 'SELECT COUNT(*) FROM ' . $this->_table . ' WHERE ';
             $sql   .= ' link=' . $this->quote($link);
             $sql   .= ' AND ( act=0 OR ';
             $sql   .= ' updated_unix >= ' . (int)$time . ' )';
             $count = $this->get_count_by_sql($sql);
+
             return $count;
         }
 
-    public function get_count_by_link($link)
+        public function get_count_by_link($link)
         {
             $sql   = 'SELECT COUNT(*) FROM ' . $this->_table . ' WHERE ';
             $sql   .= ' act=1';
             $sql   .= ' AND link=' . $this->quote($link);
             $count = $this->get_count_by_sql($sql);
+
             return $count;
         }
 
-    public function _get_where_public()
+        public function _get_where_public()
         {
             $future = $this->_get_future_time();
 
             $where = 'act=1';
             $where .= ' AND updated_unix<' . (int)$future;
             $where .= ' AND published_unix<' . (int)$future;
+
             return $where;
         }
 
@@ -425,26 +426,28 @@ public function subsutute_date()
         // get row
         //---------------------------------------------------------
         // single_feed.php
-    public function &get_cache_row_public_by_fid($fid)
+        public function &get_cache_row_public_by_fid($fid)
         {
             $row = false;
             if (isset($this->_cached[$fid])) {
-                $row =& $this->_cached[$fid];
+                $row = &$this->_cached[$fid];
             } else {
-                $row =& $this->get_row_public_by_fid($fid);
+                $row = &$this->get_row_public_by_fid($fid);
                 if (is_array($row) && count($row)) {
                     $this->_cached[$fid] = $row;
                 }
             }
+
             return $row;
         }
 
-    public function &get_row_public_by_fid($fid)
+        public function &get_row_public_by_fid($fid)
         {
             $sql = 'SELECT * FROM ' . $this->_table . ' WHERE ';
             $sql .= $this->_get_where_public();
             $sql .= ' AND fid=' . (int)$fid;
-            $row =& $this->get_row_by_sql($sql);
+            $row = &$this->get_row_by_sql($sql);
+
             return $row;
         }
 
@@ -452,17 +455,18 @@ public function subsutute_date()
         // get rows
         //---------------------------------------------------------
         // index.php
-    public function &get_rows_public_by_order($order = 'updated_unix DESC, fid DESC', $limit = 0, $start = 0)
+        public function &get_rows_public_by_order($order = 'updated_unix DESC, fid DESC', $limit = 0, $start = 0)
         {
             $sql  = 'SELECT * FROM ' . $this->_table . ' WHERE ';
             $sql  .= $this->_get_where_public();
             $sql  .= ' ORDER BY ' . $order;
-            $rows =& $this->get_rows_by_sql($sql, $limit, $start);
+            $rows = &$this->get_rows_by_sql($sql, $limit, $start);
+
             return $rows;
         }
 
         // single_link.php
-    public function &get_rows_public_by_lid_order($lid, $order = 'updated_unix DESC, fid DESC', $limit = 0, $start = 0)
+        public function &get_rows_public_by_lid_order($lid, $order = 'updated_unix DESC, fid DESC', $limit = 0, $start = 0)
         {
             $future = $this->_get_future_time();
 
@@ -470,12 +474,12 @@ public function subsutute_date()
             $sql  .= $this->_get_where_public();
             $sql  .= ' AND lid=' . (int)$lid;
             $sql  .= ' ORDER BY ' . $order;
-            $rows =& $this->get_rows_by_sql($sql, $limit, $start);
+            $rows = &$this->get_rows_by_sql($sql, $limit, $start);
 
             return $rows;
         }
 
-    public function &get_rows_public_by_mid_order($mid, $order = 'updated_unix DESC, fid DESC', $limit = 0, $start = 0)
+        public function &get_rows_public_by_mid_order($mid, $order = 'updated_unix DESC, fid DESC', $limit = 0, $start = 0)
         {
             $rows = false;
             if ($mid) {
@@ -483,13 +487,14 @@ public function subsutute_date()
                 $sql  .= $this->_get_where_public();
                 $sql  .= ' AND mid=' . (int)$mid;
                 $sql  .= ' ORDER BY ' . $order;
-                $rows =& $this->get_rows_by_sql($sql, $limit, $start);
+                $rows = &$this->get_rows_by_sql($sql, $limit, $start);
             }
+
             return $rows;
         }
 
         // search
-    public function &get_rows_public_by_where($where, $order = '', $limit = 0, $start = 0)
+        public function &get_rows_public_by_where($where, $order = '', $limit = 0, $start = 0)
         {
             $sql = 'SELECT * FROM ' . $this->_table . ' WHERE ';
             $sql .= $this->_get_where_public();
@@ -501,7 +506,8 @@ public function subsutute_date()
                 $sql .= ' ORDER BY fid';
             }
 
-            $rows =& $this->get_rows_by_sql($sql, $limit, $start);
+            $rows = &$this->get_rows_by_sql($sql, $limit, $start);
+
             return $rows;
         }
 
@@ -510,26 +516,28 @@ public function subsutute_date()
         // some feed have future date
         // supress at showing
         //---------------------------------------------------------
-    public function _get_future_time()
+        public function _get_future_time()
         {
             $time = time() + 86400 * $this->_future_days;
+
             return $time;
         }
 
         //---------------------------------------------------------
         // get_fid array
         //---------------------------------------------------------
-    public function &get_fid_array_older($limit = 0, $offset = 0)
+        public function &get_fid_array_older($limit = 0, $offset = 0)
         {
             $sql = 'SELECT fid FROM ' . $this->_table . ' ORDER BY updated_unix ASC';
-            $arr =& $this->get_first_row_by_sql($sql, $limit, $offset);
+            $arr = &$this->get_first_row_by_sql($sql, $limit, $offset);
+
             return $arr;
         }
 
         //---------------------------------------------------------
         // clear feed
         //---------------------------------------------------------
-    public function clear_over_num($num)
+        public function clear_over_num($num)
         {
             if ($num <= 0) {
                 return 0;    // no action
@@ -556,7 +564,7 @@ public function subsutute_date()
         //---------------------------------------------------------
         // refresh feed
         //---------------------------------------------------------
-    public function refresh(&$item)
+        public function refresh(&$item)
         {
             $this->_clear_errors();
 
@@ -581,10 +589,11 @@ public function subsutute_date()
             return $this->returnExistError();
         }
 
-    public function _get_item($item, $key)
+        public function _get_item($item, $key)
         {
             if (isset($item[$key])) {
                 $ret = $item[$key];
+
                 return $ret;
             }
 
@@ -601,8 +610,5 @@ public function subsutute_date()
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

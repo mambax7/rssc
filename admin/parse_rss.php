@@ -35,10 +35,10 @@
 
 require __DIR__ . '/admin_header.php';
 
-require_once XOOPS_ROOT_PATH.'/class/template.php';
+require_once XOOPS_ROOT_PATH . '/class/template.php';
 
-require_once RSSC_ROOT_PATH.'/api/view.php';
-require_once RSSC_ROOT_PATH.'/api/refresh.php';
+require_once RSSC_ROOT_PATH . '/api/view.php';
+require_once RSSC_ROOT_PATH . '/api/refresh.php';
 
 //=========================================================
 // class admin_parse_rss
@@ -69,15 +69,15 @@ class admin_parse_rss extends happy_linux_error
     {
         parent::__construct();
 
-        $this->_confHandler       =& rssc_getHandler('config_basic', RSSC_DIRNAME);
-        $this->_link_basicHandler =& rssc_getHandler('link_basic', RSSC_DIRNAME);
-        $this->_xml_basicHandler  =& rssc_getHandler('xml_basic', RSSC_DIRNAME);
-        $this->_refreshHandler    =& rssc_getHandler('refresh', RSSC_DIRNAME);
-        $this->_viewHandler       =& rssc_getHandler('view', RSSC_DIRNAME);
-        $this->_parser             = happy_linux_rss_parser::getInstance();
-        $this->_utility            = happy_linux_rss_utility::getInstance();
-        $this->_post               = happy_linux_post::getInstance();
-        $this->_form = admin_form_rss::getInstance();
+        $this->_confHandler       = rssc_getHandler('config_basic', RSSC_DIRNAME);
+        $this->_link_basicHandler = rssc_getHandler('link_basic', RSSC_DIRNAME);
+        $this->_xml_basicHandler  = rssc_getHandler('xml_basic', RSSC_DIRNAME);
+        $this->_refreshHandler    = rssc_getHandler('refresh', RSSC_DIRNAME);
+        $this->_viewHandler       = rssc_getHandler('view', RSSC_DIRNAME);
+        $this->_parser            = happy_linux_rss_parser::getInstance();
+        $this->_utility           = happy_linux_rss_utility::getInstance();
+        $this->_post              = happy_linux_post::getInstance();
+        $this->_form              = admin_form_rss::getInstance();
 
         $this->TEMPLATE_RDF  = RSSC_ROOT_PATH . '/templates/xml/rssc_view_rdf.html';
         $this->TEMPLATE_RSS  = RSSC_ROOT_PATH . '/templates/xml/rssc_view_rss.html';
@@ -105,14 +105,14 @@ class admin_parse_rss extends happy_linux_error
         $op  = $this->get_post_op();
         $lid = $this->get_post_get_lid();
 
-        $param =& $this->get_param();
+        $param = &$this->get_param();
 
         if ($lid > 0) {
             if ($this->exists_link($lid)) {
                 if ('param' == $op) {
-                    $param =& $_POST;
+                    $param = &$_POST;
                 } else {
-                    $param =& $this->get_param($lid);
+                    $param = &$this->get_param($lid);
                 }
 
                 $ret = $this->get_result($lid, $param);
@@ -139,12 +139,14 @@ class admin_parse_rss extends happy_linux_error
     public function exists_link($lid)
     {
         $ret = $this->_link_basicHandler->exists_by_lid($lid);
+
         return $ret;
     }
 
     public function &get_link_by_lid($lid)
     {
-        $ret =& $this->_link_basicHandler->get_link_by_lid($lid);
+        $ret = &$this->_link_basicHandler->get_link_by_lid($lid);
+
         return $ret;
     }
 
@@ -154,7 +156,7 @@ class admin_parse_rss extends happy_linux_error
     public function &get_param($lid = '')
     {
         $false     = false;
-        $conf_data =& $this->_confHandler->get_conf();
+        $conf_data = &$this->_confHandler->get_conf();
 
         $title    = '';
         $rdf_url  = '';
@@ -163,7 +165,7 @@ class admin_parse_rss extends happy_linux_error
         $rss_mode = '';
 
         if ($lid) {
-            $link =& $this->get_link_by_lid($lid);
+            $link = &$this->get_link_by_lid($lid);
             if (!is_array($link)) {
                 return $false;
             }
@@ -207,15 +209,17 @@ class admin_parse_rss extends happy_linux_error
 
     public function get_result($lid, $param)
     {
-        $link_obj =& $this->_link_basicHandler->get_cache_object_by_id($lid);
+        $link_obj = &$this->_link_basicHandler->get_cache_object_by_id($lid);
         if (!is_object($link_obj)) {
             xoops_error('no link object');
+
             return false;
         }
 
-        $link_xml =& $this->_xml_basicHandler->get_xml_by_lid($lid);
+        $link_xml = &$this->_xml_basicHandler->get_xml_by_lid($lid);
         if (empty($link_xml)) {
             xoops_error('no xml data');
+
             return false;
         }
 
@@ -248,13 +252,13 @@ class admin_parse_rss extends happy_linux_error
         $this->_viewHandler->set_max_summary($param['max_summary']);
 
         if (1 == $mode) {
-            $result =& $this->get_sanitized_parse_by_lid($lid);
+            $result = &$this->get_sanitized_parse_by_lid($lid);
         } elseif (2 == $mode) {
             if (!$this->_refreshHandler->refresh($lid)) {
                 $this->_set_errors($this->_refreshHandler->getErrors());
             }
 
-            $result =& $this->_viewHandler->get_sanitized_store_by_lid($lid);
+            $result = &$this->_viewHandler->get_sanitized_store_by_lid($lid);
         } else {
             $this->_refreshHandler->set_link_update(0);
             $this->_refreshHandler->set_feed_update(0);
@@ -264,8 +268,8 @@ class admin_parse_rss extends happy_linux_error
                 $this->_set_errors($this->_refreshHandler->getErrors());
             }
 
-            $data   =& $this->_refreshHandler->getData();
-            $result =& $this->_viewHandler->view_format_sanitize($data);
+            $data   = &$this->_refreshHandler->getData();
+            $result = &$this->_viewHandler->view_format_sanitize($data);
         }
 
         if ($this->_error_flag) {
@@ -273,6 +277,7 @@ class admin_parse_rss extends happy_linux_error
         }
 
         $this->_result = $result;
+
         return true;
     }
 
@@ -280,28 +285,30 @@ class admin_parse_rss extends happy_linux_error
     {
         $false = false;
 
-        $link =& $this->get_link_by_lid($lid);
+        $link = &$this->get_link_by_lid($lid);
         if (!is_array($link)) {
             return $false;
         }
 
-        $xml =& $this->_xml_basicHandler->get_xml_by_lid($lid);
+        $xml = &$this->_xml_basicHandler->get_xml_by_lid($lid);
         if (empty($xml)) {
             return $false;
         }
 
         $encoding = $link['encoding'];
 
-        $parse_obj =& $this->_parser->parse_by_xml($xml, $encoding);
+        $parse_obj = &$this->_parser->parse_by_xml($xml, $encoding);
         if (!is_object($parse_obj)) {
             $this->_set_errors($this->_parser->getErrors());
+
             return $false;
         }
 
-        $data1 =& $parse_obj->get_vars();
+        $data1 = &$parse_obj->get_vars();
 
         // sanitize
-        $data2 =& $this->_viewHandler->view_sanitize($data1);
+        $data2 = &$this->_viewHandler->view_sanitize($data1);
+
         return $data2;
     }
 
@@ -311,11 +318,9 @@ class admin_parse_rss extends happy_linux_error
             case RSSC_C_MODE_RDF:
                 $template = $this->TEMPLATE_RDF;
                 break;
-
             case RSSC_C_MODE_ATOM:
                 $template = $this->TEMPLATE_ATOM;
                 break;
-
             case RSSC_C_MODE_RSS:
             default:
                 $template = $this->TEMPLATE_RSS;
@@ -330,6 +335,7 @@ class admin_parse_rss extends happy_linux_error
         $result = $this->_result;
         if (!is_array($result) || !count($result)) {
             xoops_error('display_tpl: no result');
+
             return false;
         }
 
@@ -370,7 +376,7 @@ class admin_parse_rss extends happy_linux_error
         }
 
         if ($lid) {
-            $link =& $this->get_link_by_lid($lid);
+            $link = &$this->get_link_by_lid($lid);
             if (is_array($link)) {
                 $data['title']    = $link['title_s'];
                 $data['rdf_url']  = $link['rdf_url_s'];
@@ -542,7 +548,7 @@ class admin_form_rss extends happy_linux_form
 
     public function _make_admin_caption($keyword)
     {
-        $const_title = '_AM_RSSC_VIEW_' . strtoupper($keyword);
+        $const_title = '_AM_RSSC_VIEW_' . mb_strtoupper($keyword);
         $const_desc  = $const_title . '_DESC';
         $title       = '';
         $desc        = '';
@@ -558,6 +564,7 @@ class admin_form_rss extends happy_linux_form
         }
 
         $ret = $this->build_form_caption($title, $desc);
+
         return $ret;
     }
 
@@ -580,5 +587,3 @@ rssc_admin_print_footer();
 xoops_cp_footer();
 exit();
 // === main end ===
-
-

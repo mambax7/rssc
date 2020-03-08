@@ -10,36 +10,32 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : utf-8
-// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
 
 // --- define language begin ---
-if( !defined('RSSC_LANG_MI_LOADED') ) 
-{
+if (!defined('RSSC_LANG_MI_LOADED')) {
+    define('RSSC_LANG_MI_LOADED', 1);
 
-define('RSSC_LANG_MI_LOADED', 1);
+    // The name of this module
+    define('_MI_RSSC_NAME', 'RSS Центр');
+    define('_MI_RSSC_DESC', 'Данный модуль собирает RDF/RSS/ATOM каналы, сохраняет в базе данных и ищет их.');
 
-// The name of this module
-define('_MI_RSSC_NAME','RSS Центр');
-define('_MI_RSSC_DESC','Данный модуль собирает RDF/RSS/ATOM каналы, сохраняет в базе данных и ищет их.');
+    // Names of sub menu
+    define('_MI_RSSC_SMNAME_HEADLINE', 'Простой заголовок');
 
-// Names of sub menu
-define('_MI_RSSC_SMNAME_HEADLINE','Простой заголовок');
+    // Names of blocks
+    define('_MI_RSSC_BNAME_LATEST', 'Последние RDF/RSS/ATOM каналы');
+    define('_MI_RSSC_BNAME_HEADLINE', 'Простой заголовок');
+    define('_MI_RSSC_BNAME_REFRESH', 'Простой заголовок (обновление)');
 
-// Names of blocks
-define('_MI_RSSC_BNAME_LATEST','Последние RDF/RSS/ATOM каналы');
-define('_MI_RSSC_BNAME_HEADLINE','Простой заголовок');
-define('_MI_RSSC_BNAME_REFRESH','Простой заголовок (обновление)');
+    // 2006-09-20
+    define('_MI_RSSC_BNAME_BLOG', 'Блог RSSC');
 
-// 2006-09-20
-define('_MI_RSSC_BNAME_BLOG','Блог RSSC');
+    // Names of admin menu
+    define('_MI_RSSC_ADMENU_CONFIG', 'Конфигурация модуля');
+    define('_MI_RSSC_ADMENU_LINKLIST', 'Список ссылок');
 
-// Names of admin menu
-define('_MI_RSSC_ADMENU_CONFIG','Конфигурация модуля');
-define('_MI_RSSC_ADMENU_LINKLIST','Список ссылок');
-
-// === 2009-02-20 ===
-define('_MI_RSSC_BNAME_MAP','Карта RSS Google');
-
+    // === 2009-02-20 ===
+    define('_MI_RSSC_BNAME_MAP', 'Карта RSS Google');
 }
 // --- define language end ---
-

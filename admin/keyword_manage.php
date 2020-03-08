@@ -27,8 +27,7 @@
 //=========================================================
 
 require __DIR__ . '/admin_header.php';
-require_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
-
+require_once RSSC_ROOT_PATH . '/admin/admin_manage_base_class.php';
 
 //=========================================================
 // class keyword manage
@@ -50,7 +49,7 @@ class admin_manage_keyword extends admin_manage_base
     {
         admin_manage_base::__construct();
 
-        $this->setHandler('link_xml', RSSC_DIRNAME, 'rssc');
+        $this->set_handler('link_xml', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('lid');
         $this->set_form_class('admin_form_keyword');
         $this->set_script('keyword_manage.php');
@@ -85,8 +84,10 @@ class admin_manage_keyword extends admin_manage_base
         if (file_exists(RSSC_ROOT_PATH . '/language/' . $language . '/site_list.php')) {
             require_once RSSC_ROOT_PATH . '/language/' . $language . '/site_list.php';
             $this->_list = rssc_site_list::getInstance();
+
             return true;
         }
+
         return false;
     }
 
@@ -100,7 +101,7 @@ class admin_manage_keyword extends admin_manage_base
 
     public function _print_add_form()
     {
-        $obj = $this->Handler->create();
+        $obj = $this->handler->create();
         $obj->setVar('uid', $this->_system->get_uid());
         $obj->setVar('mid', $this->_system->get_mid());
         $obj->setVar('mode', $this->_MODE);
@@ -108,6 +109,7 @@ class admin_manage_keyword extends admin_manage_base
         $obj->setVar('ltype', RSSC_C_LINK_LTYPE_SEARCH);    // rss search site
 
         $this->_form->_show_add($obj);
+
         return true;
     }
 
@@ -124,10 +126,9 @@ class admin_manage_keyword extends admin_manage_base
         if ($this->_exec_add_keyword()) {
             redirect_header($this->_redirect_desc, 1, _AM_RSSC_DBUPDATED);
             exit();
-        } else {
-            $this->_print_add_keyword_db_error();
-            exit();
         }
+        $this->_print_add_keyword_db_error();
+        exit();
     }
 
     public function _check_add_keyword()
@@ -145,11 +146,11 @@ class admin_manage_keyword extends admin_manage_base
         $this->_clear_errors();
 
         foreach ($this->_list->get_site_list() as $site) {
-            $obj = $this->Handler->create();
+            $obj = $this->handler->create();
             $obj->set_vars_keyword($site);
-            $newid = $this->Handler->insert($obj);
+            $newid = $this->handler->insert($obj);
             if (!$newid) {
-                $this->_set_errors($this->Handler->getErrors());
+                $this->_set_errors($this->handler->getErrors());
             }
         }
 
@@ -183,7 +184,6 @@ class admin_manage_keyword extends admin_manage_base
 //=========================================================
 class admin_form_keyword extends happy_linux_form
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -237,7 +237,6 @@ class admin_form_keyword extends happy_linux_form
         echo $this->build_form_table_end();
         echo $this->build_form_end();
         // --- form end ---
-
     }
 
     // --- class end ---
@@ -248,57 +247,51 @@ class admin_form_keyword extends happy_linux_form
 //=========================================================
 $manage = admin_manage_keyword::getInstance();
 
-if ( !$manage->file_exists() )
-{
-	print_notice();
-	exit();
+if (!$manage->file_exists()) {
+    print_notice();
+    exit();
 }
 
 $op = $manage->get_op();
 
-switch ($op)
-{
-	case 'add_keyword':
-		$manage->main_add_keyword();
-		break;
-
-	default:
-		$manage->main_add_form();
-		break;
+switch ($op) {
+    case 'add_keyword':
+        $manage->main_add_keyword();
+        break;
+    default:
+        $manage->main_add_form();
+        break;
 }
 
 xoops_cp_footer();
 exit();
 // --- end of main ---
 
-
 //---------------------------------------------------------
 // function
 //---------------------------------------------------------
 function print_notice()
 {
-	xoops_cp_header();
-	rssc_admin_print_header();
-	rssc_admin_print_menu();
+    xoops_cp_header();
+    rssc_admin_print_header();
+    rssc_admin_print_menu(); ?>
+    <br>
+    <font color='red'>NOT support in your language</font><br>
+    <br>
+    There are the RSS search site which carries out RSS feeds of the search results, such as <br>
+    In English<br>
+    - <a href="https://blogsearch.google.com/" target="_blank">https://blogsearch.google.com/</a><br>
+    <br>
+    In Japanese<br>
+    - <a href="https://sf.livedoor.com/" target="_blank">https://sf.livedoor.com/</a><br>
+    <br>
+    I dont know same site in your language. <br>
+    If you know, please teach me.<br>
+    Webmaster of <a href="https://linux2.ohwada.net/" target="_blank">Happy Linux</a><br>
+    <br>
+    <?php
 
-?>
-<br>
-<font color='red'>NOT support in your language</font><br>
-<br>
-There are the RSS search site which carries out RSS feeds of the search results, such as <br>
-In English<br>
-- <a href="http://blogsearch.google.com/" target="_blank">http://blogsearch.google.com/</a><br>
-<br>
-In Japanese<br>
-- <a href="http://sf.livedoor.com/" target="_blank">http://sf.livedoor.com/</a><br>
-<br>
-I dont know same site in your language. <br>
-If you know, please teach me.<br>
-Webmaster of <a href="http://linux2.ohwada.net/" target="_blank">Happy Linux</a><br>
-<br>
-<?php
-
-	xoops_cp_footer();
+    xoops_cp_footer();
 }
 
 ?>

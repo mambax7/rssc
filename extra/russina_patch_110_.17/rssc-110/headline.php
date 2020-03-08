@@ -41,139 +41,130 @@
 
 require __DIR__ . '/header.php';
 
-require_once RSSC_ROOT_PATH.'/api/refresh.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_headlineHandler.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_viewHandler.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_map.php';
+require_once RSSC_ROOT_PATH . '/api/refresh.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_headlineHandler.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_viewHandler.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_map.php';
 
-$headlineHandler =& rssc_getHandler( 'headline',     RSSC_DIRNAME );
-$viewHandler     =& rssc_getHandler( 'view',         RSSC_DIRNAME );
-$confHandler     =& rssc_getHandler( 'config_basic', RSSC_DIRNAME );
-$post             =& happy_linux_post::getInstance();
-$pagenavi         =& happy_linux_pagenavi::getInstance();
-$map_class        =& rssc_map::getInstance();
+$headlineHandler = &rssc_getHandler('headline', RSSC_DIRNAME);
+$viewHandler = &rssc_getHandler('view', RSSC_DIRNAME);
+$confHandler = &rssc_getHandler('config_basic', RSSC_DIRNAME);
+$post = &happy_linux_post::getInstance();
+$pagenavi = &happy_linux_pagenavi::getInstance();
+$map_class = &rssc_map::getInstance();
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME.'_headline.html';
-require XOOPS_ROOT_PATH.'/header.php';
+$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME . '_headline.html';
+require XOOPS_ROOT_PATH . '/header.php';
 
-$conf =& $confHandler->get_conf();
+$conf = &$confHandler->get_conf();
 $link_limit = $conf['main_headline_links_perpage'];
 $feed_limit = $conf['main_headline_feeds_perpage'];
-$show_thumb = $conf['main_headline_show_thumb'] ;
-$webmap_dirname = $conf['webmap_dirname'] ;
+$show_thumb = $conf['main_headline_show_thumb'];
+$webmap_dirname = $conf['webmap_dirname'];
 
-$lid_get    = $post->get_get_int('lid');
+$lid_get = $post->get_get_int('lid');
 
-$viewHandler->setFeedOrder(  $conf['main_headline_order'] );
-$viewHandler->setFutureDays( $conf['basic_future_days'] );
-$viewHandler->setFlagSanitize( true );
-$viewHandler->set_flag_ltype( true );
-$viewHandler->set_flag_enclosure( true );
-$viewHandler->set_title_html(   $conf['main_headline_title_html'] );
-$viewHandler->set_content_html( $conf['main_headline_content_html'] );
-$viewHandler->set_max_title(    $conf['main_headline_max_title'] );
-$viewHandler->set_max_content(  $conf['main_headline_max_content'] );
-$viewHandler->set_max_summary(  $conf['main_headline_max_summary'] );
+$viewHandler->setFeedOrder($conf['main_headline_order']);
+$viewHandler->setFutureDays($conf['basic_future_days']);
+$viewHandler->setFlagSanitize(true);
+$viewHandler->set_flag_ltype(true);
+$viewHandler->set_flag_enclosure(true);
+$viewHandler->set_title_html($conf['main_headline_title_html']);
+$viewHandler->set_content_html($conf['main_headline_content_html']);
+$viewHandler->set_max_title($conf['main_headline_max_title']);
+$viewHandler->set_max_content($conf['main_headline_max_content']);
+$viewHandler->set_max_summary($conf['main_headline_max_summary']);
 
 $pagenavi->setPerpage($feed_limit);
 $pagenavi->getGetPage();
 
 $link_show = 0;
 $feed_show = 0;
-$lid       = 0;
-$channel   = array();
-$feeds      = array();
-$error      = '';
-$navi       = '';
+$lid = 0;
+$channel = [];
+$feeds = [];
+$error = '';
+$navi = '';
 $feed_total = 0;
-$feed_list  = null ;
+$feed_list = null;
 $show_title_map = false;
 
-$ret = $map_class->init( $webmap_dirname );
-if ( $ret ) {
-	$show_title_map = true ;
+$ret = $map_class->init($webmap_dirname);
+if ($ret) {
+    $show_title_map = true;
 }
 
-if ( !$headlineHandler->refresh_headline($link_limit) )
-{
-	$error = $headlineHandler->getErrors('s');
+if (!$headlineHandler->refresh_headline($link_limit)) {
+    $error = $headlineHandler->getErrors('s');
 }
 
-$links =& $headlineHandler->get_headline_links($link_limit);
+$links = &$headlineHandler->get_headline_links($link_limit);
 
-if ($lid_get > 0)
-{
-	$lid = $lid_get;
+if ($lid_get > 0) {
+    $lid = $lid_get;
 }
 // suppress Notice Undefined offset: 0
-elseif ( isset($links[0]['lid']) )
-{
-	$lid = $links[0]['lid'];
+elseif (isset($links[0]['lid'])) {
+    $lid = $links[0]['lid'];
 }
 
-if ( $viewHandler->exists_link($lid) )
-{
+if ($viewHandler->exists_link($lid)) {
+    foreach ($links as $link) {
+        $xoopsTpl->append('links', $link);
+    }
 
-	foreach ($links as $link) 
-	{
-		$xoopsTpl->append('links', $link);
-	}
+    $channel = &$viewHandler->get_link_by_lid($lid);
 
-	$channel =& $viewHandler->get_link_by_lid($lid);
+    if (is_array($channel) && (count($channel) > 0)) {
+        $link_show = 1;
+        $xoopsTpl->assign('channel', $channel);
+    }
 
-	if ( is_array($channel) && (count($channel) > 0) )
-	{
-		$link_show = 1;
-		$xoopsTpl->assign('channel', $channel);
-	}
+    $rss_channel = &$viewHandler->_linkHandler->get_channel_by_lid($lid);
+    $xoopsTpl->assign('rss_channel', $rss_channel);
 
-	$rss_channel =& $viewHandler->_linkHandler->get_channel_by_lid($lid);
-	$xoopsTpl->assign('rss_channel', $rss_channel);
+    $feed_total = $viewHandler->get_feed_count_by_lid($lid);
 
-	$feed_total = $viewHandler->get_feed_count_by_lid($lid);
+    $pagenavi->setTotal($feed_total);
+    $feed_start = $pagenavi->calcStart();
 
-	$pagenavi->setTotal($feed_total);
-	$feed_start = $pagenavi->calcStart();
+    $feeds = &$viewHandler->get_feeds_by_lid($lid, $feed_limit, $feed_start);
 
-	$feeds =& $viewHandler->get_feeds_by_lid($lid, $feed_limit, $feed_start);
+    if (is_array($feeds) && count($feeds)) {
+        $feed_show = 1;
 
-	if ( is_array($feeds) && count($feeds) ) {
-		$feed_show = 1;
+        $param = [
+            'feeds' => $feeds ,
+            'show_thumb' => $show_thumb ,
+            'show_icon' => false ,
+            'show_site' => false ,
+            'keywords' => null ,
+        ];
+        $feed_list = $viewHandler->fetch_tpl_feed_list($param);
+    }
 
-		$param = array(
-			'feeds'      => $feeds ,
-			'show_thumb' => $show_thumb ,
-			'show_icon'  => false ,
-			'show_site'  => false ,
-			'keywords'   => null ,
-		);
-		$feed_list = $viewHandler->fetch_tpl_feed_list( $param );
-	}
-
-	$url = RSSC_URL.'/headline.php?lid='.$lid;
-	$navi = $pagenavi->build($url);
+    $url = RSSC_URL . '/headline.php?lid=' . $lid;
+    $navi = $pagenavi->build($url);
 }
 
-$xoopsTpl->assign( $viewHandler->get_tpl_common_param() );
+$xoopsTpl->assign($viewHandler->get_tpl_common_param());
 
-$xoopsTpl->assign('lang_total',   sprintf(_RSSC_THEREARE, $feed_total) );
+$xoopsTpl->assign('lang_total', sprintf(_RSSC_THEREARE, $feed_total));
 /* CDS Patch. RSS Center. 1.02. 6. BOF */
 $xoopsTpl->assign('lang_total_count', $feed_total);
 /* CDS Patch. RSS Center. 1.02. 6. EOF */
 
-$xoopsTpl->assign('link_show',  $link_show);
-$xoopsTpl->assign('feed_show',  $feed_show);
-$xoopsTpl->assign('feed_list',  $feed_list);
+$xoopsTpl->assign('link_show', $link_show);
+$xoopsTpl->assign('feed_show', $feed_show);
+$xoopsTpl->assign('feed_list', $feed_list);
 $xoopsTpl->assign('rssc_error', $error);
-$xoopsTpl->assign('rssc_navi',  $navi);
-$xoopsTpl->assign('show_title_map', $show_title_map );
+$xoopsTpl->assign('rssc_navi', $navi);
+$xoopsTpl->assign('show_title_map', $show_title_map);
 
-$xoopsTpl->assign('execution_time',  happy_linux_get_execution_time() );
-$xoopsTpl->assign('memory_usage',    happy_linux_get_memory_usage_mb() );
-require XOOPS_ROOT_PATH.'/footer.php';
+$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
+$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+require XOOPS_ROOT_PATH . '/footer.php';
 exit();
 // --- main end ---
-
-?>

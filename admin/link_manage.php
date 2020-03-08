@@ -59,17 +59,16 @@
 
 require __DIR__ . '/admin_header.php';
 
-require_once RSSC_ROOT_PATH.'/api/refresh.php';
-require_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_block_map.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_map.php';
+require_once RSSC_ROOT_PATH . '/api/refresh.php';
+require_once RSSC_ROOT_PATH . '/admin/admin_manage_base_class.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_block_map.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_map.php';
 
 //=========================================================
 // class link manage
 //=========================================================
 class admin_manage_link extends admin_manage_base
 {
-
     public $_MODE             = RSSC_C_MODE_AUTO;    // auto discovery
     public $_REFRESH_INTERVAL = 86400;    // 24 hours
     public $_sel_rss_atom     = RSSC_C_SEL_ATOM;
@@ -95,7 +94,7 @@ class admin_manage_link extends admin_manage_base
     {
         admin_manage_base::__construct();
 
-        $this->setHandler('link_xml', RSSC_DIRNAME, 'rssc');
+        $this->set_handler('link_xml', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('lid');
         $this->set_form_class('admin_form_link');
         $this->set_script('link_manage.php');
@@ -104,9 +103,9 @@ class admin_manage_link extends admin_manage_base
         $this->set_flag_execute_time(true);
 
         // handler
-        $this->_refreshHandler =& rssc_getHandler('refresh', RSSC_DIRNAME);
-        $this->_parser          = happy_linux_rss_parser::getInstance();
-        $this->_utility         = happy_linux_rss_utility::getInstance();
+        $this->_refreshHandler = rssc_getHandler('refresh', RSSC_DIRNAME);
+        $this->_parser         = happy_linux_rss_parser::getInstance();
+        $this->_utility        = happy_linux_rss_utility::getInstance();
     }
 
     public static function getInstance()
@@ -129,13 +128,14 @@ class admin_manage_link extends admin_manage_base
 
     public function _print_add_form()
     {
-        $obj =  $this->Handler->create();
+        $obj = $this->handler->create();
         $obj->set('uid', $this->_system->get_uid());
         $obj->set('mid', $this->_system->get_mid());
         $obj->set('mode', $this->_MODE);
         $obj->set('refresh', $this->_REFRESH_INTERVAL);
 
         $this->_form->_show_add($obj);
+
         return true;
     }
 
@@ -162,10 +162,9 @@ class admin_manage_link extends admin_manage_base
             $this->_print_cp_footer();
 
             exit();
-        } else {
-            $this->_print_add_db_error();
-            exit();
         }
+        $this->_print_add_db_error();
+        exit();
     }
 
     public function _check_add_table()
@@ -176,6 +175,7 @@ class admin_manage_link extends admin_manage_base
         }
 
         $ret = $this->_check_exist_rssurl();
+
         return $ret;
     }
 
@@ -190,11 +190,9 @@ class admin_manage_link extends admin_manage_base
             case RSSC_C_MODE_RDF:
                 $flag_rdf = true;
                 break;
-
             case RSSC_C_MODE_RSS:
                 $flag_rss = true;
                 break;
-
             case RSSC_C_MODE_ATOM:
                 $flag_atom = true;
                 break;
@@ -206,25 +204,29 @@ class admin_manage_link extends admin_manage_base
         $this->_check_url_by_post('rdf_url', _RSSC_RDF_URL, $flag_rdf);
         $this->_check_url_by_post('rss_url', _RSSC_RSS_URL, $flag_rss);
         $this->_check_url_by_post('atom_url', _RSSC_ATOM_URL, $flag_atom);
+
         return $this->returnExistError();
     }
 
     public function _exec_add_table()
     {
         if ($this->_DEBUG_INSERT) {
-            $obj =  $this->Handler->create();
+            $obj = $this->handler->create();
             $obj->_set_vars_insert();
-            $newid = $this->Handler->insert($obj);
+            $newid = $this->handler->insert($obj);
             if (!$newid) {
                 $this->_set_errors($this->_LANG_FAIL_ADD);
-                $this->_set_errors($this->Handler->getErrors());
+                $this->_set_errors($this->handler->getErrors());
+
                 return false;
             }
 
             $this->_newid = $newid;
+
             return true;
         }
         $this->_newid = $this - _DEBUG_NEWID;
+
         return true;
     }
 
@@ -263,16 +265,16 @@ class admin_manage_link extends admin_manage_base
             $this->_print_cp_footer();
 
             exit();
-        } else {
-            $this->_print_mod_db_error();
-            exit();
         }
+        $this->_print_mod_db_error();
+        exit();
     }
 
     public function _check_mod_table()
     {
         $this->_clear_errors();
         $this->_check_add_mod();
+
         return $this->returnExistError();
     }
 
@@ -310,7 +312,7 @@ class admin_manage_link extends admin_manage_base
         $feed_title = $feed['title'];
         $feed_link  = $feed['link'];
 
-        $parse_obj =& $this->_parser->discover_and_parse_by_html_url($feed_link);
+        $parse_obj = &$this->_parser->discover_and_parse_by_html_url($feed_link);
         if (is_object($parse_obj)) {
             $title    = $parse_obj->get_channel_by_key('title');
             $url      = $parse_obj->get_channel_by_key('link');
@@ -329,7 +331,7 @@ class admin_manage_link extends admin_manage_base
             $encoding = '';
         }
 
-        $obj =  $this->Handler->create();
+        $obj = $this->handler->create();
         $obj->set('uid', $this->_system->get_uid());
         $obj->set('mid', $this->_system->get_mid());
         $obj->set('mode', (int)$xml_mode);
@@ -342,6 +344,7 @@ class admin_manage_link extends admin_manage_base
         $obj->setVar('encoding', $encoding, true);
 
         $this->_form->_show_add($obj);
+
         return true;
     }
 
@@ -369,30 +372,30 @@ class admin_manage_link extends admin_manage_base
         switch ($ret) {
             case 0:
                 return true;
-
             case RSSC_CODE_PARSE_MSG:
                 $this->_parse_result = $this->_refreshHandler->get_parse_result();
-                return true;
 
+                return true;
             case RSSC_CODE_PARSE_NOT_READ_XML_URL:
                 $this->_set_error_title(_RSSC_PARSE_NOT_READ_XML_URL);
                 $this->_set_errors($this->_refreshHandler->getErrors());
-                return false;
 
+                return false;
             case RSSC_CODE_PARSE_FAILED:
                 $this->_set_error_title(_RSSC_PARSE_FAILED);
                 $this->_set_errors($this->_refreshHandler->getErrors());
-                return false;
 
+                return false;
             case RSSC_CODE_DB_ERROR:
                 $this->_set_error_title(_RSSC_DB_ERROR);
                 $this->_set_errors($this->_refreshHandler->getErrors());
-                return false;
 
+                return false;
             case RSSC_CODE_REFRESH_ERROR:
             default:
                 $this->_set_error_title(_RSSC_REFRESH_ERROR);
                 $this->_set_errors($this->_refreshHandler->getErrors());
+
                 return false;
         }
 
@@ -475,12 +478,13 @@ class admin_manage_link extends admin_manage_base
         $rss_url  = $this->_utility->get_rss_url();
         $atom_url = $this->_utility->get_atom_url();
 
-        $list =& $this->Handler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url);
+        $list = $this->handler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url);
         if (is_array($list) && count($list)) {
             $script = 'link_manage.php?op=mod_form&amp;lid=';
-            $msg    = $this->Handler->build_error_rssurl_list($list, $script);
+            $msg    = $this->handler->build_error_rssurl_list($list, $script);
             $err    = '<h4>' . _RSSC_LINK_ALREADY . "</h4>\n" . $msg;
             $this->_set_error_extra($err);
+
             return false;
         }
 
@@ -488,6 +492,7 @@ class admin_manage_link extends admin_manage_base
         $_POST['rdf_url']  = $rdf_url;
         $_POST['rss_url']  = $rss_url;
         $_POST['atom_url'] = $atom_url;
+
         return true;
     }
 
@@ -560,15 +565,15 @@ class admin_form_link extends happy_linux_form_lib
     {
         parent::__construct();
 
-        $this->_linkHandler =& rssc_getHandler('link', RSSC_DIRNAME);
-        $this->_xmlHandler  =& rssc_getHandler('xml', RSSC_DIRNAME);
-        $this->_feedHandler =& rssc_getHandler('feed', RSSC_DIRNAME);
-        $this->_post         = happy_linux_post::getInstance();
-        $this->_system       = happy_linux_system::getInstance();
-        $this->_map_class    =& rssc_map::getInstance(RSSC_DIRNAME);
+        $this->_linkHandler = rssc_getHandler('link', RSSC_DIRNAME);
+        $this->_xmlHandler  = rssc_getHandler('xml', RSSC_DIRNAME);
+        $this->_feedHandler = rssc_getHandler('feed', RSSC_DIRNAME);
+        $this->_post        = happy_linux_post::getInstance();
+        $this->_system      = happy_linux_system::getInstance();
+        $this->_map_class   = rssc_map::getInstance(RSSC_DIRNAME);
 
-        $confHandler =& rssc_getHandler('config_basic', RSSC_DIRNAME);
-        $this->_conf  = $confHandler->get_conf();
+        $confHandler = rssc_getHandler('config_basic', RSSC_DIRNAME);
+        $this->_conf = $confHandler->get_conf();
 
         // icon
         $this->_DIR_ICON           = RSSC_ROOT_PATH . '/' . $this->_DIR_ICON_REL;
@@ -589,7 +594,7 @@ class admin_form_link extends happy_linux_form_lib
     //---------------------------------------------------------
     // show link
     //---------------------------------------------------------
-    public function _show(&$obj, $extra = null, $show_mode = 0)
+    public function _show($obj, $extra = null, $show_mode = 0)
     {
         echo _AM_RSSC_LINK_DESC . "<br><br>\n";
 
@@ -609,7 +614,6 @@ class admin_form_link extends happy_linux_form_lib
                 $op         = 'mod_table';
                 $button_val = _HAPPY_LINUX_MODIFY;
                 break;
-
             case HAPPY_LINUX_MODE_ADD:
             case HAPPY_LINUX_MODE_ADD_PREVIEW:
             default:
@@ -627,7 +631,7 @@ class admin_form_link extends happy_linux_form_lib
         $atom_url = $obj->get('atom_url');
 
         if (HAPPY_LINUX_MODE_MOD == $show_mode) {
-            $list =& $this->_linkHandler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url, $lid);
+            $list = &$this->_linkHandler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url, $lid);
             if (is_array($list) && count($list)) {
                 $script = 'link_manage.php?op=mod_form&amp;lid=';
                 echo $this->build_html_highlight(_RSSC_LINK_EXIST_MORE);
@@ -669,7 +673,7 @@ class admin_form_link extends happy_linux_form_lib
         echo $this->build_form_table_line(_RSSC_USER_ID, $ele_uid);
 
         $reg_href = '';
-        $register =& $this->get_register($obj);
+        $register = &$this->get_register($obj);
         if (is_array($register)) {
             $reg_dirname = $register['dirname'];
             $reg_name    = $register['name'];
@@ -765,7 +769,7 @@ class admin_form_link extends happy_linux_form_lib
         echo $this->build_form_table_line('channel', $ele_channel);
 
         $ele_xml = '';
-        $xml_obj =& $this->_xmlHandler->get($lid);
+        $xml_obj = &$this->_xmlHandler->get($lid);
         if (is_object($xml_obj)) {
             $val_xml = $xml_obj->get_rawurldecode_xml();
             if ($val_xml) {
@@ -795,12 +799,12 @@ class admin_form_link extends happy_linux_form_lib
         echo $this->build_form_table_end();
         echo $this->build_form_end();
         // --- form end ---
-
     }
 
     public function _build_ele_gicon()
     {
         $id = $this->_obj->getVar('gicon_id');
+
         return $this->_map_class->build_ele_gicon($id);
     }
 
@@ -873,6 +877,7 @@ EOF;
         }
 
         $text .= $this->build_html_select_tag_end();
+
         return $text;
     }
 
@@ -896,11 +901,10 @@ EOF;
     public function show_refresh_link($lid, $op_mode = 0)
     {
         switch ($op_mode) {
-            case 1;
+            case 1:
                 $location_url = 'link_list.php';
                 break;
-
-            case 0;
+            case 0:
             default:
                 $location_url = 'link_list.php?sortid=1';
                 break;
@@ -958,11 +962,9 @@ EOF;
             case 'rssc_headline':
                 $url = XOOPS_URL . '/modules/' . $dirname . '/admin/index.php?op=edit&headline_id=' . $p1;
                 break;
-
             case 'weblinks':
                 $url = XOOPS_URL . '/modules/' . $dirname . '/admin/link_manage.php?op=mod_form&lid=' . $p1;
                 break;
-
             default:
             case 'rssc':
                 $url = '';
@@ -993,10 +995,11 @@ EOF;
     {
         $lid     = $obj->get('lid');
         $xml     = false;
-        $xml_obj =& $this->_xmlHandler->get($lid);
+        $xml_obj = &$this->_xmlHandler->get($lid);
         if (is_object($xml_obj)) {
             $xml = $xml_obj->get_rawurldecode_xml();
         }
+
         return $xml;
     }
 
@@ -1010,48 +1013,37 @@ $manage = admin_manage_link::getInstance();
 
 $op = $manage->get_op();
 
-switch ($op)
-{
-	case 'add_table':
-		$manage->main_add_table();
-		break;
-
-	case 'mod_form':
-		$manage->main_mod_form();
-		break;
-
-	case 'mod_table':
-		$manage->main_mod_table();
-		break;
-
-	case 'del_table':
-		$manage->main_del_table();
-		break;
-
-	case 'addlink':
-		$manage->main_addlink();
-		break;
-
-	case 'refresh_link':
-		$manage->main_refresh_link();
-		break;
-
-	case 'view_channel':
-		$manage->view_channel();
-		break;
-
-	case 'view_xml':
-		$manage->view_xml();
-		break;
-
-	case 'add_form':
-	default:
-		$manage->main_add_form();
-		break;
+switch ($op) {
+    case 'add_table':
+        $manage->main_add_table();
+        break;
+    case 'mod_form':
+        $manage->main_mod_form();
+        break;
+    case 'mod_table':
+        $manage->main_mod_table();
+        break;
+    case 'del_table':
+        $manage->main_del_table();
+        break;
+    case 'addlink':
+        $manage->main_addlink();
+        break;
+    case 'refresh_link':
+        $manage->main_refresh_link();
+        break;
+    case 'view_channel':
+        $manage->view_channel();
+        break;
+    case 'view_xml':
+        $manage->view_xml();
+        break;
+    case 'add_form':
+    default:
+        $manage->main_add_form();
+        break;
 }
 
 xoops_cp_footer();
 exit();
 // --- end of main ---
-
-

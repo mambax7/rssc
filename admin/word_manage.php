@@ -12,14 +12,13 @@
 //=========================================================
 
 require __DIR__ . '/admin_header.php';
-require_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
+require_once RSSC_ROOT_PATH . '/admin/admin_manage_base_class.php';
 
 //=========================================================
 // class word manage
 //=========================================================
 class admin_manage_word extends admin_manage_base
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -27,7 +26,7 @@ class admin_manage_word extends admin_manage_base
     {
         admin_manage_base::__construct();
 
-        $this->setHandler('word', RSSC_DIRNAME, 'rssc');
+        $this->set_handler('word', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('sid');
         $this->set_form_class('admin_form_word');
         $this->set_script('word_manage.php');
@@ -71,12 +70,13 @@ class admin_manage_word extends admin_manage_base
         }
 
         $word = $this->_post->get_post_text('word');
-        $objs =& $this->Handler->get_objects_by_word($word);
+        $objs = $this->handler->get_objects_by_word($word);
         if (is_array($objs) && count($objs)) {
             $script = 'word_manage.php?op=mod_form&amp;sid=';
-            $msg    = $this->Handler->build_error_list($objs, $script);
+            $msg    = $this->handler->build_error_list($objs, $script);
             $err    = '<h4>' . _AM_RSSC_WORD_ALREADY . "</h4>\n" . $msg;
             $this->_set_error_extra($err);
+
             return false;
         }
 
@@ -103,6 +103,7 @@ class admin_manage_word extends admin_manage_base
     {
         $this->_clear_errors();
         $this->_check_fill_by_post('word', _RSSC_WORD_WORD);
+
         return $this->returnExistError();
     }
 
@@ -148,7 +149,7 @@ class admin_manage_word extends admin_manage_base
             $point = (int)$v;
             $word  = $word_arr[$sid];
 
-            $obj =& $this->Handler->get($sid);
+            $obj = $this->handler->get($sid);
             if (!is_object($obj)) {
                 continue;
             }
@@ -162,9 +163,9 @@ class admin_manage_word extends admin_manage_base
             $obj->setVar('point', $point);
             $obj->setVar('word', $word);
 
-            $ret = $this->Handler->update($obj);
+            $ret = $this->handler->update($obj);
             if (!$ret) {
-                $this->_set_error($this->Handler->getErrors());
+                $this->_set_error($this->handler->getErrors());
             }
         }
 
@@ -187,7 +188,6 @@ class admin_manage_word extends admin_manage_base
 //=========================================================
 class admin_form_word extends happy_linux_form
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -209,7 +209,7 @@ class admin_form_word extends happy_linux_form
     //---------------------------------------------------------
     // show word
     //---------------------------------------------------------
-    public function _show(&$obj, $extra = null, $mode = 0)
+    public function _show($obj, $extra = null, $mode = 0)
     {
         switch ($mode) {
             case HAPPY_LINUX_MODE_MOD:
@@ -219,7 +219,6 @@ class admin_form_word extends happy_linux_form
                 $op         = 'mod_table';
                 $button_val = _HAPPY_LINUX_MODIFY;
                 break;
-
             case HAPPY_LINUX_MODE_ADD:
             case HAPPY_LINUX_MODE_ADD_PREVIEW:
             default:
@@ -266,7 +265,6 @@ class admin_form_word extends happy_linux_form
         echo $this->build_form_table_end();
         echo $this->build_form_end();
         // --- form end ---
-
     }
 
     // --- class end ---
@@ -279,41 +277,32 @@ $manage = admin_manage_word::getInstance();
 
 $op = $manage->get_op();
 
-switch ($op)
-{
-	case 'add_table':
-		$manage->main_add_table();
-		break;
-
-	case 'mod_form':
-		$manage->main_mod_form();
-		break;
-
-	case 'mod_table':
-		$manage->main_mod_table();
-		break;
-
-	case 'del_table':
-		$manage->main_del_table();
-		break;
-
-	case 'mod_all':
-		$manage->main_mod_all();
-		break;
-
-	case 'del_all':
-		$manage->main_del_all();
-		break;
-
-	case 'add_form':
-	default:
-		$manage->main_add_form();
-		break;
+switch ($op) {
+    case 'add_table':
+        $manage->main_add_table();
+        break;
+    case 'mod_form':
+        $manage->main_mod_form();
+        break;
+    case 'mod_table':
+        $manage->main_mod_table();
+        break;
+    case 'del_table':
+        $manage->main_del_table();
+        break;
+    case 'mod_all':
+        $manage->main_mod_all();
+        break;
+    case 'del_all':
+        $manage->main_del_all();
+        break;
+    case 'add_form':
+    default:
+        $manage->main_add_form();
+        break;
 }
 
 xoops_cp_footer();
 
 exit();
 // --- end of main ---
-
-

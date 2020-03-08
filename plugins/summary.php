@@ -14,8 +14,7 @@
 //---------------------------------------------------------
 
 // === class begin ===
-if( !class_exists('rssc_plugin_summary') ) 
-{
+if (!class_exists('rssc_plugin_summary')) {
     class rssc_plugin_summary extends rssc_plugin_base
     {
         public $_MAX_DEFAULT = 100;
@@ -47,15 +46,14 @@ if( !class_exists('rssc_plugin_summary') )
             $content = $this->get_item_by_key('content');
             if ($content) {
                 $this->set_item_by_key('content', happy_linux_mb_build_summary($content, $max));
+
                 return true;
             }
+
             return false;
         }
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

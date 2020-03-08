@@ -21,9 +21,9 @@
 // system files
 require __DIR__ . '/admin_header.php';
 
-require_once RSSC_ROOT_PATH.'/api/refresh.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_importHandler.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_weblinksHandler.php';
+require_once RSSC_ROOT_PATH . '/api/refresh.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_import_handler.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_weblinks_handler.php';
 
 //=========================================================
 // class admin_import_weblinks
@@ -44,7 +44,7 @@ class admin_import_weblinks extends rssc_importHandler
 
         $this->_rss_parser = happy_linux_rss_parser::getInstance();
 
-        $this->_weblinksHandler = rssc_weblinksHandler::getInstance($this->_DIRNAME_WEBLINKS);
+        $this->_weblinksHandler = rssc_weblinks_handler::getInstance($this->_DIRNAME_WEBLINKS);
         $this->_weblinksHandler->set_debug_db_error(true);
         $this->_weblinksHandler->load_config();
     }
@@ -153,7 +153,7 @@ class admin_import_weblinks extends rssc_importHandler
         echo 'There are <b>' . $total . "</b> rss links in weblinks<br>\n";
         echo 'Transfer ' . $offset . ' - ' . $next . " record <br><br>\n";
 
-        $objs =& $this->_weblinksHandler->get_link_objects_rss_flag_prev_ver($this->_LIMIT, $offset);
+        $objs = &$this->_weblinksHandler->get_link_objects_rss_flag_prev_ver($this->_LIMIT, $offset);
 
         foreach ($objs as $obj) {
             $rssc_lid = $this->import_link_weblinks($obj);
@@ -177,7 +177,7 @@ class admin_import_weblinks extends rssc_importHandler
         echo 'There are <b>' . $total . "</b> feeds in weblinks<br>\n";
         echo 'Transfer ' . $offset . ' - ' . $next . " record <br><br>\n";
 
-        $objs =& $this->_weblinksHandler->get_atomfeed_objects($this->_LIMIT, $offset);
+        $objs = &$this->_weblinksHandler->get_atomfeed_objects($this->_LIMIT, $offset);
 
         $this->_set_lid_list();
 
@@ -261,81 +261,60 @@ xoops_cp_header();
 $import = admin_import_weblinks::getInstance();
 
 $op = 'main';
-if ( isset($_POST['op']) )  $op = $_POST['op'];
+if (isset($_POST['op'])) {
+    $op = $_POST['op'];
+}
 
-rssc_admin_print_bread( _AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'weblinks' );
+rssc_admin_print_bread(_AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'weblinks');
 echo '<h3>' . _AM_RSSC_IMPORT_WEBLINKS . "</h3>\n";
 echo "Import DB weblinks 0.97 to rssc 0.70 <br><br>\n";
 
-if( !$import->exist_module() ) 
-{
-	xoops_error( $import->get_msg_not_installed() );
-	xoops_cp_footer();
-	exit();
+if (!$import->exist_module()) {
+    xoops_error($import->get_msg_not_installed());
+    xoops_cp_footer();
+    exit();
 }
 
-switch ($op) 
-{
-case 'import_site':
-	if( !$import->check_token() ) 
-	{
-		xoops_error('Token Error');
-	}
-	else
-	{
-		$import->main_import_site();
-	}
-	break;
-
-case 'import_black':
-	if( !$import->check_token() ) 
-	{
-		xoops_error('Token Error');
-	}
-	else
-	{
-		$import->main_import_black();
-	}
-	break;
-
-case 'import_white':
-	if( !$import->check_token() ) 
-	{
-		xoops_error('Token Error');
-	}
-	else
-	{
-		$import->main_import_white();
-	}
-	break;
-
-case 'import_link':
-	if( !$import->check_token() ) 
-	{
-		xoops_error('Token Error');
-	}
-	else
-	{
-		$import->main_import_link();
-	}
-	break;
-
-case 'import_feed':
-	if( !$import->check_token() ) 
-	{
-		xoops_error('Token Error');
-	}
-	else
-	{
-		$import->main_import_feed();
-	}
-	break;
-
-case 'main':
-default:
-	$import->first_step();
-	break;
-
+switch ($op) {
+    case 'import_site':
+        if (!$import->check_token()) {
+            xoops_error('Token Error');
+        } else {
+            $import->main_import_site();
+        }
+        break;
+    case 'import_black':
+        if (!$import->check_token()) {
+            xoops_error('Token Error');
+        } else {
+            $import->main_import_black();
+        }
+        break;
+    case 'import_white':
+        if (!$import->check_token()) {
+            xoops_error('Token Error');
+        } else {
+            $import->main_import_white();
+        }
+        break;
+    case 'import_link':
+        if (!$import->check_token()) {
+            xoops_error('Token Error');
+        } else {
+            $import->main_import_link();
+        }
+        break;
+    case 'import_feed':
+        if (!$import->check_token()) {
+            xoops_error('Token Error');
+        } else {
+            $import->main_import_feed();
+        }
+        break;
+    case 'main':
+    default:
+        $import->first_step();
+        break;
 }
 
 xoops_cp_footer();

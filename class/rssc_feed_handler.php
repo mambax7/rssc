@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_feedHandler.php,v 1.3 2012/04/10 03:06:50 ohwada Exp $
+// $Id: rssc_feed_handler.php,v 1.3 2012/04/10 03:06:50 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
 // site_link XOBJ_DTYPE_URL -> XOBJ_DTYPE_URL_AREA
@@ -17,7 +17,7 @@
 // move add_column_table_xxx() to rssc_install.php
 
 // 2007-10-10 K.OHWADA
-// match http://xxx/*http://yyy/
+// match https://xxx/*https://yyy/
 
 // 2007-07-01 K.OHWADA
 // add act field
@@ -30,7 +30,7 @@
 // remove get_feed_by_fid() get_feeds_by_lid()
 
 // 2006-07-10 K.OHWADA
-// use happy_linux_object happy_linux_objectHandler
+// use happy_linux_object happy_linux_object_handler
 // use happy_linux_strings
 // support podcast
 
@@ -51,117 +51,115 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_feed_hnadler') ) 
-{
+if (!class_exists('rssc_feed_handler')) {
+    //=========================================================
+    // class feed
+    //=========================================================
 
-//=========================================================
-// class feed
-//=========================================================
-
-class rssc_feed extends happy_linux_object
-{
-
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-public function __construct()
-{
-	parent::__construct();
-
-	$this->initVar('fid', XOBJ_DTYPE_INT, null, false);
-	$this->initVar('lid', XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('uid', XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('mid', XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('p1',  XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('p2',  XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('p3',  XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('site_title', XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('site_link',  XOBJ_DTYPE_URL_AREA );
-	$this->initVar('title', XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('link',  XOBJ_DTYPE_URL_AREA );
-	$this->initVar('entry_id', XOBJ_DTYPE_URL_AREA );
-	$this->initVar('guid',     XOBJ_DTYPE_URL_AREA );
-	$this->initVar('updated_unix',   XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('published_unix', XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('category',     XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('author_name',  XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('author_uri',   XOBJ_DTYPE_URL_AREA );
-	$this->initVar('author_email', XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('type_cont',    XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('raws',    XOBJ_DTYPE_TXTAREA);
-	$this->initVar('content', XOBJ_DTYPE_TXTAREA);
-	$this->initVar('search',  XOBJ_DTYPE_TXTAREA);
-	$this->initVar('aux_int_1',  XOBJ_DTYPE_INT,   0);
-	$this->initVar('aux_int_2',  XOBJ_DTYPE_INT,   0);
-	$this->initVar('aux_text_1', XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('aux_text_2', XOBJ_DTYPE_TXTBOX, null, false, 255);
-
-// enclosure
-	$this->initVar('enclosure_url',    XOBJ_DTYPE_URL_AREA );
-	$this->initVar('enclosure_type',   XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('enclosure_length', XOBJ_DTYPE_INT, 0);
-
-	$this->initVar('act', XOBJ_DTYPE_INT, 1);
-
-// geo
-	$this->initVar('geo_lat',  XOBJ_DTYPE_FLOAT, 0);
-	$this->initVar('geo_long', XOBJ_DTYPE_FLOAT, 0);
-
-// media
-	$this->initVar('media_content_url',      XOBJ_DTYPE_URL_AREA );
-	$this->initVar('media_content_type',     XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('media_content_medium',   XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('media_content_filesize', XOBJ_DTYPE_INT, 0);
-	$this->initVar('media_content_width',    XOBJ_DTYPE_INT, 0);
-	$this->initVar('media_content_height',   XOBJ_DTYPE_INT, 0);
-	$this->initVar('media_thumbnail_url',    XOBJ_DTYPE_URL_AREA );
-	$this->initVar('media_thumbnail_width',  XOBJ_DTYPE_INT, 0);
-	$this->initVar('media_thumbnail_height', XOBJ_DTYPE_INT, 0);
-	
-}
-
-//---------------------------------------------------------
-// function
-//---------------------------------------------------------
-public function &get_raws()
-{
-	$ret =& $this->getVarArray('raws');
-	return $ret;
-}
-
-public function &get_export_raws()
-{
-	$raws =& $this->get_raws();
-	$text = var_export($raws, TRUE);
-	$ret  = htmlspecialchars($text, ENT_QUOTES);
-	return $ret;
-}
-
-public function get_act_option()
-{
-	$opt = [
-		_RSSC_FEED_ACT_NON  => 0,
-		_RSSC_FEED_ACT_VIEW => 1,
-    ];
-	return $opt;
-}
-
-// --- class end ---
-}
-
-//=========================================================
-// class feed handler
-//=========================================================
-    class rssc_feedHandler extends happy_linux_objectHandler
+    class rssc_feed extends happy_linux_object
     {
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct()
+        {
+            parent::__construct();
 
+            $this->initVar('fid', XOBJ_DTYPE_INT, null, false);
+            $this->initVar('lid', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('uid', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('mid', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('p1', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('p2', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('p3', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('site_title', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('site_link', XOBJ_DTYPE_URL_AREA);
+            $this->initVar('title', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('link', XOBJ_DTYPE_URL_AREA);
+            $this->initVar('entry_id', XOBJ_DTYPE_URL_AREA);
+            $this->initVar('guid', XOBJ_DTYPE_URL_AREA);
+            $this->initVar('updated_unix', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('published_unix', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('category', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('author_name', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('author_uri', XOBJ_DTYPE_URL_AREA);
+            $this->initVar('author_email', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('type_cont', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('raws', XOBJ_DTYPE_TXTAREA);
+            $this->initVar('content', XOBJ_DTYPE_TXTAREA);
+            $this->initVar('search', XOBJ_DTYPE_TXTAREA);
+            $this->initVar('aux_int_1', XOBJ_DTYPE_INT, 0);
+            $this->initVar('aux_int_2', XOBJ_DTYPE_INT, 0);
+            $this->initVar('aux_text_1', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('aux_text_2', XOBJ_DTYPE_TXTBOX, null, false, 255);
+
+            // enclosure
+            $this->initVar('enclosure_url', XOBJ_DTYPE_URL_AREA);
+            $this->initVar('enclosure_type', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('enclosure_length', XOBJ_DTYPE_INT, 0);
+
+            $this->initVar('act', XOBJ_DTYPE_INT, 1);
+
+            // geo
+            $this->initVar('geo_lat', XOBJ_DTYPE_FLOAT, 0);
+            $this->initVar('geo_long', XOBJ_DTYPE_FLOAT, 0);
+
+            // media
+            $this->initVar('media_content_url', XOBJ_DTYPE_URL_AREA);
+            $this->initVar('media_content_type', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('media_content_medium', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('media_content_filesize', XOBJ_DTYPE_INT, 0);
+            $this->initVar('media_content_width', XOBJ_DTYPE_INT, 0);
+            $this->initVar('media_content_height', XOBJ_DTYPE_INT, 0);
+            $this->initVar('media_thumbnail_url', XOBJ_DTYPE_URL_AREA);
+            $this->initVar('media_thumbnail_width', XOBJ_DTYPE_INT, 0);
+            $this->initVar('media_thumbnail_height', XOBJ_DTYPE_INT, 0);
+        }
+
+        //---------------------------------------------------------
+        // function
+        //---------------------------------------------------------
+        public function &get_raws()
+        {
+            $ret = &$this->getVarArray('raws');
+
+            return $ret;
+        }
+
+        public function &get_export_raws()
+        {
+            $raws = &$this->get_raws();
+            $text = var_export($raws, true);
+            $ret  = htmlspecialchars($text, ENT_QUOTES);
+
+            return $ret;
+        }
+
+        public function get_act_option()
+        {
+            $opt = [
+                _RSSC_FEED_ACT_NON  => 0,
+                _RSSC_FEED_ACT_VIEW => 1,
+            ];
+
+            return $opt;
+        }
+
+        // --- class end ---
+    }
+
+    //=========================================================
+    // class feed handler
+    //=========================================================
+    class rssc_feed_handler extends happy_linux_object_handler
+    {
         // class
         public $_strings;
 
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
             parent::__construct($dirname, 'feed', 'fid', 'rssc_feed');
 
@@ -181,7 +179,7 @@ public function get_act_option()
 
         // for future
         // now, admin cannot add feed record
-    public function _build_insert_sql($obj)
+        public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -290,7 +288,7 @@ public function get_act_option()
             return $sql;
         }
 
-    public function _build_update_sql($obj)
+        public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -353,13 +351,14 @@ public function get_act_option()
         //---------------------------------------------------------
         // get count
         //---------------------------------------------------------
-    public function get_total()
+        public function get_total()
         {
             $ret = $this->getCount();
+
             return $ret;
         }
 
-    public function get_count_by_lid($lid)
+        public function get_count_by_lid($lid)
         {
             $ret = 0;
             if ($lid) {
@@ -367,10 +366,11 @@ public function get_act_option()
                 $criteria->add($this->get_addtion_by_lid($lid));
                 $ret = $this->getCount($criteria);
             }
+
             return $ret;
         }
 
-    public function get_count_by_lid_non_act($lid)
+        public function get_count_by_lid_non_act($lid)
         {
             $ret = 0;
             if ($lid) {
@@ -379,10 +379,11 @@ public function get_act_option()
                 $criteria->add($this->get_addtion_by_lid($lid));
                 $ret = $this->getCount($criteria);
             }
+
             return $ret;
         }
 
-    public function get_count_by_link($link)
+        public function get_count_by_link($link)
         {
             $ret = 0;
             if ($link) {
@@ -390,10 +391,11 @@ public function get_act_option()
                 $criteria->add($this->get_addtion_by_link($link));
                 $ret = $this->getCount($criteria);
             }
+
             return $ret;
         }
 
-    public function get_count_by_link_non_act($link)
+        public function get_count_by_link_non_act($link)
         {
             $ret = 0;
             if ($link) {
@@ -402,56 +404,63 @@ public function get_act_option()
                 $criteria->add($this->get_addtion_by_link($link));
                 $ret = $this->getCount($criteria);
             }
+
             return $ret;
         }
 
-    public function &get_addtion_by_lid($lid)
+        public function &get_addtion_by_lid($lid)
         {
             $addtion = new Criteria('lid', $lid, '=');
+
             return $addtion;
         }
 
-    public function &get_addtion_by_link($link)
+        public function &get_addtion_by_link($link)
         {
-            // match http://xxx/*http://yyy/
+            // match https://xxx/*https://yyy/
             $link    = '%' . $link . '%';
             $addtion = new Criteria('link', $link, 'LIKE');
+
             return $addtion;
         }
 
-    public function get_count_non_act()
+        public function get_count_non_act()
         {
             $criteria = new CriteriaCompo();
             $criteria->add(new Criteria('act', 0, '='));
             $ret = $this->getCount($criteria);
+
             return $ret;
         }
 
         //---------------------------------------------------------
         // get objects
         //---------------------------------------------------------
-    public function &get_objects($limit = 0, $start = 0)
+        public function &get_objects($limit = 0, $start = 0)
         {
             $criteria = new CriteriaCompo();
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
-    public function &get_objects_by_lid_asc($lid, $limit = 0, $start = 0)
+        public function &get_objects_by_lid_asc($lid, $limit = 0, $start = 0)
         {
-            $objs =& $this->get_objects_by_lid($lid, $limit, $start, 'fid ASC');
+            $objs = &$this->get_objects_by_lid($lid, $limit, $start, 'fid ASC');
+
             return $objs;
         }
 
-    public function &get_objects_by_lid_desc($lid, $limit = 0, $start = 0)
+        public function &get_objects_by_lid_desc($lid, $limit = 0, $start = 0)
         {
-            $objs =& $this->get_objects_by_lid($lid, $limit, $start, 'fid DESC');
+            $objs = &$this->get_objects_by_lid($lid, $limit, $start, 'fid DESC');
+
             return $objs;
         }
 
-    public function &get_objects_by_lid($lid, $limit = 0, $start = 0, $sort = 'fid ASC')
+        public function &get_objects_by_lid($lid, $limit = 0, $start = 0, $sort = 'fid ASC')
         {
             $objs = false;
             if ($lid) {
@@ -460,24 +469,27 @@ public function get_act_option()
                 $criteria->setLimit($limit);
                 $criteria->add($this->get_addtion_by_lid($lid));
                 $criteria->setSort($sort);
-                $objs =& $this->getObjects($criteria);
+                $objs = &$this->getObjects($criteria);
             }
+
             return $objs;
         }
 
-    public function &get_objects_by_lid_non_act_asc($lid, $limit = 0, $start = 0)
+        public function &get_objects_by_lid_non_act_asc($lid, $limit = 0, $start = 0)
         {
-            $objs =& $this->get_objects_by_lid_non_act($lid, $limit, $start, 'fid ASC');
+            $objs = &$this->get_objects_by_lid_non_act($lid, $limit, $start, 'fid ASC');
+
             return $objs;
         }
 
-    public function &get_objects_by_lid_non_act_desc($lid, $limit = 0, $start = 0)
+        public function &get_objects_by_lid_non_act_desc($lid, $limit = 0, $start = 0)
         {
-            $objs =& $this->get_objects_by_lid_non_act($lid, $limit, $start, 'fid DESC');
+            $objs = &$this->get_objects_by_lid_non_act($lid, $limit, $start, 'fid DESC');
+
             return $objs;
         }
 
-    public function &get_objects_by_lid_non_act($lid, $limit = 0, $start = 0, $sort = 'fid ASC')
+        public function &get_objects_by_lid_non_act($lid, $limit = 0, $start = 0, $sort = 'fid ASC')
         {
             $objs = false;
             if ($lid) {
@@ -487,24 +499,27 @@ public function get_act_option()
                 $criteria->add(new criteria('act', 0, '='));
                 $criteria->add($this->get_addtion_by_lid($lid));
                 $criteria->setSort($sort);
-                $objs =& $this->getObjects($criteria);
+                $objs = &$this->getObjects($criteria);
             }
+
             return $objs;
         }
 
-    public function &get_objects_by_link_asc($link, $limit = 0, $start = 0)
+        public function &get_objects_by_link_asc($link, $limit = 0, $start = 0)
         {
-            $objs =& $this->get_objects_by_link($link, $limit, $start, 'fid ASC');
+            $objs = &$this->get_objects_by_link($link, $limit, $start, 'fid ASC');
+
             return $objs;
         }
 
-    public function &get_objects_by_link_desc($link, $limit = 0, $start = 0)
+        public function &get_objects_by_link_desc($link, $limit = 0, $start = 0)
         {
-            $objs =& $this->get_objects_by_link($link, $limit, $start, 'fid DESC');
+            $objs = &$this->get_objects_by_link($link, $limit, $start, 'fid DESC');
+
             return $objs;
         }
 
-    public function &get_objects_by_link($link, $limit = 0, $start = 0, $sort = 'fid ASC')
+        public function &get_objects_by_link($link, $limit = 0, $start = 0, $sort = 'fid ASC')
         {
             $objs = false;
             if ($link) {
@@ -513,24 +528,27 @@ public function get_act_option()
                 $criteria->setLimit($limit);
                 $criteria->add($this->get_addtion_by_link($link));
                 $criteria->setSort($sort);
-                $objs =& $this->getObjects($criteria);
+                $objs = &$this->getObjects($criteria);
             }
+
             return $objs;
         }
 
-    public function &get_objects_by_link_non_act_asc($link, $limit = 0, $start = 0)
+        public function &get_objects_by_link_non_act_asc($link, $limit = 0, $start = 0)
         {
-            $objs =& $this->get_objects_by_link_non_act($link, $limit, $start, 'fid ASC');
+            $objs = &$this->get_objects_by_link_non_act($link, $limit, $start, 'fid ASC');
+
             return $objs;
         }
 
-    public function &get_objects_by_link_non_act_desc($link, $limit = 0, $start = 0)
+        public function &get_objects_by_link_non_act_desc($link, $limit = 0, $start = 0)
         {
-            $objs =& $this->get_objects_by_link_non_act($link, $limit, $start, 'fid DESC');
+            $objs = &$this->get_objects_by_link_non_act($link, $limit, $start, 'fid DESC');
+
             return $objs;
         }
 
-    public function &get_objects_by_link_non_act($link, $limit = 0, $start = 0, $sort = 'fid ASC')
+        public function &get_objects_by_link_non_act($link, $limit = 0, $start = 0, $sort = 'fid ASC')
         {
             $objs = false;
             if ($link) {
@@ -540,20 +558,23 @@ public function get_act_option()
                 $criteria->add(new criteria('act', 0, '='));
                 $criteria->add($this->get_addtion_by_link($link));
                 $criteria->setSort($sort);
-                $objs =& $this->getObjects($criteria);
+                $objs = &$this->getObjects($criteria);
             }
+
             return $objs;
         }
 
-    public function &get_objects_non_act_asc($limit = 0, $start = 0)
+        public function &get_objects_non_act_asc($limit = 0, $start = 0)
         {
-            $objs =& $this->get_objects_non_act($limit, $start, 'fid ASC');
+            $objs = &$this->get_objects_non_act($limit, $start, 'fid ASC');
+
             return $objs;
         }
 
-    public function &get_objects_non_act_desc($limit = 0, $start = 0)
+        public function &get_objects_non_act_desc($limit = 0, $start = 0)
         {
-            $objs =& $this->get_objects_non_act($limit, $start, 'fid DESC');
+            $objs = &$this->get_objects_non_act($limit, $start, 'fid DESC');
+
             return $objs;
         }
 
@@ -564,14 +585,12 @@ public function get_act_option()
             $criteria->setLimit($limit);
             $criteria->add(new criteria('act', 0, '='));
             $criteria->setSort($sort);
-            $objs =& $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

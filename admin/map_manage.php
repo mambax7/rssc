@@ -10,8 +10,8 @@
 //=========================================================
 
 require_once __DIR__ . '/admin_header_config.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_block_map.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_map.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_block_map.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_map.php';
 
 //=========================================================
 // class map manage
@@ -30,12 +30,12 @@ class admin_map_manage
     //---------------------------------------------------------
     public function __construct($dirname)
     {
-        $this->_confHandler =& rssc_getHandler('config_basic', $dirname);
+        $this->_confHandler  = rssc_getHandler('config_basic', $dirname);
         $this->_config_form  = admin_config_form::getInstance();
         $this->_config_store = admin_config_store::getInstance();
-        $this->_map_class    =& rssc_map::getInstance($dirname);
+        $this->_map_class    = rssc_map::getInstance($dirname);
 
-        $this->_conf =& $this->_confHandler->get_conf();
+        $this->_conf = &$this->_confHandler->get_conf();
     }
 
     public static function getInstance($dirname)
@@ -87,6 +87,7 @@ class admin_map_manage
         $this->_config_form->show_by_catid(18);
 
         rssc_admin_print_footer();
+
         return true;
     }
 
@@ -96,27 +97,23 @@ class admin_map_manage
 //=========================================================
 // main
 //=========================================================
-$manage =& admin_map_manage::getInstance( RSSC_DIRNAME );
+$manage = admin_map_manage::getInstance(RSSC_DIRNAME);
 
 $op = $manage->get_post_get_op();
 
 if ('save' == $op) {
-	if( ! $manage->check_token() ) {
-		xoops_cp_header();
-		$manage->print_xoops_token_error();
-
-	} else {
-		$manage->save();
-		redirect_header('map_manage.php', 1, _HAPPY_LINUX_UPDATED);
-	}
-
+    if (!$manage->check_token()) {
+        xoops_cp_header();
+        $manage->print_xoops_token_error();
+    } else {
+        $manage->save();
+        redirect_header('map_manage.php', 1, _HAPPY_LINUX_UPDATED);
+    }
 } else {
-	xoops_cp_header();
+    xoops_cp_header();
 }
 
 $manage->main();
 
 xoops_cp_footer();
 exit();
-
-

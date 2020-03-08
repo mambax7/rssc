@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_word_basicHandler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
+// $Id: rssc_word_basic_handler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
 
 //=========================================================
 // Rss Center Module
@@ -7,22 +7,19 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_word_basicHandler') ) 
-{
-
-//=========================================================
-// class word handler
-// this class is used by command line
-// this class handle MySQL table directly
-// this class does not use another class
-//=========================================================
-    class rssc_word_basicHandler extends happy_linux_basicHandler
+if (!class_exists('rssc_word_basic_handler')) {
+    //=========================================================
+    // class word handler
+    // this class is used by command line
+    // this class handle MySQL table directly
+    // this class does not use another class
+    //=========================================================
+    class rssc_word_basic_handler extends happy_linux_basic_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
             parent::__construct($dirname);
 
@@ -36,7 +33,7 @@ if( !class_exists('rssc_word_basicHandler') )
         //---------------------------------------------------------
         // insert
         //---------------------------------------------------------
-    public function insert_word($word)
+        public function insert_word($word)
         {
             $sql = 'INSERT INTO ' . $this->_table . ' ( ';
             $sql .= 'word';
@@ -44,54 +41,59 @@ if( !class_exists('rssc_word_basicHandler') )
             $sql .= $this->quote($word);
             $sql .= ' )';
             $ret = $this->query($sql);
+
             return $ret;
         }
 
         //---------------------------------------------------------
         // update
         //---------------------------------------------------------
-    public function countup($sid)
+        public function countup($sid)
         {
             $sql = 'UPDATE ' . $this->_table . ' SET count = count+1 WHERE sid=' . (int)$sid;
             $ret = $this->query($sql);
+
             return $ret;
         }
 
         //---------------------------------------------------------
         // select
         //---------------------------------------------------------
-    public function &get_sid_array_older($limit = 0, $offset = 0)
+        public function &get_sid_array_older($limit = 0, $offset = 0)
         {
             // point=0
             $sql = 'SELECT sid FROM ' . $this->_table . ' ';
             $sql .= 'WHERE point=0 ';
             $sql .= 'ORDER BY count ASC, sid ASC';
-            $arr =& $this->get_first_row_by_sql($sql, $limit, $offset);
+            $arr = &$this->get_first_row_by_sql($sql, $limit, $offset);
+
             return $arr;
         }
 
-    public function &get_rows_act($limit = 0, $offset = 0)
+        public function &get_rows_act($limit = 0, $offset = 0)
         {
             // word is filled
             $sql  = 'SELECT * FROM ' . $this->_table;
             $sql  .= " WHERE word<>'' ";
             $sql  .= ' ORDER BY sid ASC';
-            $rows =& $this->get_rows_by_sql($sql, $limit, $offset);
+            $rows = &$this->get_rows_by_sql($sql, $limit, $offset);
+
             return $rows;
         }
 
-    public function exists_word($word)
+        public function exists_word($word)
         {
             $sql = 'SELECT count(*) FROM ' . $this->_table . ' ';
             $sql .= 'WHERE word=' . $this->quote($word);
             $ret = $this->get_count_by_sql($sql);
+
             return $ret;
         }
 
         //---------------------------------------------------------
         // add
         //---------------------------------------------------------
-    public function add_word_array($arr)
+        public function add_word_array($arr)
         {
             foreach ($arr as $w) {
                 // insert new record, if not exist
@@ -128,8 +130,5 @@ if( !class_exists('rssc_word_basicHandler') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

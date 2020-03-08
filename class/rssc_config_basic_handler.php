@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_config_basicHandler.php,v 1.1 2011/12/29 14:37:15 ohwada Exp $
+// $Id: rssc_config_basic_handler.php,v 1.1 2011/12/29 14:37:15 ohwada Exp $
 
 // 2007-10-10 K.OHWADA
 // _load_config_once()
@@ -10,7 +10,7 @@
 // 2006-07-10 K.OHWADA
 // this is new file
 // unify with weblinks
-// use happy_linux_basicHandler
+// use happy_linux_basic_handler
 
 //================================================================
 // RSS Center Module
@@ -18,17 +18,14 @@
 //================================================================
 
 // === class begin ===
-if( !class_exists('rssc_config_basicHandler') ) 
-{
-
-//=========================================================
-// class rssc_config_basicHandler
-// this class handle MySQL table directly
-// this class does not use another class
-//=========================================================
-    class rssc_config_basicHandler extends happy_linux_basicHandler
+if (!class_exists('rssc_config_basic_handler')) {
+    //=========================================================
+    // class rssc_config_basicHandler
+    // this class handle MySQL table directly
+    // this class does not use another class
+    //=========================================================
+    class rssc_config_basic_handler extends happy_linux_basic_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -48,8 +45,5 @@ if( !class_exists('rssc_config_basicHandler') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

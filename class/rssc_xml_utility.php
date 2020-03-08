@@ -29,23 +29,19 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_xml_utility') ) 
-{
+if (!class_exists('rssc_xml_utility')) {
+    //---------------------------------------------------------
+    // define constant
+    //---------------------------------------------------------
+    define('RSSC_CODE_XML_ENCODINGS_DEFAULT', HAPPY_LINUX_RSS_CODE_XML_ENCODINGS_DEFAULT);
+    define('RSSC_CODE_DISCOVER_SUCCEEDED', HAPPY_LINUX_RSS_CODE_DISCOVER_SUCCEEDED);
+    define('RSSC_CODE_DISCOVER_FAILED', HAPPY_LINUX_RSS_CODE_DISCOVER_FAILED);
 
-//---------------------------------------------------------
-// define constant
-//---------------------------------------------------------
-define('RSSC_CODE_XML_ENCODINGS_DEFAULT',  HAPPY_LINUX_RSS_CODE_XML_ENCODINGS_DEFAULT);
-define('RSSC_CODE_DISCOVER_SUCCEEDED',     HAPPY_LINUX_RSS_CODE_DISCOVER_SUCCEEDED);
-define('RSSC_CODE_DISCOVER_FAILED',        HAPPY_LINUX_RSS_CODE_DISCOVER_FAILED);
-
-
-//=========================================================
-// class rssc_xml_utility
-//=========================================================
+    //=========================================================
+    // class rssc_xml_utility
+    //=========================================================
     class rssc_xml_utility extends happy_linux_rss_utility
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -66,8 +62,5 @@ define('RSSC_CODE_DISCOVER_FAILED',        HAPPY_LINUX_RSS_CODE_DISCOVER_FAILED)
 
         //----- class end -----
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

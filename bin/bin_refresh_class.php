@@ -42,8 +42,8 @@ class bin_refresh extends happy_linux_bin_base
         $this->set_filename('modules/' . $dirname . '/' . $this->_FILENAME_RESULT);
 
         // class Instant
-        $this->_refresh =& rssc_getHandler('refresh_all', $dirname);
-        $this->_config  =& rssc_getHandler('config_basic', $dirname);
+        $this->_refresh = rssc_getHandler('refresh_all', $dirname);
+        $this->_config  = rssc_getHandler('config_basic', $dirname);
     }
 
     //=========================================================
@@ -51,7 +51,7 @@ class bin_refresh extends happy_linux_bin_base
     //=========================================================
     public function refresh()
     {
-        $conf_data  =& $this->_config->get_conf();
+        $conf_data  = &$this->_config->get_conf();
         $feed_limit = $conf_data['basic_feed_limit'];
         $word_limit = $conf_data['word_limit'];
         $pass       = $conf_data['bin_pass'];
@@ -100,5 +100,3 @@ END_OF_TEXT;
 
     // --- class end ---
 }
-
-

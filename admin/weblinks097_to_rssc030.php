@@ -18,15 +18,15 @@
 require __DIR__ . '/admin_header.php';
 
 // system files
-require_once XOOPS_ROOT_PATH.'/class/snoopy.php';
+require_once XOOPS_ROOT_PATH . '/class/snoopy.php';
 
 // module files
-require_once RSSC_ROOT_PATH.'/admin/admin_import_base_class.php';
-require_once RSSC_ROOT_PATH.'/class/magpie/rssc_magpie_parse.php';
-require_once RSSC_ROOT_PATH.'/class/magpie/rssc_magpie_cache.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_xml_object.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_xml_utility.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_parseHandler.php';
+require_once RSSC_ROOT_PATH . '/admin/admin_import_base_class.php';
+require_once RSSC_ROOT_PATH . '/class/magpie/rssc_magpie_parse.php';
+require_once RSSC_ROOT_PATH . '/class/magpie/rssc_magpie_cache.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_xml_object.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_xml_utility.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_parse_handler.php';
 
 //=========================================================
 // class admin_import_weblinks
@@ -52,7 +52,7 @@ class admin_import_weblinks extends admin_import_base
         $this->set_debug_db_sql(0);
         $this->set_debug_db_error(1);
 
-        $this->_parseHandler =& rssc_parseHandler::getInstance();
+        $this->_parseHandler = rssc_parse_handler::getInstance();
 
         $this->_table_weblinks_link   = $this->db_prefix($this->_DIRNAME_WEBLINKS . '_link');
         $this->_table_weblinks_feed   = $this->db_prefix($this->_DIRNAME_WEBLINKS . '_atomfeed');
@@ -137,7 +137,7 @@ class admin_import_weblinks extends admin_import_base
             $url     = $link;
             $rss_url = $site_url;
 
-            $link_obj =  $this->_linkHandler->create();
+            $link_obj = $this->_linkHandler->create();
 
             $link_obj->set('uid', 1);    // admin
             $link_obj->set('mid', $this->_mid);
@@ -194,7 +194,7 @@ class admin_import_weblinks extends admin_import_base
         foreach ($site_list as $site_url) {
             $title = '';
 
-            $parse_obj =& $this->_parseHandler->discover_and_parse_by_html_url($site_url);
+            $parse_obj = &$this->_parseHandler->discover_and_parse_by_html_url($site_url);
             if (is_object($parse_obj)) {
                 $title = $parse_obj->get_channel_by_key('title');
             }
@@ -207,7 +207,7 @@ class admin_import_weblinks extends admin_import_base
 
             echo $i . ': ' . htmlspecialchars($url) . " <br>\n";
 
-            $black_obj =  $this->_blackHandler->create();
+            $black_obj = $this->_blackHandler->create();
 
             $black_obj->set('uid', 1);    // admin
             $black_obj->set('mid', $this->_mid);
@@ -262,7 +262,7 @@ class admin_import_weblinks extends admin_import_base
         foreach ($site_list as $site_url) {
             $title = '';
 
-            $parse_obj =& $this->_parseHandler->discover_and_parse_by_html_url($site_url);
+            $parse_obj = &$this->_parseHandler->discover_and_parse_by_html_url($site_url);
             if (is_object($parse_obj)) {
                 $title = $parse_obj->get_channel_by_key('title');
             }
@@ -275,7 +275,7 @@ class admin_import_weblinks extends admin_import_base
 
             echo $i . ': ' . htmlspecialchars($url) . " <br>\n";
 
-            $white_obj =  $this->_whiteHandler->create();
+            $white_obj = $this->_whiteHandler->create();
 
             $white_obj->set('uid', 1);    // admin
             $white_obj->set('mid', $this->_mid);
@@ -371,8 +371,8 @@ class admin_import_weblinks extends admin_import_base
         $sql1 = 'SELECT count(*) FROM ' . $this->_table_weblinks_link;
         $sql1 .= ' WHERE ( rss_flag=1 OR rss_flag=2 )';
 
-        $res1  =& $this->query($sql1);
-        $row1  =& $this->_db->fetchRow($res1);
+        $res1  = &$this->query($sql1);
+        $row1  = &$this->_db->fetchRow($res1);
         $total = $row1[0];
 
         echo 'There are <b>' . $total . "</b> rss links in weblinks<br>\n";
@@ -381,7 +381,7 @@ class admin_import_weblinks extends admin_import_base
         $sql2 = 'SELECT * FROM ' . $this->_table_weblinks_link;
         $sql2 .= ' WHERE ( rss_flag=1 OR rss_flag=2 ) ORDER BY lid';
 
-        $res2 =& $this->query($sql2, $this->_LIMIT, $offset);
+        $res2 = &$this->query($sql2, $this->_LIMIT, $offset);
 
         while (false !== ($row2 = $this->_db->fetchArray($res2))) {
             $lid   = $row2['lid'];
@@ -408,18 +408,16 @@ class admin_import_weblinks extends admin_import_base
                     $mode    = 2;    // rss
                     $rss_url = $url2;
                     break;
-
                 case 2:
                     $mode     = 3;    // atom
                     $atom_url = $url2;
                     break;
-
                 default:
                     $mode = 4;    // auto
                     break;
             }
 
-            $link_obj =  $this->_linkHandler->create();
+            $link_obj = $this->_linkHandler->create();
 
             $link_obj->set('uid', 1);    // admin
             $link_obj->set('mid', $this->_mid);
@@ -503,8 +501,8 @@ class admin_import_weblinks extends admin_import_base
         $this->_set_lid_list();
 
         $sql1  = 'SELECT count(*) FROM ' . $this->_table_weblinks_feed;
-        $res1  =& $this->query($sql1);
-        $row1  =& $this->_db->fetchRow($res1);
+        $res1  = &$this->query($sql1);
+        $row1  = &$this->_db->fetchRow($res1);
         $total = $row1[0];
 
         echo 'There are <b>' . $total . "</b> feeds in weblinks<br>\n";
@@ -512,7 +510,7 @@ class admin_import_weblinks extends admin_import_base
 
         $sql2 = 'SELECT * FROM ' . $this->_table_weblinks_feed;
         $sql2 .= ' ORDER BY aid';
-        $res2 =& $this->query($sql2, $this->_LIMIT, $offset);
+        $res2 = &$this->query($sql2, $this->_LIMIT, $offset);
 
         while (false !== ($row2 = $this->_db->fetchArray($res2))) {
             $aid   = $row2['aid'];
@@ -542,7 +540,7 @@ class admin_import_weblinks extends admin_import_base
             $author_email   = $row2['author_email'];
             $content        = $row2['content'];
 
-            $feed_obj =  $this->_feedHandler->create();
+            $feed_obj = $this->_feedHandler->create();
 
             $feed_obj->set('lid', $lid);
             $feed_obj->set('uid', $uid);
@@ -579,8 +577,8 @@ class admin_import_weblinks extends admin_import_base
     public function _get_weblinks_list($key)
     {
         $sql  = 'SELECT * FROM ' . $this->_table_weblinks_config;
-        $res  =& $this->query($sql);
-        $row  =& $this->_db->fetchArray($res);
+        $res  = &$this->query($sql);
+        $row  = &$this->_db->fetchArray($res);
         $list = $this->_strings->convert_string_to_array($row[$key], "\n");
 
         return $list;
@@ -589,6 +587,7 @@ class admin_import_weblinks extends admin_import_base
     public function _get_weblinks_mid()
     {
         $ret = $this->_system->get_mid_by_dirname($this->_DIRNAME_WEBLINKS);
+
         return $ret;
     }
 
@@ -658,81 +657,60 @@ xoops_cp_header();
 $import = admin_import_weblinks::getInstance();
 
 $op = 'main';
-if ( isset($_POST['op']) )  $op = $_POST['op'];
+if (isset($_POST['op'])) {
+    $op = $_POST['op'];
+}
 
-rssc_admin_print_bread( _AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'weblinks' );
+rssc_admin_print_bread(_AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'weblinks');
 echo '<h3>' . _AM_RSSC_IMPORT_WEBLINKS . "</h3>\n";
 echo "Import DB weblinks 0.96 to rssc 0.30 <br><br>\n";
 
-if( !$import->exist_module() ) 
-{
-	xoops_error( $import->get_msg_not_installed() );
-	xoops_cp_footer();
-	exit();
+if (!$import->exist_module()) {
+    xoops_error($import->get_msg_not_installed());
+    xoops_cp_footer();
+    exit();
 }
 
-switch ($op) 
-{
-case 'import_site':
-	if( !$import->check_token() ) 
-	{
-		xoops_error('Token Error');
-	}
-	else
-	{
-		$import->import_site();
-	}
-	break;
-
-case 'import_black':
-	if( !$import->check_token() ) 
-	{
-		xoops_error('Token Error');
-	}
-	else
-	{
-		$import->import_black();
-	}
-	break;
-
-case 'import_white':
-	if( !$import->check_token() ) 
-	{
-		xoops_error('Token Error');
-	}
-	else
-	{
-		$import->import_white();
-	}
-	break;
-
-case 'import_link':
-	if( !$import->check_token() ) 
-	{
-		xoops_error('Token Error');
-	}
-	else
-	{
-		$import->import_link();
-	}
-	break;
-
-case 'import_feed':
-	if( !$import->check_token() ) 
-	{
-		xoops_error('Token Error');
-	}
-	else
-	{
-		$import->import_feed();
-	}
-	break;
-
-case 'main':
-default:
-	$import->first_step();
-	break;
-
+switch ($op) {
+    case 'import_site':
+        if (!$import->check_token()) {
+            xoops_error('Token Error');
+        } else {
+            $import->import_site();
+        }
+        break;
+    case 'import_black':
+        if (!$import->check_token()) {
+            xoops_error('Token Error');
+        } else {
+            $import->import_black();
+        }
+        break;
+    case 'import_white':
+        if (!$import->check_token()) {
+            xoops_error('Token Error');
+        } else {
+            $import->import_white();
+        }
+        break;
+    case 'import_link':
+        if (!$import->check_token()) {
+            xoops_error('Token Error');
+        } else {
+            $import->import_link();
+        }
+        break;
+    case 'import_feed':
+        if (!$import->check_token()) {
+            xoops_error('Token Error');
+        } else {
+            $import->import_feed();
+        }
+        break;
+    case 'main':
+    default:
+        $import->first_step();
+        break;
 }
 
 xoops_cp_footer();

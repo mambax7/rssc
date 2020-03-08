@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_headlineHandler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
+// $Id: rssc_headline_handler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
 
 // 2007-06-01 K.OHWADA
 // link_basicHandler
@@ -12,7 +12,7 @@
 
 // 2006-06-04 K.OHWADA
 // this is new file
-// move from rssc_refreshHandler.php
+// move from rssc_refresh_handler.php
 
 //=========================================================
 // Rss Center Module
@@ -20,13 +20,11 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_headlineHandler') ) 
-{
-
-//=========================================================
-// class rssc_headlineHandler
-//=========================================================
-    class rssc_headlineHandler extends happy_linux_error
+if (!class_exists('rssc_headline_handler')) {
+    //=========================================================
+    // class rssc_headlineHandler
+    //=========================================================
+    class rssc_headline_handler extends happy_linux_error
     {
         // handler
         public $_linkHandler;
@@ -35,19 +33,19 @@ if( !class_exists('rssc_headlineHandler') )
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
             parent::__construct();
 
             // handler
-            $this->_linkHandler    =& rssc_getHandler('link_basic', $dirname);
-            $this->_refreshHandler =& rssc_getHandler('refresh', $dirname);
+            $this->_linkHandler    = rssc_getHandler('link_basic', $dirname);
+            $this->_refreshHandler = rssc_getHandler('refresh', $dirname);
         }
 
         //---------------------------------------------------------
         // refresh headline links
         //---------------------------------------------------------
-    public function refresh_headline($limit = 0, $start = 0)
+        public function refresh_headline($limit = 0, $start = 0)
         {
             $this->_clear_errors();
 
@@ -69,14 +67,12 @@ if( !class_exists('rssc_headlineHandler') )
         //---------------------------------------------------------
         public function &get_headline_links($limit = 0, $start = 0)
         {
-            $links =& $this->_linkHandler->get_headlines($limit, $start);
+            $links = &$this->_linkHandler->get_headlines($limit, $start);
+
             return $links;
         }
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

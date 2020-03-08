@@ -15,15 +15,13 @@
 //---------------------------------------------------------
 
 // === class begin ===
-if( !class_exists('rssc_plugin_mail') ) 
-{
+if (!class_exists('rssc_plugin_mail')) {
     class rssc_plugin_mail extends rssc_plugin_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct()
+        public function __construct()
         {
             rssc_plugin_base::__construct();
         }
@@ -31,17 +29,17 @@ if( !class_exists('rssc_plugin_mail') )
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
-    public function description()
+        public function description()
         {
             return 'send content to address by mail';
         }
 
-    public function usage()
+        public function usage()
         {
             return 'mail ( address, [subject] )';
         }
 
-        public function execute(&$items)
+        public function execute($items)
         {
             $happy_linux_system = happy_linux_system::getInstance();
 
@@ -57,6 +55,7 @@ if( !class_exists('rssc_plugin_mail') )
 
             if (empty($address)) {
                 $this->set_logs('mail: no address');
+
                 return false;
             }
 
@@ -89,8 +88,5 @@ if( !class_exists('rssc_plugin_mail') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

@@ -10,12 +10,10 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_icon') ) 
-{
-
-//=========================================================
-// class rssc_icon
-//=========================================================
+if (!class_exists('rssc_icon')) {
+    //=========================================================
+    // class rssc_icon
+    //=========================================================
     class rssc_icon
     {
         public $_db;
@@ -26,7 +24,7 @@ if( !class_exists('rssc_icon') )
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct()
+        public function __construct()
         {
             $this->_db = XoopsDatabaseFactory::getDatabaseConnection();
         }
@@ -44,7 +42,7 @@ if( !class_exists('rssc_icon') )
         // --------------------------------------------------------
         // build icon list
         // --------------------------------------------------------
-    public function build_template_icon_list($dirname)
+        public function build_template_icon_list($dirname)
         {
             $MODULE_DIR = XOOPS_ROOT_PATH . '/modules/' . $dirname;
             $template   = $MODULE_DIR . '/templates/parts/rssc_icon_list.html';
@@ -56,10 +54,11 @@ if( !class_exists('rssc_icon') )
             $tpl->assign('icon_cols', $this->_ICON_COLS);
             $tpl->assign('icon_list', $this->build_icon_list($dirname));
             $ret = $tpl->fetch($template);
+
             return $ret;
         }
 
-    public function build_icon_list($dirname)
+        public function build_icon_list($dirname)
         {
             $conf = $this->get_config_row($dirname);
             if (!is_array($conf)) {
@@ -91,7 +90,7 @@ if( !class_exists('rssc_icon') )
             return $arr;
         }
 
-    public function get_config_row($dirname)
+        public function get_config_row($dirname)
         {
             $arr = [];
 
@@ -106,10 +105,11 @@ if( !class_exists('rssc_icon') )
             while (false !== ($row = $this->_db->fetchArray($res))) {
                 $arr[$row['conf_name']] = $row['conf_value'];
             }
+
             return $arr;
         }
 
-    public function get_link_rows($dirname)
+        public function get_link_rows($dirname)
         {
             $rows = [];
 
@@ -124,6 +124,7 @@ if( !class_exists('rssc_icon') )
             while (false !== ($row = $this->_db->fetchArray($res))) {
                 $rows[] = $row;
             }
+
             return $rows;
         }
 
@@ -134,8 +135,5 @@ if( !class_exists('rssc_icon') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

@@ -27,10 +27,10 @@
 
 require __DIR__ . '/admin_header.php';
 
-require_once XOOPS_ROOT_PATH.'/modules/happy_linux/api/rss_parser.php';
+require_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/rss_parser.php';
 
-require_once RSSC_ROOT_PATH.'/admin/admin_manage_base_class.php';
-require_once RSSC_ROOT_PATH.'/admin/admin_form_black_white.php';
+require_once RSSC_ROOT_PATH . '/admin/admin_manage_base_class.php';
+require_once RSSC_ROOT_PATH . '/admin/admin_form_black_white.php';
 
 //=========================================================
 // class black manage
@@ -47,7 +47,7 @@ class admin_manage_black extends admin_manage_base
     {
         admin_manage_base::__construct();
 
-        $this->setHandler('black', RSSC_DIRNAME, 'rssc');
+        $this->set_handler('black', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('bid');
         $this->set_form_class('admin_form_black');
         $this->set_script('black_manage.php');
@@ -133,11 +133,13 @@ class admin_manage_black extends admin_manage_base
         $this->_obj->assignVars($_POST);
         $this->_obj->set('url', $url2);
 
-        if (!$this->Handler->update($this->_obj)) {
+        if (!$this->handler->update($this->_obj)) {
             $this->_set_errors($this->_LANG_FAIL_MOD);
-            $this->_set_errors($this->Handler->getErrors());
+            $this->_set_errors($this->handler->getErrors());
+
             return false;
         }
+
         return true;
     }
 
@@ -183,7 +185,7 @@ class admin_manage_black extends admin_manage_base
         $feed_title = $feed['title'];
         $feed_link  = $feed['link'];
 
-        $parse_obj =& $this->_parser->discover_and_parse_by_html_url($feed_link);
+        $parse_obj = &$this->_parser->discover_and_parse_by_html_url($feed_link);
         if (is_object($parse_obj)) {
             $title      = $parse_obj->get_channel_by_key('title');
             $link       = $parse_obj->get_channel_by_key('link');
@@ -204,7 +206,7 @@ class admin_manage_black extends admin_manage_base
         $memo .= $site_title . "\n";
         $memo .= $site_link . "\n";
 
-        $obj =  $this->Handler->create();
+        $obj = $this->handler->create();
 
         // set values just as enter
         $obj->assignVars($feed);
@@ -214,19 +216,18 @@ class admin_manage_black extends admin_manage_base
         $obj->set('memo', $memo);
 
         $this->_form->_show_add($obj);
+
         return true;
     }
 
     // --- class end ---
 }
 
-
 //=========================================================
 // class admin_form_black
 //=========================================================
 class admin_form_black extends admin_form_black_white
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -248,7 +249,7 @@ class admin_form_black extends admin_form_black_white
     //---------------------------------------------------------
     // show black & white
     //---------------------------------------------------------
-    public function _show(&$obj, $extra = null, $mode = 0)
+    public function _show($obj, $extra = null, $mode = 0)
     {
         $this->_id_name        = 'bid';
         $this->_form_title_add = _AM_RSSC_ADD_BLACK;
@@ -269,40 +270,31 @@ $manage = admin_manage_black::getInstance();
 
 $op = $manage->get_op();
 
-switch ($op)
-{
-	case 'add_table':
-		$manage->main_add_table();
-		break;
-
-	case 'mod_form':
-		$manage->main_mod_form();
-		break;
-
-	case 'mod_table':
-		$manage->main_mod_table();
-		break;
-
-	case 'del_table':
-		$manage->main_del_table();
-		break;
-
-	case 'add_bulk':
-		$manage->main_add_bulk();
-		break;
-
-	case 'addlist':
-		$manage->main_addlist();
-		break;
-
-	case 'add_form':
-	default:
-		$manage->main_add_form();
-		break;
+switch ($op) {
+    case 'add_table':
+        $manage->main_add_table();
+        break;
+    case 'mod_form':
+        $manage->main_mod_form();
+        break;
+    case 'mod_table':
+        $manage->main_mod_table();
+        break;
+    case 'del_table':
+        $manage->main_del_table();
+        break;
+    case 'add_bulk':
+        $manage->main_add_bulk();
+        break;
+    case 'addlist':
+        $manage->main_addlist();
+        break;
+    case 'add_form':
+    default:
+        $manage->main_add_form();
+        break;
 }
 
 xoops_cp_footer();
 exit();
 // --- end of main ---
-
-

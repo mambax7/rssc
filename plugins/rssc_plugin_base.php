@@ -10,8 +10,7 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_plugin_base') ) 
-{
+if (!class_exists('rssc_plugin_base')) {
     class rssc_plugin_base
     {
         public $_plural_vars = [];
@@ -24,7 +23,7 @@ if( !class_exists('rssc_plugin_base') )
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct()
+        public function __construct()
         {
             // dummy
         }
@@ -37,7 +36,7 @@ if( !class_exists('rssc_plugin_base') )
         // return value: none
         // note: reserve for future
         //---------------------------------------------------------
-    public function init()
+        public function init()
         {
             // dummy
         }
@@ -50,7 +49,7 @@ if( !class_exists('rssc_plugin_base') )
         //  exsample:
         //	return "this is plugin description";
         //---------------------------------------------------------
-    public function description()
+        public function description()
         {
             return '';
         }
@@ -63,7 +62,7 @@ if( !class_exists('rssc_plugin_base') )
         //  exsample:
         //	return "plugin_name ( param_1, param_2 )";
         //---------------------------------------------------------
-    public function usage()
+        public function usage()
         {
             return '';
         }
@@ -80,7 +79,7 @@ if( !class_exists('rssc_plugin_base') )
         //	$this->set_item_by_key( 'content', $converted );
         //	return true;
         //---------------------------------------------------------
-    public function convert()
+        public function convert()
         {
             return false;
         }
@@ -100,7 +99,7 @@ if( !class_exists('rssc_plugin_base') )
         //		retrun false;
         //	}
         //---------------------------------------------------------
-    public function reject()
+        public function reject()
         {
             return false;
         }
@@ -112,7 +111,7 @@ if( !class_exists('rssc_plugin_base') )
         // return value:
         //    array items
         //---------------------------------------------------------
-    public function execute($items)
+        public function execute($items)
         {
             $arr = [];
             $this->init();
@@ -142,134 +141,139 @@ if( !class_exists('rssc_plugin_base') )
         // return value:
         //    array return_of_convert, return_of_reject
         //---------------------------------------------------------
-    public function execute_single()
+        public function execute_single()
         {
             $ret1 = $this->convert();
             $ret2 = $this->reject();
             if ($ret2) {
                 $this->set_logs('reject by plugin: ' . $this->name());
             }
+
             return [$ret1, $ret2];
         }
 
         //---------------------------------------------------------
         // get name
         //---------------------------------------------------------
-    public function name()
+        public function name()
         {
             $name = get_class($this);
             $name = str_replace('rssc_plugin_', '', $class);
+
             return $name;
         }
 
         //---------------------------------------------------------
         // set & get param
         //---------------------------------------------------------
-    public function set_param_array(&$arr)
+        public function set_param_array(&$arr)
         {
             if (is_array($arr)) {
-                $this->_param_vars =& $arr;
+                $this->_param_vars = &$arr;
             }
         }
 
-    public function set_param_by_num($num, $value)
+        public function set_param_by_num($num, $value)
         {
             $this->_param_vars[$num] = $value;
         }
 
-    public function get_param_array()
+        public function get_param_array()
         {
             return $this->_param_vars;
         }
 
-    public function get_param_by_num($num, $default = false)
+        public function get_param_by_num($num, $default = false)
         {
             if (isset($this->_param_vars[$num])) {
                 return $this->_param_vars[$num];
             }
+
             return $default;
         }
 
         //---------------------------------------------------------
         // set & get value
         //---------------------------------------------------------
-    public function clear_plural_item_array()
+        public function clear_plural_item_array()
         {
             $this->_plural_vars = [];
         }
 
-    public function set_plural_item_array($arr)
+        public function set_plural_item_array($arr)
         {
             if (is_array($arr)) {
-                $this->_plural_vars =& $arr;
+                $this->_plural_vars = &$arr;
             }
         }
 
-    public function set_plural_item_by_num($num, $value)
+        public function set_plural_item_by_num($num, $value)
         {
             $this->_plural_vars[$num] = $value;
         }
 
-    public function add_plural_item($value)
+        public function add_plural_item($value)
         {
             $this->_plural_vars[] = $value;
         }
 
-    public function &get_plural_item_array()
+        public function &get_plural_item_array()
         {
             return $this->_plural_vars;
         }
 
-    public function &get_plural_item_by_num($num, $default = false)
+        public function &get_plural_item_by_num($num, $default = false)
         {
             if (isset($this->_plural_vars[$num])) {
                 return $this->_plural_vars[$num];
             }
+
             return $default;
         }
 
         //---------------------------------------------------------
         // set & get value
         //---------------------------------------------------------
-    public function clear_item_array()
+        public function clear_item_array()
         {
             $this->_single_vars = [];
         }
 
-    public function set_item_array($arr)
+        public function set_item_array($arr)
         {
             if (is_array($arr)) {
-                $this->_single_vars =& $arr;
+                $this->_single_vars = &$arr;
             }
         }
 
-    public function set_item_by_key($key, $value)
+        public function set_item_by_key($key, $value)
         {
             $this->_single_vars[$key] = $value;
         }
 
-    public function &get_item_array()
+        public function &get_item_array()
         {
             return $this->_single_vars;
         }
 
-    public function &get_item_by_key($key, $default = false)
+        public function &get_item_by_key($key, $default = false)
         {
             if (isset($this->_single_vars[$key])) {
                 return $this->_single_vars[$key];
             }
+
             return $default;
         }
 
         //---------------------------------------------------------
         // set & get log
         //---------------------------------------------------------
-    public function clear_logs()
+        public function clear_logs()
         {
             $this->_logs = [];
         }
 
-    public function set_logs($arr)
+        public function set_logs($arr)
         {
             if (is_array($arr)) {
                 foreach ($arr as $text) {
@@ -280,7 +284,7 @@ if( !class_exists('rssc_plugin_base') )
             }
         }
 
-    public function &get_logs()
+        public function &get_logs()
         {
             return $this->_logs;
         }
@@ -288,12 +292,12 @@ if( !class_exists('rssc_plugin_base') )
         //---------------------------------------------------------
         // set & get dirname
         //---------------------------------------------------------
-    public function set_dirname($val)
+        public function set_dirname($val)
         {
             $this->_DIRNAME = $val;
         }
 
-    public function get_dirname()
+        public function get_dirname()
         {
             return $this->_DIRNAME;
         }
@@ -305,8 +309,5 @@ if( !class_exists('rssc_plugin_base') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

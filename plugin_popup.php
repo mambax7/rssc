@@ -64,6 +64,7 @@ class rssc_plugin_list
     public function _build_title()
     {
         $text = '<h3 align="center">' . _RSSC_PLUGIN_LIST . '</h3>';
+
         return $text;
     }
 
@@ -72,6 +73,7 @@ class rssc_plugin_list
         $text = '<div style="text-align:center;">';
         $text .= '<input value="' . _CLOSE . '" type="button" onclick="javascript:window.close();">';
         $text .= '</div>' . "\n";
+
         return $text;
     }
 
@@ -81,19 +83,17 @@ class rssc_plugin_list
 //=========================================================
 // main
 //=========================================================
-$rssc_plugin_list =& rssc_plugin_list::getInstance( RSSC_DIRNAME );
+$rssc_plugin_list = rssc_plugin_list::getInstance(RSSC_DIRNAME);
 
 xoops_header(false);
 echo '</head><body>';
 
-if ( !$rssc_plugin_list->is_module_admin() )
-{
-	xoops_error('you have no permission');
-	xoops_footer();
-	exit();
+if (!$rssc_plugin_list->is_module_admin()) {
+    xoops_error('you have no permission');
+    xoops_footer();
+    exit();
 }
 
 echo $rssc_plugin_list->build_list();
 
 xoops_footer();
-

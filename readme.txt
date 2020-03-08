@@ -4,7 +4,7 @@ $Id: readme.txt,v 1.6 2012/04/08 23:42:20 ohwada Exp $
 Version: 1.30
 Date:   2012-04-02
 Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
+URL:    https://linux2.ohwada.net/
 Email:  webmaster@ohwada.net
 =================================================
 
@@ -12,7 +12,7 @@ Email:  webmaster@ohwada.net
 1. Added "Select url" in admin page
 Admin can choice the original site url or single_feed.php of RSSC
 in the hyperlink of a title and the link of a RSS output.
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1273&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1273&forum=9
 
 2. Some changes with change of Webmap3 module.
 
@@ -63,7 +63,7 @@ Date:   2011-12-29
 * Changes *
 1. Migrating to PHP 5.3
 Deprecated features in PHP 5.3.x
-http://www.php.net/manual/en/migration53.deprecated.php
+https://www.php.net/manual/en/migration53.deprecated.php
 (1) Assigning the return value of new by reference is now deprecated.
 
 2. Migrating to MySQL 5.5
@@ -71,7 +71,7 @@ http://www.php.net/manual/en/migration53.deprecated.php
 
 3. bugfix
 (1) wrong link of "Powered by Happy Linux"
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=9&topic_id=988
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=9&topic_id=988
 
 
 =================================================
@@ -82,7 +82,7 @@ Date:   2009-05-17
 * Changes *
 1. bug fix
 (1) not valid "Maximum number of RSS/ATOM feeds displayed content" in block
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=947&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=947&forum=9
 
 (2) not show site title in blog block
 
@@ -95,7 +95,7 @@ Date:   2009-03-22
 * Changes *
 1. bug fix
 (1) cannot install
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=934&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=934&forum=9
 
 
 =================================================
@@ -105,10 +105,10 @@ Date:   2009-02-25
 
 * Changes *
 1. Supoort GeoRSS
-http://georss.org/
+https://georss.org/
 
 2. Supoort MediaRSS
-http://search.yahoo.com/mrss
+https://search.yahoo.com/mrss
 
 3. Supoort GoogleMap 
 require webmap module.
@@ -136,10 +136,10 @@ Date:   2009-01-04
 
 * Changes *
 (1) typo
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=880&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=880&forum=9
 
 (2) "Not version xx"
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=894&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=894&forum=9
 
 
 =================================================
@@ -152,7 +152,7 @@ Date:   2008-02-24
 
 2. lang pack
 (1) added new Arabic
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=385&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=385&forum=5
 
 3. bug fix
 (1) fatal error when showing feed in weblinks
@@ -185,7 +185,7 @@ Date:   2008-01-30
 added option to remove script tag and style tag
 
 2. strengthened plugin feature
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=771&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=771&forum=9
 
 2.1 specificatio
 2.1.1 prepared 4 hook
@@ -225,10 +225,10 @@ plugin_a ( param_a, param_b, param_c )
 (1) mailto.php : get leatest feeds, and send mail to login user
 
 3. changed install script
-http://linux.ohwada.jp/modules/newbb/viewforum.php?forum=8
+https://linux.ohwada.jp/modules/newbb/viewforum.php?forum=8
 
 4. changed template variable xoops_module_heade
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=772&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=772&forum=9
 
 5. bug fix
 (1) in "Parse RDF/RSS/ATOM" clear XOOPS cache
@@ -257,10 +257,10 @@ Date:   2008-01-18
 * Changes *
 1. langugae
 (1) added German.
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=377&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=377&forum=5
 
 (2) updated French.
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=177&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=177&forum=5
 
 2. bug fix
 (1) Only variables should be assigned by reference
@@ -272,7 +272,7 @@ http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=177&forum=5
 Version: 0.71
 Date:   2007-11-26
 Author: Kenichi OHWADA
-URL:    http://linux2.ohwada.net/
+URL:    https://linux2.ohwada.net/
 Email:  webmaster@ohwada.net
 =================================================
 
@@ -282,7 +282,7 @@ added to check config table, other tables
 
 2. bug fix
 (1) TEXT columns cannot have DEFAULT values
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=732&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=732&forum=5
 
 
 =================================================
@@ -300,7 +300,7 @@ Date:   2007-11-11
 3. show memory usage
 
 4. show site tilte in block
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=685&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=685&forum=9
 
 5. set to handle enclosure tag in every link.
 becuase the title include "AD:" for the advertisement, it removes this.
@@ -310,9 +310,9 @@ because entered the icon in enclosure tag, it doesn't show this.
 
 7. set plugin in every link
 because the following form in link tag, 
-  http://xxx/123*http%3A//yyy/456.
+  https://xxx/123*http%3A//yyy/456.
 it changes into the original form
- http://yyy/456
+ https://yyy/456
 
 8. replace empty if all space code when build summary
 9. added module management
@@ -323,22 +323,22 @@ it changes into the original form
 
 14. search feeds for black list
 (1) support the following link form
-  http://xxx/*http://yyy/
+  https://xxx/*https://yyy/
 (2) has cache for reducee search time
 
 15. language
 (1) added Italian lang pack
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=337&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=337&forum=2
 
 (2) updated French lang pack
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=177&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=177&forum=5
 
 16. bugfix
 (1) in MySQL 3.23, cannot update module
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=714&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=714&forum=9
 
 (2) dont work checkbox in "Reject Word List"
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=726&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=726&forum=9
 
 (3) cannot import from weblinks module
 (4) fatal error in single link UTF-8
@@ -367,27 +367,27 @@ Date:   2007-08-01
 
 * Changes *
 1. Supported MySQL 4.1/5.x
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=9&topic_id=631
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=9&topic_id=631
 For exsample in Japanese, program fixed ujis (EUC-JP) in character code of MySQL.
 Administrator can change character code, setting happy_linux/preload/charset.php.
 
 2. HTML style
 (1) base on W3C
 checked mainly pages on W3C Markup Validator
-http://validator.w3.org/
+https://validator.w3.org/
 
 (2) xoops module header
 added to show style sheet in header tag using xoops module header
 
 3. 4650: site description in the headline
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4650&group_id=1300&atid=1356
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4650&group_id=1300&atid=1356
 
 4. Bug fix
 (1) rssc0.sql is same as rssc.sql
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=650
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=650
 
 (2) content:encoded error in RSS
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=8&topic_id=661
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=8&topic_id=661
 
 
 =================================================
@@ -397,10 +397,10 @@ Date:   2007-06-09
 
 * main changes *
 1. 4510: not view option
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4510&group_id=1300&atid=1356
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4510&group_id=1300&atid=1356
 
 2. 4570: divid to execute RSS feeds update in command line
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4570&group_id=1300&atid=1356
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4570&group_id=1300&atid=1356
 
 add command line option
 usage is following
@@ -410,7 +410,7 @@ php -q -f XOOPS/modules/rssc/bin/refresh.php -pass=pass [ -limit=0 -offset=0 ]
 -----
 
 3. 4577: content spam filter
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4577&group_id=1300&atid=1356
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4577&group_id=1300&atid=1356
 
 (1) add reject word list (word table)
 (2) judge black when total point of word list exceed reject level
@@ -422,7 +422,7 @@ http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4577&group_id=1300&a
 (3-5) write in log file
 
 4. 4582: show next page
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4582&group_id=1300&atid=1356
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4582&group_id=1300&atid=1356
 
 5. performance improvement
 separate xml part which is unnecessary for usual display from link table.
@@ -470,7 +470,7 @@ valid in xoops 2.0
 
 (2) kakasi is required, when extracting words in Japanese.
 extracting words by space or symbol, when NOT using kakasi
-http://kakasi.namazu.org/
+https://kakasi.namazu.org/
 
 
 * update *
@@ -503,18 +503,18 @@ Date:   2006-11-08
 
 * main changes *
 (1) 4319: get rss feeds via proxy
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4319&group_id=1300&atid=1356
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=233&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4319&group_id=1300&atid=1356
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=233&forum=5
 
 (2) 4360: chang number of feeds in single_link
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4360&group_id=1300&atid=1356
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=247&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4360&group_id=1300&atid=1356
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=247&forum=5
 
 (3) added option which turn on/off keyword highlight
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=226&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=226&forum=5
 
 (4) assigned fid into block template
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=225&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=225&forum=5
 
 (5) added wordwrap modifier into template
 
@@ -539,7 +539,7 @@ changed some, becuase prepares for the integration with weblinks module,
 
 (3) RSS parse
 (3-1) supported RSS without link tag
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4146&group_id=1300&atid=1356
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4146&group_id=1300&atid=1356
 
 (3-2) supported RSS which has twe or more enclosure tag
 
@@ -549,18 +549,18 @@ for rssc_headline
 (4) search
 (4-1) show context in search result, 
 corresponding to search module to be distributing in Amethyst Blue
-http://www.suin.jp/
+https://www.suin.jp/
 
 (4-2) highlight keywords in search result
 
 (4-3) added fuzzy search (Japanese only)
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=503&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=503&forum=9
 
 (5) added page title
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=494&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=494&forum=9
 
 (6) added option to show content with html or not
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=199&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=199&forum=5
 
 (7) add "show blog" block
 
@@ -579,7 +579,7 @@ reffer Perk's Tinyd module
 
 (12) bug fixed
 (12-1) 'blong link' jump always 'rssc' directory
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4145&group_id=1300&atid=1353
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4145&group_id=1300&atid=1353
 
 (12-2) Fatal error occured when can not parse RSS
 
@@ -652,7 +652,7 @@ Date:   2006-06-08
 (4) changed from the debug mode to the usual mode, when an administrator views builded RSS.
 
 (5) assigned site_tile and site_link for block templates.
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=432&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=432&forum=9
 
 2. Function for Administrators 
 (1) abolished "feed registration". 
@@ -660,8 +660,8 @@ http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=432&forum=9
 (3) added updating RSS feeds after registering and editing a link record. 
 
 (4) assumed UTF-8 into default encoding, if cannot detect the encoding automatically.
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3875&group_id=1300&atid=1353
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=145&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3875&group_id=1300&atid=1353
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=145&forum=5
 
 (5) added icon which be view single link or single feed. 
 (6) cut down the overhead in executing command line. 
@@ -681,14 +681,14 @@ Only variable references should be returned by reference
 
 5. Language pack
 (1)  Add French. 
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=177&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=177&forum=5
 
 6. Bug fixed
 (1) BUG 3622: cannot modify blacklist
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3622&group_id=1300&atid=1353
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3622&group_id=1300&atid=1353
 
 (2) BUG 3864: suppress Notice Undefined offset: 0
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3864&group_id=1300&atid=1353
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3864&group_id=1300&atid=1353
 
 
 * Notice *
@@ -728,7 +728,7 @@ This module becomes independent from the RDF/RSS/ATOM function of WebLinks modul
 and enhances more powerful.
 
 This module aims the platform of RDF/RSS/ATOM feeds.
-As an example of application, like a headline module, like the Web Service http://sf.livedoor.com/.
+As an example of application, like a headline module, like the Web Service https://sf.livedoor.com/.
 
 Now, it is the beta version. 
 From now on, the specification and implementation may change sharply. 
@@ -746,7 +746,7 @@ when you register the URL of a site,
 this module will detect automatically the URL of RDF/RSS/ATOM, and register it. 
 
 3. Blacklist 
-If you register Blog Search Sites, such as http://sf.livedoor.com/,
+If you register Blog Search Sites, such as https://sf.livedoor.com/,
 this module may collect feeds which you dont desire. 
 If you register the URL of undesirable site into a blacklist, 
 this module will stop to collect feeds from this site.

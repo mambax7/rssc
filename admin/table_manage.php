@@ -19,8 +19,8 @@
 require __DIR__ . '/admin_header.php';
 require __DIR__ . '/admin_header_config.php';
 
-require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/table_manage.php';
-require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/xoops_block_checker.php';
+require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/table_manage.php';
+require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/xoops_block_checker.php';
 
 //================================================================
 // class admin_table_manage
@@ -36,9 +36,9 @@ class admin_table_manage extends happy_linux_table_manage
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->happy_linux_table_manage(RSSC_DIRNAME);
+        parent::__construct(RSSC_DIRNAME);
 
-        $this->set_configHandler('config', RSSC_DIRNAME, 'rssc');
+        $this->set_config_handler('config', RSSC_DIRNAME, 'rssc');
         $this->set_config_define(rssc_config_define::getInstance());
         $this->set_install_class(rssc_install::getInstance(RSSC_DIRNAME));
         $this->set_xoops_block_checker();
@@ -46,11 +46,11 @@ class admin_table_manage extends happy_linux_table_manage
         $this->_linkHandler = rssc_getHandler('link', RSSC_DIRNAME);
     }
 
-    public static function getInstance()
+    public static function getInstance($dirname = null)
     {
         static $instance;
         if (null === $instance) {
-            $instance = new static();
+            $instance = new static($dirname);
         }
 
         return $instance;
@@ -114,7 +114,7 @@ class admin_table_manage extends happy_linux_table_manage
 
         $count_more = 0;
 
-        $objs =& $this->_linkHandler->get_objects_asc($max, $offset);
+        $objs = &$this->_linkHandler->get_objects_asc($max, $offset);
         foreach ($objs as $obj) {
             $this->_linkHandler->set_cache_by_obj($obj);
             $lid_1    = $obj->get('lid');
@@ -123,14 +123,14 @@ class admin_table_manage extends happy_linux_table_manage
             $rss_url  = $obj->get('rss_url');
             $atom_url = $obj->get('atom_url');
 
-            $lid_arr =& $this->_linkHandler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url, $lid_1);
+            $lid_arr = &$this->_linkHandler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url, $lid_1);
             if (is_array($lid_arr) && count($lid_arr)) {
                 echo $this->_build_link_manage($lid_1, $title_1);
                 echo " : <b>same links</b> <br>\n";
                 $count_more++;
 
                 foreach ($lid_arr as $lid_2) {
-                    $obj_2 =& $this->_linkHandler->getCache($lid_2);
+                    $obj_2 = &$this->_linkHandler->getCache($lid_2);
                     if (is_object($obj_2)) {
                         $title_2 = $obj_2->get('title');
                         echo ' --- ';
@@ -164,6 +164,7 @@ class admin_table_manage extends happy_linux_table_manage
         $lid_s = sprintf('%03d', $lid);
         $text  = '<a href="' . $url . '" target="_blank">' . $lid_s . '</a>';
         $text  .= ' : ' . $this->sanitize_text($title);
+
         return $text;
     }
 
@@ -203,7 +204,6 @@ class admin_table_manage extends happy_linux_table_manage
     // --- class end ---
 }
 
-
 //================================================================
 // main
 //================================================================
@@ -212,33 +212,26 @@ $manage = admin_table_manage::getInstance();
 
 $op = $manage->get_post_op();
 
-switch ($op) 
-{
-case 'renew_config':
-	$manage->renew_config();
-	break;
-
-case 'remove_block':
-	xoops_cp_header();
-	$manage->remove_block();
-	break;
-
-case 'check_link':
-	xoops_cp_header();
-	$manage->check_link();
-	break;
-
-case 'menu':
-default:
-	xoops_cp_header();
-	$manage->menu();
-	break;
-
+switch ($op) {
+    case 'renew_config':
+        $manage->renew_config();
+        break;
+    case 'remove_block':
+        xoops_cp_header();
+        $manage->remove_block();
+        break;
+    case 'check_link':
+        xoops_cp_header();
+        $manage->check_link();
+        break;
+    case 'menu':
+    default:
+        xoops_cp_header();
+        $manage->menu();
+        break;
 }
 
 rssc_admin_print_footer();
 xoops_cp_footer();
 exit();
 // --- main end ---
-
-

@@ -10,8 +10,6 @@
 //=========================================================
 
 $adminmenu[0]['title'] = _MI_RSSC_ADMENU_CONFIG;
-$adminmenu[0]['link'] = 'admin/index.php';
+$adminmenu[0]['link']  = 'admin/index.php';
 $adminmenu[1]['title'] = _MI_RSSC_ADMENU_LINKLIST;
-$adminmenu[1]['link'] = 'admin/link_list.php';
-
-?>
+$adminmenu[1]['link']  = 'admin/link_list.php';

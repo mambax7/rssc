@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_xoopsheadlineHandler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
+// $Id: rssc_xoopsheadline_handler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
 
 // 2007-10-10 K.OHWADA
 // move from xoopsheadline100_to_rssc030.php
@@ -12,7 +12,7 @@
 //=========================================================
 // class rssc_xoopsheadlineHandler
 //=========================================================
-class rssc_xoopsheadlineHandler extends happy_linux_basicHandler
+class rssc_xoopsheadline_handler extends happy_linux_basic_handler
 {
     public $_DIRNAME_XOOPSHEADLINE = 'xoopsheadline';
 
@@ -75,10 +75,10 @@ class rssc_xoopsheadlineHandler extends happy_linux_basicHandler
             $row['rss_url']      = $headline_rssurl;
             $row['orig_rss_url'] = $headline_rssurl;
 
-            $obj =  $this->create();
+            $obj = $this->create();
             if (is_object($obj)) {
                 $obj->set_vars($row);
-                $objs[] =& $obj;
+                $objs[] = &$obj;
                 unset($obj);
             }
         }
@@ -88,5 +88,3 @@ class rssc_xoopsheadlineHandler extends happy_linux_basicHandler
 
     // --- class end ---
 }
-
-

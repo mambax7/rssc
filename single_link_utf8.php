@@ -3,7 +3,7 @@
 
 // 2007-10-10 K.OHWADA
 // PHP 5.2: Assigning the return value of new by reference
-// BUG: Call to undefined method happy_linux_convert_encoding::set_internal_encoding() 
+// BUG: Call to undefined method happy_linux_convert_encoding::set_internal_encoding()
 
 // 2007-06-01 K.OHWADA
 // use api/rss_builder.php
@@ -31,10 +31,10 @@
 //================================================================
 
 require __DIR__ . '/header.php';
-require_once XOOPS_ROOT_PATH.'/class/template.php';
-require_once XOOPS_ROOT_PATH.'/modules/happy_linux/api/rss_parser.php';
-require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/object.php';
-require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/objectHandler.php';
+require_once XOOPS_ROOT_PATH . '/class/template.php';
+require_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/rss_parser.php';
+require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object.php';
+require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object_handler.php';
 
 $single = rssc_single_link_utf8::getInstance();
 
@@ -44,71 +44,67 @@ header('Content-Type:text/html; charset=utf-8');
 
 // template
 $RSSC_TEMPLATE_NAME = 'db:' . RSSC_DIRNAME . '_single_link_utf8.html';
-$xoopsTpl = new XoopsTpl();
+$xoopsTpl           = new XoopsTpl();
 
-$lid   = $single->get_get_lid();
-$mode  = $single->get_get_mode();
+$lid  = $single->get_get_lid();
+$mode = $single->get_get_mode();
 
 $single->set_keyword_by_request();
 $urlencode = $single->get_keywords_urlencode();
 
-$feed  = [];
-$link  = [];
-$error = '';
+$feed      = [];
+$link      = [];
+$error     = '';
 $link_show = 0;
 $feed_show = 0;
 
-if ( $single->exists_link($lid) )
-{
-	$data = $single->get_sanitized_parse_by_lid($lid, $mode);
+if ($single->exists_link($lid)) {
+    $data = $single->get_sanitized_parse_by_lid($lid, $mode);
 
-	$link  = $data['link'];
-	$feeds = $data['items'];
+    $link  = $data['link'];
+    $feeds = $data['items'];
 
-	if ( is_array($link) && count($link) )
-	{
-		$link_show = 1;
-		$xoopsTpl->assign('link', $link);
-	}
+    if (is_array($link) && count($link)) {
+        $link_show = 1;
+        $xoopsTpl->assign('link', $link);
+    }
 
-	if ( is_array($feeds) && count($feeds) )
-	{
-		$feed_show = 1;
+    if (is_array($feeds) && count($feeds)) {
+        $feed_show = 1;
 
-		foreach ($feeds as $feed) 
-		{
-			$xoopsTpl->append('feeds', $feed);
-		}
-	}
+        foreach ($feeds as $feed) {
+            $xoopsTpl->append('feeds', $feed);
+        }
+    }
 }
 
-$xoopsTpl->assign('xoops_url',        XOOPS_URL );
-$xoopsTpl->assign('xoops_charset',    $single->get_encoding() );
-$xoopsTpl->assign('xoops_sitename',   $single->get_sitename() );
-$xoopsTpl->assign('module_name',      $single->get_module_name() );
-$xoopsTpl->assign('is_module_admin',  $single->is_module_admin() );
-$xoopsTpl->assign('xoops_themecss',   xoops_getcss() );
+$xoopsTpl->assign('xoops_url', XOOPS_URL);
+$xoopsTpl->assign('xoops_charset', $single->get_encoding());
+$xoopsTpl->assign('xoops_sitename', $single->get_sitename());
+$xoopsTpl->assign('module_name', $single->get_module_name());
+$xoopsTpl->assign('is_module_admin', $single->is_module_admin());
+$xoopsTpl->assign('xoops_themecss', xoops_getcss());
 
-$xoopsTpl->assign('lang_single_link',  $single->convert( _RSSC_SINGLE_LINK ) );
-$xoopsTpl->assign('lang_no_record',    $single->convert( _HAPPY_LINUX_NO_RECORD ) );
-$xoopsTpl->assign('lang_no_feed',      $single->convert( _RSSC_NO_FEED) );
-$xoopsTpl->assign('lang_single_link_utf8', $single->convert( _RSSC_SINGLE_LINK_UTF8) );
+$xoopsTpl->assign('lang_single_link', $single->convert(_RSSC_SINGLE_LINK));
+$xoopsTpl->assign('lang_no_record', $single->convert(_HAPPY_LINUX_NO_RECORD));
+$xoopsTpl->assign('lang_no_feed', $single->convert(_RSSC_NO_FEED));
+$xoopsTpl->assign('lang_single_link_utf8', $single->convert(_RSSC_SINGLE_LINK_UTF8));
 
 // podcast
-$xoopsTpl->assign('lang_podcast', $single->convert( _RSSC_PODCAST) );
-$xoopsTpl->assign('unit_kb',      RSSC_UNIT_KB);
+$xoopsTpl->assign('lang_podcast', $single->convert(_RSSC_PODCAST));
+$xoopsTpl->assign('unit_kb', RSSC_UNIT_KB);
 
-$xoopsTpl->assign('dirname',     RSSC_DIRNAME);
-$xoopsTpl->assign('link_show',   $link_show);
-$xoopsTpl->assign('feed_show',   $feed_show);
-$xoopsTpl->assign('rssc_error',  $error);
-$xoopsTpl->assign('lid',   $lid);
-$xoopsTpl->assign('mode',  $mode);
-$xoopsTpl->assign('link',  $link);
-$xoopsTpl->assign('feed',  $feed);
+$xoopsTpl->assign('dirname', RSSC_DIRNAME);
+$xoopsTpl->assign('link_show', $link_show);
+$xoopsTpl->assign('feed_show', $feed_show);
+$xoopsTpl->assign('rssc_error', $error);
+$xoopsTpl->assign('lid', $lid);
+$xoopsTpl->assign('mode', $mode);
+$xoopsTpl->assign('link', $link);
+$xoopsTpl->assign('feed', $feed);
 $xoopsTpl->assign('rssc_keywords', $urlencode);
 
-$xoopsTpl->display( $RSSC_TEMPLATE_NAME );
+$xoopsTpl->display($RSSC_TEMPLATE_NAME);
 
 exit();
 // --- main end ---
@@ -143,9 +139,9 @@ class rssc_single_link_utf8
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_confHandler =& rssc_getHandler('config_basic', RSSC_DIRNAME);
-        $this->_linkHandler =& rssc_getHandler('link_basic', RSSC_DIRNAME);
-        $this->_xmlHandler  =& rssc_getHandler('xml_basic', RSSC_DIRNAME);
+        $this->_confHandler = rssc_getHandler('config_basic', RSSC_DIRNAME);
+        $this->_linkHandler = rssc_getHandler('link_basic', RSSC_DIRNAME);
+        $this->_xmlHandler  = rssc_getHandler('xml_basic', RSSC_DIRNAME);
 
         $this->_parser  = happy_linux_rss_parser::getInstance();
         $this->_viewer  = happy_linux_rss_viewer::getInstance();
@@ -164,12 +160,14 @@ class rssc_single_link_utf8
 
         return $instance;
     }
+
     //---------------------------------------------------------
     // function
     //---------------------------------------------------------
     public function exists_link($lid)
     {
         $ret = $this->_linkHandler->exists_by_lid($lid);
+
         return $ret;
     }
 
@@ -180,15 +178,15 @@ class rssc_single_link_utf8
         // BUG: Call to undefined method happy_linux_convert_encoding::set_internal_encoding()
         happy_linux_internal_encoding($this->ENCODING_UTF8);
 
-        $conf  =& $this->_confHandler->get_conf();
+        $conf  = &$this->_confHandler->get_conf();
         $limit = $conf['main_link_feeds_perlink'];
 
-        $link =& $this->_linkHandler->get_link_by_lid($lid);
+        $link = &$this->_linkHandler->get_link_by_lid($lid);
         if (!is_array($link)) {
             return $false;
         }
 
-        $xml =& $this->_xmlHandler->get_xml_by_lid($lid);
+        $xml = &$this->_xmlHandler->get_xml_by_lid($lid);
         if (empty($xml)) {
             return $false;
         }
@@ -200,13 +198,13 @@ class rssc_single_link_utf8
 
         $this->_parser->set_local_encoding($this->ENCODING_UTF8);
 
-        $parse_obj =& $this->_parser->parse_by_xml($xml, $encoding);
+        $parse_obj = &$this->_parser->parse_by_xml($xml, $encoding);
         if (!is_object($parse_obj)) {
             return $false;
         }
 
         // PHP 5.2: Assigning the return value of new by reference
-        $view_obj =  $this->_viewer->create();
+        $view_obj = $this->_viewer->create();
         $view_obj->set_vars($parse_obj->get_vars());
         $view_obj->view_format();
         $view_obj->set_is_japanese($this->_system->is_japanese());
@@ -219,7 +217,7 @@ class rssc_single_link_utf8
         $view_obj->set_keyword_array($this->_keyword_array);
         $view_obj->view_sanitize();
 
-        $parse_data =& $view_obj->get_vars();
+        $parse_data = &$view_obj->get_vars();
         $items      = $parse_data['items'];
         $arr        = [];
 
@@ -249,6 +247,7 @@ class rssc_single_link_utf8
     public function &convert($text)
     {
         $ret = $this->_convert->convert($text, $this->ENCODING_UTF8, $this->ENCODING_LOCAL);
+
         return $ret;
     }
 
@@ -310,5 +309,3 @@ class rssc_single_link_utf8
 
     // --- class end ---
 }
-
-

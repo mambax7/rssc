@@ -23,7 +23,7 @@ class admin_plugin_list
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_plugin =& rssc_plugin::getInstance(RSSC_DIRNAME);
+        $this->_plugin = rssc_plugin::getInstance(RSSC_DIRNAME);
 
         $this->_post = happy_linux_post::getInstance();
         $this->_test = admin_plugin_test::getInstance();
@@ -87,7 +87,6 @@ class admin_plugin_list
     // --- class end ---
 }
 
-
 //=========================================================
 // class admin_plugin_test
 //=========================================================
@@ -104,7 +103,7 @@ class admin_plugin_test
     {
         $this->_plugin = rssc_plugin::getInstance(RSSC_DIRNAME);
         $this->_post   = happy_linux_post::getInstance();
-        $this->_form = admin_form_plugin_test::getInstance();
+        $this->_form   = admin_form_plugin_test::getInstance();
     }
 
     public static function getInstance()
@@ -128,6 +127,7 @@ class admin_plugin_test
         if (empty($plugins)) {
             xoops_error('no plugins');
             echo "<br>\n";
+
             return false;
         }
 
@@ -141,6 +141,7 @@ class admin_plugin_test
             if (false === $ret1) {
                 xoops_error('cannot eval data');
                 echo "<br>\n";
+
                 return false;
             }
         } else {
@@ -148,6 +149,7 @@ class admin_plugin_test
             if (empty($ret2)) {
                 xoops_error('cannot get data');
                 echo "<br>\n";
+
                 return false;
             }
             $data = $ret2;
@@ -168,10 +170,11 @@ class admin_plugin_test
         $ret = $this->_plugin->execute($data, $plugins);
         if (!$ret) {
             echo '<h4> failed </h4>' . "\n";
+
             return true;
         }
 
-        $ret =& $this->_plugin->get_items();
+        $ret = &$this->_plugin->get_items();
 
         echo '<h4> output </h4>' . "\n";
         echo '<pre>';
@@ -183,15 +186,15 @@ class admin_plugin_test
 
     public function _add_semicolon_to_tail($str)
     {
-        if (';' != substr(trim($str), -1, 1)) {
+        if (';' != mb_substr(trim($str), -1, 1)) {
             $str .= ';';
         }
+
         return $str;
     }
 
     // --- class end ---
 }
-
 
 //=========================================================
 // class admin_form_plugin_test
@@ -256,7 +259,6 @@ class admin_form_plugin_test extends happy_linux_form_lib
         echo $this->build_form_table_end();
         echo $this->build_form_end();
         // --- form end ---
-
     }
 
     // --- class end ---
@@ -271,22 +273,18 @@ $list = admin_plugin_list::getInstance();
 
 $op = $list->get_op();
 
-switch ($op)
-{
-	case 'execute':
-		$list->execute();
-		break;
-
-	case 'form':
-	default:
-		rssc_admin_print_header();
-		rssc_admin_print_menu();
-		$list->show_list_form();
-		break;
+switch ($op) {
+    case 'execute':
+        $list->execute();
+        break;
+    case 'form':
+    default:
+        rssc_admin_print_header();
+        rssc_admin_print_menu();
+        $list->show_list_form();
+        break;
 }
 
 xoops_cp_footer();
 exit();
 // --- end of main ---
-
-?>

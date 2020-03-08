@@ -13,15 +13,12 @@
 //=========================================================
 
 // --- rssc_getHandler begin ---
-if( !function_exists( 'rssc_getHandler' ) ) 
-{
+if (!function_exists('rssc_getHandler')) {
+    function &rssc_getHandler($name = null, $module_dir = null)
+    {
+        $ret = happy_linux_getHandler($name, $module_dir, 'rssc');
 
-function &rssc_getHandler($name=null, $module_dir=null)
-{
-	$ret = happy_linux_getHandler($name, $module_dir, 'rssc');
-	return $ret;
+        return $ret;
+    }
+    // --- rssc_getHandler end ---
 }
-
-// --- rssc_getHandler end ---
-}
-

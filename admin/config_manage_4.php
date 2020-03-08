@@ -14,22 +14,16 @@ $config_store = admin_config_store::getInstance();
 
 $op = $config_form->get_post_get_op();
 
-if ('save' == $op)
-{
-	if( !$config_form->check_token() ) 
-	{
-		xoops_cp_header();
-		$config_form->print_xoops_token_error();
-	}
-	else
-	{
-		$config_store->save();
-		redirect_header('config_manage_4.php', 2, _AM_RSSC_DBUPDATED);
-	}
-}
-else
-{
-	xoops_cp_header();
+if ('save' == $op) {
+    if (!$config_form->check_token()) {
+        xoops_cp_header();
+        $config_form->print_xoops_token_error();
+    } else {
+        $config_store->save();
+        redirect_header('config_manage_4.php', 2, _AM_RSSC_DBUPDATED);
+    }
+} else {
+    xoops_cp_header();
 }
 
 rssc_admin_print_header();
@@ -40,17 +34,14 @@ $config_form->init_form();
 
 echo '<h4>' . _AM_RSSC_FORM_CUSTOM_PLUGIN . "</h4>\n";
 
-echo '<a href="'. RSSC_URL .'/plugin_popup.php" target="_blank">';
-echo ' - '._RSSC_PLUGIN_LIST;
-echo '</a>'."<br><br>\n";
+echo '<a href="' . RSSC_URL . '/plugin_popup.php" target="_blank">';
+echo ' - ' . _RSSC_PLUGIN_LIST;
+echo '</a>' . "<br><br>\n";
 
-$config_form->set_form_title( _AM_RSSC_FORM_CUSTOM_PLUGIN );
-$config_form->show_by_catid( 17 );
+$config_form->set_form_title(_AM_RSSC_FORM_CUSTOM_PLUGIN);
+$config_form->show_by_catid(17);
 
 rssc_admin_print_footer();
 xoops_cp_footer();
 exit();
 // --- main end ---
-
-
-?>

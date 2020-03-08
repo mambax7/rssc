@@ -31,7 +31,6 @@ require_once RSSC_ROOT_PATH . '/admin/admin_form_black_white.php';
 //=========================================================
 class admin_manage_white extends admin_manage_base
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -39,7 +38,7 @@ class admin_manage_white extends admin_manage_base
     {
         admin_manage_base::__construct();
 
-        $this->setHandler('white', RSSC_DIRNAME, 'rssc');
+        $this->set_handler('white', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('wid');
         $this->set_form_class('admin_form_white');
         $this->set_script('white_manage.php');
@@ -99,6 +98,7 @@ class admin_manage_white extends admin_manage_base
     {
         $this->_clear_errors();
         $this->_check_url_by_post('url', _RSSC_SITE_LINK);
+
         return $this->returnExistError();
     }
 
@@ -126,7 +126,6 @@ class admin_manage_white extends admin_manage_base
 //=========================================================
 class admin_form_white extends admin_form_black_white
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -148,7 +147,7 @@ class admin_form_white extends admin_form_black_white
     //---------------------------------------------------------
     // show black & white
     //---------------------------------------------------------
-    public function _show(&$obj, $extra = null, $mode = 0)
+    public function _show($obj, $extra = null, $mode = 0)
     {
         $this->_id_name        = 'wid';
         $this->_form_title_add = _AM_RSSC_ADD_WHITE;
@@ -169,37 +168,29 @@ $manage = admin_manage_white::getInstance();
 
 $op = $manage->get_op();
 
-switch ($op)
-{
-	case 'add_table':
-		$manage->main_add_table();
-		break;
-
-	case 'mod_form':
-		$manage->main_mod_form();
-		break;
-
-	case 'mod_table':
-		$manage->main_mod_table();
-		break;
-
-	case 'del_table':
-		$manage->main_del_table();
-		break;
-
-	case 'add_bulk':
-		$manage->main_add_bulk();
-		break;
-
-	case 'add_form':
-	default:
-		$manage->main_add_form();
-		break;
+switch ($op) {
+    case 'add_table':
+        $manage->main_add_table();
+        break;
+    case 'mod_form':
+        $manage->main_mod_form();
+        break;
+    case 'mod_table':
+        $manage->main_mod_table();
+        break;
+    case 'del_table':
+        $manage->main_del_table();
+        break;
+    case 'add_bulk':
+        $manage->main_add_bulk();
+        break;
+    case 'add_form':
+    default:
+        $manage->main_add_form();
+        break;
 }
 
 xoops_cp_footer();
 
 exit();
 // --- end of main ---
-
-

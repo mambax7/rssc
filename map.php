@@ -16,124 +16,120 @@
 //================================================================
 
 require __DIR__ . '/header.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_viewHandler.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_block_map.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_view_handler.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_block_map.php';
 
-$viewHandler  =& rssc_getHandler( 'view',         RSSC_DIRNAME );
-$confHandler  =& rssc_getHandler( 'config_basic', RSSC_DIRNAME );
-$map_class     =& rssc_map::getInstance( RSSC_DIRNAME );
-$icon_class = rssc_icon::getInstance();
-$post          = happy_linux_post::getInstance();
-$pagenavi      = happy_linux_pagenavi::getInstance();
+$viewHandler = rssc_getHandler('view', RSSC_DIRNAME);
+$confHandler = rssc_getHandler('config_basic', RSSC_DIRNAME);
+$map_class   = rssc_map::getInstance(RSSC_DIRNAME);
+$icon_class  = rssc_icon::getInstance();
+$post        = happy_linux_post::getInstance();
+$pagenavi    = happy_linux_pagenavi::getInstance();
 
-$map_div_id = RSSC_DIRNAME.'_map';
-$map_func   = RSSC_DIRNAME.'_map_load';
+$map_div_id = RSSC_DIRNAME . '_map';
+$map_func   = RSSC_DIRNAME . '_map_load';
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME.'_map.html';
-require XOOPS_ROOT_PATH.'/header.php';
+$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME . '_map.html';
+require XOOPS_ROOT_PATH . '/header.php';
 
-$conf =& $confHandler->get_conf();
+$conf           = &$confHandler->get_conf();
 $feed_limit     = $conf['main_map_perpage'];
-$show_thumb     = $conf['main_map_show_thumb'] ;
-$show_site      = $conf['main_map_show_site'] ;
-$show_icon      = $conf['main_map_show_icon'] ;
-$webmap_dirname = $conf['webmap_dirname'] ;
+$show_thumb     = $conf['main_map_show_thumb'];
+$show_site      = $conf['main_map_show_site'];
+$show_icon      = $conf['main_map_show_icon'];
+$webmap_dirname = $conf['webmap_dirname'];
 
-$link_show   = 0;
-$feed_show   = 0;
-$lid         = 0;
-$channel     = [];
-$feeds       = [];
-$error       = '';
-$reason      = '';
-$navi        = '';
-$feed_total  = 0;
-$show_map    = 0;
-$map_js      = null;
-$ele_id_map  = null;
-$feed_list   = null ;
-$icon_list   = null ;
+$link_show  = 0;
+$feed_show  = 0;
+$lid        = 0;
+$channel    = [];
+$feeds      = [];
+$error      = '';
+$reason     = '';
+$navi       = '';
+$feed_total = 0;
+$show_map   = 0;
+$map_js     = null;
+$ele_id_map = null;
+$feed_list  = null;
+$icon_list  = null;
 
-$ret = $map_class->init_map( $webmap_dirname );
-if ( $ret ) {
+$ret = $map_class->init_map($webmap_dirname);
+if ($ret) {
+    $viewHandler->setFeedOrder($conf['main_map_order']);
+    $viewHandler->setFutureDays($conf['basic_future_days']);
+    $viewHandler->setFlagSanitize(true);
+    $viewHandler->set_flag_ltype(true);
+    $viewHandler->set_flag_enclosure(true);
+    $viewHandler->set_title_html($conf['main_map_title_html']);
+    $viewHandler->set_content_html($conf['main_map_content_html']);
+    $viewHandler->set_max_title($conf['main_map_max_title']);
+    $viewHandler->set_max_content($conf['main_map_max_content']);
+    $viewHandler->set_max_summary($conf['main_map_max_summary']);
 
-	$viewHandler->setFeedOrder(  $conf['main_map_order'] );
-	$viewHandler->setFutureDays( $conf['basic_future_days'] );
-	$viewHandler->setFlagSanitize( true );
-	$viewHandler->set_flag_ltype( true );
-	$viewHandler->set_flag_enclosure( true );
-	$viewHandler->set_title_html(   $conf['main_map_title_html'] );
-	$viewHandler->set_content_html( $conf['main_map_content_html'] );
-	$viewHandler->set_max_title(    $conf['main_map_max_title'] );
-	$viewHandler->set_max_content(  $conf['main_map_max_content'] );
-	$viewHandler->set_max_summary(  $conf['main_map_max_summary'] );
+    $pagenavi->setPerpage($feed_limit);
+    $pagenavi->getGetPage();
 
-	$pagenavi->setPerpage( $feed_limit );
-	$pagenavi->getGetPage();
+    $where = ' (( geo_lat != 0 ) OR ( geo_long != 0 )) ';
 
-	$where = ' (( geo_lat != 0 ) OR ( geo_long != 0 )) ';
+    $feed_total = $viewHandler->get_feed_count_by_where($where);
 
-	$feed_total = $viewHandler->get_feed_count_by_where( $where );
+    $pagenavi->setTotal($feed_total);
+    $feed_start = $pagenavi->calcStart();
 
-	$pagenavi->setTotal($feed_total);
-	$feed_start = $pagenavi->calcStart();
+    $feeds = $viewHandler->get_feeds_by_where($where, $feed_limit, $feed_start);
 
-	$feeds = $viewHandler->get_feeds_by_where( $where, $feed_limit, $feed_start );
+    if (is_array($feeds) && count($feeds)) {
+        $feed_show = 1;
 
-	if ( is_array($feeds) && count($feeds) ) {
-		$feed_show = 1;
+        $map_class->set_map_div_id($map_div_id);
+        $map_class->set_map_func($map_func);
 
-		$map_class->set_map_div_id( $map_div_id ) ;
-		$map_class->set_map_func(   $map_func ) ;
+        $show_map = $map_class->fetch_map($feeds);
 
-		$show_map = $map_class->fetch_map( $feeds );
-
-		$param = [
-			'feeds'      => $feeds ,
-			'show_thumb' => $show_thumb ,
-			'show_icon'  => $show_icon ,
-			'show_site'  => $show_site ,
-			'keywords'   => null ,
+        $param     = [
+            'feeds'      => $feeds,
+            'show_thumb' => $show_thumb,
+            'show_icon'  => $show_icon,
+            'show_site'  => $show_site,
+            'keywords'   => null,
         ];
-		$feed_list = $viewHandler->fetch_tpl_feed_list( $param );
-	}
+        $feed_list = $viewHandler->fetch_tpl_feed_list($param);
+    }
 
-	$url = RSSC_URL.'/map.php';
-	$navi = $pagenavi->build($url);
+    $url  = RSSC_URL . '/map.php';
+    $navi = $pagenavi->build($url);
 
-	if ( $show_icon ) {
-		$icon_list = $icon_class->build_template_icon_list( RSSC_DIRNAME );
-	}
-
+    if ($show_icon) {
+        $icon_list = $icon_class->build_template_icon_list(RSSC_DIRNAME);
+    }
 } else {
-	$reason = 'NOT exist webmap module';
+    $reason = 'NOT exist webmap module';
 }
 
-$xoopsTpl->assign('show_map',   $show_map );
-$xoopsTpl->assign('map_div_id', $map_div_id );
-$xoopsTpl->assign('map_func',   $map_func );
+$xoopsTpl->assign('show_map', $show_map);
+$xoopsTpl->assign('map_div_id', $map_div_id);
+$xoopsTpl->assign('map_func', $map_func);
 
 // Notice [PHP]: Undefined variable: feed_list
-$xoopsTpl->assign('feed_list',   $feed_list );
+$xoopsTpl->assign('feed_list', $feed_list);
 
-$xoopsTpl->assign('icon_list',   $icon_list );
+$xoopsTpl->assign('icon_list', $icon_list);
 
-$xoopsTpl->assign( $viewHandler->get_tpl_common_param() );
+$xoopsTpl->assign($viewHandler->get_tpl_common_param());
 
-$xoopsTpl->assign('lang_total',   sprintf(_RSSC_THEREARE, $feed_total) );
+$xoopsTpl->assign('lang_total', sprintf(_RSSC_THEREARE, $feed_total));
 
-$xoopsTpl->assign('link_show',   $link_show);
-$xoopsTpl->assign('feed_show',   $feed_show);
-$xoopsTpl->assign('rssc_error',  $error);
+$xoopsTpl->assign('link_show', $link_show);
+$xoopsTpl->assign('feed_show', $feed_show);
+$xoopsTpl->assign('rssc_error', $error);
 $xoopsTpl->assign('rssc_reason', $reason);
-$xoopsTpl->assign('rssc_navi',   $navi);
+$xoopsTpl->assign('rssc_navi', $navi);
 
-$xoopsTpl->assign('execution_time',  happy_linux_get_execution_time() );
-$xoopsTpl->assign('memory_usage',    happy_linux_get_memory_usage_mb() );
-require XOOPS_ROOT_PATH.'/footer.php';
+$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
+$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+require XOOPS_ROOT_PATH . '/footer.php';
 exit();
 // --- main end ---
-
-

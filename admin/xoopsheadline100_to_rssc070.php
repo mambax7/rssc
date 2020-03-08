@@ -21,10 +21,9 @@
 // system files
 require __DIR__ . '/admin_header.php';
 
-require_once RSSC_ROOT_PATH.'/api/refresh.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_importHandler.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_xoopsheadlineHandler.php';
-
+require_once RSSC_ROOT_PATH . '/api/refresh.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_import_handler.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_xoopsheadline_handler.php';
 
 //=========================================================
 // RSS Center Module
@@ -43,7 +42,7 @@ class admin_import_xoopsheadline extends rssc_importHandler
         rssc_importHandler::__construct(RSSC_DIRNAME);
         $this->set_mid_orig_by_dirname($this->_DIRNAME_XOOPSHEADLINE);
 
-        $this->_xoopsheadlineHandler = rssc_xoopsheadlineHandler::getInstance($this->_DIRNAME_XOOPSHEADLINE);
+        $this->_xoopsheadlineHandler = rssc_xoopsheadline_handler::getInstance($this->_DIRNAME_XOOPSHEADLINE);
     }
 
     public static function getInstance()
@@ -72,7 +71,7 @@ class admin_import_xoopsheadline extends rssc_importHandler
         $next   = $this->calc_next();
 
         $total = $this->_xoopsheadlineHandler->get_count_all();
-        $objs  =& $this->_xoopsheadlineHandler->get_objects_for_import($this->_LIMIT, $offset);
+        $objs  = &$this->_xoopsheadlineHandler->get_objects_for_import($this->_LIMIT, $offset);
 
         echo 'There are <b>' . $total . "</b> xoopsheadline in XoopsHeadline<br>\n";
         echo 'Transfer ' . $offset . ' - ' . $next . " record <br><br>\n";
@@ -109,40 +108,33 @@ xoops_cp_header();
 $import = admin_import_xoopsheadline::getInstance();
 
 $op = 'main';
-if ( isset($_POST['op']) )  $op = $_POST['op'];
+if (isset($_POST['op'])) {
+    $op = $_POST['op'];
+}
 
-rssc_admin_print_bread( _AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'xoopshedline' );
+rssc_admin_print_bread(_AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'xoopshedline');
 echo '<h3>' . _AM_RSSC_IMPORT_XOOPSHEADLINE . "</h3>\n";
 echo "Import DB xoopshedline 1.00 to rssc 0.70 <br><br>\n";
 
-if( !$import->exist_module() ) 
-{
-	xoops_error( $import->get_msg_not_installed() );
-	xoops_cp_footer();
-	exit();
+if (!$import->exist_module()) {
+    xoops_error($import->get_msg_not_installed());
+    xoops_cp_footer();
+    exit();
 }
 
-switch ($op) 
-{
-case 'import_xoopsheadline':
-	if( !$import->check_token() ) 
-	{
-		xoops_error('Token Error');
-	}
-	else
-	{
-		$import->hl_import_xoopsheadline();
-	}
-	break;
-
-case 'main':
-default:
-	$import->hl_first_step();
-	break;
-
+switch ($op) {
+    case 'import_xoopsheadline':
+        if (!$import->check_token()) {
+            xoops_error('Token Error');
+        } else {
+            $import->hl_import_xoopsheadline();
+        }
+        break;
+    case 'main':
+    default:
+        $import->hl_first_step();
+        break;
 }
 
 xoops_cp_footer();
 exit();
-
-

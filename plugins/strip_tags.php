@@ -14,15 +14,13 @@
 //---------------------------------------------------------
 
 // === class begin ===
-if( !class_exists('rssc_plugin_strip_tags') ) 
-{
+if (!class_exists('rssc_plugin_strip_tags')) {
     class rssc_plugin_strip_tags extends rssc_plugin_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct()
+        public function __construct()
         {
             rssc_plugin_base::__construct();
         }
@@ -30,23 +28,25 @@ if( !class_exists('rssc_plugin_strip_tags') )
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
-    public function description()
+        public function description()
         {
             return 'strip html tags in the content';
         }
 
-    public function usage()
+        public function usage()
         {
             return 'strip_tags ( [allowable_tags] )';
         }
 
-    public function convert()
+        public function convert()
         {
             $content = $this->get_item_by_key('content');
             if ($content) {
                 $this->set_item_by_key('content', $this->_strip_tags($content));
+
                 return true;
             }
+
             return false;
         }
 
@@ -56,13 +56,11 @@ if( !class_exists('rssc_plugin_strip_tags') )
             if ($allowable_tags) {
                 return strip_tags($content, $allowable_tags);
             }
+
             return strip_tags($content);
         }
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

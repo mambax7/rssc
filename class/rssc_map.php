@@ -13,12 +13,10 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_map') ) 
-{
-
-//=========================================================
-// class rssc_map
-//=========================================================
+if (!class_exists('rssc_map')) {
+    //=========================================================
+    // class rssc_map
+    //=========================================================
     class rssc_map extends rssc_block_map
     {
         public $_form_class;
@@ -36,7 +34,7 @@ if( !class_exists('rssc_map') )
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
             rssc_block_map::__construct($dirname);
 
@@ -58,7 +56,7 @@ if( !class_exists('rssc_map') )
         //---------------------------------------------------------
         // map manage
         //---------------------------------------------------------
-    public function print_check_version()
+        public function print_check_version()
         {
             if ($this->check_installed()) {
                 if (!$this->check_version()) {
@@ -67,13 +65,13 @@ if( !class_exists('rssc_map') )
             }
         }
 
-    public function print_warning_version()
+        public function print_warning_version()
         {
             $msg = 'require webmap3 module v' . RSSC_WEBMAP3_VERSION . ' or later';
             xoops_error($msg);
         }
 
-    public function check_installed()
+        public function check_installed()
         {
             $webmap3_dirname = $this->_conf['webmap_dirname'];
             $file            = XOOPS_ROOT_PATH . '/modules/' . $webmap3_dirname . '/include/webmap3_version.php';
@@ -89,15 +87,16 @@ if( !class_exists('rssc_map') )
             return true;
         }
 
-    public function check_version()
+        public function check_version()
         {
             if (_C_WEBMAP3_VERSION < RSSC_WEBMAP3_VERSION) {
                 return false;
             }
+
             return true;
         }
 
-    public function init_html()
+        public function init_html()
         {
             $webmap3_dirname = $this->_conf['webmap_dirname'];
             $file            = XOOPS_ROOT_PATH . '/modules/' . $webmap3_dirname . '/include/api.php';
@@ -112,23 +111,25 @@ if( !class_exists('rssc_map') )
 
             $this->_flag_webmap = true;
             $this->_html_class  = webmap3_api_html::getSingleton($webmap3_dirname);
+
             return true;
         }
 
-    public function build_iframe()
+        public function build_iframe()
         {
             if (!$this->_flag_webmap) {
                 return '';
             }
 
             $this->_html_class->set_display_iframe_url($this->_URL_IFRAME);
+
             return $this->_html_class->build_display_iframe();
         }
 
         //---------------------------------------------------------
         // link manage
         //---------------------------------------------------------
-    public function init_form()
+        public function init_form()
         {
             $webmap_dirname = $this->_conf['webmap_dirname'];
             $file           = XOOPS_ROOT_PATH . '/modules/' . $webmap_dirname . '/include/api.php';
@@ -143,15 +144,16 @@ if( !class_exists('rssc_map') )
             }
 
             $this->_form_class = webmap3_api_form::getSingleton($webmap_dirname);
+
             return true;
         }
 
-    public function build_form_js()
+        public function build_form_js()
         {
             return $this->_form_class->build_form_js(false);
         }
 
-    public function build_ele_gicon($id)
+        public function build_ele_gicon($id)
         {
             $this->_form_class->set_gicon_select_name('gicon_id');
             $this->_form_class->set_gicon_select_id('rssc_gicon_id');
@@ -163,7 +165,7 @@ if( !class_exists('rssc_map') )
         //---------------------------------------------------------
         // map
         //---------------------------------------------------------
-    public function init_map($webmap_dirname)
+        public function init_map($webmap_dirname)
         {
             $file = XOOPS_ROOT_PATH . '/modules/' . $webmap_dirname . '/include/api.php';
             if (!file_exists($file)) {
@@ -194,7 +196,7 @@ if( !class_exists('rssc_map') )
             return true;
         }
 
-    public function fetch_map($feeds)
+        public function fetch_map($feeds)
         {
             $show_map = false;
             if (!$this->_flag_webmap) {
@@ -227,7 +229,7 @@ if( !class_exists('rssc_map') )
         //---------------------------------------------------------
         // config
         //---------------------------------------------------------
-    public function get_conf($dirname)
+        public function get_conf($dirname)
         {
             $db           = XoopsDatabaseFactory::getDatabaseConnection();
             $table_config = $db->prefix($dirname . '_config');
@@ -243,13 +245,14 @@ if( !class_exists('rssc_map') )
             while (false !== ($row = $db->fetchArray($res))) {
                 $conf[$row['conf_name']] = $row['conf_value'];
             }
+
             return $conf;
         }
 
         //---------------------------------------------------------
         // set param
         //---------------------------------------------------------
-    public function set_map_div_id($v)
+        public function set_map_div_id($v)
         {
             $this->_map_div_id = $v;
         }
@@ -261,8 +264,5 @@ if( !class_exists('rssc_map') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

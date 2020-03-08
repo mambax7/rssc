@@ -8,20 +8,20 @@
 
 require __DIR__ . '/admin_header.php';
 
-require_once XOOPS_ROOT_PATH.'/class/template.php';
+require_once XOOPS_ROOT_PATH . '/class/template.php';
 
-require_once RSSC_ROOT_PATH.'/api/view.php';
-require_once RSSC_ROOT_PATH.'/api/refresh.php';
+require_once RSSC_ROOT_PATH . '/api/view.php';
+require_once RSSC_ROOT_PATH . '/api/refresh.php';
 
 //---------------------------------------------------------
 // entry_id
-// http://savemlak.jp/savemlak/index.php?title=%E7%89%B9%E5%88%A5:%E6%9C%80%E8%BF%91%E3%81%AE%E6%9B%B4%E6%96%B0&feed=atom
+// https://savemlak.jp/savemlak/index.php?title=%E7%89%B9%E5%88%A5:%E6%9C%80%E8%BF%91%E3%81%AE%E6%9B%B4%E6%96%B0&feed=atom
 //
 // guid
-// http://cureeastjapan.jimdo.com/rss/blog
+// https://cureeastjapan.jimdo.com/rss/blog
 //
 // content
-// http://www.earthday-tokyo.org/2011/news/atom.xml
+// https://www.earthday-tokyo.org/2011/news/atom.xml
 //---------------------------------------------------------
 
 //=========================================================
@@ -52,8 +52,8 @@ class admin_feed_column_manage extends happy_linux_error
         parent::__construct();
 
         $this->_feed_basicHandler = rssc_getHandler('feed_basic', RSSC_DIRNAME);
-        $this->_post_class         = happy_linux_post::getInstance();
-        $this->_form_class = admin_form_feed_column::getInstance();
+        $this->_post_class        = happy_linux_post::getInstance();
+        $this->_form_class        = admin_form_feed_column::getInstance();
 
         $this->_THIS_URL = RSSC_URL . '/admin/feed_column_manage.php';
     }
@@ -169,7 +169,6 @@ class admin_feed_column_manage extends happy_linux_error
 //=========================================================
 class admin_form_feed_column extends happy_linux_form
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -201,8 +200,8 @@ class admin_form_feed_column extends happy_linux_form
 
         echo '<tr>';
         echo '<th>' . $all . '</th>' . "\n";
-        echo '<th>field</th>' . "\n";;
-        echo '<th>type</th>' . "\n";;
+        echo '<th>field</th>' . "\n";
+        echo '<th>type</th>' . "\n";
         echo '<th>new type</th>' . "\n";
         echo '</tr>' . "\n";
 
@@ -256,16 +255,14 @@ class admin_form_feed_column extends happy_linux_form
 $manage = admin_feed_column_manage::getInstance();
 
 $op = $manage->get_op();
-switch ($op)
-{
-	case 'update':
-		$manage->update();
-		exit();
-		break;
-
-	case 'form':
-	default:
-			break;
+switch ($op) {
+    case 'update':
+        $manage->update();
+        exit();
+        break;
+    case 'form':
+    default:
+        break;
 }
 
 xoops_cp_header();
@@ -279,5 +276,3 @@ rssc_admin_print_footer();
 xoops_cp_footer();
 exit();
 // === main end ===
-
-

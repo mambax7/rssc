@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_wordHandler.php,v 1.1 2011/12/29 14:37:16 ohwada Exp $
+// $Id: rssc_word_handler.php,v 1.1 2011/12/29 14:37:16 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
 // move create_table() to rssc_install.php
@@ -13,46 +13,42 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_wordHandler') ) 
-{
-
-//=========================================================
-// class word
-//=========================================================
-class rssc_word extends happy_linux_object
-{
-
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-public function __construct()
-{
-	parent::__construct();
-
-	$this->initVar('sid',    XOBJ_DTYPE_INT, null, false);
-	$this->initVar('word',   XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('reg',    XOBJ_DTYPE_INT, 0);
-	$this->initVar('point',  XOBJ_DTYPE_INT, 0);
-	$this->initVar('count',  XOBJ_DTYPE_INT, 0);
-	$this->initVar('aux_int_1',  XOBJ_DTYPE_INT,   0);
-	$this->initVar('aux_int_2',  XOBJ_DTYPE_INT,   0);
-	$this->initVar('aux_text_1', XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('aux_text_2', XOBJ_DTYPE_TXTBOX, null, false, 255);
-}
-
-// --- class end ---
-}
-
-//=========================================================
-// class word handler
-//=========================================================
-    class rssc_wordHandler extends happy_linux_objectHandler
+if (!class_exists('rssc_word_handler')) {
+    //=========================================================
+    // class word
+    //=========================================================
+    class rssc_word extends happy_linux_object
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct()
+        {
+            parent::__construct();
+
+            $this->initVar('sid', XOBJ_DTYPE_INT, null, false);
+            $this->initVar('word', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('reg', XOBJ_DTYPE_INT, 0);
+            $this->initVar('point', XOBJ_DTYPE_INT, 0);
+            $this->initVar('count', XOBJ_DTYPE_INT, 0);
+            $this->initVar('aux_int_1', XOBJ_DTYPE_INT, 0);
+            $this->initVar('aux_int_2', XOBJ_DTYPE_INT, 0);
+            $this->initVar('aux_text_1', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('aux_text_2', XOBJ_DTYPE_TXTBOX, null, false, 255);
+        }
+
+        // --- class end ---
+    }
+
+    //=========================================================
+    // class word handler
+    //=========================================================
+    class rssc_word_handler extends happy_linux_object_handler
+    {
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct($dirname)
         {
             parent::__construct($dirname, 'word', 'sid', 'rssc_word');
 
@@ -63,7 +59,7 @@ public function __construct()
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
-    public function _build_insert_sql($obj)
+        public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -92,7 +88,7 @@ public function __construct()
             return $sql;
         }
 
-    public function _build_update_sql($obj)
+        public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -108,119 +104,130 @@ public function __construct()
             $sql .= 'aux_text_1=' . $this->quote($aux_text_1) . ', ';
             $sql .= 'aux_text_2=' . $this->quote($aux_text_2) . ' ';
             $sql .= 'WHERE sid=' . (int)$sid;
+
             return $sql;
         }
 
         //---------------------------------------------------------
         // get count
         //---------------------------------------------------------
-    public function get_count_by_word_search($word)
+        public function get_count_by_word_search($word)
         {
             $criteria = new CriteriaCompo();
             $criteria->add(new Criteria('word', '%' . $word . '%', 'LIKE'));
             $count = $this->getCount($criteria);
+
             return $count;
         }
 
         //---------------------------------------------------------
         // get objects
         //---------------------------------------------------------
-    public function &get_objects_point_asc($limit = 0, $start = 0)
+        public function &get_objects_point_asc($limit = 0, $start = 0)
         {
             $sort     = 'point ASC, count ASC, sid ASC';
             $criteria = new CriteriaCompo();
             $criteria->setSort($sort);
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
-    public function &get_objects_point_desc($limit = 0, $start = 0)
+        public function &get_objects_point_desc($limit = 0, $start = 0)
         {
             $sort     = 'point DESC, count DESC, sid ASC';
             $criteria = new CriteriaCompo();
             $criteria->setSort($sort);
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
-    public function &get_objects_count_asc($limit = 0, $start = 0)
+        public function &get_objects_count_asc($limit = 0, $start = 0)
         {
             $sort     = 'count ASC, point ASC, sid ASC';
             $criteria = new CriteriaCompo();
             $criteria->setSort($sort);
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
-    public function &get_objects_count_desc($limit = 0, $start = 0)
+        public function &get_objects_count_desc($limit = 0, $start = 0)
         {
             $sort     = 'count DESC, point DESC, sid ASC';
             $criteria = new CriteriaCompo();
             $criteria->setSort($sort);
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
-    public function &get_objects_word_asc($limit = 0, $start = 0)
+        public function &get_objects_word_asc($limit = 0, $start = 0)
         {
             $sort     = 'word ASC, sid ASC';
             $criteria = new CriteriaCompo();
             $criteria->setSort($sort);
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
-    public function &get_objects_word_desc($limit = 0, $start = 0)
+        public function &get_objects_word_desc($limit = 0, $start = 0)
         {
             $sort     = 'word DESC, sid ASC';
             $criteria = new CriteriaCompo();
             $criteria->setSort($sort);
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
-    public function &get_objects_by_word($word, $limit = 0, $start = 0)
+        public function &get_objects_by_word($word, $limit = 0, $start = 0)
         {
             $criteria = new CriteriaCompo();
             $criteria->add(new Criteria('word', $word, '='));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
-    public function &get_objects_by_word_search($word, $limit = 0, $start = 0)
+        public function &get_objects_by_word_search($word, $limit = 0, $start = 0)
         {
             $criteria = new CriteriaCompo();
             $criteria->add(new Criteria('word', '%' . $word . '%', 'LIKE'));
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
         //---------------------------------------------------------
         // for admin/word_manage.php
         //---------------------------------------------------------
-    public function build_error_list($objs, $script)
+        public function build_error_list($objs, $script)
         {
             $msg = '<ul>';
             foreach ($objs as $obj) {
                 $msg .= $this->_build_error_list_single($obj, $script);
             }
             $msg .= "</ul>\n";
+
             return $msg;
         }
 
@@ -233,13 +240,11 @@ public function __construct()
             $text = '<li>';
             $text .= '<a href="' . $url_l . '" target="_blank">' . $sid_s . '</a>';
             $text .= "</li>\n";
+
             return $text;
         }
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

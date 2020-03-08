@@ -50,19 +50,16 @@
 //================================================================
 
 // === class begin ===
-if( !class_exists('rssc_config_define') ) 
-{
-
-//=========================================================
-// class rssc_config_define
-//=========================================================
+if (!class_exists('rssc_config_define')) {
+    //=========================================================
+    // class rssc_config_define
+    //=========================================================
     class rssc_config_define extends happy_linux_config_define_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct()
+        public function __construct()
         {
             parent::__construct();
         }
@@ -1329,8 +1326,5 @@ if( !class_exists('rssc_config_define') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

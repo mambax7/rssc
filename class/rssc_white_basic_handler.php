@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_white_basicHandler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
+// $Id: rssc_white_basic_handler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
 
 // 2007-06-01 K.OHWADA
 // get_rows_act() countup()
@@ -8,7 +8,7 @@
 // small change
 
 // 2006-07-10 K.OHWADA
-// use happy_linux_basicHandler
+// use happy_linux_basic_handler
 
 // 2006-06-04 K.OHWADA
 // this is new file
@@ -19,22 +19,19 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_white_basicHandler') ) 
-{
-
-//=========================================================
-// class white handler
-// this class is used by command line
-// this class handle MySQL table directly
-// this class does not use another class
-//=========================================================
-    class rssc_white_basicHandler extends happy_linux_basicHandler
+if (!class_exists('rssc_white_basic_handler')) {
+    //=========================================================
+    // class white handler
+    // this class is used by command line
+    // this class handle MySQL table directly
+    // this class does not use another class
+    //=========================================================
+    class rssc_white_basic_handler extends happy_linux_basic_handler
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
             parent::__construct($dirname);
 
@@ -48,10 +45,11 @@ if( !class_exists('rssc_white_basicHandler') )
         //---------------------------------------------------------
         // update
         //---------------------------------------------------------
-    public function countup($wid)
+        public function countup($wid)
         {
             $sql = 'UPDATE ' . $this->_table . ' SET count = count+1 WHERE wid=' . (int)$wid;
             $ret = $this->query($sql);
+
             return $ret;
         }
 
@@ -63,14 +61,12 @@ if( !class_exists('rssc_white_basicHandler') )
             $sql  = 'SELECT * FROM ' . $this->_table;
             $sql  .= " WHERE act=1 AND url<>'' ";
             $sql  .= ' ORDER BY wid ASC';
-            $rows =& $this->get_rows_by_sql($sql, $limit, $offset);
+            $rows = &$this->get_rows_by_sql($sql, $limit, $offset);
+
             return $rows;
         }
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

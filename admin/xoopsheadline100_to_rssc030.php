@@ -18,11 +18,10 @@
 require __DIR__ . '/admin_header.php';
 
 // system files
-require_once XOOPS_ROOT_PATH.'/class/snoopy.php';
+require_once XOOPS_ROOT_PATH . '/class/snoopy.php';
 
 // module files
-require_once RSSC_ROOT_PATH.'/admin/admin_import_base_class.php';
-
+require_once RSSC_ROOT_PATH . '/admin/admin_import_base_class.php';
 
 //=========================================================
 // RSS Center Module
@@ -30,7 +29,6 @@ require_once RSSC_ROOT_PATH.'/admin/admin_import_base_class.php';
 //=========================================================
 class admin_import_xoopsheadline extends admin_import_base
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -121,8 +119,8 @@ class admin_import_xoopsheadline extends admin_import_base
 
         $sql1 = 'SELECT count(*) FROM ' . $table_xoopsheadline;
 
-        $res1  =& $this->query($sql1);
-        $row1  =& $this->_db->fetchRow($res1);
+        $res1  = &$this->query($sql1);
+        $row1  = &$this->_db->fetchRow($res1);
         $total = $row1[0];
 
         echo 'There are <b>' . $total . "</b> xoopsheadline in XoopsHeadline<br>\n";
@@ -130,7 +128,7 @@ class admin_import_xoopsheadline extends admin_import_base
 
         $sql2 = 'SELECT * FROM ' . $table_xoopsheadline;
         $sql2 .= ' ORDER BY headline_id';
-        $res2 =& $this->query($sql2, $this->_LIMIT, $offset);
+        $res2 = &$this->query($sql2, $this->_LIMIT, $offset);
 
         while (false !== ($row2 = $this->_db->fetchArray($res2))) {
             $id        = $row2['headline_id'];
@@ -164,7 +162,7 @@ class admin_import_xoopsheadline extends admin_import_base
                 $headline = $weight + 1;
             }
 
-            $link_obj =  $this->_linkHandler->create();
+            $link_obj = $this->_linkHandler->create();
 
             $link_obj->set('uid', 1);    // admin
             $link_obj->set('mid', $this->_mid);
@@ -209,40 +207,33 @@ xoops_cp_header();
 $import = admin_import_xoopsheadline::getInstance();
 
 $op = 'main';
-if ( isset($_POST['op']) )  $op = $_POST['op'];
+if (isset($_POST['op'])) {
+    $op = $_POST['op'];
+}
 
-rssc_admin_print_bread( _AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'xoopshedline' );
+rssc_admin_print_bread(_AM_RSSC_UPDATE_MANAGE, 'update_manage.php', 'xoopshedline');
 echo '<h3>' . _AM_RSSC_IMPORT_XOOPSHEADLINE . "</h3>\n";
 echo "Import DB xoopshedline 1.00 to rssc 0.30 <br><br>\n";
 
-if( !$import->exist_module() ) 
-{
-	xoops_error( $import->get_msg_not_installed() );
-	xoops_cp_footer();
-	exit();
+if (!$import->exist_module()) {
+    xoops_error($import->get_msg_not_installed());
+    xoops_cp_footer();
+    exit();
 }
 
-switch ($op) 
-{
-case 'import_xoopsheadline':
-	if( !$import->check_token() ) 
-	{
-		xoops_error('Token Error');
-	}
-	else
-	{
-		$import->hl_import_xoopsheadline();
-	}
-	break;
-
-case 'main':
-default:
-	$import->hl_first_step();
-	break;
-
+switch ($op) {
+    case 'import_xoopsheadline':
+        if (!$import->check_token()) {
+            xoops_error('Token Error');
+        } else {
+            $import->hl_import_xoopsheadline();
+        }
+        break;
+    case 'main':
+    default:
+        $import->hl_first_step();
+        break;
 }
 
 xoops_cp_footer();
 exit();
-
-

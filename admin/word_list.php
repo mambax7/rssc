@@ -18,13 +18,10 @@ global $xoopsConfig;
 $XOOPS_LANGUAGE = $xoopsConfig['language'];
 
 // system search
-if ( file_exists(XOOPS_ROOT_PATH.'/language/'.$XOOPS_LANGUAGE.'/search.php') ) 
-{
-	require_once XOOPS_ROOT_PATH.'/language/'.$XOOPS_LANGUAGE.'/search.php';
-}
-else
-{
-	require_once XOOPS_ROOT_PATH.'/language/english/search.php';
+if (file_exists(XOOPS_ROOT_PATH . '/language/' . $XOOPS_LANGUAGE . '/search.php')) {
+    require_once XOOPS_ROOT_PATH . '/language/' . $XOOPS_LANGUAGE . '/search.php';
+} else {
+    require_once XOOPS_ROOT_PATH . '/language/english/search.php';
 }
 
 //=========================================================
@@ -42,7 +39,7 @@ class admin_list_word extends happy_linux_page_frame
     {
         parent::__construct();
 
-        $this->setHandler('word', RSSC_DIRNAME, 'rssc');
+        $this->set_handler('word', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('sid');
         $this->set_max_sortid(9);
 
@@ -78,9 +75,8 @@ class admin_list_word extends happy_linux_page_frame
 
         switch ($this->_sortid) {
             case 8:
-                $total = $this->Handler->get_count_by_word_search($this->_search_word);
+                $total = $this->handler->get_count_by_word_search($this->_search_word);
                 break;
-
             case 0:
             case 1:
             case 2:
@@ -90,9 +86,10 @@ class admin_list_word extends happy_linux_page_frame
             case 6:
             case 7:
             default:
-                $total = $this->Handler->getCount();
+                $total = $this->handler->getCount();
                 break;
         }
+
         return $total;
     }
 
@@ -135,40 +132,32 @@ class admin_list_word extends happy_linux_page_frame
     {
         switch ($this->_sortid) {
             case 1:
-                $objs =& $this->Handler->get_objects_desc($limit, $start);
+                $objs = $this->handler->get_objects_desc($limit, $start);
                 break;
-
             case 2:
-                $objs =& $this->Handler->get_objects_point_desc($limit, $start);
+                $objs = $this->handler->get_objects_point_desc($limit, $start);
                 break;
-
             case 3:
-                $objs =& $this->Handler->get_objects_point_asc($limit, $start);
+                $objs = $this->handler->get_objects_point_asc($limit, $start);
                 break;
-
             case 4:
-                $objs =& $this->Handler->get_objects_count_desc($limit, $start);
+                $objs = $this->handler->get_objects_count_desc($limit, $start);
                 break;
-
             case 5:
-                $objs =& $this->Handler->get_objects_count_asc($limit, $start);
+                $objs = $this->handler->get_objects_count_asc($limit, $start);
                 break;
-
             case 6:
-                $objs =& $this->Handler->get_objects_word_asc($limit, $start);
+                $objs = $this->handler->get_objects_word_asc($limit, $start);
                 break;
-
             case 7:
-                $objs =& $this->Handler->get_objects_word_desc($limit, $start);
+                $objs = $this->handler->get_objects_word_desc($limit, $start);
                 break;
-
             case 8:
-                $objs =& $this->Handler->get_objects_by_word_search($this->_search_word, $limit, $start);
+                $objs = $this->handler->get_objects_by_word_search($this->_search_word, $limit, $start);
                 break;
-
             case 0:
             default:
-                $objs =& $this->Handler->get_objects_asc($limit, $start);
+                $objs = $this->handler->get_objects_asc($limit, $start);
                 break;
         }
 
@@ -186,36 +175,28 @@ class admin_list_word extends happy_linux_page_frame
             case 1:
                 $title = _HAPPY_LINUX_ID_DESC;
                 break;
-
             case 2:
                 $title = _AM_RSSC_POINT_DESC;
                 break;
-
             case 3:
                 $title = _AM_RSSC_POINT_ASC;
                 break;
-
             case 4:
                 $title = _AM_RSSC_COUNT_DESC;
                 break;
-
             case 5:
                 $title = _AM_RSSC_COUNT_ASC;
                 break;
-
             case 6:
                 $title = _AM_RSSC_WORD_ASC;
                 break;
-
             case 7:
                 $title = _AM_RSSC_WORD_DESC;
                 break;
-
             case 8:
                 $title = _HAPPY_LINUX_ID_ASC;
                 $found = sprintf(_SR_FOUND, $this->_get_total());
                 break;
-
             case 0:
             default:
                 $title = _HAPPY_LINUX_ID_ASC;
@@ -244,20 +225,22 @@ class admin_list_word extends happy_linux_page_frame
         echo $found . "<br>\n";
     }
 
-    public function _build_page_submit()
+    public function _build_page_submit($colspan1 = 1, $colspan2 = 2, $colspan3 = 0)
     {
         $text = '<tr>';
         $text .= $this->_build_page_col_submit('del_all', _DELETE, 2);
         $text .= $this->_build_page_col_submit('mod_all', _EDIT, 3);
         $text .= "</tr>\n";
+
         return $text;
     }
 
-    public function _build_page_col_submit($name, $value, $colspan)
+    public function _build_page_col_submit($name=null, $value=null, $colspan=1)
     {
         $text = $this->build_html_td_tag_begin($this->_SUBMIT_ALIGN, $this->_SUBMIT_VALIGN, $colspan, $this->_SUBMIT_ROWSPAN, $this->_SUBMIT_CLASS);
         $text .= $this->build_html_input_submit($name, $value);
         $text .= $this->build_html_td_tag_end();
+
         return $text;
     }
 
@@ -329,5 +312,3 @@ $list->_show();
 xoops_cp_footer();
 exit();
 // --- end of main ---
-
-

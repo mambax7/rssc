@@ -19,12 +19,10 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_block') ) 
-{
-
-//=========================================================
-// class rssc_block
-//=========================================================
+if (!class_exists('rssc_block')) {
+    //=========================================================
+    // class rssc_block
+    //=========================================================
     class rssc_block
     {
         public $_db;
@@ -38,7 +36,7 @@ if( !class_exists('rssc_block') )
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct()
+        public function __construct()
         {
             $this->_db          = XoopsDatabaseFactory::getDatabaseConnection();
             $this->_is_japanese = happy_linux_is_japanese();
@@ -57,7 +55,7 @@ if( !class_exists('rssc_block') )
         //---------------------------------------------------------
         // show latest feeds
         //---------------------------------------------------------
-    public function show_latest($DIRNAME)
+        public function show_latest($DIRNAME)
         {
             $block                 = [];
             $block['dirname']      = $DIRNAME;
@@ -121,7 +119,7 @@ if( !class_exists('rssc_block') )
         //---------------------------------------------------------
         // show latest feeds on google map
         //---------------------------------------------------------
-    public function show_map($DIRNAME)
+        public function show_map($DIRNAME)
         {
             $map_timeout = 1000;
 
@@ -172,6 +170,7 @@ if( !class_exists('rssc_block') )
             $ret = $this->get_map($webmap_param);
             if (!$ret) {
                 $block['error'] = 'no map';
+
                 return $block;
             }
 
@@ -187,7 +186,7 @@ if( !class_exists('rssc_block') )
         //---------------------------------------------------------
         // show headline
         //---------------------------------------------------------
-    public function show_headline($DIRNAME)
+        public function show_headline($DIRNAME)
         {
             $block                 = [];
             $block['dirname']      = $DIRNAME;
@@ -271,7 +270,7 @@ if( !class_exists('rssc_block') )
         //---------------------------------------------------------
         // show blog
         //---------------------------------------------------------
-    public function show_blog($DIRNAME)
+        public function show_blog($DIRNAME)
         {
             $block                 = [];
             $block['dirname']      = $DIRNAME;
@@ -292,6 +291,7 @@ if( !class_exists('rssc_block') )
             if (0 == $lid) {
                 $block['feed_show']  = false;
                 $block['lang_error'] = _BL_RSSC_NO_LINK_ID;
+
                 return $block;
             }
 
@@ -319,6 +319,7 @@ if( !class_exists('rssc_block') )
             if (!is_array($link_row)) {
                 $block['feed_show']  = false;
                 $block['lang_error'] = _BL_RSSC_NO_LINK_ID;
+
                 return $block;
             }
 
@@ -335,6 +336,7 @@ if( !class_exists('rssc_block') )
             } else {
                 $block['feed_show']  = false;
                 $block['lang_error'] = _BL_RSSC_NO_FEED;
+
                 return $block;
             }
 
@@ -369,7 +371,7 @@ if( !class_exists('rssc_block') )
         //---------------------------------------------------------
         // handler
         //---------------------------------------------------------
-    public function get_conf($DIRNAME)
+        public function get_conf($DIRNAME)
         {
             $table_config = $this->_db->prefix($DIRNAME . '_config');
 
@@ -384,10 +386,11 @@ if( !class_exists('rssc_block') )
             while (false !== ($row = $this->_db->fetchArray($res))) {
                 $conf[$row['conf_name']] = $row['conf_value'];
             }
+
             return $conf;
         }
 
-    public function get_feed_latest($param)
+        public function get_feed_latest($param)
         {
             $dirname     = $param['dirname'];
             $limit       = $param['limit'];
@@ -423,10 +426,11 @@ if( !class_exists('rssc_block') )
             while (false !== ($row = $this->_db->fetchArray($res))) {
                 $rows[] = $row;
             }
+
             return $rows;
         }
 
-    public function get_feed_lid($param)
+        public function get_feed_lid($param)
         {
             $dirname     = $param['dirname'];
             $lid         = $param['lid'];
@@ -451,10 +455,11 @@ if( !class_exists('rssc_block') )
             while (false !== ($row = $this->_db->fetchArray($res))) {
                 $rows[] = $row;
             }
+
             return $rows;
         }
 
-    public function get_link_row($param)
+        public function get_link_row($param)
         {
             $dirname = $param['dirname'];
             $lid     = $param['lid'];
@@ -470,7 +475,7 @@ if( !class_exists('rssc_block') )
             return $this->_db->fetchArray($res);
         }
 
-    public function get_link_headline($param)
+        public function get_link_headline($param)
         {
             $dirname = $param['dirname'];
             $limit   = $param['limit'];
@@ -488,34 +493,37 @@ if( !class_exists('rssc_block') )
             while (false !== ($row = $this->_db->fetchArray($res))) {
                 $rows[] = $row;
             }
+
             return $rows;
         }
 
         //---------------------------------------------------------
         // icon list
         //---------------------------------------------------------
-    public function get_icon_list($DIRNAME)
+        public function get_icon_list($DIRNAME)
         {
             require_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/rssc_icon.php';
             $icon_class = rssc_icon::getInstance();
+
             return $icon_class->build_template_icon_list($DIRNAME);
         }
 
         //---------------------------------------------------------
         // map
         //---------------------------------------------------------
-    public function get_map($param)
+        public function get_map($param)
         {
             $dirname = $param['dirname'];
             require_once XOOPS_ROOT_PATH . '/modules/' . $dirname . '/class/rssc_block_map.php';
-            $map_class =& rssc_block_map::getSingleton($dirname);
+            $map_class = rssc_block_map::getSingleton($dirname);
+
             return $map_class->build_map_block($param);
         }
 
         //---------------------------------------------------------
         // template
         //---------------------------------------------------------
-    public function fetch_tpl_feed_list($param)
+        public function fetch_tpl_feed_list($param)
         {
             $dirname     = $param['dirname'];
             $feeds       = $param['feeds'];
@@ -557,16 +565,17 @@ if( !class_exists('rssc_block') )
         //---------------------------------------------------------
         // utility
         //---------------------------------------------------------
-    public function build_feeds($rows, $param)
+        public function build_feeds($rows, $param)
         {
             $feeds = [];
             foreach ($rows as $row) {
                 $feeds[] = $this->build_single_feed($row, $param);
             }
+
             return $feeds;
         }
 
-    public function build_single_feed($row, $param)
+        public function build_single_feed($row, $param)
         {
             $max_title   = $param['max_title'];
             $max_summary = $param['max_summary'];
@@ -690,13 +699,13 @@ if( !class_exists('rssc_block') )
             return $feed;
         }
 
-    public function build_future($value)
+        public function build_future($value)
         {
             $time = time() + 86400 * (int)$value;    // days
             return $time;
         }
 
-    public function build_order($value, $flag = false)
+        public function build_order($value, $flag = false)
         {
             $prefix = '';
             if ($flag) {
@@ -707,7 +716,6 @@ if( !class_exists('rssc_block') )
                 case 1:
                     $order = $prefix . 'published_unix DESC, ' . $prefix . 'fid DESC';
                     break;
-
                 case 0:
                 default:
                     $order = $prefix . 'updated_unix DESC, ' . $prefix . 'fid DESC';
@@ -717,15 +725,16 @@ if( !class_exists('rssc_block') )
             return $order;
         }
 
-    public function substitute_title($str)
+        public function substitute_title($str)
         {
-            if (strlen($str) > 0) {
+            if (mb_strlen($str) > 0) {
                 return $str;
             }
+
             return '---';
         }
 
-    public function build_date($mode)
+        public function build_date($mode)
         {
             $show_short  = false;
             $show_middle = false;
@@ -734,15 +743,12 @@ if( !class_exists('rssc_block') )
             switch ($mode) {
                 case 0:
                     break;
-
                 case 2:
                     $show_middle = true;
                     break;
-
                 case 3:
                     $show_long = true;
                     break;
-
                 case 1:
                 default:
                     $show_short = true;
@@ -752,7 +758,7 @@ if( !class_exists('rssc_block') )
             return [$show_short, $show_middle, $show_long];
         }
 
-    public function adjust_size($width, $height)
+        public function adjust_size($width, $height)
         {
             $max_width  = $this->_MAX_WIDTH;
             $max_height = $this->_MAX_HEIGHT;
@@ -780,15 +786,16 @@ if( !class_exists('rssc_block') )
             return [$width, $height];
         }
 
-    public function sanitize($str)
+        public function sanitize($str)
         {
             return htmlspecialchars($str, ENT_QUOTES);
         }
 
-    public function sanitize_url($str)
+        public function sanitize_url($str)
         {
             $str = $this->undo_htmlspecialchars($str);
             $str = htmlspecialchars($str, ENT_QUOTES);
+
             return $str;
         }
 
@@ -804,13 +811,11 @@ if( !class_exists('rssc_block') )
                 '&apos;' => "'",
             ];
             $str = strtr($str, $arr);
+
             return $str;
         }
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

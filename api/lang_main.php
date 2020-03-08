@@ -8,21 +8,16 @@
 //================================================================
 
 // dir name
-$RSSC_DIRNAME = basename( dirname(__DIR__) );
+$RSSC_DIRNAME = basename(dirname(__DIR__));
 
 global $xoopsConfig;
 $XOOPS_LANGUAGE = $xoopsConfig['language'];
 
 // main.php
-if ( file_exists(XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/'.$XOOPS_LANGUAGE.'/main.php') ) 
-{
-	require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/'.$XOOPS_LANGUAGE.'/main.php';
-}
-else
-{
-	require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/english/main.php';
+if (file_exists(XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/language/' . $XOOPS_LANGUAGE . '/main.php')) {
+    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/language/' . $XOOPS_LANGUAGE . '/main.php';
+} else {
+    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/language/english/main.php';
 }
 
-require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/language/compatible.php';
-
-?>
+require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/language/compatible.php';

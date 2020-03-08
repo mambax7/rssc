@@ -4,7 +4,7 @@ $Id: readme_ja.txt,v 1.5 2012/04/08 23:42:20 ohwada Exp $
 Version: 1.30
 Date:   2012-04-02
 Author: Kenichi OHWADA
-URL:    http://linux.ohwada.jp/
+URL:    https://linux.ohwada.jp/
 Email:  webmaster@ohwada.jp
 =================================================
 
@@ -12,7 +12,7 @@ Email:  webmaster@ohwada.jp
 1. 管理者の設定に url 選択を追加した
 タイトルのハイパーリンクと、RSS出力のリンクにおいて、
 元のサイトとRSSCのsingle_feed.phpとの選択ができる
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1273&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=1273&forum=9
 
 2. Webmap3 の変更に伴う若干の変更
 
@@ -63,7 +63,7 @@ Date:   2011-12-29
 ● 変更内容
 1. PHP 5.3 対応
 PHP 5.3.x で推奨されない機能 を修正した
-http://www.php.net/manual/ja/migration53.deprecated.php
+https://www.php.net/manual/ja/migration53.deprecated.php
 (1) new の返り値を参照で代入すること
 
 2. MySQL 5.5 対応
@@ -72,7 +72,7 @@ http://www.php.net/manual/ja/migration53.deprecated.php
 
 3. バグ対策
 (1) 「Powered by Happy Linux」のリンクが間違っている
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=9&topic_id=988
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=9&topic_id=988
 
 
 =================================================
@@ -83,7 +83,7 @@ Date:   2009-05-17
 ● 変更内容
 1. バグ対策
 (1) ブロックにて、要約を表示をする件数設定が効かない
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=947&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=947&forum=9
 
 (2) blog ブロックにて、サイトタイトルが表示されない
 
@@ -96,7 +96,7 @@ Date:   2009-03-22
 ● 変更内容
 1. バグ対策
 (1) インストールできない
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=934&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=934&forum=9
 
 
 =================================================
@@ -106,10 +106,10 @@ Date:   2009-02-25
 
 ● 変更内容
 1. GeoRSS に対応した
-http://georss.org/
+https://georss.org/
 
 2. MediaRSS に対応した
-http://search.yahoo.com/mrss
+https://search.yahoo.com/mrss
 
 3. GoogleMap に対応した
 webmap モジュールが必要です。
@@ -137,10 +137,10 @@ Date:   2009-01-04
 
 ● 変更内容
 (1) typo
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=880&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=880&forum=9
 
 (2) バージョン xx ではない
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=894&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=894&forum=9
 
 
 =================================================
@@ -153,7 +153,7 @@ Date:   2008-02-24
 
 2. 言語ファイル
 (1) アラビア語を新設した
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=385&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=385&forum=5
 
 3. バグ対策
 (1) weblinks にて feed を表示するとき fatal error になる
@@ -187,7 +187,7 @@ Date:   2008-01-30
 script タグと style タグを削除するモードを追加した
 
 2. プラグイン機能を強化した
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=771&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=771&forum=9
 
 2.1 仕様面
 2.1.1 フックを４つ用意した
@@ -227,10 +227,10 @@ plugin_a ( param_a, param_b, param_c )
 (1) mailto.php : 最新のfeed記事を読み出し、ログインユーザにメールする
 
 3. インストール処理の変更
-http://linux.ohwada.jp/modules/newbb/viewforum.php?forum=8
+https://linux.ohwada.jp/modules/newbb/viewforum.php?forum=8
 
 4. テンプレート変数 xoops_module_heade の変更
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=772&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?viewmode=flat&topic_id=772&forum=9
 
 5. バグ変更
 (1) 「RDF/RSS/ATOM の解析」にて XOOPS cache がクリアされることがある
@@ -259,10 +259,10 @@ Date:   2008-01-18
 ● 変更内容
 1. 言語
 (1) ドイツ語 追加
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=377&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=377&forum=5
 
 (2) フランス語 更新
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=177&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=177&forum=5
 
 2. バグ対策
 (1) Only variables should be assigned by reference
@@ -281,7 +281,7 @@ config テーブルの検査などを追加した
 
 2. バグ対策
 (1) TEXT 型のカラムには DEFAULT 値は設定できない
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=732&forum=5
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=732&forum=5
 
 
 =================================================
@@ -299,7 +299,7 @@ Date:   2007-11-11
 3. メモリ使用量を表示した
 
 4. ブロック表示にサイト名を表示する
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=685&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=685&forum=9
 
 5. リンク毎に禁止語を設定する
 朝日新聞 対策
@@ -312,9 +312,9 @@ Yahoo 対策
 7. リンク毎にプラグインを設定する
 Yahoo 対策
 link タグが下記の形式になっているので、
- http://xxx/123*http%3A//yyy/456
+ https://xxx/123*http%3A//yyy/456
 本来の形式に変換する
- http://yyy/456
+ https://yyy/456
 
 8. 要約作成時に全て空白文字ならば空にする
 9. モジュール管理を追加した
@@ -325,22 +325,22 @@ link タグが下記の形式になっているので、
 
 14. black 一覧における feed 記事の検索
 (1) 下記の形式に一致するように、後方一致も行う
-  http://xxx/*http://yyy/
+  https://xxx/*https://yyy/
 (2) 検索時間の短縮のためキャシュを持たせた
 
 15. 各国語
 (1) イタリア語を追加した
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=337&forum=2
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=337&forum=2
 
 (2) フランス語を更新した
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=177&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=177&forum=5
 
 16. バグ対策
 (1) MySQL 3.23 でモジュール・アップデートできない
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=714&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=714&forum=9
 
 (2) 禁止語一覧にて、チェックボックスが効かない
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=726&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=726&forum=9
 
 (3) weblinks モジュールからのデータ・インポートが出来ない
 (4) UTF-8 単体表示 が fatal error になる
@@ -372,27 +372,27 @@ Date:   2007-08-05
 
 ● 主な変更内容
 1. MySQL 4.1/5.x の対応
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=9&topic_id=631
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=9&topic_id=631
 日本語では、MySQL の文字コードは ujis (EUC-JP) に固定にしていた。
 管理者が happy_linux/preload/charset.php を設置して、任意の文字コードが指定できるように変更した。
 
 2. HTML スタイル
 (1) W3C 準拠に変更した
 主なページは W3C Markup Validator のチェックを通した
-http://validator.w3.org/
+https://validator.w3.org/
 
 (2) xoops module header
 xoops module header を使用して、header タグ内に スタイルシートを表示した
 
 3. 4650: 簡易ヘッドラインにサイトの説明を追加した
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4650&group_id=1300&atid=1356
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4650&group_id=1300&atid=1356
 
 4. バグ対策
 (1) rssc0.sql が rssc.sql と同じ
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=650
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=5&topic_id=650
 
 (2) RSS配信の content:encoded がエラーになる
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=8&topic_id=661
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?forum=8&topic_id=661
 
 
 =================================================
@@ -402,11 +402,11 @@ Date:   2007-06-09
 
 ● 主な変更内容
 1. 4510: not view option
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4510&group_id=1300&atid=1356
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4510&group_id=1300&atid=1356
 feed 記事の表示/非表示を追加した
 
 2. 4570: divid to execute RSS feeds update in command line
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4570&group_id=1300&atid=1356
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4570&group_id=1300&atid=1356
 
 コマンドラインに分割実行するオプションを追加した
 オプションは下記の形式です
@@ -416,7 +416,7 @@ php -q -f XOOPS/modules/rssc/bin/refresh.php -pass=pass [ -limit=0 -offset=0 ]
 -----
 
 3. 4577: content spam filter
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4577&group_id=1300&atid=1356
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4577&group_id=1300&atid=1356
 
 コンテンツ・フィルタを追加した
 (1) 禁止語リスト (word テーブル) を追加した
@@ -429,7 +429,7 @@ http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4577&group_id=1300&a
 (3-5) ログファイルに記録する
 
 4. 4582: show next page
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4582&group_id=1300&atid=1356
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4582&group_id=1300&atid=1356
 ページ送りを追加した
 
 5. 処理性能の向上
@@ -480,7 +480,7 @@ xoops 2.0 系で有効です。
 
 (2) 単語の抽出には、kakasi が必要です。
 kakasi の使えない環境では、空白や英数字以外の文字を区切りにして、単語に分割します。
-http://kakasi.namazu.org/
+https://kakasi.namazu.org/
 
 
 ● アップデート
@@ -512,18 +512,18 @@ Date:   2006-11-08
 
 ● 主な変更内容
 (1) 4319: プロキシ・サーバーに対応した
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4319&group_id=1300&atid=1356
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=233&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4319&group_id=1300&atid=1356
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=233&forum=5
 
 (2) 4360: single link の表示件数などのオプションを追加した
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4360&group_id=1300&atid=1356
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=247&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=4360&group_id=1300&atid=1356
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=247&forum=5
 
 (3) キーワードのハイライトの有効/無効のオプションを追加した
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=226&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=226&forum=5
 
 (4) ブロックのテンプレート変数に fid を追加した
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=225&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=225&forum=5
 
 (5) テンプレートに wordwrap 修飾を追加した
 
@@ -548,7 +548,7 @@ weblink との統合に備えて、一部変更した。
 
 (3) RSS解析
 (3-1) link タグのない RSS に対応した
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4146&group_id=1300&atid=1356
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4146&group_id=1300&atid=1356
 
 (3-2) enclosure タグが複数ある RSS に対応した
 
@@ -557,12 +557,12 @@ rssc_headline モジュール用
 
 (4) 検索
 (4-1) Amethyst Blue にて配布している検索モジュールに対応して、検索結果に本文を表示した
-http://www.suin.jp/
+https://www.suin.jp/
 
 (4-2) 検索結果のキーワードをハイライト表示した
 
 (4-3) ゆらぎ検索 を追加した（日本語のみ）
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=503&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=503&forum=9
 
 Amethyst Blue にて配布している検索モジュールを参考にした
 - 半角英数のとき 全角英数も検索対象にする
@@ -572,10 +572,10 @@ Amethyst Blue にて配布している検索モジュールを参考にした
 - 全角ひらがなのとき 半角カタカナと全角ひらがなも検索対象にする
 
 (5) ページタイトル を追加した
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=494&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=494&forum=9
 
 (6) 本文をHTML表示する/しないのオプションを追加した
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=199&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=199&forum=5
 
 (7) ブログ表示のブロックを追加した
 
@@ -594,7 +594,7 @@ Peak にて配布している Tinyd から流用した
 
 (12) バグ対策
 (12-1)「このリンクに属するfeedを表示する」が常に「RSSC」ディレクトリになる
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4145&group_id=1300&atid=1353
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=4145&group_id=1300&atid=1353
 
 (12-2) パースできないときに、Fatal error になる
 
@@ -661,7 +661,7 @@ Date:   2006-06-08
 debug モードの表示を管理者画面に移動した
 
 (5) ブロック表示のテンプレート用に site_tile と site_link をアサインした
-http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=432&forum=9
+https://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=432&forum=9
 
 ２．管理者向けの機能
 (1) feed の登録を廃止した
@@ -670,8 +670,8 @@ http://linux.ohwada.jp/modules/newbb/viewtopic.php?topic_id=432&forum=9
 
 (4) エンコードが自動検出できなかったときに、デフォルト値として UTF-8 を設定した
 BUG 3875: 
-http://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3875&group_id=1300&atid=1353
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=145&forum=5
+https://dev.xoops.org/modules/xfmod/tracker/?func=detail&aid=3875&group_id=1300&atid=1353
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?viewmode=flat&topic_id=145&forum=5
 
 (5) single_link と single_feed へのリンク用にアイコンを表示した
 (6) コマンド実行時のオーバーヘッドを削減した
@@ -691,14 +691,14 @@ Only variable references should be returned by reference
 
 ５．言語対応
 (1) フランス語を追加
-http://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=177&forum=5
+https://linux2.ohwada.net/modules/newbb/viewtopic.php?topic_id=177&forum=5
 
 ６．バグ修正
 (1) BUG 3622: cannot modify blacklist
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3622&group_id=1300&atid=1353
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3622&group_id=1300&atid=1353
 
 (2) BUG 3864: suppress Notice Undefined offset: 0
-http://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3864&group_id=1300&atid=1353
+https://dev.xoops.org/modules/xfmod/tracker/index.php?func=detail&aid=3864&group_id=1300&atid=1353
 
 ● 注意
 ほぼ全てのファイルを変更しています。
@@ -734,7 +734,7 @@ Date:   2006-01-01
 
 このモジュールは、 WebLinks の RDF/RSS/ATOM 記事収集機能を独立し、機能拡張したものである。
 RDF/RSS/ATOM 収集のプラットホームとなる方向を目指している。
-応用例としては、ヘッドライン・モジュール や 未来検索 http://sf.livedoor.com/ を想定している。
+応用例としては、ヘッドライン・モジュール や 未来検索 https://sf.livedoor.com/ を想定している。
 
 現在、ベータ版です。
 今後、大幅に仕様や実装が変わる可能性があります。

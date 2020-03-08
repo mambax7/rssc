@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_refreshHandler.php,v 1.1 2011/12/29 14:37:16 ohwada Exp $
+// $Id: rssc_refresh_handler.php,v 1.1 2011/12/29 14:37:16 ohwada Exp $
 
 // 2009-02-20 K.OHWADA
 // logs
@@ -55,14 +55,12 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_refreshHandler') ) 
-{
-
-//=========================================================
-// class rssc_refreshHandler
-// this class is used by command line
-//=========================================================
-    class rssc_refreshHandler extends happy_linux_error
+if (!class_exists('rssc_refresh_handler')) {
+    //=========================================================
+    // class rssc_refreshHandler
+    // this class is used by command line
+    //=========================================================
+    class rssc_refresh_handler extends happy_linux_error
     {
         // handler
         public $_configHandler;
@@ -138,29 +136,29 @@ if( !class_exists('rssc_refreshHandler') )
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
             parent::__construct();
 
             // handler
-            $this->_configHandler =& rssc_getHandler('config_basic', $dirname);
-            $this->_linkHandler   =& rssc_getHandler('link_basic', $dirname);
-            $this->_xmlHandler    =& rssc_getHandler('xml_basic', $dirname);
-            $this->_feedHandler   =& rssc_getHandler('feed_basic', $dirname);
-            $this->_blackHandler  =& rssc_getHandler('black_basic', $dirname);
-            $this->_wordHandler   =& rssc_getHandler('word_basic', $dirname);
-            $this->_filterHandler =& rssc_getHandler('filter', $dirname);
+            $this->_configHandler = rssc_getHandler('config_basic', $dirname);
+            $this->_linkHandler   = rssc_getHandler('link_basic', $dirname);
+            $this->_xmlHandler    = rssc_getHandler('xml_basic', $dirname);
+            $this->_feedHandler   = rssc_getHandler('feed_basic', $dirname);
+            $this->_blackHandler  = rssc_getHandler('black_basic', $dirname);
+            $this->_wordHandler   = rssc_getHandler('word_basic', $dirname);
+            $this->_filterHandler = rssc_getHandler('filter', $dirname);
 
             // PHP 5.2: Non-static method
             $this->_log_file = new rssc_log_file($dirname);
             $this->_plugin   = new rssc_plugin($dirname);
 
-            $this->_rss_parser =& happy_linux_get_singleton('rss_parser');
-            $this->_extract    =& happy_linux_get_singleton('extract_word');
-            $this->_strings    =& happy_linux_get_singleton('strings');
-            $this->_class_dir  =& happy_linux_get_singleton('dir');
+            $this->_rss_parser = &happy_linux_get_singleton('rss_parser');
+            $this->_extract    = &happy_linux_get_singleton('extract_word');
+            $this->_strings    = &happy_linux_get_singleton('strings');
+            $this->_class_dir  = &happy_linux_get_singleton('dir');
 
-            $this->_rss_utility =& $this->_rss_parser->_rss_utility;
+            $this->_rss_utility = &$this->_rss_parser->_rss_utility;
 
             $this->_init_param();
         }
@@ -177,7 +175,7 @@ if( !class_exists('rssc_refreshHandler') )
         // RSSC_CODE_REFRESH_ERROR: set by refresh()
         // RSSC_CODE_DB_ERROR:      set by _update_link() _update_feed() etc
         //---------------------------------------------------------
-    public function refresh_link_for_add_link($lid)
+        public function refresh_link_for_add_link($lid)
         {
             $ret = $this->refresh($lid);
             if (!$ret) {
@@ -186,15 +184,16 @@ if( !class_exists('rssc_refreshHandler') )
             if ($this->_parse_result) {
                 return RSSC_CODE_PARSE_MSG;
             }
+
             return 0;
         }
 
-    public function get_parse_error_code()
+        public function get_parse_error_code()
         {
             return $this->_parse_error_code;
         }
 
-    public function get_parse_result()
+        public function get_parse_result()
         {
             return $this->_parse_result;
         }
@@ -202,13 +201,14 @@ if( !class_exists('rssc_refreshHandler') )
         //---------------------------------------------------------
         // refresh one link
         //---------------------------------------------------------
-    public function refresh($lid)
+        public function refresh($lid)
         {
             $this->_set_log_func_name('refresh');
 
-            $link_obj =& $this->_linkHandler->get_object_by_id($lid);
+            $link_obj = &$this->_linkHandler->get_object_by_id($lid);
             if (!is_object($link_obj)) {
                 $this->_set_errors("no link record: lid = $lid");
+
                 return false;
             }
 
@@ -225,7 +225,7 @@ if( !class_exists('rssc_refreshHandler') )
         //---------------------------------------------------------
         // entry point for refresh all
         //---------------------------------------------------------
-    public function refresh_by_obj($link_obj)
+        public function refresh_by_obj($link_obj)
         {
             $this->_set_log_func_name('refresh_by_obj');
 
@@ -251,12 +251,12 @@ if( !class_exists('rssc_refreshHandler') )
         //---------------------------------------------------------
         // refresh
         //---------------------------------------------------------
-    public function refreshXmlUrl($lid)
+        public function refreshXmlUrl($lid)
         {
             $this->_set_log_func_name('refreshXmlUrl');
 
             // get new object
-            $link_obj =& $this->get_link($lid);
+            $link_obj = &$this->get_link($lid);
             if (!is_object($link_obj)) {
                 return false;
             }
@@ -273,6 +273,7 @@ if( !class_exists('rssc_refreshHandler') )
                 if ($this->_xml_mode) {
                     if (!$this->updateXmlUrl($lid, $this->_xml_mode, $this->_rdf_url, $this->_rss_url, $this->_atom_url)) {
                         $this->_set_errors('cannot update xmlurl');
+
                         return false;
                     }
                 }
@@ -281,12 +282,12 @@ if( !class_exists('rssc_refreshHandler') )
             return true;
         }
 
-    public function refreshArchive($lid)
+        public function refreshArchive($lid)
         {
             $this->_set_log_func_name('refreshArchive');
 
             // get new  object, if auto discovary
-            $link_obj =& $this->get_link($lid);
+            $link_obj = &$this->get_link($lid);
             if (!is_object($link_obj)) {
                 return false;
             }
@@ -314,6 +315,7 @@ if( !class_exists('rssc_refreshHandler') )
             if (empty($link_encoding)) {
                 if (!$this->updateLinkEncoding($lid, $this->_xml_encoding)) {
                     $this->_set_errors('cannot update link encoding');
+
                     return false;
                 }
             }
@@ -322,6 +324,7 @@ if( !class_exists('rssc_refreshHandler') )
             if ($this->_flag_link_update) {
                 if (!$this->updateLink($lid, $this->_parsed_data, $this->_xml_data, time())) {
                     $this->_set_errors('cannot update link');
+
                     return false;
                 }
             }
@@ -330,6 +333,7 @@ if( !class_exists('rssc_refreshHandler') )
                 if (!$this->updateFeeds($lid, $this->_items_for_store, $this->_xml_data, $this->_xml_encoding, time())) {
                     $this->_set_errors('cannot update same feeds');
                     $this->_set_errors($this->_logs);
+
                     return false;
                 }
             }
@@ -337,55 +341,61 @@ if( !class_exists('rssc_refreshHandler') )
             return true;
         }
 
-    public function discoverXmlUrl($html_url, $sel_rss_atom = '')
+        public function discoverXmlUrl($html_url, $sel_rss_atom = '')
         {
             $ret = $this->_discover_rssurl($html_url, $sel_rss_atom);
+
             return $ret;
         }
 
-    public function updateXmlUrl($lid, $rss_mode, $rdf_url, $rss_url, $atom_url)
+        public function updateXmlUrl($lid, $rss_mode, $rdf_url, $rss_url, $atom_url)
         {
             $ret = $this->_update_link_xmlurl($lid, $rss_mode, $rdf_url, $rss_url, $atom_url);
+
             return $ret;
         }
 
-    public function parseXmlByUrl($xml_url, $xml_encoding = '', $xml_mode = 0)
+        public function parseXmlByUrl($xml_url, $xml_encoding = '', $xml_mode = 0)
         {
             $ret = $this->_parse_xml_by_url($xml_url, $xml_encoding, $xml_mode);
+
             return $ret;
         }
 
-    public function updateLinkEncoding($lid, $xml_encoding)
+        public function updateLinkEncoding($lid, $xml_encoding)
         {
             $ret = $this->_update_link_encoding($lid, $xml_encoding);
+
             return $ret;
         }
 
-    public function updateLink($lid, $parsed_data, $xml_data, $updated = '')
+        public function updateLink($lid, $parsed_data, $xml_data, $updated = '')
         {
             $ret = $this->_update_link($lid, $parsed_data, $xml_data, $updated);
+
             return $ret;
         }
 
-    public function updateFeeds($lid, $items_for_store, $xml_data, $xml_encoding, $updated = '')
+        public function updateFeeds($lid, $items_for_store, $xml_data, $xml_encoding, $updated = '')
         {
             $ret = $this->_update_feeds($lid, $items_for_store, $xml_data, $xml_encoding, $updated);
+
             return $ret;
         }
 
         //---------------------------------------------------------
         // get link
         //---------------------------------------------------------
-    public function &get_link($lid)
+        public function &get_link($lid)
         {
             if (isset($this->_link_obj) && is_object($this->_link_obj)) {
                 $link_obj = $this->_link_obj;
             } else {
-                $link_obj =& $this->_linkHandler->get_object_by_id($lid);
+                $link_obj = &$this->_linkHandler->get_object_by_id($lid);
 
                 if (is_object($link_obj)) {
                     // save object
-                    $this->_link_obj =& $link_obj;
+                    $this->_link_obj = &$link_obj;
                 } else {
                     $this->_set_errors("no link record: lid = $lid");
                 }
@@ -397,7 +407,7 @@ if( !class_exists('rssc_refreshHandler') )
         //---------------------------------------------------------
         // get result
         //---------------------------------------------------------
-    public function &getData()
+        public function &getData()
         {
             return $this->_parsed_data;
         }
@@ -406,7 +416,7 @@ if( !class_exists('rssc_refreshHandler') )
         // set and get property
         // for xml_utility
         //---------------------------------------------------------
-    public function setPriorityRssAtom($value)
+        public function setPriorityRssAtom($value)
         {
             $this->_rss_utility->set_priority($value);
         }
@@ -421,7 +431,7 @@ if( !class_exists('rssc_refreshHandler') )
         //	$this->_rss_utility->set_atom_parser($value);
         //}
 
-    public function set_proxy($host, $port = '8080', $user = '', $pass = '')
+        public function set_proxy($host, $port = '8080', $user = '', $pass = '')
         {
             $this->_rss_utility->set_proxy($host, $port, $user, $pass);
         }
@@ -429,37 +439,37 @@ if( !class_exists('rssc_refreshHandler') )
         //---------------------------------------------------------
         // set debug parameter
         //---------------------------------------------------------
-    public function set_link_update($value)
+        public function set_link_update($value)
         {
             $this->_flag_link_update = (bool)$value;
         }
 
-    public function set_xml_save($value)
+        public function set_xml_save($value)
         {
             $this->_flag_xml_save = (bool)$value;
         }
 
-    public function set_feed_update($value)
+        public function set_feed_update($value)
         {
             $this->_flag_feed_update = (bool)$value;
         }
 
-    public function set_force_discover($value)
+        public function set_force_discover($value)
         {
             $this->_flag_force_discover = (bool)$value;
         }
 
-    public function set_force_refresh($value)
+        public function set_force_refresh($value)
         {
             $this->_flag_force_refresh = (bool)$value;
         }
 
-    public function set_force_overwrite($value)
+        public function set_force_overwrite($value)
         {
             $this->_flag_force_overwrite = (bool)$value;
         }
 
-    public function set_debug_parse($flag, $url = '', $encoding = '', $mode = '')
+        public function set_debug_parse($flag, $url = '', $encoding = '', $mode = '')
         {
             $this->_flag_debug_parse = (bool)$flag;
             $this->_debug_xml_url    = $url;
@@ -470,7 +480,7 @@ if( !class_exists('rssc_refreshHandler') )
         //=========================================================
         // override
         //=========================================================
-    public function set_debug_print_log($value)
+        public function set_debug_print_log($value)
         {
             $value                       = (bool)$value;
             $this->_flag_debug_print_log = $value;
@@ -479,7 +489,7 @@ if( !class_exists('rssc_refreshHandler') )
             $this->_rss_utility->set_debug_print_log($value);
         }
 
-    public function set_debug_print_error($value)
+        public function set_debug_print_error($value)
         {
             $value                         = (bool)$value;
             $this->_flag_debug_print_error = $value;
@@ -494,9 +504,9 @@ if( !class_exists('rssc_refreshHandler') )
         //---------------------------------------------------------
         // config
         //---------------------------------------------------------
-    public function _init_param()
+        public function _init_param()
         {
-            $this->_conf =& $this->_configHandler->get_conf();
+            $this->_conf = &$this->_configHandler->get_conf();
 
             $this->set_xml_save($this->_conf['basic_xml_save']);
 
@@ -529,13 +539,14 @@ if( !class_exists('rssc_refreshHandler') )
         //---------------------------------------------------------
         // discover RSS URL
         //---------------------------------------------------------
-    public function _discover_rssurl($html_url, $sel = '')
+        public function _discover_rssurl($html_url, $sel = '')
         {
             $this->_set_log_func_name('_discover_rssurl');
 
             if (!$this->_rss_utility->discover($html_url, $sel)) {
                 $this->_set_errors('cannot discover xml link');
                 $this->_set_errors($this->_rss_utility->getErrors());
+
                 return false;
             }
 
@@ -550,34 +561,35 @@ if( !class_exists('rssc_refreshHandler') )
         //---------------------------------------------------------
         // update XmlUrl
         //---------------------------------------------------------
-    public function _update_link_xmlurl($lid, $rss_mode, $rdf_url, $rss_url, $atom_url)
+        public function _update_link_xmlurl($lid, $rss_mode, $rdf_url, $rss_url, $atom_url)
         {
             $ret = $this->_linkHandler->update_xml_url($lid, $rss_mode, $rdf_url, $rss_url, $atom_url);
             if (!$ret) {
                 $this->_set_error_code(RSSC_CODE_DB_ERROR);
                 $this->_set_errors($this->_linkHandler->getErrors());
+
                 return false;
             }
 
             unset($this->_link_obj);
+
             return $ret;
         }
 
         //---------------------------------------------------------
         // parse XML
         //---------------------------------------------------------
-    public function _parse_xml_by_url($xml_url, $xml_encoding = '', $xml_mode = 0)
+        public function _parse_xml_by_url($xml_url, $xml_encoding = '', $xml_mode = 0)
         {
             $this->_set_log_func_name('_parse_xml_by_url');
 
-            $parse_obj =& $this->_rss_parser->parse_by_url($xml_url, $xml_encoding);
+            $parse_obj = &$this->_rss_parser->parse_by_url($xml_url, $xml_encoding);
             if (!is_object($parse_obj)) {
                 $this->_parse_error_code = $this->_rss_parser->getErrorCode();
                 switch ($this->_parse_error_code) {
                     case RSSC_CODE_PARSE_NOT_READ_XML_URL:
                         $code = RSSC_CODE_PARSE_NOT_READ_XML_URL;
                         break;
-
                     case RSSC_CODE_PARSE_FAILED:
                     case RSSC_CODE_PARSE_NOT_FIND_ENCODING:
                     default:
@@ -587,6 +599,7 @@ if( !class_exists('rssc_refreshHandler') )
 
                 $this->_set_error_code($code);
                 $this->_set_errors($this->_rss_parser->getErrors());
+
                 return false;
             }
 
@@ -609,23 +622,25 @@ if( !class_exists('rssc_refreshHandler') )
         //---------------------------------------------------------
         // update link encoding
         //---------------------------------------------------------
-    public function _update_link_encoding($lid, $encoding)
+        public function _update_link_encoding($lid, $encoding)
         {
             $ret = $this->_linkHandler->update_encoding($lid, $encoding);
             if (!$ret) {
                 $this->_set_error_code(RSSC_CODE_DB_ERROR);
                 $this->_set_errors($this->_linkHandler->getErrors());
+
                 return false;
             }
 
             unset($this->_link_obj);
+
             return $ret;
         }
 
         //---------------------------------------------------------
         // update archive
         //---------------------------------------------------------
-    public function _update_link($lid, $parsed_data, $xml_data, $updated = '')
+        public function _update_link($lid, $parsed_data, $xml_data, $updated = '')
         {
             $channel = [];
 
@@ -644,6 +659,7 @@ if( !class_exists('rssc_refreshHandler') )
             if (!$ret) {
                 $this->_set_error_code(RSSC_CODE_DB_ERROR);
                 $this->_set_errors($this->_linkHandler->getErrors());
+
                 return false;
             }
 
@@ -652,20 +668,22 @@ if( !class_exists('rssc_refreshHandler') )
                 if (!$ret) {
                     $this->_set_error_code(RSSC_CODE_DB_ERROR);
                     $this->_set_errors($this->_xmlHandler->getErrors());
+
                     return false;
                 }
             }
 
             unset($this->_link_obj);
+
             return true;
         }
 
-    public function _update_feeds($lid, $items_for_store, $xml_data, $xml_encoding, $updated = '')
+        public function _update_feeds($lid, $items_for_store, $xml_data, $xml_encoding, $updated = '')
         {
             $this->_logs = [];
 
             // get new object
-            $link_obj =& $this->get_link($lid);
+            $link_obj = &$this->get_link($lid);
             if (!is_object($link_obj)) {
                 return false;
             }
@@ -688,7 +706,7 @@ if( !class_exists('rssc_refreshHandler') )
 
             // refresh ATOM feed
             foreach ($items_for_store as $item) {
-                $obj =  $this->_feedHandler->create();
+                $obj = $this->_feedHandler->create();
                 $obj->merge_vars($item);
                 $obj->set_raws($item);
                 $obj->set('lid', $lid);
@@ -710,7 +728,7 @@ if( !class_exists('rssc_refreshHandler') )
             return true;
         }
 
-    public function _update_single_feed($item)
+        public function _update_single_feed($item)
         {
             $this->_count_all++;
 
@@ -755,6 +773,7 @@ if( !class_exists('rssc_refreshHandler') )
                 if (!$ret) {
                     $this->_set_error_code(RSSC_CODE_DB_ERROR);
                     $this->_set_errors($this->_feedHandler->getErrors());
+
                     return false;
                 }
             }
@@ -762,7 +781,7 @@ if( !class_exists('rssc_refreshHandler') )
             return true;
         }
 
-    public function _check_has_link($item)
+        public function _check_has_link($item)
         {
             $lid   = $item['lid'];
             $link  = $item['link'];
@@ -771,13 +790,14 @@ if( !class_exists('rssc_refreshHandler') )
             // some feed has no link
             if (empty($link)) {
                 $this->_set_errors('link is empty: lid=' . $lid . ' title=' . $title);
+
                 return false;
             }
 
             return true;
         }
 
-    public function _check_feed_exist($item)
+        public function _check_feed_exist($item)
         {
             if ($this->_flag_force_overwrite) {
                 return false;
@@ -790,13 +810,14 @@ if( !class_exists('rssc_refreshHandler') )
             $count_time = $this->_feedHandler->get_count_by_link_time($link, $updated);
             if ($count_time) {
                 $this->_count_skip++;
+
                 return true;
             }
 
             return false;
         }
 
-    public function _execute_plugin($item)
+        public function _execute_plugin($item)
         {
             $temp = $item;
 
@@ -834,7 +855,7 @@ if( !class_exists('rssc_refreshHandler') )
             return $temp;
         }
 
-    public function _execute_filter($item)
+        public function _execute_filter($item)
         {
             $ret = true;    // active
 
@@ -854,13 +875,14 @@ if( !class_exists('rssc_refreshHandler') )
             if (!$ret1) {
                 $this->_count_reject++;
                 $this->write_logs($this->_filterHandler->get_log());
+
                 return false;
             }
 
             // filter judge if link is allow
             if (!$this->_conf['link_use'] || (RSSC_C_LINK_LTYPE_NORMAL != $link_ltype)) {
                 if (1 == $this->_conf['html_get']) {
-                    $site       =& $this->_get_site_info_by_url($link);
+                    $site       = &$this->_get_site_info_by_url($link);
                     $site_title = $site['title'];
                     $site_link  = $site['link'];
                     $site_html  = $site['html'];
@@ -871,7 +893,7 @@ if( !class_exists('rssc_refreshHandler') )
 
                 if ($judge < 0) {
                     if (2 == $this->_conf['html_get']) {
-                        $site       =& $this->_get_site_info_by_url($link);
+                        $site       = &$this->_get_site_info_by_url($link);
                         $site_title = $site['title'];
                         $site_link  = $site['link'];
                         $site_html  = $site['html'];
@@ -889,7 +911,7 @@ if( !class_exists('rssc_refreshHandler') )
                 }
 
                 if ($this->_conf['word_auto']) {
-                    $word_arr =& $this->_extract->execute($cont);
+                    $word_arr = &$this->_extract->execute($cont);
                     $this->_wordHandler->add_word_array($word_arr);
                 }
 
@@ -900,7 +922,7 @@ if( !class_exists('rssc_refreshHandler') )
             return $ret;
         }
 
-    public function &_get_site_info_by_url($url)
+        public function &_get_site_info_by_url($url)
         {
             $arr = [
                 'title' => null,
@@ -908,7 +930,7 @@ if( !class_exists('rssc_refreshHandler') )
                 'html'  => null,
             ];
 
-            $parse_obj =& $this->_rss_parser->discover_and_parse_by_html_url($url);
+            $parse_obj = &$this->_rss_parser->discover_and_parse_by_html_url($url);
             if ($parse_obj) {
                 $title = $parse_obj->get_channel_by_key('title');
                 $link  = $parse_obj->get_channel_by_key('link');
@@ -943,7 +965,7 @@ if( !class_exists('rssc_refreshHandler') )
         //---------------------------------------------------------
         // counter
         //---------------------------------------------------------
-    public function clear_count()
+        public function clear_count()
         {
             $this->_count_all    = 0;
             $this->_count_skip   = 0;
@@ -951,22 +973,22 @@ if( !class_exists('rssc_refreshHandler') )
             $this->_count_update = 0;
         }
 
-    public function get_count_all()
+        public function get_count_all()
         {
             return $this->_count_all;
         }
 
-    public function get_count_skip()
+        public function get_count_skip()
         {
             return $this->_count_skip;
         }
 
-    public function get_count_reject()
+        public function get_count_reject()
         {
             return $this->_count_reject;
         }
 
-    public function get_count_update()
+        public function get_count_update()
         {
             return $this->_count_update;
         }
@@ -974,7 +996,7 @@ if( !class_exists('rssc_refreshHandler') )
         //---------------------------------------------------------
         // log file
         //---------------------------------------------------------
-    public function open_log()
+        public function open_log()
         {
             $ret = $this->_log_file->open_log();
             if (!$ret) {
@@ -982,12 +1004,12 @@ if( !class_exists('rssc_refreshHandler') )
             }
         }
 
-    public function close_log($flag_chmod = false)
+        public function close_log($flag_chmod = false)
         {
             $this->_log_file->close_log($flag_chmod);
         }
 
-    public function write_logs($arr)
+        public function write_logs($arr)
         {
             if (is_array($arr)) {
                 foreach ($arr as $text) {
@@ -1006,8 +1028,5 @@ if( !class_exists('rssc_refreshHandler') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

@@ -13,15 +13,13 @@
 //---------------------------------------------------------
 
 // === class begin ===
-if( !class_exists('rssc_plugin_hamakei') ) 
-{
+if (!class_exists('rssc_plugin_hamakei')) {
     class rssc_plugin_hamakei extends rssc_plugin_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct()
+        public function __construct()
         {
             rssc_plugin_base::__construct();
         }
@@ -29,7 +27,7 @@ if( !class_exists('rssc_plugin_hamakei') )
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
-    public function description()
+        public function description()
         {
             return 'georss and mediarss for hamakei';
         }
@@ -67,8 +65,5 @@ if( !class_exists('rssc_plugin_hamakei') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

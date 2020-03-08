@@ -28,12 +28,10 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_build_rssc') ) 
-{
-
-//=========================================================
-// class rssc_build_rssc
-//=========================================================
+if (!class_exists('rssc_build_rssc')) {
+    //=========================================================
+    // class rssc_build_rssc
+    //=========================================================
     class rssc_build_rssc extends happy_linux_build_rss
     {
         public $_DIRNAME;
@@ -47,7 +45,7 @@ if( !class_exists('rssc_build_rssc') )
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
             $this->_DIRNAME = $dirname;
 
@@ -81,7 +79,7 @@ if( !class_exists('rssc_build_rssc') )
         //---------------------------------------------------------
         // public
         //---------------------------------------------------------
-    public function build()
+        public function build()
         {
             $this->_init();
 
@@ -98,7 +96,7 @@ if( !class_exists('rssc_build_rssc') )
             $this->build_rss();
         }
 
-    public function view()
+        public function view()
         {
             $this->_init();
             $this->set_mode($this->_get_rss_mode());
@@ -108,20 +106,20 @@ if( !class_exists('rssc_build_rssc') )
         //---------------------------------------------------------
         // private
         //---------------------------------------------------------
-    public function _init()
+        public function _init()
         {
-            $this->_configHandler =& rssc_getHandler('config_basic', $this->_DIRNAME);
-            $this->_searchHandler =& rssc_getHandler('search', $this->_DIRNAME);
+            $this->_configHandler = rssc_getHandler('config_basic', $this->_DIRNAME);
+            $this->_searchHandler = rssc_getHandler('search', $this->_DIRNAME);
 
-            $this->_conf =& $this->_configHandler->get_conf();
+            $this->_conf = &$this->_configHandler->get_conf();
         }
 
-    public function _get_query()
+        public function _get_query()
         {
             return $this->_searchHandler->get_post_get_query();
         }
 
-    public function &_get_feeds()
+        public function &_get_feeds()
         {
             $max_limit = $this->_conf['main_search_perpage'];
 
@@ -138,11 +136,12 @@ if( !class_exists('rssc_build_rssc') )
                 $limit = $max_limit;
             }
 
-            $feeds =& $this->_searchHandler->get_feeds_for_rss($limit, $start);
+            $feeds = &$this->_searchHandler->get_feeds_for_rss($limit, $start);
+
             return $feeds;
         }
 
-    public function _get_rss_mode()
+        public function _get_rss_mode()
         {
             $post = happy_linux_post::getInstance();
             $mode = $post->get_get_text('mode', 'rss');
@@ -151,19 +150,19 @@ if( !class_exists('rssc_build_rssc') )
                 case 'rdf':
                 case 'atom':
                     break;
-
                 case 'rss':
                 default:
                     $mode = 'rss';
                     break;
             }
+
             return $mode;
         }
 
         //=========================================================
         // override into build_rss
         //=========================================================
-    public function &_get_items()
+        public function &_get_items()
         {
             return $this->_get_feeds();
         }
@@ -171,16 +170,17 @@ if( !class_exists('rssc_build_rssc') )
         //---------------------------------------------------------
         // RDF
         //---------------------------------------------------------
-    public function _build_rdf_item($item)
+        public function _build_rdf_item($item)
         {
             $ret = $this->_build_common_item($item);
+
             return $ret;
         }
 
         //---------------------------------------------------------
         // RSS
         //---------------------------------------------------------
-    public function _build_rss_item($item)
+        public function _build_rss_item($item)
         {
             $arr = $this->_build_common_item($item);
 
@@ -198,7 +198,7 @@ if( !class_exists('rssc_build_rssc') )
         //---------------------------------------------------------
         // ATOM
         //---------------------------------------------------------
-    public function _build_atom_entry($entry)
+        public function _build_atom_entry($entry)
         {
             $arr = $this->_build_common_item($entry);
 
@@ -314,7 +314,6 @@ if( !class_exists('rssc_build_rssc') )
                 'media_thumbnail_url'    => $this->_xml_url($item['media_thumbnail_url']),
                 'media_thumbnail_width'  => $item['media_thumbnail_width'],
                 'media_thumbnail_height' => $item['media_thumbnail_height'],
-
             ];
 
             return $ret;
@@ -322,8 +321,5 @@ if( !class_exists('rssc_build_rssc') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

@@ -7,7 +7,7 @@
 //=========================================================
 
 require dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
-require_once XOOPS_ROOT_PATH.'/modules/happy_linux/api/admin.php';
+require_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/admin.php';
 
 //=========================================================
 // main
@@ -20,4 +20,3 @@ $admin->print_blocks();
 xoops_cp_footer();
 exit();
 // --- end of main ---
-

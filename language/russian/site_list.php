@@ -16,7 +16,7 @@
 //=========================================================
 // _LANGCODE: ru
 // _CHARSET : utf-8
-// Translator: Houston (Contour Design Studio http://www.cdesign.ru/)
+// Translator: Houston (Contour Design Studio https://www.cdesign.ru/)
 
 //---------------------------------------------------------
 // for tranaslator
@@ -25,8 +25,8 @@
 // please describe the RSS search site list
 //
 // RSS search site is such as following
-// in English:  http://blogsearch.google.com/
-// in Japanese: http://sf.livedoor.com/
+// in English:  https://blogsearch.google.com/
+// in Japanese: https://sf.livedoor.com/
 //
 // I dont know same site in other language
 // Probably, Google or Yahoo will start the service in other language.
@@ -34,15 +34,12 @@
 //---------------------------------------------------------
 
 // === class begin ===
-if( !class_exists('rssc_site_list') ) 
-{
-
-//=========================================================
-// class rssc_site_list
-//=========================================================
+if (!class_exists('rssc_site_list')) {
+    //=========================================================
+    // class rssc_site_list
+    //=========================================================
     class rssc_site_list
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
@@ -69,8 +66,8 @@ if( !class_exists('rssc_site_list') )
             $site = [];
 
             $site[1]['title']    = 'google';
-            $site[1]['url']      = 'http://blogsearch.google.com/blogsearch?hl=en&lr=lang_en&ie=utf-8&num=10&output=atom&q=';
-            $site[1]['rss']      = 'http://blogsearch.google.com/blogsearch_feeds?hl=en&lr=lang_en&ie=utf-8&num=10&output=atom&q=';
+            $site[1]['url']      = 'https://blogsearch.google.com/blogsearch?hl=en&lr=lang_en&ie=utf-8&num=10&output=atom&q=';
+            $site[1]['rss']      = 'https://blogsearch.google.com/blogsearch_feeds?hl=en&lr=lang_en&ie=utf-8&num=10&output=atom&q=';
             $site[1]['mode']     = RSSC_C_MODE_ATOM;
             $site[1]['code']     = 'UTF-8';
             $site[1]['encoding'] = 'UTF-8';
@@ -80,8 +77,5 @@ if( !class_exists('rssc_site_list') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

@@ -51,27 +51,27 @@ class admin_feed_list_bid extends admin_feed_list
     {
         if (isset($_GET['bid'])) {
             $this->_bid  = $this->_post->get_get_int('bid');
-            $black_obj   =& $this->_blackHandler->get($this->_bid);
+            $black_obj   = &$this->_blackHandler->get($this->_bid);
             $this->_link = $black_obj->get('url');
         }
     }
 
     public function _get_total()
     {
-        $this->_total_link    = $this->Handler->get_count_by_link($this->_link);
-        $this->_total_non_act = $this->Handler->get_count_by_link_non_act($this->_link);
+        $this->_total_link    = $this->handler->get_count_by_link($this->_link);
+        $this->_total_non_act = $this->handler->get_count_by_link_non_act($this->_link);
         switch ($this->_sortid) {
             case 2:
             case 3:
                 $total = $this->_total_non_act;
                 break;
-
             case 0:
             case 1:
             default:
                 $total = $this->_total_link;
                 break;
         }
+
         return $total;
     }
 
@@ -82,22 +82,20 @@ class admin_feed_list_bid extends admin_feed_list
     {
         switch ($this->_sortid) {
             case 1:
-                $objs =& $this->Handler->get_objects_by_link_desc($this->_link, $limit, $start);
+                $objs = $this->handler->get_objects_by_link_desc($this->_link, $limit, $start);
                 break;
-
             case 2:
-                $objs =& $this->Handler->get_objects_by_link_non_act_asc($this->_link, $limit, $start);
+                $objs = $this->handler->get_objects_by_link_non_act_asc($this->_link, $limit, $start);
                 break;
-
             case 3:
-                $objs =& $this->Handler->get_objects_by_link_non_act_desc($this->_link, $limit, $start);
+                $objs = $this->handler->get_objects_by_link_non_act_desc($this->_link, $limit, $start);
                 break;
-
             case 0:
             default:
-                $objs =& $this->Handler->get_objects_by_link_asc($this->_link, $limit, $start);
+                $objs = $this->handler->get_objects_by_link_asc($this->_link, $limit, $start);
                 break;
         }
+
         return $objs;
     }
 
@@ -123,12 +121,12 @@ class admin_feed_list_bid extends admin_feed_list
             case 3:
                 $condition .= ', act = 0';
                 break;
-
             case 0:
             case 1:
             default:
                 break;
         }
+
         return $condition;
     }
 
@@ -138,12 +136,14 @@ class admin_feed_list_bid extends admin_feed_list
     public function _get_script_sortid($sortid)
     {
         $script = $this->_get_script() . '&amp;sortid=' . $sortid;
+
         return $script;
     }
 
     public function _get_script()
     {
         $script = xoops_getenv('PHP_SELF') . '?bid=' . $this->_bid;
+
         return $script;
     }
 
@@ -163,5 +163,3 @@ $list->_show();
 xoops_cp_footer();
 exit();
 // --- end of main ---
-
-

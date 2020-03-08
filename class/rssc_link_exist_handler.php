@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_link_existHandler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
+// $Id: rssc_link_exist_handler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
 
 // 2006-09-01 K.OHWADA
 // use RSSC_CODE_DISCOVER_FAILED
@@ -15,13 +15,11 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_link_existHandler') ) 
-{
-
-//=========================================================
-// class rssc_link_existHandler
-//=========================================================
-    class rssc_link_existHandler extends happy_linux_error
+if (!class_exists('rssc_link_exist_handler')) {
+    //=========================================================
+    // class rssc_link_existHandler
+    //=========================================================
+    class rssc_link_exist_handler extends happy_linux_error
     {
         // class instance
         public $_linkHandler;
@@ -37,20 +35,20 @@ if( !class_exists('rssc_link_existHandler') )
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
             parent::__construct();
 
             // class instance
-            $this->_linkHandler =& rssc_getHandler('link', $dirname);
-            $this->_xml_utility  = rssc_xml_utility::getInstance();
+            $this->_linkHandler = rssc_getHandler('link', $dirname);
+            $this->_xml_utility = rssc_xml_utility::getInstance();
         }
 
         //---------------------------------------------------------
         // check_exist_rssurl
         // for admin/link_manage.php
         //---------------------------------------------------------
-    public function discover($mode, $url, $rdf_url, $rss_url, $atom_url, $sel)
+        public function discover($mode, $url, $rdf_url, $rss_url, $atom_url, $sel)
         {
             $ret_code = 0;
 
@@ -91,24 +89,26 @@ if( !class_exists('rssc_link_existHandler') )
             return $ret_code;
         }
 
-    public function check_exist_rssurl($rdf_url, $rss_url, $atom_url, $lid = 0)
+        public function check_exist_rssurl($rdf_url, $rss_url, $atom_url, $lid = 0)
         {
             $ret                = false;
-            $list               =& $this->_linkHandler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url, $lid);
+            $list               = &$this->_linkHandler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url, $lid);
             $this->_rssurl_list = $list;
             if (is_array($list) && (count($list) > 0)) {
                 $ret = true;
             }
+
             return $ret;
         }
 
-    public function get_list_by_rssurl($rdf_url, $rss_url, $atom_url)
+        public function get_list_by_rssurl($rdf_url, $rss_url, $atom_url)
         {
-            $list =& $this->_linkHandler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url);
+            $list = &$this->_linkHandler->get_list_by_rssurl($rdf_url, $rss_url, $atom_url);
+
             return $list;
         }
 
-    public function build_error_rssurl_list($list, $script)
+        public function build_error_rssurl_list($list, $script)
         {
             $msg = '';
             if (is_array($list) && (count($list) > 0)) {
@@ -121,10 +121,11 @@ if( !class_exists('rssc_link_existHandler') )
                 $msg .= "</ul>\n";
                 $this->_set_errors($msg);
             }
+
             return $msg;
         }
 
-    public function _build_error_rssurl_list_single($lid, $script)
+        public function _build_error_rssurl_list_single($lid, $script)
         {
             $obj = $this->_linkHandler->get($lid);
             if (!is_object($obj)) {
@@ -140,25 +141,26 @@ if( !class_exists('rssc_link_existHandler') )
             $text .= '<a href="' . $url_l . '" target="_blank">' . $lid_p . '</a> : ';
             $text .= '<a href="' . $url_s . '" target="_blank">' . $title_s . '</a> ';
             $text .= "</li>\n";
+
             return $text;
         }
 
-    public function get_xml_mode()
+        public function get_xml_mode()
         {
             return $this->_xml_mode;
         }
 
-    public function get_rdf_url()
+        public function get_rdf_url()
         {
             return $this->_rdf_url;
         }
 
-    public function get_rss_url()
+        public function get_rss_url()
         {
             return $this->_rss_url;
         }
 
-    public function get_atom_url()
+        public function get_atom_url()
         {
             return $this->_atom_url;
         }
@@ -170,8 +172,5 @@ if( !class_exists('rssc_link_existHandler') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

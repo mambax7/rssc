@@ -7,12 +7,10 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_block_map') ) 
-{
-
-//=========================================================
-// class rssc_block_map
-//=========================================================
+if (!class_exists('rssc_block_map')) {
+    //=========================================================
+    // class rssc_block_map
+    //=========================================================
     class rssc_block_map
     {
         public $_map_class;
@@ -20,7 +18,7 @@ if( !class_exists('rssc_block_map') )
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct($dirname)
         {
             // dummy
         }
@@ -29,15 +27,16 @@ if( !class_exists('rssc_block_map') )
         {
             static $singletons;
             if (!isset($singletons[$dirname])) {
-                $singletons[$dirname] = new rssc_block_map($dirname);
+                $singletons[$dirname] = new self($dirname);
             }
+
             return $singletons[$dirname];
         }
 
         //---------------------------------------------------------
         // block
         //---------------------------------------------------------
-    public function build_map_block($param)
+        public function build_map_block($param)
         {
             $dirname    = $param['dirname'];
             $map_div_id = $param['map_div_id'];
@@ -59,7 +58,7 @@ if( !class_exists('rssc_block_map') )
 
             $show_map = false;
 
-            $this->_map_class =& $this->get_map_class($webmap3_dirname);
+            $this->_map_class = &$this->get_map_class($webmap3_dirname);
             if (!is_object($this->_map_class)) {
                 return false;
             }
@@ -99,7 +98,7 @@ if( !class_exists('rssc_block_map') )
             return $show_map;
         }
 
-    public function check_webmap_dirname($dirname)
+        public function check_webmap_dirname($dirname)
         {
             if ('' == $dirname) {
                 return false;
@@ -110,10 +109,11 @@ if( !class_exists('rssc_block_map') )
             if ('---' == $dirname) {
                 return false;
             }
+
             return true;
         }
 
-    public function &get_map_class($webmap_dirname)
+        public function &get_map_class($webmap_dirname)
         {
             $false = false;
 
@@ -129,10 +129,11 @@ if( !class_exists('rssc_block_map') )
             }
 
             $map_class = webmap3_api_map::getSingleton($webmap_dirname);
+
             return $map_class;
         }
 
-    public function build_marker($feed)
+        public function build_marker($feed)
         {
             return $this->_map_class->build_single_marker(
                 $feed['geo_lat'],
@@ -142,7 +143,7 @@ if( !class_exists('rssc_block_map') )
             );
         }
 
-    public function build_info($feed)
+        public function build_info($feed)
         {
             $title_info = '';
             $title_link = '';
@@ -187,15 +188,16 @@ if( !class_exists('rssc_block_map') )
             return $info;
         }
 
-    public function build_info_title($title)
+        public function build_info_title($title)
         {
             $str = '<span style="font-weight:bold">';
             $str .= $this->_map_class->build_title_short($title);
             $str .= '</span>';
+
             return $str;
         }
 
-    public function build_info_img($feed)
+        public function build_info_img($feed)
         {
             $img = '';
             $src = '';
@@ -228,7 +230,7 @@ if( !class_exists('rssc_block_map') )
             return $img;
         }
 
-    public function check_latlng_by_feed($feed)
+        public function check_latlng_by_feed($feed)
         {
             return $this->check_lat_lng(
                 $feed['geo_lat'],
@@ -236,7 +238,7 @@ if( !class_exists('rssc_block_map') )
             );
         }
 
-    public function check_lat_lng($latitude, $longitude)
+        public function check_lat_lng($latitude, $longitude)
         {
             $lat = (int)($latitude * 1000000);
             $lng = (int)($longitude * 1000000);
@@ -247,6 +249,7 @@ if( !class_exists('rssc_block_map') )
             if (0 != $lng) {
                 return true;
             }
+
             return false;
         }
 
@@ -257,8 +260,5 @@ if( !class_exists('rssc_block_map') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

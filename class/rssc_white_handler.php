@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_whiteHandler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
+// $Id: rssc_white_handler.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
 // move add_column_table_xxx() to rssc_install.php
@@ -11,7 +11,7 @@
 // add field act reg count
 
 // 2006-07-10 K.OHWADA
-// use happy_linux_object happy_linux_objectHandler
+// use happy_linux_object happy_linux_object_handler
 
 // 2006-01-20 K.OHWADA
 // small change
@@ -25,57 +25,53 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_whiteHandler') ) 
-{
-
-//=========================================================
-// class white
-//=========================================================
-class rssc_white extends happy_linux_object
-{
-
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-public function __construct()
-{
-	parent::__construct();
-
-	$this->initVar('wid', XOBJ_DTYPE_INT, null, false);
-	$this->initVar('lid', XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('uid', XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('mid', XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('p1',  XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('p2',  XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('p3',  XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('title', XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('url',   XOBJ_DTYPE_URL,    null, false, 255);
-	$this->initVar('memo',  XOBJ_DTYPE_TXTAREA);
-	$this->initVar('aux_int_1',  XOBJ_DTYPE_INT, 0);
-	$this->initVar('aux_int_2',  XOBJ_DTYPE_INT, 0);
-	$this->initVar('aux_text_1', XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('aux_text_2', XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('act',   XOBJ_DTYPE_INT, 1);
-	$this->initVar('reg',   XOBJ_DTYPE_INT, 0);
-	$this->initVar('count', XOBJ_DTYPE_INT, 0);
-
-	$this->initVar('cache', XOBJ_DTYPE_INT, 0);
-	$this->initVar('ctime', XOBJ_DTYPE_INT, 0);
-}
-
-// --- class end ---
-}
-
-//=========================================================
-// class white handler
-//=========================================================
-    class rssc_whiteHandler extends happy_linux_objectHandler
+if (!class_exists('rssc_white_handler')) {
+    //=========================================================
+    // class white
+    //=========================================================
+    class rssc_white extends happy_linux_object
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct()
+        {
+            parent::__construct();
+
+            $this->initVar('wid', XOBJ_DTYPE_INT, null, false);
+            $this->initVar('lid', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('uid', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('mid', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('p1', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('p2', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('p3', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('title', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('url', XOBJ_DTYPE_URL, null, false, 255);
+            $this->initVar('memo', XOBJ_DTYPE_TXTAREA);
+            $this->initVar('aux_int_1', XOBJ_DTYPE_INT, 0);
+            $this->initVar('aux_int_2', XOBJ_DTYPE_INT, 0);
+            $this->initVar('aux_text_1', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('aux_text_2', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('act', XOBJ_DTYPE_INT, 1);
+            $this->initVar('reg', XOBJ_DTYPE_INT, 0);
+            $this->initVar('count', XOBJ_DTYPE_INT, 0);
+
+            $this->initVar('cache', XOBJ_DTYPE_INT, 0);
+            $this->initVar('ctime', XOBJ_DTYPE_INT, 0);
+        }
+
+        // --- class end ---
+    }
+
+    //=========================================================
+    // class white handler
+    //=========================================================
+    class rssc_white_handler extends happy_linux_object_handler
+    {
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct($dirname)
         {
             parent::__construct($dirname, 'white', 'wid', 'rssc_white');
 
@@ -86,7 +82,7 @@ public function __construct()
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
-    public function _build_insert_sql($obj)
+        public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -141,7 +137,7 @@ public function __construct()
             return $sql;
         }
 
-    public function _build_update_sql($obj)
+        public function _build_update_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -176,14 +172,15 @@ public function __construct()
         //---------------------------------------------------------
         // get
         //---------------------------------------------------------
-    public function &get_objects_count_asc($limit = 0, $start = 0)
+        public function &get_objects_count_asc($limit = 0, $start = 0)
         {
             $sort     = 'count ASC, wid ASC';
             $criteria = new CriteriaCompo();
             $criteria->setSort($sort);
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
@@ -194,14 +191,12 @@ public function __construct()
             $criteria->setSort($sort);
             $criteria->setStart($start);
             $criteria->setLimit($limit);
-            $objs =& $this->getObjects($criteria);
+            $objs = &$this->getObjects($criteria);
+
             return $objs;
         }
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

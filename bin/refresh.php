@@ -20,15 +20,13 @@
 
 // environment
 $RSSC_PATH       = dirname(__DIR__);
-$RSSC_DIRNAME    = basename( $RSSC_PATH );
-$XOOPS_ROOT_PATH = dirname( dirname( $RSSC_PATH ) );
+$RSSC_DIRNAME    = basename($RSSC_PATH);
+$XOOPS_ROOT_PATH = dirname(dirname($RSSC_PATH));
 
 // rssc file
-include $XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/bin/bin_api.php';
+include $XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/bin/bin_api.php';
 
-$refresh = new bin_refresh( $RSSC_DIRNAME );
+$refresh = new bin_refresh($RSSC_DIRNAME);
 $refresh->refresh();
 
 exit();
-
-?>

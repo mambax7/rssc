@@ -14,8 +14,7 @@
 //---------------------------------------------------------
 
 // === class begin ===
-if( !class_exists('rssc_plugin_latest_feeds') ) 
-{
+if (!class_exists('rssc_plugin_latest_feeds')) {
     class rssc_plugin_latest_feeds extends rssc_plugin_base
     {
         public $_feedHandler;
@@ -44,19 +43,17 @@ if( !class_exists('rssc_plugin_latest_feeds') )
             return 'latest_feeds ( [number_of_feeds] )';
         }
 
-        public function execute(&$items)
+        public function execute($items)
         {
-            $feedHandler =& $this->getHandler('feed_basic');
+            $feedHandler = $this->getHandler('feed_basic');
 
             $limit = (int)$this->get_param_by_num(0, $this->_DEFAULT_NUM);
-            $rows  =& $feedHandler->get_rows_public_by_order($this->_FEED_ORDER, $limit);
+            $rows  = &$feedHandler->get_rows_public_by_order($this->_FEED_ORDER, $limit);
+
             return $rows;
         }
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

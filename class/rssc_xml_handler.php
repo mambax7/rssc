@@ -1,5 +1,5 @@
 <?php
-// $Id: rssc_xmlHandler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
+// $Id: rssc_xml_handler.php,v 1.1 2011/12/29 14:37:17 ohwada Exp $
 
 // 2007-11-24 K.OHWADA
 // move create_table() to rssc_install.php
@@ -19,63 +19,59 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_xmlHandler') ) 
-{
-
-//=========================================================
-// class xml
-//=========================================================
-class rssc_xml extends happy_linux_object
-{
-
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-public function __construct()
-{
-	parent::__construct();
-
-	$this->initVar('xid', XOBJ_DTYPE_INT, null, false);
-	$this->initVar('lid', XOBJ_DTYPE_INT, 0, false);
-	$this->initVar('xml',        XOBJ_DTYPE_TXTAREA);
-	$this->initVar('aux_int_1',  XOBJ_DTYPE_INT,   0);
-	$this->initVar('aux_int_2',  XOBJ_DTYPE_INT,   0);
-	$this->initVar('aux_text_1', XOBJ_DTYPE_TXTBOX, null, false, 255);
-	$this->initVar('aux_text_2', XOBJ_DTYPE_TXTBOX, null, false, 255);
-}
-
-//---------------------------------------------------------
-// set
-//---------------------------------------------------------
-public function set_vars_insert($lid)
-{
-	$this->setVar('lid', $lid);
-}
-
-public function get_rawurldecode_xml()
-{
-	$ret = false;
-	$xml = $this->get('xml');
-	if ($xml)
-	{
-		$ret = rawurldecode($xml);
-	}
-	return $ret;
-}
-
-// --- class end ---
-}
-
-//=========================================================
-// class xml handler
-//=========================================================
-    class rssc_xmlHandler extends happy_linux_objectHandler
+if (!class_exists('rssc_xml_handler')) {
+    //=========================================================
+    // class xml
+    //=========================================================
+    class rssc_xml extends happy_linux_object
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct($dirname)
+        public function __construct()
+        {
+            parent::__construct();
+
+            $this->initVar('xid', XOBJ_DTYPE_INT, null, false);
+            $this->initVar('lid', XOBJ_DTYPE_INT, 0, false);
+            $this->initVar('xml', XOBJ_DTYPE_TXTAREA);
+            $this->initVar('aux_int_1', XOBJ_DTYPE_INT, 0);
+            $this->initVar('aux_int_2', XOBJ_DTYPE_INT, 0);
+            $this->initVar('aux_text_1', XOBJ_DTYPE_TXTBOX, null, false, 255);
+            $this->initVar('aux_text_2', XOBJ_DTYPE_TXTBOX, null, false, 255);
+        }
+
+        //---------------------------------------------------------
+        // set
+        //---------------------------------------------------------
+        public function set_vars_insert($lid)
+        {
+            $this->setVar('lid', $lid);
+        }
+
+        public function get_rawurldecode_xml()
+        {
+            $ret = false;
+            $xml = $this->get('xml');
+            if ($xml) {
+                $ret = rawurldecode($xml);
+            }
+
+            return $ret;
+        }
+
+        // --- class end ---
+    }
+
+    //=========================================================
+    // class xml handler
+    //=========================================================
+    class rssc_xml_handler extends happy_linux_object_handler
+    {
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct($dirname)
         {
             parent::__construct($dirname, 'xml', 'lid', 'rssc_xml');
 
@@ -86,7 +82,7 @@ public function get_rawurldecode_xml()
         //---------------------------------------------------------
         // basic function
         //---------------------------------------------------------
-    public function _build_insert_sql($obj)
+        public function _build_insert_sql($obj)
         {
             foreach ($obj->gets() as $k => $v) {
                 ${$k} = $v;
@@ -130,8 +126,5 @@ public function get_rawurldecode_xml()
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

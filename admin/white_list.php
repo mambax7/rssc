@@ -25,21 +25,20 @@
 
 require __DIR__ . '/admin_header.php';
 
-require_once RSSC_ROOT_PATH.'/admin/admin_list_black_white.php';
+require_once RSSC_ROOT_PATH . '/admin/admin_list_black_white.php';
 
 //=========================================================
 // class admin list white
 //=========================================================
 class admin_list_white extends admin_list_black_white
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
     public function __construct()
     {
         admin_list_black_white::__construct();
-        $this->setHandler('white', RSSC_DIRNAME);
+        $this->set_handler('white', RSSC_DIRNAME);
         $this->set_id_name('wid');
         $this->set_flag_execute_time(true);
 
@@ -94,5 +93,3 @@ $list->_show();
 xoops_cp_footer();
 exit();
 // --- end of main ---
-
-

@@ -34,54 +34,49 @@
 //---------------------------------------------------------
 
 // === class begin ===
-if( !class_exists('rssc_site_list') ) 
-{
+if (!class_exists('rssc_site_list')) {
+    //=========================================================
+    // class rssc_site_list
+    //=========================================================
+    class rssc_site_list
+    {
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function rssc_site_list()
+        {
+            // dummy
+        }
 
-//=========================================================
-// class rssc_site_list
-//=========================================================
-class rssc_site_list
-{
+        public static function &getInstance()
+        {
+            static $instance;
+            if (!isset($instance)) {
+                $instance = new self();
+            }
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function rssc_site_list()
-{
-	// dummy
+            return $instance;
+        }
+
+        //---------------------------------------------------------
+        // public
+        //---------------------------------------------------------
+        public function get_site_list()
+        {
+            $site = [];
+
+            $site[1]['title'] = 'google';
+            $site[1]['url'] = 'http://blogsearch.google.com/blogsearch?hl=en&lr=lang_en&ie=utf-8&num=10&output=atom&q=';
+            $site[1]['rss'] = 'http://blogsearch.google.com/blogsearch_feeds?hl=en&lr=lang_en&ie=utf-8&num=10&output=atom&q=';
+            $site[1]['mode'] = RSSC_C_MODE_ATOM;
+            $site[1]['code'] = 'UTF-8';
+            $site[1]['encoding'] = 'UTF-8';
+
+            return $site;
+        }
+
+        // --- class end ---
+    }
+
+    // === class end ===
 }
-
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new rssc_site_list();
-	}
-	return $instance;
-}
-
-//---------------------------------------------------------
-// public
-//---------------------------------------------------------
-function get_site_list()
-{
-	$site = array();
-
-	$site[1]['title']    = 'google';
-	$site[1]['url']      = 'http://blogsearch.google.com/blogsearch?hl=en&lr=lang_en&ie=utf-8&num=10&output=atom&q=';
-	$site[1]['rss']      = 'http://blogsearch.google.com/blogsearch_feeds?hl=en&lr=lang_en&ie=utf-8&num=10&output=atom&q=';
-	$site[1]['mode']     =  RSSC_C_MODE_ATOM;
-	$site[1]['code']     = 'UTF-8';
-	$site[1]['encoding'] = 'UTF-8';
-
-	return $site;
-}
-
-// --- class end ---
-}
-
-// === class end ===
-}
-
-?>

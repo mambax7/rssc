@@ -7,6 +7,4 @@
 // EUC-JP: 有朋自遠方来
 //=========================================================
 
-$rssc_plugin_description = "link を yahoo スタイルから普通のスタイルに変換する";
-
-?>
+$rssc_plugin_description = 'link を yahoo スタイルから普通のスタイルに変換する';

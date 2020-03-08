@@ -7,6 +7,4 @@
 // EUC-JP: 有朋自遠方来
 //=========================================================
 
-$rssc_plugin_description = "content からタグを削除する";
-
-?>
+$rssc_plugin_description = 'content からタグを削除する';

@@ -29,9 +29,9 @@
 
 require __DIR__ . '/admin_header.php';
 
-require_once RSSC_ROOT_PATH.'/api/refresh.php';
-require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/bin_file.php';
-require_once RSSC_ROOT_PATH.'/class/rssc_refresh_allHandler.php';
+require_once RSSC_ROOT_PATH . '/api/refresh.php';
+require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/bin_file.php';
+require_once RSSC_ROOT_PATH . '/class/rssc_refresh_all_handler.php';
 
 //=========================================================
 // class archive manage
@@ -58,20 +58,20 @@ class admin_manage_archive extends happy_linux_manage
     {
         parent::__construct(RSSC_DIRNAME);
 
-        $this->setHandler('link_basic', RSSC_DIRNAME, 'rssc');
+        $this->set_handler('link_basic', RSSC_DIRNAME, 'rssc');
         $this->set_id_name('lid');
         $this->set_form_class('admin_form_archive');
         $this->set_script('archive_manage.php');
         $this->set_flag_execute_time(true);
 
-        $this->_feedHandler    =& rssc_getHandler('feed_basic', RSSC_DIRNAME);
-        $this->_blackHandler   =& rssc_getHandler('black_basic', RSSC_DIRNAME);
-        $this->_refreshHandler =& rssc_getHandler('refresh_all', RSSC_DIRNAME);
-        $confHandler           =& rssc_getHandler('config_basic', RSSC_DIRNAME);
+        $this->_feedHandler    = rssc_getHandler('feed_basic', RSSC_DIRNAME);
+        $this->_blackHandler   = rssc_getHandler('black_basic', RSSC_DIRNAME);
+        $this->_refreshHandler = rssc_getHandler('refresh_all', RSSC_DIRNAME);
+        $confHandler           = rssc_getHandler('config_basic', RSSC_DIRNAME);
 
         $this->_post = happy_linux_post::getInstance();
 
-        $conf_data              =& $confHandler->get_conf();
+        $conf_data              = &$confHandler->get_conf();
         $this->_conf_feed_limit = $conf_data['basic_feed_limit'];
         $this->_conf_word_limit = $conf_data['word_limit'];
     }
@@ -100,6 +100,7 @@ class admin_manage_archive extends happy_linux_manage
         if ($this->_limit < 0) {
             $this->_limit = 0;
         }
+
         return $this->_limit;
     }
 
@@ -109,12 +110,14 @@ class admin_manage_archive extends happy_linux_manage
         if ($this->_offset < 0) {
             $this->_offset = 0;
         }
+
         return $this->_offset;
     }
 
     public function get_post_num()
     {
         $this->_num = $this->_post->get_post_int('num', $this->_conf_feed_limit);
+
         return $this->_num;
     }
 
@@ -123,7 +126,7 @@ class admin_manage_archive extends happy_linux_manage
     //---------------------------------------------------------
     public function main_form()
     {
-        $total_link = $this->Handler->get_count_all();
+        $total_link = $this->handler->get_count_all();
         $total_feed = $this->_feedHandler->get_count_all();
 
         $this->_print_cp_header();
@@ -168,7 +171,7 @@ class admin_manage_archive extends happy_linux_manage
         $limit  = $this->get_post_limit();
         $offset = $this->get_post_offset();
 
-        $total_link = $this->Handler->get_count_all();
+        $total_link = $this->handler->get_count_all();
 
         $this->_print_cp_header();
         $this->_print_bread_op(_AM_RSSC_ARCHIVE_MANAGE, 'main_form', _AM_RSSC_REFRESH);
@@ -290,7 +293,6 @@ class admin_manage_archive extends happy_linux_manage
 //=========================================================
 class admin_form_archive extends happy_linux_form_lib
 {
-
     //---------------------------------------------------------
     // constructor
     //---------------------------------------------------------
@@ -401,27 +403,21 @@ class admin_form_archive extends happy_linux_form_lib
 $manage = admin_manage_archive::getInstance();
 $op     = $manage->get_post_op();
 
-switch($op)
-{
-	case 'refresh':
-		$manage->refresh_archive();
-		break;
-
-	case 'learn':
-		$manage->learn_black();
-		break;
-
-	case 'clear_old':
-		$manage->clear_old();
-		break;
-
-	default:
-		$manage->main_form();
-		break;
+switch ($op) {
+    case 'refresh':
+        $manage->refresh_archive();
+        break;
+    case 'learn':
+        $manage->learn_black();
+        break;
+    case 'clear_old':
+        $manage->clear_old();
+        break;
+    default:
+        $manage->main_form();
+        break;
 }
 
 xoops_cp_footer();
 exit();
 // --- end of main ---
-
-

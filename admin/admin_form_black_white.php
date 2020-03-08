@@ -59,7 +59,7 @@ class admin_form_black_white extends happy_linux_form
     //---------------------------------------------------------
     // show black & white
     //---------------------------------------------------------
-    public function _show_black_white(&$obj, $extra = null, $mode = 0)
+    public function _show_black_white($obj, $extra = null, $mode = 0)
     {
         switch ($mode) {
             case HAPPY_LINUX_MODE_MOD:
@@ -69,7 +69,6 @@ class admin_form_black_white extends happy_linux_form
                 $op         = 'mod_table';
                 $button_val = _HAPPY_LINUX_MODIFY;
                 break;
-
             case HAPPY_LINUX_MODE_ADD:
             case HAPPY_LINUX_MODE_ADD_PREVIEW:
             default:
@@ -159,7 +158,6 @@ class admin_form_black_white extends happy_linux_form
         echo $this->build_form_table_end();
         echo $this->build_form_end();
         // --- form end ---
-
     }
 
     public function get_act_option()
@@ -168,6 +166,7 @@ class admin_form_black_white extends happy_linux_form
             _RSSC_ACT_NON => 0,
             _RSSC_ACT_ACT => 1,
         ];
+
         return $opt;
     }
 
@@ -177,10 +176,9 @@ class admin_form_black_white extends happy_linux_form
             _RSSC_REG_NORMAL => 0,
             _RSSC_REG_EXP    => 1,
         ];
+
         return $opt;
     }
 
     // --- class end ---
 }
-
-

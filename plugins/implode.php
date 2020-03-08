@@ -14,15 +14,13 @@
 //---------------------------------------------------------
 
 // === class begin ===
-if( !class_exists('rssc_plugin_implode') ) 
-{
+if (!class_exists('rssc_plugin_implode')) {
     class rssc_plugin_implode extends rssc_plugin_base
     {
-
         //---------------------------------------------------------
         // constructor
         //---------------------------------------------------------
-    public function __construct()
+        public function __construct()
         {
             rssc_plugin_base::__construct();
         }
@@ -30,12 +28,12 @@ if( !class_exists('rssc_plugin_implode') )
         //---------------------------------------------------------
         // function
         //---------------------------------------------------------
-    public function description()
+        public function description()
         {
             return 'implode all feeds to one content';
         }
 
-    public function usage()
+        public function usage()
         {
             return 'implode';
         }
@@ -66,8 +64,5 @@ if( !class_exists('rssc_plugin_implode') )
 
         // --- class end ---
     }
-
-// === class end ===
+    // === class end ===
 }
-
-

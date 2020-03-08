@@ -47,7 +47,7 @@
 //=========================================================
 // RSS Center Module
 // this file contain 2 class
-//   admin_config_form 
+//   admin_config_form
 //   admin_config_store
 // 2006-01-01 K.OHWADA
 //=========================================================
@@ -67,7 +67,7 @@ class admin_config_form extends happy_linux_config_form
         parent::__construct();
 
         $define = rssc_config_define::getInstance();
-        $this->set_configHandler('config', RSSC_DIRNAME, 'rssc');
+        $this->set_config_handler('config', RSSC_DIRNAME, 'rssc');
         $this->set_config_define($define);
 
         $this->_DIRNAME = RSSC_DIRNAME;
@@ -142,7 +142,7 @@ class admin_config_form extends happy_linux_config_form
     public function print_executable_kakasi()
     {
         $kakasi      = happy_linux_kakasi::getInstance();
-        $kakasi_path = $this->_config_defineHandler->get_by_name('kakasi_path', 'value');
+        $kakasi_path = $this->_config_define_handler->get_by_name('kakasi_path', 'value');
 
         if ($kakasi->is_executable_kakasi($kakasi_path)) {
             echo '<span style="color:#0000ff">' . _AM_RSSC_KAKASI_EXECUTABLE . "</span><br><br>\n";
@@ -183,7 +183,6 @@ class admin_config_form extends happy_linux_config_form
             case 'extra_webmpa3_dirname_list':
                 $ele = $this->build_conf_extra_webmpa3_dirname_list($config);
                 break;
-
             default:
                 $ele = $this->build_html_input_text($name, $value_s);
                 break;
@@ -218,7 +217,6 @@ class admin_config_form extends happy_linux_config_form
 //================================================================
 class admin_config_store extends happy_linux_error
 {
-
     // handler
     public $_install;
 
@@ -230,9 +228,9 @@ class admin_config_store extends happy_linux_error
         parent::__construct();
 
         // config_storeHandler
-        $define               = rssc_config_define::getInstance();
-        $this->_storeHandler = happy_linux_config_storeHandler::getInstance();
-        $this->_storeHandler->setHandler('config', RSSC_DIRNAME, 'rssc');
+        $define              = rssc_config_define::getInstance();
+        $this->_storeHandler = happy_linux_config_store_handler::getInstance();
+        $this->_storeHandler->set_handler('config', RSSC_DIRNAME, 'rssc');
         $this->_storeHandler->set_define($define);
 
         $this->_install = rssc_install::getInstance(RSSC_DIRNAME);
@@ -299,6 +297,7 @@ class admin_config_store extends happy_linux_error
         if (!$ret) {
             $this->_set_errors($this->_storeHandler->getErrors());
         }
+
         return $ret;
     }
 
@@ -310,7 +309,7 @@ class admin_config_store extends happy_linux_error
         require_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/rss_builder.php';
         require_once RSSC_ROOT_PATH . '/class/rssc_build_rssc.php';
 
-        $builder =& rssc_build_rssc::getInstance(RSSC_DIRNAME);
+        $builder = rssc_build_rssc::getInstance(RSSC_DIRNAME);
 
         $builder->clear_all_guest_cache();
     }
@@ -320,11 +319,9 @@ class admin_config_store extends happy_linux_error
         require_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/module_install.php';
         require_once RSSC_ROOT_PATH . '/class/rssc_install.php';
 
-        $install =& rssc_install::getInstance(RSSC_DIRNAME);
+        $install = rssc_install::getInstance(RSSC_DIRNAME);
         $install->clear_all_template();
     }
 
     // --- class end ---
 }
-
-

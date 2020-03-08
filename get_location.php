@@ -13,22 +13,22 @@
 // xoops system files
 //---------------------------------------------------------
 require dirname(dirname(__DIR__)) . '/mainfile.php';
-require_once XOOPS_ROOT_PATH.'/class/template.php';
+require_once XOOPS_ROOT_PATH . '/class/template.php';
 
 //---------------------------------------------------------
 // happy_linux
 //---------------------------------------------------------
-require_once XOOPS_ROOT_PATH.'/modules/happy_linux/include/functions.php';
-require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/strings.php';
-require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/error.php';
-require_once XOOPS_ROOT_PATH.'/modules/happy_linux/class/basicHandler.php';
+require_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/functions.php';
+require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/strings.php';
+require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/error.php';
+require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/basic_handler.php';
 
 //---------------------------------------------------------
 // rssc
 //---------------------------------------------------------
 $RSSC_DIRNAME = $xoopsModule->dirname();
-require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_constant.php';
-require_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/include/rssc_get_handler.php';
+require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/include/rssc_constant.php';
+require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/include/rssc_get_handler.php';
 
 //=========================================================
 // class rssc_get_location
@@ -51,8 +51,8 @@ class rssc_get_location
     //---------------------------------------------------------
     public function __construct($dirname)
     {
-        $this->_confHandler =& rssc_getHandler('config_basic', $dirname);
-        $this->_conf         = $this->_confHandler->get_conf();
+        $this->_confHandler = rssc_getHandler('config_basic', $dirname);
+        $this->_conf        = $this->_confHandler->get_conf();
     }
 
     public static function getInstance($dirname)
@@ -79,6 +79,7 @@ class rssc_get_location
         require XOOPS_ROOT_PATH . '/modules/' . $webmap3_dirname . '/include/api.php';
         if (!class_exists('webmap3_api_get_location')) {
             echo $this->error();
+
             return false;
         }
 
@@ -100,8 +101,8 @@ class rssc_get_location
     public function error()
     {
         $text = <<<EOF
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" >
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>get location</title>
@@ -122,8 +123,6 @@ EOF;
 //=========================================================
 // main
 //=========================================================
-$manage =& rssc_get_location::getInstance( $RSSC_DIRNAME );
+$manage = rssc_get_location::getInstance($RSSC_DIRNAME);
 $manage->main();
 exit();
-
-
