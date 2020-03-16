@@ -68,7 +68,7 @@ if (!defined('RSSC_LANG_MB_LOADED')) {
 
     define('_RSSC_SEARCH', 'Search');
     define('_RSSC_LATEST_FEEDS', 'Latest RDF/RSS/ATOM Feeds');
-    define('_RSSC_THEREARE', 'There are <b>%s</b> datas in databese');
+    define('_RSSC_THEREARE', 'There are <b>%s</b> datas in database');
 
     // headline
     define('_RSSC_HEADLINE', 'Simple Headline');

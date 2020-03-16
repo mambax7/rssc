@@ -9,6 +9,10 @@
 // 2007-11-11 K.OHWADA
 //=========================================================
 
+use XoopsModules\Rssc;
+
+include __DIR__ . '/preloads/autoloader.php';
+
 $RSSC_DIRNAME = basename(__DIR__);
 
 global $xoopsConfig;
@@ -18,14 +22,14 @@ $XOOPS_LANGUAGE = $xoopsConfig['language'];
 // BUG: Fatal error, if not exist happy_linux
 // no action here, if not exist
 // same process in admin/index.php
-if (file_exists(XOOPS_ROOT_PATH . '/modules/happy_linux/api/module_install.php')) {
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/module_install.php';
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/rss_constant.php';
+if (file_exists(XOOPS_ROOT_PATH . '/modules/happylinux/api/module_install.php')) {
+    require_once XOOPS_ROOT_PATH . '/modules/happylinux/api/module_install.php';
+    require_once XOOPS_ROOT_PATH . '/modules/happylinux/include/rss_constant.php';
 
     require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/include/rssc_constant.php';
     require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/include/rssc_rss_constant.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_config_define.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_install.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_config_define.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_install.php';
 
     // admin.php
     if (file_exists(XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/language/' . $XOOPS_LANGUAGE . '/admin.php')) {
@@ -35,20 +39,15 @@ if (file_exists(XOOPS_ROOT_PATH . '/modules/happy_linux/api/module_install.php')
     }
 
     // --- eval begin ---
-    eval(
-        '
-
-function xoops_module_install_' . $RSSC_DIRNAME . '( $module )
+    eval('
+function xoops_module_install_' . $RSSC_DIRNAME . '($module)
 {
 	return rssc_install_base( "' . $RSSC_DIRNAME . '" ,  $module );
 }
-
-function xoops_module_update_' . $RSSC_DIRNAME . '( $module, $prev_version )
+function xoops_module_update_' . $RSSC_DIRNAME . '($module, $prev_version)
 {
 	return rssc_update_base( "' . $RSSC_DIRNAME . '" ,  $module, $prev_version );
-}
-
-'
+}'
     );
     // --- eval end ---
 }
@@ -73,7 +72,7 @@ if (!function_exists('rssc_install_base')) {
         }
 
         // main
-        $rssc  = rssc_install::getInstance($DIRNAME);
+        $rssc  = \XoopsModules\Rssc\Install::getInstance($DIRNAME);
         $code  = $rssc->install();
         $ret[] = $rssc->get_message();
 
@@ -97,7 +96,7 @@ if (!function_exists('rssc_install_base')) {
         }
 
         // main
-        $rssc   = rssc_install::getInstance($DIRNAME);
+        $rssc   = Rssc\Install::getInstance($DIRNAME);
         $code   = $rssc->update();
         $msgs[] = $rssc->get_message();
 
@@ -127,3 +126,4 @@ if (!function_exists('rssc_install_base')) {
     }
     // === rssc_oninstall_base end ===
 }
+?>

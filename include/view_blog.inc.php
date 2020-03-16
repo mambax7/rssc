@@ -22,16 +22,11 @@
 $RSSC_DIRNAME = basename(dirname(__DIR__));
 
 // --- eval begin ---
-eval(
-    '
-
+eval('
 function ' . $RSSC_DIRNAME . '_view_blog($lid=0, $options=null)
 {
 	return rssc_view_blog_base( "' . $RSSC_DIRNAME . '" ,$lid, $options);
-}
-
-'
-);
+}');
 // --- eval end ---
 
 // --- rssc_view_blog_base begin ---
@@ -40,35 +35,35 @@ if (!function_exists('rssc_view_blog_base')) {
     require_once XOOPS_ROOT_PATH . '/class/snoopy.php';
 
     // happy_linux files
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/functions.php';
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/multibyte.php';
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/system.php';
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/error.php';
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/strings.php';
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/highlight.php';
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/post.php';
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/remote_file.php';
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/convert_encoding.php';
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/basic_handler.php';
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object.php';
-    require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object_handler.php';
+    require_once XOOPS_ROOT_PATH . '/modules/happylinux/include/functions.php';
+    require_once XOOPS_ROOT_PATH . '/modules/happylinux/include/multibyte.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/system.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/error.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/strings.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/highlight.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/post.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/remote_file.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/convert_encoding.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/basic_handler.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object_handler.php';
 
     // rssc files
     require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/include/rssc_constant.php';
     require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/include/rssc_get_handler.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_config_basic_handler.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_link_basic_handler.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_feed_basic_handler.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_black_basic_handler.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_white_basic_handler.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_xml_utility.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_xml_object.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_parse_handler.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_refresh_handler.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_view_param.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_view_handler.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/magpie/rssc_magpie_parse.php';
-    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/magpie/rssc_magpie_cache.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_config_basic_handler.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_link_basic_handler.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_feed_basic_handler.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_black_basic_handler.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_white_basic_handler.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_xml_utility.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_xml_object.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_parse_handler.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_refresh_handler.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_view_param.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_view_handler.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/magpie/rssc_magpie_parse.php';
+//    require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/magpie/rssc_magpie_cache.php';
 
     global $xoopsConfig;
     $XOOPS_LANGUAGE = $xoopsConfig['language'];
@@ -133,8 +128,8 @@ if (!function_exists('rssc_view_blog_base')) {
 
         $url_sound_gif = XOOPS_URL . '/modules/' . $DIRNAME . '/images/sound2.gif';
 
-        $refreshHandler = rssc_getHandler('refresh', $DIRNAME);
-        $viewHandler    = rssc_getHandler('view', $DIRNAME);
+        $refreshHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('Refresh', $DIRNAME);
+        $viewHandler    = \XoopsModules\Rssc\Helper::getInstance()->getHandler('View', $DIRNAME);
 
         $refreshHandler->refresh($lid);
 
@@ -231,3 +226,5 @@ if (!function_exists('rssc_view_blog_base')) {
     }
     // --- rssc_view_blog_base end ---
 }
+
+?>

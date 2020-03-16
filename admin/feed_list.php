@@ -1,4 +1,8 @@
 <?php
+
+use XoopsModules\Rssc\Admin;
+use XoopsModules\Happylinux;
+
 // $Id: feed_list.php,v 1.1 2011/12/29 14:37:11 ohwada Exp $
 
 // 2007-06-01 K.OHWADA
@@ -21,7 +25,6 @@
 //=========================================================
 
 require __DIR__ . '/admin_header.php';
-require __DIR__ . '/feed_list_class.php';
 
 //=========================================================
 // main
@@ -30,7 +33,7 @@ xoops_cp_header();
 rssc_admin_print_header();
 rssc_admin_print_menu();
 
-$list = admin_feed_list::getInstance();
+$list = Admin\FeedList::getInstance();
 $list->_show();
 
 xoops_cp_footer();

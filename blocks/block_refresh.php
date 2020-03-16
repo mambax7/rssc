@@ -2,7 +2,7 @@
 // $Id: block_refresh.php,v 1.1 2011/12/29 14:37:05 ohwada Exp $
 
 // 2009-02-20 K.OHWADA
-// rssc_block.php
+// Rssc\Block.php
 
 // 2007-10-10 K.OHWADA
 // mode_date
@@ -10,7 +10,7 @@
 // 2007-06-01 K.OHWADA
 // api/refresh.php
 
-// rssc_xml_basicHandler
+// Rssc\XmlBasicHandlerHandler
 // rssc_word_basicHandler
 
 // 2006-09-20 K.OHWADA
@@ -49,10 +49,10 @@ if (!function_exists('b_rssc_show_refresh')) {
 
         //	require_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME .'/api/view.php';
         require_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/api/refresh.php';
-        require_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/rssc_block.php';
+        require_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/Rssc\Block.php';
 
-        $headlineHandler = rssc_getHandler('headline', $DIRNAME);
-        $confHandler     = rssc_getHandler('config_basic', $DIRNAME);
+        $headlineHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('Headline', $DIRNAME);
+        $confHandler     = \XoopsModules\Rssc\Helper::getInstance()->getHandler('ConfigBasic', $DIRNAME);
         $conf_data       = &$confHandler->get_conf();
 
         $link_limit = $conf_data['block_headline_links_perpage'];
@@ -60,7 +60,7 @@ if (!function_exists('b_rssc_show_refresh')) {
 
         $headlineHandler->refresh_headline($link_limit, $link_start);
 
-        $block_class = rssc_block::getInstance();
+        $block_class = Rssc\Block::getInstance();
 
         return $block_class->show_headline($DIRNAME);
     }

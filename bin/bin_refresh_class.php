@@ -1,4 +1,7 @@
 <?php
+
+use XoopsModules\Happylinux;
+
 // $Id: bin_refresh_class.php,v 1.1 2011/12/29 14:37:12 ohwada Exp $
 
 // 2007-06-10 K.OHWADA
@@ -21,7 +24,7 @@
 // Rss center Module
 // 2006-01-01 K.OHWADA
 //=========================================================
-class bin_refresh extends happy_linux_bin_base
+class bin_refresh extends Happylinux\BinBase
 {
     // class Instant
     public $_refresh;
@@ -42,8 +45,8 @@ class bin_refresh extends happy_linux_bin_base
         $this->set_filename('modules/' . $dirname . '/' . $this->_FILENAME_RESULT);
 
         // class Instant
-        $this->_refresh = rssc_getHandler('refresh_all', $dirname);
-        $this->_config  = rssc_getHandler('config_basic', $dirname);
+        $this->_refresh = \XoopsModules\Rssc\Helper::getInstance()->getHandler('RefreshAll', $dirname);
+        $this->_config  = \XoopsModules\Rssc\Helper::getInstance()->getHandler('ConfigBasic', $dirname);
     }
 
     //=========================================================

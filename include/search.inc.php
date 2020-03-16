@@ -11,21 +11,16 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/search.php';
+use XoopsModules\Happylinux;
+
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/include/search.php';
 
 $rssc_dirname = basename(dirname(__DIR__));
 
 // --- eval begin ---
-eval(
-    '
-
-function ' . $rssc_dirname . '_search( $queryarray , $andor , $limit , $offset , $uid )
-{
-	return rssc_search_base( "' . $rssc_dirname . '" , $queryarray , $andor , $limit , $offset , $uid ) ;
-}
-
-'
-);
+eval('function ' . $rssc_dirname . '_search( $queryarray , $andor , $limit , $offset , $uid )
+{	return rssc_search_base( "' . $rssc_dirname . '" , $queryarray , $andor , $limit , $offset , $uid ) ;
+}');
 // --- eval end ---
 
 // --- rssc_search_base begin ---
@@ -111,7 +106,7 @@ if (!function_exists('rssc_search_base')) {
             $context            = $row2['content'];
             $context            = preg_replace('>/', '> ', $context);
             $context            = strip_tags($context);
-            $ret[$i]['context'] = happy_linux_build_search_context($context, $queryarray);
+            $ret[$i]['context'] = happylinux_build_search_context($context, $queryarray);
 
             $i++;
         }
@@ -120,3 +115,5 @@ if (!function_exists('rssc_search_base')) {
     }
     // --- rssc_search_base end ---
 }
+
+?>

@@ -34,5 +34,30 @@ if (!defined('RSSC_LANG_MI_LOADED')) {
 
     // === 2009-02-20 ===
     define('_MI_RSSC_BNAME_MAP', 'RSS GoogleMap');
+
+    //Menu
+    define('_MI_RSSC_MENU_HOME', 'Home');
+    define('_MI_RSSC_MENU_01', 'Admin');
+    define('_MI_RSSC_MENU_ABOUT', 'About');
+
+
+    //Config
+    define('MI_RSSC_EDITOR_ADMIN', 'Editor: Admin');
+    define('MI_RSSC_EDITOR_ADMIN_DESC', 'Select the Editor to use by the Admin');
+    define('MI_RSSC_EDITOR_USER', 'Editor: User');
+    define('MI_RSSC_EDITOR_USER_DESC', 'Select the Editor to use by the User');
+
+    //Help
+    define('_MI_RSSC_DIRNAME', basename(dirname(dirname(__DIR__))));
+    define('_MI_RSSC_HELP_HEADER', __DIR__ . '/help/helpheader.tpl');
+    define('_MI_RSSC_BACK_2_ADMIN', 'Back to Administration of ');
+    define('_MI_RSSC_OVERVIEW', 'Overview');
+
+    //define('_MI_RSSC_HELP_DIR', __DIR__);
+
+    //help multi-page
+    define('_MI_RSSC_DISCLAIMER', 'Disclaimer');
+    define('_MI_RSSC_LICENSE', 'License');
+    define('_MI_RSSC_SUPPORT', 'Support');
 }
 // --- define language end ---

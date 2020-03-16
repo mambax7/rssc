@@ -1,4 +1,7 @@
 <?php
+
+use XoopsModules\Rssc;
+
 // $Id: rss.php,v 1.1 2011/12/29 14:37:04 ohwada Exp $
 
 // 2008-02-24 K.OHWADA
@@ -33,7 +36,7 @@ require __DIR__ . '/header.php';
 
 require_once RSSC_ROOT_PATH . '/api/rss_builder.php';
 
-$builder = rssc_build_rssc::getInstance(RSSC_DIRNAME);
+$builder = Rssc\BuildRssc::getInstance(RSSC_DIRNAME);
 $builder->build();
 
 exit();

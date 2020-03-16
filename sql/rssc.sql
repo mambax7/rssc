@@ -62,18 +62,19 @@
 #
 
 CREATE TABLE rssc_config (
-  id smallint(5) unsigned NOT NULL auto_increment,
-  conf_id smallint(5) unsigned NOT NULL default 0,
-  conf_name varchar(255) NOT NULL default '',
-  conf_valuetype varchar(255) NOT NULL default '',
-  conf_value text NOT NULL,
-  aux_int_1 int(5) default '0',
-  aux_int_2 int(5) default '0',
-  aux_text_1 varchar(255) default '',
-  aux_text_2 varchar(255) default '',
-  PRIMARY KEY (id),
-  KEY conf_id (conf_id)
-) ENGINE=MyISAM;
+    id             SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+    conf_id        SMALLINT(5) UNSIGNED NOT NULL DEFAULT 0,
+    conf_name      VARCHAR(255)         NOT NULL DEFAULT '',
+    conf_valuetype VARCHAR(255)         NOT NULL DEFAULT '',
+    conf_value     TEXT                 NOT NULL,
+    aux_int_1      INT(5)                        DEFAULT '0',
+    aux_int_2      INT(5)                        DEFAULT '0',
+    aux_text_1     VARCHAR(255)                  DEFAULT '',
+    aux_text_2     VARCHAR(255)                  DEFAULT '',
+    PRIMARY KEY (id),
+    KEY conf_id (conf_id)
+)
+    ENGINE = MyISAM;
 # --------------------------------------------------------
 
 #
@@ -81,39 +82,40 @@ CREATE TABLE rssc_config (
 #
 
 CREATE TABLE rssc_link (
-  lid int(11) unsigned NOT NULL auto_increment,
-  uid int(11) unsigned default '0',
-  mid int(11) unsigned default '0',
-  p1  int(11) unsigned default '0',
-  p2  int(11) unsigned default '0',
-  p3  int(11) unsigned default '0',
-  title  varchar(255)    default '',
-  url text NOT NULL,
-  ltype  tinyint(2) unsigned default '0',
-  refresh   mediumint(8) unsigned default '3600',
-  headline  mediumint(8) unsigned default '0',
-  mode      tinyint(3)   default '0',
-  rdf_url  text NOT NULL,
-  rss_url  text NOT NULL,
-  atom_url text NOT NULL,
-  encoding  varchar(15)  default '',
-  updated_unix int(10) default'0',
-  channel text    NOT NULL,
-  xml  mediumtext NOT NULL,
-  aux_int_1 int(5) default '0',
-  aux_int_2 int(5) default '0',
-  aux_text_1 varchar(255) default '',
-  aux_text_2 varchar(255) default '',
-  enclosure tinyint(2) default '1',
-  censor      text NOT NULL,
-  plugin      text NOT NULL,
-  post_plugin text NOT NULL,
-  icon varchar(255) default '',
-  gicon_id int(10) default'0',
-  PRIMARY KEY  (lid),
-  KEY mid (mid),
-  KEY p (p1, p2, p3)
-) ENGINE=MyISAM;
+    lid          INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    uid          INT(11) UNSIGNED      DEFAULT '0',
+    mid          INT(11) UNSIGNED      DEFAULT '0',
+    p1           INT(11) UNSIGNED      DEFAULT '0',
+    p2           INT(11) UNSIGNED      DEFAULT '0',
+    p3           INT(11) UNSIGNED      DEFAULT '0',
+    title        VARCHAR(255)          DEFAULT '',
+    url          TEXT             NOT NULL,
+    ltype        TINYINT(2) UNSIGNED   DEFAULT '0',
+    refresh      MEDIUMINT(8) UNSIGNED DEFAULT '3600',
+    headline     MEDIUMINT(8) UNSIGNED DEFAULT '0',
+    mode         TINYINT(3)            DEFAULT '0',
+    rdf_url      TEXT             NOT NULL,
+    rss_url      TEXT             NOT NULL,
+    atom_url     TEXT             NOT NULL,
+    encoding     VARCHAR(15)           DEFAULT '',
+    updated_unix INT(10)               DEFAULT '0',
+    channel      TEXT             NOT NULL,
+    xml          MEDIUMTEXT       NOT NULL,
+    aux_int_1    INT(5)                DEFAULT '0',
+    aux_int_2    INT(5)                DEFAULT '0',
+    aux_text_1   VARCHAR(255)          DEFAULT '',
+    aux_text_2   VARCHAR(255)          DEFAULT '',
+    enclosure    TINYINT(2)            DEFAULT '1',
+    censor       TEXT             NOT NULL,
+    plugin       TEXT             NOT NULL,
+    post_plugin  TEXT             NOT NULL,
+    icon         VARCHAR(255)          DEFAULT '',
+    gicon_id     INT(10)               DEFAULT '0',
+    PRIMARY KEY (lid),
+    KEY mid (mid),
+    KEY p (p1, p2, p3)
+)
+    ENGINE = MyISAM;
 # --------------------------------------------------------
 
 #
@@ -121,16 +123,17 @@ CREATE TABLE rssc_link (
 #
 
 CREATE TABLE rssc_xml (
-  xid int(11) unsigned NOT NULL auto_increment,
-  lid int(11) unsigned default '0',
-  xml  mediumtext NOT NULL,
-  aux_int_1 int(5) default '0',
-  aux_int_2 int(5) default '0',
-  aux_text_1 varchar(255) default '',
-  aux_text_2 varchar(255) default '',
-  PRIMARY KEY  (xid),
-  KEY lid (lid)
-) ENGINE=MyISAM;
+    xid        INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    lid        INT(11) UNSIGNED DEFAULT '0',
+    xml        MEDIUMTEXT       NOT NULL,
+    aux_int_1  INT(5)           DEFAULT '0',
+    aux_int_2  INT(5)           DEFAULT '0',
+    aux_text_1 VARCHAR(255)     DEFAULT '',
+    aux_text_2 VARCHAR(255)     DEFAULT '',
+    PRIMARY KEY (xid),
+    KEY lid (lid)
+)
+    ENGINE = MyISAM;
 # --------------------------------------------------------
 
 #
@@ -138,58 +141,59 @@ CREATE TABLE rssc_xml (
 #
 
 CREATE TABLE rssc_feed (
-  fid int(11) unsigned NOT NULL auto_increment,
-  lid int(11) unsigned NOT NULL default '0',
-  uid int(11) unsigned default '0',
-  mid int(11) unsigned default '0',
-  p1  int(11) unsigned default '0',
-  p2  int(11) unsigned default '0',
-  p3  int(11) unsigned default '0',
-  site_title varchar(255) default '',
-  site_link  text NOT NULL,
-  title  varchar(255) NOT NULL default '',
-  link   text NOT NULL,
-  entry_id  text NOT NULL,
-  guid      text NOT NULL,
-  updated_unix   int(10) default '0',
-  published_unix int(10) default '0',
-  category  varchar(255) default '',
-  author_name  varchar(255) default '',
-  author_uri   text NOT NULL,
-  author_email varchar(255) default '',
-  type_cont    varchar(255) default '',
-  raws    text NOT NULL,
-  content text NOT NULL,
-  search  text NOT NULL,
-  enclosure_url  text NOT NULL,
-  enclosure_type varchar(255) default '',
-  enclosure_length int(5) default '0',
-  aux_int_1 int(5) default '0',
-  aux_int_2 int(5) default '0',
-  aux_text_1 varchar(255) default '',
-  aux_text_2 varchar(255) default '',
-  act   tinyint(1) default '1',
-  geo_lat  double(10,8) NOT NULL default '0',
-  geo_long double(11,8) NOT NULL default '0',
-  media_content_url    text NOT NULL,
-  media_content_type   varchar(255) default '',
-  media_content_medium varchar(255) default '',
-  media_content_filesize int(10) default '0',
-  media_content_width    int(10) default '0',
-  media_content_height   int(10) default '0',
-  media_thumbnail_url    text NOT NULL,
-  media_thumbnail_width  int(10) default '0',
-  media_thumbnail_height int(10) default '0',
-  PRIMARY KEY  (fid),
-  KEY lid (lid),
-  KEY mid (mid),
-  KEY p   (p1, p2, p3),
-  KEY act_time (act, updated_unix, published_unix),
-  KEY uid_time (uid, updated_unix, published_unix),
-  KEY link (link(10)),
-  KEY updated   (updated_unix),
-  KEY published (published_unix)
-) ENGINE=MyISAM;
+    fid                    INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    lid                    INT(11) UNSIGNED NOT NULL DEFAULT '0',
+    uid                    INT(11) UNSIGNED          DEFAULT '0',
+    mid                    INT(11) UNSIGNED          DEFAULT '0',
+    p1                     INT(11) UNSIGNED          DEFAULT '0',
+    p2                     INT(11) UNSIGNED          DEFAULT '0',
+    p3                     INT(11) UNSIGNED          DEFAULT '0',
+    site_title             VARCHAR(255)              DEFAULT '',
+    site_link              TEXT             NOT NULL,
+    title                  VARCHAR(255)     NOT NULL DEFAULT '',
+    link                   TEXT             NOT NULL,
+    entry_id               TEXT             NOT NULL,
+    guid                   TEXT             NOT NULL,
+    updated_unix           INT(10)                   DEFAULT '0',
+    published_unix         INT(10)                   DEFAULT '0',
+    category               VARCHAR(255)              DEFAULT '',
+    author_name            VARCHAR(255)              DEFAULT '',
+    author_uri             TEXT             NOT NULL,
+    author_email           VARCHAR(255)              DEFAULT '',
+    type_cont              VARCHAR(255)              DEFAULT '',
+    raws                   TEXT             NOT NULL,
+    content                TEXT             NOT NULL,
+    search                 TEXT             NOT NULL,
+    enclosure_url          TEXT             NOT NULL,
+    enclosure_type         VARCHAR(255)              DEFAULT '',
+    enclosure_length       INT(5)                    DEFAULT '0',
+    aux_int_1              INT(5)                    DEFAULT '0',
+    aux_int_2              INT(5)                    DEFAULT '0',
+    aux_text_1             VARCHAR(255)              DEFAULT '',
+    aux_text_2             VARCHAR(255)              DEFAULT '',
+    act                    TINYINT(1)                DEFAULT '1',
+    geo_lat                FLOAT(10, 6)     NOT NULL,
+    geo_long               FLOAT(10, 6)     NOT NULL,
+    media_content_url      TEXT             NOT NULL,
+    media_content_type     VARCHAR(255)              DEFAULT '',
+    media_content_medium   VARCHAR(255)              DEFAULT '',
+    media_content_filesize INT(10)                   DEFAULT '0',
+    media_content_width    INT(10)                   DEFAULT '0',
+    media_content_height   INT(10)                   DEFAULT '0',
+    media_thumbnail_url    TEXT             NOT NULL,
+    media_thumbnail_width  INT(10)                   DEFAULT '0',
+    media_thumbnail_height INT(10)                   DEFAULT '0',
+    PRIMARY KEY (fid),
+    KEY lid (lid),
+    KEY mid (mid),
+    KEY p (p1, p2, p3),
+    KEY act_time (act, updated_unix, published_unix),
+    KEY uid_time (uid, updated_unix, published_unix),
+    KEY link (link(10)),
+    KEY updated (updated_unix),
+    KEY published (published_unix)
+)
+    ENGINE = MyISAM;
 # --------------------------------------------------------
 
 #
@@ -197,27 +201,28 @@ CREATE TABLE rssc_feed (
 #
 
 CREATE TABLE rssc_black (
-  bid int(11) unsigned NOT NULL auto_increment,
-  lid int(11) unsigned default '0',
-  uid int(11) unsigned default '0',
-  mid int(11) unsigned default '0',
-  p1  int(11) unsigned default '0',
-  p2  int(11) unsigned default '0',
-  p3  int(11) unsigned default '0',
-  title varchar(255) default '',
-  url   varchar(255) NOT NULL default '',
-  memo text NOT NULL,
-  aux_int_1 int(5) default '0',
-  aux_int_2 int(5) default '0',
-  aux_text_1 varchar(255) default '',
-  aux_text_2 varchar(255) default '',
-  act   tinyint(1) default '1',
-  reg   tinyint(1) default '0',
-  count int(11) unsigned default '0',
-  cache int(11) unsigned default '0',
-  ctime int(11) unsigned default '0',
-  PRIMARY KEY  (bid)
-) ENGINE=MyISAM;
+    bid        INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    lid        INT(11) UNSIGNED          DEFAULT '0',
+    uid        INT(11) UNSIGNED          DEFAULT '0',
+    mid        INT(11) UNSIGNED          DEFAULT '0',
+    p1         INT(11) UNSIGNED          DEFAULT '0',
+    p2         INT(11) UNSIGNED          DEFAULT '0',
+    p3         INT(11) UNSIGNED          DEFAULT '0',
+    title      VARCHAR(255)              DEFAULT '',
+    url        VARCHAR(255)     NOT NULL DEFAULT '',
+    memo       TEXT             NOT NULL,
+    aux_int_1  INT(5)                    DEFAULT '0',
+    aux_int_2  INT(5)                    DEFAULT '0',
+    aux_text_1 VARCHAR(255)              DEFAULT '',
+    aux_text_2 VARCHAR(255)              DEFAULT '',
+    act        TINYINT(1)                DEFAULT '1',
+    reg        TINYINT(1)                DEFAULT '0',
+    count      INT(11) UNSIGNED          DEFAULT '0',
+    cache      INT(11) UNSIGNED          DEFAULT '0',
+    ctime      INT(11) UNSIGNED          DEFAULT '0',
+    PRIMARY KEY (bid)
+)
+    ENGINE = MyISAM;
 # --------------------------------------------------------
 
 #
@@ -225,27 +230,28 @@ CREATE TABLE rssc_black (
 #
 
 CREATE TABLE rssc_white (
-  wid int(11) unsigned NOT NULL auto_increment,
-  lid int(11) unsigned default '0',
-  uid int(11) unsigned default '0',
-  mid int(11) unsigned default '0',
-  p1  int(11) unsigned default '0',
-  p2  int(11) unsigned default '0',
-  p3  int(11) unsigned default '0',
-  title varchar(255) default '',
-  url   varchar(255) NOT NULL default '',
-  memo text NOT NULL,
-  aux_int_1 int(5) default '0',
-  aux_int_2 int(5) default '0',
-  aux_text_1 varchar(255) default '',
-  aux_text_2 varchar(255) default '',
-  act   tinyint(1) default '1',
-  reg   tinyint(1) default '0',
-  count int(11) unsigned default '0',
-  cache int(11) unsigned default '0',
-  ctime int(11) unsigned default '0',
-  PRIMARY KEY  (wid)
-) ENGINE=MyISAM;
+    wid        INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    lid        INT(11) UNSIGNED          DEFAULT '0',
+    uid        INT(11) UNSIGNED          DEFAULT '0',
+    mid        INT(11) UNSIGNED          DEFAULT '0',
+    p1         INT(11) UNSIGNED          DEFAULT '0',
+    p2         INT(11) UNSIGNED          DEFAULT '0',
+    p3         INT(11) UNSIGNED          DEFAULT '0',
+    title      VARCHAR(255)              DEFAULT '',
+    url        VARCHAR(255)     NOT NULL DEFAULT '',
+    memo       TEXT             NOT NULL,
+    aux_int_1  INT(5)                    DEFAULT '0',
+    aux_int_2  INT(5)                    DEFAULT '0',
+    aux_text_1 VARCHAR(255)              DEFAULT '',
+    aux_text_2 VARCHAR(255)              DEFAULT '',
+    act        TINYINT(1)                DEFAULT '1',
+    reg        TINYINT(1)                DEFAULT '0',
+    count      INT(11) UNSIGNED          DEFAULT '0',
+    cache      INT(11) UNSIGNED          DEFAULT '0',
+    ctime      INT(11) UNSIGNED          DEFAULT '0',
+    PRIMARY KEY (wid)
+)
+    ENGINE = MyISAM;
 # --------------------------------------------------------
 
 #
@@ -253,19 +259,22 @@ CREATE TABLE rssc_white (
 #
 
 CREATE TABLE rssc_word (
-  sid   int(11) unsigned NOT NULL auto_increment,
-  word  varchar(255) default '',
-  reg   tinyint(1) default '0',
-  point int(11) unsigned default '0',
-  count int(11) unsigned default '0',
-  aux_int_1 int(5) default '0',
-  aux_int_2 int(5) default '0',
-  aux_text_1 varchar(255) default '',
-  aux_text_2 varchar(255) default '',
-  PRIMARY KEY  (sid),
-  KEY point (point, count)
-) ENGINE=MyISAM;
+    sid        INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    word       VARCHAR(255)     DEFAULT '',
+    reg        TINYINT(1)       DEFAULT '0',
+    point      INT(11) UNSIGNED DEFAULT '0',
+    count      INT(11) UNSIGNED DEFAULT '0',
+    aux_int_1  INT(5)           DEFAULT '0',
+    aux_int_2  INT(5)           DEFAULT '0',
+    aux_text_1 VARCHAR(255)     DEFAULT '',
+    aux_text_2 VARCHAR(255)     DEFAULT '',
+    PRIMARY KEY (sid),
+    KEY point (point, count)
+)
+    ENGINE = MyISAM;
 # --------------------------------------------------------
 
-INSERT INTO rssc_link VALUES (1, 1, 0, 0, 0, 0, 'XOOPS.org', 'https://www.xoops.org/', 2, 3600, 1, 2, '', 'https://www.xoops.org/backend.php', '', 'utf-8', 0, '', '', 0, 0, '', '', 1, '', '', '', '', 0 );
-INSERT INTO rssc_xml VALUES (1, 1, '', 0, 0, '', '');
+INSERT INTO rssc_link
+VALUES (1, 1, 0, 0, 0, 0, 'XOOPS.org', 'https://www.xoops.org/', 2, 3600, 1, 2, '', 'https://www.xoops.org/backend.php', '', 'utf-8', 0, '', '', 0, 0, '', '', 1, '', '', '', '', 0);
+INSERT INTO rssc_xml
+VALUES (1, 1, '', 0, 0, '', '');

@@ -349,8 +349,8 @@ if (!defined('RSSC_LANG_AM_LOADED')) {
     define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'Il num. minimo caratteri parole da estrarre');
     define('_AM_RSSC_CONF_WORD_LIMIT', 'Il num. max di parole rifiutate');
     define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Inserire num. max parole salvate in tabella parole<br>Azzera record più vecchi, se si supera questo valore<br><b>0</b> è illimitato');
-    define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi is executable');
-    define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi is not executable');
+    define('_AM_RSSC_KAKASI_EXECUTABLE', 'Kakasi is executable');
+    define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'Kakasi is not executable');
     define('_AM_RSSC_CONF_HTML_GET', 'Ricava HTML');
     define('_AM_RSSC_CONF_HTML_GET_DESC', 'Ricava dati HTML origine automaticamente, se riscontrate parole rifiutate da lista<br>Se scegli "Usa", la precisione della valutazione aumenta, ma il tempo di esecuzione cresce');
     define('_AM_RSSC_CONF_HTML_GET_NO', 'Non Usare');

@@ -1,8 +1,12 @@
 <?php
+
+use XoopsModules\Happylinux;
+use XoopsModules\Rssc;
+
 // $Id: single_feed.php,v 1.1 2011/12/29 14:37:04 ohwada Exp $
 
 // 2007-11-01 K.OHWADA
-// happy_linux_get_memory_usage_mb()
+// happylinux_get_memory_usage_mb()
 // enclosure in link table
 
 // 2007-08-01 K.OHWADA
@@ -38,15 +42,15 @@
 //================================================================
 
 require __DIR__ . '/header.php';
-require_once RSSC_ROOT_PATH . '/class/rssc_view_handler.php';
+// require_once RSSC_ROOT_PATH . '/class/rssc_view_handler.php';
 
-$viewHandler = rssc_getHandler('view', RSSC_DIRNAME);
-$confHandler = rssc_getHandler('config_basic', RSSC_DIRNAME);
-$post        = happy_linux_post::getInstance();
+$viewHandler = Rssc\Helper::getInstance()->getHandler('View', RSSC_DIRNAME);
+$confHandler = Rssc\Helper::getInstance()->getHandler('ConfigBasic', RSSC_DIRNAME);
+$post        = Happylinux\Post::getInstance();
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME . '_single_feed.html';
+$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME . '_single_feed.tpl';
 require XOOPS_ROOT_PATH . '/header.php';
 
 $conf = &$confHandler->get_conf();
@@ -92,8 +96,8 @@ $xoopsTpl->assign('rssc_keywords', $urlencode);
 $module_name_s = $viewHandler->get_module_name('s');
 $xoopsTpl->assign('xoops_pagetitle', $module_name_s . ' - ' . $feed['title']);
 
-$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
-$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+$xoopsTpl->assign('execution_time', happylinux_get_execution_time());
+$xoopsTpl->assign('memory_usage', happylinux_get_memory_usage_mb());
 require XOOPS_ROOT_PATH . '/footer.php';
 exit();
 // --- main end ---

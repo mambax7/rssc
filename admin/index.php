@@ -1,144 +1,112 @@
 <?php
-// $Id: index.php,v 1.3 2012/04/08 23:42:20 ohwada Exp $
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ */
 
-// 2012-04-02 K.OHWADA
-// rssc_map
+/**
+ * @copyright    XOOPS Project https://xoops.org/
+ * @license      GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @package
+ * @author     XOOPS Development Team
+ */
+use XoopsModules\Rssc\Common;
 
-// 2012-03-01 K.OHWADA
-// move _AM_RSSC_FORM_MAP to map_manage.php
+require __DIR__ . '/admin_header.php';
+// Display Admin header
+xoops_cp_header();
+$adminObject = \Xmf\Module\Admin::getInstance();
 
-// 2009-02-20 K.OHWADA
-// map
+//check or upload folders
+$configurator = new Common\Configurator();
+//foreach (array_keys($configurator->uploadFolders) as $i) {
+//    $utility::createFolder($configurator->uploadFolders[$i]);
+//    $adminObject->addConfigBoxLine($configurator->uploadFolders[$i], 'folder');
+//}
 
-// 2008-12-20 K.OHWADA
-// get_error_str()
 
-// 2007-11-01 K.OHWADA
-// show_form_template_compiled_clear
-// move bin_command to command_manage.php
-// rssc_admin_print_powerdby()
 
-// 2007-06-01 K.OHWADA
-// admin_table_class.php
 
-// 2006-11-08 K.OHWADA
-// proxy server
+$adminObject->displayNavigation(basename(__FILE__));
 
-// 2006-09-01 K.OHWADA
-// use XoopsGTicket
+//check for latest release
+//$newRelease = $utility->checkVerModule($helper);
+//if (!empty($newRelease)) {
+//    $adminObject->addItemButton($newRelease[0], $newRelease[1], 'download', 'style="color : Red"');
+//}
 
-// 2006-07-08 K.OHWADA
-// use config_base_handler.php etc
-// use check_version() for v0.30
-// description in main page
+//------------- Test Data ----------------------------
 
-// 2006-06-04 K.OHWADA
-// change to contant RSSC_ROOT_PATH
-// use check_token()
+if ($helper->getConfig('displaySampleButton')) {
+    $yamlFile            = dirname(__DIR__) . '/config/admin.yml';
+    $config              = loadAdminConfig($yamlFile);
+    $displaySampleButton = $config['displaySampleButton'];
 
-//=========================================================
-// RSS Center Module
-// 2006-01-01 K.OHWADA
-//=========================================================
+    if (1 == $displaySampleButton) {
+        xoops_loadLanguage('admin/modulesadmin', 'system');
+        require_once dirname(__DIR__) . '/testdata/index.php';
 
-require_once __DIR__ . '/admin_header_config.php';
-require_once RSSC_ROOT_PATH . '/class/rssc_block_map.php';
-require_once RSSC_ROOT_PATH . '/class/rssc_map.php';
-
-$DIR_CONFIG = RSSC_ROOT_PATH . '/cache';
-
-// class
-$config_form  = admin_config_form::getInstance();
-$config_store = admin_config_store::getInstance();
-$map_class    = rssc_map::getInstance(RSSC_DIRNAME);
-
-$op = $config_form->get_post_get_op();
-
-if ('save' == $op) {
-    if (!$config_form->check_token()) {
-        xoops_cp_header();
-        $config_form->print_xoops_token_error();
+        $adminObject->addItemButton(constant('CO_' . $moduleDirNameUpper . '_' . 'ADD_SAMPLEDATA'), '__DIR__ . /../../testdata/index.php?op=load', 'add');
+        $adminObject->addItemButton(constant('CO_' . $moduleDirNameUpper . '_' . 'SAVE_SAMPLEDATA'), '__DIR__ . /../../testdata/index.php?op=save', 'add');
+        //    $adminObject->addItemButton(constant('CO_' . $moduleDirNameUpper . '_' . 'EXPORT_SCHEMA'), '__DIR__ . /../../testdata/index.php?op=exportschema', 'add');
+        $adminObject->addItemButton(constant('CO_' . $moduleDirNameUpper . '_' . 'HIDE_SAMPLEDATA_BUTTONS'), '?op=hide_buttons', 'delete');
     } else {
-        $config_store->save();
-        redirect_header('index.php', 1, _HAPPY_LINUX_UPDATED);
+        $adminObject->addItemButton(constant('CO_' . $moduleDirNameUpper . '_' . 'SHOW_SAMPLEDATA_BUTTONS'), '?op=show_buttons', 'add');
+        $displaySampleButton = $config['displaySampleButton'];
     }
-} elseif ('init' == $op) {
-    if (!$config_form->check_token()) {
-        xoops_cp_header();
-        $config_form->print_xoops_token_error();
-    } else {
-        $config_store->init();
-        redirect_header('index.php', 1, _HAPPY_LINUX_UPDATED);
-    }
-} elseif ('upgrade' == $op) {
-    if (!$config_form->check_token()) {
-        xoops_cp_header();
-        $config_form->print_xoops_token_error();
-    } else {
-        $config_store->upgrade();
-        redirect_header('index.php', 1, _HAPPY_LINUX_UPDATED);
-    }
-} elseif ('template_compiled_clear' == $op) {
-    if (!$config_form->check_token()) {
-        xoops_cp_header();
-        $config_form->print_xoops_token_error();
-    } else {
-        $config_store->template_compiled_clear();
-        redirect_header('index.php', 1, _HAPPY_LINUX_CLEARED);
-    }
-} else {
-    xoops_cp_header();
+    $adminObject->displayButton('left', '');
 }
 
-rssc_admin_print_header();
+//------------- End Test Data ----------------------------
 
-if (!$config_store->check_init()) {
-    $config_form->print_lib_box_init_config();
-} elseif (!$config_store->check_version()) {
-    $config_form->print_lib_box_upgrade_config(
-        RSSC_VERSION,
-        $config_store->_install->get_error_str()
-    );
-} elseif (!is_writable($DIR_CONFIG)) {
-    xoops_error(_HAPPY_LINUX_CONF_NOT_WRITABLE);
-    echo "<br>\n";
-    echo "$DIR_CONFIG <br><br>\n";
-} else {
-    rssc_admin_print_menu();
-    $map_class->print_check_version();
+$adminObject->displayIndex();
 
-    echo '<h4>' . _MI_RSSC_ADMENU_CONFIG . "</h4>\n";
-    $config_form->init_form();
-
-    echo '<h4>' . _AM_RSSC_FORM_BASIC . "</h4>\n";
-    echo _AM_RSSC_FORM_BASIC_DESC . "<br>\n";
-    $config_form->set_form_title(_AM_RSSC_FORM_BASIC);
-    $config_form->show_by_catid(1);
-
-    echo '<h4>' . _AM_RSSC_FORM_MAIN . "</h4>\n";
-    echo _AM_RSSC_FORM_MAIN_DESC . "<br>\n";
-
-    // description in main page
-    $config_form->set_form_title(_AM_RSSC_FORM_MAIN);
-    $config_form->show_by_catid(3);
-    echo "<br>\n";
-
-    $config_form->show_main();
-
-    echo '<h4>' . _AM_RSSC_FORM_BLOCK . "</h4>\n";
-    echo _AM_RSSC_FORM_BLOCK_DESC . "<br>\n";
-    $config_form->show_block();
-
-    echo '<h4>' . _AM_RSSC_FORM_PROXY . "</h4>\n";
-    $config_form->set_form_title(_AM_RSSC_FORM_PROXY);
-    $config_form->show_by_catid(10);
-
-    echo '<h4>' . _HAPPY_LINUX_CONF_TPL_COMPILED_CLEAR . "</h4>\n";
-    $config_form->show_form_template_compiled_clear(_HAPPY_LINUX_CONF_TPL_COMPILED_CLEAR);
+/**
+ * @param $yamlFile
+ * @return array|bool
+ */
+function loadAdminConfig($yamlFile)
+{
+    $config = \Xmf\Yaml::readWrapped($yamlFile); // work with phpmyadmin YAML dumps
+    return $config;
 }
 
-rssc_admin_print_footer();
-rssc_admin_print_powerdby();
-xoops_cp_footer();
-exit();
-// --- main end ---
+/**
+ * @param $yamlFile
+ */
+function hideButtons($yamlFile)
+{
+    $app['displaySampleButton'] = 0;
+    \Xmf\Yaml::save($app, $yamlFile);
+    redirect_header('index.php', 0, '');
+}
+
+/**
+ * @param $yamlFile
+ */
+function showButtons($yamlFile)
+{
+    $app['displaySampleButton'] = 1;
+    \Xmf\Yaml::save($app, $yamlFile);
+    redirect_header('index.php', 0, '');
+}
+
+$op = \Xmf\Request::getString('op', 0, 'GET');
+
+switch ($op) {
+    case 'hide_buttons':
+        hideButtons($yamlFile);
+        break;
+    case 'show_buttons':
+        showButtons($yamlFile);
+        break;
+}
+
+echo $utility::getServerStats();
+
+require __DIR__ . '/admin_footer.php';

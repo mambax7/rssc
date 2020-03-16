@@ -1,4 +1,8 @@
 <?php
+
+use XoopsModules\Rssc\Admin;
+use XoopsModules\Happylinux;
+
 // $Id: admin_function.php,v 1.2 2012/03/17 13:31:45 ohwada Exp $
 
 // 2012-03-01 K.OHWADA
@@ -8,7 +12,7 @@
 // config_manage_3.php
 
 // 2007-11-24 K.OHWADA
-// _HAPPY_LINUX_CONF_TABLE_MANAGE
+// _HAPPYLINUX_CONF_TABLE_MANAGE
 
 // 2007-11-11 K.OHWADA
 // happy_linux_admin_menu
@@ -35,26 +39,26 @@
 //=========================================================
 function rssc_admin_print_header()
 {
-    $menu = happy_linux_admin_menu::getInstance();
+    $menu = Happylinux\AdminMenu::getInstance();
     echo $menu->build_header(RSSC_DIRNAME, _MI_RSSC_DESC);
 }
 
 function rssc_admin_print_footer()
 {
-    $menu = happy_linux_admin_menu::getInstance();
+    $menu = Happylinux\AdminMenu::getInstance();
     echo $menu->build_footer();
 }
 
 function rssc_admin_print_powerdby()
 {
-    $menu = happy_linux_admin_menu::getInstance();
+    $menu = Happylinux\AdminMenu::getInstance();
     echo $menu->build_powerdby();
 }
 
 function rssc_admin_print_bread($name1, $url1 = '', $name2 = '')
 {
-    $system = happy_linux_system::getInstance();
-    $form   = happy_linux_form::getInstance();
+    $system = Happylinux\System::getInstance();
+    $form   = Happylinux\Form::getInstance();
 
     $arr = [
         [
@@ -83,11 +87,11 @@ function rssc_admin_print_menu()
 {
     $MAX_COL = 5;
 
-    $linkHandler  = rssc_getHandler('link', RSSC_DIRNAME);
-    $blackHandler = rssc_getHandler('black', RSSC_DIRNAME);
-    $whiteHandler = rssc_getHandler('white', RSSC_DIRNAME);
-    $feedHandler  = rssc_getHandler('feed', RSSC_DIRNAME);
-    $wordHandler  = rssc_getHandler('word', RSSC_DIRNAME);
+    $linkHandler  = \XoopsModules\Rssc\Helper::getInstance()->getHandler('Link', RSSC_DIRNAME);
+    $blackHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('Black', RSSC_DIRNAME);
+    $whiteHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('White', RSSC_DIRNAME);
+    $feedHandler  = \XoopsModules\Rssc\Helper::getInstance()->getHandler('Feed', RSSC_DIRNAME);
+    $wordHandler  = \XoopsModules\Rssc\Helper::getInstance()->getHandler('Word', RSSC_DIRNAME);
 
     $total_link  = $linkHandler->getCount();
     $total_black = $blackHandler->getCount();
@@ -120,19 +124,19 @@ function rssc_admin_print_menu()
         _AM_RSSC_ADD_WORD    => 'word_manage.php',
         _AM_RSSC_ADD_KEYWORD => 'keyword_manage.php',
 
-        _HAPPY_LINUX_CONF_COMMAND_MANAGE => 'command_manage.php',
+        _HAPPYLINUX_CONF_COMMAND_MANAGE => 'command_manage.php',
         _AM_RSSC_UPDATE_MANAGE           => 'update_manage.php',
         _AM_RSSC_ARCHIVE_MANAGE          => 'archive_manage.php',
-        _HAPPY_LINUX_CONF_RSS_MANAGE     => 'build_menu.php',
+        _HAPPYLINUX_CONF_RSS_MANAGE     => 'build_menu.php',
         _AM_RSSC_PARSE_RSS               => 'parse_rss.php',
 
-        _HAPPY_LINUX_CONF_TABLE_MANAGE => 'table_manage.php',
-        _HAPPY_LINUX_AM_MODULE         => 'modules.php',
-        _HAPPY_LINUX_AM_BLOCK          => 'blocks.php',
+        _HAPPYLINUX_CONF_TABLE_MANAGE => 'table_manage.php',
+        _HAPPYLINUX_AM_MODULE         => 'modules.php',
+        _HAPPYLINUX_AM_BLOCK          => 'blocks.php',
         _AM_RSSC_MAP_MANAGE            => 'map_manage.php',
-        _HAPPY_LINUX_GOTO_MODULE       => '../index.php',
+        _HAPPYLINUX_GOTO_MODULE       => '../index.php',
     ];
 
-    $menu = happy_linux_admin_menu::getInstance();
+    $menu = Happylinux\AdminMenu::getInstance();
     echo $menu->build_menu_table($menu_arr, $MAX_COL);
 }

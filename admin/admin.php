@@ -8,4 +8,4 @@
 //=========================================================
 
 require dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/admin/admin.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/admin/admin.php';

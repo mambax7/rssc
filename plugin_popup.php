@@ -1,4 +1,7 @@
 <?php
+
+use XoopsModules\Happylinux;
+
 // $Id: plugin_popup.php,v 1.1 2011/12/29 14:37:03 ohwada Exp $
 
 //================================================================
@@ -25,8 +28,8 @@ class rssc_plugin_list
     {
         $this->_DIRNAME = $dirname;
 
-        $this->_system = happy_linux_system::getInstance();
-        $this->_plugin = rssc_plugin::getInstance($dirname);
+        $this->_system = Happylinux\System::getInstance();
+        $this->_plugin = Rssc\Plugin::getInstance($dirname);
     }
 
     public static function getInstance($dirname)
@@ -83,7 +86,7 @@ class rssc_plugin_list
 //=========================================================
 // main
 //=========================================================
-$rssc_plugin_list = rssc_plugin_list::getInstance(RSSC_DIRNAME);
+$rssc_plugin_list = Rssc\Plugin_list::getInstance(RSSC_DIRNAME);
 
 xoops_header(false);
 echo '</head><body>';

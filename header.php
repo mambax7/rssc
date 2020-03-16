@@ -1,4 +1,8 @@
 <?php
+
+use XoopsModules\Happylinux;
+use XoopsModules\Rssc;
+
 // $Id: header.php,v 1.2 2012/04/08 23:42:20 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -17,7 +21,7 @@
 // api/view.php
 
 // 2006-09-10 K.OHWADA
-// use RSSC_HAPPY_LINUX_VERSION
+// use RSSC_HAPPYLINUX_VERSION
 
 // 2006-07-10 K.OHWADA
 // require happy_linux module
@@ -32,6 +36,31 @@
 
 // system files
 require dirname(dirname(__DIR__)) . '/mainfile.php';
+require XOOPS_ROOT_PATH . '/header.php';
+
+$moduleDirName = basename(__DIR__);
+
+/** @var \XoopsModules\Rssc\Helper $helper */
+$helper = \XoopsModules\Rssc\Helper::getInstance();
+
+$modulePath = XOOPS_ROOT_PATH . '/modules/' . $moduleDirName;
+require __DIR__ . '/config/config.php';
+
+$myts = \MyTextSanitizer::getInstance();
+
+if (!isset($GLOBALS['xoTheme']) || !is_object($GLOBALS['xoTheme'])) {
+    require $GLOBALS['xoops']->path('class/theme.php');
+    $GLOBALS['xoTheme'] = new \xos_opal_Theme();
+}
+
+//Handlers
+//$XXXHandler = xoops_getModuleHandler('XXX', $moduleDirName);
+
+// Load language files
+$helper->loadLanguage('main');
+$helper->loadLanguage('global');
+//$helper->loadLanguage('global','happylinux');
+//$helper->loadLanguage('main','happylinux');
 
 //---------------------------------------------------------
 // rssc
@@ -53,18 +82,18 @@ require_once RSSC_ROOT_PATH . '/include/rssc_version.php';
 //---------------------------------------------------------
 // happy_linux
 //---------------------------------------------------------
-if (!file_exists(XOOPS_ROOT_PATH . '/modules/happy_linux/include/version.php')) {
+if (!file_exists(XOOPS_ROOT_PATH . '/modules/happylinux/include/version.php')) {
     require XOOPS_ROOT_PATH . '/header.php';
     xoops_error('require happy_linux module');
     require XOOPS_ROOT_PATH . '/footer.php';
     exit();
 }
 
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/version.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/include/version.php';
 
 // check happy_linux version
-if (HAPPY_LINUX_VERSION < RSSC_HAPPY_LINUX_VERSION) {
-    $msg = 'require happy_linux module v' . RSSC_HAPPY_LINUX_VERSION . ' or later';
+if (HAPPYLINUX_VERSION < RSSC_HAPPYLINUX_VERSION) {
+    $msg = 'require happy_linux module v' . RSSC_HAPPYLINUX_VERSION . ' or later';
     require XOOPS_ROOT_PATH . '/header.php';
     xoops_error($msg);
     require XOOPS_ROOT_PATH . '/footer.php';
@@ -72,33 +101,33 @@ if (HAPPY_LINUX_VERSION < RSSC_HAPPY_LINUX_VERSION) {
 }
 
 // start execution time
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/time.php';
-$happy_linux_time = happy_linux_time::getInstance(true);
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/time.php';
+$happy_linux_time = \XoopsModules\Happylinux\Time::getInstance(true);
 
 //---------------------------------------------------------
 // rssc
 //---------------------------------------------------------
 require_once RSSC_ROOT_PATH . '/api/view.php';
-require_once RSSC_ROOT_PATH . '/class/rssc_icon.php';
-require_once RSSC_ROOT_PATH . '/class/rssc_block_map.php';
-require_once RSSC_ROOT_PATH . '/class/rssc_map.php';
+// require_once RSSC_ROOT_PATH . '/class/rssc_icon.php';
+// require_once RSSC_ROOT_PATH . '/class/Rssc\Block_map.php';
+// require_once RSSC_ROOT_PATH . '/class/rssc_map.php';
 
 //---------------------------------------------------------
 // happy_linux
 //---------------------------------------------------------
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/rss_builder.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/language.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/locate.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/multibyte.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/search.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/memory.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/highlight.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/post.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/remote_file.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/convert_encoding.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/pagenavi.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/search.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/image_size.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/api/rss_builder.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/api/language.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/api/locate.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/include/multibyte.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/include/search.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/include/memory.php';
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/highlight.php';
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/post.php';
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/remote_file.php';
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/convert_encoding.php';
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/pagenavi.php';
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/search.php';
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/image_size.php';
 
 //---------------------------------------------------------
 // rssc

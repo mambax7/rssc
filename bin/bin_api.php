@@ -12,11 +12,11 @@
 // happy_linux global.php
 
 // 2006-09-15 K.OHWADA
-// use RSSC_HAPPY_LINUX_VERSION
+// use RSSC_HAPPYLINUX_VERSION
 
 // 2006-07-08 K.OHWADA
 // use class/common/
-// use bin_base
+// use BinBase
 
 // 2006-06-04 K.OHWADA
 // use link_basic feed_basic class.database
@@ -54,19 +54,19 @@ if (!defined('RSSC_URL')) {
 //---------------------------------------------------------
 // happy_linux
 //---------------------------------------------------------
-if (!file_exists(XOOPS_ROOT_PATH . '/modules/happy_linux/include/version.php')) {
+if (!file_exists(XOOPS_ROOT_PATH . '/modules/happylinux/include/version.php')) {
     die('require happy_linux module');
 }
 
 require_once RSSC_ROOT_PATH . '/api/refresh.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/version.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/bin.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/include/version.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/api/bin.php';
 
 //---------------------------------------------------------
 // rssc
 //---------------------------------------------------------
 require_once RSSC_ROOT_PATH . '/include/rssc_version.php';
-require_once RSSC_ROOT_PATH . '/class/rssc_refresh_all_handler.php';
+//require_once RSSC_ROOT_PATH . '/class/rssc_RefreshAll_handler.php';
 
 // bin files
 require_once RSSC_ROOT_PATH . '/bin/bin_refresh_class.php';
@@ -89,7 +89,7 @@ if (file_exists(RSSC_ROOT_PATH . '/language/' . $xoops_language . '/admin.php'))
 require_once RSSC_ROOT_PATH . '/language/compatible.php';
 
 // check happy_linux version
-if (HAPPY_LINUX_VERSION < RSSC_HAPPY_LINUX_VERSION) {
-    $msg = 'require happy_linux module v' . RSSC_HAPPY_LINUX_VERSION . ' or later';
+if (HAPPYLINUX_VERSION < RSSC_HAPPYLINUX_VERSION) {
+    $msg = 'require happy_linux module v' . RSSC_HAPPYLINUX_VERSION . ' or later';
     die($msg);
 }

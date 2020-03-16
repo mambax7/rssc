@@ -35,8 +35,8 @@ if (file_exists($file_lang)) {
 $options = [$DIRNAME];
 $block   = b_rssc_show_refresh($options);
 
-$tmplate = 'db:' . $DIRNAME . '_block_refresh.html';
-$tpl     = new XoopsTpl();
+$tmplate = 'db:' . $DIRNAME . '_block_refresh.tpl';
+$tpl     = new \XoopsTpl();
 $tpl->assign('block', $block);
 $latest = $tpl->fetch($tmplate);
 

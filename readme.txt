@@ -429,7 +429,7 @@ separate xml part which is unnecessary for usual display from link table.
 add xml table for storeing xml part.
 
 6. support MySQL 4.1
-urlencode xml data as RSS feed, when storing in databese
+urlencode xml data as RSS feed, when storing in database
 since v4.1, it seems that MySQL can not store different character code
 
 7. add block manage in admin page
@@ -468,8 +468,8 @@ valid in xoops 2.0
 * requirement *
 (1) happy_linux module 0.90 is required.
 
-(2) kakasi is required, when extracting words in Japanese.
-extracting words by space or symbol, when NOT using kakasi
+(2) Kakasi is required, when extracting words in Japanese.
+extracting words by space or symbol, when NOT using Kakasi
 https://kakasi.namazu.org/
 
 

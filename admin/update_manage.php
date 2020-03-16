@@ -1,4 +1,8 @@
 <?php
+
+use XoopsModules\Rssc\Admin;
+use XoopsModules\Happylinux;
+
 // $Id: update_manage.php,v 1.1 2011/12/29 14:37:10 ohwada Exp $
 
 // 2007-11-01 K.OHWADA

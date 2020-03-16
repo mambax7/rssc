@@ -1,18 +1,22 @@
 <?php
+
+use XoopsModules\Rssc;
+use XoopsModules\Happylinux;
+
 // $Id: index.php,v 1.3 2012/04/08 23:42:20 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
 // remove rssc_map.php
 
 // 2012-03-01 K.OHWADA
-// rssc_map::getInstance( RSSC_DIRNAME )
+// Rssc\Map::getInstance( RSSC_DIRNAME )
 
 // 2009-02-20 K.OHWADA
 // rssc_map.php
 // main_search_show_site
 
 // 2007-11-01 K.OHWADA
-// happy_linux_get_memory_usage_mb()
+// happylinux_get_memory_usage_mb()
 // enclosure in link table
 
 // 2007-08-01 K.OHWADA
@@ -48,18 +52,23 @@
 
 require __DIR__ . '/header.php';
 
-require_once RSSC_ROOT_PATH . '/class/rssc_search_handler.php';
-require_once RSSC_ROOT_PATH . '/class/rssc_icon.php';
+// require_once RSSC_ROOT_PATH . '/class/rssc_search_handler.php';
+// require_once RSSC_ROOT_PATH . '/class/rssc_icon.php';
 
-$searchHandler = rssc_getHandler('search', RSSC_DIRNAME);
-$confHandler   = rssc_getHandler('config_basic', RSSC_DIRNAME);
-$pagenavi      = happy_linux_pagenavi::getInstance();
-$icon_class    = rssc_icon::getInstance();
-$map_class     = rssc_map::getInstance(RSSC_DIRNAME);
+//$searchHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('Search', RSSC_DIRNAME);
+//$confHandler   = \XoopsModules\Rssc\Helper::getInstance()->getHandler('ConfigBasic', RSSC_DIRNAME);
+
+$searchHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('Search', RSSC_DIRNAME);
+$confHandler   = \XoopsModules\Rssc\Helper::getInstance()->getHandler('ConfigBasic', RSSC_DIRNAME);
+
+
+$pagenavi      = Happylinux\PageNavi::getInstance();
+$icon_class    = Rssc\Icon::getInstance();
+$map_class     = Rssc\Map::getInstance(RSSC_DIRNAME);
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME . '_index.html';
+$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME . '_index.tpl';
 require XOOPS_ROOT_PATH . '/header.php';
 
 $conf           = &$confHandler->get_conf();
@@ -221,7 +230,7 @@ $xoopsTpl->assign('lang_next', _SR_NEXT);
 $xoopsTpl->assign('lang_keyword', _SR_KEYWORDS . ':');
 $xoopsTpl->assign('lang_total', sprintf(_RSSC_THEREARE, $total));
 $xoopsTpl->assign('lang_ignore', sprintf(_SR_IGNOREDWORDS, $min));
-$xoopsTpl->assign('lang_candidate', _HAPPY_LINUX_SEARCH_CANDICATE);
+$xoopsTpl->assign('lang_candidate', _HAPPYLINUX_SEARCH_CANDICATE);
 
 $xoopsTpl->assign('rssc_and', $and);
 $xoopsTpl->assign('rssc_or', $or);
@@ -245,9 +254,9 @@ $xoopsTpl->assign('feed_limit', $limit);
 $xoopsTpl->assign('feed_start', $start);
 $xoopsTpl->assign('feed_list', $feed_list);
 
-$xoopsTpl->assign('happy_linux_url', get_happy_linux_url());
-$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
-$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+//$xoopsTpl->assign('happy_linux_url', get_happy_linux_url());
+//$xoopsTpl->assign('execution_time', happylinux_get_execution_time());
+//$xoopsTpl->assign('memory_usage', happylinux_get_memory_usage_mb());
 require XOOPS_ROOT_PATH . '/footer.php';
 exit();
 // --- main end ---

@@ -1,4 +1,8 @@
 <?php
+
+use XoopsModules\Rssc\Admin;
+use XoopsModules\Happylinux;
+
 // $Id: myblocksadmin.php,v 1.1 2011/12/29 14:37:12 ohwada Exp $
 
 //=========================================================
@@ -8,4 +12,4 @@
 //=========================================================
 
 require_once dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/admin/myblocksadmin.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/admin/myblocksadmin.php';

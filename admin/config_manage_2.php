@@ -1,4 +1,7 @@
 <?php
+
+use XoopsModules\Rssc\Admin;
+use XoopsModules\Happylinux;
 // $Id: config_manage_2.php,v 1.1 2011/12/29 14:37:10 ohwada Exp $
 
 // 2008-01-20 K.OHWADA
@@ -12,12 +15,12 @@
 // 2007-06-01 K.OHWADA
 //=========================================================
 
-require_once __DIR__ . '/admin_header_config.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/kakasi.php';
+require __DIR__ . '/admin_header.php';
+// require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/kakasi.php';
 
 // class
-$config_form  = admin_config_form::getInstance();
-$config_store = admin_config_store::getInstance();
+$config_form  = Admin\ConfigForm::getInstance();
+$config_store = Admin\ConfigStore::getInstance();
 
 $op = $config_form->get_post_get_op();
 

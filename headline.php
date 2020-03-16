@@ -1,17 +1,21 @@
 <?php
+
+use XoopsModules\Happylinux;
+use XoopsModules\Rssc;
+
 // $Id: headline.php,v 1.3 2012/04/08 23:42:20 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
 // remove rssc_map.php
 
 // 2012-03-01 K.OHWADA
-// rssc_map::getInstance( RSSC_DIRNAME )
+// Rssc\Map::getInstance( RSSC_DIRNAME )
 
 // 2009-02-20 K.OHWADA
 // rssc_map.php
 
 // 2007-11-01 K.OHWADA
-// happy_linux_get_memory_usage_mb()
+// happylinux_get_memory_usage_mb()
 // enclosure in link table
 
 // 2007-08-01 K.OHWADA
@@ -48,19 +52,19 @@
 require __DIR__ . '/header.php';
 
 require_once RSSC_ROOT_PATH . '/api/refresh.php';
-require_once RSSC_ROOT_PATH . '/class/rssc_headline_handler.php';
-require_once RSSC_ROOT_PATH . '/class/rssc_view_handler.php';
+//require_once RSSC_ROOT_PATH . '/class/rssc_headline_handler.php';
+//require_once RSSC_ROOT_PATH . '/class/rssc_view_handler.php';
 
-$headlineHandler = rssc_getHandler('headline', RSSC_DIRNAME);
-$viewHandler     = rssc_getHandler('view', RSSC_DIRNAME);
-$confHandler     = rssc_getHandler('config_basic', RSSC_DIRNAME);
-$post            = happy_linux_post::getInstance();
-$pagenavi        = happy_linux_pagenavi::getInstance();
-$map_class       = rssc_map::getInstance(RSSC_DIRNAME);
+$headlineHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('Headline', RSSC_DIRNAME);
+$viewHandler     = \XoopsModules\Rssc\Helper::getInstance()->getHandler('View', RSSC_DIRNAME);
+$confHandler     = \XoopsModules\Rssc\Helper::getInstance()->getHandler('ConfigBasic', RSSC_DIRNAME);
+$post            = Happylinux\Post::getInstance();
+$pagenavi        = Happylinux\PageNavi::getInstance();
+$map_class       = Rssc\Map::getInstance(RSSC_DIRNAME);
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME . '_headline.html';
+$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME . '_headline.tpl';
 require XOOPS_ROOT_PATH . '/header.php';
 
 $conf           = &$confHandler->get_conf();
@@ -164,8 +168,8 @@ $xoopsTpl->assign('rssc_error', $error);
 $xoopsTpl->assign('rssc_navi', $navi);
 $xoopsTpl->assign('show_title_map', $show_title_map);
 
-$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
-$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+$xoopsTpl->assign('execution_time', happylinux_get_execution_time());
+$xoopsTpl->assign('memory_usage', happylinux_get_memory_usage_mb());
 require XOOPS_ROOT_PATH . '/footer.php';
 exit();
 // --- main end ---

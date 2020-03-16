@@ -5,7 +5,7 @@
 // add RSSC_WEBMAP3_VERSION
 
 // 2006-09-01 K.OHWADA
-// add RSSC_HAPPY_LINUX_VERSION
+// add RSSC_HAPPYLINUX_VERSION
 
 //=========================================================
 // RSS Center Module
@@ -14,8 +14,8 @@
 
 // --- define version begin ---
 if (!defined('RSSC_VERSION')) {
-    define('RSSC_VERSION', '1.31');
-    define('RSSC_HAPPY_LINUX_VERSION', '1.82');
+    define('RSSC_VERSION', '2.00');
+    define('RSSC_HAPPYLINUX_VERSION', '2.00');
     define('RSSC_WEBMAP3_VERSION', '1.12');
 }
 

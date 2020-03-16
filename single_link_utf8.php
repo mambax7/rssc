@@ -1,4 +1,7 @@
 <?php
+
+use XoopsModules\Happylinux;
+
 // $Id: single_link_utf8.php,v 1.1 2011/12/29 14:37:04 ohwada Exp $
 
 // 2007-10-10 K.OHWADA
@@ -32,9 +35,9 @@
 
 require __DIR__ . '/header.php';
 require_once XOOPS_ROOT_PATH . '/class/template.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/rss_parser.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/object_handler.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/api/rss_parser.php';
+// require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object.php';
+// require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/object_handler.php';
 
 $single = rssc_single_link_utf8::getInstance();
 
@@ -43,8 +46,8 @@ happy_linux_http_output('pass');
 header('Content-Type:text/html; charset=utf-8');
 
 // template
-$RSSC_TEMPLATE_NAME = 'db:' . RSSC_DIRNAME . '_single_link_utf8.html';
-$xoopsTpl           = new XoopsTpl();
+$RSSC_TEMPLATE_NAME = 'db:' . RSSC_DIRNAME . '_single_link_utf8.tpl';
+$xoopsTpl           = new \XoopsTpl();
 
 $lid  = $single->get_get_lid();
 $mode = $single->get_get_mode();
@@ -86,7 +89,7 @@ $xoopsTpl->assign('is_module_admin', $single->is_module_admin());
 $xoopsTpl->assign('xoops_themecss', xoops_getcss());
 
 $xoopsTpl->assign('lang_single_link', $single->convert(_RSSC_SINGLE_LINK));
-$xoopsTpl->assign('lang_no_record', $single->convert(_HAPPY_LINUX_NO_RECORD));
+$xoopsTpl->assign('lang_no_record', $single->convert(_HAPPYLINUX_NO_RECORD));
 $xoopsTpl->assign('lang_no_feed', $single->convert(_RSSC_NO_FEED));
 $xoopsTpl->assign('lang_single_link_utf8', $single->convert(_RSSC_SINGLE_LINK_UTF8));
 
@@ -139,16 +142,16 @@ class rssc_single_link_utf8
     //---------------------------------------------------------
     public function __construct()
     {
-        $this->_confHandler = rssc_getHandler('config_basic', RSSC_DIRNAME);
-        $this->_linkHandler = rssc_getHandler('link_basic', RSSC_DIRNAME);
-        $this->_xmlHandler  = rssc_getHandler('xml_basic', RSSC_DIRNAME);
+        $this->_confHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('ConfigBasic', RSSC_DIRNAME);
+        $this->_linkHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('LinkBasic', RSSC_DIRNAME);
+        $this->_xmlHandler  = \XoopsModules\Rssc\Helper::getInstance()->getHandler('XmlBasic', RSSC_DIRNAME);
 
-        $this->_parser  = happy_linux_rss_parser::getInstance();
-        $this->_viewer  = happy_linux_rss_viewer::getInstance();
-        $this->_post    = happy_linux_post::getInstance();
-        $this->_system  = happy_linux_system::getInstance();
-        $this->_convert = happy_linux_convert_encoding::getInstance();
-        $this->_strings = happy_linux_strings::getInstance();
+        $this->_parser  = Happylinux\RssParser::getInstance();
+        $this->_viewer  = Happylinux\Rss_viewer::getInstance();
+        $this->_post    = Happylinux\Post::getInstance();
+        $this->_system  = Happylinux\System::getInstance();
+        $this->_convert = Happylinux\ConvertEncoding::getInstance();
+        $this->_strings = Happylinux\Strings::getInstance();
     }
 
     public static function getInstance()

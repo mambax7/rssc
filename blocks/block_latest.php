@@ -2,7 +2,7 @@
 // $Id: block_latest.php,v 1.1 2011/12/29 14:37:05 ohwada Exp $
 
 // 2009-02-20 K.OHWADA
-// rssc_block.php
+// Rssc\Block.php
 
 // 2007-10-10 K.OHWADA
 // enclosure in link table
@@ -36,8 +36,8 @@
 // 2006-01-01 K.OHWADA
 //=========================================================
 
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/multibyte.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/language.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/include/multibyte.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/api/language.php';
 
 // --- block function begin ---
 if (!function_exists('b_rssc_show_latest')) {
@@ -50,8 +50,8 @@ if (!function_exists('b_rssc_show_latest')) {
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
 
-        require_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/rssc_block.php';
-        $block_class = rssc_block::getInstance();
+        require_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/Rssc\Block.php';
+        $block_class = Rssc\Block::getInstance();
 
         return $block_class->show_latest($DIRNAME);
     }
@@ -65,8 +65,8 @@ if (!function_exists('b_rssc_show_latest')) {
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
 
-        require_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/rssc_block.php';
-        $block_class = rssc_block::getInstance();
+        require_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/Rssc\Block.php';
+        $block_class = Rssc\Block::getInstance();
 
         return $block_class->show_map($DIRNAME);
     }
@@ -80,8 +80,8 @@ if (!function_exists('b_rssc_show_latest')) {
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
 
-        require_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/rssc_block.php';
-        $block_class = rssc_block::getInstance();
+        require_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/Rssc\Block.php';
+        $block_class = Rssc\Block::getInstance();
 
         return $block_class->show_headline($DIRNAME);
     }
@@ -95,8 +95,8 @@ if (!function_exists('b_rssc_show_latest')) {
     {
         $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
 
-        require_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/rssc_block.php';
-        $block_class = rssc_block::getInstance();
+        require_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/Rssc\Block.php';
+        $block_class = Rssc\Block::getInstance();
 
         return $block_class->show_blog($DIRNAME);
     }

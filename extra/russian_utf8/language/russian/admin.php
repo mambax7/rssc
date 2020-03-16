@@ -369,8 +369,8 @@ if (!defined('RSSC_LANG_AM_LOADED')) {
     define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'Минимальное количество символов для извлечения слова');
     define('_AM_RSSC_CONF_WORD_LIMIT', 'Максимальное количество отклоненных слов');
     define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Введите максимальное число слов хранимых в таблице слов<br>Удаляются старые записи, когда количество становится больше, чем это значение<br><b>0</b> неограничено');
-    define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi исполняемо');
-    define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi не исполняемо');
+    define('_AM_RSSC_KAKASI_EXECUTABLE', 'Kakasi исполняемо');
+    define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'Kakasi не исполняемо');
     define('_AM_RSSC_CONF_HTML_GET', 'Получить HTML');
     define('_AM_RSSC_CONF_HTML_GET_DESC', 'Получить данные оригинального HTML автоматически, когда считается списком отклоненных слов<br>Когда выбрано "Использовать", точность расчета повышается , но время выполнения становятся долгим');
     define('_AM_RSSC_CONF_HTML_GET_NO', 'Не использовать');

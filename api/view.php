@@ -19,10 +19,10 @@ $RSSC_DIRNAME = basename(dirname(__DIR__));
 //---------------------------------------------------------
 // happy_linux
 //---------------------------------------------------------
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/api/rss_viewer.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/functions.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/basic_handler.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/image_size.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/api/rss_viewer.php';
+require_once XOOPS_ROOT_PATH . '/modules/happylinux/include/functions.php';
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/basic_handler.php';
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/image_size.php';
 
 //---------------------------------------------------------
 // rssc
@@ -30,10 +30,10 @@ require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/image_size.php';
 require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/include/rssc_constant.php';
 require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/include/rssc_rss_constant.php';
 require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/include/rssc_get_handler.php';
-require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_config_basic_handler.php';
-require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_link_basic_handler.php';
-require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_feed_basic_handler.php';
-require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_plugin.php';
-require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_view_param.php';
-require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_view_handler.php';
-require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/plugins/rssc_plugin_base.php';
+//require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_config_basic_handler.php';
+//require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_link_basic_handler.php';
+//require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_feed_basic_handler.php';
+//require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_plugin.php';
+//require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_view_param.php';
+//require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/class/rssc_view_handler.php';
+//require_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/plugins/rssc_plugin_base.php';

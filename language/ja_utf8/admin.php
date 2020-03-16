@@ -364,8 +364,8 @@ if (!defined('RSSC_LANG_AM_LOADED')) {
     define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', '抽出する単語の最小の(半角)文字数');
     define('_AM_RSSC_CONF_WORD_LIMIT', '禁止語の最大の登録数');
     define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'word テーブルに格納する禁止語の最大の登録数を指定する<br>この値を超えると日付の古い方からクリアされる。<br><b>0</b> は無制限だが、推奨しない。');
-    define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi が実行可能です');
-    define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi が実行できません');
+    define('_AM_RSSC_KAKASI_EXECUTABLE', 'Kakasi が実行可能です');
+    define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'Kakasi が実行できません');
     define('_AM_RSSC_CONF_HTML_GET', 'HTMLの自動取得');
     define('_AM_RSSC_CONF_HTML_GET_DESC', '禁止語リストを使用して判定を行うときに、発言元のHTMLデータを自動取得します<br>HTMLデータを取得すると、判定の精度は向上しますが、実行時間も大きくなります');
     define('_AM_RSSC_CONF_HTML_GET_NO', '自動取得しない');

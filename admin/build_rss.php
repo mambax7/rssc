@@ -1,4 +1,7 @@
 <?php
+
+use XoopsModules\Rssc\Admin;
+use XoopsModules\Happylinux;
 // $Id: build_rss.php,v 1.1 2011/12/29 14:37:10 ohwada Exp $
 
 // 2008-02-24 K.OHWADA
@@ -32,9 +35,9 @@ require __DIR__ . '/admin_header.php';
 
 require_once RSSC_ROOT_PATH . '/api/rss_builder.php';
 
-$searchHandler = rssc_getHandler('search', RSSC_DIRNAME);
-$confHandler   = rssc_getHandler('config_basic', RSSC_DIRNAME);
-$builder       = rssc_build_rssc::getInstance(RSSC_DIRNAME);
+$searchHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('Search', RSSC_DIRNAME);
+$confHandler   = \XoopsModules\Rssc\Helper::getInstance()->getHandler('ConfigBasic', RSSC_DIRNAME);
+$builder       = Rssc\BuildRssc::getInstance(RSSC_DIRNAME);
 
 $conf      = &$confHandler->get_conf();
 $max_limit = $conf['main_search_perpage'];
@@ -50,7 +53,7 @@ if ($limit <= 0) {
 
 $feeds = &$searchHandler->getLatest($limit, $start);
 
-$builder->set_view_goto_title(_HAPPY_LINUX_CONF_RSS_MANAGE);
+$builder->set_view_goto_title(_HAPPYLINUX_CONF_RSS_MANAGE);
 $builder->set_view_goto_url(RSSC_URL . '/admin/build_menu.php');
 $builder->view($mode, $feeds);
 

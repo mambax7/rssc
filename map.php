@@ -1,11 +1,14 @@
 <?php
+
+use XoopsModules\Happylinux;
+
 // $Id: map.php,v 1.3 2012/04/08 23:42:20 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
 // remove rssc_map.php
 
 // 2012-03-01 K.OHWADA
-// rssc_map::getInstance( RSSC_DIRNAME )
+// Rssc\Map::getInstance( RSSC_DIRNAME )
 
 // 2009-05-17 K.OHWADA
 // Notice [PHP]: Undefined variable: feed_list
@@ -16,22 +19,22 @@
 //================================================================
 
 require __DIR__ . '/header.php';
-require_once RSSC_ROOT_PATH . '/class/rssc_view_handler.php';
-require_once RSSC_ROOT_PATH . '/class/rssc_block_map.php';
+// require_once RSSC_ROOT_PATH . '/class/rssc_view_handler.php';
+// require_once RSSC_ROOT_PATH . '/class/Rssc\Block_map.php';
 
-$viewHandler = rssc_getHandler('view', RSSC_DIRNAME);
-$confHandler = rssc_getHandler('config_basic', RSSC_DIRNAME);
-$map_class   = rssc_map::getInstance(RSSC_DIRNAME);
+$viewHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('View', RSSC_DIRNAME);
+$confHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('ConfigBasic', RSSC_DIRNAME);
+$map_class   = Rssc\Map::getInstance(RSSC_DIRNAME);
 $icon_class  = rssc_icon::getInstance();
-$post        = happy_linux_post::getInstance();
-$pagenavi    = happy_linux_pagenavi::getInstance();
+$post        = Happylinux\Post::getInstance();
+$pagenavi    = Happylinux\Pagenavi::getInstance();
 
 $map_div_id = RSSC_DIRNAME . '_map';
 $map_func   = RSSC_DIRNAME . '_map_load';
 
 // --- template start ---
 // xoopsOption[template_main] should be defined before including header.php
-$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME . '_map.html';
+$GLOBALS['xoopsOption']['template_main'] = RSSC_DIRNAME . '_map.tpl';
 require XOOPS_ROOT_PATH . '/header.php';
 
 $conf           = &$confHandler->get_conf();
@@ -128,8 +131,8 @@ $xoopsTpl->assign('rssc_error', $error);
 $xoopsTpl->assign('rssc_reason', $reason);
 $xoopsTpl->assign('rssc_navi', $navi);
 
-$xoopsTpl->assign('execution_time', happy_linux_get_execution_time());
-$xoopsTpl->assign('memory_usage', happy_linux_get_memory_usage_mb());
+$xoopsTpl->assign('execution_time', happylinux_get_execution_time());
+$xoopsTpl->assign('memory_usage', happylinux_get_memory_usage_mb());
 require XOOPS_ROOT_PATH . '/footer.php';
 exit();
 // --- main end ---

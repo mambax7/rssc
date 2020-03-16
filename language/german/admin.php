@@ -324,8 +324,8 @@ if (!defined('RSSC_LANG_AM_LOADED')) {
     define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'Die minimale Anzahl der Zeichen der exakten  Worte');
     define('_AM_RSSC_CONF_WORD_LIMIT', 'Maximale Anzahl der verbotenen Worte');
     define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Geben Sie die maximale Anzahl der gespeicherten Wort in Wort Tisch <br> Löscht den älteren Aufzeichnungen, sobald sie mehr als dieser Wert <b> 0 <br> </b> ist umlimited');
-    define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi ist ausführbar');
-    define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi ist nicht ausführbar');
+    define('_AM_RSSC_KAKASI_EXECUTABLE', 'Kakasi ist ausführbar');
+    define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'Kakasi ist nicht ausführbar');
     define('_AM_RSSC_CONF_HTML_GET', 'HTML');
     define('_AM_RSSC_CONF_HTML_GET_DESC', 'Sie Herkunft HTML-Daten automatisch, wenn Richter ablehnen Wort Liste <br> Wenn Sie "Use", die Präzision des Urteils wird verbessert, aber die Ausführung lange Zeit geworden');
     define('_AM_RSSC_CONF_HTML_GET_NO', 'Nicht benutzt');

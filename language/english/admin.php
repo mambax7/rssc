@@ -366,8 +366,8 @@ if (!defined('RSSC_LANG_AM_LOADED')) {
     define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'The minimum number of characters to extact word');
     define('_AM_RSSC_CONF_WORD_LIMIT', 'The maxmum number of reject words');
     define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Enter the maximum number of word stored in word table<br>Clears the older records, when it becomes more than this value<br><b>0</b> is umlimited');
-    define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi is executable');
-    define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi is not executable');
+    define('_AM_RSSC_KAKASI_EXECUTABLE', 'Kakasi is executable');
+    define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'Kakasi is not executable');
     define('_AM_RSSC_CONF_HTML_GET', 'Get HTML');
     define('_AM_RSSC_CONF_HTML_GET_DESC', 'get origin HTML data automatically, when judge with reject word list<br>When select "Use", the precision of the judgment is improved , but the execution time become long');
     define('_AM_RSSC_CONF_HTML_GET_NO', 'Not Use');
@@ -476,5 +476,21 @@ if (!defined('RSSC_LANG_AM_LOADED')) {
     define('_AM_RSSC_CONF_URL_DESC', 'Hyper link of title');
     define('_AM_RSSC_CONF_URL_0', 'URL of original site');
     define('_AM_RSSC_CONF_URL_1', 'singlefeed of RSSC');
+
+    define('_AM_RSSC_UPGRADEFAILED0', "Update failed - couldn't rename field '%s'");
+    define('_AM_RSSC_UPGRADEFAILED1', "Update failed - couldn't add new fields");
+    define('_AM_RSSC_UPGRADEFAILED2', "Update failed - couldn't rename table '%s'");
+    define('_AM_RSSC_ERROR_COLUMN', 'Could not create column in database : %s');
+    define('_AM_RSSC_ERROR_BAD_XOOPS', 'This module requires XOOPS %s+ (%s installed)');
+    define('_AM_RSSC_ERROR_BAD_PHP', 'This module requires PHP version %s+ (%s installed)');
+    define('_AM_RSSC_ERROR_TAG_REMOVAL', 'Could not remove tags from Tag Module');
+
+    define('_AM_RSSC_FOLDERS_DELETED_OK', 'Upload Folders have been deleted');
+
+    // Error Msgs
+    define('_AM_RSSC_ERROR_BAD_DEL_PATH', 'Could not delete %s directory');
+    define('_AM_RSSC_ERROR_BAD_REMOVE', 'Could not delete %s');
+    define('_AM_RSSC_ERROR_NO_PLUGIN', 'Could not load plugin');
 }
 // --- define language begin ---
+

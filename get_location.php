@@ -18,10 +18,10 @@ require_once XOOPS_ROOT_PATH . '/class/template.php';
 //---------------------------------------------------------
 // happy_linux
 //---------------------------------------------------------
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/include/functions.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/strings.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/error.php';
-require_once XOOPS_ROOT_PATH . '/modules/happy_linux/class/basic_handler.php';
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/include/functions.php';
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/strings.php';
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/error.php';
+//require_once XOOPS_ROOT_PATH . '/modules/happylinux/class/basic_handler.php';
 
 //---------------------------------------------------------
 // rssc
@@ -51,7 +51,7 @@ class rssc_get_location
     //---------------------------------------------------------
     public function __construct($dirname)
     {
-        $this->_confHandler = rssc_getHandler('config_basic', $dirname);
+        $this->_confHandler = \XoopsModules\Rssc\Helper::getInstance()->getHandler('ConfigBasic', $dirname);
         $this->_conf        = $this->_confHandler->get_conf();
     }
 

@@ -366,8 +366,8 @@ if (!defined('RSSC_LANG_AM_LOADED')) {
     define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'ÇÞá ÚÏÏ ãä ÇáÍÑæÝ áÇÓÊÎÑÇÌ ÇáßáãÉ');
     define('_AM_RSSC_CONF_WORD_LIMIT', 'ÇÞÕì ÚÏÏ ãä ÑÝÖ ÇáßáãÇÊ');
     define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'Enter the maximum number of word stored in word table<br>Clears the older records, when it becomes more than this value<br><b>0</b> ÛíÑ ãÍÏæÏ');
-    define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi is executable');
-    define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi is not executable');
+    define('_AM_RSSC_KAKASI_EXECUTABLE', 'Kakasi is executable');
+    define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'Kakasi is not executable');
     define('_AM_RSSC_CONF_HTML_GET', 'ÌáÈ HTML');
     define('_AM_RSSC_CONF_HTML_GET_DESC', 'get origin HTML data automatically, when judge with reject word list<br>When select "Use", the precision of the judgment is improved , but the execution time become long');
     define('_AM_RSSC_CONF_HTML_GET_NO', 'áÇ ÊÓÊÚãá');
