@@ -4,6 +4,7 @@ namespace XoopsModules\Rssc;
 
 use XoopsModules\Happylinux;
 
+
 // $Id: rssc_config_define.php,v 1.3 2012/04/08 23:42:20 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -41,7 +42,6 @@ use XoopsModules\Happylinux;
 // add block_blog_lid
 
 // 2006-07-10 K.OHWADA
- use Happylinux\ConfigDefineBase;
 
 // 2006-06-04 K.OHWADA
 // not use basic_parser_rss
