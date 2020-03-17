@@ -1,4 +1,5 @@
 <?php
+
 // $Id: admin_function.php,v 1.2 2012/03/17 13:31:45 ohwada Exp $
 
 // 2012-03-01 K.OHWADA
@@ -35,109 +36,109 @@
 //=========================================================
 function rssc_admin_print_header()
 {
-	$menu =& happy_linux_admin_menu::getInstance();
-	echo $menu->build_header( RSSC_DIRNAME, _MI_RSSC_DESC );
+    $menu = happy_linux_admin_menu::getInstance();
+    echo $menu->build_header(RSSC_DIRNAME, _MI_RSSC_DESC);
 }
 
 function rssc_admin_print_footer()
 {
-	$menu =& happy_linux_admin_menu::getInstance();
-	echo $menu->build_footer();
+    $menu = happy_linux_admin_menu::getInstance();
+    echo $menu->build_footer();
 }
 
 function rssc_admin_print_powerdby()
 {
-	$menu =& happy_linux_admin_menu::getInstance();
-	echo $menu->build_powerdby();
+    $menu = happy_linux_admin_menu::getInstance();
+    echo $menu->build_powerdby();
 }
 
-function rssc_admin_print_bread( $name1, $url1='', $name2='' )
+/**
+ * @param        $name1
+ * @param string $url1
+ * @param string $name2
+ */
+function rssc_admin_print_bread($name1, $url1 = '', $name2 = '')
 {
-	$system =& happy_linux_system::getInstance();
-	$form   =& happy_linux_form::getInstance();
+    $system = happy_linux_system::getInstance();
+    $form = happy_linux_form::getInstance();
 
-	$arr = array(
-		array(
-			'name' => $system->get_module_name(),
-			'url'  => 'index.php',
-		),
-	);
+    $arr = [
+        [
+            'name' => $system->get_module_name(),
+            'url' => 'index.php',
+        ],
+    ];
 
-	if ( $name1 )
-	{
-		$arr[] = array(
-			'name' => $name1,
-			'url'  => $url1,
-		);
-	}
+    if ($name1) {
+        $arr[] = [
+            'name' => $name1,
+            'url' => $url1,
+        ];
+    }
 
-	if ( $name2 )
-	{
-		$arr[] = array(
-			'name' => $name2,
-		);
-	}
+    if ($name2) {
+        $arr[] = [
+            'name' => $name2,
+        ];
+    }
 
-	echo $form->build_html_bread_crumb( $arr );
+    echo $form->build_html_bread_crumb($arr);
 }
 
 function rssc_admin_print_menu()
 {
-	$MAX_COL = 5;
+    $MAX_COL = 5;
 
-	$link_handler  =& rssc_get_handler('link',  RSSC_DIRNAME);
-	$black_handler =& rssc_get_handler('black', RSSC_DIRNAME);
-	$white_handler =& rssc_get_handler('white', RSSC_DIRNAME);
-	$feed_handler  =& rssc_get_handler('feed',  RSSC_DIRNAME);
-	$word_handler  =& rssc_get_handler('word',  RSSC_DIRNAME);
+    $link_handler = rssc_get_handler('link', RSSC_DIRNAME);
+    $black_handler = rssc_get_handler('black', RSSC_DIRNAME);
+    $white_handler = rssc_get_handler('white', RSSC_DIRNAME);
+    $feed_handler = rssc_get_handler('feed', RSSC_DIRNAME);
+    $word_handler = rssc_get_handler('word', RSSC_DIRNAME);
 
-	$total_link  = $link_handler->getCount();
-	$total_black = $black_handler->getCount();
-	$total_white = $white_handler->getCount();
-	$total_feed  = $feed_handler->getCount();
-	$total_word  = $word_handler->getCount();
+    $total_link = $link_handler->getCount();
+    $total_black = $black_handler->getCount();
+    $total_white = $white_handler->getCount();
+    $total_feed = $feed_handler->getCount();
+    $total_word = $word_handler->getCount();
 
-	$link_list  = _AM_RSSC_LIST_LINK. " ($total_link)";
-	$black_list = _AM_RSSC_LIST_BLACK." ($total_black)";
-	$white_list = _AM_RSSC_LIST_WHITE." ($total_white)";
-	$feed_list  = _AM_RSSC_LIST_FEED. " ($total_feed)";
-	$word_list  = _AM_RSSC_LIST_WORD. " ($total_word)";
+    $link_list = _AM_RSSC_LIST_LINK . " ($total_link)";
+    $black_list = _AM_RSSC_LIST_BLACK . " ($total_black)";
+    $white_list = _AM_RSSC_LIST_WHITE . " ($total_white)";
+    $feed_list = _AM_RSSC_LIST_FEED . " ($total_feed)";
+    $word_list = _AM_RSSC_LIST_WORD . " ($total_word)";
 
-	$menu_arr = array(
-		_MI_RSSC_ADMENU_CONFIG       => 'index.php',
-		_AM_RSSC_FORM_FILTER         => 'config_manage_2.php',
-		_AM_RSSC_FORM_HTMLOUT        => 'config_manage_3.php',
-		_AM_RSSC_FORM_CUSTOM_PLUGIN  => 'config_manage_4.php',
-		_RSSC_PLUGIN_LIST            => 'plugin_list.php',
+    $menu_arr = [
+        _MI_RSSC_ADMENU_CONFIG => 'index.php',
+        _AM_RSSC_FORM_FILTER => 'config_manage_2.php',
+        _AM_RSSC_FORM_HTMLOUT => 'config_manage_3.php',
+        _AM_RSSC_FORM_CUSTOM_PLUGIN => 'config_manage_4.php',
+        _RSSC_PLUGIN_LIST => 'plugin_list.php',
 
-		$link_list   => 'link_list.php',
-		$black_list  => 'black_list.php',
-		$white_list  => 'white_list.php',
-		$word_list   => 'word_list.php',
-		$feed_list   => 'feed_list.php',
+        $link_list => 'link_list.php',
+        $black_list => 'black_list.php',
+        $white_list => 'white_list.php',
+        $word_list => 'word_list.php',
+        $feed_list => 'feed_list.php',
 
-		_AM_RSSC_ADD_LINK    => 'link_manage.php',
-		_AM_RSSC_ADD_BLACK   => 'black_manage.php',
-		_AM_RSSC_ADD_WHITE   => 'white_manage.php',
-		_AM_RSSC_ADD_WORD    => 'word_manage.php',
-		_AM_RSSC_ADD_KEYWORD => 'keyword_manage.php',
+        _AM_RSSC_ADD_LINK => 'link_manage.php',
+        _AM_RSSC_ADD_BLACK => 'black_manage.php',
+        _AM_RSSC_ADD_WHITE => 'white_manage.php',
+        _AM_RSSC_ADD_WORD => 'word_manage.php',
+        _AM_RSSC_ADD_KEYWORD => 'keyword_manage.php',
 
-		_HAPPY_LINUX_CONF_COMMAND_MANAGE => 'command_manage.php',
-		_AM_RSSC_UPDATE_MANAGE           => 'update_manage.php',
-		_AM_RSSC_ARCHIVE_MANAGE          => 'archive_manage.php',
-		_HAPPY_LINUX_CONF_RSS_MANAGE     => 'build_menu.php',
-		_AM_RSSC_PARSE_RSS               => 'parse_rss.php',
+        _HAPPY_LINUX_CONF_COMMAND_MANAGE => 'command_manage.php',
+        _AM_RSSC_UPDATE_MANAGE => 'update_manage.php',
+        _AM_RSSC_ARCHIVE_MANAGE => 'archive_manage.php',
+        _HAPPY_LINUX_CONF_RSS_MANAGE => 'build_menu.php',
+        _AM_RSSC_PARSE_RSS => 'parse_rss.php',
 
-		_HAPPY_LINUX_CONF_TABLE_MANAGE => 'table_manage.php',
-		_HAPPY_LINUX_AM_MODULE         => 'modules.php',
-		_HAPPY_LINUX_AM_BLOCK          => 'blocks.php',
-		_AM_RSSC_MAP_MANAGE            => 'map_manage.php',
-		_HAPPY_LINUX_GOTO_MODULE => '../index.php',
+        _HAPPY_LINUX_CONF_TABLE_MANAGE => 'table_manage.php',
+        _HAPPY_LINUX_AM_MODULE => 'modules.php',
+        _HAPPY_LINUX_AM_BLOCK => 'blocks.php',
+        _AM_RSSC_MAP_MANAGE => 'map_manage.php',
+        _HAPPY_LINUX_GOTO_MODULE => '../index.php',
+    ];
 
-	);
-
-	$menu =& happy_linux_admin_menu::getInstance();
-	echo $menu->build_menu_table($menu_arr, $MAX_COL);
+    $menu = happy_linux_admin_menu::getInstance();
+    echo $menu->build_menu_table($menu_arr, $MAX_COL);
 }
-
-?>

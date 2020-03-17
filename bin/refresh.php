@@ -1,4 +1,5 @@
 <?php
+
 // $Id: refresh.php,v 1.1 2011/12/29 14:37:12 ohwada Exp $
 
 // 2007-06-01 K.OHWADA
@@ -19,16 +20,14 @@
 //---------------------------------------------------------
 
 // environment
-$RSSC_PATH       = dirname( dirname( __FILE__ ) );
-$RSSC_DIRNAME    = basename( $RSSC_PATH );
-$XOOPS_ROOT_PATH = dirname( dirname( $RSSC_PATH ) );
+$RSSC_PATH = dirname(__DIR__);
+$RSSC_DIRNAME = basename($RSSC_PATH);
+$XOOPS_ROOT_PATH = dirname(dirname($RSSC_PATH));
 
 // rssc file
-include $XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/bin/bin_api.php';
+include $XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/bin/bin_api.php';
 
-$refresh = new bin_refresh( $RSSC_DIRNAME );
+$refresh = new bin_refresh($RSSC_DIRNAME);
 $refresh->refresh();
 
 exit();
-
-?>

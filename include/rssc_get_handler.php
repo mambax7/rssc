@@ -1,4 +1,5 @@
 <?php
+
 // $Id: rssc_get_handler.php,v 1.1 2011/12/29 14:37:05 ohwada Exp $
 
 // 2006-07-10 K.OHWADA
@@ -13,16 +14,17 @@
 //=========================================================
 
 // --- rssc_get_handler begin ---
-if( !function_exists( 'rssc_get_handler' ) ) 
-{
+if (!function_exists('rssc_get_handler')) {
+    /**
+     * @param null $name
+     * @param null $module_dir
+     * @return bool|mixed
+     */
+    function &rssc_get_handler($name = null, $module_dir = null)
+    {
+        $ret = happy_linux_get_handler($name, $module_dir, 'rssc');
 
-function &rssc_get_handler($name=null, $module_dir=null)
-{
-	$ret =& happy_linux_get_handler($name, $module_dir, 'rssc');
-	return $ret;
+        return $ret;
+    }
+    // --- rssc_get_handler end ---
 }
-
-// --- rssc_get_handler end ---
-}
-
-?>

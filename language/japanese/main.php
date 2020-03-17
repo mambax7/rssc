@@ -1,4 +1,5 @@
 <?php
+
 // $Id: main.php,v 1.1 2011/12/29 14:37:08 ohwada Exp $
 
 // 2008-01-20 K.OHWADA
@@ -29,355 +30,349 @@
 // BUG 3864: suppress Notice Undefined offset: 0
 //   _RSSC_NO_HEADLINK
 
-
 //=========================================================
 // RSS Center Module
 // 2006-01-01 K.OHWADA
-// Í­Êþ¼«±óÊýÍè
+// Í­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //=========================================================
 
 // --- define language begin ---
-if( !defined('RSSC_LANG_MB_LOADED') ) 
-{
+if (!defined('RSSC_LANG_MB_LOADED')) {
+    define('RSSC_LANG_MB_LOADED', 1);
 
-define('RSSC_LANG_MB_LOADED', 1);
+    // global
+    //define('_ADDED','ï¿½É²Ã¤ï¿½ï¿½ï¿½');
+    //define('_DELETED','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_UPDATE', 'ï¿½ï¿½ï¿½ï¿½');
+    //define('_UPDATED','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_MODIFY',  'ï¿½Ñ¹ï¿½');
+    //define('_MODIFIED','ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_SAVE', 'ï¿½ï¿½Â¸');
+    //define('_SAVED','ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½');
+    //define('_CLEAR',  'ï¿½ï¿½ï¿½ê¥¢');
+    //define('_CLEARED','ï¿½ï¿½ï¿½ê¥¢ï¿½ï¿½ï¿½ï¿½');
+    //define('_EXECUTE', 'ï¿½Â¹ï¿½');
+    //define('_EXECUTED','ï¿½Â¹Ô¤ï¿½ï¿½ï¿½');
+    //define('_CREATE', 'ï¿½ï¿½ï¿½ï¿½');
+    //define('_CREATED','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_VISIT','Ë¬ï¿½ï¿½');
+    //define('_SHOW','É½ï¿½ï¿½');
+    //define('_KEYWORD','ï¿½ï¿½ï¿½ï¿½ï¿½ï¡¼ï¿½ï¿½');
+    //define('_NUM','ï¿½ï¿½');
+    //define('_NO_ACTION','ï¿½ï¿½ï¿½â¤·ï¿½Ê¤ï¿½');
+    //define('_NO_RECORD','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¥³ï¿½ï¿½ï¿½É¤ï¿½Â¸ï¿½ß¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
 
-// global
-//define('_ADDED','ÄÉ²Ã¤·¤¿');
-//define('_DELETED','ºï½ü¤·¤¿');
-//define('_UPDATE', '¹¹¿·');
-//define('_UPDATED','¹¹¿·¤·¤¿');
-//define('_MODIFY',  'ÊÑ¹¹');
-//define('_MODIFIED','ÊÑ¹¹¤·¤¿');
-//define('_SAVE', 'ÊÝÂ¸');
-//define('_SAVED','ÊÝÂ¸¤·¤¿');
-//define('_CLEAR',  '¥¯¥ê¥¢');
-//define('_CLEARED','¥¯¥ê¥¢¤·¤¿');
-//define('_EXECUTE', '¼Â¹Ô');
-//define('_EXECUTED','¼Â¹Ô¤·¤¿');
-//define('_CREATE', 'À¸À®');
-//define('_CREATED','À¸À®¤·¤¿');
-//define('_VISIT','Ë¬Ìä');
-//define('_SHOW','É½¼¨');
-//define('_KEYWORD','¥­¡¼¥ï¡¼¥É');
-//define('_NUM','·ï');
-//define('_NO_ACTION','²¿¤â¤·¤Ê¤¤');
-//define('_NO_RECORD','³ºÅö¤¹¤ë¥ì¥³¡¼¥É¤¬Â¸ºß¤·¤Þ¤»¤ó');
+    // index & search
+    //define('_RSSC_MAIN','ï¿½á¥¤ï¿½ï¿½');
 
-// index & search
-//define('_RSSC_MAIN','¥á¥¤¥ó');
+    define('_RSSC_SEARCH', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_LATEST_FEEDS', 'ï¿½Ç¿ï¿½ RDF/RSS/ATOM ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_THEREARE', 'ï¿½ï¿½ï¿½ß¥Ç¡ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ë¤ï¿½ <b>%s</b> ï¿½ï¿½Î¥Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
 
-define('_RSSC_SEARCH','¸¡º÷');
-define('_RSSC_LATEST_FEEDS','ºÇ¿· RDF/RSS/ATOM µ­»ö');
-define('_RSSC_THEREARE','¸½ºß¥Ç¡¼¥¿¥Ù¡¼¥¹¤Ë¤Ï <b>%s</b> ·ï¤Î¥Ç¡¼¥¿¤¬ÅÐÏ¿¤µ¤ì¤Æ¤¤¤Þ¤¹¡£');
+    // headline
+    define('_RSSC_HEADLINE', 'ï¿½Ê°×¥Ø¥Ã¥É¥é¥¤ï¿½ï¿½');
+    define('_RSSC_LASTUPDATE', 'ï¿½Ç½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// headline
-define('_RSSC_HEADLINE','´Ê°×¥Ø¥Ã¥É¥é¥¤¥ó');
-define('_RSSC_LASTUPDATE','ºÇ½ª¹¹¿·Æü');
+    // single
+    define('_RSSC_SINGLE', 'FEED Ã±ï¿½ï¿½É½ï¿½ï¿½');
 
-// single
-define('_RSSC_SINGLE','FEED Ã±ÂÎÉ½¼¨');
+    // common
+    define('_RSSC_SITE_TITLE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾');
+    define('_RSSC_SITE_LINK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URL');
 
-// common
-define('_RSSC_SITE_TITLE','¥µ¥¤¥ÈÌ¾');
-define('_RSSC_SITE_LINK', '¥µ¥¤¥ÈURL');
+    //define('_RSSC_SITE_DESCRIPTION', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_SITE_PUBLISHED', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_SITE_UPDATED',   'ï¿½ï¿½ï¿½ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_SITE_DATE',      'ï¿½ï¿½ï¿½ï¿½ï¿½Èºï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_SITE_COPYRIGHT', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î¸¢');
+    //define('_RSSC_SITE_GENERATOR', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_SITE_CATEGORY',  'ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½');
+    //define('_RSSC_SITE_WEBMASTER', 'ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_SITE_LANGUAGE',  'ï¿½ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½');
+    //define('_RSSC_TITLE', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½');
+    //define('_RSSC_LINK',  'URL');
+    //define('_RSSC_DESCRIPTION', 'ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_SUMMARY', 'ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_CONTENT', 'ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_PUBLISHED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-//define('_RSSC_SITE_DESCRIPTION', '¥µ¥¤¥È¤ÎÀâÌÀ');
-//define('_RSSC_SITE_PUBLISHED', '¥µ¥¤¥È¸ø³«Æü');
-//define('_RSSC_SITE_UPDATED',   '¥µ¥¤¥È¹¹¿·Æü');
-//define('_RSSC_SITE_DATE',      '¥µ¥¤¥ÈºîÀ®Æü');
-//define('_RSSC_SITE_COPYRIGHT', '¥µ¥¤¥ÈÃøºî¸¢');
-//define('_RSSC_SITE_GENERATOR', '¥µ¥¤¥ÈÀ¸À®¸µ');
-//define('_RSSC_SITE_CATEGORY',  '¥µ¥¤¥È¡¦¥«¥Æ¥´¥ê');
-//define('_RSSC_SITE_WEBMASTER', '¥µ¥¤¥È´ÉÍý¼Ô');
-//define('_RSSC_SITE_LANGUAGE',  '¥µ¥¤¥È¸À¸ì');
-//define('_RSSC_TITLE', '¥¿¥¤¥È¥ë');
-//define('_RSSC_LINK',  'URL');
-//define('_RSSC_DESCRIPTION', 'ÀâÌÀ'); 
-//define('_RSSC_SUMMARY', 'Í×Ìó'); 
-//define('_RSSC_CONTENT', 'ÆâÍÆ');
-//define('_RSSC_PUBLISHED', '¸ø³«Æü');
+    define('_RSSC_UPDATED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-define('_RSSC_UPDATED',   '¹¹¿·Æü');
+    //define('_RSSC_CATEGORY',  'ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½');
+    //define('_RSSC_RIGHTS', 'ï¿½ï¿½ï¿½î¸¢');
+    //define('_RSSC_SOURCE', 'ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_AUTHOR_NAME', 'ï¿½ï¿½ï¿½Ì¾');
+    //define('_RSSC_AUTHOR_URI',  'ï¿½ï¿½ï¿½URL');
+    //define('_RSSC_AUTHOR_EMAIL','ï¿½ï¿½Ô¥á¡¼ï¿½ï¿½');
+    //define('_RSSC_IMAGE_TITLE',  'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½');
+    //define('_RSSC_IMAGE_URL',    'ï¿½ï¿½ï¿½ï¿½URL');
 
-//define('_RSSC_CATEGORY',  '¥«¥Æ¥´¥ê');
-//define('_RSSC_RIGHTS', 'Ãøºî¸¢');
-//define('_RSSC_SOURCE', '¾ðÊó¸»');
-//define('_RSSC_AUTHOR_NAME', 'ºî¼ÔÌ¾');
-//define('_RSSC_AUTHOR_URI',  'ºî¼ÔURL');
-//define('_RSSC_AUTHOR_EMAIL','ºî¼Ô¥á¡¼¥ë');
-//define('_RSSC_IMAGE_TITLE',  '²èÁü¥¿¥¤¥È¥ë');
-//define('_RSSC_IMAGE_URL',    '²èÁüURL');
+    // RSS
+    //define('_RSSC_RSS_SITE_TITLE', _RSSC_SITE_TITLE);
+    //define('_RSSC_RSS_SITE_LINK',  _RSSC_SITE_LINK);
+    //define('_RSSC_RSS_SITE_DESCRIPTION',   _RSSC_SITE_DESCRIPTION);
+    //define('_RSSC_RSS_SITE_LASTBUILDDATE', _RSSC_SITE_UPDATED);
+    //define('_RSSC_RSS_SITE_PUBDATE',       _RSSC_SITE_PUBLISHED);
+    //define('_RSSC_RSS_SITE_GENERATOR', _RSSC_SITE_GENERATOR);
+    //define('_RSSC_RSS_SITE_CATEGORY',  _RSSC_SITE_CATEGORY);
+    //define('_RSSC_RSS_SITE_WEBMASTER', _RSSC_SITE_WEBMASTER);
+    //define('_RSSC_RSS_SITE_LANGUAGE',  _RSSC_SITE_LANGUAGE);
+    //define('_RSSC_RSS_SITE_COPYRIGHT', _RSSC_SITE_COPYRIGHT);
+    //define('_RSSC_RSS_SITE_MANAGINGEDITOR', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½');
+    //define('_RSSC_RSS_SITE_DOCS','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½');
+    //define('_RSSC_RSS_SITE_CLOUD', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½é¥¦ï¿½ï¿½');
+    //define('_RSSC_RSS_SITE_TTL', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_RSS_SITE_RATING', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½');
+    //define('_RSSC_RSS_SITE_TEXTINPUT', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_RSS_SITE_SKIPHOURS', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¥×»ï¿½ï¿½ï¿½');
+    //define('_RSSC_RSS_SITE_SKIPDAYS',  'ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_RSS_IMAGE_TITLE',  _RSSC_IMAGE_TITLE);
+    //define('_RSSC_RSS_IMAGE_URL',    _RSSC_IMAGE_URL);
+    //define('_RSSC_RSS_IMAGE_WIDTH',  'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_RSS_IMAGE_HEIGHT', 'ï¿½ï¿½ï¿½ï¿½ï¿½Î¹â¤µ');
+    //define('_RSSC_RSS_IMAGE_LINK',  _RSSC_SITE_LINK);
+    //define('_RSSC_RSS_TITLE',_RSSC_TITLE);
+    //define('_RSSC_RSS_LINK', _RSSC_LINK);
+    //define('_RSSC_RSS_DESCRIPTION', _RSSC_DESCRIPTION);
+    //define('_RSSC_RSS_PUBDATE',  _RSSC_PUBLISHED);
+    //define('_RSSC_RSS_CATEGORY', _RSSC_CATEGORY);
+    //define('_RSSC_RSS_SOURCE',   _RSSC_SOURCE);
+    //define('_RSSC_RSS_GUID',   'RSS guid');
+    //define('_RSSC_RSS_AUTHOR', 'ï¿½ï¿½ï¿½');
+    //define('_RSSC_RSS_COMMENTS','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_RSS_ENCLOSURE', 'Æ±ï¿½ï¿½');
 
-// RSS
-//define('_RSSC_RSS_SITE_TITLE', _RSSC_SITE_TITLE);
-//define('_RSSC_RSS_SITE_LINK',  _RSSC_SITE_LINK);
-//define('_RSSC_RSS_SITE_DESCRIPTION',   _RSSC_SITE_DESCRIPTION);
-//define('_RSSC_RSS_SITE_LASTBUILDDATE', _RSSC_SITE_UPDATED);
-//define('_RSSC_RSS_SITE_PUBDATE',       _RSSC_SITE_PUBLISHED);
-//define('_RSSC_RSS_SITE_GENERATOR', _RSSC_SITE_GENERATOR);
-//define('_RSSC_RSS_SITE_CATEGORY',  _RSSC_SITE_CATEGORY);
-//define('_RSSC_RSS_SITE_WEBMASTER', _RSSC_SITE_WEBMASTER);
-//define('_RSSC_RSS_SITE_LANGUAGE',  _RSSC_SITE_LANGUAGE);
-//define('_RSSC_RSS_SITE_COPYRIGHT', _RSSC_SITE_COPYRIGHT);
-//define('_RSSC_RSS_SITE_MANAGINGEDITOR', '¥µ¥¤¥ÈÊÔ½¸¼Ô');
-//define('_RSSC_RSS_SITE_DOCS','¥µ¥¤¥ÈÊ¸½ñ');
-//define('_RSSC_RSS_SITE_CLOUD', '¥µ¥¤¥È¡¦¥¯¥é¥¦¥É');
-//define('_RSSC_RSS_SITE_TTL', '¥µ¥¤¥ÈÀ¸Â¸»þ´Ö');
-//define('_RSSC_RSS_SITE_RATING', '¥µ¥¤¥ÈÉ¾²Á');
-//define('_RSSC_RSS_SITE_TEXTINPUT', '¥µ¥¤¥È¡¦¥Æ¥­¥¹¥ÈÆþÎÏ');
-//define('_RSSC_RSS_SITE_SKIPHOURS', '¥µ¥¤¥È¡¦¥¹¥­¥Ã¥×»þ´Ö');
-//define('_RSSC_RSS_SITE_SKIPDAYS',  '¥µ¥¤¥È¡¦¥¹¥­¥Ã¥×Æü¿ô');
-//define('_RSSC_RSS_IMAGE_TITLE',  _RSSC_IMAGE_TITLE);
-//define('_RSSC_RSS_IMAGE_URL',    _RSSC_IMAGE_URL);
-//define('_RSSC_RSS_IMAGE_WIDTH',  '²èÁü¤ÎÉý');
-//define('_RSSC_RSS_IMAGE_HEIGHT', '²èÁü¤Î¹â¤µ');
-//define('_RSSC_RSS_IMAGE_LINK',  _RSSC_SITE_LINK);
-//define('_RSSC_RSS_TITLE',_RSSC_TITLE);
-//define('_RSSC_RSS_LINK', _RSSC_LINK);
-//define('_RSSC_RSS_DESCRIPTION', _RSSC_DESCRIPTION); 
-//define('_RSSC_RSS_PUBDATE',  _RSSC_PUBLISHED);
-//define('_RSSC_RSS_CATEGORY', _RSSC_CATEGORY);
-//define('_RSSC_RSS_SOURCE',   _RSSC_SOURCE);
-//define('_RSSC_RSS_GUID',   'RSS guid');
-//define('_RSSC_RSS_AUTHOR', 'ºî¼Ô');
-//define('_RSSC_RSS_COMMENTS','¥³¥á¥ó¥È');
-//define('_RSSC_RSS_ENCLOSURE', 'Æ±Éõ');
+    // RDF
+    //define('_RSSC_RDF_SITE_TITLE', _RSSC_SITE_TITLE);
+    //define('_RSSC_RDF_SITE_LINK',  _RSSC_SITE_LINK);
+    //define('_RSSC_RDF_SITE_DESCRIPTION', _RSSC_SITE_DESCRIPTION);
+    //define('_RSSC_RDF_SITE_PUBLISHER',   _RSSC_SITE_WEBMASTER);
+    //define('_RSSC_RDF_SITE_RIGHT', _RSSC_SITE_COPYRIGHT);
+    //define('_RSSC_RDF_SITE_DATE',  _RSSC_SITE_PUBLISHED );
+    //define('_RSSC_RDF_SITE_TEXTINPUT', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_RDF_SITE_IMAGE',  'ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½ï¿½');
+    //define('_RSSC_RDF_IMAGE_TITLE', _RSSC_IMAGE_TITLE);
+    //define('_RSSC_RDF_IMAGE_URL',   _RSSC_IMAGE_URL);
+    //define('_RSSC_RDF_IMAGE_LINK',  _RSSC_SITE_LINK);
+    //define('_RSSC_RDF_TITLE',_RSSC_TITLE);
+    //define('_RSSC_RDF_LINK', _RSSC_LINK);
+    //define('_RSSC_RDF_DESCRIPTION', _RSSC_DESCRIPTION);
+    //define('_RSSC_RDF_TEXTINPUT', 'ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// RDF
-//define('_RSSC_RDF_SITE_TITLE', _RSSC_SITE_TITLE);
-//define('_RSSC_RDF_SITE_LINK',  _RSSC_SITE_LINK);
-//define('_RSSC_RDF_SITE_DESCRIPTION', _RSSC_SITE_DESCRIPTION);
-//define('_RSSC_RDF_SITE_PUBLISHER',   _RSSC_SITE_WEBMASTER);
-//define('_RSSC_RDF_SITE_RIGHT', _RSSC_SITE_COPYRIGHT);
-//define('_RSSC_RDF_SITE_DATE',  _RSSC_SITE_PUBLISHED );
-//define('_RSSC_RDF_SITE_TEXTINPUT', '¥µ¥¤¥È¡¦¥Æ¥­¥¹¥ÈÆþÎÏ');
-//define('_RSSC_RDF_SITE_IMAGE',  '¥µ¥¤¥È²èÁü');
-//define('_RSSC_RDF_IMAGE_TITLE', _RSSC_IMAGE_TITLE);
-//define('_RSSC_RDF_IMAGE_URL',   _RSSC_IMAGE_URL);
-//define('_RSSC_RDF_IMAGE_LINK',  _RSSC_SITE_LINK);
-//define('_RSSC_RDF_TITLE',_RSSC_TITLE);
-//define('_RSSC_RDF_LINK', _RSSC_LINK);
-//define('_RSSC_RDF_DESCRIPTION', _RSSC_DESCRIPTION); 
-//define('_RSSC_RDF_TEXTINPUT', '¥Æ¥­¥¹¥ÈÆþÎÏ');
+    // ATOM
+    //define('_RSSC_ATOM_SITE_TITLE', _RSSC_SITE_TITLE);
+    //define('_RSSC_ATOM_SITE_LINK',  _RSSC_SITE_LINK);
+    //define('_RSSC_ATOM_SITE_PUBLISHED', _RSSC_SITE_PUBLISHED);
+    //define('_RSSC_ATOM_SITE_UPDATED',   _RSSC_SITE_UPDATED);
+    //define('_RSSC_ATOM_SITE_RIGHTS',    _RSSC_SITE_COPYRIGHT);
+    //define('_RSSC_ATOM_SITE_GENERATOR', _RSSC_SITE_GENERATOR);
+    //define('_RSSC_ATOM_SITE_CATEGORY',  _RSSC_SITE_CATEGORY);
+    //define('_RSSC_ATOM_SITE_LINK_ALTERNATE', _RSSC_SITE_LINK);
+    //define('_RSSC_ATOM_SITE_LINK_SELF', 'ATOMï¿½ï¿½ï¿½È¤ï¿½URL');
+    //define('_RSSC_ATOM_SITE_ID','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID');
+    //define('_RSSC_ATOM_SITE_CONTRIBUTOR','ï¿½ï¿½ï¿½ï¿½ï¿½È¹×¸ï¿½ï¿½ï¿½');
+    //define('_RSSC_ATOM_SITE_SUBTITLE','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_ATOM_SITE_ICON', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_ATOM_SITE_LOGO', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½');
+    //define('_RSSC_ATOM_SITE_SOURCE', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¾ï¿½ï¿½ï¿½');
+    //define('_RSSC_ATOM_SITE_AUTHOR_NAME', _RSSC_SITE_WEBMASTER);
+    //define('_RSSC_ATOM_SITE_AUTHOR_URI',  'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URL');
+    //define('_RSSC_ATOM_SITE_AUTHOR_EMAIL','ï¿½ï¿½ï¿½ï¿½ï¿½Ô¥á¡¼ï¿½ï¿½');
+    //define('_RSSC_ATOM_TITLE', _RSSC_TITLE);
+    //define('_RSSC_ATOM_LINK',  _RSSC_LINK);
+    //define('_RSSC_ATOM_PUBLISHED', _RSSC_PUBLISHED);
+    //define('_RSSC_ATOM_UPDATED',   _RSSC_UPDATED);
+    //define('_RSSC_ATOM_SUMMARY',  _RSSC_SUMMARY);
+    //define('_RSSC_ATOM_CONTENT',  _RSSC_CONTENT);
+    //define('_RSSC_ATOM_CATEGORY', _RSSC_CATEGORY);
+    //define('_RSSC_ATOM_RIGHTS',   _RSSC_RIGHTS);
+    //define('_RSSC_ATOM_SOURCE',   _RSSC_SOURCE);
+    //define('_RSSC_ATOM_ID','ATOM id');
+    //define('_RSSC_ATOM_CONTRIBUTOR','ï¿½×¸ï¿½ï¿½ï¿½');
+    //define('_RSSC_ATOM_AUTHOR_NAME', _RSSC_AUTHOR_NAME);
+    //define('_RSSC_ATOM_AUTHOR_URI',  _RSSC_AUTHOR_URI);
+    //define('_RSSC_ATOM_AUTHOR_EMAIL',_RSSC_AUTHOR_EMAIL);
 
-// ATOM
-//define('_RSSC_ATOM_SITE_TITLE', _RSSC_SITE_TITLE);
-//define('_RSSC_ATOM_SITE_LINK',  _RSSC_SITE_LINK);
-//define('_RSSC_ATOM_SITE_PUBLISHED', _RSSC_SITE_PUBLISHED);
-//define('_RSSC_ATOM_SITE_UPDATED',   _RSSC_SITE_UPDATED);
-//define('_RSSC_ATOM_SITE_RIGHTS',    _RSSC_SITE_COPYRIGHT);
-//define('_RSSC_ATOM_SITE_GENERATOR', _RSSC_SITE_GENERATOR);
-//define('_RSSC_ATOM_SITE_CATEGORY',  _RSSC_SITE_CATEGORY);
-//define('_RSSC_ATOM_SITE_LINK_ALTERNATE', _RSSC_SITE_LINK);
-//define('_RSSC_ATOM_SITE_LINK_SELF', 'ATOM¼«¿È¤ÎURL');
-//define('_RSSC_ATOM_SITE_ID','¥µ¥¤¥ÈID');
-//define('_RSSC_ATOM_SITE_CONTRIBUTOR','¥µ¥¤¥È¹×¸¥¼Ô');
-//define('_RSSC_ATOM_SITE_SUBTITLE','¥µ¥¤¥ÈÉûÂê');
-//define('_RSSC_ATOM_SITE_ICON', '¥µ¥¤¥È¡¦¥¢¥¤¥³¥ó');
-//define('_RSSC_ATOM_SITE_LOGO', '¥µ¥¤¥È¡¦¥í¥´');
-//define('_RSSC_ATOM_SITE_SOURCE', '¥µ¥¤¥È¾ðÊó¸»');
-//define('_RSSC_ATOM_SITE_AUTHOR_NAME', _RSSC_SITE_WEBMASTER);
-//define('_RSSC_ATOM_SITE_AUTHOR_URI',  '´ÉÍý¼ÔURL');
-//define('_RSSC_ATOM_SITE_AUTHOR_EMAIL','´ÉÍý¼Ô¥á¡¼¥ë');
-//define('_RSSC_ATOM_TITLE', _RSSC_TITLE);
-//define('_RSSC_ATOM_LINK',  _RSSC_LINK);
-//define('_RSSC_ATOM_PUBLISHED', _RSSC_PUBLISHED);
-//define('_RSSC_ATOM_UPDATED',   _RSSC_UPDATED);
-//define('_RSSC_ATOM_SUMMARY',  _RSSC_SUMMARY); 
-//define('_RSSC_ATOM_CONTENT',  _RSSC_CONTENT);
-//define('_RSSC_ATOM_CATEGORY', _RSSC_CATEGORY);
-//define('_RSSC_ATOM_RIGHTS',   _RSSC_RIGHTS);
-//define('_RSSC_ATOM_SOURCE',   _RSSC_SOURCE);
-//define('_RSSC_ATOM_ID','ATOM id');
-//define('_RSSC_ATOM_CONTRIBUTOR','¹×¸¥¼Ô');
-//define('_RSSC_ATOM_AUTHOR_NAME', _RSSC_AUTHOR_NAME);
-//define('_RSSC_ATOM_AUTHOR_URI',  _RSSC_AUTHOR_URI);
-//define('_RSSC_ATOM_AUTHOR_EMAIL',_RSSC_AUTHOR_EMAIL);
+    // Dublin Core
+    //define('_RSSC_DC_TITLE',_RSSC_TITLE);
+    //define('_RSSC_DC_DESCRIPTION', _RSSC_DESCRIPTION);
+    //define('_RSSC_DC_RIGHTS', _RSSC_RIGHTS);
+    //define('_RSSC_DC_PUBLISHER', 'È¯ï¿½Ô¼ï¿½');
+    //define('_RSSC_DC_CREATOR', 'ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_DC_DATE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_DC_FORMAT', 'ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_DC_RELATION', 'ï¿½Ø·ï¿½');
+    //define('_RSSC_DC_IDENTIFIER', 'ID');
+    //define('_RSSC_DC_COVERAGE', 'ï¿½Ï°ï¿½');
+    //define('_RSSC_DC_AUDIENCE', 'ï¿½Ñµï¿½');
+    //define('_RSSC_DC_SUBJECT', 'ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_CONTENT_ENCODED', _RSSC_CONTENT);
 
-// Dublin Core
-//define('_RSSC_DC_TITLE',_RSSC_TITLE);
-//define('_RSSC_DC_DESCRIPTION', _RSSC_DESCRIPTION); 
-//define('_RSSC_DC_RIGHTS', _RSSC_RIGHTS);
-//define('_RSSC_DC_PUBLISHER', 'È¯¹Ô¼Ô');
-//define('_RSSC_DC_CREATOR', 'Ãø¼Ô');
-//define('_RSSC_DC_DATE', 'ºîÀ®Æü');
-//define('_RSSC_DC_FORMAT', '·Á¼°');
-//define('_RSSC_DC_RELATION', '´Ø·¸');
-//define('_RSSC_DC_IDENTIFIER', 'ID');
-//define('_RSSC_DC_COVERAGE', 'ÈÏ°Ï');
-//define('_RSSC_DC_AUDIENCE', '´ÑµÒ');
-//define('_RSSC_DC_SUBJECT', '¼çÂê');
-//define('_RSSC_CONTENT_ENCODED', _RSSC_CONTENT);
+    // link table item
+    define('_RSSC_LINK_ID', 'ï¿½ï¿½ï¿½ID');
+    define('_RSSC_USER_ID', 'ï¿½æ¡¼ï¿½ï¿½ID');
+    define('_RSSC_MOD_ID', 'ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ID');
+    define('_RSSC_LTYPE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_REFRESH_INTERVAL', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ö³ï¿½');
+    define('_RSSC_HEADLINE_ORDER', 'ï¿½Ø¥Ã¥É¥é¥¤ï¿½ï¿½ï¿½ï¿½Â¤Ó½ï¿½');
+    define('_RSSC_ENCODING', 'ï¿½ï¿½ï¿½ó¥³¡ï¿½ï¿½ï¿½');
+    define('_RSSC_RDF_URL', 'RDF URL');
+    define('_RSSC_RSS_URL', 'RSS URL');
+    define('_RSSC_ATOM_URL', 'ATOM URL');
+    define('_RSSC_RSS_MODE', 'RSS ï¿½â¡¼ï¿½ï¿½');
+    define('_RSSC_RSS_MODE_NON', 'Ì¤ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_RSS_MODE_RDF', 'RDFï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_RSS_MODE_RSS', 'RSSï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_RSS_MODE_ATOM', 'ATOMï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_RSS_MODE_AUTO', 'ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½');
 
-// link table item
-define('_RSSC_LINK_ID','¥ê¥ó¥¯ID');
-define('_RSSC_USER_ID','¥æ¡¼¥¶ID');
-define('_RSSC_MOD_ID', '¥â¥¸¥å¡¼¥ëID');
-define('_RSSC_LTYPE','¥¿¥¤¥×');
-define('_RSSC_REFRESH_INTERVAL','¹¹¿·´Ö³Ö');
-define('_RSSC_HEADLINE_ORDER','¥Ø¥Ã¥É¥é¥¤¥ó¤ÎÊÂ¤Ó½ç');
-define('_RSSC_ENCODING','¥¨¥ó¥³¡¼¥É');
-define('_RSSC_RDF_URL', 'RDF URL');
-define('_RSSC_RSS_URL', 'RSS URL');
-define('_RSSC_ATOM_URL','ATOM URL');
-define('_RSSC_RSS_MODE','RSS ¥â¡¼¥É');
-define('_RSSC_RSS_MODE_NON',  'Ì¤»ÈÍÑ');
-define('_RSSC_RSS_MODE_RDF',  'RDF·Á¼°');
-define('_RSSC_RSS_MODE_RSS',  'RSS·Á¼°');
-define('_RSSC_RSS_MODE_ATOM', 'ATOM·Á¼°');
-define('_RSSC_RSS_MODE_AUTO', '¼«Æ°¸¡½Ð');
+    // feed table item
+    define('_RSSC_FEED_ID', 'Feed ID');
+    define('_RSSC_MODE_CONT', 'ï¿½ï¿½ï¿½Æ¤Î¥â¡¼ï¿½ï¿½');
+    define('_RSSC_RAWS', 'ï¿½ï¿½ï¿½Ç¡ï¿½ï¿½ï¿½');
+    define('_RSSC_SEARCH_FIELD', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¥¢');
 
-// feed table item
-define('_RSSC_FEED_ID','Feed ID');
-define('_RSSC_MODE_CONT','ÆâÍÆ¤Î¥â¡¼¥É');
-define('_RSSC_RAWS','À¸¥Ç¡¼¥¿');
-define('_RSSC_SEARCH_FIELD','¸¡º÷¥¨¥ê¥¢');
+    // black table item
+    define('_RSSC_BLACK_ID', 'Black ID');
+    define('_RSSC_WHITE_ID', 'White ID');
 
-// black table item
-define('_RSSC_BLACK_ID','Black ID');
-define('_RSSC_WHITE_ID','White ID');
+    // 2006-04-16 K.OHWADA
+    define('_RSSC_NO_HEADLINK', 'ï¿½Ø¥Ã¥É¥é¥¤ï¿½ó¡¦¥ï¿½ó¥¯¤ï¿½ï¿½ï¿½ï¿½ò¤µ¤ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½');
+    define('_RSSC_NO_FEED', 'feedï¿½Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½');
 
-// 2006-04-16 K.OHWADA
-define('_RSSC_NO_HEADLINK','¥Ø¥Ã¥É¥é¥¤¥ó¡¦¥ê¥ó¥¯¤¬ÁªÂò¤µ¤ì¤Æ¤¤¤Ê¤¤');
-define('_RSSC_NO_FEED','feed¥Ç¡¼¥¿¤¬¤Ê¤¤');
+    // === 2006-06-04 ===
+    // single link
+    define('_RSSC_SINGLE_LINK', 'ï¿½ï¿½ï¿½ Ã±ï¿½ï¿½É½ï¿½ï¿½');
+    define('_RSSC_SINGLE_LINK_UTF8', 'ï¿½ï¿½ï¿½ Ã±ï¿½ï¿½É½ï¿½ï¿½ UTF-8 ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_SINGLE_SUMMARY', 'ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_SINGLE_CONTENT', 'ï¿½ï¿½Ê¸ HTMLï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_UTF8_SUMMARY', 'ï¿½ï¿½ï¿½ï¿½ UTF-8 ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_UTF8_CONTENT', 'ï¿½ï¿½Ê¸ HTMLï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UTF-8 ï¿½ï¿½ï¿½ï¿½');
 
-// === 2006-06-04 ===
-// single link
-define('_RSSC_SINGLE_LINK',  '¥ê¥ó¥¯ Ã±ÂÎÉ½¼¨');
-define('_RSSC_SINGLE_LINK_UTF8', '¥ê¥ó¥¯ Ã±ÂÎÉ½¼¨ UTF-8 ·Á¼°');
-//define('_RSSC_SINGLE_SUMMARY', '³µÍ×');
-//define('_RSSC_SINGLE_CONTENT', 'ËÜÊ¸ HTML¥¿¥° µö²Ä');
-//define('_RSSC_UTF8_SUMMARY', '³µÍ× UTF-8 ·Á¼°');
-//define('_RSSC_UTF8_CONTENT', 'ËÜÊ¸ HTML¥¿¥° µö²Ä UTF-8 ·Á¼°');
+    // detect encoding
+    define('_RSSC_ASSUME_ENCODING', 'ï¿½ï¿½ï¿½ó¥³¡ï¿½ï¿½É¤ï¿½Æ°Åªï¿½Ë¸ï¿½ï¿½Ð¤Ç¤ï¿½ï¿½Ê¤ï¿½ï¿½Ã¤ï¿½ï¿½Î¤Ç¡ï¿½<br>ï¿½ï¿½ï¿½ó¥³¡ï¿½ï¿½É¤ï¿½ %s ï¿½È²ï¿½ï¿½ê¤·ï¿½ï¿½ï¿½ï¿½<br>');
 
-// detect encoding
-define('_RSSC_ASSUME_ENCODING', '¥¨¥ó¥³¡¼¥É¤ò¼«Æ°Åª¤Ë¸¡½Ð¤Ç¤­¤Ê¤«¤Ã¤¿¤Î¤Ç¡¢<br />¥¨¥ó¥³¡¼¥É¤ò %s ¤È²¾Äê¤·¤¿¡£<br />');
+    // rss item
+    //define('_RSSC_CREATED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_RSSC_ATOM_CONTRIBUTOR_NAME', 'ï¿½×¸ï¿½ï¿½ï¿½');
+    //define('_RSSC_ATOM_CONTRIBUTOR_URI',  'ï¿½×¸ï¿½ï¿½ï¿½URL');
+    //define('_RSSC_ATOM_CONTRIBUTOR_EMAIL','ï¿½×¸ï¿½ï¿½Ô¥á¡¼ï¿½ï¿½');
 
-// rss item
-//define('_RSSC_CREATED', 'ºîÀ®Æü');
-//define('_RSSC_ATOM_CONTRIBUTOR_NAME', '¹×¸¥¼Ô');
-//define('_RSSC_ATOM_CONTRIBUTOR_URI',  '¹×¸¥¼ÔURL');
-//define('_RSSC_ATOM_CONTRIBUTOR_EMAIL','¹×¸¥¼Ô¥á¡¼¥ë');
+    // === 2006-07-08 ===
+    // bread crumb
+    //define('_HOME', 'ï¿½Û¡ï¿½ï¿½ï¿½');
 
-// === 2006-07-08 ===
-// bread crumb
-//define('_HOME', '¥Û¡¼¥à');
+    // podcast
+    define('_RSSC_PODCAST', 'ï¿½Ý¥Ã¥É¥ï¿½ï¿½ã¥¹ï¿½ï¿½');
+    //define('_RSSC_ENCLOSURE_URL',    'Æ±ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ Url');
+    //define('_RSSC_ENCLOSURE_TYPE',   'Æ±ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ Type');
+    //define('_RSSC_ENCLOSURE_LENGTH', 'Æ±ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ Length');
 
-// podcast
-define('_RSSC_PODCAST', '¥Ý¥Ã¥É¥­¥ã¥¹¥È');
-//define('_RSSC_ENCLOSURE_URL',    'Æ±Éõ¥Õ¥¡¥¤¥ë Url');
-//define('_RSSC_ENCLOSURE_TYPE',   'Æ±Éõ¥Õ¥¡¥¤¥ë Type');
-//define('_RSSC_ENCLOSURE_LENGTH', 'Æ±Éõ¥Õ¥¡¥¤¥ë Length');
+    // === 2006-09-01 ===
+    // conflict with weblinks
+    //if( !defined('_SAVE') )
+    //{
+    //	define('_HOME', 'ï¿½Û¡ï¿½ï¿½ï¿½');
+    //	define('_SAVE', 'ï¿½ï¿½Â¸');
+    //	define('_SAVED','ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½');
+    //	define('_EXECUTE', 'ï¿½Â¹ï¿½');
+    //	define('_EXECUTED','ï¿½Â¹Ô¤ï¿½ï¿½ï¿½');
+    //	define('_CREATE', 'ï¿½ï¿½ï¿½ï¿½');
+    //	define('_CREATED','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //}
 
-// === 2006-09-01 ===
-// conflict with weblinks
-//if( !defined('_SAVE') ) 
-//{
-//	define('_HOME', '¥Û¡¼¥à');
-//	define('_SAVE', 'ÊÝÂ¸');
-//	define('_SAVED','ÊÝÂ¸¤·¤¿');
-//	define('_EXECUTE', '¼Â¹Ô');
-//	define('_EXECUTED','¼Â¹Ô¤·¤¿');
-//	define('_CREATE', 'À¸À®');
-//	define('_CREATED','À¸À®¤·¤¿');
-//}
+    // error message
+    define('_RSSC_DB_ERROR', 'RSSC DB ï¿½ï¿½ï¿½é¡¼');
+    define('_RSSC_DISCOVER_SUCCEEDED', 'RSS ï¿½Î¼ï¿½Æ°ï¿½ï¿½ï¿½Ð¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_DISCOVER_FAILED', 'RSS ï¿½Î¼ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ (Auto Discovery) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½Ã¤ï¿½');
+    define('_RSSC_PARSE_MSG', 'RSS ï¿½ï¿½ï¿½Ï¥ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_PARSE_FAILED', 'RSS ï¿½Î²ï¿½ï¿½Ï¤ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½Ã¤ï¿½');
+    define('_RSSC_PARSE_NOT_READ_XML_URL', 'RSS ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½: RSS URL ï¿½ï¿½ï¿½É¤ß½Ð¤ï¿½ï¿½Ê¤ï¿½ï¿½Ã¤ï¿½');
+    define('_RSSC_PARSE_NOT_FIND_ENCODING', 'RSS ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½: encoding ï¿½Î¸ï¿½ï¿½Ð¤ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½Ã¤ï¿½');
+    define('_RSSC_REFRESH_ERROR', 'RSS ï¿½Î¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é¡¼');
+    define('_RSSC_LINK_NOT_EXIST', 'RSSCï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¥¯¤ï¿½Â¸ï¿½ß¤ï¿½ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½');
+    define('_RSSC_LINK_EXIST_MORE', 'Æ±ï¿½ï¿½"RDF/RSS/ATOM URL"ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½Î¥ï¿½ó¥¯¤ï¿½ï¿½ï¿½ï¿½Ä¤ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_RSSC_LINK_ALREADY', 'ï¿½ï¿½ï¿½ï¿½"RDF/RSS/ATOM URL"ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½Ñ¤ß¤Ç¤ï¿½');
 
-// error message
-define('_RSSC_DB_ERROR',           'RSSC DB ¥¨¥é¡¼');
-define('_RSSC_DISCOVER_SUCCEEDED', 'RSS ¤Î¼«Æ°¸¡½Ð¤¬À®¸ù¤·¤¿');
-define('_RSSC_DISCOVER_FAILED',    'RSS ¤Î¼«Æ°¸¡½Ð (Auto Discovery) ¤¬½ÐÍè¤Ê¤«¤Ã¤¿');
-define('_RSSC_PARSE_MSG',     'RSS ²òÀÏ¥á¥Ã¥»¡¼¥¸');
-define('_RSSC_PARSE_FAILED',  'RSS ¤Î²òÀÏ¤¬½ÐÍè¤Ê¤«¤Ã¤¿');
-define('_RSSC_PARSE_NOT_READ_XML_URL',  'RSS ²òÀÏ¼ºÇÔ: RSS URL ¤¬ÆÉ¤ß½Ð¤»¤Ê¤«¤Ã¤¿');
-define('_RSSC_PARSE_NOT_FIND_ENCODING', 'RSS ²òÀÏ¼ºÇÔ: encoding ¤Î¸¡½Ð¤¬½ÐÍè¤Ê¤«¤Ã¤¿');
-define('_RSSC_REFRESH_ERROR', 'RSS ¤Î¹¹¿·¥¨¥é¡¼');
-define('_RSSC_LINK_NOT_EXIST',  'RSSC¥â¥¸¥å¡¼¥ëÆâ¤ËÂÐ±þ¤¹¤ë¥ê¥ó¥¯¤¬Â¸ºß¤·¤Æ¤¤¤Ê¤¤');
-define('_RSSC_LINK_EXIST_MORE', 'Æ±¤¸"RDF/RSS/ATOM URL"¤ò»ý¤ÄÊ£¿ô¤Î¥ê¥ó¥¯¤¬¸«¤Ä¤«¤ê¤Þ¤·¤¿');
-define('_RSSC_LINK_ALREADY',    '¤³¤Î"RDF/RSS/ATOM URL"¤ÏÅÐÏ¿ºÑ¤ß¤Ç¤¹');
+    // for other module
+    define('_RSSC_RSSC_LID', 'RSSCï¿½â¥¸ï¿½å¡¼ï¿½ï¿½Î¥ï¿½ï¿½ID');
+    define('_RSSC_RSSC_LID_UPDATE', 'RSSCï¿½â¥¸ï¿½å¡¼ï¿½ï¿½Î¥ï¿½ï¿½IDï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_GOTO_RSSC_ADMIN_LINK', 'RSSCï¿½â¥¸ï¿½å¡¼ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½');
 
-// for other module
-define('_RSSC_RSSC_LID', 'RSSC¥â¥¸¥å¡¼¥ë¤Î¥ê¥ó¥¯ID');
-define('_RSSC_RSSC_LID_UPDATE', 'RSSC¥â¥¸¥å¡¼¥ë¤Î¥ê¥ó¥¯ID¤òÊÑ¹¹¤¹¤ë');
-define('_RSSC_GOTO_RSSC_ADMIN_LINK', 'RSSC¥â¥¸¥å¡¼¥ë¤Î´ÉÍý²èÌÌ¤Ø');
+    // refresh link
+    define('_RSSC_REFRESH_LINK', 'feed ï¿½ï¿½ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ï¿½');
+    define('_RSSC_REFRESH_LINK_DSC', 'ï¿½ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½Æ¡ï¿½RDF/RSS/ATOM ï¿½ï¿½ feed ï¿½ï¿½ï¿½ï¿½ï¿½ò¹¹¿ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>ï¿½â¤·ï¿½ï¿½ï¿½ê¤µï¿½ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½Ð¡ï¿½<br> <b>RDF/RSS/ATOM URL</b> ï¿½ï¿½ <b>ï¿½ï¿½ï¿½ó¥³¡ï¿½ï¿½ï¿½</b> ï¿½ï¿½Æ°Åªï¿½Ë¸ï¿½ï¿½Ð¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_RSSC_REFRESH_LINK_FINISHED', 'feed ï¿½ï¿½ï¿½ï¿½ï¿½ò¹¹¿ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// refresh link
-define('_RSSC_REFRESH_LINK', 'feed µ­»ö¤Î¹¹¿·');
-define('_RSSC_REFRESH_LINK_DSC', '°ú¤­Â³¤¤¤Æ¡¢RDF/RSS/ATOM ¤Î feed µ­»ö¤ò¹¹¿·¤·¤Þ¤¹¡£<br />¤â¤·ÀßÄê¤µ¤ì¤Æ¤¤¤Ê¤±¤ì¤Ð¡¢<br /> <b>RDF/RSS/ATOM URL</b> ¤È <b>¥¨¥ó¥³¡¼¥É</b> ¤ò¼«Æ°Åª¤Ë¸¡½Ð¤·¤Þ¤¹¡£');
-define('_RSSC_REFRESH_LINK_FINISHED', 'feed µ­»ö¤ò¹¹¿·¤·¤¿');
+    // === 2007-06-01 ===
+    // word table
+    define('_RSSC_WORD_ID', 'Word ID');
+    define('_RSSC_WORD_WORD', 'ï¿½Ø»ß¸ï¿½');
+    define('_RSSC_WORD_POINT', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_ACT', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_ACT_NON', 'Ìµï¿½ï¿½');
+    define('_RSSC_ACT_ACT', 'Í­ï¿½ï¿½');
+    define('_RSSC_REG', 'URLï¿½ï¿½É½ï¿½ï¿½');
+    define('_RSSC_REG_NORMAL', 'ï¿½Ì¾ï¿½');
+    define('_RSSC_REG_EXP', 'ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_RSSC_FREQ_COUNT', 'ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½');
 
-// === 2007-06-01 ===
-// word table
-define('_RSSC_WORD_ID','Word ID');
-define('_RSSC_WORD_WORD','¶Ø»ß¸ì');
-define('_RSSC_WORD_POINT','ÅÀ¿ô');
-define('_RSSC_ACT','¾õÂÖ');
-define('_RSSC_ACT_NON','Ìµ¸ú');
-define('_RSSC_ACT_ACT','Í­¸ú');
-define('_RSSC_REG','URL¤ÎÉ½¸½');
-define('_RSSC_REG_NORMAL','ÄÌ¾ï');
-define('_RSSC_REG_EXP','Àµµ¬É½¸½');
-define('_RSSC_FREQ_COUNT','½Ð¸½²ó¿ô');
+    // feed table
+    define('_RSSC_FEED_ACT', 'É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_FEED_ACT_NON', 'ï¿½ï¿½É½ï¿½ï¿½');
+    define('_RSSC_FEED_ACT_VIEW', 'É½ï¿½ï¿½');
 
-// feed table
-define('_RSSC_FEED_ACT',     'É½¼¨¾õÂÖ');
-define('_RSSC_FEED_ACT_NON', 'ÈóÉ½¼¨');
-define('_RSSC_FEED_ACT_VIEW','É½¼¨');
+    // link table
+    define('_RSSC_LTYPE_NON', 'feed ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½');
+    define('_RSSC_LTYPE_SEARCH', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_LTYPE_NORMAL', 'ï¿½Ì¾ï¿½');
 
-// link table
-define('_RSSC_LTYPE_NON','feed ¤ò¼èÆÀ¤·¤Ê¤¤');
-define('_RSSC_LTYPE_SEARCH','¸¡º÷¥µ¥¤¥È');
-define('_RSSC_LTYPE_NORMAL','ÄÌ¾ï');
+    define('_RSSC_XML_URL', 'RDF/RSS/ATOM URL');
 
-define('_RSSC_XML_URL','RDF/RSS/ATOM URL');
+    // === 2007-10-10 ===
+    // link table
+    define('_RSSC_LINK_ENCLOSURE', 'enclusure ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½');
+    define('_RSSC_LINK_ENCLOSURE_NON', 'Ì¤ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_LINK_ENCLOSURE_POD', 'PodCastï¿½È¸ï¿½ï¿½Ê¤ï¿½');
+    define('_RSSC_LINK_CENSOR', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½Î¶Ø»ï¿½ï¿½Ñ¸ï¿½');
+    //define('_RSSC_LINK_PLUGIN','ï¿½×¥é¥°ï¿½ï¿½ï¿½ï¿½');
 
-// === 2007-10-10 ===
-// link table
-define('_RSSC_LINK_ENCLOSURE','enclusure ¥¿¥°¤Î°·¤¤');
-define('_RSSC_LINK_ENCLOSURE_NON','Ì¤»ÈÍÑ');
-define('_RSSC_LINK_ENCLOSURE_POD','PodCast¤È¸«¤Ê¤¹');
-define('_RSSC_LINK_CENSOR','¥¿¥¤¥È¥ë¤Î¶Ø»ßÍÑ¸ì');
-//define('_RSSC_LINK_PLUGIN','¥×¥é¥°¥¤¥ó');
+    // black & white table
+    define('_RSSC_BW_CACHE', 'feed ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤Î¥ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½');
+    define('_RSSC_BW_CTIME', 'feed ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤Î¥ï¿½ï¿½ï¿½Ã¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// black & white table
-define('_RSSC_BW_CACHE','feed ¥«¥¦¥ó¥È¤Î¥­¥ã¥Ã¥·¥å');
-define('_RSSC_BW_CTIME','feed ¥«¥¦¥ó¥È¤Î¥­¥ã¥Ã¥·¥å»þ¹ï');
+    // keyword manage
+    define('_RSSC_KEYWORD', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¡¼ï¿½ï¿½');
 
-// keyword manage
-define('_RSSC_KEYWORD','¥­¡¼¥ï¡¼¥É');
+    // === 2008-01-20 ===
+    // plugin list
+    define('_RSSC_PLUGIN_LIST', 'ï¿½×¥é¥°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_PLUGIN_NAME', 'ï¿½×¥é¥°ï¿½ï¿½ï¿½ï¿½Ì¾');
+    define('_RSSC_PLUGIN_DESCRIPTION', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_PLUGIN_USAGE', 'ï¿½È¤ï¿½ï¿½ï¿½');
 
-// === 2008-01-20 ===
-// plugin list
-define('_RSSC_PLUGIN_LIST', '¥×¥é¥°¥¤¥ó°ìÍ÷');
-define('_RSSC_PLUGIN_NAME', '¥×¥é¥°¥¤¥óÌ¾');
-define('_RSSC_PLUGIN_DESCRIPTION', 'ÀâÌÀ');
-define('_RSSC_PLUGIN_USAGE', '»È¤¤Êý');
+    // link table
+    define('_RSSC_PRE_PLUGIN', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¥é¥°ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_POST_PLUGIN', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¥é¥°ï¿½ï¿½ï¿½ï¿½');
 
-// link table
-define('_RSSC_PRE_PLUGIN', 'Á°½èÍý¥×¥é¥°¥¤¥ó');
-define('_RSSC_POST_PLUGIN','¸å½èÍý¥×¥é¥°¥¤¥ó');
+    // === 2009-02-20 ===
+    // map
+    define('_RSSC_MAP', 'Googleï¿½Þ¥Ã¥ï¿½');
 
-// === 2009-02-20 ===
-// map
-define('_RSSC_MAP','Google¥Þ¥Ã¥×');
+    // link table
+    define('_RSSC_LINK_ICON', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_LINK_GICON_ID', 'Googleï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½');
 
-// link table
-define('_RSSC_LINK_ICON',  '¥¢¥¤¥³¥ó');
-define('_RSSC_LINK_GICON_ID', 'Google¥¢¥¤¥³¥óÈÖ¹æ');
-
-// feed table
-define('_RSSC_FEED_GEO_LAT',  '°ÞÅÙ');
-define('_RSSC_FEED_GEO_LONG', '·ÐÅÙ');
-define('_RSSC_FEED_MEDIA_CONTENT_URL',    '¥³¥ó¥Æ¥ó¥ÈURL');
-define('_RSSC_FEED_MEDIA_CONTENT_TYPE',   '¥³¥ó¥Æ¥ó¥È¡¦¥¿¥¤¥×');
-define('_RSSC_FEED_MEDIA_CONTENT_MEDIUM', '¥³¥ó¥Æ¥ó¥È¡¦¥á¥Ç¥£¥¢');
-define('_RSSC_FEED_MEDIA_CONTENT_WIDTH',  '¥³¥ó¥Æ¥ó¥È²£Éý');
-define('_RSSC_FEED_MEDIA_CONTENT_HEIGHT', '¥³¥ó¥Æ¥ó¥È¹â¤µ');
-define('_RSSC_FEED_MEDIA_THUMBNAIL_URL',    '¥µ¥à¥Í¥¤¥ëURL');
-define('_RSSC_FEED_MEDIA_THUMBNAIL_WIDTH',  '¥µ¥à¥Í¥¤¥ë²£Éý');
-define('_RSSC_FEED_MEDIA_THUMBNAIL_HEIGHT', '¥µ¥à¥Í¥¤¥ë¹â¤µ');
-
+    // feed table
+    define('_RSSC_FEED_GEO_LAT', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_FEED_GEO_LONG', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_FEED_MEDIA_CONTENT_URL', 'ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½URL');
+    define('_RSSC_FEED_MEDIA_CONTENT_TYPE', 'ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_RSSC_FEED_MEDIA_CONTENT_MEDIUM', 'ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½È¡ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½');
+    define('_RSSC_FEED_MEDIA_CONTENT_WIDTH', 'ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½È²ï¿½ï¿½ï¿½');
+    define('_RSSC_FEED_MEDIA_CONTENT_HEIGHT', 'ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½È¹â¤µ');
+    define('_RSSC_FEED_MEDIA_THUMBNAIL_URL', 'ï¿½ï¿½ï¿½ï¿½Í¥ï¿½ï¿½ï¿½URL');
+    define('_RSSC_FEED_MEDIA_THUMBNAIL_WIDTH', 'ï¿½ï¿½ï¿½ï¿½Í¥ï¿½ï¿½ë²£ï¿½ï¿½');
+    define('_RSSC_FEED_MEDIA_THUMBNAIL_HEIGHT', 'ï¿½ï¿½ï¿½ï¿½Í¥ï¿½ï¿½ï¿½â¤µ');
 }
 // --- define language end ---
-
-?>

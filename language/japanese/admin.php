@@ -1,4 +1,5 @@
 <?php
+
 // $Id: admin.php,v 1.4 2012/04/08 23:42:20 ohwada Exp $
 
 // 2008-01-20 K.OHWADA
@@ -29,452 +30,450 @@
 //=========================================================
 // RSS Center Module
 // 2006-01-01 K.OHWADA
-// Í­Êþ¼«±óÊýÍè
+// Í­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //=========================================================
 
 // --- define language begin ---
-if( !defined('RSSC_LANG_AM_LOADED') ) 
-{
+if (!defined('RSSC_LANG_AM_LOADED')) {
+    define('RSSC_LANG_AM_LOADED', 1);
 
-define('RSSC_LANG_AM_LOADED', 1);
+    // === menu ===
+    define('_AM_RSSC_CONF', 'RSSï¿½ï¿½ï¿½ó¥¿¡ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_LIST_LINK', 'ï¿½ï¿½ó¥¯°ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_LIST_BLACK', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È°ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_LIST_WHITE', 'ï¿½Û¥ï¥¤ï¿½È¥ê¥¹ï¿½È°ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_LIST_FEED', 'feedï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_ADD_LINK', 'ï¿½ï¿½ó¥¯¤ï¿½ï¿½É²ï¿½');
+    define('_AM_RSSC_ADD_BLACK', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤ï¿½ï¿½É²ï¿½');
+    define('_AM_RSSC_ADD_WHITE', 'ï¿½Û¥ï¥¤ï¿½È¥ê¥¹ï¿½È¤ï¿½ï¿½É²ï¿½');
+    define('_AM_RSSC_ADD_KEYWORD', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¡¼ï¿½É¤ï¿½ï¿½É²ï¿½');
+    define('_AM_RSSC_ARCHIVE_MANAGE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½');
 
-// === menu ===
-define('_AM_RSSC_CONF', 'RSS¥»¥ó¥¿¡¼´ÉÍý');
-define('_AM_RSSC_LIST_LINK', '¥ê¥ó¥¯°ìÍ÷');
-define('_AM_RSSC_LIST_BLACK', '¥Ö¥é¥Ã¥¯¥ê¥¹¥È°ìÍ÷');
-define('_AM_RSSC_LIST_WHITE', '¥Û¥ï¥¤¥È¥ê¥¹¥È°ìÍ÷');
-define('_AM_RSSC_LIST_FEED', 'feed°ìÍ÷');
-define('_AM_RSSC_ADD_LINK', '¥ê¥ó¥¯¤ÎÄÉ²Ã');
-define('_AM_RSSC_ADD_BLACK', '¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤ÎÄÉ²Ã');
-define('_AM_RSSC_ADD_WHITE', '¥Û¥ï¥¤¥È¥ê¥¹¥È¤ÎÄÉ²Ã');
-define('_AM_RSSC_ADD_KEYWORD', '¥­¡¼¥ï¡¼¥É¤ÎÄÉ²Ã');
-define('_AM_RSSC_ARCHIVE_MANAGE', '¥¢¡¼¥«¥¤¥Ö´ÉÍý');
+    //define('_AM_RSSC_COMMAND_MANAGE', 'ï¿½ï¿½ï¿½Þ¥ï¿½É´ï¿½ï¿½ï¿½');
 
-//define('_AM_RSSC_COMMAND_MANAGE', '¥³¥Þ¥ó¥É´ÉÍý');
+    define('_AM_RSSC_UPDATE_MANAGE', 'ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½ï¿½È´ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_RSS', 'RDF/RSS/ATOM ï¿½ï¿½É½ï¿½ï¿½');
 
-define('_AM_RSSC_UPDATE_MANAGE', '¥¤¥ó¥Ý¡¼¥È´ÉÍý');
-define('_AM_RSSC_VIEW_RSS', 'RDF/RSS/ATOM ¤ÎÉ½¼¨');
+    //define('_AM_RSSC_GOTO_MODULE', 'ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½');
 
-//define('_AM_RSSC_GOTO_MODULE', '¥â¥¸¥å¡¼¥ë¤Ø');
+    // === index & config ===
+    define('_AM_RSSC_FORM_BASIC', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_FORM_BASIC_DESC', 'ï¿½ï¿½ï¿½Æ¤Î¥â¥¸ï¿½å¡¼ï¿½ï¿½Ç¶ï¿½ï¿½Ì¤Ë»ï¿½ï¿½Ñ¤ï¿½ï¿½Þ¤ï¿½');
+    define('_AM_RSSC_FORM_MAIN', 'ï¿½á¥¤ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_FORM_MAIN_DESC', 'ï¿½ï¿½ï¿½Î¥â¥¸ï¿½å¡¼ï¿½ï¿½Î¥á¥¤ï¿½ó¡¦¥Ú¡ï¿½ï¿½ï¿½ï¿½Ç»ï¿½ï¿½Ñ¤ï¿½ï¿½Þ¤ï¿½');
+    define('_AM_RSSC_FORM_BLOCK', 'ï¿½Ö¥ï¿½Ã¥ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_FORM_BLOCK_DESC', 'ï¿½ï¿½ï¿½Î¥â¥¸ï¿½å¡¼ï¿½ï¿½Î¥Ö¥ï¿½Ã¥ï¿½ï¿½Ç»ï¿½ï¿½Ñ¤ï¿½ï¿½Þ¤ï¿½');
 
-// === index & config ===
-define('_AM_RSSC_FORM_BASIC', '´ðËÜÀßÄê');
-define('_AM_RSSC_FORM_BASIC_DESC', 'Á´¤Æ¤Î¥â¥¸¥å¡¼¥ë¤Ç¶¦ÄÌ¤Ë»ÈÍÑ¤·¤Þ¤¹');
-define('_AM_RSSC_FORM_MAIN', '¥á¥¤¥óÉ½¼¨ÀßÄê');
-define('_AM_RSSC_FORM_MAIN_DESC', '¤³¤Î¥â¥¸¥å¡¼¥ë¤Î¥á¥¤¥ó¡¦¥Ú¡¼¥¸¤Ç»ÈÍÑ¤·¤Þ¤¹');
-define('_AM_RSSC_FORM_BLOCK', '¥Ö¥í¥Ã¥¯É½¼¨ÀßÄê');
-define('_AM_RSSC_FORM_BLOCK_DESC', '¤³¤Î¥â¥¸¥å¡¼¥ë¤Î¥Ö¥í¥Ã¥¯¤Ç»ÈÍÑ¤·¤Þ¤¹');
+    //define('_AM_RSSC_FORM_BIN', 'ï¿½ï¿½ï¿½Þ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_FORM_BIN_DESC', 'bin ï¿½ï¿½ï¿½Þ¥ï¿½É¤Ç»ï¿½ï¿½Ñ¤ï¿½ï¿½Þ¤ï¿½');
+    //define('_AM_RSSC_INIT_NOT','ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½Ö¥ë¤¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½');
+    //define('_AM_RSSC_INIT_EXEC','ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_VERSION_NOT','ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %s ï¿½Ç¤Ï¤Ê¤ï¿½');
+    //define('_AM_RSSC_UPGRADE_EXEC','ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½ò¥¢¥Ã¥×¥ï¿½ï¿½ì¡¼ï¿½É¤ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_WARNING_NOT_WRITABLE','ï¿½Ç¥ï¿½ï¿½ì¥¯ï¿½È¥ï¿½Î½ï¿½ï¿½ï¿½ßµï¿½ï¿½Ä¤ï¿½ï¿½Ê¤ï¿½');
+    //define('_AM_RSSC_CONF_NAME','ï¿½ï¿½ï¿½ï¿½');
 
-//define('_AM_RSSC_FORM_BIN', '¥³¥Þ¥ó¥ÉÀßÄê');
-//define('_AM_RSSC_FORM_BIN_DESC', 'bin ¥³¥Þ¥ó¥É¤Ç»ÈÍÑ¤·¤Þ¤¹');
-//define('_AM_RSSC_INIT_NOT','ÀßÄê¥Æ¡¼¥Ö¥ë¤¬½é´ü²½¤µ¤ì¤Æ¤¤¤Ê¤¤');
-//define('_AM_RSSC_INIT_EXEC','ÀßÄê¥Æ¡¼¥Ö¥ë¤ò½é´ü²½¤¹¤ë');
-//define('_AM_RSSC_VERSION_NOT','¥Ð¡¼¥¸¥ç¥ó %s ¤Ç¤Ï¤Ê¤¤');
-//define('_AM_RSSC_UPGRADE_EXEC','ÀßÄê¥Æ¡¼¥Ö¥ë¤ò¥¢¥Ã¥×¥°¥ì¡¼¥É¤¹¤ë');
-//define('_AM_RSSC_WARNING_NOT_WRITABLE','¥Ç¥¤¥ì¥¯¥È¥ê¤Î½ñ¹þ¤ßµö²Ä¤¬¤Ê¤¤');
-//define('_AM_RSSC_CONF_NAME','¹àÌÜ');
+    define('_AM_RSSC_DBUPDATED', 'ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½ò¹¹¿ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_FAILUPDATE', 'ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_FAILDELETE', 'ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_THERE_ARE_LINKS', 'ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ë¤ï¿½ <b>%s</b> ï¿½ï¿½Î¥ï¿½ó¥¯¤ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_THERE_ARE_FEEDS', 'ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ë¤ï¿½ <b>%s</b> ï¿½ï¿½ï¿½ feed ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
 
-define('_AM_RSSC_DBUPDATED', '¥Ç¡¼¥¿¥Ù¡¼¥¹¤ò¹¹¿·¤·¤¿');
-define('_AM_RSSC_FAILUPDATE', '¥Ç¡¼¥¿¥Ù¡¼¥¹¤ÎÊÝÂ¸¤¬¤Ç¤­¤Þ¤»¤ó¤Ç¤·¤¿');
-define('_AM_RSSC_FAILDELETE', '¥Ç¡¼¥¿¥Ù¡¼¥¹¤Îºï½ü¤¬¤Ç¤­¤Þ¤»¤ó¤Ç¤·¤¿');
-define('_AM_RSSC_THERE_ARE_LINKS','¥Ç¡¼¥¿¥Ù¡¼¥¹¤Ë¤Ï <b>%s</b> ·ï¤Î¥ê¥ó¥¯¤¬ÅÐÏ¿¤µ¤ì¤Æ¤¤¤Þ¤¹¡£');
-define('_AM_RSSC_THERE_ARE_FEEDS','¥Ç¡¼¥¿¥Ù¡¼¥¹¤Ë¤Ï <b>%s</b> ·ï¤Î feed ¤¬ÅÐÏ¿¤µ¤ì¤Æ¤¤¤Þ¤¹¡£');
+    // === link manage ===
+    define('_AM_RSSC_LINK_MANAGE', 'ï¿½ï¿½ó¥¯¤Î´ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_MOD_LINK', 'ï¿½ï¿½ó¥¯¤Î½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_DEL_LINK', 'ï¿½ï¿½ó¥¯¤Îºï¿½ï¿½');
+    define('_AM_RSSC_SHOW_RSS', 'RSSÉ½ï¿½ï¿½');
+    define('_AM_RSSC_SHOW_FEED', 'feedÉ½ï¿½ï¿½');
+    define('_AM_RSSC_FEED_BELONG_LINK', 'ï¿½ï¿½ï¿½Î¥ï¿½ó¥¯¤ï¿½Â°ï¿½ï¿½ï¿½ï¿½feedï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_ERROR_FILL', 'ï¿½ï¿½ï¿½é¡¼: %s ï¿½ï¿½ï¿½ï¿½ï¿½Ï¤ï¿½ï¿½Æ²ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_ERROR_ILLEGAL', 'ï¿½ï¿½ï¿½é¡¼: %s ï¿½Î·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½');
 
-// === link manage ===
-define('_AM_RSSC_LINK_MANAGE','¥ê¥ó¥¯¤Î´ÉÍý');
-define('_AM_RSSC_MOD_LINK','¥ê¥ó¥¯¤Î½¤Àµ');
-define('_AM_RSSC_DEL_LINK','¥ê¥ó¥¯¤Îºï½ü');
-define('_AM_RSSC_SHOW_RSS',  'RSSÉ½¼¨');
-define('_AM_RSSC_SHOW_FEED', 'feedÉ½¼¨');
-define('_AM_RSSC_FEED_BELONG_LINK', '¤³¤Î¥ê¥ó¥¯¤ËÂ°¤¹¤ëfeed¤òÉ½¼¨¤¹¤ë');
-define('_AM_RSSC_ERROR_FILL', '¥¨¥é¡¼: %s ¤òÆþÎÏ¤·¤Æ²¼¤µ¤¤');
-define('_AM_RSSC_ERROR_ILLEGAL','¥¨¥é¡¼: %s ¤Î·Á¼°¤¬ÉÔÀµ¤Ç¤¹');
+    // === black list manage ===
+    define('_AM_RSSC_BLACK_MANAGE', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤Î´ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_MOD_BLACK', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤Î½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_DEL_BLACK', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤Îºï¿½ï¿½');
+    define('_AM_RSSC_FEED_MATCH_LINK', 'ï¿½ï¿½ï¿½Î¥ê¥¹ï¿½È¤Ë°ï¿½ï¿½×¤ï¿½ï¿½ï¿½feedï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// === black list manage ===
-define('_AM_RSSC_BLACK_MANAGE','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Î´ÉÍý');
-define('_AM_RSSC_MOD_BLACK','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Î½¤Àµ');
-define('_AM_RSSC_DEL_BLACK','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Îºï½ü');
-define('_AM_RSSC_FEED_MATCH_LINK', '¤³¤Î¥ê¥¹¥È¤Ë°ìÃ×¤¹¤ëfeed¤òÉ½¼¨¤¹¤ë');
+    // === white list manage ===
+    define('_AM_RSSC_WHITE_MANAGE', 'ï¿½Û¥ï¥¤ï¿½È¥ê¥¹ï¿½È¤Î´ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_MOD_WHITE', 'ï¿½Û¥ï¥¤ï¿½È¥ê¥¹ï¿½È¤Î½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_DEL_WHITE', 'ï¿½Û¥ï¥¤ï¿½È¥ê¥¹ï¿½È¤Îºï¿½ï¿½');
 
-// === white list manage ===
-define('_AM_RSSC_WHITE_MANAGE','¥Û¥ï¥¤¥È¥ê¥¹¥È¤Î´ÉÍý');
-define('_AM_RSSC_MOD_WHITE','¥Û¥ï¥¤¥È¥ê¥¹¥È¤Î½¤Àµ');
-define('_AM_RSSC_DEL_WHITE','¥Û¥ï¥¤¥È¥ê¥¹¥È¤Îºï½ü');
+    // === feed list manage ===
+    define('_AM_RSSC_ADD_FEED', 'feedï¿½ï¿½ï¿½É²ï¿½');
+    define('_AM_RSSC_MOD_FEED', 'feedï¿½Î½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_DEL_FEED', 'feedï¿½Îºï¿½ï¿½');
+    define('_AM_RSSC_THERE_ARE_MATCH', 'ï¿½ï¿½ï¿½Ë°ï¿½ï¿½×¤ï¿½ï¿½ï¿½ <b>%s</b> ï¿½ï¿½Î¥Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½');
+    define('_AM_RSSC_CONDITION', 'ï¿½ï¿½ï¿½');
 
-// === feed list manage ===
-define('_AM_RSSC_ADD_FEED','feed¤ÎÄÉ²Ã');
-define('_AM_RSSC_MOD_FEED','feed¤Î½¤Àµ');
-define('_AM_RSSC_DEL_FEED','feed¤Îºï½ü');
-define('_AM_RSSC_THERE_ARE_MATCH','¾ò·ï¤Ë°ìÃ×¤¹¤ë <b>%s</b> ·ï¤Î¥Ç¡¼¥¿¤¬¤¢¤ê¤Þ¤¹');
-define('_AM_RSSC_CONDITION','¾ò·ï');
+    // === archive manage ===
+    define('_AM_RSSC_REFRESH', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤Î¹ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_REFRESH_NEXT', 'ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ò¹¹¿ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_LINK_LIMIT', 'ï¿½ï¿½ó¥¯¿ï¿½ï¿½Î¾ï¿½ï¿½(limit)');
+    define('_AM_RSSC_LINK_OFFSET', 'ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½Ã¥ï¿½(offset)');
+    define('_AM_RSSC_FEED_CLEAR', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤Î¥ï¿½ï¿½ê¥¢');
+    define('_AM_RSSC_FEED_CLEAR_OLD', 'ï¿½ï¿½ï¿½Õ¤Î¸Å¤ï¿½ï¿½ï¿½Ë¥ï¿½ï¿½ê¥¢ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_FEED_CLEAR_NUM', 'ï¿½ï¿½ï¿½ê¤·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ê¤ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½Õ¤Î¸Å¤ï¿½ï¿½ï¿½Ë¥ï¿½ï¿½ê¥¢ï¿½ï¿½ï¿½ï¿½');
 
-// === archive manage ===
-define('_AM_RSSC_REFRESH', '¥¢¡¼¥«¥¤¥Ö¤Î¹¹¿·');
-define('_AM_RSSC_REFRESH_NEXT','¼¡¤Î %s ·ï¤ò¹¹¿·¤¹¤ë');
-define('_AM_RSSC_LINK_LIMIT','¥ê¥ó¥¯¿ô¤Î¾å¸Â(limit)');
-define('_AM_RSSC_LINK_OFFSET','¥ª¥Õ¥»¥Ã¥È(offset)');
-define('_AM_RSSC_FEED_CLEAR','¥¢¡¼¥«¥¤¥Ö¤Î¥¯¥ê¥¢');
-define('_AM_RSSC_FEED_CLEAR_OLD','ÆüÉÕ¤Î¸Å¤¤½ç¤Ë¥¯¥ê¥¢¤¹¤ë');
-define('_AM_RSSC_FEED_CLEAR_NUM','»ØÄê¤·¤¿·ï¿ô°Ê¾å¤Ê¤é¤Ð¡¢ÆüÉÕ¤Î¸Å¤¤½ç¤Ë¥¯¥ê¥¢¤¹¤ë');
+    // refresh result
+    define('_AM_RSSC_NO_REFRESH', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¥¯¤ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_RSSC_TIME_START', 'ï¿½ï¿½ï¿½Ï»ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_TIME_END', 'ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_TIME_ELAPSE', 'ï¿½Ð²ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_MIN_SEC', '%s Ê¬ %s ï¿½ï¿½');
+    define('_AM_RSSC_NUM_LINK_TOTAL', 'ï¿½ï¿½ï¿½ï¿½ó¥¯¿ï¿½');
+    define('_AM_RSSC_NUM_LINK_TARGET', 'ï¿½Ð¾Ý¤È¤Ê¤ï¿½ï¿½ó¥¯¿ï¿½');
+    define('_AM_RSSC_NUM_LINK_BROKEN', 'ï¿½ï¿½ï¿½ï¿½Ú¤ï¿½Î¥ï¿½ó¥¯¿ï¿½');
+    define('_AM_RSSC_NUM_LINK_UPDATED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¥¯¿ï¿½');
+    define('_AM_RSSC_NUM_FEED_UPDATED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ FEEDï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_NUM_FEED_CLEARED', 'ï¿½ï¿½ï¿½ê¥¢ï¿½ï¿½ï¿½ï¿½ FEEDï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_NUM_LINKS', 'ï¿½ï¿½');
+    define('_AM_RSSC_NUM_FEEDS', 'ï¿½ï¿½');
+    define('_AM_RSSC_FAILGET', '%s ï¿½ï¿½ï¿½ï¿½ï¿½ XML ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_GOTOTOP', 'ï¿½È¥Ã¥×¤ï¿½ï¿½ï¿½ï¿½');
 
-// refresh result
-define('_AM_RSSC_NO_REFRESH','¹¹¿·¤¹¤ë¥ê¥ó¥¯¤¬¤Ê¤¤');
-define('_AM_RSSC_TIME_START','³«»Ï»þ¹ï');
-define('_AM_RSSC_TIME_END','½ªÎ»»þ¹ï');
-define('_AM_RSSC_TIME_ELAPSE','·Ð²á»þ´Ö');
-define('_AM_RSSC_MIN_SEC','%s Ê¬ %s ÉÃ');
-define('_AM_RSSC_NUM_LINK_TOTAL','Á´¥ê¥ó¥¯¿ô');
-define('_AM_RSSC_NUM_LINK_TARGET','ÂÐ¾Ý¤È¤Ê¤ë¥ê¥ó¥¯¿ô');
-define('_AM_RSSC_NUM_LINK_BROKEN','¥ê¥ó¥¯ÀÚ¤ì¤Î¥ê¥ó¥¯¿ô');
-define('_AM_RSSC_NUM_LINK_UPDATED','¹¹¿·¤·¤¿¥ê¥ó¥¯¿ô');
-define('_AM_RSSC_NUM_FEED_UPDATED','¹¹¿·¤·¤¿ FEED¤Îµ­»ö¿ô');
-define('_AM_RSSC_NUM_FEED_CLEARED','¥¯¥ê¥¢¤·¤¿ FEED¤Îµ­»ö¿ô');
-define('_AM_RSSC_NUM_LINKS','·ï');
-define('_AM_RSSC_NUM_FEEDS','·ï');
-define('_AM_RSSC_FAILGET', '%s ¤«¤é¤Î XML ¤Î¼èÆÀ¤¬¤Ç¤­¤Þ¤»¤ó¤Ç¤·¤¿¡£');
-define('_AM_RSSC_GOTOTOP', '¥È¥Ã¥×¤ËÌá¤ë');
+    // === configuration ===
+    // basic configuration
+    define('_AM_RSSC_CONF_FEED_LIMIT', 'FEEDï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½Î·ï¿½ï¿½');
+    define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'feed ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Ë³ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½FEEDï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½ï¿½Í¤ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¤Î¸Å¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é¥¯ï¿½ê¥¢ï¿½ï¿½ï¿½ï¿½ë¡£<br><b>0</b> ï¿½ï¿½Ìµï¿½ï¿½ï¿½Â¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä¾©ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_RSS_ATOM', 'RSSï¿½ï¿½ATOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_RSS_ATOM_DESC', 'RSS URLï¿½ï¿½ATOM URLï¿½ï¿½Î¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¤ï¿½ï¿½ì¤¿ï¿½È¤ï¿½ï¿½Ë¡ï¿½ï¿½É¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ë¤«ï¿½ï¿½ï¿½ò¤·¤Þ¤ï¿½');
+    define('_AM_RSSC_CONF_RSS_ATOM_SEL_ATOM', 'ATOM');
+    define('_AM_RSSC_CONF_RSS_ATOM_SEL_RSS', 'RSS');
+    define('_AM_RSSC_CONF_RSS_PARSER', 'RSSï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_RSS_PARSER_SELF', 'ï¿½ï¿½Â¢');
+    define('_AM_RSSC_CONF_RSS_PARSER_XOOPS', 'XOOPS RSS Parser');
+    define('_AM_RSSC_CONF_ATOM_PARSER', 'ATOMï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_ATOM_PARSER_0', 'ï¿½ï¿½Â¢');
+    define('_AM_RSSC_CONF_ATOM_PARSER_1', '');
+    define('_AM_RSSC_CONF_RSS_MODE', 'RSS ï¿½â¡¼ï¿½É¤Î½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_XML_SAVE', 'XMLï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_XML_SAVE_DESC', 'ï¿½É¤ß½Ð¤ï¿½ï¿½ï¿½XMLï¿½ï¿½ link ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_FUTURE_DAYS', 'Ì¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¤ï¿½');
+    define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', 'Ã±ï¿½Ì¤ï¿½ï¿½ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½Ð¡ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½');
 
-// === configuration ===
-// basic configuration
-define('_AM_RSSC_CONF_FEED_LIMIT', 'FEEDµ­»ö¤ÎºÇÂç¤Î·ï¿ô');
-define('_AM_RSSC_CONF_FEED_LIMIT_DESC', 'feed ¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤¹¤ëFEEDµ­»ö¤ÎºÇÂç¤Î·ï¿ô¤ò»ØÄê¤¹¤ë<br />¤³¤ÎÃÍ¤òÄ¶¤¨¤ë¤ÈÆüÉÕ¤Î¸Å¤¤Êý¤«¤é¥¯¥ê¥¢¤µ¤ì¤ë¡£<br /><b>0</b> ¤ÏÌµÀ©¸Â¤À¤¬¡¢¿ä¾©¤·¤Ê¤¤¡£');
-define('_AM_RSSC_CONF_RSS_ATOM', 'RSS¤ÈATOM¤ÎÁªÂò');
-define('_AM_RSSC_CONF_RSS_ATOM_DESC', 'RSS URL¤ÈATOM URL¤ÎÎ¾Êý¤¬¸¡½Ð¤µ¤ì¤¿¤È¤­¤Ë¡¢¤É¤Á¤é¤ò»ÈÍÑ¤¹¤ë¤«ÁªÂò¤·¤Þ¤¹');
-define('_AM_RSSC_CONF_RSS_ATOM_SEL_ATOM', 'ATOM');
-define('_AM_RSSC_CONF_RSS_ATOM_SEL_RSS', 'RSS');
-define('_AM_RSSC_CONF_RSS_PARSER', 'RSS¥Ñ¡¼¥µ¡¼¤ÎÁªÂò');
-define('_AM_RSSC_CONF_RSS_PARSER_SELF',  'ÆâÂ¢');
-define('_AM_RSSC_CONF_RSS_PARSER_XOOPS', 'XOOPS RSS Parser');
-define('_AM_RSSC_CONF_ATOM_PARSER', 'ATOM¥Ñ¡¼¥µ¡¼¤ÎÁªÂò');
-define('_AM_RSSC_CONF_ATOM_PARSER_0', 'ÆâÂ¢');
-define('_AM_RSSC_CONF_ATOM_PARSER_1', '');
-define('_AM_RSSC_CONF_RSS_MODE', 'RSS ¥â¡¼¥É¤Î½é´üÃÍ');
-define('_AM_RSSC_CONF_XML_SAVE', 'XML¤òÊÝÂ¸¤¹¤ë');
-define('_AM_RSSC_CONF_XML_SAVE_DESC', 'ÆÉ¤ß½Ð¤·¤¿XML¤ò link ¥Æ¡¼¥Ö¥ë¤ËÊÝÂ¸¤¹¤ë');
-define('_AM_RSSC_CONF_FUTURE_DAYS', 'Ì¤Íè¤ÎÆüÉÕ¤±');
-define('_AM_RSSC_CONF_FUTURE_DAYS_DESC', 'Ã±°Ì¤ÏÆü¿ô<br />¤³¤ÎÆü¿ô¤è¤ê¤âÌ¤Íè¤Îµ­»ö¤Ç¤¢¤ì¤Ð¡¢É½¼¨¤·¤Ê¤¤');
+    // show configuration
+    define('_AM_RSSC_CONF_SHOW_ORDER', 'É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_CONF_SHOW_ORDER_DESC','É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_ORDER_UPDATED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ updated');
+    define('_AM_RSSC_CONF_SHOW_ORDER_PUBLISHED', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ published');
+    define('_AM_RSSC_CONF_SHOW_LINKS_PER_PAGE', 'ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¥¯·ï¿½ï¿½');
+    //define('_AM_RSSC_CONF_SHOW_LINKS_PER_PAGE_DESC','ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE', 'ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½feedï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE_DESC','ï¿½ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½feedï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK_DESC','ï¿½ï¿½ï¿½ï¿½ó¥¯¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_MAX_TITLE', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½Îºï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC', 'ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½Ïºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½<br><b>-1</b> ï¿½Î¤È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Â¤Ê¤ï¿½ï¿½Ç¤ï¿½');
+    define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY', 'ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC', '<b>-1</b> ï¿½Î¤È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Â¤Ê¤ï¿½ï¿½Ç¤ï¿½');
 
-// show configuration
-define('_AM_RSSC_CONF_SHOW_ORDER','É½¼¨¤¹¤ë½çÈÖ');
-//define('_AM_RSSC_CONF_SHOW_ORDER_DESC','É½¼¨¤¹¤ë½çÈÖ¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤');
-define('_AM_RSSC_CONF_SHOW_ORDER_UPDATED','¿·¤·¤¤¹¹¿·Æü updated');
-define('_AM_RSSC_CONF_SHOW_ORDER_PUBLISHED','¿·¤·¤¤È¯¹ÔÆü published');
-define('_AM_RSSC_CONF_SHOW_LINKS_PER_PAGE','£±¥Ú¡¼¥¸¤ËÉ½¼¨¤¹¤ë¥ê¥ó¥¯·ï¿ô');
-//define('_AM_RSSC_CONF_SHOW_LINKS_PER_PAGE_DESC','£±¥Ú¡¼¥¸¤¢¤¿¤ê¤ËÉ½¼¨¤¹¤ëºÇÂç·ï¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤');
-define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE','£±¥Ú¡¼¥¸¤ËÉ½¼¨¤¹¤ëfeed·ï¿ô');
-//define('_AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE_DESC','£±¥Ú¡¼¥¸¤¢¤¿¤ê¤ËÉ½¼¨¤¹¤ëºÇÂç·ï¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤');
-define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK','£±¥ê¥ó¥¯Ëè¤ËÉ½¼¨¤¹¤ëfeed·ï¿ô');
-//define('_AM_RSSC_CONF_SHOW_FEEDS_PER_LINK_DESC','£±¥ê¥ó¥¯¤¢¤¿¤ê¤ËÉ½¼¨¤¹¤ëºÇÂç·ï¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤');
-define('_AM_RSSC_CONF_SHOW_MAX_TITLE','¥¿¥¤¥È¥ë¤ÎºÇÂçÊ¸»ú¿ô');
-define('_AM_RSSC_CONF_SHOW_MAX_TITLE_DESC','¤³¤ÎÊ¸»ú¿ô¤òÄ¶¤¨¤¿¤È¤­¤Ï¡¢HTML¥¿¥°¤Ïºï½ü¤µ¤ì¤Þ¤¹<br /><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
-define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY','Í×Ìó¤ÎºÇÂçÊ¸»ú¿ô');
-define('_AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC','<b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
+    // main configuration
+    define('_AM_RSSC_CONF_MAIN_SEARCH_MIN', 'ï¿½ï¿½ï¿½ï¿½ï¿½Î¥ï¿½ï¿½ï¿½ï¿½ï¡¼ï¿½Éºï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_CONF_MAIN_SEARCH_MIN_DESC','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½Ý¤ï¿½É¬ï¿½×¤Ê¥ï¿½ï¿½ï¿½ï¿½ï¡¼ï¿½É¤Îºï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// main configuration
-define('_AM_RSSC_CONF_MAIN_SEARCH_MIN','¸¡º÷¤Î¥­¡¼¥ï¡¼¥ÉºÇÄãÊ¸»ú¿ô');
-//define('_AM_RSSC_CONF_MAIN_SEARCH_MIN_DESC','¸¡º÷¤ò¹Ô¤¦ºÝ¤ËÉ¬Í×¤Ê¥­¡¼¥ï¡¼¥É¤ÎºÇÄãÊ¸»ú¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤');
+    // bin configuration
+    //define('_AM_RSSC_CONF_BIN_PASS','ï¿½Ñ¥ï¿½ï¿½ï¡¼ï¿½ï¿½');
+    //define('_AM_RSSC_CONF_BIN_PASS_DESC','ï¿½Ñ¥ï¿½ï¿½ï¡¼ï¿½É¤ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_CONF_BIN_SEND','ï¿½á¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_CONF_BIN_SEND_DESC','ï¿½ï¿½Ì¤ï¿½á¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ï¡Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_CONF_BIN_MAILTO','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¥á¡¼ï¿½ë¥¢ï¿½É¥ì¥¹');
+    //define('_AM_RSSC_CONF_BIN_MAILTO_DESC','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¥á¡¼ï¿½ë¥¢ï¿½É¥ì¥¹ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// bin configuration
-//define('_AM_RSSC_CONF_BIN_PASS','¥Ñ¥¹¥ï¡¼¥É');
-//define('_AM_RSSC_CONF_BIN_PASS_DESC','¥Ñ¥¹¥ï¡¼¥É¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤');
-//define('_AM_RSSC_CONF_BIN_SEND','¥á¡¼¥ë¤ÎÁ÷¿®');
-//define('_AM_RSSC_CONF_BIN_SEND_DESC','·ë²Ì¤ò¥á¡¼¥ë¤òÁ÷¿®¤¹¤ë¤È¤­¤Ï¡Ö¤Ï¤¤¡×¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤');
-//define('_AM_RSSC_CONF_BIN_MAILTO','Á÷¿®Àè¤Î¥á¡¼¥ë¥¢¥É¥ì¥¹');
-//define('_AM_RSSC_CONF_BIN_MAILTO_DESC','Á÷¿®Àè¤Î¥á¡¼¥ë¥¢¥É¥ì¥¹¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤');
+    // === view rss ===
+    define('_AM_RSSC_VIEW_RSS_OPTION', 'ï¿½ï¿½ï¿½×¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_NOT_SELECT_LINK', 'ï¿½ï¿½ó¥¯¤ï¿½ï¿½ï¿½ï¿½ò¤µ¤ï¿½Æ¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_PLEASE_SELECT_LINK', 'ï¿½ï¿½ó¥¯°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò¤¹¤ë¤«ï¿½ï¿½LINK ID ï¿½ï¿½ï¿½ï¿½ï¿½Ï¤ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_PARSER', 'ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_SAVE_ETC', 'ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½ï¿½ê¡¢ï¿½ï¿½ï¿½ï¿½Â¾');
+    define('_AM_RSSC_VIEW_MODE', 'É½ï¿½ï¿½ï¿½â¡¼ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_MODE_DESC', 'mode 0 ï¿½Î¤È¤ï¿½ï¿½Ï¡ï¿½ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Ë³ï¿½Ç¼ï¿½ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_RSSC_VIEW_MODE_CURRENT', 'mode 0: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ XML ï¿½Ç¡ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_MODE_LINK', 'mode 1: link ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Ë³ï¿½Ç¼ï¿½ï¿½ï¿½ì¤¿ XML ï¿½Ç¡ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_MODE_FEED', 'mode 2: feed ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Ë³ï¿½Ç¼ï¿½ï¿½ï¿½ì¤¿ï¿½Ç¡ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_SANITIZE', 'html ï¿½ï¿½ï¿½Ë¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_TITLE_HTML', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_TITLE_HTML_DESC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Î¤Þ¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£<br>ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£');
+    define('_AM_RSSC_VIEW_CONTENT_HTML', 'ï¿½ï¿½Ê¸ï¿½ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Î¤Þ¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£<br>ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£');
+    define('_AM_RSSC_VIEW_MAX_CONTENT', 'ï¿½ï¿½Ê¸ï¿½Îºï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_MAX_CONTENT_DESC', 'ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½Ïºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½<br><b>-1</b> ï¿½Î¤È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Â¤Ê¤ï¿½ï¿½Ç¤ï¿½');
+    define('_AM_RSSC_VIEW_LINK_UPDATE', 'link ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Î¹ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_FEED_UPDATE', 'feed ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Î¹ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_FORCE_DISCOVER', 'RSS URLï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_FORCE_DISCOVER_DESC', 'RSSï¿½â¡¼ï¿½É¤Ë´Ø·ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½RDF/RSS/ATOM URL ï¿½ò¸¡½Ð¤ï¿½ï¿½ï¿½URLï¿½ï¿½ï¿½ñ¤­¤Þ¤ï¿½ï¿½Þ¤ï¿½');
+    define('_AM_RSSC_VIEW_FORCE_UPDATE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_FORCE_UPDATE_DESC', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ö³Ö¤Ë´Ø·ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½RDF/RSS/ATOM ï¿½ï¿½ï¿½É¤ß½Ð¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ñ¤­¤Þ¤ï¿½ï¿½Þ¤ï¿½');
+    define('_AM_RSSC_VIEW_FORCE_OVERWRITE', 'feed ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_FORCE_OVERWRITE_DESC', 'Æ±ï¿½ï¿½ RDF/RSS/ATOM ï¿½Î¥Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ß¤ï¿½ï¿½Æ¤ï¿½ï¿½Æ¤â¡¢feed ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½ï¿½ï¿½ñ¤­¤Þ¤ï¿½ï¿½Þ¤ï¿½');
+    define('_AM_RSSC_VIEW_PRINT_LOG', 'ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_PRINT_LOG_DESC', 'ï¿½Â¹Ô»ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½Ë¥ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_PRINT_ERROR', 'ï¿½ï¿½ï¿½é¡¼ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_RSSC_VIEW_PRINT_ERROR_DESC', 'ï¿½Â¹Ô»ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½Ë¥ï¿½ï¿½é¡¼ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// === view rss ===
-define('_AM_RSSC_VIEW_RSS_OPTION', '¥ª¥×¥·¥ç¥óÀßÄê');
-define('_AM_RSSC_NOT_SELECT_LINK','¥ê¥ó¥¯¤¬ÁªÂò¤µ¤ì¤Æ¤¤¤Þ¤»¤ó');
-define('_AM_RSSC_PLEASE_SELECT_LINK','¥ê¥ó¥¯°ìÍ÷¤«¤éÁªÂò¤¹¤ë¤«¡£LINK ID ¤òÆþÎÏ¤·¤Æ¤¯¤À¤µ¤¤');
-define('_AM_RSSC_VIEW_PARSER', '¥Ñ¡¼¥µ¡¼¤ÎÀßÄê');
-define('_AM_RSSC_VIEW_SAVE_ETC', '¥Æ¡¼¥Ö¥ë³ÊÇ¼¤ÎÀßÄê¡¢¤½¤ÎÂ¾');
-define('_AM_RSSC_VIEW_MODE', 'É½¼¨¥â¡¼¥É');
-define('_AM_RSSC_VIEW_MODE_DESC', 'mode 0 ¤Î¤È¤­¤Ï¡¢¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤·¤Ê¤¤');
-define('_AM_RSSC_VIEW_MODE_CURRENT', 'mode 0: ¼èÆÀ¤·¤¿ XML ¥Ç¡¼¥¿');
-define('_AM_RSSC_VIEW_MODE_LINK', 'mode 1: link ¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤µ¤ì¤¿ XML ¥Ç¡¼¥¿');
-define('_AM_RSSC_VIEW_MODE_FEED', 'mode 2: feed ¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤µ¤ì¤¿¥Ç¡¼¥¿');
-define('_AM_RSSC_VIEW_SANITIZE', 'html ¥µ¥Ë¥¿¥¤¥º¤¹¤ë');
-define('_AM_RSSC_VIEW_TITLE_HTML','¥¿¥¤¥È¥ë¤ÎHTML¥¿¥°¤ÎÉ½¼¨');
-define('_AM_RSSC_VIEW_TITLE_HTML_DESC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
-define('_AM_RSSC_VIEW_CONTENT_HTML','ËÜÊ¸¤ÎHTML¥¿¥°¤ÎÉ½¼¨');
-define('_AM_RSSC_VIEW_CONTENT_HTML_DESC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
-define('_AM_RSSC_VIEW_MAX_CONTENT','ËÜÊ¸¤ÎºÇÂçÊ¸»ú¿ô');
-define('_AM_RSSC_VIEW_MAX_CONTENT_DESC','¤³¤ÎÊ¸»ú¿ô¤òÄ¶¤¨¤¿¤È¤­¤Ï¡¢HTML¥¿¥°¤Ïºï½ü¤µ¤ì¤Þ¤¹<br /><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
-define('_AM_RSSC_VIEW_LINK_UPDATE', 'link ¥Æ¡¼¥Ö¥ë¤Î¹¹¿·');
-define('_AM_RSSC_VIEW_FEED_UPDATE', 'feed ¥Æ¡¼¥Ö¥ë¤Î¹¹¿·');
-define('_AM_RSSC_VIEW_FORCE_DISCOVER', 'RSS URL¤Î¶¯À©¸¡½Ð');
-define('_AM_RSSC_VIEW_FORCE_DISCOVER_DESC', 'RSS¥â¡¼¥É¤Ë´Ø·¸¤Ê¤¯¡¢RDF/RSS/ATOM URL ¤ò¸¡½Ð¤·¡¢URL¤ò¾å½ñ¤­¤Þ¤·¤Þ¤¹');
-define('_AM_RSSC_VIEW_FORCE_UPDATE', '¥¢¡¼¥«¥¤¥Ö¤Î¶¯À©¹¹¿·');
-define('_AM_RSSC_VIEW_FORCE_UPDATE_DESC', '¹¹¿·´Ö³Ö¤Ë´Ø·¸¤Ê¤¯¡¢RDF/RSS/ATOM ¤òÆÉ¤ß½Ð¤·¡¢¥¢¡¼¥«¥¤¥Ö¤ò¾å½ñ¤­¤Þ¤·¤Þ¤¹');
-define('_AM_RSSC_VIEW_FORCE_OVERWRITE', 'feed ¥Æ¡¼¥Ö¥ë¤Î¶¯À©¹¹¿·');
-define('_AM_RSSC_VIEW_FORCE_OVERWRITE_DESC', 'Æ±¤¸ RDF/RSS/ATOM ¤Î¥Ç¡¼¥¿¤¬Â¸ºß¤·¤Æ¤¤¤Æ¤â¡¢feed ¥Æ¡¼¥Ö¥ë¤ò¾å½ñ¤­¤Þ¤·¤Þ¤¹');
-define('_AM_RSSC_VIEW_PRINT_LOG', '¥í¥°¤ÎÉ½¼¨');
-define('_AM_RSSC_VIEW_PRINT_LOG_DESC', '¼Â¹Ô»þ¤ËÆ±»þ¤Ë¥í¥°¤òÉ½¼¨¤¹¤ë');
-define('_AM_RSSC_VIEW_PRINT_ERROR', '¥¨¥é¡¼¤ÎÉ½¼¨');
-define('_AM_RSSC_VIEW_PRINT_ERROR_DESC', '¼Â¹Ô»þ¤ËÆ±»þ¤Ë¥¨¥é¡¼¤òÉ½¼¨¤¹¤ë');
+    // === command manage ===
+    //define('_AM_RSSC_CREATE_CONFIG', 'ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_TEST_BIN_REFRESH', 'bin/refresh.php ï¿½Î¥Æ¥ï¿½ï¿½È¼Â¹ï¿½');
 
-// === command manage ===
-//define('_AM_RSSC_CREATE_CONFIG', 'ÀßÄê¥Õ¥¡¥¤¥ë¤ÎÀ¸À®');
-//define('_AM_RSSC_TEST_BIN_REFRESH', 'bin/refresh.php ¤Î¥Æ¥¹¥È¼Â¹Ô');
+    // === update manage ===
+    define('_AM_RSSC_IMPORT_XOOPSHEADLINE', 'XoopsHeadline ï¿½ï¿½ï¿½ï¿½Î¥Ç¡ï¿½ï¿½ï¿½ï¿½Ü¹ï¿½');
+    define('_AM_RSSC_IMPORT_WEBLINKS', 'WebLinks ï¿½ï¿½ï¿½ï¿½Î¥Ç¡ï¿½ï¿½ï¿½ï¿½Ü¹ï¿½');
 
-// === update manage ===
-define('_AM_RSSC_IMPORT_XOOPSHEADLINE', 'XoopsHeadline ¤«¤é¤Î¥Ç¡¼¥¿°Ü¹Ô');
-define('_AM_RSSC_IMPORT_WEBLINKS', 'WebLinks ¤«¤é¤Î¥Ç¡¼¥¿°Ü¹Ô');
+    // === rename ===
+    define('_AM_RSSC_VIEW_FEED_PERPAGE', _AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE);
+    define('_AM_RSSC_VIEW_MAX_TITLE', _AM_RSSC_CONF_SHOW_MAX_TITLE);
+    define('_AM_RSSC_VIEW_MAX_TITLE_DESC', _AM_RSSC_CONF_SHOW_MAX_TITLE_DESC);
+    define('_AM_RSSC_VIEW_MAX_SUMMARY', _AM_RSSC_CONF_SHOW_MAX_SUMMARY);
+    define('_AM_RSSC_VIEW_MAX_SUMMARY_DESC', _AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC);
+    define('_AM_RSSC_VIEW_XML_SAVE', _AM_RSSC_CONF_XML_SAVE);
+    define('_AM_RSSC_VIEW_XML_SAVE_DESC', _AM_RSSC_CONF_XML_SAVE_DESC);
 
-// === rename ===
-define('_AM_RSSC_VIEW_FEED_PERPAGE', _AM_RSSC_CONF_SHOW_FEEDS_PER_PAGE);
-define('_AM_RSSC_VIEW_MAX_TITLE', _AM_RSSC_CONF_SHOW_MAX_TITLE);
-define('_AM_RSSC_VIEW_MAX_TITLE_DESC', _AM_RSSC_CONF_SHOW_MAX_TITLE_DESC);
-define('_AM_RSSC_VIEW_MAX_SUMMARY', _AM_RSSC_CONF_SHOW_MAX_SUMMARY);
-define('_AM_RSSC_VIEW_MAX_SUMMARY_DESC', _AM_RSSC_CONF_SHOW_MAX_SUMMARY_DESC);
-define('_AM_RSSC_VIEW_XML_SAVE', _AM_RSSC_CONF_XML_SAVE);
-define('_AM_RSSC_VIEW_XML_SAVE_DESC', _AM_RSSC_CONF_XML_SAVE_DESC);
+    // 2006-01-20
+    define('_AM_RSSC_ID_ASC', 'ID ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_ID_DESC', 'ID ï¿½Õ½ï¿½');
 
-// 2006-01-20
-define('_AM_RSSC_ID_ASC', 'ID Àµ½ç');
-define('_AM_RSSC_ID_DESC','ID µÕ½ç');
+    // === 2006-06-04 ===
+    // build rss
+    //define('_AM_RSSC_BUILD', 'RDF/RSS/ATOM ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_BUILD_DSC',  'ï¿½Ç¥Ð¥Ã¥ï¿½ï¿½Ñ¤ï¿½ RDF/RSS/ATOM ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_BUILD_RDF',  'RDF ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_BUILD_RSS',  'RSS ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_BUILD_ATOM', 'ATOM ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// === 2006-06-04 ===
-// build rss
-//define('_AM_RSSC_BUILD', 'RDF/RSS/ATOM ¤ÎÀ¸À®');
-//define('_AM_RSSC_BUILD_DSC',  '¥Ç¥Ð¥Ã¥¯ÍÑ¤Ë RDF/RSS/ATOM ¤òÀ¸À®¤·É½¼¨¤¹¤ë');
-//define('_AM_RSSC_BUILD_RDF',  'RDF ¤ÎÀ¸À®');
-//define('_AM_RSSC_BUILD_RSS',  'RSS ¤ÎÀ¸À®');
-//define('_AM_RSSC_BUILD_ATOM', 'ATOM ¤ÎÀ¸À®');
+    // parse rss
+    define('_AM_RSSC_PARSE_RSS', 'RDF/RSS/ATOM ï¿½Î²ï¿½ï¿½ï¿½');
 
-// parse rss
-define('_AM_RSSC_PARSE_RSS', 'RDF/RSS/ATOM ¤Î²òÀÏ');
+    // refresh link
+    //define('_AM_RSSC_REFRESH_LINK', 'feed ï¿½ï¿½ï¿½ï¿½ï¿½Î¹ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_REFRESH_LINK_DSC', 'ï¿½ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½Æ¡ï¿½RDF/RSS/ATOM ï¿½ï¿½ feed ï¿½ï¿½ï¿½ï¿½ï¿½ò¹¹¿ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>ï¿½â¤·ï¿½ï¿½ï¿½ê¤µï¿½ï¿½Æ¤ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½Ð¡ï¿½<br> <b>RDF/RSS/ATOM URL</b> ï¿½ï¿½ <b>ï¿½ï¿½ï¿½ó¥³¡ï¿½ï¿½ï¿½</b> ï¿½ï¿½Æ°Åªï¿½Ë¸ï¿½ï¿½Ð¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_REFRESH_LINK_FINISHED', 'feed ï¿½ï¿½ï¿½ï¿½ï¿½ò¹¹¿ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// refresh link
-//define('_AM_RSSC_REFRESH_LINK', 'feed µ­»ö¤Î¹¹¿·');
-//define('_AM_RSSC_REFRESH_LINK_DSC', '°ú¤­Â³¤¤¤Æ¡¢RDF/RSS/ATOM ¤Î feed µ­»ö¤ò¹¹¿·¤·¤Þ¤¹¡£<br />¤â¤·ÀßÄê¤µ¤ì¤Æ¤¤¤Ê¤±¤ì¤Ð¡¢<br /> <b>RDF/RSS/ATOM URL</b> ¤È <b>¥¨¥ó¥³¡¼¥É</b> ¤ò¼«Æ°Åª¤Ë¸¡½Ð¤·¤Þ¤¹¡£');
-//define('_AM_RSSC_REFRESH_LINK_FINISHED', 'feed µ­»ö¤ò¹¹¿·¤·¤¿');
+    // === 2006-07-08 ===
+    // description at main
+    define('_AM_RSSC_CONF_INDEX_DESC', 'ï¿½á¥¤ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_INDEX_DESC_DSC', 'ï¿½á¥¤ï¿½ï¿½Ú¡ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">ï¿½ï¿½ï¿½ï¿½ï¿½Ë¤ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½Ï¡Ö¥â¥¸ï¿½å¡¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤Ë¤ï¿½ï¿½Ô½ï¿½ï¿½Ç¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½<br></div><br>');
 
-// === 2006-07-08 ===
-// description at main
-define('_AM_RSSC_CONF_INDEX_DESC','¥á¥¤¥ó¥Ú¡¼¥¸¤ÎÀâÌÀ');
-define('_AM_RSSC_CONF_INDEX_DESC_DSC', '¥á¥¤¥ó¥Ú¡¼¥¸¤ËÉ½¼¨¤¹¤ë¤È¤­¤Ï¡¢ÀâÌÀÊ¸¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤¡£');
-define('_AM_RSSC_CONF_INDEX_DESC_DEFAULT', '<div align="center" style="color: #0000ff">¤³¤³¤Ë¤ÏÀâÌÀÊ¸¤òÉ½¼¨¤·¤Þ¤¹¡£<br />ÀâÌÀÊ¸¤Ï¡Ö¥â¥¸¥å¡¼¥ë¤ÎÀßÄê¡×¤Ë¤ÆÊÔ½¸¤Ç¤­¤Þ¤¹¡£<br /></div><br />');
+    // link table
+    define('_AM_RSSC_LINK_DESC', 'ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½WEBï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ RSS Auto Discovery (ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½Ï¡ï¿½<br><b>RDF/RSS/ATOM URL</b> ï¿½ï¿½ <b>ï¿½ï¿½ï¿½ó¥³¡ï¿½ï¿½ï¿½</b> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½È¤â¡¢ï¿½ï¿½Æ°Åªï¿½ï¿½ï¿½ï¿½ï¿½ê¤µï¿½ï¿½Þ¤ï¿½');
+    //define('_AM_RSSC_LINK_EXIST', 'ï¿½ï¿½ï¿½Î¡ï¿½RDF/RSS/ATOM URLï¿½×¤ï¿½ï¿½ï¿½Ï¿ï¿½Ñ¤ß¤Ç¤ï¿½');
+    //define('_AM_RSSC_LINK_EXIST_MORE','Æ±ï¿½ï¿½ï¿½ï¿½RDF/RSS/ATOM URLï¿½×¤ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½Î¥ï¿½ó¥¯¤ï¿½ï¿½ï¿½ï¿½Ä¤ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    //define('_AM_RSSC_AUTO_FIND_FAILD','RSS Auto Discovery  (ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_LINK_FORCE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸');
 
-// link table
-define('_AM_RSSC_LINK_DESC','ÅÐÏ¿¤¹¤ëWEB¥µ¥¤¥È¤¬ RSS Auto Discovery (¼«Æ°¸¡½Ð) ¤ËÂÐ±þ¤·¤Æ¤¤¤ë¾ì¹ç¤Ï¡¢<br /><b>RDF/RSS/ATOM URL</b> ¤È <b>¥¨¥ó¥³¡¼¥É</b> ¤òµ­Æþ¤·¤Ê¤¯¤È¤â¡¢¼«Æ°Åª¤ËÀßÄê¤µ¤ì¤Þ¤¹');
-//define('_AM_RSSC_LINK_EXIST', '¤½¤Î¡ÖRDF/RSS/ATOM URL¡×¤ÏÅÐÏ¿ºÑ¤ß¤Ç¤¹');
-//define('_AM_RSSC_LINK_EXIST_MORE','Æ±¤¸¡ÖRDF/RSS/ATOM URL¡×¤ò»ý¤ÄÊ£¿ô¤Î¥ê¥ó¥¯¤¬¸«¤Ä¤«¤ê¤Þ¤·¤¿');
-//define('_AM_RSSC_AUTO_FIND_FAILD','RSS Auto Discovery  (¼«Æ°¸¡½Ð) ¤¬½ÐÍè¤Þ¤»¤ó¤Ç¤·¤¿');
-define('_AM_RSSC_LINK_FORCE','¶¯À©ÊÝÂ¸');
+    // black & white table
+    define('_AM_RSSC_BLACK_MEMO', 'ï¿½ï¿½ï¿½ï¿½');
 
-// black & white table
-define('_AM_RSSC_BLACK_MEMO','È÷¹Í');
+    // === 2006-09-20 ===
+    // show content with html
+    define('_AM_RSSC_CONF_SHOW_TITLE_HTML', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Î¤Þ¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£<br>ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£');
+    define('_AM_RSSC_CONF_SHOW_CONTENT_HTML', 'ï¿½ï¿½Ê¸ï¿½ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', 'ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Î¤Þ¤ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£<br>ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ò¤¹¤ï¿½È¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡£');
+    define('_AM_RSSC_CONF_SHOW_MAX_CONTENT', 'ï¿½ï¿½Ê¸ï¿½Îºï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', 'ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½Ïºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½<br><b>-1</b> ï¿½Î¤È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Â¤Ê¤ï¿½ï¿½Ç¤ï¿½');
+    define('_AM_RSSC_CONF_SHOW_NUM_CONTENT', 'ï¿½ï¿½Ê¸ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½feedï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_NUM_CONTENT_DSC', 'ï¿½ï¿½Ê¸ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_BLOG_LID', 'Bolg ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Link ID');
+    //define('_AM_RSSC_CONF_SHOW_BLOG_LID_DSC', 'Bolg ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Link ID ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// === 2006-09-20 ===
-// show content with html
-define('_AM_RSSC_CONF_SHOW_TITLE_HTML','¥¿¥¤¥È¥ë¤ÎHTML¥¿¥°¤ÎÉ½¼¨');
-define('_AM_RSSC_CONF_SHOW_TITLE_HTML_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
-define('_AM_RSSC_CONF_SHOW_CONTENT_HTML','ËÜÊ¸¤ÎHTML¥¿¥°¤ÎÉ½¼¨');
-define('_AM_RSSC_CONF_SHOW_CONTENT_HTML_DSC', '¡Ö¤Ï¤¤¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤¬¤¢¤ë¤È¤­¤Ï¡¢¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¡£<br />¡Ö¤¤¤¤¤¨¡×¤òÁªÂò¤¹¤ë¤È¡¢HTML¥¿¥°¤òºï½ü¤·¤ÆÉ½¼¨¤¹¤ë¡£');
-define('_AM_RSSC_CONF_SHOW_MAX_CONTENT','ËÜÊ¸¤ÎºÇÂçÊ¸»ú¿ô');
-define('_AM_RSSC_CONF_SHOW_MAX_CONTENT_DSC', '¤³¤ÎÊ¸»ú¿ô¤òÄ¶¤¨¤¿¤È¤­¤Ï¡¢HTML¥¿¥°¤Ïºï½ü¤µ¤ì¤Þ¤¹<br /><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
-define('_AM_RSSC_CONF_SHOW_NUM_CONTENT','ËÜÊ¸¤òÉ½¼¨¤¹¤ëfeed·ï¿ô');
-define('_AM_RSSC_CONF_SHOW_NUM_CONTENT_DSC', 'ËÜÊ¸¤òÉ½¼¨¤¹¤ëºÇÂç·ï¿ô¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤');
-define('_AM_RSSC_CONF_SHOW_BLOG_LID','Bolg ¤òÉ½¼¨¤¹¤ë Link ID');
-//define('_AM_RSSC_CONF_SHOW_BLOG_LID_DSC', 'Bolg ¤òÉ½¼¨¤¹¤ë Link ID ¤ò»ØÄê¤·¤Æ¤¯¤À¤µ¤¤');
+    define('_AM_RSSC_TABLE_MANAGE', 'DBï¿½Æ¡ï¿½ï¿½Ö¥ï¿½ï¿½ï¿½ï¿½');
 
-define('_AM_RSSC_TABLE_MANAGE','DB¥Æ¡¼¥Ö¥ë´ÉÍý');
+    // === 2006-11-08 ===
+    // proxy server
+    define('_AM_RSSC_FORM_PROXY', 'ï¿½×¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_PROXY_USE', 'ï¿½×¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_PROXY_HOST', 'ï¿½×¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¥ï¿½ï¿½ï¿½Ì¾');
+    define('_AM_RSSC_CONF_PROXY_PORT', 'ï¿½×¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½');
+    define('_AM_RSSC_CONF_PROXY_USER', 'ï¿½×¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ¡¼ï¿½ï¿½Ì¾');
+    define('_AM_RSSC_CONF_PROXY_USER_DESC', 'ï¿½×¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½BASICÇ§ï¿½Ú¤ï¿½É¬ï¿½×¤È¤ï¿½ï¿½ï¿½ï¿½ï¿½Ï¡ï¿½ï¿½æ¡¼ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ï¿½ï¿½Ï¤ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½ï¿½Ç¤Ê¤ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Î¤Þ¤Þ¤Ë¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_PROXY_PASS', 'ï¿½×¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¥ï¿½ï¿½ï¡¼ï¿½ï¿½');
+    define('_AM_RSSC_CONF_PROXY_PASS_DESC', 'ï¿½×¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½BASICÇ§ï¿½Ú¤ï¿½É¬ï¿½×¤È¤ï¿½ï¿½ï¿½ï¿½ï¿½Ï¡ï¿½ï¿½Ñ¥ï¿½ï¿½ï¡¼ï¿½É¤ï¿½ï¿½ï¿½ï¿½Ï¤ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½ï¿½Ç¤Ê¤ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Î¤Þ¤Þ¤Ë¤ï¿½ï¿½ï¿½');
 
-// === 2006-11-08 ===
-// proxy server
-define('_AM_RSSC_FORM_PROXY', '¥×¥í¥­¥·¡¦¥µ¡¼¥Ð¡¼ ÀßÄê');
-define('_AM_RSSC_CONF_PROXY_USE',  '¥×¥í¥­¥·¡¦¥µ¡¼¥Ð¡¼¤ò»ÈÍÑ¤¹¤ë');
-define('_AM_RSSC_CONF_PROXY_HOST', '¥×¥í¥­¥·¡¦¥Û¥¹¥ÈÌ¾');
-define('_AM_RSSC_CONF_PROXY_PORT', '¥×¥í¥­¥·¡¦¥Ý¡¼¥ÈÈÖ¹æ');
-define('_AM_RSSC_CONF_PROXY_USER', '¥×¥í¥­¥·¡¦¥æ¡¼¥¶Ì¾');
-define('_AM_RSSC_CONF_PROXY_USER_DESC', '¥×¥í¥­¥·¡¦¥µ¡¼¥Ð¡¼¤¬BASICÇ§¾Ú¤òÉ¬Í×¤È¤¹¤ë¾ì¹ç¤Ï¡¢¥æ¡¼¥¶Ì¾¤òÆþÎÏ¤¹¤ë<br />¤½¤¦¤Ç¤Ê¤±¤ì¤Ð¡¢¶õÍó¤Î¤Þ¤Þ¤Ë¤¹¤ë');
-define('_AM_RSSC_CONF_PROXY_PASS', '¥×¥í¥­¥·¡¦¥Ñ¥¹¥ï¡¼¥É');
-define('_AM_RSSC_CONF_PROXY_PASS_DESC', '¥×¥í¥­¥·¡¦¥µ¡¼¥Ð¡¼¤¬BASICÇ§¾Ú¤òÉ¬Í×¤È¤¹¤ë¾ì¹ç¤Ï¡¢¥Ñ¥¹¥ï¡¼¥É¤òÆþÎÏ¤¹¤ë<br />¤½¤¦¤Ç¤Ê¤±¤ì¤Ð¡¢¶õÍó¤Î¤Þ¤Þ¤Ë¤¹¤ë');
+    define('_AM_RSSC_CONF_HIGHLIGHT', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¡¼ï¿½É¤Î¥Ï¥ï¿½ï¿½é¥¤ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
 
-define('_AM_RSSC_CONF_HIGHLIGHT', '¥­¡¼¥ï¡¼¥É¤Î¥Ï¥¤¥é¥¤¥ÈÉ½¼¨¤ò»ÈÍÑ¤¹¤ë');
+    // === 2007-06-01 ===
+    // word_list
+    define('_AM_RSSC_LIST_WORD', 'ï¿½Ø»ß¸ï¿½Î°ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_WORD_MANAGE', 'ï¿½Ø»ß¸ï¿½Î´ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_ADD_WORD', 'ï¿½Ø»ß¸ï¿½ï¿½ï¿½É²ï¿½');
+    define('_AM_RSSC_MOD_WORD', 'ï¿½Ø»ß¸ï¿½Î½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_DEL_WORD', 'ï¿½Ø»ß¸ï¿½Îºï¿½ï¿½');
+    define('_AM_RSSC_POINT_ASC', 'ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_POINT_DESC', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_COUNT_ASC', 'ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_COUNT_DESC', 'ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_WORD_ASC', 'ABCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½');
+    define('_AM_RSSC_WORD_DESC', 'ABCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ½ï¿½');
+    define('_AM_RSSC_NON_ACT', 'ï¿½ï¿½É½ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_NON_ACT_ASC', 'ï¿½ï¿½É½ï¿½ï¿½ IDï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_NON_ACT_DESC', 'ï¿½ï¿½É½ï¿½ï¿½ IDï¿½Õ½ï¿½');
+    define('_AM_RSSC_WORD_ALREADY', 'ï¿½ï¿½ï¿½Î¶Ø»ß¸ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_WORD_SEARCH', 'ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½');
 
-// === 2007-06-01 ===
-// word_list
-define('_AM_RSSC_LIST_WORD','¶Ø»ß¸ì¤Î°ìÍ÷');
-define('_AM_RSSC_WORD_MANAGE','¶Ø»ß¸ì¤Î´ÉÍý');
-define('_AM_RSSC_ADD_WORD','¶Ø»ß¸ì¤ÎÄÉ²Ã');
-define('_AM_RSSC_MOD_WORD','¶Ø»ß¸ì¤Î½¤Àµ');
-define('_AM_RSSC_DEL_WORD','¶Ø»ß¸ì¤Îºï½ü');
-define('_AM_RSSC_POINT_ASC', 'ÅÀ¿ô¤Î¾¯¤Ê¤¤½ç');
-define('_AM_RSSC_POINT_DESC','ÅÀ¿ô¤ÎÂ¿¤¤½ç');
-define('_AM_RSSC_COUNT_ASC', '½Ð¸½²ó¿ô¤Î¾¯¤Ê¤¤½ç');
-define('_AM_RSSC_COUNT_DESC','½Ð¸½²ó¿ô¤ÎÂ¿¤¤½ç');
-define('_AM_RSSC_WORD_ASC', 'ABC¤¢¤¤¤¦¤¨¤ª ½ç');
-define('_AM_RSSC_WORD_DESC','ABC¤¢¤¤¤¦¤¨¤ª µÕ½ç');
-define('_AM_RSSC_NON_ACT','ÈóÉ½¼¨¤Î°ìÍ÷');
-define('_AM_RSSC_NON_ACT_ASC', 'ÈóÉ½¼¨ IDÀµ½ç');
-define('_AM_RSSC_NON_ACT_DESC','ÈóÉ½¼¨ IDµÕ½ç');
-define('_AM_RSSC_WORD_ALREADY','¤½¤Î¶Ø»ß¸ì¤ÏÅÐÏ¿¤µ¤ì¤Æ¤¤¤ë');
-define('_AM_RSSC_WORD_SEARCH','Îà»÷¸ì ¸¡º÷');
+    // content filter
+    define('_AM_RSSC_FORM_FILTER', 'ï¿½Õ¥ï¿½ï¿½ë¥¿ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_FORM_FILTER_DESC', 'feed ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ë¡ï¿½ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ë¤·ï¿½Ê¤ï¿½ï¿½ï¿½È½ï¿½ê¤¹ï¿½ï¿½ï¿½ï¿½È¤ï¿½');
+    define('_AM_RSSC_CONF_LINK_USE', 'ï¿½ï¿½ó¥¯¥Æ¡ï¿½ï¿½Ö¥ï¿½Î»ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_LINK_USE_DESC', 'ï¿½ï¿½ó¥¯¥Æ¡ï¿½ï¿½Ö¥ï¿½Î¡Ö¥ï¿½ï¿½ï¿½ï¿½×¡×¤ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½×¤Ç¤ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WHITE_USE', 'ï¿½Û¥ï¥¤ï¿½È¥ê¥¹ï¿½È¤Î»ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WHITE_USE_DESC', 'ï¿½Û¥ï¥¤ï¿½È¥ê¥¹ï¿½È¤Ë¤ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_BLACK_USE', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤Î»ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_BLACK_USE_DESC', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤Ë¤ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½Ê¤ï¿½<br>ï¿½ï¿½ï¿½Ñ¤Ç¤Ï¡ï¿½ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ï¿½È½ï¿½ê¤¹ï¿½ï¿½È¡ï¿½ï¿½Ê¹ß¤Î½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½<br>ï¿½Ø½ï¿½ï¿½â¡¼ï¿½É¤Ç¤Ï¡ï¿½ï¿½Ø»ß¸ï¿½ï¿½ï¿½ï¿½Ð¤ï¿½ï¿½ë¤¿ï¿½á¡¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_BLACK_USE_NO', 'Ì¤ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_BLACK_USE_YES', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_BLACK_USE_LEARN', 'ï¿½Ø½ï¿½ï¿½â¡¼ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WORD_USE', 'ï¿½Ø»ß¸ï¿½ê¥¹ï¿½È¤Î»ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WORD_USE_DESC', 'ï¿½Ø»ß¸ï¿½ê¥¹ï¿½È¤Î¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È½ï¿½ï¿½ï¿½Ù¥ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_RSSC_CONF_WORD_LEVEL', 'È½ï¿½ï¿½ï¿½Ù¥ï¿½');
+    define('_AM_RSSC_CONF_FEED_SAVE', 'feed ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸');
+    define(
+        '_AM_RSSC_CONF_FEED_SAVE_DESC',
+        'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ï¿½È½ï¿½ê¤·ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ë¡ï¿½feed ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ë¤«ï¿½Ý¤ï¿½ï¿½ï¿½<br>
+ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½×¤Ç¤Ï¡ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½Î¾ï¿½ï¿½Ö¤Ë¤ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½'
+    );
+    define('_AM_RSSC_CONF_FEED_SAVE_NO', 'ï¿½ï¿½Â¸ï¿½ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_RSSC_CONF_FEED_SAVE_YES', 'ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_LOG_USE', 'ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_LOG_USE_DESC', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ï¿½È½ï¿½ê¤·ï¿½ï¿½ï¿½È¤ï¿½ï¿½Ë¡ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WHITE_COUNT', 'ï¿½Û¥ï¥¤ï¿½È¥ê¥¹ï¿½È¤Î¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WHITE_COUNT_DESC', 'ï¿½Û¥ï¥¤ï¿½È¥ê¥¹ï¿½È¤Ë¹ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ò¥«¥ï¿½ï¿½ï¿½È¥ï¿½ï¿½Ã¥×¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_BLACK_COUNT', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤Î¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_BLACK_COUNT_DESC', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤Ë¹ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ò¥«¥ï¿½ï¿½ï¿½È¥ï¿½ï¿½Ã¥×¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WORD_COUNT', 'ï¿½Ø»ß¸ï¿½ê¥¹ï¿½È¤Î¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WORD_COUNT_DESC', 'ï¿½Ø»ß¸ï¿½ê¥¹ï¿½È¤Ë¹ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¾ï¿½ï¿½ò¥«¥ï¿½ï¿½ï¿½È¥ï¿½ï¿½Ã¥×¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_BLACK_AUTO', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤Î¼ï¿½Æ°ï¿½ï¿½Ï¿');
+    define('_AM_RSSC_CONF_BLACK_AUTO_DESC', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ï¿½È½ï¿½ê¤µï¿½ì¤¿URLï¿½ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤Ë¼ï¿½Æ°Åªï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½<br><b>ï¿½ï¿½ï¿½</b> ï¿½ï¿½Ìµï¿½ï¿½ï¿½×¾ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Þ¤ï¿½<br>ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½ï¿½ï¿½Ï¡ï¿½Í­ï¿½ï¿½ï¿½×¤ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WORD_AUTO', 'ï¿½Ø»ß¸ï¿½Î¼ï¿½Æ°ï¿½ï¿½Ï¿');
+    define('_AM_RSSC_CONF_WORD_AUTO_DESC', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ï¿½È½ï¿½ê¤µï¿½ì¤¿ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½Ä¤Ë´Þ¤Þ¤ï¿½ï¿½Ã±ï¿½ï¿½ï¿½Æ°Åªï¿½ï¿½ï¿½ï¿½Ð¤ï¿½ï¿½Æ¡ï¿½ï¿½Ø»ß¸ï¿½ê¥¹ï¿½È¤Ë¼ï¿½Æ°Åªï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½<br><b>ï¿½ï¿½ï¿½</b> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½=0 ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Þ¤ï¿½<br>ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WORD_AUTO_NON', 'ï¿½ï¿½Æ°ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_RSSC_CONF_WORD_AUTO_SYMBOL', 'ï¿½ï¿½ï¿½ï¿½äµ­ï¿½ï¿½Ë¤ï¿½ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WORD_AUTO_KAKASI', 'KAKASIï¿½Ë¤ï¿½ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// content filter
-define('_AM_RSSC_FORM_FILTER','¥Õ¥£¥ë¥¿ÀßÄê');
-define('_AM_RSSC_FORM_FILTER_DESC','feed µ­»ö¤ò¼«Æ°¼ý½¸¤¹¤ë¤È¤­¤Ë¡¢¥Ç¡¼¥¿¥Ù¡¼¥¹¤ËÊÝÂ¸¤¹¤ë¤·¤Ê¤¤¤òÈ½Äê¤¹¤ë»ÅÁÈ¤ß');
-define('_AM_RSSC_CONF_LINK_USE','¥ê¥ó¥¯¥Æ¡¼¥Ö¥ë¤Î»ÈÍÑ');
-define('_AM_RSSC_CONF_LINK_USE_DESC','¥ê¥ó¥¯¥Æ¡¼¥Ö¥ë¤Î¡Ö¥¿¥¤¥×¡×¤¬¡ÖÄÌ¾ï¡×¤Ç¤¢¤ì¤Ð¡¢ÊÝÂ¸¤¹¤ë');
-define('_AM_RSSC_CONF_WHITE_USE','¥Û¥ï¥¤¥È¥ê¥¹¥È¤Î»ÈÍÑ');
-define('_AM_RSSC_CONF_WHITE_USE_DESC','¥Û¥ï¥¤¥È¥ê¥¹¥È¤Ë¤¢¤ì¤Ð¡¢ÊÝÂ¸¤¹¤ë');
-define('_AM_RSSC_CONF_BLACK_USE','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Î»ÈÍÑ');
-define('_AM_RSSC_CONF_BLACK_USE_DESC','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Ë¤¢¤ì¤Ð¡¢ÊÝÂ¸¤·¤Ê¤¤<br />»ÈÍÑ¤Ç¤Ï¡¢¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤¹¤ë¤È¡¢°Ê¹ß¤Î½èÍý¤òÃæÃÇ¤¹¤ë<br />³Ø½¬¥â¡¼¥É¤Ç¤Ï¡¢¶Ø»ß¸ì¤òÃê½Ð¤¹¤ë¤¿¤á¡¢½èÍý¤ò·ÑÂ³¤¹¤ë');
-define('_AM_RSSC_CONF_BLACK_USE_NO','Ì¤»ÈÍÑ');
-define('_AM_RSSC_CONF_BLACK_USE_YES','»ÈÍÑ');
-define('_AM_RSSC_CONF_BLACK_USE_LEARN','³Ø½¬¥â¡¼¥É');
-define('_AM_RSSC_CONF_WORD_USE','¶Ø»ß¸ì¥ê¥¹¥È¤Î»ÈÍÑ');
-define('_AM_RSSC_CONF_WORD_USE_DESC','¶Ø»ß¸ì¥ê¥¹¥È¤Î¹ç·×ÆÀÅÀ¤¬È½Äê¥ì¥Ù¥ë¤òÄ¶¤¨¤ë¤È¡¢ÊÝÂ¸¤·¤Ê¤¤');
-define('_AM_RSSC_CONF_WORD_LEVEL', 'È½Äê¥ì¥Ù¥ë');
-define('_AM_RSSC_CONF_FEED_SAVE','feed µ­»ö¤ÎÊÝÂ¸');
-define('_AM_RSSC_CONF_FEED_SAVE_DESC','¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤·¤¿¤È¤­¤Ë¡¢feed ¥Æ¡¼¥Ö¥ë¤ËÊÝÂ¸¤¹¤ë¤«ÈÝ¤«¡£<br />
-¡ÖÊÝÂ¸¤¹¤ë¡×¤Ç¤Ï¡¢ÈóÉ½¼¨¤Î¾õÂÖ¤Ë¤·¤ÆÊÝÂ¸¤·¤Þ¤¹¡£');
-define('_AM_RSSC_CONF_FEED_SAVE_NO', 'ÊÝÂ¸¤·¤Ê¤¤');
-define('_AM_RSSC_CONF_FEED_SAVE_YES','ÊÝÂ¸¤¹¤ë');
-define('_AM_RSSC_CONF_LOG_USE','¥í¥°¥Õ¥¡¥¤¥ë¤Î»ÈÍÑ');
-define('_AM_RSSC_CONF_LOG_USE_DESC','¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤·¤¿¤È¤­¤Ë¡¢¥í¥°¥Õ¥¡¥¤¥ë¤ËÊÝÂ¸¤¹¤ë');
-define('_AM_RSSC_CONF_WHITE_COUNT','¥Û¥ï¥¤¥È¥ê¥¹¥È¤Î¥«¥¦¥ó¥È');
-define('_AM_RSSC_CONF_WHITE_COUNT_DESC','¥Û¥ï¥¤¥È¥ê¥¹¥È¤Ë¹çÃ×¤·¤¿¤È¤­¡¢³ºÅö¤Î¾ò·ï¤ò¥«¥¦¥ó¥È¥¢¥Ã¥×¤¹¤ë');
-define('_AM_RSSC_CONF_BLACK_COUNT','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Î¥«¥¦¥ó¥È');
-define('_AM_RSSC_CONF_BLACK_COUNT_DESC','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Ë¹çÃ×¤·¤¿¤È¤­¡¢³ºÅö¤Î¾ò·ï¤ò¥«¥¦¥ó¥È¥¢¥Ã¥×¤¹¤ë');
-define('_AM_RSSC_CONF_WORD_COUNT','¶Ø»ß¸ì¥ê¥¹¥È¤Î¥«¥¦¥ó¥È');
-define('_AM_RSSC_CONF_WORD_COUNT_DESC','¶Ø»ß¸ì¥ê¥¹¥È¤Ë¹çÃ×¤·¤¿¤È¤­¡¢³ºÅö¤Î¾ò·ï¤ò¥«¥¦¥ó¥È¥¢¥Ã¥×¤¹¤ë');
-define('_AM_RSSC_CONF_BLACK_AUTO','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Î¼«Æ°ÅÐÏ¿');
-define('_AM_RSSC_CONF_BLACK_AUTO_DESC','¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤µ¤ì¤¿URL¤ò¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Ë¼«Æ°Åª¤ËÅÐÏ¿¤¹¤ë<br /><b>Ãí°Õ</b> ¡ÖÌµ¸ú¡×¾õÂÖ¤ÇÅÐÏ¿¤·¤Þ¤¹<br />»ÈÍÑ¤¹¤ë¾ì¹ç¤Ï¡ÖÍ­¸ú¡×¤ËÊÑ¹¹¤·¤Æ¤¯¤À¤µ¤¤');
-define('_AM_RSSC_CONF_WORD_AUTO','¶Ø»ß¸ì¤Î¼«Æ°ÅÐÏ¿');
-define('_AM_RSSC_CONF_WORD_AUTO_DESC','¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤µ¤ì¤¿¥³¥ó¥Æ¥ó¥Ä¤Ë´Þ¤Þ¤ì¤ëÃ±¸ì¤ò¼«Æ°Åª¤ËÃê½Ð¤·¤Æ¡¢¶Ø»ß¸ì¥ê¥¹¥È¤Ë¼«Æ°Åª¤ËÅÐÏ¿¤¹¤ë<br /><b>Ãí°Õ</b> ¡ÖÅÀ¿ô¡×=0 ¤ÇÅÐÏ¿¤·¤Þ¤¹<br />»ÈÍÑ¤¹¤ë¾ì¹ç¤ÏÅÀ¿ô¤òÀßÄê¤·¤Æ¤¯¤À¤µ¤¤');
-define('_AM_RSSC_CONF_WORD_AUTO_NON','¼«Æ°ÅÐÏ¿¤·¤Ê¤¤');
-define('_AM_RSSC_CONF_WORD_AUTO_SYMBOL','¶õÇò¤äµ­¹æ¤Ë¤è¤ëÃ±¸ì¤ÎÃê½Ð');
-define('_AM_RSSC_CONF_WORD_AUTO_KAKASI','KAKASI¤Ë¤è¤ëÃ±¸ì¤ÎÃê½Ð');
+    // word extract
+    define('_AM_RSSC_FORM_WORD', 'Ã±ï¿½ï¿½ï¿½ï¿½Ð¤ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_JOIN_PREV', 'Ã±ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½');
+    define('_AM_RSSC_CONF_JOIN_PREV_DESC', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½Ï¢ï¿½ë¤·ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_JOIN_GLUE', 'Ã±ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_JOIN_GLUE_DESC', 'ï¿½ï¿½ï¿½Ü¸ï¿½Ç¤Ï²ï¿½ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½Ê¤ï¿½<br>ï¿½Ñ¸ï¿½Ç¤ï¿½È¾ï¿½Ñ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_AM_RSSC_CONF_KAKASI_PATH', 'KAKASIï¿½Î¥ï¿½ï¿½Þ¥ï¿½É¥Ñ¥ï¿½');
+    define('_AM_RSSC_CONF_KAKASI_MODE', 'KAKASIï¿½Î¥â¡¼ï¿½ï¿½');
+    define('_AM_RSSC_CONF_KAKASI_MODE_FILE', 'ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_KAKASI_MODE_PIPE', 'UNIX pipe ï¿½ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_CHAR_LENGTH', 'Ã±ï¿½ï¿½ÎºÇ¾ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'ï¿½ï¿½Ð¤ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ÎºÇ¾ï¿½ï¿½ï¿½(È¾ï¿½ï¿½)Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WORD_LIMIT', 'ï¿½Ø»ß¸ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'word ï¿½Æ¡ï¿½ï¿½Ö¥ï¿½Ë³ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½Ø»ß¸ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½ï¿½Í¤ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¤Î¸Å¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é¥¯ï¿½ê¥¢ï¿½ï¿½ï¿½ï¿½ë¡£<br><b>0</b> ï¿½ï¿½Ìµï¿½ï¿½ï¿½Â¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä¾©ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi ï¿½ï¿½ï¿½Â¹Ô²ï¿½Ç½ï¿½Ç¤ï¿½');
+    define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi ï¿½ï¿½ï¿½Â¹Ô¤Ç¤ï¿½ï¿½Þ¤ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_GET', 'HTMLï¿½Î¼ï¿½Æ°ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_GET_DESC', 'ï¿½Ø»ß¸ï¿½ê¥¹ï¿½È¤ï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½È½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½È¤ï¿½ï¿½Ë¡ï¿½È¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½HTMLï¿½Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½<br>HTMLï¿½Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½È½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¤Ï¸ï¿½ï¿½å¤·ï¿½Þ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¹Ô»ï¿½ï¿½Ö¤ï¿½ï¿½ç¤­ï¿½ï¿½ï¿½Ê¤ï¿½Þ¤ï¿½');
+    define('_AM_RSSC_CONF_HTML_GET_NO', 'ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_RSSC_CONF_HTML_GET_YES', 'ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_GET_BLACK', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ï¿½È½ï¿½ê¤µï¿½ï¿½È¤ï¿½ï¿½Ë¼ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_LIMIT', 'HTMLï¿½Ç¡ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_LIMIT_DESC', 'ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½HTMLï¿½Ç¡ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½ï¿½ï¿½È¤Ë¤ï¿½Ã¤Æ¤ï¿½ï¿½ç¤­ï¿½Ê¥Ç¡ï¿½ï¿½ï¿½ï¿½È¤Ê¤ê¡¢ï¿½ï¿½ï¿½ï¿½Ê¬ ï¿½Â¹Ô»ï¿½ï¿½Ö¤ï¿½Ä¹ï¿½ï¿½ï¿½Ê¤ï¿½Þ¤ï¿½');
 
-// word extract
-define('_AM_RSSC_FORM_WORD','Ã±¸ìÃê½Ð¤ÎÀßÄê');
-define('_AM_RSSC_CONF_JOIN_PREV', 'Ã±¸ì¤ÎÏ¢·ë');
-define('_AM_RSSC_CONF_JOIN_PREV_DESC', 'Á°¸å¤ÎÃ±¸ì¤ÈÏ¢·ë¤·¡¢½Ï¸ì¤òºî¤ë');
-define('_AM_RSSC_CONF_JOIN_GLUE', 'Ã±¸ì¤ÎÏ¢·ë»Ò');
-define('_AM_RSSC_CONF_JOIN_GLUE_DESC', 'ÆüËÜ¸ì¤Ç¤Ï²¿¤â»ØÄê¤·¤Ê¤¤<br />±Ñ¸ì¤Ç¤ÏÈ¾³Ñ¶õÇò¤ò»ØÄê¤¹¤ë');
-define('_AM_RSSC_CONF_KAKASI_PATH','KAKASI¤Î¥³¥Þ¥ó¥É¥Ñ¥¹');
-define('_AM_RSSC_CONF_KAKASI_MODE','KAKASI¤Î¥â¡¼¥É');
-define('_AM_RSSC_CONF_KAKASI_MODE_FILE','°ì»þ¥Õ¥¡¥¤¥ë¤ò»ÈÍÑ¤¹¤ë');
-define('_AM_RSSC_CONF_KAKASI_MODE_PIPE','UNIX pipe ¤ò»ÈÍÑ¤¹¤ë');
-define('_AM_RSSC_CONF_CHAR_LENGTH', 'Ã±¸ì¤ÎºÇ¾®Ê¸»ú¿ô');
-define('_AM_RSSC_CONF_CHAR_LENGTH_DESC', 'Ãê½Ð¤¹¤ëÃ±¸ì¤ÎºÇ¾®¤Î(È¾³Ñ)Ê¸»ú¿ô');
-define('_AM_RSSC_CONF_WORD_LIMIT', '¶Ø»ß¸ì¤ÎºÇÂç¤ÎÅÐÏ¿¿ô');
-define('_AM_RSSC_CONF_WORD_LIMIT_DESC', 'word ¥Æ¡¼¥Ö¥ë¤Ë³ÊÇ¼¤¹¤ë¶Ø»ß¸ì¤ÎºÇÂç¤ÎÅÐÏ¿¿ô¤ò»ØÄê¤¹¤ë<br />¤³¤ÎÃÍ¤òÄ¶¤¨¤ë¤ÈÆüÉÕ¤Î¸Å¤¤Êý¤«¤é¥¯¥ê¥¢¤µ¤ì¤ë¡£<br /><b>0</b> ¤ÏÌµÀ©¸Â¤À¤¬¡¢¿ä¾©¤·¤Ê¤¤¡£');
-define('_AM_RSSC_KAKASI_EXECUTABLE', 'kakasi ¤¬¼Â¹Ô²ÄÇ½¤Ç¤¹');
-define('_AM_RSSC_KAKASI_NOT_EXECUTABLE', 'kakasi ¤¬¼Â¹Ô¤Ç¤­¤Þ¤»¤ó');
-define('_AM_RSSC_CONF_HTML_GET','HTML¤Î¼«Æ°¼èÆÀ');
-define('_AM_RSSC_CONF_HTML_GET_DESC','¶Ø»ß¸ì¥ê¥¹¥È¤ò»ÈÍÑ¤·¤ÆÈ½Äê¤ò¹Ô¤¦¤È¤­¤Ë¡¢È¯¸À¸µ¤ÎHTML¥Ç¡¼¥¿¤ò¼«Æ°¼èÆÀ¤·¤Þ¤¹<br />HTML¥Ç¡¼¥¿¤ò¼èÆÀ¤¹¤ë¤È¡¢È½Äê¤ÎÀºÅÙ¤Ï¸þ¾å¤·¤Þ¤¹¤¬¡¢¼Â¹Ô»þ´Ö¤âÂç¤­¤¯¤Ê¤ê¤Þ¤¹');
-define('_AM_RSSC_CONF_HTML_GET_NO','¼«Æ°¼èÆÀ¤·¤Ê¤¤');
-define('_AM_RSSC_CONF_HTML_GET_YES','¼«Æ°¼èÆÀ¤¹¤ë');
-define('_AM_RSSC_CONF_HTML_GET_BLACK','¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤µ¤ì¤È¤­¤Ë¼«Æ°¼èÆÀ¤¹¤ë');
-define('_AM_RSSC_CONF_HTML_LIMIT', 'HTML¥Ç¡¼¥¿¤ÎºÇÂç¤ÎÊ¸»ú¿ô');
-define('_AM_RSSC_CONF_HTML_LIMIT_DESC', '¼«Æ°¼èÆÀ¤·¤¿HTML¥Ç¡¼¥¿¤ÎºÇÂç¤ÎÊ¸»ú¿ô<br />¥µ¥¤¥È¤Ë¤è¤Ã¤Æ¤ÏÂç¤­¤Ê¥Ç¡¼¥¿¤È¤Ê¤ê¡¢¤½¤ÎÊ¬ ¼Â¹Ô»þ´Ö¤¬Ä¹¤¯¤Ê¤ê¤Þ¤¹');
+    // archive manage
+    define('_AM_RSSC_LEAN_BLACK', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤Î³Ø½ï¿½');
+    define('_AM_RSSC_LEAN_BLACK_DESC', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ê¥¹ï¿½È¤ï¿½ï¿½ó¤·¡ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½Ä¤Ë´Þ¤Þ¤ï¿½ï¿½Ã±ï¿½ï¿½ï¿½Æ°Åªï¿½ï¿½ï¿½ï¿½Ð¤ï¿½ï¿½Æ¡ï¿½ï¿½Ø»ß¸ï¿½ê¥¹ï¿½È¤Ë¼ï¿½Æ°Åªï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_NUM_FEED_ALL', 'ï¿½ï¿½ï¿½Æ¤ï¿½FEEDï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_NUM_FEED_SKIP', 'ï¿½ï¿½ï¿½Ç¤ï¿½ï¿½ï¿½Â¸ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½FEEDï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_NUM_FEED_REJECT', 'ï¿½Ö¥ï¿½Ã¥ï¿½ï¿½ï¿½È½ï¿½ê¤µï¿½ì¤¿FEEDï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// archive manage
-define('_AM_RSSC_LEAN_BLACK', '¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤Î³Ø½¬');
-define('_AM_RSSC_LEAN_BLACK_DESC','¥Ö¥é¥Ã¥¯¥ê¥¹¥È¤ò½ä²ó¤·¡¢¥³¥ó¥Æ¥ó¥Ä¤Ë´Þ¤Þ¤ì¤ëÃ±¸ì¤ò¼«Æ°Åª¤ËÃê½Ð¤·¤Æ¡¢¶Ø»ß¸ì¥ê¥¹¥È¤Ë¼«Æ°Åª¤ËÅÐÏ¿¤¹¤ë');
-define('_AM_RSSC_NUM_FEED_ALL','Á´¤Æ¤ÎFEED¤Îµ­»ö¿ô');
-define('_AM_RSSC_NUM_FEED_SKIP','¤¹¤Ç¤ËÊÝÂ¸¤µ¤ì¤Æ¤¤¤¿FEED¤Îµ­»ö¿ô');
-define('_AM_RSSC_NUM_FEED_REJECT','¥Ö¥é¥Ã¥¯¤ÈÈ½Äê¤µ¤ì¤¿FEED¤Îµ­»ö¿ô');
+    define('_AM_RSSC_THEREARE_TITLE', '<b>%s</b> ï¿½Ë´Ø¤ï¿½ï¿½ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ <b>%s</b> ï¿½Ç¤ï¿½ï¿½ï¿½');
 
-define('_AM_RSSC_THEREARE_TITLE','<b>%s</b> ¤Ë´Ø¤¹¤ë¥Ç¡¼¥¿¤Ï <b>%s</b> ¤Ç¤¹¡£');
+    // === 2007-10-10 ===
+    // config
+    define('_AM_RSSC_CONF_SHOW_MODE_DATE', 'ï¿½ï¿½ï¿½Õ¤Î¼ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_MODE_DATE_NON', 'É½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½');
+    define('_AM_RSSC_CONF_SHOW_MODE_DATE_SHORT', 'short');
+    define('_AM_RSSC_CONF_SHOW_MODE_DATE_MIDDLE', 'middle');
+    define('_AM_RSSC_CONF_SHOW_MODE_DATE_LONG', 'long');
+    define('_AM_RSSC_CONF_SHOW_SITE', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¾ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_SITE_DSC', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½URLï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¤«');
 
-// === 2007-10-10 ===
-// config
-define('_AM_RSSC_CONF_SHOW_MODE_DATE', 'ÆüÉÕ¤Î¼ïÎà');
-define('_AM_RSSC_CONF_SHOW_MODE_DATE_NON',    'É½¼¨¤·¤Ê¤¤');
-define('_AM_RSSC_CONF_SHOW_MODE_DATE_SHORT',  'short');
-define('_AM_RSSC_CONF_SHOW_MODE_DATE_MIDDLE', 'middle');
-define('_AM_RSSC_CONF_SHOW_MODE_DATE_LONG',   'long');
-define('_AM_RSSC_CONF_SHOW_SITE', '¥µ¥¤¥È¾ðÊó');
-define('_AM_RSSC_CONF_SHOW_SITE_DSC', '¥µ¥¤¥ÈÌ¾¤ÈURL¤òÉ½¼¨¤¹¤ë¤«');
+    // link table
+    define('_AM_RSSC_LINK_CENSOR_DESC', 'Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½Î´Ö¤ï¿½ <b>|</b> ï¿½Ç¶ï¿½ï¿½Ú¤ï¿½Þ¤ï¿½<br>ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½Ì¤ï¿½ï¿½Þ¤ï¿½');
 
-// link table
-define('_AM_RSSC_LINK_CENSOR_DESC', 'Ê¸»úÎó¤ÈÊ¸»úÎó¤Î´Ö¤Ï <b>|</b> ¤Ç¶èÀÚ¤ê¤Þ¤¹<br />ÂçÊ¸»ú¾®Ê¸»ú¤Ï¶èÊÌ¤·¤Þ¤¹');
+    // === 2008-01-20 ===
+    // menu
+    define('_AM_RSSC_FORM_HTMLOUT', 'HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_FORM_HTMLOUT_DESC', 'ï¿½ï¿½Ê¸ï¿½ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½Ö¤Ï¤ï¿½ï¿½×¤ï¿½ï¿½ï¿½ï¿½ê¤·ï¿½ï¿½ï¿½È¤ï¿½ï¿½Î¡ï¿½ï¿½ï¿½Ê¸ï¿½Î½ï¿½ï¿½ï¿½<br>ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¤Î¤È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Æ¤Î¥ï¿½ï¿½ï¿½ï¿½Ïºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<br>XSS (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½×¥Æ¥ï¿½ï¿½ï¿½) ï¿½É»ß¤Î¤ï¿½ï¿½ï¿½Ë¡ï¿½JavaScript ï¿½Ø·ï¿½ï¿½Îµï¿½ï¿½Ò¤Ïºï¿½ï¿½ï¿½ï¿½ï¿½ë¤«Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½ë¤³ï¿½È¤ò¤ª´ï¿½ï¿½á¤·ï¿½Þ¤ï¿½');
+    define('_AM_RSSC_FORM_CUSTOM_PLUGIN', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¡¦ï¿½×¥é¥°ï¿½ï¿½ï¿½ï¿½');
 
-// === 2008-01-20 ===
-// menu
-define('_AM_RSSC_FORM_HTMLOUT',       'HTML½ÐÎÏÀßÄê');
-define('_AM_RSSC_FORM_HTMLOUT_DESC',  'ËÜÊ¸¤ÎHTML¥¿¥°¤ÎÉ½¼¨¤ò¡Ö¤Ï¤¤¡×¤ËÀßÄê¤·¤¿¤È¤­¤Î¡¢ËÜÊ¸¤Î½èÍý<br />¡Ö¤¤¤¤¤¨¡×¤Î¤È¤­¤Ï¡¢Á´¤Æ¤Î¥¿¥°¤Ïºï½ü¤µ¤ì¤ë<br />XSS (¥¯¥í¥¹¥µ¥¤¥È¥¹¥¯¥ê¥×¥Æ¥£¥ó¥°) ËÉ»ß¤Î¤¿¤á¤Ë¡¢JavaScript ´Ø·¸¤Îµ­½Ò¤Ïºï½ü¤¹¤ë¤«Ê¸»úÎóÊÑ´¹¤¹¤ë¤³¤È¤ò¤ª´«¤á¤·¤Þ¤¹');
-define('_AM_RSSC_FORM_CUSTOM_PLUGIN', '¥«¥¹¥¿¥à¡¦¥×¥é¥°¥¤¥ó');
+    // html out
+    define('_AM_RSSC_CONF_HTML_NON', 'ï¿½ï¿½ï¿½â¤·ï¿½Ê¤ï¿½');
+    define('_AM_RSSC_CONF_HTML_SHOW', 'ï¿½ï¿½ï¿½Ë¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½HTMLÉ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_REMOVE', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_REPLACE', 'Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_SCRIPT', 'script ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_SCRIPT_DESC', '&lt;script&gt;...&lt;/script&gt; ï¿½Î½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_STYLE', 'style ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_STYLE_DESC', '&lt;style&gt;...&lt;/style&gt; ï¿½Î½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_LINK', 'link ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_LINK_DESC', '&lt;link ... &gt; ï¿½Î½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_COMMENT', 'ï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_COMMENT_DESC', '&lt;!-- ... --&gt; ï¿½Î½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_CDATA', 'CDATA ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_CDATA_DESC', '&lt;![CDATA[ ... ]]&gt; ï¿½Î½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE', 'onMouse Â°ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', 'onmouseover="..." ï¿½ï¿½ onclick="..." ï¿½Î½ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½×¤Î¤È¤ï¿½ï¿½ï¿½ on_mouseover_="..." ï¿½Î¤è¤¦ï¿½Ë¤Ê¤ï¿½');
+    define('_AM_RSSC_CONF_HTML_ATTR_STYLE', 'style Â°ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', 'style="..." ï¿½ï¿½ class="..." ï¿½Î½ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½×¤Î¤È¤ï¿½ï¿½ï¿½ style_="..." ï¿½Î¤è¤¦ï¿½Ë¤Ê¤ï¿½');
+    define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS', 'ï¿½ï¿½ï¿½ï¿½Â¾ï¿½Î¥ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS_DESC', '&lt;img ... &gt; &lt;a ... &gt; &lt;link ... &gt; ï¿½Ê¤É¤Î¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¤«');
+    define('_AM_RSSC_CONF_HTML_OTHER_TAGS', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', 'ï¿½Ö¤ï¿½ï¿½ï¿½Â¾ï¿½Î¥ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½×¤ï¿½ï¿½Ö¤Ï¤ï¿½ï¿½×¤Î¤È¤ï¿½ï¿½Ë¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<br> ï¿½ï¿½: <img><a>');
+    define('_AM_RSSC_CONF_HTML_JAVASCRIPT', 'JavaScriprt Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', 'JavaScriprt ï¿½È¤ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½<br>ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½×¤Î¤È¤ï¿½ï¿½ï¿½ java_script ï¿½È¤Ê¤ï¿½');
 
-// html out
-define('_AM_RSSC_CONF_HTML_NON',    '²¿¤â¤·¤Ê¤¤');
-define('_AM_RSSC_CONF_HTML_SHOW',   '¥µ¥Ë¥¿¥¤¥º¤·¤ÆHTMLÉ½¼¨¤¹¤ë');
-define('_AM_RSSC_CONF_HTML_REMOVE', 'ºï½ü¤¹¤ë');
-define('_AM_RSSC_CONF_HTML_REPLACE', 'Ê¸»úÎó¤òÊÑ´¹¤¹¤ë');
-define('_AM_RSSC_CONF_HTML_SCRIPT', 'script ¥¿¥°');
-define('_AM_RSSC_CONF_HTML_SCRIPT_DESC', '&lt;script&gt;...&lt;/script&gt; ¤Î½èÍý');
-define('_AM_RSSC_CONF_HTML_STYLE', 'style ¥¿¥°');
-define('_AM_RSSC_CONF_HTML_STYLE_DESC', '&lt;style&gt;...&lt;/style&gt; ¤Î½èÍý');
-define('_AM_RSSC_CONF_HTML_LINK', 'link ¥¿¥°');
-define('_AM_RSSC_CONF_HTML_LINK_DESC', '&lt;link ... &gt; ¤Î½èÍý');
-define('_AM_RSSC_CONF_HTML_COMMENT', '¥³¥á¥ó¥Èµ­¹æ');
-define('_AM_RSSC_CONF_HTML_COMMENT_DESC', '&lt;!-- ... --&gt; ¤Î½èÍý');
-define('_AM_RSSC_CONF_HTML_CDATA', 'CDATA µ­¹æ');
-define('_AM_RSSC_CONF_HTML_CDATA_DESC', '&lt;![CDATA[ ... ]]&gt; ¤Î½èÍý');
-define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE', 'onMouse Â°À­');
-define('_AM_RSSC_CONF_HTML_ATTR_ONMOUSE_DESC', 'onmouseover="..." ¤ä onclick="..." ¤Î½èÍý<br />¡ÖÊÑ´¹¡×¤Î¤È¤­¤Ï on_mouseover_="..." ¤Î¤è¤¦¤Ë¤Ê¤ë');
-define('_AM_RSSC_CONF_HTML_ATTR_STYLE', 'style Â°À­');
-define('_AM_RSSC_CONF_HTML_ATTR_STYLE_DESC', 'style="..." ¤ä class="..." ¤Î½èÍý<br />¡ÖÊÑ´¹¡×¤Î¤È¤­¤Ï style_="..." ¤Î¤è¤¦¤Ë¤Ê¤ë');
-define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS', '¤½¤ÎÂ¾¤Î¥¿¥°¤Îºï½ü');
-define('_AM_RSSC_CONF_HTML_FLAG_OTHER_TAGS_DESC', '&lt;img ... &gt; &lt;a ... &gt; &lt;link ... &gt; ¤Ê¤É¤Î¥¿¥°¤òºï½ü¤¹¤ë¤«');
-define('_AM_RSSC_CONF_HTML_OTHER_TAGS', 'ºï½ü¤·¤Ê¤¤¥¿¥°');
-define('_AM_RSSC_CONF_HTML_OTHER_TAGS_DESC', '¡Ö¤½¤ÎÂ¾¤Î¥¿¥°¤Îºï½ü¡×¤¬¡Ö¤Ï¤¤¡×¤Î¤È¤­¤Ë¡¢ºï½ü¤·¤Ê¤¤¥¿¥°¤òµ­Æþ¤¹¤ë<br /> Îã: <img><a>');
-define('_AM_RSSC_CONF_HTML_JAVASCRIPT', 'JavaScriprt Ê¸»úÎó');
-define('_AM_RSSC_CONF_HTML_JAVASCRIPT_DESC', 'JavaScriprt ¤È¤¤¤¦Ê¸»úÎó¤ËÂÐ¤¹¤ë½èÍý<br />¡ÖÊÑ´¹¡×¤Î¤È¤­¤Ï java_script ¤È¤Ê¤ë');
+    // plugin
+    define('_AM_RSSC_PRE_PLUGIN_DESC', 'ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ë³ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¼Â¹Ô¤ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_POST_PLUGIN_DESC', 'ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¤ß½Ð¤ï¿½ï¿½ï¿½ï¿½ï¿½Ë¼Â¹Ô¤ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_PLUGIN_DESC_2', 'Ê£ï¿½ï¿½ï¿½Î¥×¥é¥°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½ï¿½ï¿½ï¿½ <b>|</b> ï¿½Ç¶ï¿½ï¿½Ú¤ï¿½Þ¤ï¿½');
 
-// plugin
-define('_AM_RSSC_PRE_PLUGIN_DESC', '¥Ç¡¼¥¿¥Ù¡¼¥¹¤Ë³ÊÇ¼¤¹¤ëÁ°¤Ë¼Â¹Ô¤µ¤ì¤ë');
-define('_AM_RSSC_POST_PLUGIN_DESC', '¥Ç¡¼¥¿¥Ù¡¼¥¹¤«¤éÆÉ¤ß½Ð¤·¤¿¸å¤Ë¼Â¹Ô¤µ¤ì¤ë');
-define('_AM_RSSC_PLUGIN_DESC_2', 'Ê£¿ô¤Î¥×¥é¥°¥¤¥ó¤ò»ØÄê¤¹¤ë¾ì¹ç¤Ï <b>|</b> ¤Ç¶èÀÚ¤ê¤Þ¤¹');
+    define('_AM_RSSC_PLUGIN_TEST', 'ï¿½×¥é¥°ï¿½ï¿½ï¿½ï¿½Î¥Æ¥ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_PLUGIN', 'ï¿½×¥é¥°ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_PLUGIN_TESTDATA', 'ï¿½Æ¥ï¿½ï¿½È¥Ç¡ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_PLUGIN_TESTDATA_DESC', 'Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½Ò¤ï¿½ï¿½ï¿½');
 
-define('_AM_RSSC_PLUGIN_TEST', '¥×¥é¥°¥¤¥ó¤Î¥Æ¥¹¥È');
-define('_AM_RSSC_PLUGIN', '¥×¥é¥°¥¤¥ó');
-define('_AM_RSSC_PLUGIN_TESTDATA', '¥Æ¥¹¥È¥Ç¡¼¥¿');
-define('_AM_RSSC_PLUGIN_TESTDATA_DESC', 'Ï¢ÁÛÇÛÎó¤Î·Á¼°¤Çµ­½Ò¤¹¤ë');
+    // === 2009-02-20 ===
+    // map
+    define('_AM_RSSC_FORM_MAP', 'Google ï¿½Þ¥Ã¥ï¿½ ï¿½ï¿½ï¿½ï¿½');
 
-// === 2009-02-20 ===
-// map
-define('_AM_RSSC_FORM_MAP', 'Google ¥Þ¥Ã¥× ÀßÄê');
+    // config
+    define('_AM_RSSC_CONF_WEBMAP_DIRNAME', 'webmap dirname');
+    define('_AM_RSSC_CONF_WEBMAP_DIRNAME_DESC', 'webmap ï¿½â¥¸ï¿½å¡¼ï¿½ï¿½Î¥Ç¥ï¿½ï¿½ì¥¯ï¿½È¥ï¿½Ì¾ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_INFO_MAX', 'ï¿½Þ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¤Îºï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_INFO_MAX_DSC', 'HTMLï¿½ï¿½ï¿½ï¿½ï¿½Ïºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¤ï¿½<br><b>-1</b> ï¿½Î¤È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Â¤Ê¤ï¿½ï¿½Ç¤ï¿½');
+    define('_AM_RSSC_CONF_SHOW_INFO_WIDTH', 'ï¿½Þ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î£ï¿½ï¿½Ô¤Îºï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_INFO_WIDTH_DSC', 'ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Î¤È¤ï¿½ï¿½Ï²ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½Þ¤ï¿½<br><b>-1</b> ï¿½Î¤È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Â¤Ê¤ï¿½ï¿½Ç¤ï¿½');
+    define('_AM_RSSC_CONF_SHOW_ICON', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_ICON_DSC', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¤«');
+    define('_AM_RSSC_CONF_SHOW_THUMB', 'ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_SHOW_THUMB_DSC', 'ï¿½ï¿½ï¿½ï¿½Í¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ë¤«');
 
-// config
-define('_AM_RSSC_CONF_WEBMAP_DIRNAME', 'webmap dirname');
-define('_AM_RSSC_CONF_WEBMAP_DIRNAME_DESC', 'webmap ¥â¥¸¥å¡¼¥ë¤Î¥Ç¥£¥ì¥¯¥È¥êÌ¾¤òÀßÄê¤¹¤ë');
-define('_AM_RSSC_CONF_SHOW_INFO_MAX','¥Þ¡¼¥«¡¼¤ÎÁ´ÂÎ¤ÎºÇÂçÊ¸»ú¿ô');
-define('_AM_RSSC_CONF_SHOW_INFO_MAX_DSC', 'HTML¥¿¥°¤Ïºï½ü¤µ¤ì¤Þ¤¹<br /><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
-define('_AM_RSSC_CONF_SHOW_INFO_WIDTH','¥Þ¡¼¥«¡¼¤Î£±¹Ô¤ÎºÇÂçÊ¸»ú¿ô');
-define('_AM_RSSC_CONF_SHOW_INFO_WIDTH_DSC', '¤³¤ÎÊ¸»ú¿ô°Ê¾å¤Î¤È¤­¤Ï²þ¹Ô¤µ¤ì¤Þ¤¹<br /><b>-1</b> ¤Î¤È¤­¤Ï¡¢À©¸Â¤Ê¤·¤Ç¤¹');
-define('_AM_RSSC_CONF_SHOW_ICON','¥¢¥¤¥³¥óÉ½¼¨');
-define('_AM_RSSC_CONF_SHOW_ICON_DSC', '¥¢¥¤¥³¥ó¤òÉ½¼¨¤¹¤ë¤«');
-define('_AM_RSSC_CONF_SHOW_THUMB','²èÁüÉ½¼¨');
-define('_AM_RSSC_CONF_SHOW_THUMB_DSC', '¥µ¥à¥Í¥¤¥ë²èÁü¤òÉ½¼¨¤¹¤ë¤«');
+    // link form
+    define('_AM_RSSC_LINK_ICON_SEL', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_LINK_GICON_SEL', 'Googleï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// link form
-define('_AM_RSSC_LINK_ICON_SEL',  '¥¢¥¤¥³¥ó¤ÎÁªÂò');
-define('_AM_RSSC_LINK_GICON_SEL', 'Google¥¢¥¤¥³¥ó¤ÎÁªÂò');
+    // === 2012-03-01 ===
+    define('_AM_RSSC_MAP_MANAGE', 'GoogleMap ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_FEED_COLUMN_MANAGE', 'feed ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// === 2012-03-01 ===
-define('_AM_RSSC_MAP_MANAGE',  'GoogleMap ´ÉÍý');
-define('_AM_RSSC_FEED_COLUMN_MANAGE', 'feed ¥«¥é¥à´ÉÍý');
+    // config
+    define('_AM_RSSC_CONF_WEBMAP_ADDRESS', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WEBMAP_ADDRESS_DESC', 'ï¿½ï¿½ï¿½Ù¡ï¿½ï¿½ï¿½ï¿½Ù¤Î¾ï¿½ï¿½ò¼¨¤ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WEBMAP_LATITUDE', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WEBMAP_LONGITUDE', 'ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_WEBMAP_ZOOM', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
 
-// config
-define('_AM_RSSC_CONF_WEBMAP_ADDRESS', '½»½ê');
-define('_AM_RSSC_CONF_WEBMAP_ADDRESS_DESC', '°ÞÅÙ¡¦·ÐÅÙ¤Î¾ì½ê¤ò¼¨¤¹¥á¥â');
-define('_AM_RSSC_CONF_WEBMAP_LATITUDE',  '°ÞÅÙ');
-define('_AM_RSSC_CONF_WEBMAP_LONGITUDE', '·ÐÅÙ');
-define('_AM_RSSC_CONF_WEBMAP_ZOOM',      '¥º¡¼¥à');
-
-// === 2012-04-02 ===
-define('_AM_RSSC_CONF_URL', 'URL¤ÎÁªÂò');
-define('_AM_RSSC_CONF_URL_DESC', '¥¿¥¤¥È¥ë¤Î¥Ï¥¤¥Ñ¡¼¥ê¥ó¥¯');
-define('_AM_RSSC_CONF_URL_0', '¸µ¤Î¥µ¥¤¥È¤ÎURL');
-define('_AM_RSSC_CONF_URL_1', 'RSSC¤Îsinglefeed');
-
+    // === 2012-04-02 ===
+    define('_AM_RSSC_CONF_URL', 'URLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_URL_DESC', 'ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½Î¥Ï¥ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½');
+    define('_AM_RSSC_CONF_URL_0', 'ï¿½ï¿½ï¿½Î¥ï¿½ï¿½ï¿½ï¿½È¤ï¿½URL');
+    define('_AM_RSSC_CONF_URL_1', 'RSSCï¿½ï¿½singlefeed');
 }
 // --- define language begin ---
-
-?>

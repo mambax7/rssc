@@ -1,4 +1,5 @@
 <?php
+
 // $Id: block_refresh.php,v 1.1 2011/12/29 14:37:05 ohwada Exp $
 
 // 2009-02-20 K.OHWADA
@@ -29,45 +30,44 @@
 //=========================================================
 
 // --- block function begin ---
-if( !function_exists( 'b_rssc_show_refresh' ) ) 
-{
+if (!function_exists('b_rssc_show_refresh')) {
+    $RSSC_DIRNAME = basename(dirname(__DIR__));
 
-$RSSC_DIRNAME = basename( dirname( dirname( __FILE__ ) ) );
+    //---------------------------------------------------------
+    // rssc
+    //---------------------------------------------------------
+    include_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/api/view.php';
+    include_once XOOPS_ROOT_PATH . '/modules/' . $RSSC_DIRNAME . '/api/refresh.php';
 
-//---------------------------------------------------------
-// rssc
-//---------------------------------------------------------
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/view.php';
-include_once XOOPS_ROOT_PATH.'/modules/'.$RSSC_DIRNAME.'/api/refresh.php';
+    //---------------------------------------------------------
+    // show headline after refresh
+    // $options
+    // [0] module directory name (rssc)
+    //---------------------------------------------------------
+    /**
+     * @param $options
+     * @return array
+     */
+    function b_rssc_show_refresh($options)
+    {
+        $DIRNAME = empty($options[0]) ? basename(dirname(__DIR__)) : $options[0];
 
+        //	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME .'/api/view.php';
+        include_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/api/refresh.php';
+        include_once XOOPS_ROOT_PATH . '/modules/' . $DIRNAME . '/class/rssc_block.php';
 
-//---------------------------------------------------------
-// show headline after refresh
-// $options
-// [0] module directory name (rssc)
-//---------------------------------------------------------
-function b_rssc_show_refresh( $options )
-{
-	$DIRNAME = empty( $options[0] ) ? basename( dirname( dirname( __FILE__ ) ) ) : $options[0] ;
+        $headline_handler = rssc_get_handler('headline', $DIRNAME);
+        $conf_handler = rssc_get_handler('config_basic', $DIRNAME);
+        $conf_data = &$conf_handler->get_conf();
 
-//	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME .'/api/view.php';
-	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME .'/api/refresh.php';
-	include_once XOOPS_ROOT_PATH.'/modules/'. $DIRNAME  .'/class/rssc_block.php';
+        $link_limit = $conf_data['block_headline_links_perpage'];
+        $link_start = 0;
 
-	$headline_handler =& rssc_get_handler('headline',     $DIRNAME);
-	$conf_handler     =& rssc_get_handler('config_basic', $DIRNAME);
-	$conf_data        =& $conf_handler->get_conf();
+        $headline_handler->refresh_headline($link_limit, $link_start);
 
-	$link_limit  = $conf_data['block_headline_links_perpage'];
-	$link_start  = 0;
+        $block_class = rssc_block::getInstance();
 
-	$headline_handler->refresh_headline($link_limit, $link_start);
-
-	$block_class =& rssc_block::getInstance();
-	return $block_class->show_headline( $DIRNAME );
+        return $block_class->show_headline($DIRNAME);
+    }
+    // --- block function begin ---
 }
-
-// --- block function begin ---
-}
-
-?>

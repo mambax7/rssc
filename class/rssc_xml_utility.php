@@ -1,4 +1,5 @@
 <?php
+
 // $Id: rssc_xml_utility.php,v 1.1 2011/12/29 14:37:14 ohwada Exp $
 
 // 2007-06-01 K.OHWADA
@@ -29,45 +30,45 @@
 //=========================================================
 
 // === class begin ===
-if( !class_exists('rssc_xml_utility') ) 
-{
+if (!class_exists('rssc_xml_utility')) {
+    //---------------------------------------------------------
+    // define constant
+    //---------------------------------------------------------
+    define('RSSC_CODE_XML_ENCODINGS_DEFAULT', HAPPY_LINUX_RSS_CODE_XML_ENCODINGS_DEFAULT);
+    define('RSSC_CODE_DISCOVER_SUCCEEDED', HAPPY_LINUX_RSS_CODE_DISCOVER_SUCCEEDED);
+    define('RSSC_CODE_DISCOVER_FAILED', HAPPY_LINUX_RSS_CODE_DISCOVER_FAILED);
 
-//---------------------------------------------------------
-// define constant
-//---------------------------------------------------------
-define('RSSC_CODE_XML_ENCODINGS_DEFAULT',  HAPPY_LINUX_RSS_CODE_XML_ENCODINGS_DEFAULT);
-define('RSSC_CODE_DISCOVER_SUCCEEDED',     HAPPY_LINUX_RSS_CODE_DISCOVER_SUCCEEDED);
-define('RSSC_CODE_DISCOVER_FAILED',        HAPPY_LINUX_RSS_CODE_DISCOVER_FAILED);
+    //=========================================================
+    // class rssc_xml_utility
+    //=========================================================
 
+    /**
+     * Class rssc_xml_utility
+     */
+    class rssc_xml_utility extends happy_linux_rss_utility
+    {
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct()
+        {
+            parent::__construct();
+        }
 
-//=========================================================
-// class rssc_xml_utility
-//=========================================================
-class rssc_xml_utility extends happy_linux_rss_utility
-{
+        /**
+         * @return \happy_linux_rss_utility|\rssc_xml_utility|static
+         */
+        public static function getInstance()
+        {
+            static $instance;
+            if (null === $instance) {
+                $instance = new static();
+            }
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function rssc_xml_utility()
-{
-	$this->happy_linux_rss_utility();
+            return $instance;
+        }
+
+        //----- class end -----
+    }
+    // === class end ===
 }
-
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new rssc_xml_utility();
-	}
-	return $instance;
-}
-
-//----- class end -----
-}
-
-// === class end ===
-}
-
-?>

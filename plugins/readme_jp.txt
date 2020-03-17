@@ -1,12 +1,12 @@
 $Id: readme_jp.txt,v 1.1 2011/12/29 14:37:12 ohwada Exp $
 
 =================================================
-ƒvƒ‰ƒOƒCƒ“‚Ìì‚è•û
+ï¿½vï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
 =================================================
 
-ƒvƒ‰ƒOƒCƒ“–¼‚ğ "foobar" ‚Æ‚µ‚Ü‚·
+ï¿½vï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ "foobar" ï¿½Æ‚ï¿½ï¿½Ü‚ï¿½
 
-1. ƒvƒ‰ƒOƒCƒ“‚Ì‹Lq—á
+1. ï¿½vï¿½ï¿½ï¿½Oï¿½Cï¿½ï¿½ï¿½Ì‹Lï¿½qï¿½ï¿½
 
 plugins/foobar.php
 ------
@@ -18,30 +18,30 @@ class rssc_plugin_foobar extends rssc_plugin_base
 
 function rssc_plugin_foobar()
 {
-	$this->rssc_plugin_base();
+	parent::__construct();
 }
 
 function description()
 {
-	// ‚±‚±‚Í‰pŒê‚Ìà–¾•¶
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Í‰pï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½
 	return "this is foobar description";
 }
 
 function convert()
 {
 	$content = $this->get_value_by_key( 'content' );
-	$converted = xxx;	// ‚±‚±‚É•ÏŠ·ˆ—‚ğ‘‚­
+	$converted = xxx;	// ï¿½ï¿½ï¿½ï¿½ï¿½É•ÏŠï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	$this->set_value_by_key( 'content', $converted );
 	return true;
 }
 
-} // class ‚ÌI‚í‚è
-} // class_exists ‚ÌI‚í‚è
+} // class ï¿½ÌIï¿½ï¿½ï¿½
+} // class_exists ï¿½ÌIï¿½ï¿½ï¿½
 -----
 
-2. “ú–{Œê‚Ìà–¾•¶‚Ì‹Lq—á
+2. ï¿½ï¿½ï¿½{ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‹Lï¿½qï¿½ï¿½
 
 plugins/language/japanese/foobar.php
 -----
-$rssc_plugin_description = "‚±‚ê‚Í foobar ‚Ìà–¾•¶‚Å‚·";
+$rssc_plugin_description = "ï¿½ï¿½ï¿½ï¿½ï¿½ foobar ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½";
 -----

@@ -18,7 +18,7 @@ class rssc_plugin_foobar extends rssc_plugin_base
 
 function rssc_plugin_foobar()
 {
-	$this->rssc_plugin_base();
+	parent::__construct();
 }
 
 function description()

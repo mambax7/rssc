@@ -1,4 +1,5 @@
 <?php
+
 // $Id: rss.php,v 1.1 2011/12/29 14:37:04 ohwada Exp $
 
 // 2008-02-24 K.OHWADA
@@ -31,12 +32,10 @@
 
 include 'header.php';
 
-include_once RSSC_ROOT_PATH.'/api/rss_builder.php';
+include_once RSSC_ROOT_PATH . '/api/rss_builder.php';
 
-$builder =& rssc_build_rssc::getInstance( RSSC_DIRNAME );
+$builder = rssc_build_rssc::getInstance(RSSC_DIRNAME);
 $builder->build();
 
 exit();
 // --- main end ---
-
-?>

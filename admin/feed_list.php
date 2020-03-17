@@ -1,4 +1,5 @@
 <?php
+
 // $Id: feed_list.php,v 1.1 2011/12/29 14:37:11 ohwada Exp $
 
 // 2007-06-01 K.OHWADA
@@ -30,11 +31,9 @@ xoops_cp_header();
 rssc_admin_print_header();
 rssc_admin_print_menu();
 
-$list =& admin_feed_list::getInstance();
+$list = admin_feed_list::getInstance();
 $list->_show();
 
 xoops_cp_footer();
 exit();
 // --- end of main ---
-
-?>

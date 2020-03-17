@@ -1,4 +1,5 @@
 <?php
+
 // $Id: modinfo.php,v 1.1 2011/12/29 14:37:08 ohwada Exp $
 
 // 2006-09-20 K.OHWADA
@@ -10,31 +11,26 @@
 //=========================================================
 
 // --- define language begin ---
-if( !defined('RSSC_LANG_MI_LOADED') ) 
-{
+if (!defined('RSSC_LANG_MI_LOADED')) {
+    define('RSSC_LANG_MI_LOADED', 1);
 
-define('RSSC_LANG_MI_LOADED', 1);
+    // The name of this module
+    define('_MI_RSSC_NAME', 'مرکز RSS');
+    define('_MI_RSSC_DESC', 'این ماژول  تغذیه کننده های RDF/RSS/ATOM را جمع آوری میکند. در پایگاه داده ها ذخیره میکند و در میان آنها جس جستجو  میکند');
 
-// The name of this module
-define('_MI_RSSC_NAME','مرکز RSS');
-define('_MI_RSSC_DESC','این ماژول  تغذیه کننده های RDF/RSS/ATOM را جمع آوری میکند. در پایگاه داده ها ذخیره میکند و در میان آنها جس جستجو  میکند');
+    // Names of sub menu
+    define('_MI_RSSC_SMNAME_HEADLINE', 'تیتر های خبری ساده');
 
-// Names of sub menu
-define('_MI_RSSC_SMNAME_HEADLINE','تیتر های خبری ساده');
+    // Names of blocks
+    define('_MI_RSSC_BNAME_LATEST', 'آخرین تغذیه کننده های RDF/RSS/ATOM');
+    define('_MI_RSSC_BNAME_HEADLINE', 'تیتر های خبری ساده');
+    define('_MI_RSSC_BNAME_REFRESH', 'تیتر های خبری ساده (update)');
 
-// Names of blocks
-define('_MI_RSSC_BNAME_LATEST','آخرین تغذیه کننده های RDF/RSS/ATOM');
-define('_MI_RSSC_BNAME_HEADLINE','تیتر های خبری ساده');
-define('_MI_RSSC_BNAME_REFRESH','تیتر های خبری ساده (update)');
+    // 2006-09-20
+    define('_MI_RSSC_BNAME_BLOG', 'RSSC Blog');
 
-// 2006-09-20
-define('_MI_RSSC_BNAME_BLOG','RSSC Blog');
-
-// Names of admin menu
-define('_MI_RSSC_ADMENU_CONFIG','تنظیمات ماژول');
-define('_MI_RSSC_ADMENU_LINKLIST','لیست لینک ها');
-
+    // Names of admin menu
+    define('_MI_RSSC_ADMENU_CONFIG', 'تنظیمات ماژول');
+    define('_MI_RSSC_ADMENU_LINKLIST', 'لیست لینک ها');
 }
 // --- define language end ---
-
-?>

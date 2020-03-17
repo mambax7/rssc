@@ -1,4 +1,5 @@
 <?php
+
 // $Id: plugin_popup.php,v 1.1 2011/12/29 14:37:03 ohwada Exp $
 
 //================================================================
@@ -6,94 +7,121 @@
 // 2008-01-20 K.OHWADA
 //================================================================
 
-include "header.php";
+include 'header.php';
 
 //=========================================================
 // class rssc_plugin_list
 //=========================================================
+
+/**
+ * Class rssc_plugin_list
+ */
 class rssc_plugin_list
 {
-	var $_DIRNAME;
+    public $_DIRNAME;
 
-	var $_system;
-	var $_plugin;
+    public $_system;
+    public $_plugin;
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function rssc_plugin_list( $dirname )
-{
-	$this->_DIRNAME = $dirname;
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
 
-	$this->_system =& happy_linux_system::getInstance();
-	$this->_plugin =& rssc_plugin::getInstance( $dirname );
-}
+    /**
+     * rssc_plugin_list constructor.
+     * @param $dirname
+     */
+    public function __construct($dirname)
+    {
+        $this->_DIRNAME = $dirname;
 
-public static function &getInstance( $dirname )
-{
-	static $instance;
-	if (!isset($instance)) 
-	{
-		$instance = new rssc_plugin_list( $dirname );
-	}
-	return $instance;
-}
+        $this->_system = happy_linux_system::getInstance();
+        $this->_plugin = rssc_plugin::getInstance($dirname);
+    }
 
-//---------------------------------------------------------
-// public
-//---------------------------------------------------------
-function build_list()
-{
-	$this->_plugin->init_once();
+    /**
+     * @param $dirname
+     * @return \rssc_plugin_list
+     */
+    public static function getInstance($dirname = null)
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new static($dirname);
+        }
 
-	$text  = $this->_build_title();
-	$text .= $this->_plugin->build_table();
-	$text .= $this->_build_close();
+        return $instance;
+    }
 
-	return $text;
-}
+    //---------------------------------------------------------
+    // public
+    //---------------------------------------------------------
 
-function is_module_admin()
-{
-	return $this->_system->is_module_admin();
-}
+    /**
+     * @return string
+     */
+    public function build_list()
+    {
+        $this->_plugin->init_once();
 
-//---------------------------------------------------------
-// private
-//---------------------------------------------------------
-function _build_title()
-{
-	$text = '<h3 align="center">'. _RSSC_PLUGIN_LIST ."</h3>";
-	return $text;
-}
+        $text = $this->_build_title();
+        $text .= $this->_plugin->build_table();
+        $text .= $this->_build_close();
 
-function _build_close()
-{
-	$text  = '<div style="text-align:center;">';
-	$text .= '<input value="'. _CLOSE .'" type="button" onclick="javascript:window.close();" />';
-	$text .= '</div>'."\n";
-	return $text;
-}
+        return $text;
+    }
 
-// --- class end ---
+    /**
+     * @return mixed
+     */
+    public function is_module_admin()
+    {
+        return $this->_system->is_module_admin();
+    }
+
+    //---------------------------------------------------------
+    // private
+    //---------------------------------------------------------
+
+    /**
+     * @return string
+     */
+    public function _build_title()
+    {
+        $text = '<h3 align="center">' . _RSSC_PLUGIN_LIST . '</h3>';
+
+        return $text;
+    }
+
+    /**
+     * @return string
+     */
+    public function _build_close()
+    {
+        $text = '<div style="text-align:center;">';
+        $text .= '<input value="' . _CLOSE . '" type="button" onclick="javascript:window.close();" />';
+        $text .= '</div>' . "\n";
+
+        return $text;
+    }
+
+    // --- class end ---
 }
 
 //=========================================================
 // main
 //=========================================================
-$rssc_plugin_list =& rssc_plugin_list::getInstance( RSSC_DIRNAME );
+$rssc_plugin_list = rssc_plugin_list::getInstance(RSSC_DIRNAME);
 
 xoops_header(false);
-echo "</head><body>";
+echo '</head><body>';
 
-if ( !$rssc_plugin_list->is_module_admin() )
-{
-	xoops_error( "you have no permission" );
-	xoops_footer();
-	exit();
+if (!$rssc_plugin_list->is_module_admin()) {
+    xoops_error('you have no permission');
+    xoops_footer();
+    exit();
 }
 
 echo $rssc_plugin_list->build_list();
 
 xoops_footer();
-?>

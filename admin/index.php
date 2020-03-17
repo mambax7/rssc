@@ -1,4 +1,5 @@
 <?php
+
 // $Id: index.php,v 1.3 2012/04/08 23:42:20 ohwada Exp $
 
 // 2012-04-02 K.OHWADA
@@ -42,125 +43,99 @@
 //=========================================================
 
 include_once 'admin_header_config.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_block_map.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_map.php';
+include_once RSSC_ROOT_PATH . '/class/rssc_block_map.php';
+include_once RSSC_ROOT_PATH . '/class/rssc_map.php';
 
-$DIR_CONFIG = RSSC_ROOT_PATH.'/cache';
+$DIR_CONFIG = RSSC_ROOT_PATH . '/cache';
 
 // class
-$config_form  =& admin_config_form::getInstance();
-$config_store =& admin_config_store::getInstance();
-$map_class    =& rssc_map::getInstance( RSSC_DIRNAME );
+$config_form  = admin_config_form::getInstance();
+$config_store = admin_config_store::getInstance();
+$map_class    = rssc_map::getInstance(RSSC_DIRNAME);
 
 $op = $config_form->get_post_get_op();
 
-if ($op == 'save')
-{
-	if( !$config_form->check_token() ) 
-	{
-		xoops_cp_header();
-		$config_form->print_xoops_token_error();
-	}
-	else
-	{
-		$config_store->save();
-		redirect_header('index.php', 1, _HAPPY_LINUX_UPDATED);
-	}
-}
-elseif ($op == 'init')
-{
-	if( !$config_form->check_token() ) 
-	{
-		xoops_cp_header();
-		$config_form->print_xoops_token_error();
-	}
-	else
-	{
-		$config_store->init();
-		redirect_header('index.php', 1, _HAPPY_LINUX_UPDATED);
-	}
-}
-elseif ($op == 'upgrade')
-{
-	if( !$config_form->check_token() ) 
-	{
-		xoops_cp_header();
-		$config_form->print_xoops_token_error();
-	}
-	else
-	{
-		$config_store->upgrade();
-		redirect_header('index.php', 1, _HAPPY_LINUX_UPDATED);
-	}
-}
-elseif ($op == 'template_compiled_clear')
-{
-	if( !$config_form->check_token() ) 
-	{
-		xoops_cp_header();
-		$config_form->print_xoops_token_error();
-	}
-	else
-	{
-		$config_store->template_compiled_clear();
-		redirect_header("index.php", 1, _HAPPY_LINUX_CLEARED );
-	}
-}
-else
-{
-	xoops_cp_header();
+if ('save' == $op) {
+    if (!$config_form->check_token()) {
+        xoops_cp_header();
+        $config_form->print_xoops_token_error();
+    } else {
+        $config_store->save();
+        redirect_header('index.php', 1, _HAPPY_LINUX_UPDATED);
+    }
+} elseif ('init' == $op) {
+    if (!$config_form->check_token()) {
+        xoops_cp_header();
+        $config_form->print_xoops_token_error();
+    } else {
+        $config_store->init();
+        redirect_header('index.php', 1, _HAPPY_LINUX_UPDATED);
+    }
+} elseif ('upgrade' == $op) {
+    if (!$config_form->check_token()) {
+        xoops_cp_header();
+        $config_form->print_xoops_token_error();
+    } else {
+        $config_store->upgrade();
+        redirect_header('index.php', 1, _HAPPY_LINUX_UPDATED);
+    }
+} elseif ('template_compiled_clear' == $op) {
+    if (!$config_form->check_token()) {
+        xoops_cp_header();
+        $config_form->print_xoops_token_error();
+    } else {
+        $config_store->template_compiled_clear();
+        redirect_header('index.php', 1, _HAPPY_LINUX_CLEARED);
+    }
+} else {
+    xoops_cp_header();
 }
 
 rssc_admin_print_header();
 
-if ( !$config_store->check_init() )
-{
-	$config_form->print_lib_box_init_config();
-}
-elseif ( !$config_store->check_version() )
-{
-	$config_form->print_lib_box_upgrade_config( 
-		RSSC_VERSION, $config_store->_install->get_error_str() );
-}
-elseif ( !is_writable( $DIR_CONFIG ) )
-{
-	xoops_error( _HAPPY_LINUX_CONF_NOT_WRITABLE );
-	echo "<br />\n";
-	echo "$DIR_CONFIG <br /><br />\n";
-}
-else
-{
-	rssc_admin_print_menu();
-	$map_class->print_check_version();
+if (!$config_store->check_init()) {
+    $config_form->print_lib_box_init_config();
+} elseif (!$config_store->check_version()) {
+    $config_form->print_lib_box_upgrade_config(
+        RSSC_VERSION,
+        $config_store->_install->get_error_str()
+    );
+} elseif (!is_writable($DIR_CONFIG)) {
+    xoops_error(_HAPPY_LINUX_CONF_NOT_WRITABLE);
+    echo "<br>\n";
+    echo "$DIR_CONFIG <br><br>\n";
+} else {
+    rssc_admin_print_menu();
+    $map_class->print_check_version();
 
-	echo "<h4>"._MI_RSSC_ADMENU_CONFIG."</h4>\n";
-	$config_form->init_form();
+    echo '<h4>' . _MI_RSSC_ADMENU_CONFIG . "</h4>\n";
+    $config_form->init_form();
 
-	echo "<h4>"._AM_RSSC_FORM_BASIC."</h4>\n";
-	echo _AM_RSSC_FORM_BASIC_DESC."<br />\n";
-	$config_form->set_form_title( _AM_RSSC_FORM_BASIC );
-	$config_form->show_by_catid( 1 );
+    echo '<h4>' . _AM_RSSC_FORM_BASIC . "</h4>\n";
+    echo _AM_RSSC_FORM_BASIC_DESC . "<br>\n";
+    $config_form->set_form_title(_AM_RSSC_FORM_BASIC);
+    $config_form->show_by_catid(1);
 
-	echo "<h4>"._AM_RSSC_FORM_MAIN."</h4>\n";
-	echo _AM_RSSC_FORM_MAIN_DESC."<br />\n";
+    echo '<h4>' . _AM_RSSC_FORM_MAIN . "</h4>\n";
+    echo _AM_RSSC_FORM_MAIN_DESC . "<br>\n";
 
-// description in main page
-	$config_form->set_form_title( _AM_RSSC_FORM_MAIN );
-	$config_form->show_by_catid( 3 );
-	echo "<br />\n";
+    // description in main page
+    $config_form->set_form_title(_AM_RSSC_FORM_MAIN);
+    $config_form->show_by_catid(3);
+    echo "<br>\n";
 
-	$config_form->show_main();
+    $config_form->show_main();
 
-	echo "<h4>"._AM_RSSC_FORM_BLOCK."</h4>\n";
-	echo _AM_RSSC_FORM_BLOCK_DESC."<br />\n";
-	$config_form->show_block();
+    echo '<h4>' . _AM_RSSC_FORM_BLOCK . "</h4>\n";
+    echo _AM_RSSC_FORM_BLOCK_DESC . "<br>\n";
+    $config_form->show_block();
 
-	echo "<h4>"._AM_RSSC_FORM_PROXY."</h4>\n";
-	$config_form->set_form_title( _AM_RSSC_FORM_PROXY );
-	$config_form->show_by_catid( 10 );
+    echo '<h4>' . _AM_RSSC_FORM_PROXY . "</h4>\n";
+    $config_form->set_form_title(_AM_RSSC_FORM_PROXY);
+    $config_form->show_by_catid(10);
 
-	echo "<h4>"._HAPPY_LINUX_CONF_TPL_COMPILED_CLEAR."</h4>\n";
-	$config_form->show_form_template_compiled_clear( _HAPPY_LINUX_CONF_TPL_COMPILED_CLEAR );
+    echo '<h4>' . _HAPPY_LINUX_CONF_TPL_COMPILED_CLEAR . "</h4>\n";
+    $config_form->show_form_template_compiled_clear(_HAPPY_LINUX_CONF_TPL_COMPILED_CLEAR);
 }
 
 rssc_admin_print_footer();
@@ -168,6 +143,3 @@ rssc_admin_print_powerdby();
 xoops_cp_footer();
 exit();
 // --- main end ---
-
-
-?>

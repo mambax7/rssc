@@ -1,4 +1,5 @@
 <?php
+
 // $Id: feed_column_manage.php,v 1.1 2012/03/31 04:46:34 ohwada Exp $
 
 //=========================================================
@@ -8,10 +9,10 @@
 
 include 'admin_header.php';
 
-include_once XOOPS_ROOT_PATH.'/class/template.php';
+include_once XOOPS_ROOT_PATH . '/class/template.php';
 
-include_once RSSC_ROOT_PATH.'/api/view.php';
-include_once RSSC_ROOT_PATH.'/api/refresh.php';
+include_once RSSC_ROOT_PATH . '/api/view.php';
+include_once RSSC_ROOT_PATH . '/api/refresh.php';
 
 //---------------------------------------------------------
 // entry_id
@@ -27,244 +28,265 @@ include_once RSSC_ROOT_PATH.'/api/refresh.php';
 //=========================================================
 // class admin_feed_column_manage
 //=========================================================
+
+/**
+ * Class admin_feed_column_manage
+ */
 class admin_feed_column_manage extends happy_linux_error
 {
-// handler
-	var $_feed_basic_handler;
-	var $_post;
-	var $_form ;
+    // handler
+    public $_feed_basic_handler;
+    public $_post;
+    public $_form;
 
-	var $_THIS_URL ;
+    public $_THIS_URL;
 
-	var $_COLUMN_ARRAY = array(
-		'entry_id' => 'varchar', 
-		'guid'     => 'varchar', 
-		'media_content_url'   => 'varchar', 
-		'media_thumbnail_url' => 'varchar', 
-		'content' => 'text',
-	);
+    public $_COLUMN_ARRAY = [
+        'entry_id' => 'varchar',
+        'guid' => 'varchar',
+        'media_content_url' => 'varchar',
+        'media_thumbnail_url' => 'varchar',
+        'content' => 'text',
+    ];
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function admin_feed_column_manage()
-{
-	$this->happy_linux_error();
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function __construct()
+    {
+        parent::__construct();
 
-	$this->_feed_basic_handler =& rssc_get_handler('feed_basic', RSSC_DIRNAME);
-	$this->_post_class =& happy_linux_post::getInstance();
-	$this->_form_class =& admin_form_feed_column::getInstance();
+        $this->_feed_basic_handler = rssc_get_handler('feed_basic', RSSC_DIRNAME);
+        $this->_post_class = happy_linux_post::getInstance();
+        $this->_form_class = admin_form_feed_column::getInstance();
 
-	$this->_THIS_URL = RSSC_URL.'/admin/feed_column_manage.php';
-}
+        $this->_THIS_URL = RSSC_URL . '/admin/feed_column_manage.php';
+    }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) {
-		$instance = new admin_feed_column_manage();
-	}
-	return $instance;
-}
+    /**
+     * @return \admin_feed_column_manage|static
+     */
+    public static function getInstance()
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new static();
+        }
 
-//---------------------------------------------------------
-// main
-//---------------------------------------------------------
-function get_op()
-{
-	return $this->_post_class->get_post('op');
-}
+        return $instance;
+    }
 
-function main()
-{
-	$this->form();
-}
+    //---------------------------------------------------------
+    // main
+    //---------------------------------------------------------
 
-function update()
-{
-	if( ! $this->_form_class->check_token() ) {
-		$msg = $this->_form->get_token_error();
-		redirect_header( $this->_THIS_URL, 5, $msg );
-		exit();
-	}
+    /**
+     * @return mixed|string
+     */
+    public function get_op()
+    {
+        return $this->_post_class->get_post('op');
+    }
 
-	$feed_column_ids = $this->_post_class->get_post('feed_column_id');
-	$fields  = $this->_post_class->get_post('field');
-	$updates = $this->_post_class->get_post('update');
+    public function main()
+    {
+        $this->form();
+    }
 
-	if ( !is_array($feed_column_ids) || !count($feed_column_ids) ) {
-		redirect_header( $this->_THIS_URL, 5, 'No Data' );
-		exit();
-	}
+    public function update()
+    {
+        if (!$this->_form_class->check_token()) {
+            $msg = $this->_form->get_token_error();
+            redirect_header($this->_THIS_URL, 5, $msg);
+            exit();
+        }
 
-	$arr = array();
+        $feed_column_ids = $this->_post_class->get_post('feed_column_id');
+        $fields = $this->_post_class->get_post('field');
+        $updates = $this->_post_class->get_post('update');
 
-	foreach ( $feed_column_ids as $id ) {
-		$id = intval($id);
-		if ( !isset( $fields[ $id ] ) ) {
-			continue;
-		}
-		if ( !isset( $updates[ $id ] ) ) {
-			continue;
-		}
+        if (!is_array($feed_column_ids) || !count($feed_column_ids)) {
+            redirect_header($this->_THIS_URL, 5, 'No Data');
+            exit();
+        }
 
-		$arr[] = array(
-			'field' => $fields[  $id ] ,
-			'type'  => $updates[ $id ] ,
-		);
-	}
+        $arr = [];
 
-	$ret = $this->_feed_basic_handler->update_column_type( $arr );
-	if ( $ret ) {
-		$msg  = _HAPPY_LINUX_UPDATED ;
-		$time = 3;
-	} else {
-		$msg  = $this->_feed_basic_handler->getErrros(1);
-		$time = 5;
-	}
+        foreach ($feed_column_ids as $id) {
+            $id = (int)$id;
+            if (!isset($fields[$id])) {
+                continue;
+            }
+            if (!isset($updates[$id])) {
+                continue;
+            }
 
-	redirect_header( $this->_THIS_URL, $time, $msg );
-}
+            $arr[] = [
+                'field' => $fields[$id],
+                'type' => $updates[$id],
+            ];
+        }
 
-function form()
-{
-	echo "<h3>". _AM_RSSC_FEED_COLUMN_MANAGE ."</h3>\n";
-	$rows = $this->_feed_basic_handler->get_columns();
-	$keys = array_keys( $this->_COLUMN_ARRAY );
+        $ret = $this->_feed_basic_handler->update_column_type($arr);
+        if ($ret) {
+            $msg = _HAPPY_LINUX_UPDATED;
+            $time = 3;
+        } else {
+            $msg = $this->_feed_basic_handler->getErrros(1);
+            $time = 5;
+        }
 
-	$arr = array();
-	foreach ( $rows as $row ) {
-		$field = $row['Field'];
-		$type  = $row['Type'];
+        redirect_header($this->_THIS_URL, $time, $msg);
+    }
 
-		if ( !in_array($field, $keys) ) {
-			continue;
-		}
+    public function form()
+    {
+        echo '<h3>' . _AM_RSSC_FEED_COLUMN_MANAGE . "</h3>\n";
+        $rows = $this->_feed_basic_handler->get_columns();
+        $keys = array_keys($this->_COLUMN_ARRAY);
 
-		$type_orig = $this->_COLUMN_ARRAY[ $field ];
+        $arr = [];
+        foreach ($rows as $row) {
+            $field = $row['Field'];
+            $type = $row['Type'];
 
-		$update = '';
-		if ( ($type_orig == 'varchar' ) && preg_match( '/^varchar/i', $type ) ) {
-			$update = 'text';
-		} elseif ( ($type_orig == 'text' ) && preg_match( '/^text/i', $type ) ) {
-			$update = 'mediumtext';
-		}
+            if (!in_array($field, $keys)) {
+                continue;
+            }
 
-		$arr[] = array(
-			'field'  => $field,
-			'type'   => $type,
-			'update' => $update,
-		);
-	}
+            $type_orig = $this->_COLUMN_ARRAY[$field];
 
-	$this->_form_class->print_form( $arr );
-}
+            $update = '';
+            if (('varchar' == $type_orig) && preg_match('/^varchar/i', $type)) {
+                $update = 'text';
+            } elseif (('text' == $type_orig) && preg_match('/^text/i', $type)) {
+                $update = 'mediumtext';
+            }
 
-// --- class end ---
+            $arr[] = [
+                'field' => $field,
+                'type' => $type,
+                'update' => $update,
+            ];
+        }
+
+        $this->_form_class->print_form($arr);
+    }
+
+    // --- class end ---
 }
 
 //=========================================================
 // class admin_form_feed_column
 //=========================================================
+
+/**
+ * Class admin_form_feed_column
+ */
 class admin_form_feed_column extends happy_linux_form
 {
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function admin_form_feed_column()
-{
-	$this->happy_linux_form();
-}
+    /**
+     * @return \admin_form_feed_column|\happy_linux_form|\happy_linux_html|static
+     */
+    public static function getInstance()
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new static();
+        }
 
-public static function &getInstance()
-{
-	static $instance;
-	if (!isset($instance)) {
-		$instance = new admin_form_feed_column();
-	}
-	return $instance;
-}
+        return $instance;
+    }
 
-function print_form( $fields )
-{
-// form start
-	echo $this->build_form_begin('feed_column');
-	echo $this->build_token();
-	echo $this->build_html_input_hidden('op', 'update');
+    /**
+     * @param $fields
+     */
+    public function print_form($fields)
+    {
+        // form start
+        echo $this->build_form_begin('feed_column');
+        echo $this->build_token();
+        echo $this->build_html_input_hidden('op', 'update');
 
-	echo $this->build_form_table_begin();
+        echo $this->build_form_table_begin();
 
-	$all = $this->build_form_js_checkall();
+        $all = $this->build_form_js_checkall();
 
-	echo '<tr>';
-	echo '<th>'.$all.'</th>'."\n";
-	echo '<th>field</th>'."\n";;
-	echo '<th>type</th>'."\n";;
-	echo '<th>new type</th>'."\n";
-	echo '</tr>'."\n";
+        echo '<tr>';
+        echo '<th>' . $all . '</th>' . "\n";
+        echo '<th>field</th>' . "\n";
 
-	foreach ( $fields as $k => $v ) {
-		$field  = $v['field'];
-		$type   = $v['type'];
-		$update = $v['update'];
+        echo '<th>type</th>' . "\n";
 
-		$js           = '';
-		$field_hidden = '';
-		$update_name  = '';
+        echo '<th>new type</th>' . "\n";
+        echo '</tr>' . "\n";
 
-		if ( $update ) {
-			$js = $this->build_form_js_checkbox( $k );
-			$field_name    = 'field['.$k.']';
-			$field_hidden  = $this->build_html_input_hidden($field_name, $field);
-			$update_name   = 'update['.$k.']';
-			$update_hidden = $this->build_html_input_hidden($update_name, $update);
-		} else {
-			$js     = '-';
-			$update = '---';
-		}
+        foreach ($fields as $k => $v) {
+            $field = $v['field'];
+            $type = $v['type'];
+            $update = $v['update'];
 
-		echo '<tr>';
-		echo '<td>'.$js.'</td>'."\n";
-		echo '<td>'.$field.$field_hidden.'</td>'."\n";
-		echo '<td>'.$type.'</td>'."\n";
-		echo '<td>'.$update.$update_hidden.'</td>'."\n";
-		echo '</tr>'."\n";
+            $js = '';
+            $field_hidden = '';
+            $update_name = '';
 
-	}
+            if ($update) {
+                $js = $this->build_form_js_checkbox($k);
+                $field_name = 'field[' . $k . ']';
+                $field_hidden = $this->build_html_input_hidden($field_name, $field);
+                $update_name = 'update[' . $k . ']';
+                $update_hidden = $this->build_html_input_hidden($update_name, $update);
+            } else {
+                $js = '-';
+                $update = '---';
+            }
 
-	$submit = $this->build_html_input_submit('submit', _HAPPY_LINUX_UPDATE);
+            echo '<tr>';
+            echo '<td>' . $js . '</td>' . "\n";
+            echo '<td>' . $field . $field_hidden . '</td>' . "\n";
+            echo '<td>' . $type . '</td>' . "\n";
+            echo '<td>' . $update . $update_hidden . '</td>' . "\n";
+            echo '</tr>' . "\n";
+        }
 
-	echo '<tr>';
-	echo $this->build_html_td_tag_begin('', '', 1, '', 'foot');
-	echo '</td>';
-	echo $this->build_html_td_tag_begin('', '', 3, '', 'foot');
-	echo $submit.'</td>';
-	echo '</tr>'."\n";
+        $submit = $this->build_html_input_submit('submit', _HAPPY_LINUX_UPDATE);
 
-	echo $this->build_form_table_end();
-	echo $this->build_form_end();
-}
+        echo '<tr>';
+        echo $this->build_html_td_tag_begin('', '', 1, '', 'foot');
+        echo '</td>';
+        echo $this->build_html_td_tag_begin('', '', 3, '', 'foot');
+        echo $submit . '</td>';
+        echo '</tr>' . "\n";
 
-// --- class end ---
+        echo $this->build_form_table_end();
+        echo $this->build_form_end();
+    }
+
+    // --- class end ---
 }
 
 //=========================================================
 // main
 //=========================================================
-$manage =& admin_feed_column_manage::getInstance();
+$manage = admin_feed_column_manage::getInstance();
 
 $op = $manage->get_op();
-switch ($op)
-{
-	case 'update':
-		$manage->update();
-		exit();
-		break;
-
-	case 'form':
-	default:
-			break;
+switch ($op) {
+    case 'update':
+        $manage->update();
+        exit();
+        break;
+    case 'form':
+    default:
+        break;
 }
 
 xoops_cp_header();
@@ -278,5 +300,3 @@ rssc_admin_print_footer();
 xoops_cp_footer();
 exit();
 // === main end ===
-
-?>

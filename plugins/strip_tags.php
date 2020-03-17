@@ -1,4 +1,5 @@
 <?php
+
 // $Id: strip_tags.php,v 1.1 2011/12/29 14:37:12 ohwada Exp $
 
 //=========================================================
@@ -14,58 +15,70 @@
 //---------------------------------------------------------
 
 // === class begin ===
-if( !class_exists('rssc_plugin_strip_tags') ) 
-{
+if (!class_exists('rssc_plugin_strip_tags')) {
+    /**
+     * Class rssc_plugin_strip_tags
+     */
+    class rssc_plugin_strip_tags extends rssc_plugin_base
+    {
+        //---------------------------------------------------------
+        // constructor
+        //---------------------------------------------------------
+        public function __construct()
+        {
+            parent::__construct();
+        }
 
-class rssc_plugin_strip_tags extends rssc_plugin_base
-{
+        //---------------------------------------------------------
+        // function
+        //---------------------------------------------------------
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function rssc_plugin_strip_tags()
-{
-	$this->rssc_plugin_base();
+        /**
+         * @return string
+         */
+        public function description()
+        {
+            return 'strip html tags in the content';
+        }
+
+        /**
+         * @return string
+         */
+        public function usage()
+        {
+            return 'strip_tags ( [allowable_tags] )';
+        }
+
+        /**
+         * @return bool
+         */
+        public function convert()
+        {
+            $content = $this->get_item_by_key('content');
+            if ($content) {
+                $this->set_item_by_key('content', $this->_strip_tags($content));
+
+                return true;
+            }
+
+            return false;
+        }
+
+        /**
+         * @param $content
+         * @return string
+         */
+        public function _strip_tags($content)
+        {
+            $allowable_tags = $this->get_param_by_num(0);
+            if ($allowable_tags) {
+                return strip_tags($content, $allowable_tags);
+            }
+
+            return strip_tags($content);
+        }
+
+        // --- class end ---
+    }
+    // === class end ===
 }
-
-//---------------------------------------------------------
-// function
-//---------------------------------------------------------
-function description()
-{
-	return 'strip html tags in the content';
-}
-
-function usage()
-{
-	return 'strip_tags ( [allowable_tags] )';
-}
-
-function convert()
-{
-	$content = $this->get_item_by_key( 'content' );
-	if ( $content )
-	{
-		$this->set_item_by_key( 'content', $this->_strip_tags( $content ) );
-		return true;
-	}
-	return false;
-}
-
-function _strip_tags( $content )
-{
-	$allowable_tags = $this->get_param_by_num(0);
-	if ( $allowable_tags )
-	{
-		return strip_tags( $content, $allowable_tags );
-	}
-	return strip_tags( $content );
-}
-
-// --- class end ---
-}
-
-// === class end ===
-}
-
-?>

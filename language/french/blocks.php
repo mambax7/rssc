@@ -1,4 +1,5 @@
 <?php
+
 // $Id: blocks.php,v 1.1 2011/12/29 14:37:09 ohwada Exp $
 
 //=========================================================
@@ -15,23 +16,18 @@
 //=========================================================
 
 // --- define language begin ---
-if( !defined('RSSC_LANG_BL_LOADED') ) 
-{
+if (!defined('RSSC_LANG_BL_LOADED')) {
+    define('RSSC_LANG_BL_LOADED', 1);
 
-define('RSSC_LANG_BL_LOADED', 1);
+    define('_BL_RSSC_MORE', 'Plus...');
 
-define('_BL_RSSC_MORE','Plus...');
+    // 2006-07-08
+    // podcast
+    define('_BL_RSSC_PODCAST', 'Podcast');
+    define('BL_RSSC_UNIT_KB', 'KB');
 
-// 2006-07-08
-// podcast
-define('_BL_RSSC_PODCAST','Podcast');
-define( 'BL_RSSC_UNIT_KB','KB');
-
-// 2006-09-20
-define('_BL_RSSC_NO_LINK_ID', 'Pas de choix d\'identification de lien');
-define('_BL_RSSC_NO_FEED', 'Il n\'y a pas de flux correspondant');
-
+    // 2006-09-20
+    define('_BL_RSSC_NO_LINK_ID', 'Pas de choix d\'identification de lien');
+    define('_BL_RSSC_NO_FEED', 'Il n\'y a pas de flux correspondant');
 }
 // --- define language end ---
-
-?>

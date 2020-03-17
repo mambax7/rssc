@@ -1,4 +1,5 @@
 <?php
+
 // $Id: map_manage.php,v 1.2 2012/04/08 23:42:20 ohwada Exp $
 
 // 2012-034-02 K.OHWADA
@@ -10,112 +11,132 @@
 //=========================================================
 
 include_once 'admin_header_config.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_block_map.php';
-include_once RSSC_ROOT_PATH.'/class/rssc_map.php';
+include_once RSSC_ROOT_PATH . '/class/rssc_block_map.php';
+include_once RSSC_ROOT_PATH . '/class/rssc_map.php';
 
 //=========================================================
 // class map manage
 //=========================================================
-class admin_map_manage 
+
+/**
+ * Class admin_map_manage
+ */
+class admin_map_manage
 {
-	var $_conf_handler;
-	var $_config_form;
-	var $_config_store;
- 	var $_map_class;
- 
-	var $_conf;
+    public $_conf_handler;
+    public $_config_form;
+    public $_config_store;
+    public $_map_class;
 
-//---------------------------------------------------------
-// constructor
-//---------------------------------------------------------
-function admin_map_manage( $dirname )
-{
-	$this->_conf_handler =& rssc_get_handler( 'config_basic', $dirname );
-	$this->_config_form  =& admin_config_form::getInstance();
-	$this->_config_store =& admin_config_store::getInstance();
-	$this->_map_class    =& rssc_map::getInstance( $dirname );
+    public $_conf;
 
-	$this->_conf =& $this->_conf_handler->get_conf();
-}
+    //---------------------------------------------------------
+    // constructor
+    //---------------------------------------------------------
 
-public static function &getInstance( $dirname )
-{
-	static $instance;
-	if (!isset($instance)) {
-		$instance = new admin_map_manage( $dirname );
-	}
-	return $instance;
-}
+    /**
+     * admin_map_manage constructor.
+     * @param $dirname
+     */
+    public function __construct($dirname)
+    {
+        $this->_conf_handler = rssc_get_handler('config_basic', $dirname);
+        $this->_config_form  = admin_config_form::getInstance();
+        $this->_config_store = admin_config_store::getInstance();
+        $this->_map_class    = rssc_map::getInstance($dirname);
 
-function get_post_get_op()
-{
-	return $this->_config_form->get_post_get_op();
-}
+        $this->_conf = &$this->_conf_handler->get_conf();
+    }
 
-function check_token()
-{
-	return $this->_config_form->check_token();
-}
+    /**
+     * @param $dirname
+     * @return \admin_map_manage
+     */
+    public static function getInstance($dirname = null)
+    {
+        static $instance;
+        if (null === $instance) {
+            $instance = new static($dirname);
+        }
 
-function print_xoops_token_error()
-{
-	$this->_config_form->print_xoops_token_error();
-}
+        return $instance;
+    }
 
-function save()
-{
-	$this->_config_store->save();
-}
+    /**
+     * @return mixed
+     */
+    public function get_post_get_op()
+    {
+        return $this->_config_form->get_post_get_op();
+    }
 
-function main()
-{
-	rssc_admin_print_header();
-	rssc_admin_print_menu();
+    /**
+     * @return mixed
+     */
+    public function check_token()
+    {
+        return $this->_config_form->check_token();
+    }
 
-	echo "<h4>"._AM_RSSC_MAP_MANAGE."</h4>\n";
-	$this->_config_form->init_form();
+    public function print_xoops_token_error()
+    {
+        $this->_config_form->print_xoops_token_error();
+    }
 
-	$this->_map_class->print_check_version();
-	$ret = $this->_map_class->init_html();
-	if ( $ret ) {
-		echo $this->_map_class->build_iframe();
-	}
+    public function save()
+    {
+        $this->_config_store->save();
+    }
 
-	echo "<h4>"._AM_RSSC_FORM_MAP."</h4>\n";
-	$this->_config_form->set_form_title( _AM_RSSC_FORM_MAP );
-	$this->_config_form->show_by_catid( 18 );
+    /**
+     * @return bool
+     */
+    public function main()
+    {
+        rssc_admin_print_header();
+        rssc_admin_print_menu();
 
-	rssc_admin_print_footer();
-	return true;
-}
+        echo '<h4>' . _AM_RSSC_MAP_MANAGE . "</h4>\n";
+        $this->_config_form->init_form();
 
-// --- class end ---
+        $this->_map_class->print_check_version();
+        $ret = $this->_map_class->init_html();
+        if ($ret) {
+            echo $this->_map_class->build_iframe();
+        }
+
+        echo '<h4>' . _AM_RSSC_FORM_MAP . "</h4>\n";
+        $this->_config_form->set_form_title(_AM_RSSC_FORM_MAP);
+        $this->_config_form->show_by_catid(18);
+
+        rssc_admin_print_footer();
+
+        return true;
+    }
+
+    // --- class end ---
 }
 
 //=========================================================
 // main
 //=========================================================
-$manage =& admin_map_manage::getInstance( RSSC_DIRNAME );
+$manage = admin_map_manage::getInstance(RSSC_DIRNAME);
 
 $op = $manage->get_post_get_op();
 
-if ($op == 'save') {
-	if( ! $manage->check_token() ) {
-		xoops_cp_header();
-		$manage->print_xoops_token_error();
-
-	} else {
-		$manage->save();
-		redirect_header('map_manage.php', 1, _HAPPY_LINUX_UPDATED);
-	}
-
+if ('save' == $op) {
+    if (!$manage->check_token()) {
+        xoops_cp_header();
+        $manage->print_xoops_token_error();
+    } else {
+        $manage->save();
+        redirect_header('map_manage.php', 1, _HAPPY_LINUX_UPDATED);
+    }
 } else {
-	xoops_cp_header();
+    xoops_cp_header();
 }
 
 $manage->main();
 
 xoops_cp_footer();
 exit();
-
-?>
