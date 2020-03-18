@@ -254,7 +254,7 @@ $xoopsTpl->assign('feed_limit', $limit);
 $xoopsTpl->assign('feed_start', $start);
 $xoopsTpl->assign('feed_list', $feed_list);
 
-//$xoopsTpl->assign('happy_linux_url', get_happy_linux_url());
+//$xoopsTpl->assign('happylinux_url', get_happy_linux_url());
 //$xoopsTpl->assign('execution_time', happylinux_get_execution_time());
 //$xoopsTpl->assign('memory_usage', happylinux_get_memory_usage_mb());
 require XOOPS_ROOT_PATH . '/footer.php';
