@@ -640,7 +640,7 @@ class admin_form_link extends happy_linux_form_lib
      * @param null $extra
      * @param int  $show_mode
      */
-    public function _show($obj, $extra = null, $show_mode = 0)
+    public function _show($obj=null, $extra = null, $show_mode = 0)
     {
         echo _AM_RSSC_LINK_DESC . "<br><br>\n";
 

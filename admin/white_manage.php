@@ -173,7 +173,7 @@ class admin_form_white extends admin_form_black_white
      * @param null $extra
      * @param int  $mode
      */
-    public function _show($obj, $extra = null, $mode = 0)
+    public function _show($obj=null, $extra = null, $mode = 0)
     {
         $this->_id_name = 'wid';
         $this->_form_title_add = _AM_RSSC_ADD_WHITE;

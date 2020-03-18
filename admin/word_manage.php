@@ -239,7 +239,7 @@ class admin_form_word extends happy_linux_form
      * @param null $extra
      * @param int  $mode
      */
-    public function _show($obj, $extra = null, $mode = 0)
+    public function _show($obj=null, $extra = null, $mode = 0)
     {
         switch ($mode) {
             case HAPPY_LINUX_MODE_MOD:
