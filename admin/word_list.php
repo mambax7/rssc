@@ -127,7 +127,7 @@ class admin_list_word extends happy_linux_page_frame
      * @param $obj
      * @return array
      */
-    public function &_get_cols(&$obj)
+    public function &_get_cols($obj)
     {
         $sid = $obj->get('sid');
         $word = $obj->get('word');

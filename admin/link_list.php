@@ -92,7 +92,7 @@ class admin_link_list extends happy_linux_page_frame
      * @param $obj
      * @return array
      */
-    public function &_get_cols(&$obj)
+    public function &_get_cols($obj)
     {
         $lid = $obj->getVar('lid');
 

@@ -72,7 +72,7 @@ class admin_list_white extends admin_list_black_white
      * @param $obj
      * @return array
      */
-    public function &_get_cols(&$obj)
+    public function &_get_cols($obj)
     {
         $jump = 'white_manage.php?op=mod_form&amp;wid=';
 

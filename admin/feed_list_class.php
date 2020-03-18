@@ -153,7 +153,7 @@ class admin_feed_list extends happy_linux_page_frame
      * @param $obj
      * @return array
      */
-    public function &_get_cols(&$obj)
+    public function &_get_cols($obj)
     {
         $fid = $obj->getVar('fid');
         $updated_unix = $obj->getVar('updated_unix', 'n');

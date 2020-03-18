@@ -44,7 +44,7 @@ if (!class_exists('rssc_link_xml_handler')) {
          * @param bool $force
          * @return bool
          */
-        public function insert(&$obj, $force = false)
+        public function insert($obj, $force = false)
         {
             // link table
             $newid = parent::insert($obj, $force);
@@ -70,7 +70,7 @@ if (!class_exists('rssc_link_xml_handler')) {
          * @param bool $force
          * @return bool
          */
-        public function delete(&$obj, $force = false)
+        public function delete($obj, $force = false)
         {
             // link table
             $ret = parent::delete($obj, $force);

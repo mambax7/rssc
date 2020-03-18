@@ -132,7 +132,7 @@ class admin_list_black_white extends happy_linux_page_frame
      * @param $obj
      * @return string
      */
-    public function _get_name_feed(&$obj)
+    public function _get_name_feed($obj)
     {
         $count = $this->_get_count($obj);
         if ($count) {
@@ -148,7 +148,7 @@ class admin_list_black_white extends happy_linux_page_frame
      * @param $obj
      * @return mixed
      */
-    public function _get_count(&$obj)
+    public function _get_count($obj)
     {
         if (time() > ($obj->get('ctime') + $this->_CACHE_TIME)) {
             $count = $this->_feed_handler->get_count_by_link($obj->get('url'));
@@ -167,7 +167,7 @@ class admin_list_black_white extends happy_linux_page_frame
      * @param $cache
      * @return mixed
      */
-    public function _update_cache(&$obj, $cache)
+    public function _update_cache($obj, $cache)
     {
         $obj->setVar('cache', $cache);
         $obj->setVar('ctime', time());

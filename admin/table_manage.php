@@ -209,7 +209,7 @@ class admin_table_manage extends happy_linux_table_manage
 // main
 //================================================================
 
-$manage = &admin_table_manage::getInstance();
+$manage = admin_table_manage::getInstance();
 
 $op = $manage->get_post_op();
 
